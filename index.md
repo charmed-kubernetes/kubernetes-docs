@@ -4,6 +4,7 @@ keywords: homepage
 tags: [getting_started]
 sidebar: mydoc_sidebar
 permalink: index.html
+toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
 
@@ -12,6 +13,7 @@ summary: This page is currently a work in progress. For existing documentation, 
 The Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK), is pure Kubernetes tested across
 the widest range of clouds with modern metrics and monitoring, brought to you by the people who
 deliver Ubuntu.
+
 <div class="row">
  <div class="col-lg-12">
      <h2 class="page-header">Where next?</h2>
@@ -26,8 +28,8 @@ deliver Ubuntu.
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Quickstart</h4>
-                    <p>Get Kubernetes up and running in a matter of minutes!</p>
-                 <p><a href="./quickstart.html"> Follow our quickstart guide... </a>
+                    <p>Get Kubernetes up and running in a matter of minutes!
+                 <a href="./quickstart.html"> Follow our quickstart guide... </a></p>
                 </div>
             </div>
             <div class="media">
