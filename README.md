@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Canonical Distribution of Kubernetes docs
 
-You can use the [editor on GitHub](https://github.com/evilnick/testpage/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is a temporary repository for iterating on new versions of the Canonical Kubernetes docs. This repository is set up as a simple github-pages/jekyll website, which serves pages at:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[https://juju-solutions.github.com/kubernetes-docs/]
 
-### Markdown
+## Layout
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The content is contained in two main places:
 
-```markdown
-Syntax highlighted code block
+1.  The **pages** folder, which contains markdown files mapping to individual pages of the docs.
 
-# Header 1
-## Header 2
-### Header 3
+1.  The **news** folder, which contains blog-like entires in markdown files.
 
-- Bulleted
-- List
+## Testing docs
 
-1. Numbered
-2. List
+If you have cloned this repo and wish to build it locally to test changes, the easiest way is to have docker (and docker-compose) installed and run:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/evilnick/testpage/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+      docker-compose build --no-cache && docker-compose up
