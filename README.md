@@ -10,7 +10,7 @@ The content is contained in two main places:
 
 1.  The **pages** folder, which contains markdown files mapping to individual pages of the docs.
 
-1.  The **news** folder, which contains blog-like entires in markdown files.
+1.  The **_posts** folder, which contains blog-like news entires in markdown files.
 
 ## Testing docs
 
