@@ -27,6 +27,7 @@ deliver Ubuntu.
                 <div class="media-body">
                     <h4 class="media-heading">Quickstart</h4>
                     <p>Get Kubernetes up and running in a matter of minutes!</p>
+                 <p><a href="./quickstart.html"> Follow our quickstart guide... </a>
                 </div>
             </div>
             <div class="media">
@@ -37,8 +38,8 @@ deliver Ubuntu.
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Service Two</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                    <h4 class="media-heading">What's new?</h4>
+                    <p> News.</p>
                 </div>
             </div>
             <div class="media">
@@ -49,7 +50,7 @@ deliver Ubuntu.
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Service Three</h4>
+                    <h4 class="media-heading">Tutorials</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
                 </div>
             </div>
@@ -63,7 +64,7 @@ deliver Ubuntu.
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Service Four</h4>
+                    <h4 class="media-heading">Getting in touch</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
                 </div>
             </div>
@@ -75,7 +76,7 @@ deliver Ubuntu.
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Service Five</h4>
+                    <h4 class="media-heading"> Roadmap</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
                 </div>
             </div>
@@ -87,45 +88,7 @@ deliver Ubuntu.
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Service Six</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="media">
-                <div class="pull-left">
-                    <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
-                    </span>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">Service Seven</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
-                </div>
-            </div>
-            <div class="media">
-                <div class="pull-left">
-                    <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-space-shuttle fa-stack-1x fa-inverse"></i>
-                    </span>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">Service Eight</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
-                </div>
-            </div>
-            <div class="media">
-                <div class="pull-left">
-                    <span class="fa-stack fa-2x">
-                          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-recycle fa-stack-1x fa-inverse"></i>
-                    </span>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">Service Nine</h4>
+                    <h4 class="media-heading">Feedback</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
                 </div>
             </div>
