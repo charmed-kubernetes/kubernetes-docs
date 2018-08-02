@@ -18,7 +18,7 @@ deliver Ubuntu.
  <div class="col-lg-12">
      <h2 class="page-header">Where next?</h2>
      </div>
-       <div class="col-md-4">
+       <div class="col-md-6">
           <div class="media">
              <div class="pull-left">
                  <span class="fa-stack fa-2x">
@@ -57,7 +57,7 @@ deliver Ubuntu.
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="media">
                 <div class="pull-left">
                     <span class="fa-stack fa-2x">
