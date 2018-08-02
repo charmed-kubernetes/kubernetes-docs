@@ -14,6 +14,8 @@ The Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK), is pure Kubernet
 the widest range of clouds with modern metrics and monitoring, brought to you by the people who
 deliver Ubuntu.
 
+![kubernetes diagram](https://assets.ubuntu.com/v1/b108a74b-kubernetes-1-left.png)
+
 <div class="row">
  <div class="col-lg-12">
      <h2 class="page-header">Where next?</h2>
