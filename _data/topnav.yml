@@ -3,8 +3,6 @@
 topnav:
 - title: Topnav
   items:
-    - title: GitHub
-      external_url: https://github.com/juju-solutions/kubernetes-docs
     - title: What's New
       url: /news
 
