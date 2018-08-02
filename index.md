@@ -23,7 +23,7 @@ deliver Ubuntu.
              <div class="pull-left">
                  <span class="fa-stack fa-2x">
                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                       <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+                       <i class="fa fa-power-off fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="media-body">
@@ -36,24 +36,24 @@ deliver Ubuntu.
                 <div class="pull-left">
                     <span class="fa-stack fa-2x">
                           <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">What's new?</h4>
-                    <p> News.</p>
+                    <p>Latest news and updates.</p>
                 </div>
             </div>
             <div class="media">
                 <div class="pull-left">
                     <span class="fa-stack fa-2x">
                           <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-support fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Tutorials</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                    <p> Check out <a href="https://tutorials.ubuntu.com" for step-by-step instructions. (List to go in her)</p>
                 </div>
             </div>
         </div>
@@ -62,12 +62,12 @@ deliver Ubuntu.
                 <div class="pull-left">
                     <span class="fa-stack fa-2x">
                           <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-database fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Getting in touch</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                    <p>Join us on discourse, at some point.</p>
                 </div>
             </div>
             <div class="media">
@@ -79,19 +79,19 @@ deliver Ubuntu.
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading"> Roadmap</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                    <p>Coming soon.</p>
                 </div>
             </div>
             <div class="media">
                 <div class="pull-left">
                     <span class="fa-stack fa-2x">
                           <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                          <i class="fa fa-bank fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-clipboard fa-stack-1x fa-inverse"></i>
                     </span>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Feedback</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                    <h4 class="media-heading">Survey</h4>
+                    <p>Coming soon.</p>
                 </div>
             </div>
         </div>
