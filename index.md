@@ -53,7 +53,7 @@ deliver Ubuntu.
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Tutorials</h4>
-                    <p> Check out <a href="https://tutorials.ubuntu.com" for step-by-step instructions. (List to go in her)</p>
+                 <p> Check out <a href="https://tutorials.ubuntu.com"> tutorials.ubuntu.com </a> for step-by-step instructions. (List to go in here)</p>
                 </div>
             </div>
         </div>
