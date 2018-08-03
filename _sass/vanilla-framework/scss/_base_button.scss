@@ -1,0 +1,114 @@
+@import 'settings';
+
+// Base button styles
+@mixin vf-b-button {
+  button {
+    @extend %vf-button-base;
+    @include vf-button-pattern;
+  }
+
+  %vf-button-base {
+    @include vf-animation (#{background-color, border-color}, fast, in);
+    @include vf-focus;
+    border-radius: $border-radius;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    margin-bottom: $spv-inter--scaleable + 2 * $spv-nudge-compensation;
+    padding: $spv-nudge - $px $sph-intra;
+    text-align: center;
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:disabled,
+    &.is--disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+
+    @media only screen and (max-width: $breakpoint-x-small) {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: $breakpoint-x-small + 1) {
+      width: auto;
+
+      &:not(:last-of-type):not(:only-of-type) {
+        margin-right: $sph-inter;
+      }
+    }
+
+    table & {
+      margin-bottom: $spv-nudge-compensation;
+      padding-bottom: $spv-nudge - $sp-unit * .5 - $px;
+      padding-top: $spv-nudge - $sp-unit * .5 - $px;
+    }
+
+    // The following three rules address buttons nested in <p>'s;
+    p & {
+      margin-bottom: $spv-inter--condensed-scaleable - $spv-nudge;
+      margin-top: - $spv-nudge;
+    }
+
+    p + p > & {
+      margin-top: $spv-inter--condensed-scaleable - $spv-nudge;
+    }
+
+    @media only screen and (max-width: $breakpoint-x-small) {
+      p & + & {
+        margin-top: $spv-inter--condensed-scaleable + $spv-nudge-compensation;
+      }
+    }
+  }
+}
+
+
+/// mixin for all the buttons
+/// there are sensible defaults, but you can
+/// override colors as desired
+@mixin vf-button-pattern (
+  $button-background-color: $color-x-light,
+  $button-text-color: $color-dark,
+  $button-disabled-background-color: $color-transparent,
+  $button-disabled-border-color: $color-mid-light,
+  $button-border-color: $color-mid-light,
+  $button-hover-background-color: $color-light,
+  $button-hover-border-color: $color-mid-light
+) {
+  background-color: $button-background-color;
+  border-color: $button-border-color;
+  color: $button-text-color;
+
+  &:visited {
+    color: $button-text-color;
+  }
+
+  &:active,
+  &:hover {
+    background-color: $button-hover-background-color;
+    border-color: $button-hover-border-color;
+  }
+
+  &:disabled,
+  &.is--disabled {
+
+    &:active,
+    &:hover {
+      background-color: $button-disabled-background-color;
+      border-color: $button-disabled-border-color;
+    }
+  }
+
+  .p-link--external {
+    color: currentColor;
+  }
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K92JCQ');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <meta charset="UTF-8" />
+    <title>{{page.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="" type="image/x-icon" />
+
+        {% include vanilla-overrides.html %}
+
+  </head>
+
+  <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K92JCQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="docs-container">
+      <header id="navigation" class="p-navigation">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__logo">
+            <a class="p-navigation__link" href="https://jujucharms.com/">
+              <img class="p-navigation__image" src="https://assets.ubuntu.com/v1/1db850da-K8s+logo.svg" alt="Juju documentation logo" />
+              <h4>Canonical&nbsp;Distribution&nbsp;of&nbsp;Kubernetes<sup>&reg;</sup></h4>
+            </a>
+          </div>
+          <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+          <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+        </div>
+        <nav class="p-navigation__nav" role="menubar">
+
+          <form id="search" class="p-search-box" action="https://docs.ubuntu.com/search">
+            <input type="search" class="p-search-box__input" name="q" placeholder="Search..." required="">
+
+              <input type="hidden" name="domain" value="docs.jujucharms.com" />
+
+            <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset"><i class="p-icon--close"></i></button>
+            <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+          </form>
+
+
+          <span class="u-off-screen">
+            <a href="#main-content">Jump to main content</a>
+          </span>
+        </nav>
+      </header>
+
+      <aside class="p-sidebar" id="navigation">
+        <div class="p-sidebar__banner u-hide--medium u-hide--large">
+          <i class="p-sidebar__toggle p-icon--menu"></i>
+        </div>
+        <div class="p-sidebar__content u-hide--small">
+
+          <label for="version-select">Version</label>
+
+          <nav class="p-sidebar-nav">
+            <ul class="p-sidebar-nav__list">
+              <li class="p-sidebar-nav__item first-level">
+
+                  <a class="p-link--strong" href="about-juju">About</a>
+
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="p-content" id="main-content">
+        <div class="p-strip is-shallow">
+          <div class="p-content__row">
+
+          {{ content }}
+
+          </div>
+        </div>
+
+        {% include footer.html %}
+      </main>
+
+
+
+    </div>
+    <script>
+      // Toggle mobile sidebar nav
+      var toggle = document.querySelector('.p-sidebar__toggle');
+      var sidebarContent = document.querySelector('.p-sidebar__content');
+
+      toggle.addEventListener('click', function(e) {
+        toggle.classList.toggle('p-icon--menu');
+        toggle.classList.toggle('p-icon--close');
+        sidebarContent.classList.toggle('u-hide--small');
+      });
+
+      // Add classes to links
+      var links = document.querySelectorAll('a');
+      links.forEach(function(link) {
+        var parentClass = link.parentNode.classList;
+        var ignoreNav = !(
+          parentClass.contains('p-navigation__logo') ||
+          parentClass.contains('p-navigation__link') ||
+          parentClass.contains('p-sidebar-nav__item') ||
+          parentClass.contains('p-inline-list__item')
+        );
+        if (link.hostname && link.hostname != location.hostname && ignoreNav) {
+          link.className += ' p-link--external';
+        }
+      });
+
+      function selectVersion(value) {
+        var href = value.replace(/.md$/, "");
+        location = href;
+      }
+    </script>
+  </body>
+</html>

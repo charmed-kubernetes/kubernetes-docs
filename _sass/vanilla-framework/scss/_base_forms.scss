@@ -1,0 +1,304 @@
+@import 'settings';
+$input-margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
+
+// Form element styles
+@mixin vf-b-forms {
+
+  // Used in buttons, inputs
+  %bordered-text-vertical-padding {
+    margin-bottom: $input-margin-bottom;
+    padding-bottom: $spv-nudge - $px;
+    padding-top: $spv-nudge - $px;
+  }
+
+  // Default form input element styles
+  %vf-input-elements {
+    @extend %bordered-text-vertical-padding;
+    @include vf-focus;
+
+    appearance: textfield;
+    background-color: $color-x-light;
+    border: 1px solid $color-mid-light;
+    border-radius: $border-radius;
+    box-shadow: inset 0 1px 1px $color-input-shadow;
+    color: $color-dark;
+    font-family: unquote($font-base-family);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: map-get($line-heights, default-text);
+    min-width: 10em;
+    padding-left: $sph-intra--condensed;
+    padding-right: $sph-intra--condensed;
+    vertical-align: baseline;
+    width: 100%;
+
+    table & {
+      margin: 0 0 ($spv-intra - $spv-nudge) 0;
+      padding-bottom: ($spv-nudge - $px) - $spv-intra--condensed;
+      padding-top: ($spv-nudge - $px) - $spv-intra--condensed;
+    }
+
+    &:active {
+      border-color: $color-mid-dark;
+      color: $color-dark;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-mid-dark;
+      opacity: 1;
+    }
+
+    &[disabled],
+    &[disabled='disabled'] {
+      @extend %vf-disabled-element;
+    }
+
+    &[readonly],
+    &[readonly='readonly'] {
+      @extend %vf-readonly-element;
+    }
+
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        border: 1px solid $color;
+      }
+    }
+  }
+
+  // Default form checkbox and radio styles
+  %vf-tick-elements {
+    @include vf-focus($offset: 0);
+    float: left;
+    height: map-get($line-heights, default-text);
+    margin-bottom: 0;
+    margin-right: $sph-inter--expanded;
+    margin-top: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: auto;
+
+    &[disabled],
+    &[disabled='disabled'] {
+      + label {
+        @extend %vf-disabled-element;
+      }
+    }
+  }
+
+  // Disabled form elements
+  %vf-disabled-element {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+
+  // Readonly form elements
+  %vf-readonly-element {
+    color: $color-mid-light;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      border-color: $color-mid-dark;
+      outline: none;
+    }
+  }
+
+
+  label {
+    cursor: pointer;
+    display: block;
+    margin-bottom: $spv-inter--condensed + $spv-nudge-compensation;
+
+    @each $state, $color in $states {
+      &.has-#{$state} {
+        color: $color;
+      }
+    }
+  }
+
+  // Input styles
+  [type='text'],
+  [type='date'],
+  [type='datetime'],
+  [type='datatime-local'],
+  [type='month'],
+  [type='time'],
+  [type='week'],
+  [type='color'],
+  [type='number'],
+  [type='search'],
+  [type='password'],
+  [type='email'],
+  [type='url'],
+  [type='tel'],
+  select {
+    @extend %vf-input-elements;
+  }
+
+  [type='file'] {
+    @extend %bordered-text-vertical-padding;
+    @include vf-focus;
+    width: 100%;
+  }
+
+  [type='reset'] {
+    display: none;
+  }
+
+  [type='search'] {
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    appearance: none;
+    border-radius: 0;
+
+    // sass-lint:disable no-vendor-prefixes
+    // These vendor prefixes are unique and cannot be added by autoprefixer
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+      cursor: pointer;
+    }
+    // sass-lint:enable no-vendor-prefixes
+  }
+
+  // Checkbox and radio inputs
+  [type='checkbox'],
+  [type='radio'] {
+    @extend %vf-tick-elements;
+
+    + label {
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+
+  [type='radio'] {
+    margin-top: $spv-nudge;
+  }
+
+  [type='submit'] {
+    @extend %vf-button-base;
+
+    @include vf-button-pattern (
+      $button-background-color: $color-positive,
+      $button-border-color: $color-positive,
+      $button-text-color: $color-x-light,
+      $button-hover-background-color: darken($color-positive, 10%),
+      $button-hover-border-color: darken($color-positive, 10%),
+      $button-disabled-background-color: $color-positive,
+      $button-disabled-border-color: $color-positive
+    );
+  }
+
+  // Select styles
+  select {
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    appearance: none;
+    background: $color-x-light url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjRweCIgd2lkdGg9IjEwcHgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAxMCA0Ij4gPHRpdGxlPmFjY29yZGlvbi1vcGVuPC90aXRsZT4gPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+IDxnIGlkPSJmaWx0ZXItcGFuZWwiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSIgZmlsbD0ibm9uZSI+ICA8ZyBpZD0iYWNjb3JkaW9uLW9wZW4iIGZpbGw9IiM4ODgiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiPiAgIDxwYXRoIGlkPSJjaGV2cm9uIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBkPSJtNi4zNjEgMC44NjIzYzAuNTE4IDAuMzY1IDEuMDUyIDAuNzc4MSAxLjYwMSAxLjIzOCAwLjU0OSAwLjQ1ODUgMS4wODkgMC45NTE4IDEuNjIxIDEuNDc3MiAwLjE0MiAwLjE0MDQgMC4yODEgMC4yODIxIDAuNDE1IDAuNDIyNWgtMS41NDFjLTAuMzA0LTAuMjg4OC0wLjYyLTAuNTcwOS0wLjk0Ny0wLjg0NjMtMC4xMzc5LTAuMTE2MS0wLjI3NjgtMC4yMjk3LTAuNDE2OC0wLjM0MDgtMC4xNjM2LTAuMTI5Ny0wLjMyODYtMC4yNTU4LTAuNDk1NC0wLjM3ODMtMC4wODUyLTAuMDYyNS0wLjE3MDgtMC4xMjQxLTAuMjU2OC0wLjE4NDYtMC4zOTctMC4yODIxLTAuOTM1LTAuNjI1Ny0xLjMxNS0wLjg0NzZoLTAuMDU0Yy0wLjM4IDAuMjIxOS0wLjkxOCAwLjU2NTUtMS4zMTUgMC44NDc2LTAuMzk4IDAuMjgwNy0wLjc4OCAwLjU4MjktMS4xNjkgMC45MDM3LTAuMzI3IDAuMjc1NC0wLjY0MyAwLjU1NzUtMC45NDcgMC44NDYzaC0xLjU0MWMwLjEzNS0wLjE0MDQgMC4yNzMtMC4yODIxIDAuNDE1LTAuNDIyNSAwLjUzMi0wLjUyNTQgMS4wNzItMS4wMTg3IDEuNjIxLTEuNDc3MiAwLjU1LTAuNDU5OSAxLjA4My0wLjg3MyAxLjYwMS0xLjIzOCAwLjUxOS0wLjM2NDk3IDAuOTczLTAuNjUyNDEgMS4zNjItMC44NjIzIDAuMzkgMC4yMDk4OSAwLjg0NCAwLjQ5NzMzIDEuMzYyIDAuODYyM3oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuOTk5IDIpIHJvdGF0ZSgxODApIHRyYW5zbGF0ZSgtNC45OTkgLTIpIi8+ICA8L2c+IDwvZz48L3N2Zz4=') no-repeat;
+    background-position: right $sph-intra--condensed center;
+    background-size: map-get($icon-sizes, accordion);
+    color: $color-dark;
+    min-height: 24px;
+    padding-right: $sph-intra--expanded;
+    text-indent: .01px;
+    text-overflow: '';
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &[multiple],
+    &[size] {
+      background-image: none;
+      height: auto;
+
+      option {
+        font-weight: 300;
+        line-height: $sp-unit * 2 - 2 * $px;
+        padding: $spv-intra $sph-intra--condensed;
+      }
+    }
+  }
+
+  // Textarea styles
+  textarea {
+    @extend %vf-input-elements;
+    margin-bottom: $spv-inter--scaleable - $spv-nudge * 2;
+    overflow: auto;
+    vertical-align: top;
+  }
+
+  // Fieldset styles
+  fieldset {
+    background-color: $color-light;
+    border: 0;
+    border-radius: $border-radius;
+    color: $color-dark;
+  }
+
+  label {
+    @extend %default-text;
+    width: fit-content;
+  }
+
+  // Accessible checkbox technique from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
+  input[type="checkbox"] {
+    $box-size: 1rem;
+    $box-offset-top: map-get($nudges, nudge--p) + (map-get($line-heights, default-text) - $box-size) * .5;
+    $tick-offset-top: $box-offset-top + 3 * $px;
+    opacity: 0;
+    position: absolute;
+
+    & + label {
+      @include vf-focus;
+
+      $label-offset--left: $sph-intra + $box-size;
+      margin-bottom: $spv-inter--condensed-scaleable;
+      margin-top: - map-get($nudges, nudge--p);
+      padding-left: $label-offset--left;
+      position: relative;
+
+      // box
+      &::before {
+        border: 1px solid $color-mid-light;
+        border-radius: $border-radius;
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        left: 0;
+        top: $box-offset-top;
+        width: 1rem;
+      }
+
+      // tick
+      &::after {
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        content: none;
+        display: inline-block;
+        height: 7px;
+        left: 2px;
+        top: 12px;
+        transform: rotate(-45deg);
+        width: 11px;
+      }
+
+      &::before,
+      &::after {
+        // Needed for the line-height to take effect
+        display: inline-block;
+        position: absolute;
+      }
+    }
+
+    &:checked + label::after {
+      content: "";
+    }
+  }
+}
+

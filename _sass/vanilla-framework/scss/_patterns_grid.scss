@@ -1,0 +1,31 @@
+@import 'settings';
+
+// This file imports Shelves Grid framework
+// http://shelvesgrid.org/
+// The settings below can be changed in _settings_grid.scss
+$shelves-max-width: $grid-max-width;
+$shelves-columns: $grid-columns;
+$shelves-margin: $grid-margin-width;
+$shelves-gutter: $grid-gutter-width;
+$shelves-tablet-breakpoint: $breakpoint-medium;
+$shelves-mobile-breakpoint: $breakpoint-small;
+$shelves-column-name: $grid-col-name;
+
+@import 'grid/shelves-grid';
+
+@mixin vf-p-grid-modifications {
+  .row {
+    width: 100%;
+  }
+
+  // Demo helper
+  [grid-demo] [class*="col-"]  {
+    background: $color-mid-light;
+    margin-bottom: $spv-intra;
+  }
+
+  [grid-outline] [class*="col-"]  {
+    outline: 1px solid $color-x-light;
+    padding: $spv-intra $sph-intra--condensed;
+  }
+}

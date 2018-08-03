@@ -1,0 +1,35 @@
+@import 'settings';
+
+@mixin vf-p-heading-icon {
+
+  .p-heading-icon {
+    margin-bottom: $spv-inter--regular;
+
+    @media (min-width: $breakpoint-medium) {
+      margin-bottom: 0;
+    }
+
+    &__header {
+      display: flex;
+      margin-bottom: $spv-intra--expanded;
+    }
+
+    &__title {
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+
+    &__img {
+      flex-shrink: 0;
+      height: map-get($icon-sizes, heading-icon--small);
+      margin-right: $sph-intra;
+      width: map-get($icon-sizes, heading-icon--small);
+
+      @media (min-width: $breakpoint-medium) {
+        height: map-get($icon-sizes, heading-icon);
+        width: map-get($icon-sizes, heading-icon);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,54 @@
+@import 'settings';
+
+// Tables
+@mixin vf-b-tables {
+  table {
+    border: 0;
+    border-collapse: collapse;
+    margin-bottom: $spv-inter--scaleable;
+    overflow-x: auto;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  td,
+  th {
+    @extend %single-border-text-vpadding--scaling;
+    font-weight: 300;
+    padding-left: 0;
+    text-align: left;
+    text-overflow: ellipsis;
+
+    @media screen and (min-width: $breakpoint-medium) {
+      &:not(:last-child) {
+        padding-right: $sph-intra;
+      }
+    }
+  }
+
+  thead {
+    th {
+      @extend %muted-heading;
+    }
+
+    tr {
+      border-bottom: 1px solid $color-dark;
+      vertical-align: top;
+    }
+  }
+
+  tbody {
+    tr {
+      &:not(:first-child) {
+        border-top: 1px solid $color-mid-light;
+      }
+    }
+  }
+
+  //accordion, table
+  %single-border-text-vpadding--scaling {
+    $bordered-text-padding-top: $multi * $spv-intra--condensed;
+    padding-bottom: $bordered-text-padding-top - $px;
+    padding-top: $bordered-text-padding-top;
+  }
+}

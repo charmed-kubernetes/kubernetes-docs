@@ -1,0 +1,24 @@
+      <aside class="p-sidebar" id="navigation">
+        <div class="p-sidebar__banner u-hide--medium u-hide--large">
+          <i class="p-sidebar__toggle p-icon--menu"></i>
+        </div>
+        <div class="p-sidebar__content u-hide--small">
+          <form class="p-search-box" onsubmit="return false">
+            <input type="search" id="search-docs" class="p-search-box__input" name="search" placeholder="Search components" oninput="filterDocs()" title="Search the documentation" required />
+            <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset" onclick="resetFilter()"><i class="p-icon--close"></i></button>
+            <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
+          </form>
+          <nav class="p-sidebar-nav">
+            <ul class="p-sidebar-nav__list" id="docs-list-unsorted">
+        <ul class="p-sidebar-nav__list u-hide" id="docs-list-sorted">
+
+                <li class="p-sidebar-nav__item">
+                  
+                    <a class="p-link--soft" href="patterns/notification">Notifications</a>
+                  
+                </li>
+        </ul>
+</ul>
+          </nav>
+        </div>
+      </aside>
