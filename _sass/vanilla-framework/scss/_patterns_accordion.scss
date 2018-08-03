@@ -1,0 +1,75 @@
+@import 'settings';
+@import 'patterns_icons';
+@include vf-p-icon-minus;
+@include vf-p-icon-plus;
+
+@mixin vf-p-accordion {
+  $icon-size: map-get($icon-sizes, accordion);
+
+  .p-accordion {
+    &__list {
+      list-style-type: none;
+      margin: 0 0 $spv-inter--scaleable 0;
+      padding: 0;
+    }
+
+    &__group {
+      &:not(:last-child) .p-accordion__tab {
+        border-bottom: 1px solid $color-mid-light;
+      }
+    }
+
+    &__tab {
+      @extend %single-border-text-vpadding--scaling;
+
+      $calculated-height: $multi * $spv-intra--condensed * 2 - $px + map-get($line-heights, default-text);
+      $offset-top: ($calculated-height - $icon-size) * .5;
+      background: {
+        position: top $offset-top right $sph-intra;
+        repeat: no-repeat;
+      }
+      background-color: inherit;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding-left: $sph-intra;
+      padding-right: $sph-intra;
+      text-align: left;
+      transition-duration: 0s;
+      width: 100%;
+      z-index: 2;
+
+      // aria-selected controls the open and closed state for the accordion tab
+      &[aria-expanded='true'] {
+        @include vf-icon-minus($color-mid-dark);
+        background-size: $icon-size;
+      }
+
+      &[aria-expanded='false'] {
+        @include vf-icon-plus($color-mid-dark);
+        background-size: $icon-size;
+      }
+
+      &:focus {
+        outline: 1px solid $color-link;
+        outline-offset: 2px;
+      }
+    }
+
+    &__panel {
+      border-bottom: 1px solid $color-mid-light;
+      margin: 0;
+      overflow: auto; // include child margins into its height
+      padding-left: $sph-intra * 2;
+
+      // Hides panel content
+      &[aria-hidden='true'] {
+        display: none;
+      }
+    }
+
+    p {
+      margin-bottom: map-get($sp-after, p) - $sp-unit - map-get($nudges, nudge--p);
+    }
+  }
+}

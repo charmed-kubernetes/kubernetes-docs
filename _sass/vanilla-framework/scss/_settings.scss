@@ -1,0 +1,20 @@
+// Vendor Sass utilities
+@import
+'utilities_deprecate';
+
+// Global Sass functions
+@import
+'global_functions';
+
+// Settings
+@import
+'settings_spacing',
+'settings_animations',
+'settings_assets',
+'settings_breakpoints',
+'settings_colors',
+'settings_font',
+'settings_grid',
+'settings_placeholders',
+'settings_system'
+;

@@ -1,0 +1,41 @@
+@import 'settings';
+
+// Base code styles
+@mixin vf-b-code {
+  code,
+  samp,
+  kbd {
+    font-family: unquote($font-monospace);
+    font-weight: 300;
+    text-align: left;
+  }
+
+
+  pre,
+  code {
+    direction: ltr;
+    hyphens: none;
+    tab-size: 4;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-wrap: break-word;
+  }
+
+  code {
+    display: inline;
+  }
+
+  pre {
+    background-color: $color-light;
+    border: 1px solid $color-mid-light;
+    border-radius: $border-radius;
+    color: $color-dark;
+    display: block;
+    margin-bottom: $spv-inter--scaleable;
+    margin-top: 0;
+    overflow: auto;
+    padding: $spv-intra $sph-intra;
+    text-align: left;
+    text-shadow: none;
+  }
+}

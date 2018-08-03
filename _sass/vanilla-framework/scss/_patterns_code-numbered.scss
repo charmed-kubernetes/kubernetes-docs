@@ -1,0 +1,44 @@
+@import 'settings';
+$sidebar-width: 4.5rem !default;
+
+@mixin vf-p-code-numbered {
+  .p-code-numbered {
+    counter-reset: line-numbering;
+    padding: 0;
+
+    .code-line {
+      display: inline-block;
+      padding: $spv-intra $sph-intra 0 ($sidebar-width + $sph-intra);
+      position: relative;
+      width: 100%;
+
+      &:empty {
+        display: block;
+        min-height: $sp-xx-large;
+      }
+
+      &:last-of-type,
+      &:last-of-type::before {
+        padding-bottom: $spv-intra;
+      }
+
+      &::before {
+        background: $color-x-light;
+        border-right: 1px solid $color-mid-light;
+        color: $color-mid-dark;
+        content: counter(line-numbering);
+        counter-increment: line-numbering;
+        display: inline-block;
+        height: 100%;
+        left: 0;
+        padding: $spv-intra $sph-intra 0 $sph-intra;
+        pointer-events: none;
+        position: absolute;
+        text-align: right;
+        top: 0;
+        user-select: none;
+        width: $sidebar-width;
+      }
+    }
+  }
+}

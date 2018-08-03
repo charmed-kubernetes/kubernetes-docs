@@ -1,0 +1,27 @@
+{
+  "name": "jekyll-vanilla-theme",
+  "version": "0.0.1",
+  "description": "A port of the Vanilla framework in Jekyll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ubuntudesign/vanilla-framework"
+  },
+  "keywords": [
+    "vanilla framework",
+    "css",
+    "theme"
+  ],
+  "author": "Anthony Dillon",
+  "license": "GNU GPL v3",
+  "bugs": {
+    "url": "https://github.com/ubuntudesign/vanilla-framework/issues"
+  },
+  "homepage": "http://ubuntudesign.github.io/vanilla-framework/",
+  "devDependencies": {
+    "vanilla-framework": "0.0.55"
+  }
+}
