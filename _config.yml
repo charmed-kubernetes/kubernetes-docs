@@ -1,7 +1,8 @@
 # Site settings
 repository: juju-solutions/kuberenetes-docs
 topnav_title: Canonical Kubernetes Documentation
-site_title: Canonical Distribution of Kubernetes
+site_title: 'Canonical&nbsp;Distribution&nbsp;of&nbsp;Kubernetes<sup>&reg;</sup>'
+site_logo_url: https://assets.ubuntu.com/v1/1db850da-K8s+logo.svg
 company_name: Canonical
 github_editme_path: juju-solutions/kubernetes-docs/blob/master/
 disqus_shortname: artful-badger
