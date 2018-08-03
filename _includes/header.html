@@ -12,9 +12,9 @@
         <nav class="p-navigation__nav" role="menubar">
 
           <form id="search" class="p-search-box" action="https://docs.ubuntu.com/search">
-            <input type="search" class="p-search-box__input" name="q" placeholder="Search MAAS docs" required="">
+            <input type="search" class="p-search-box__input" name="q" placeholder="Search" required="">
 
-              <input type="hidden" name="domain" value="docs.maas.io" />
+              <input type="hidden" name="domain" value="{{site.url}}" />
 
             <button type="reset" class="p-search-box__reset u-no-margin--right" alt="reset"><i class="p-icon--close"></i></button>
             <button type="submit" class="p-search-box__button" alt="search"><i class="p-icon--search"></i></button>
@@ -23,25 +23,31 @@
 
           <ul class="p-navigation__links" role="menu">
 
-            <li class="p-navigation__link" role="menuitem">
-              <a href="https://maas.io/install">Install</a>
-            </li>
+<!-- Generate menu items -->
 
-            <li class="p-navigation__link" role="menuitem">
-              <a href="https://maas.io/how-it-works">Architecture</a>
-            </li>
-
-            <li class="p-navigation__link" role="menuitem">
-              <a href="https://maas.io/tour">Tour</a>
-            </li>
-
-            <li class="p-navigation__link is-selected" role="menuitem">
-              <a href="/">Docs</a>
-            </li>
-
-            <li class="p-navigation__link" role="menuitem">
-              <a href="https://maas.io/contact-us">Contact us</a>
-            </li>
+            {% assign topnav = site.data[page.topnav] %}
+            {% assign topnav_dropdowns = site.data[page.topnav].topnav_dropdowns %}
+            {% for entry in topnav.topnav %}
+            {% for item in entry.items %}
+            {% if item.external_url %}
+            <li class="p-navigation__link " role="menuitem"><a href="{{item.external_url}}" target="_blank">{{item.title}}</a></li>
+            {% elsif page.url contains item.url %}
+          <li class="p-navigation__link" role="menuitem"><a href="{{item.url | remove: "/"}}">{{item.title}}</a></li>
+            {% else %}
+            <li class="p-navigation__link" role="menuitem"><a href="{{item.url | remove: "/"}}">{{item.title}}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+<!--
+<li class="p-navigation__link">
+     <a class=""  href="/cloud" >Cloud</a>
+     <ul class="hover-menu">
+          <li><a href="/financial-services">Financial services</a></li>
+          <li><a href="/telecommunications">Telcos</a></li>
+          <li><a href="/security">Security</a></li>
+     </ul>
+</li>
+-->
 
           </ul>
 
