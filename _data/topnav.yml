@@ -5,15 +5,18 @@ topnav:
   items:
     - title: Latest News
       url: /news
+    - title: Juju Store
+      external_url: https://jujucharms.com/canonical-kubernetes/
     - title: GitHub
-      external_url: https://github.com/
+      external_url: https://github.com/juju-solutions/kubernetes-docs/
+
 
 #Topnav dropdowns
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Jekyll Help
+    - title: xxxxxx
       folderitems:
-        - title: Jekyll Talk
-          external_url: https://talk.jekyllrb.com
-        - title: Jekyll documentation
+        - title: xxxxx
+          external_url: https://xxx.example.com
+        - title: xxxxx
