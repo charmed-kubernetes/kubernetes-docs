@@ -2,7 +2,7 @@
 title: "Documentation for The Canonical Distribution of Kubernetes <sup>&reg;</sup>"
 keywords: homepage
 tags: [getting_started]
-sidebar: sidenav
+sidebar: k8smain-sidebar
 permalink: index.html
 layout: base
 toc: False
