@@ -2,7 +2,7 @@
 
 This is a temporary repository for iterating on new versions of the Canonical Kubernetes docs. This repository is set up as a simple github-pages/jekyll website, which serves pages at:
 
-[https://juju-solutions.github.com/kubernetes-docs/]
+[http://blog.juju.solutions/kubernetes-docs/index.html]
 
 ## Layout
 
