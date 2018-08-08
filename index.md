@@ -8,14 +8,29 @@ layout: base
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
-## Introducing the Canonical Distribution of Kubernetes<sup>&reg;</sup>
 
-The Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK), is pure Kubernetes tested across
+<div class="p-content__row">
+    <div class="u-equal-height">
+        <div class="col-6">
+
+<h2> Introducing the Canonical Distribution of Kubernetes<sup>&reg;</sup></h2>
+
+<p>The Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK), is pure Kubernetes tested across
 the widest range of clouds with modern metrics and monitoring, brought to you by the people who
-deliver Ubuntu.
+deliver Ubuntu.</p>
+
+<p>Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because we focus on the latest container capabilities in modern kernels. That’s why it’s the top choice for enterprise Kubernetes, too.</p>
+
+<p><a href="/overview.html">Find out more in the CDK overview&nbsp;&rsaquo;</a></p>
+</div>
+<div class="col-6 u-align--right">
+    <img style="border: 0" src="\images\k8s-bundle.png" width="350" height="350">
+</div>
+</div></div>
+
 <hr class="is-deep">
-<div class="p-strip">
-    <div class="p-content__row">
+
+<div class="p-content__row">
         <div class="u-equal-height">
             <div class="col-6">
                 <h2>Getting started</h2>
@@ -44,8 +59,8 @@ deliver Ubuntu.
             </div>
         </div>
         <hr class="is-deep">
-  </div>
 </div>
+
 
 
 {% include links.html %}
