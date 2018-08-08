@@ -24,7 +24,7 @@ deliver Ubuntu.</p>
 <p><a href="/overview.html">Find out more in the CDK overview&nbsp;&rsaquo;</a></p>
 </div>
 <div class="col-6 u-align--right">
-    <img style="border: 0" src="\images\k8s-bundle.png" width="350" height="350">
+    <img style="border: 0" src="./images/k8s-bundle.png" width="350" height="350">
 </div>
 </div></div>
 
