@@ -13,7 +13,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 75%;
+  max-width: 85%;
   height: auto;
 }
 </style>
@@ -145,7 +145,7 @@ controller.
 
 ![conjure-up controller menu][img-controller]
 
-Assuming that this is your first time with conjure-up and Juju, select
+Assuming that this is your first time with **conjure-up** and **Juju**, select
 </br>`Deploy New Self-Hosted Controller` and continue.
 
 ### Configure your deployment
@@ -157,7 +157,7 @@ and easy use.
 
 Depending on your chosen cloud, the first choice is which network plugin to use:
 
-![conjure-up controller menu][img-configure]
+![conjure-up controller menu][img-network]
 
 Use the cursor keys to navigate and `space` to select either **flannel** _or_
 **calico**. If you don't have a hard opinion about which style of networking
@@ -171,7 +171,7 @@ for managing Kubernetes) and configure it to work with your new cluster.
 The next screen will show the applications to be deployed.  See the [overview][overview]
 if you need a better understanding of what these components do.
 
-![conjure-up controller menu][img-applications.png]
+![conjure-up controller menu][img-applications]
 
 By default, this set up will deploy two Kubernetes master nodes and three
 workers, which can be changed by entering the configuration screen for these
@@ -200,7 +200,7 @@ will see the individual status messages change as the instances are created,
 software is installed on them, and then this software is configured to work
 with the other elements of the deployment.
 
-![conjure-up controller menu][img-juju]
+![conjure-up controller menu][img-waiting]
 
 The actual time this takes will depend on a number of factors, including which
 cloud you are using, but it should be complete in around five minutes. When the
@@ -239,10 +239,10 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 
 <!--IMAGES-->
 [img-cli-output]: https://assets.ubuntu.com/v1/d5519ed3-CDK-clusterinfo.png
-[img-add-on]: https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png
+[img-add-ons]: https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png
 [img-applications]: https://assets.ubuntu.com/v1/421cf437-CDK-applications.png
 [img-choose]: https://assets.ubuntu.com/v1/b992cb94-CDK-choose.png
-[img-cloud]: https://assets.ubuntu.com/v1/a4efde88-CDK-cloud.png
+[img-clouds]: https://assets.ubuntu.com/v1/a4efde88-CDK-cloud.png
 [img-controller]: https://assets.ubuntu.com/v1/f65cdeb8-CDK-controller.png
 [img-final]: https://assets.ubuntu.com/v1/bbe1b9f4-CDK-final.png
 [img-juju]: https://assets.ubuntu.com/v1/112fa567-CDK-juju.png
