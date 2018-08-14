@@ -67,7 +67,7 @@ support and an entirely local deploy. Please see the more general
 The recommended way to install the **Canonical Distribution of
 Kubernetes&reg;** is with the tools <a href="https://jujucharms.com"> Juju</a>,
 an application modelling tool, and <a href="https://conjure-up.io">
-conjure-up</a>, a helper app for the guided install of complex  applications.
+conjure-up</a>, a guided installer for complex applications.
 
 From the command line, run the following:
 
@@ -140,7 +140,7 @@ using Juju, (<a href="https://docs.jujucharms.com/stable/en/credentials" > follo
 
 Juju uses a central _controller_ instance to manage the applications it deploys in separate
 _models_. You always need at least one controller, but if you have already created one for
-previous installs in this cloud (even if they weren't for Kuberentes), you can reuse that
+previous installs in this cloud (even if they weren't for Kubernetes), you can reuse that
 controller.
 
 ![conjure-up controller menu][img-controller]
@@ -160,7 +160,7 @@ Depending on your chosen cloud, the first choice is which network plugin to use:
 ![conjure-up controller menu][img-network]
 
 Use the cursor keys to navigate and `space` to select either **flannel** _or_
-**calico**. If you don't have a hard opinion about which style of networking
+**calico**. If you don't have an opinion about which style of networking
 you need, just leave the default choice and select `next`. Some clouds do not
 currently support Calico, in which case this option will not appear.
 
@@ -173,11 +173,11 @@ if you need a better understanding of what these components do.
 
 ![conjure-up controller menu][img-applications]
 
-By default, this set up will deploy two Kubernetes master nodes and three
+By default, this setup will deploy two Kubernetes master nodes and three
 workers, which can be changed by entering the configuration screen for these
 components and selecting new values. Note that it will also be possible to
-increase the number of nodes later, so it isn't necessary to work out how many
-worker you'll need in advance, you can just select `Continue`
+increase the number of nodes later, so it isn't necessary to determine how many
+workers you'll need in advance, you can just select `Continue`
 
 ### Deploying
 
@@ -187,7 +187,7 @@ will see the following screen:
 ![conjure-up controller menu][img-juju]
 
 As we mentioned previously, a Juju controller is a cloud instance which Juju
-uses to monitor and manages any other nodes and applications it deploys across
+uses to monitor and manage any other nodes and applications it deploys across
 any number of different models. You will typically only need one Juju
 controller per cloud, and you will be able to deploy multiple separate models
 containing additional Kubernetes clusters or other big software applications.
@@ -217,7 +217,7 @@ Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
 You can now check the status of the cluster yourself by running the command:
 
 ```bash
-kubectl cluster-information
+kubectl cluster-info
 ```
 The output should look similar to this:
 
