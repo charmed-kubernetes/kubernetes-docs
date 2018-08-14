@@ -13,7 +13,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 85%;
+  max-width: 100%;
   height: auto;
 }
 </style>
@@ -30,9 +30,7 @@ metrics and monitoring. It works across all major public clouds and private
 infrastructure, enabling your teams to operate Kubernetes clusters on demand,
 anywhere.</p>
 
-<p>With this quick start guide and some tools from Canonical, you can have all
-this distilled Kubernetes expertise operating in your own  cluster
-running on a cloud of your choice in minutes!</p>
+<p>With this quick start guide and some tools from Canonical, you'll have a Kubernetes cluster running on the cloud of your choice in minutes!</p>
 
 </div>
 <div class="col-6 u-align--right">
@@ -146,7 +144,7 @@ controller.
 ![conjure-up controller menu][img-controller]
 
 Assuming that this is your first time with **conjure-up** and **Juju**, select
-</br>`Deploy New Self-Hosted Controller` and continue.
+`Deploy New Self-Hosted Controller` and continue.
 
 ### Configure your deployment
 
@@ -177,7 +175,7 @@ By default, this setup will deploy two Kubernetes master nodes and three
 workers, which can be changed by entering the configuration screen for these
 components and selecting new values. Note that it will also be possible to
 increase the number of nodes later, so it isn't necessary to determine how many
-workers you'll need in advance, you can just select `Continue`
+workers you'll need in advance -- you can just select `Continue`.
 
 ### Deploying
 
@@ -186,7 +184,7 @@ will see the following screen:
 
 ![conjure-up controller menu][img-juju]
 
-As we mentioned previously, a Juju controller is a cloud instance which Juju
+As mentioned previously, a Juju controller is a cloud instance which Juju
 uses to monitor and manage any other nodes and applications it deploys across
 any number of different models. You will typically only need one Juju
 controller per cloud, and you will be able to deploy multiple separate models
