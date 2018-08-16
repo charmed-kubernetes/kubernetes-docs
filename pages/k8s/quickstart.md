@@ -46,7 +46,7 @@ anywhere.</p>
   * Account credentials for one of the following public clouds:
       -  [Amazon Web Services][cloud-aws], including AWS-China and AWS-gov
       -  [CloudSigma][cloud-cloudsigma]
-      - [ Google Cloud platform ][cloud-google]
+      - [ Google Cloud platform ][cloud-google] (See additional [notes for Google cloud][google-credentials])
       - [Joyent][cloud-joyent]
       - [Microsoft Azure][cloud-azure], including Azure-China
       - [Oracle Cloud][cloud-oracle]
@@ -123,7 +123,7 @@ adding new ones.
 If you haven't previously stored credentials, you will instead be prompted to enter them
 now:
 
-![conjure-up menu][img-credentials]
+![conjure-up menu][img-credential]
 
 Simply paste in the required fields and use `Tab`, `cursor keys` and `Enter` to navigate.
 
@@ -246,6 +246,7 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 [img-juju]: https://assets.ubuntu.com/v1/112fa567-CDK-juju.png
 [img-network]: https://assets.ubuntu.com/v1/cd3e83d6-CDK-network.png
 [img-waiting]: https://assets.ubuntu.com/v1/92511391-CDK-waiting.png
+[img-credential]: https://assets.ubuntu.com/v1/f915816f-CDK-credential.png
 <!-- LINKS -->
 
 [install]: ./install
@@ -261,3 +262,4 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 [how-login]: ./howto-login.html
 [how-helm]: ./howto-helm.html
 [how-juju]: ./howto-juju.html
+[google-credentials]: ./googlecloud.html
