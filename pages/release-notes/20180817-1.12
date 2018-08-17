@@ -1,0 +1,47 @@
+# 1.12 Release Notes WIP
+
+TODO: Short intro paragraph that details highlights or significant changes, possibly with links
+
+- New kubernetes-worker charm config: kubelet-extra-config
+
+In Kubernetes 1.10, a new KubeletConfiguration file was introduced, and many of
+Kubelet's command line options were moved there and marked as deprecated. In
+order to accomodate this change, we've introduced a new charm config to
+kubernetes-worker: `kubelet-extra-config`.
+
+This config can be used to override KubeletConfiguration values provided by
+the charm, and is usable on any Canonical cluster running Kubernetes 1.10+.
+
+The value for this config must be a YAML mapping that can be safely
+merged with a KubeletConfiguration file. For example:
+```
+juju config kubernetes-worker kubelet-extra-config="{evictionHard: {memory.available: 200Mi}}"
+```
+
+For more information about KubeletConfiguration, see upstream docs:
+https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
+
+- Added support for Dynamic Kubelet Configuration
+
+While we recommend `kubelet-extra-config` as a more robust and approachable way
+to configure Kubelet, we've also made it possible to configure kubelet using
+the Dynamic Kubelet Configuration feature that comes with Kubernetes 1.11+. You
+can read about that here:
+https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
+
+## Fixes
+
+ - list items
+ - linked to fixed bugs
+ - where relevant
+
+## Known issues
+
+ - any remaining major issues currently being worked on
+ - for the next release
+ - if any
+
+## Contact Us
+
+- Issues: https://github.com/juju-solutions/bundle-canonical-kubernetes/issues
+- IRC: #juju on freenode.net
