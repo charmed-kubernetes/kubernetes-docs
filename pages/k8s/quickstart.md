@@ -229,7 +229,9 @@ To check that everything is actually working, you may want to log in to the
 Kubernetes Dashboard at the IP address given in the above output. The default
 username is 'admin' and the password can be retrieved using the command:
 
-```bash kubectl config view | grep password ```
+```bash
+kubectl config view | grep password
+ ```
 
 <div class="p-notification--positive"><p class="p-notification__response">
 <span class="p-notification__status">Note:</span> If you have set up more than
@@ -292,3 +294,4 @@ a few recommended starting points:
 [how-juju]: ./howto-juju.html
 [google-credentials]: ./googlecloud.html
 [storage]: ./storage.html
+[RBAC]:./rbac.html
