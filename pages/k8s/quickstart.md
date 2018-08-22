@@ -223,11 +223,38 @@ The output should look similar to this:
 
 This shows the relevant IP addresses for operating your cluster.
 
+### Access the dashboard
 
-### Next steps
-Now that you have your cluster, you can put it to work! Here are a few recommended starting points:
+To check that everything is actually working, you may want to log in to the
+Kubernetes Dashboard at the IP address given in the above output. The default
+username is 'admin' and the password can be retrieved using the command:
 
-* [Log in to the Kubernetes dashboard&nbsp;&rsaquo;][how-login]
+```bash
+kubectl config view | grep password
+ ```
+
+<div class="p-notification--positive"><p class="p-notification__response">
+<span class="p-notification__status">Note:</span> If you have set up more than
+one cluster, each will have a different password and you will need to look at
+the full output from `kubectl config view` to determine which one to use.
+</p></div>
+
+Open a browser at the address for the Dashboard and log in. You will see an
+additional authentication screen:
+
+![dashboard image][img-dash-login]
+
+For now you can just choose 'Skip' to get to the Dashboard, but for future
+administration, you should set up _role based access control_([RBAC][RBAC]).
+
+![dashboard image][img-dashboard]
+
+## Next steps
+
+Now that you have your cluster, you can put it to work! Here are
+a few recommended starting points:
+
+* [Add persistent storage&nbsp;&rsaquo;][storage]
 * [Install an application with Helm&nbsp;&rsaquo;][how-helm]
 * [Manage your cluster with **Juju**&nbsp;&rsaquo;][how-juju]
 
@@ -247,6 +274,9 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 [img-network]: https://assets.ubuntu.com/v1/cd3e83d6-CDK-network.png
 [img-waiting]: https://assets.ubuntu.com/v1/92511391-CDK-waiting.png
 [img-credential]: https://assets.ubuntu.com/v1/f915816f-CDK-credential.png
+[img-dash-login]: https://assets.ubuntu.com/v1/d89b1290-CDK-007.png
+[img-dashboard]: https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png
+
 <!-- LINKS -->
 
 [install]: ./install
@@ -263,3 +293,5 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 [how-helm]: ./howto-helm.html
 [how-juju]: ./howto-juju.html
 [google-credentials]: ./googlecloud.html
+[storage]: ./storage.html
+[RBAC]:./rbac.html
