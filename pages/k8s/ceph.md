@@ -21,7 +21,8 @@ Installing Ceph is easy with Juju. Just deploy the monitor charms and some stora
 
 ```bash
 $ juju deploy -n 3 ceph-mon
-$ juju deploy -n 3 cs:ceph-osd --storage osd-devices=ebs,32G,2 --storage osd-journals=ebs,8G,1
+$ juju deploy -n 3 cs:ceph-osd --storage osd-devices=32G,2 --storage osd-journals=8G,1
+$ juju add-relation ceph-mon ceph-osd
 ```
 
 In this example, we are installing to AWS, using 3 machines for the Ceph monitor, using 3 machines
