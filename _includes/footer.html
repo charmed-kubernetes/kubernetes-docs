@@ -2,13 +2,20 @@
   <div class="p-content__row u-no-margin--left">
     <div class="col-12">
       <p>
-        &copy; {{ site.time | date: "%Y" }} Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.
-      </p>
-      <p>
+
+<small>&copy; {{ site.time | date: "%Y" }} Canonical Ltd. Ubuntu and Canonical
+are registered trademarks of Canonical Ltd. Kubernetes<sup>&reg;</sup> is a
+registered trademark of The Linux Foundation in the United States and other
+countries, and is used pursuant to a license from The Linux Foundation. <a
+href="https://www.ubuntu.com/legal"> Legal information</a>.
+
+<br />This work is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License</a></small><p>
+
 {% if page.last_updated %}Page last updated: {{page.last_updated}}
 {% endif %} Site last generated: {{ site.time | date: "%b %-d, %Y" }}
       </p>
-
     </div>
   </div>
 </footer>
