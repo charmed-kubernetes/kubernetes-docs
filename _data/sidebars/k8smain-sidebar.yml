@@ -17,3 +17,12 @@ entries:
     - title: Overview
       url: /overview.html
       output: web, pdf
+
+  - title: Operations
+    output: web, pdf
+    items:
+
+    - title: Logging
+      url: /logging.html
+      output: web, pdf
+      type: page
