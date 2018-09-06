@@ -22,11 +22,18 @@ check the  <a href="https://docs.jujucharms.com/stable/en/troubleshooting-logs">
   </p>
 </div>
 
+Broadly, there are two types of logs you may be interested in. On cluster or
+node level; for the applications you are running inside your cluster, and at an
+infrastructure level, the applications which are responsible for running the
+cluster itself. As the **Canonical Distribution of Kubernetes<sup>&reg;</sup>**
+is pure Kubernetes, you can use any of the tools and techniques  to examine cluster
+logs as [described in the Kubernetes documentation][k8-logs].
 
-Your **CDK** deployment has centralised logging set up as default. Each unit in
-your cluster automatically sends logging information to the controller based on
-the current logging level.  You can use the **Juju** command line to easily
-inspect these logs and to change the logging level, as explained below.
+For the infrastructure, your **CDK** deployment has centralised logging set up
+as default. Each unit in your cluster automatically sends logging information
+to the controller based on the current logging level.  You can use the **Juju**
+command line to easily inspect these logs and to change the logging level, as
+explained below.
 
 ## Viewing logs
 
@@ -147,3 +154,4 @@ As previously mentioned, you can see more detailed information on accessing the 
 
 <!--LINKS -->
 [juju-logging]: https://docs.jujucharms.com/stable/en/troubleshooting-logs
+[k8-logs]: https://kubernetes.io/docs/concepts/cluster-administration/logging/
