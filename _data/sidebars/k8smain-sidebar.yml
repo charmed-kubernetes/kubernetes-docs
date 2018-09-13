@@ -26,3 +26,8 @@ entries:
       url: /logging.html
       output: web, pdf
       type: page
+
+    - title: Monitoring
+      url: /monitoring.html
+      output: web, pdf
+      type: page
