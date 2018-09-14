@@ -32,7 +32,7 @@ as [described below](#retrieve-credentials-and-login). See the [quickstart
 guide][quickstart] for more details on installing **CDK** with **conjure-up**.
 
 If you have already installed your cluster, you will be able to add and
-configure  the extra applications using **Juju** as described here:
+configure the extra applications using **Juju** as described here:
 
 ### Install the required applications
 
@@ -40,8 +40,8 @@ The following commands will add the required applications:
 
 ```bash
 juju deploy grafana --series=xenial
-juju deploy prometheus  --series=xenial
-juju deploy telegraf  --series=xenial
+juju deploy prometheus --series=xenial
+juju deploy telegraf --series=xenial
 juju expose grafana
 ```
 
@@ -69,10 +69,10 @@ configure it manually by following the steps outlined here:
     curl -O  https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
     ```
     This is the template, but it needs some specific information for your cluster.
- -  Get the relevant address and password form your cluster
+ -  Get the relevant address and password from your cluster
      ```bash
     api=$(juju run  --unit kubeapi-load-balancer/0 'network-get website --format yaml --ingress-address' | head -1)
-    pass=$(grep 'password:' ~/.kube/config | sed -e 's/ *//g' -e 's/password://')
+    pass=$(juju run --unit kubernetes-master/0 'grep "password:" /home/ubuntu/config' | awk '{ print $2 }')
     ```
     This will fetch the relevant info and store in temporary environment variables for convenience.
  -   Substitute in the variables
@@ -84,7 +84,7 @@ configure it manually by following the steps outlined here:
      juju config prometheus scrape-jobs="$(<myscraper.yaml)"
      ```
 
-### Add the sample dashboard
+### Add the dashboards
 
 As with the scraper, there is a [sample dashboard available for download
 here][download-dashboard]. You can download and configure **grafana** to use it
@@ -98,6 +98,12 @@ by following these steps:
     ```bash
     juju run-action --wait grafana/0 import-dashboard  dashboard="$(base64 grafana-k8s.json)"
     ```
+There is also a default Telegraf dashboard. If you wish to install this, it can be done in a similar way:
+
+```bash
+curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-telegraf.json
+juju run-action --wait grafana/0 import-dashboard  dashboard="$(base64 grafana-telegraf.json)"
+```
 
 ### Retrieve  credentials and login
 
@@ -211,9 +217,9 @@ You now need to relate the elasticsearch applications together, and connect the
 `topbeat` and `filebeat` applications to the applications you want to monitor:
 
 ```bash
-juju add-relation elasticsearch kibana
-juju add-relation elasticsearch topbeat
-juju add-relation elasticsearch filebeat
+juju add-relation elasticsearch:client kibana:rest
+juju add-relation elasticsearch:client topbeat:elasticsearch
+juju add-relation elasticsearch:client filebeat:elasticsearch
 
 juju add-relation  topbeat kubernetes-master
 juju add-relation filebeat kubernetes-master
