@@ -204,7 +204,7 @@ can be used in conjunction with **CDK**.
 Use Juju to deploy the required applications:
 
 ```bash
-juju deploy elasticsearch --series=xenial
+juju deploy elasticsearch --series=xenial --constraints mem=4G
 juju deploy kibana --series=xenial
 juju deploy filebeat --series=xenial
 juju deploy topbeat --series=xenial
@@ -217,9 +217,9 @@ You now need to relate the elasticsearch applications together, and connect the
 `topbeat` and `filebeat` applications to the applications you want to monitor:
 
 ```bash
-juju add-relation elasticsearch:client kibana:rest
-juju add-relation elasticsearch:client topbeat:elasticsearch
-juju add-relation elasticsearch:client filebeat:elasticsearch
+juju add-relation elasticsearch kibana
+juju add-relation elasticsearch topbeat
+juju add-relation elasticsearch filebeat
 
 juju add-relation  topbeat kubernetes-master
 juju add-relation filebeat kubernetes-master
