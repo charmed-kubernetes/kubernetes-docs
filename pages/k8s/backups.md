@@ -21,6 +21,13 @@ Distribution of Kubernetes <sup>&reg;</sup>**.
 
  ## Creating an **etcd** snapshot
 
+ <div class="p-notification--warning"><p class="p-notification__response">
+ <span class="p-notification__status">Warning:</span>
+ Snapshots can only be restored on the **same version of etcd**.
+  </p></div>
+
+
+
  **etcd** is a distributed key/value store. To create a snapshot, all that is required is to run
  the `snapshot` action on one of the units running **etcd**:
 
@@ -76,3 +83,29 @@ sha256sum etcd-snapshot-2018-09-26-18.04.02.tar.gz
 <span class="p-notification__status">Warning:</span>
 Restoring a snapshot should not be performed when there is more than one unit of **etcd** running.
  </p></div>
+
+ As restoring only works when there is a single unit of **etcd**, it is usual to deploy a new
+instance of the application first. In this case, we can attache the snapshot as a resource during creation
+
+```bash
+juju deploy etcd new-etcd --series=xenial --resource snapshot=./etcd-snapshot-2018-09-26-18.04.02.tar.gz
+```
+
+Then run the restore action:
+
+```bash
+juju run-action new-etcd/0 restore --wait
+```
+
+The new etcd application will need to be connected to the rest of the deployment:
+
+```bash
+juju add-relation new-etcd kubernetes-master
+juju add-relation new-etcd flannel
+```
+
+To restore the cluster capabilities of etcd, you can now add more units:
+
+```bash
+juju add-unit new-etcd -n 2
+```
