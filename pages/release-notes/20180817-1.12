@@ -46,7 +46,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
 
 Default `true`, which retains the old behavior of binding to 0.0.0.0. Setting
 this to `false` makes etcd bind only to the addresses it expects traffic on, as
-determined by the configuration of [Juju endpoint bindings](https://docs.jujucharms.com/2.4/en/charms-deploying-advanced#deploying-to-network-spaces)
+determined by the configuration of [Juju endpoint bindings](https://docs.jujucharms.com/2.4/en/charms-deploying-advanced#deploying-to-network-spaces).
 
 Special thanks to ([@rmescandon](https://github.com/rmescandon)) for this contribution!
 
