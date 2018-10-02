@@ -1,6 +1,9 @@
-# 1.12 Release Notes WIP
+# 1.12 Release Notes
 
-TODO: Short intro paragraph that details highlights or significant changes, possibly with links
+- Added support for Ubuntu 18.04 (Bionic)
+
+New deployments will get Ubuntu 18.04 machines by default. We will also continue
+to support CDK on Ubuntu 16.04 (Xenial) machines for existing deployments.
 
 - New kubernetes-worker charm config: kubelet-extra-config
 
@@ -31,9 +34,8 @@ https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
 
 ## Fixes
 
- - list items
- - linked to fixed bugs
- - where relevant
+- Fixed kube-dns constantly restarting on 18.04 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/655))
+- Fixed LXD machines not working on 18.04 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/654))
 
 ## Known issues
 
