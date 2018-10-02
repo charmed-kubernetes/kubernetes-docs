@@ -42,6 +42,12 @@ the Dynamic Kubelet Configuration feature that comes with Kubernetes 1.11+. You
 can read about that here:
 https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
 
+- New etcd charm config: bind_to_all_interfaces
+
+Default `true`, which retains the old behavior of binding to 0.0.0.0. Setting
+this to `false` makes etcd bind only to the addresses it expects traffic on, as
+determined by the configuration of [Juju endpoint bindings](https://docs.jujucharms.com/2.4/en/charms-deploying-advanced#deploying-to-network-spaces)
+
 ## Fixes
 
 - Fixed kube-dns constantly restarting on 18.04 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/655))
