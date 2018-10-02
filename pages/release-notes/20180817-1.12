@@ -36,6 +36,8 @@ https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
 
 - Fixed kube-dns constantly restarting on 18.04 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/655))
 - Fixed LXD machines not working on 18.04 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/654))
+- Fixed kubernetes-worker unable to restart services after kubernetes-master leader is removed ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/627))
+- Fixed kubeapi-load-balancer default timeout might be too low ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/650))
 
 ## Known issues
 
