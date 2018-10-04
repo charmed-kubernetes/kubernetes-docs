@@ -17,7 +17,7 @@ which make up the **Canonical Distribution of Kubernetes<sup>&reg;</sup>.**
 Keeping up to date ensures you have the latest bug-fixes and security
 patches for smooth operation of your cluster.
 
-New minor versions of **Kubernetes** are set to release once per wuarter. You can
+New minor versions of **Kubernetes** are set to release once per quarter. You can
 check the latest release version on the  
 [Kubernetes release page on GitHub][k8s-release].  The **CDK** is kept in close sync
 with upstream Kubernetes: updated versions will be released within a week of a new
