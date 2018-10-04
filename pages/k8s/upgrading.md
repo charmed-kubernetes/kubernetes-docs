@@ -14,13 +14,14 @@ summary: This page is currently a work in progress. For existing documentation, 
 It is recommended that you keep your **Kubernetes** deployment updated to the
 latest available stable version. You should also update the other applications
 which make up the **Canonical Distribution of Kubernetes<sup>&reg;</sup>.**
-Keeping up to date makes sure you have the latest bug-fixes and security
+Keeping up to date ensures you have the latest bug-fixes and security
 patches for smooth operation of your cluster.
 
-There is no set cadence to the releases of **Kubernetes**,  but you can check
-the latest release version on the  
+New minor versions of **Kubernetes** are set to release once per wuarter. You can
+check the latest release version on the  
 [Kubernetes release page on GitHub][k8s-release].  The **CDK** is kept in close sync
-with upstream Kubernetes.
+with upstream Kubernetes: updated versions will be released within a week of a new
+upstream version of **Kubernetes**.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
@@ -42,6 +43,8 @@ The 'App' section of the output lists each application and its version number.
 Note that this is the version of the upstream application deployed. The version
 of the Juju charm is indicated under the column titled 'Rev'. The charms may be
 updated in between new versions of the application.
+
+![juju output](https://assets.ubuntu.com/v1/6691d706-CDK-010.png)
 
 ## Before you begin
 
