@@ -31,3 +31,17 @@ entries:
       url: /monitoring.html
       output: web, pdf
       type: page
+
+    - title: Upgrading
+      url: /upgrading.html
+      output: web, pdf
+      type: page
+
+  - title: Reference
+    output: web, pdf
+    items:
+
+    - title: Upgrade notes
+      url: /upgrade-notes.html
+      output: web, pdf
+      type: page
