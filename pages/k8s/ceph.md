@@ -54,18 +54,16 @@ For more on how Juju makes use of storage, please see the relevant
 <a href="https://docs.jujucharms.com/stable/en/charms-storage"> Juju documentation</a>
   </p>
 </div>
-NOTE: 
-
 
 ## Relating to CDK
 
-Making CDK aware of your Ceph cluster is an easy process that just involves a juju relation.
+Making **CDK** aware of your **Ceph** cluster just requires a **Juju** relation.
 
 ```bash
-juju relate ceph-mon kubernetes-master
+juju add-relation ceph-mon kubernetes-master
 ```
 
-Note that the Ceph CSI containers require privileged access:
+Note that the **Ceph** CSI containers require privileged access:
 
 ```bash
 juju config kubernetes-master allow-privileged=true
@@ -103,10 +101,14 @@ unit-ceph-mon-0:
 
 ## Verifying things are working
 
-Now you can look at the **CDK** related pieces to verify things are working well:
+Now you can look at your **CDK** cluster to verify things are working. Running:
 
 ```bash
 kubectl get sc,po
+```
+... should return output similar to:
+
+```no-highlight
 NAME                                             PROVISIONER     AGE
 storageclass.storage.k8s.io/ceph-ext4            csi-rbdplugin    7m
 storageclass.storage.k8s.io/ceph-xfs (default)   csi-rbdplugin    7m
@@ -126,7 +128,7 @@ persistent volume is automatically created for you.
 helm install stable/phpbb
 kubectl get pvc
 ```
-... should return something similar to:
+Which should return something similar to:
 ```ǹo-highlight
 NAME                            STATUS    VOLUME                 CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 calling-wombat-phpbb-apache     Bound     pvc-b1d04079a4bd11e8   1Gi        RWO            ceph-xfs       34s
