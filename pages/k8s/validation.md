@@ -71,7 +71,7 @@ juju run-action kubernetes-e2e/0 test
 ```
 
 The command will return with a uuid for that specific test run. See the section on
-[Test output][#test-ouput]  below for details.
+[Test output](#test-output)  below for details.
 
 ## Running specific tests
 
