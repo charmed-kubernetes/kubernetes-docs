@@ -25,6 +25,20 @@ pure Kubernetes, we recommend  <a href="https://microk8s.io/">microk8s</a>
 
 The main requirement for a local install is a local cloud to run **CDK** on. This is achieved by using lightweight containers managed by [LXD][lxd-home]. **LXD**  version 3.0 or better is required for the default installer, and there are some specific profile requirements as detailed below.
 
+
+## If **LXD** is already installed
+
+The **conjure-up** installer requires a specific LXD version, profile and storage options which may conflict with any existing version of LXD. 
+For the best experience, it is recommended to migrate from the _deb_ LXD packaging after installing the snap version:
+
+```bash
+sudo snap install lxd
+/snap/bin/lxd.migrate
+```
+
+This will move all container specific data to the snap version and clean up the unused Debian packages. You should also check out the [notes for using LXD with conjure-up][conjure-lxd].
+
+
 ## Ubuntu Server
 
  1. Install **LXD**
@@ -78,4 +92,6 @@ The main requirement for a local install is a local cloud to run **CDK** on. Thi
 [lxd-home]: https://linuxcontainers.org/
 [lxd-install]: https://linuxcontainers.org/lxd/getting-started-cli/
 [conjure-up-install]: https://docs.conjure-up.io/devel/en/user-manual#installing-conjure-up
+[conjure-lxd]: https://docs.conjure-up.io/stable/en/user-manual#users-of-lxd
 [quickstart]: /quickstart.html
+
