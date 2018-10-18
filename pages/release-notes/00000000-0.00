@@ -2,11 +2,13 @@
 
 Short intro paragraph that details highlights or significant changes, possibly with links
 
-## New
+- First new feature
 
- - List items
- - detailing new 
- - features
+Details for first new feature, if needed.
+
+- Second new feature
+
+Details for second new feature, if needed.
 
 ## Fixes
 
@@ -18,9 +20,9 @@ Short intro paragraph that details highlights or significant changes, possibly w
 
  - any remaining major issues currently being worked on
  - for the next release
- - if any 
-
+ - if any
 
 ## Contact Us
 
-Some boilerplate text indicating where to file new issues, discuss stuff etc.
+- Issues: https://github.com/juju-solutions/bundle-canonical-kubernetes/issues
+- IRC: #juju on freenode.net
