@@ -39,6 +39,8 @@ sudo snap install lxd
 This will move all container specific data to the snap version and clean up the unused Debian packages. You should also check out the [notes for using LXD with conjure-up][conjure-lxd].
 
 
+You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost`  in the `CHOOSE A CLOUD` step.
+
 ## Ubuntu Server
 
  1. Install **LXD**
