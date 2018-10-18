@@ -29,7 +29,7 @@ The main requirement for a local install is a local cloud to run **CDK** on. Thi
 ## If **LXD** is already installed
 
 The **conjure-up** installer requires a specific LXD version, profile and storage options which may conflict with any existing version of LXD. 
-For the best experience, it is recommended to migrate from the _deb_ LXD packaging after installing the snap version:
+To avoid problems, migrate from the _deb_ LXD packaging after installing the snap version:
 
 ```bash
 sudo snap install lxd
@@ -53,7 +53,7 @@ You can now proceed using the main installer. Follow the [install instructions][
       ```
  1. The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
     - Networking: Do **NOT** enable ipv6 networking on the bridge interface
-    - Storage Pool: It is recommended to use the 'dir' storage type
+    - Storage Pool: Use the 'dir' storage type
 
   1. You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost`  in the `CHOOSE A CLOUD` step.
 
@@ -77,7 +77,7 @@ You can now proceed using the main installer. Follow the [install instructions][
 
 1. The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
    - Networking: Do **NOT** enable ipv6 networking on the bridge interface
-   - Storage Pool: It is recommended to use the 'dir' storage type
+   - Storage Pool: Use the 'dir' storage type
 
 1. You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost`  in the `CHOOSE A CLOUD` step.
 
