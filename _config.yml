@@ -79,3 +79,9 @@ kramdown:
  auto_ids: true
  hard_wrap: false
  syntax_highlighter: rouge
+whitelist:
+  - jekyll-redirect-from
+  
+# Plugins
+plugins:
+  - jekyll-redirect-from
