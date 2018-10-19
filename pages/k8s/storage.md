@@ -64,7 +64,7 @@ would use the command:
 <div class="p-notification--positive"><p class="p-notification__response">
 <span class="p-notification__status">Note:</span>
 For a more detailed explanation of Juju's storage pools and options, please see the
-relevant <a href=https://docs.jujucharms.com/stable/en/charms-storage">
+relevant <a href="https://docs.jujucharms.com/stable/en/charms-storage">
 Juju documentation</a>.
 </p></div>
 
@@ -150,13 +150,33 @@ pod/csi-rbdplugin-provisioner-0                        1/1       Running   0    
 
 ### Scaling out
 
-If extra storage is required, it is possible to add extra `ceph-osd` units as
-desired. Once again, it is necessary to attach appropriate storage volumes as
-before. There is no requirement that these should be the same size or type as
-those used previously.
+To check existing storage allocation, use the command:
 
 ```bash
-juju add-unit ceph-osd --storage osd-devices=32G,4
+juju storage
+```
+
+If extra storage is required, it is possible to add extra `ceph-osd` units as
+desired:
+
+```bash
+juju add-unit ceph-osd -n 2
+```
+
+Once again, it is necessary to attach appropriate storage volumes as
+before. In this case though, the storage needs to be added on a per-unit basis.
+
+Confirm the running units of `ceph-osd`
+
+```bash
+juju status ceph-osd
+```
+
+Add additional storage to existing or new units with the `add-storage` command.
+For example, to add two volumes of 32G to the unit `ceph-osd/2`:
+
+```bash
+juju add-storage ceph-osd/2 --storage osd-devices=32G,2
 ```
 
 ### Using a separate **Juju** model
