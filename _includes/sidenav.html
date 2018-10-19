@@ -11,19 +11,19 @@
   {% for entry in sidebar %}
   {% for item in entry.items %}
   {% if item.output contains "web" %}
-  <li>
-      <a href="#">{{ item.title }}</a>
-      <ul>
+  <li class="p-sidebar-nav__item first-level">
+      <strong>{{ item.title }}</strong>
+      <ul class="p-sidebar-nav__list">
           {% for folderitem in item.items %}
           {% if folderitem.output contains "web" %}
           {% if folderitem.external_url %}
           <li><a href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a></li>
           {% elsif page.url == folderitem.url %}
-          <li class="active"><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
-          {% elsif folderitem.type == "empty" %}
-          <li><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+          <li class="active"><a class=class="p-link--soft is-active" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+          {% elsif folderitem.type == "section" %}
+          <li class="p-sidebar-nav__item first-level"><a class="p-link--soft" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
           {% else %}
-          <li><a href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+          <li><a class="p-link--soft" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
           {% endif %}
           {% for subfolders in folderitem.childitems %}
           {% if subfolders.output contains "web" %}
@@ -57,7 +57,11 @@
              <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
          </p>
          -->
+         
 </ul>
+
+
+
           </nav>
         </div>
       </aside>
