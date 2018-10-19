@@ -4,7 +4,7 @@ keywords: homepage
 tags: [getting_started]
 sidebar: k8smain-sidebar
 permalink: index.html
-layout: base
+layout: base_noedit
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
