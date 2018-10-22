@@ -3,13 +3,16 @@
 topnav:
 - title: Topnav
   items:
-    - title: Latest News
-      url: /news
-    - title: Juju Store
+    - title: Home
+      url: https://www.ubuntu.com/kubernetes/
+    - title: News
+      url: /news.html
+    - title: Store
       external_url: https://jujucharms.com/canonical-kubernetes/
-    - title: GitHub
-      external_url: https://github.com/juju-solutions/kubernetes-docs/
-
+    - title: Source
+      external_url: https://github.com/juju-solutions/bundle-canonical-kubernetes/
+    - title: Docs
+      url: /index.html
 
 #Topnav dropdowns
 topnav_dropdowns:
