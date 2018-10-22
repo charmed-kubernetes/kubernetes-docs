@@ -23,7 +23,7 @@ well integrated, turn-key <strong>Kubernetes<sup>&reg;</sup></strong>
 platform that is open, extensible, and secure.
 </p>
 <p>
-For more information on the features and benefits of **CDK**, including details
+    For more information on the features and benefits of <strong>CDK</strong>, including details
 on the <a href="https://www.ubuntu.com/kubernetes/managed">
 <strong>Managed Kubernetes</strong></a>
  service, please see
@@ -74,7 +74,7 @@ components without additional configuration or hassle.
 
 
 
-<!-- LINKS -->>
+<!-- LINKS -->
 [maas]: https://maas.io
 [cdk]: https://www.ubuntu.com/kubernetes
 [managed-cdk]: https://www.ubuntu.com/kubernetes/managed
