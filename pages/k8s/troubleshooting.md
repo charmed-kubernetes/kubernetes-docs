@@ -18,35 +18,59 @@ Using `juju status` can give you some insight as to what's happening in a cluste
 
 
 ```no-highlight
-Model  Controller  Cloud/Region   Version
-kubes  work-multi  aws/us-east-2  2.0.2.1
+Model                         Controller          Cloud/Region   Version  SLA          Timestamp
+conjure-canonical-kubern-ade  conjure-up-aws-91c  aws/eu-west-1  2.4.5    unsupported  08:38:09+01:00
 
-App                Version  Status  Scale  Charm              Store       Rev  OS      Notes
-easyrsa            3.0.1    active      1  easyrsa            jujucharms    3  ubuntu
-etcd               2.2.5    active      1  etcd               jujucharms   17  ubuntu
-flannel            0.6.1    active      2  flannel            jujucharms    6  ubuntu
-kubernetes-master  1.4.5    active      1  kubernetes-master  jujucharms    8  ubuntu  exposed
-kubernetes-worker  1.4.5    active      1  kubernetes-worker  jujucharms   11  ubuntu  exposed
+App                    Version  Status  Scale  Charm                  Store       Rev  OS      Notes
+aws-integrator         1.15.71  active      1  aws-integrator         jujucharms    5  ubuntu  
+easyrsa                3.0.1    active      1  easyrsa                jujucharms  117  ubuntu  
+etcd                   3.2.10   active      3  etcd                   jujucharms  209  ubuntu  
+flannel                0.10.0   active      5  flannel                jujucharms  146  ubuntu  
+kubeapi-load-balancer  1.14.0   active      1  kubeapi-load-balancer  jujucharms  162  ubuntu  exposed
+kubernetes-master      1.12.1   active      2  kubernetes-master      jujucharms  219  ubuntu  
+kubernetes-worker      1.12.1   active      3  kubernetes-worker      jujucharms  239  ubuntu  exposed
 
-Unit                  Workload  Agent  Machine  Public address  Ports           Message
-easyrsa/0*            active    idle   0/lxd/0  10.0.0.55                       Certificate Authority connected.
-etcd/0*               active    idle   0        52.15.47.228    2379/tcp        Healthy with 1 known peers.
-kubernetes-master/0*  active    idle   0        52.15.47.228    6443/tcp        Kubernetes master services ready.
-  flannel/1           active    idle            52.15.47.228                    Flannel subnet 10.1.75.1/24
-kubernetes-worker/0*  active    idle   1        52.15.177.233   80/tcp,443/tcp  Kubernetes worker running.
-  flannel/0*          active    idle            52.15.177.233                   Flannel subnet 10.1.63.1/24
+Unit                      Workload  Agent  Machine  Public address  Ports           Message
+aws-integrator/0*         active    idle   0        54.171.121.229                  ready
+easyrsa/0*                active    idle   1        34.251.192.5                    Certificate Authority connected.
+etcd/0*                   active    idle   2        52.18.186.65    2379/tcp        Healthy with 3 known peers
+etcd/1                    active    idle   3        54.194.35.197   2379/tcp        Healthy with 3 known peers
+etcd/2                    active    idle   4        34.240.14.183   2379/tcp        Healthy with 3 known peers
+kubeapi-load-balancer/0*  active    idle   5        34.244.110.15   443/tcp         Loadbalancer ready.
+kubernetes-master/0*      active    idle   6        34.254.175.71   6443/tcp        Kubernetes master running.
+  flannel/0*              active    idle            34.254.175.71                   Flannel subnet 10.1.16.1/24
+kubernetes-master/1       active    idle   7        52.210.61.51    6443/tcp        Kubernetes master running.
+  flannel/3               active    idle            52.210.61.51                    Flannel subnet 10.1.38.1/24
+kubernetes-worker/0*      active    idle   8        34.246.168.241  80/tcp,443/tcp  Kubernetes worker running.
+  flannel/1               active    idle            34.246.168.241                  Flannel subnet 10.1.79.1/24
+kubernetes-worker/1       active    idle   9        54.229.236.169  80/tcp,443/tcp  Kubernetes worker running.
+  flannel/4               active    idle            54.229.236.169                  Flannel subnet 10.1.10.1/24
+kubernetes-worker/2       active    idle   10       34.253.203.147  80/tcp,443/tcp  Kubernetes worker running.
+  flannel/2               active    idle            34.253.203.147                  Flannel subnet 10.1.95.1/24
 
-Machine  State    DNS            Inst id              Series  AZ
-0        started  52.15.47.228   i-0bb211a18be691473  xenial  us-east-2a
-0/lxd/0  started  10.0.0.55      juju-153b74-0-lxd-0  xenial
-1        started  52.15.177.233  i-0502d7de733be31bb  xenial  us-east-2b
+Entity  Meter status  Message
+model   amber         user verification pending  
+
+Machine  State    DNS             Inst id              Series  AZ          Message
+0        started  54.171.121.229  i-0f47fcfb452fa8fab  bionic  eu-west-1a  running
+1        started  34.251.192.5    i-011007983db6d2736  bionic  eu-west-1b  running
+2        started  52.18.186.65    i-0b411be2a3909ae32  bionic  eu-west-1a  running
+3        started  54.194.35.197   i-0fccba854c6d59ffe  bionic  eu-west-1b  running
+4        started  34.240.14.183   i-02148162336e08864  bionic  eu-west-1c  running
+5        started  34.244.110.15   i-08833b743ebcd0d9c  bionic  eu-west-1c  running
+6        started  34.254.175.71   i-0f18d3f7377ba406f  bionic  eu-west-1a  running
+7        started  52.210.61.51    i-08ec1daf25fb18fa3  bionic  eu-west-1b  running
+8        started  34.246.168.241  i-0934f74bfdfba2a3f  bionic  eu-west-1b  running
+9        started  54.229.236.169  i-0a4129c834c713a5e  bionic  eu-west-1a  running
+10       started  34.253.203.147  i-053492139b1080ce0  bionic  eu-west-1c  running
+
 ```
 
 In this example we can glean some information. The `Workload` column will show
 the status of a given service. The `Message` section will show you the health
 of a given service in the cluster. During deployment and maintenance these
 workload statuses will update to reflect what a given node is doing. For
-example the workload my say `maintenance` while message will describe this
+example the workload may say `maintenance` while message will describe this
 maintenance as `Installing docker`.
 
 During normal operation the Workload should read `active`, the Agent column
@@ -150,33 +174,31 @@ follow these steps:
 
 1. Identify the public IP address of one of your masters
 
-    ```bash
+   ```bash
     juju status kubernetes-master
    ```
-   ```no-highlight
-   Model       Controller  Cloud/Region   Version
-   production  k8s-admin   aws/us-east-1  2.0.0
 
+   ```no-highlight
+   Model                         Controller          Cloud/Region   Version  SLA          Timestamp
+   conjure-canonical-kubern-ade  conjure-up-aws-91c  aws/eu-west-1  2.4.5    unsupported  08:39:23+01:00
+   
    App                Version  Status  Scale  Charm              Store       Rev  OS      Notes
-   flannel            0.6.1    active      1  flannel            jujucharms    7  ubuntu
-   kubernetes-master  1.5.1    active      1  kubernetes-master  jujucharms   10  ubuntu  exposed
+   flannel            0.10.0   active      2  flannel            jujucharms  146  ubuntu  
+   kubernetes-master  1.12.1   active      2  kubernetes-master  jujucharms  219  ubuntu  
 
    Unit                  Workload  Agent  Machine  Public address  Ports     Message
-   kubernetes-master/0*  active    idle   5        54.210.100.102    6443/tcp  Kubernetes master running.
-     flannel/0           active    idle            54.210.100.102              Flannel subnet 10.1.50.1/24
+   kubernetes-master/0*  active    idle   6        34.254.175.71   6443/tcp  Kubernetes master running.
+     flannel/0*          active    idle            34.254.175.71             Flannel subnet 10.1.16.1/24
+   kubernetes-master/1   active    idle   7        52.210.61.51    6443/tcp  Kubernetes master running.
+     flannel/3           active    idle            52.210.61.51              Flannel subnet 10.1.38.1/24
 
-   Machine  State    DNS           Inst id              Series  AZ
-   5        started  54.210.100.102  i-002b7150639eb183b  xenial  us-east-1a
+   Entity  Meter status  Message
+   model   amber         user verification pending  
 
-   Relation      Provides               Consumes           Type
-   certificates  easyrsa                kubernetes-master  regular
-   etcd          etcd                   flannel            regular
-   etcd          etcd                   kubernetes-master  regular
-   cni           flannel                kubernetes-master  regular
-   loadbalancer  kubeapi-load-balancer  kubernetes-master  regular
-   cni           kubernetes-master      flannel            subordinate
-   cluster-dns   kubernetes-master      kubernetes-worker  regular
-   cni           kubernetes-worker      flannel            subordinate
+   Machine  State    DNS            Inst id              Series  AZ          Message
+   6        started  34.254.175.71  i-0f18d3f7377ba406f  bionic  eu-west-1a  running
+   7        started  52.210.61.51   i-08ec1daf25fb18fa3  bionic  eu-west-1b  running
+
    ```
 
    In this context the public IP address is 54.210.100.102.
