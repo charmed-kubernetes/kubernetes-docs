@@ -21,7 +21,7 @@ deliver Ubuntu.</p>
 
 <p>Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because we focus on the latest container capabilities in modern kernels. That’s why it’s the top choice for enterprise Kubernetes, too.</p>
 
-<p><a href="/overview.html">Find out more in the CDK overview&nbsp;&rsaquo;</a></p>
+<p><a href="/kubernetes-docs/overview.html">Find out more in the CDK overview&nbsp;&rsaquo;</a></p>
 </div>
 <div class="col-6 u-align--right">
     <img style="border: 0" src="./images/k8s-bundle.png" width="350" height="350">
