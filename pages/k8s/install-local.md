@@ -3,7 +3,7 @@ title: "Logging | Canonical Distribution of Kubernetes&reg;"
 keywords: lxd, conjure-up, requirements,developer
 tags: [install]
 sidebar: k8smain-sidebar
-permalink: install/local.html
+permalink: install-local.html
 layout: base
 toc: False
 ---
@@ -28,7 +28,7 @@ The main requirement for a local install is a local cloud to run **CDK** on. Thi
 
 ## If **LXD** is already installed
 
-The **conjure-up** installer requires a specific LXD version, profile and storage options which may conflict with any existing version of LXD. 
+The **conjure-up** installer requires a specific LXD version, profile and storage options which may conflict with any existing version of LXD.
 To avoid problems, migrate from the _deb_ LXD packaging after installing the snap version:
 
 ```bash
@@ -96,4 +96,3 @@ You can now proceed using the main installer. Follow the [install instructions][
 [conjure-up-install]: https://docs.conjure-up.io/devel/en/user-manual#installing-conjure-up
 [conjure-lxd]: https://docs.conjure-up.io/stable/en/user-manual#users-of-lxd
 [quickstart]: /quickstart.html
-
