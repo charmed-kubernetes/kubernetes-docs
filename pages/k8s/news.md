@@ -5,7 +5,7 @@ tags: [news]
 sidebar: k8smain-sidebar
 permalink: news.html
 redirect_from:
-  - /reference/release-notes.html
+  - /reference-release-notes.html
 layout: base
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>

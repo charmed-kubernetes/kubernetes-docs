@@ -32,7 +32,7 @@ entries:
       type: homepage
 
     - title: Local install
-      url: /install/local.html
+      url: /install-local.html
       output: web, pdf
       type: homepage
 
@@ -86,7 +86,7 @@ entries:
     items:
 
     - title: Release notes
-      url: /reference/release-notes.html
+      url: /reference-release-notes.html
       output: web, pdf
       type: page
 
