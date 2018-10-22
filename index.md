@@ -35,7 +35,7 @@ deliver Ubuntu.</p>
             <div class="col-6">
                 <h2>Getting started</h2>
                 <p></p>
-                <p><a href="/quickstart.html">Getting started with the Canonical Distribution of Kubernetes<sup>&reg;</sup> &nbsp;&rsaquo;</a></p>
+                <p><a href="/kubernetes-docs/quickstart.html">Getting started with the Canonical Distribution of Kubernetes<sup>&reg;</sup> &nbsp;&rsaquo;</a></p>
             </div>
             <div class="col-6 u-align--right">
                 <img style="border: 0" src="https://assets.ubuntu.com/v1/843c77b6-juju-at-a-glace.svg">
@@ -47,7 +47,7 @@ deliver Ubuntu.</p>
                 <h2>What's new</h2>
                 <ul class="p-list">
 
-                <li class="p-list__item"><a href="/news.html"> Version 1.12 released</a></li>
+                <li class="p-list__item"><a href="/kubernetes-docs/news.html"> Version 1.12 released</a></li>
   <!--                 {% for post in site.posts  limit:3 %}
                      <li class="p-list__item"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}&nbsp;&rsaquo;</a></li>
                         {% endfor %}
