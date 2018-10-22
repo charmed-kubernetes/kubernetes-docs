@@ -46,9 +46,12 @@ deliver Ubuntu.</p>
             <div class="col-6">
                 <h2>What's new</h2>
                 <ul class="p-list">
-                     {% for post in site.posts  limit:3 %}
+
+                <li class="p-list__item"><a href="/news.html"> Version 1.12 released</a></li>
+  <!--                 {% for post in site.posts  limit:3 %}
                      <li class="p-list__item"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}&nbsp;&rsaquo;</a></li>
                         {% endfor %}
+-->
                 </ul>
             </div>
             <div class="col-6">
