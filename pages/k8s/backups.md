@@ -11,7 +11,7 @@ summary: This page is currently a work in progress. For existing documentation, 
 
 # Backups
 
-The state of your Kubernetes cluster is kept in the etcd datastore. This page
+The state of your **Kubernetes** cluster is kept in the **etcd** datastore. This page
 shows how to backup and restore the etcd included in the **Canonical
 Distribution of Kubernetes <sup>&reg;</sup>**.
 
@@ -32,7 +32,7 @@ Distribution of Kubernetes <sup>&reg;</sup>**.
  the `snapshot` action on one of the units running **etcd**:
 
  ```bash
- juju run-action etcd/0 snapshot --wait
+ juju run-action etcd/0 snapshot keys-version=v3 --wait
  ```
 
  By specifying `--wait`, the console will wait to return the result of running
@@ -81,14 +81,23 @@ sha256sum etcd-snapshot-2018-09-26-18.04.02.tar.gz
 
 <div class="p-notification--warning"><p class="p-notification__response">
 <span class="p-notification__status">Warning:</span>
-Restoring a snapshot should not be performed when there is more than one unit of **etcd** running.
+Restoring a snapshot should not be performed when there is more than one unit
+of **etcd** running.
  </p></div>
 
  As restoring only works when there is a single unit of **etcd**, it is usual to deploy a new
-instance of the application first. In this case, we can attache the snapshot as a resource during creation
+instance of the application first.
 
 ```bash
-juju deploy etcd new-etcd --series=xenial --resource snapshot=./etcd-snapshot-2018-09-26-18.04.02.tar.gz
+juju deploy etcd new-etcd --series=bionic
+```
+The `--series` option is included here to illustrate how to specify which series the new unit
+should be running on.
+
+Next we upload and identify the snapshot file to this new unit:
+
+```bash
+juju attach newer-etcd snapshot=./etcd-snapshot-2018-09-26-18.04.02.tar.gz
 ```
 
 Then run the restore action:
@@ -97,7 +106,9 @@ Then run the restore action:
 juju run-action new-etcd/0 restore --wait
 ```
 
-The new etcd application will need to be connected to the rest of the deployment:
+Once the restore action has finished, you should see output confirming that the
+operation is `completed`. The new etcd application will need to be connected to
+the rest of the deployment:
 
 ```bash
 juju add-relation new-etcd kubernetes-master
@@ -109,3 +120,28 @@ To restore the cluster capabilities of etcd, you can now add more units:
 ```bash
 juju add-unit new-etcd -n 2
 ```
+
+Once the deployment has settled and all `new-etcd` units report ready, verify
+the cluster health with:
+
+```bash
+ juju run-action new-etcd/0 health --wait
+```
+
+which should return something similar to:
+
+```bash
+unit-new-etcd-0:
+  id: 27fe2081-6513-4968-869d-6c2c092210a1
+  results:
+    result-map:
+      message: |-
+        member 3c149609bfcf7692 is healthy: got healthy result from https://172.31.18.7:2379
+        cluster is healthy
+  status: completed
+  timing:
+    completed: 2018-10-26 15:16:33 +0000 UTC
+    enqueued: 2018-10-26 15:16:32 +0000 UTC
+    started: 2018-10-26 15:16:33 +0000 UTC
+  unit: new-etcd/0
+  ```
