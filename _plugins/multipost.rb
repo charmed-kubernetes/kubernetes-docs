@@ -16,8 +16,13 @@ module Jekyll
       if ext.empty?
         "#{url}/#{layout_path}/"
       else
-        layout_path = layout_path.gsub("base","index")
-        STDERR.puts(url)
+        if layout_path.include?('ubuntu-com')
+          layout_path = layout_path.gsub("ubuntu-com", url)
+          layout_path = layout_path.gsub(".html", "")
+        else
+          layout_path = layout_path.gsub("base","index")
+        end
+        STDERR.puts(layout_path)
         url.gsub(/\/$|#{ext}$/) { |url_end| "/#{layout_path}#{url_end}" }
       end
     end

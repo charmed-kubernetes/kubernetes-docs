@@ -8,6 +8,7 @@ layout: [base, ubuntu-com]
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
+
 <style>
 img {
   display: block;
@@ -34,7 +35,7 @@ anywhere.</p>
 
 </div>
 <div class="col-6 u-align--right">
-    <img style="border: 0" src="./images/k8s-bundle.png" width="350" height="350">
+    <img style="border: 0" src="/images/k8s-bundle.png" width="350" height="350">
 </div>
 </div></div>
 
@@ -42,16 +43,15 @@ anywhere.</p>
 
 ## What you'll need
 
-  *  An Ubuntu 18.04 LTS or 16.04 LTS environment to run the commands (or another operating system which supports `snapd` - see the [snapd documentation][snapd-docs])
-  * Account credentials for one of the following public clouds:
-      -  [Amazon Web Services][cloud-aws], including AWS-China and AWS-gov
-      -  [CloudSigma][cloud-cloudsigma]
-      - [ Google Cloud platform ][cloud-google] (See additional [notes for Google cloud][google-credentials])
-      - [Joyent][cloud-joyent]
-      - [Microsoft Azure][cloud-azure], including Azure-China
-      - [Oracle Cloud][cloud-oracle]
-      - [Rackspace][cloud-rackspace]
-
+- An Ubuntu 18.04 LTS or 16.04 LTS environment to run the commands (or another operating system which supports `snapd` - see the [snapd documentation][snapd-docs])
+- Account credentials for one of the following public clouds:
+  - [Amazon Web Services][cloud-aws], including AWS-China and AWS-gov
+  - [CloudSigma][cloud-cloudsigma]
+  - [ Google Cloud platform ][cloud-google] (See additional [notes for Google cloud][google-credentials])
+  - [Joyent][cloud-joyent]
+  - [Microsoft Azure][cloud-azure], including Azure-China
+  - [Oracle Cloud][cloud-oracle]
+  - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p class="p-notification__response">
 <span class="p-notification__status">Note:</span> If you don't meet these
@@ -72,6 +72,7 @@ From the command line, run the following:
 ```bash
 sudo snap install conjure-up --classic
 ```
+
 <sub>(Note: the use of 'sudo' may not be required on some versions of Linux)</sub>
 
 This command will install both **conjure-up** and **Juju** via snap packages.
@@ -94,12 +95,12 @@ processing scripts known as _spells_. Use the arrow keys to select
 ![conjure-up menu](https://assets.ubuntu.com/v1/37d476e5-CDK-choose.png)
 
 The next screen shows a selection of add-ons which can be installed at the same time as
-Kubernetes.  
+Kubernetes.
 
 ![conjure-up menu][img-add-ons]
 
 You may want to come back and give some of these a try, but for now, just
-use the `Tab` key to move down the list and select the `Continue`  button on the
+use the `Tab` key to move down the list and select the `Continue` button on the
 interface, and press `Enter`.
 
 ### Choose a cloud
@@ -118,7 +119,7 @@ continue.
 
 If you have run through this install previously or you have already set up credentials with
 **Juju**, you will be given the option of using these previously stored credentials or
-adding new ones.  
+adding new ones.
 
 If you haven't previously stored credentials, you will instead be prompted to enter them
 now:
@@ -148,7 +149,7 @@ Assuming that this is your first time with **conjure-up** and **Juju**, select
 
 ### Configure your deployment
 
-The next few **conjure-up** screens  deal with configuring and customising your
+The next few **conjure-up** screens deal with configuring and customising your
 install. These are usually additional steps which **conjure-up** can perform
 before, during or after the actual deployment to set up Kubernetes for quick
 and easy use.
@@ -162,11 +163,11 @@ Use the cursor keys to navigate and `space` to select either **flannel** _or_
 you need, just leave the default choice and select `next`. Some clouds do not
 currently support Calico, in which case this option will not appear.
 
-You will now be asked for your **sudo** password.  This is so **conjure-up**
+You will now be asked for your **sudo** password. This is so **conjure-up**
 can download and install the latest version of `kubectl` (the command line tool
 for managing Kubernetes) and configure it to work with your new cluster.
 
-The next screen will show the applications to be deployed.  See the [overview][overview]
+The next screen will show the applications to be deployed. See the [overview][overview]
 if you need a better understanding of what these components do.
 
 ![conjure-up controller menu][img-applications]
@@ -192,8 +193,8 @@ containing additional Kubernetes clusters or other big software applications.
 
 Once the controller has been created, Juju will then create a model and
 instances within that model to contain the applications which make up the
-**Canonical Distribution of Kubernetes**.  For a few minutes, **conjure-up**
-will display  a status screen, reporting on the progress of the install. You
+**Canonical Distribution of Kubernetes**. For a few minutes, **conjure-up**
+will display a status screen, reporting on the progress of the install. You
 will see the individual status messages change as the instances are created,
 software is installed on them, and then this software is configured to work
 with the other elements of the deployment.
@@ -217,6 +218,7 @@ You can now check the status of the cluster yourself by running the command:
 ```bash
 kubectl cluster-info
 ```
+
 The output should look similar to this:
 
 ![cli output][img-cli-output]
@@ -231,7 +233,7 @@ username is 'admin' and the password can be retrieved using the command:
 
 ```bash
 kubectl config view | grep password
- ```
+```
 
 <div class="p-notification--positive"><p class="p-notification__response">
 <span class="p-notification__status">Note:</span> If you have set up more than
@@ -245,7 +247,7 @@ additional authentication screen:
 ![dashboard image][img-dash-login]
 
 For now you can just choose 'Skip' to get to the Dashboard, but for future
-administration, you should set up _role based access control_([RBAC][RBAC]).
+administration, you should set up _role based access control_([RBAC][rbac]).
 
 ![dashboard image][img-dashboard]
 
@@ -254,15 +256,14 @@ administration, you should set up _role based access control_([RBAC][RBAC]).
 Now that you have your cluster, you can put it to work! Here are
 a few recommended starting points:
 
-* [Add persistent storage&nbsp;&rsaquo;][storage]
-* [Install an application with Helm&nbsp;&rsaquo;][how-helm]
-* [Manage your cluster with **Juju**&nbsp;&rsaquo;][how-juju]
+- [Add persistent storage&nbsp;&rsaquo;][storage]
+- [Install an application with Helm&nbsp;&rsaquo;][how-helm]
+- [Manage your cluster with **Juju**&nbsp;&rsaquo;][how-juju]
 
 <sub>Kubernetes<sup>&reg;</sup> is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. </sub>
 
-
-
 <!--IMAGES-->
+
 [img-cli-output]: https://assets.ubuntu.com/v1/d5519ed3-CDK-clusterinfo.png
 [img-add-ons]: https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png
 [img-applications]: https://assets.ubuntu.com/v1/421cf437-CDK-applications.png
@@ -294,4 +295,4 @@ a few recommended starting points:
 [how-juju]: ./howto-juju.html
 [google-credentials]: ./googlecloud.html
 [storage]: ./storage.html
-[RBAC]:./rbac.html
+[rbac]: ./rbac.html
