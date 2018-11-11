@@ -12,7 +12,7 @@ summary: This page is currently a work in progress. For existing documentation, 
 # Logging
 
 <div class="p-notification--information">
-  <p class="p-notification__response">
+  <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 This documentation assumes you are using version 2.4.0 or later of
 <strong>Juju</strong> . If you are using an earlier version you should
@@ -136,7 +136,7 @@ The logging levels, from most verbose to least verbose, are as follows:
 ...which in this case sets the logging level for all units to TRACE
 
 <div class="p-notification--warning">
-  <p class="p-notification__response">
+  <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Caution! :</span>
 It isn't a good idea to leave the logging level at 'TRACE' for any
 longer than you actually need to. Verbose logging not only consumes network

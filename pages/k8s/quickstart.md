@@ -53,7 +53,7 @@ anywhere.</p>
   - [Oracle Cloud][cloud-oracle]
   - [Rackspace][cloud-rackspace]
 
-<div class="p-notification--positive"><p class="p-notification__response">
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span> If you don't meet these
 requirements, there are additional ways of installing the <emphasis>Canonical
 Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS
@@ -128,7 +128,7 @@ now:
 
 Simply paste in the required fields and use `Tab`, `cursor keys` and `Enter` to navigate.
 
-<div class="p-notification--positive"><p class="p-notification__response">
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
   <span class="p-notification__status">Note:</span>
 There are many different types of credentials, and copying and pasting them accurately
 can be tricky. If you have any authentication difficulty, it may be easier to add credentials
@@ -235,7 +235,7 @@ username is 'admin' and the password can be retrieved using the command:
 kubectl config view | grep password
 ```
 
-<div class="p-notification--positive"><p class="p-notification__response">
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span> If you have set up more than
 one cluster, each will have a different password and you will need to look at
 the full output from `kubectl config view` to determine which one to use.
@@ -280,8 +280,8 @@ a few recommended starting points:
 
 <!-- LINKS -->
 
-[install]: ./install
-[overview]: ./overview.html
+[install]: ../install
+[overview]: ../overviewl
 [snapd-docs]: https://docs.snapcraft.io/core/install
 [cloud-aws]: https://aws.amazon.com
 [cloud-cloudsigma]: https://www.cloudsigma.com
@@ -290,9 +290,9 @@ a few recommended starting points:
 [cloud-rackspace]: https://www.rackspace.com/cloud/
 [cloud-azure]: https://azure.microsoft.com/
 [cloud-joyent]: https://www.joyent.com/
-[how-login]: ./howto-login.html
-[how-helm]: ./howto-helm.html
-[how-juju]: ./howto-juju.html
-[google-credentials]: ./googlecloud.html
-[storage]: ./storage.html
-[rbac]: ./rbac.html
+[how-login]: ../howto-login
+[how-helm]: ../howto-helm
+[how-juju]: ../howto-juju
+[google-credentials]: ../googlecloud
+[storage]: ../storage
+[rbac]: ../rbac

@@ -21,7 +21,7 @@ please refer to their own documentation for details.
 
 ## Creating an **etcd** snapshot
 
- <div class="p-notification--warning"><p class="p-notification__response">
+ <div class="p-notification--warning"><p markdown="1" class="p-notification__response">
  <span class="p-notification__status">Warning:</span>
  Snapshots can only be restored on the **same version of etcd**.
   </p></div>
@@ -77,7 +77,7 @@ sha256sum etcd-snapshot-2018-09-26-18.04.02.tar.gz
 
 ## Restoring a snapshot
 
-<div class="p-notification--warning"><p class="p-notification__response">
+<div class="p-notification--warning"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Warning:</span>
 Restoring a snapshot should not be performed when there is more than one unit
 of **etcd** running.

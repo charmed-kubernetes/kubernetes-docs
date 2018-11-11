@@ -61,7 +61,7 @@ would use the command:
  juju deploy -n 3 ceph-osd --storage osd-devices=32G,2 --storage osd-journals=8G,1
 ```
 
-<div class="p-notification--positive"><p class="p-notification__response">
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
 For a more detailed explanation of Juju's storage pools and options, please see the
 relevant <a href="https://docs.jujucharms.com/stable/en/charms-storage">

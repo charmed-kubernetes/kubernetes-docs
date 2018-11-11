@@ -27,7 +27,7 @@ The recommended way to monitor your cluster is to use a combination of
 **Prometheus**, **Grafana** and **Telegraf**. The fastest, easiest way to
 install and configure this is via **conjure-up** when installing the
 **Canonical Distribution of Kubernetes**<sup>&reg;</sup>, by selecting the box
-next to  Prometheus from the `Add-on` menu. You can then log in to the dashboard
+next to Prometheus from the `Add-on` menu. You can then log in to the dashboard
 as [described below](#retrieve-credentials-and-login). See the [quickstart
 guide][quickstart] for more details on installing **CDK** with **conjure-up**.
 
@@ -60,29 +60,29 @@ juju add-relation kubernetes-worker:juju-info telegraf:juju-info
 ### Adding a scraper for Prometheus
 
 Prometheus will also need an appropriate scraper to collect metrics relevant to
-the cluster.  A useful default is installed when using **conjure-up** (the
+the cluster. A useful default is installed when using **conjure-up** (the
 template for this can be [downloaded here][download-scraper]), but you can also
 configure it manually by following the steps outlined here:
 
- -  Download the scraper file
-    ```bash
-    curl -O  https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
-    ```
-    This is the template, but it needs some specific information for your cluster.
- -  Get the relevant address and password from your cluster
-     ```bash
-    api=$(juju run  --unit kubeapi-load-balancer/0 'network-get website --format yaml --ingress-address' | head -1)
-    pass=$(juju run --unit kubernetes-master/0 'grep "password:" /home/ubuntu/config' | awk '{ print $2 }')
-    ```
-    This will fetch the relevant info and store in temporary environment variables for convenience.
- -   Substitute in the variables
-     ```bash
-     sed -e 's/K8S_PASSWORD/'"$pass"'/' -e 's/K8S_API_ENDPOINT/'"$api"'/' <prometheus-scrape-k8s.yaml  > myscraper.yaml
-     ```
- -   Configure Prometheus to use this scraper
-     ```bash
-     juju config prometheus scrape-jobs="$(<myscraper.yaml)"
-     ```
+- Download the scraper file
+  ```bash
+  curl -O  https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
+  ```
+  This is the template, but it needs some specific information for your cluster.
+- Get the relevant address and password from your cluster
+  ```bash
+  api=$(juju run  --unit kubeapi-load-balancer/0 'network-get website --format yaml --ingress-address' | head -1)
+  pass=$(juju run --unit kubernetes-master/0 'grep "password:" /home/ubuntu/config' | awk '{ print $2 }')
+  ```
+  This will fetch the relevant info and store in temporary environment variables for convenience.
+- Substitute in the variables
+  ```bash
+  sed -e 's/K8S_PASSWORD/'"$pass"'/' -e 's/K8S_API_ENDPOINT/'"$api"'/' <prometheus-scrape-k8s.yaml  > myscraper.yaml
+  ```
+- Configure Prometheus to use this scraper
+  ```bash
+  juju config prometheus scrape-jobs="$(<myscraper.yaml)"
+  ```
 
 ### Add the dashboards
 
@@ -90,38 +90,38 @@ As with the scraper, there is a [sample dashboard available for download
 here][download-dashboard]. You can download and configure **grafana** to use it
 by following these steps:
 
- -  Download the sample dashboard configuration
-    ```bash
-    curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json
-    ```
- -  Upload this to **grafana**
-    ```bash
-    juju run-action --wait grafana/0 import-dashboard  dashboard="$(base64 grafana-k8s.json)"
-    ```
-There is also a default Telegraf dashboard. If you wish to install this, it can be done in a similar way:
+- Download the sample dashboard configuration
+  ```bash
+  curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json
+  ```
+- Upload this to **grafana**
+  `bash juju run-action --wait grafana/0 import-dashboard dashboard="$(base64 grafana-k8s.json)"`
+  There is also a default Telegraf dashboard. If you wish to install this, it can be done in a similar way:
 
 ```bash
 curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-telegraf.json
 juju run-action --wait grafana/0 import-dashboard  dashboard="$(base64 grafana-telegraf.json)"
 ```
 
-### Retrieve  credentials and login
+### Retrieve credentials and login
 
 To open the dashboard in your browser you will need to know the IP address for
 **grafana** and the admin password. These can be retrieved with the following
 commands:
 
 ```bash
-juju status --format yaml grafana/0 | grep public-address   
+juju status --format yaml grafana/0 | grep public-address
 ```
+
 Will return the accessible IP address for the dashboard.
 
 ```bash
 juju run-action --wait grafana/0 get-admin-password
 ```
+
 Will return the password for the user 'admin'
 
-You can now navigate to the website at `http://<your-ip>:3000`  and login with
+You can now navigate to the website at `http://<your-ip>:3000` and login with
 the username `admin` and the password you just retrieved.
 
 Once logged in, check out the cluster metric dashboard by clicking the `Home`
@@ -133,7 +133,6 @@ You can also check out the system metrics of the cluster by switching the
 drop-down box to `Node Metrics (via Telegraf):
 
 ![grafana dashboard image][grafana-2]
-
 
 ## Monitoring with Nagios
 
@@ -155,7 +154,7 @@ Connect **Nagios** to NRPE:
 juju add-relation nagios nrpe
 ```
 
-Now add relations to NRPE for all the  applications  you wish to monitor, for
+Now add relations to NRPE for all the applications you wish to monitor, for
 example kubernetes-master, kubernetes-worker, etcd, easyrsa, and
 kubeapi-load-balancer.
 
@@ -192,7 +191,7 @@ juju deploy nrpe-external-master --series=xenial
 juju configure nrpe-external-master nagios_master= <ip-address-of-nagios>
 ```
 
-Once configured, add relations to `nrpe-external-master`  as outlined above.
+Once configured, add relations to `nrpe-external-master` as outlined above.
 
 ## Monitoring with **Elasticsearch**
 
@@ -246,18 +245,17 @@ You can find the dashboard at the public IP address of your **kibana** applicati
 juju status kibana --format yaml| grep public-address
 ```
 
-
-
 <!-- IMAGES -->
+
 [grafana-1]: https://assets.ubuntu.com/v1/e6934269-grafana-1.png
 [grafana-2]: https://assets.ubuntu.com/v1/45b87639-grafana-2.png
 [nagios-1]: https://assets.ubuntu.com/v1/4b109895-CDK-nagios.png
 [select-1]: https://assets.ubuntu.com/v1/6ffe272e-CDK-select.png
 
 <!-- LINKS -->
-[quickstart]: ./quickstart.html
+
+[quickstart]: ../quickstart
 [nagios]: https://www.nagios.org/
 [elastic]: https://www.elastic.co/
 [download-scraper]: https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
-
 [download-dashboard]: https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json

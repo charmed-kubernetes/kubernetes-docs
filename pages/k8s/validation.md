@@ -20,7 +20,7 @@ encapsulated in an additional **Juju** charm which can be added to your cluster.
 testing is then run through the charm's actions.
 
 <div class="p-notification--caution">
-  <p class="p-notification__response">
+  <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Caution:</span>
 Your cluster will need to have at least two running worker units for the `e2e` test to run
 properly.
@@ -158,7 +158,7 @@ echo -ne $(cat $fn | sed  's/$/\\n/' | sed 's/\x1B\[[0-9]*\w//g')
 ```
 
 <div class="p-notification--caution">
-  <p class="p-notification__response">
+  <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Caution:</span>
 If you are running regular tests in this way, it is advisable to remove the generated logs
 from the test unit. The uncompressed logs in particular can be very large and quickly fill

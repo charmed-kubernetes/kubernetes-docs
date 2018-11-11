@@ -9,13 +9,13 @@ toc: False
 ---
 
 # Troubleshooting
+
 This document covers how to troubleshoot the deployment of a Kubernetes cluster,
 it will not cover debugging of workloads inside Kubernetes.
 
 ## Understanding Cluster Status
 
 Using `juju status` can give you some insight as to what's happening in a cluster:
-
 
 ```no-highlight
 Model                         Controller          Cloud/Region   Version  SLA          Timestamp
@@ -63,7 +63,6 @@ Machine  State    DNS             Inst id              Series  AZ          Messa
 8        started  34.246.168.241  i-0934f74bfdfba2a3f  bionic  eu-west-1b  running
 9        started  54.229.236.169  i-0a4129c834c713a5e  bionic  eu-west-1a  running
 10       started  34.253.203.147  i-053492139b1080ce0  bionic  eu-west-1c  running
-
 ```
 
 In this example we can glean some information. The `Workload` column will show
@@ -75,8 +74,7 @@ maintenance as `Installing docker`.
 
 During normal operation the Workload should read `active`, the Agent column
 (which reflects what the Juju agent is doing) should read `idle`, and the
-messages will either say `Ready` or another descriptive term. `juju status
---color` will also return all green results when a cluster's deployment is
+messages will either say `Ready` or another descriptive term. `juju status --color` will also return all green results when a cluster's deployment is
 healthy.
 
 Status can become unwieldy for large clusters, it is then recommended to check
@@ -147,7 +145,7 @@ Happy Helming!
 
 Then when using helm you may see one of the following errors:
 
-* Helm doesn't get the version from the Tiller server
+- Helm doesn't get the version from the Tiller server
 
 ```bash
 helm version
@@ -155,7 +153,7 @@ Client: &version.Version{SemVer:"v2.1.3", GitCommit:"5cbc48fb305ca4bf68c26eb8d2a
 Error: cannot connect to Tiller
 ```
 
-* Helm cannot install your chart
+- Helm cannot install your chart
 
 ```bash
 helm install <chart> --debug
@@ -166,74 +164,73 @@ This is caused by the API load balancer not forwarding ports in the context of
 the helm client-server relationship. To deploy using helm, you will need to
 follow these steps:
 
-1. Expose the Kubernetes Master service
+1.  Expose the Kubernetes Master service
 
-   ```bash
-   juju expose kubernetes-master
-   ```
+    ```bash
+    juju expose kubernetes-master
+    ```
 
-1. Identify the public IP address of one of your masters
+1.  Identify the public IP address of one of your masters
 
-   ```bash
-    juju status kubernetes-master
-   ```
+    ```bash
+     juju status kubernetes-master
+    ```
 
-   ```no-highlight
-   Model                         Controller          Cloud/Region   Version  SLA          Timestamp
-   conjure-canonical-kubern-ade  conjure-up-aws-91c  aws/eu-west-1  2.4.5    unsupported  08:39:23+01:00
-   
-   App                Version  Status  Scale  Charm              Store       Rev  OS      Notes
-   flannel            0.10.0   active      2  flannel            jujucharms  146  ubuntu  
-   kubernetes-master  1.12.1   active      2  kubernetes-master  jujucharms  219  ubuntu  
+    ```no-highlight
+    Model                         Controller          Cloud/Region   Version  SLA          Timestamp
+    conjure-canonical-kubern-ade  conjure-up-aws-91c  aws/eu-west-1  2.4.5    unsupported  08:39:23+01:00
 
-   Unit                  Workload  Agent  Machine  Public address  Ports     Message
-   kubernetes-master/0*  active    idle   6        34.254.175.71   6443/tcp  Kubernetes master running.
-     flannel/0*          active    idle            34.254.175.71             Flannel subnet 10.1.16.1/24
-   kubernetes-master/1   active    idle   7        52.210.61.51    6443/tcp  Kubernetes master running.
-     flannel/3           active    idle            52.210.61.51              Flannel subnet 10.1.38.1/24
+    App                Version  Status  Scale  Charm              Store       Rev  OS      Notes
+    flannel            0.10.0   active      2  flannel            jujucharms  146  ubuntu  
+    kubernetes-master  1.12.1   active      2  kubernetes-master  jujucharms  219  ubuntu  
 
-   Entity  Meter status  Message
-   model   amber         user verification pending  
+    Unit                  Workload  Agent  Machine  Public address  Ports     Message
+    kubernetes-master/0*  active    idle   6        34.254.175.71   6443/tcp  Kubernetes master running.
+      flannel/0*          active    idle            34.254.175.71             Flannel subnet 10.1.16.1/24
+    kubernetes-master/1   active    idle   7        52.210.61.51    6443/tcp  Kubernetes master running.
+      flannel/3           active    idle            52.210.61.51              Flannel subnet 10.1.38.1/24
 
-   Machine  State    DNS            Inst id              Series  AZ          Message
-   6        started  34.254.175.71  i-0f18d3f7377ba406f  bionic  eu-west-1a  running
-   7        started  52.210.61.51   i-08ec1daf25fb18fa3  bionic  eu-west-1b  running
+    Entity  Meter status  Message
+    model   amber         user verification pending  
 
-   ```
+    Machine  State    DNS            Inst id              Series  AZ          Message
+    6        started  34.254.175.71  i-0f18d3f7377ba406f  bionic  eu-west-1a  running
+    7        started  52.210.61.51   i-08ec1daf25fb18fa3  bionic  eu-west-1b  running
+    ```
 
-   In this context the public IP address is 54.210.100.102.
+    In this context the public IP address is 54.210.100.102.
 
-   If you want to access this data programmatically you can use the JSON output:
+    If you want to access this data programmatically you can use the JSON output:
 
-   ```bash
-   juju show-status kubernetes-master --format json | jq --raw-output '.applications."kubernetes-master".units | keys[]'
-   54.210.100.102
-   ```
+    ```bash
+    juju show-status kubernetes-master --format json | jq --raw-output '.applications."kubernetes-master".units | keys[]'
+    54.210.100.102
+    ```
 
-1. Update the kubeconfig file
+1.  Update the kubeconfig file
 
-   Identify the kubeconfig file or section used for this cluster, and edit the server configuration.
+    Identify the kubeconfig file or section used for this cluster, and edit the server configuration.
 
-   By default, it will look like ```https://54.213.123.123:443```. Replace it with the Kubernetes Master endpoint ```https://54.210.100.102:6443``` and save.
+    By default, it will look like `https://54.213.123.123:443`. Replace it with the Kubernetes Master endpoint `https://54.210.100.102:6443` and save.
 
-   Note that the default port used by CDK for the Kubernetes Master API is 6443
-   while the port exposed by the load balancer is 443.
+    Note that the default port used by CDK for the Kubernetes Master API is 6443
+    while the port exposed by the load balancer is 443.
 
-1. Start helm again!
+1.  Start helm again!
 
-   ```
-   helm install <chart> --debug
-   Created tunnel using local port: '36749'
-   SERVER: "localhost:36749"
-   CHART PATH: /home/ubuntu/.helm/<chart>
-   NAME:   <chart>
-   ...
-   ...
-   ```
+    ```
+    helm install <chart> --debug
+    Created tunnel using local port: '36749'
+    SERVER: "localhost:36749"
+    CHART PATH: /home/ubuntu/.helm/<chart>
+    NAME:   <chart>
+    ...
+    ...
+    ```
 
 ## Logging and monitoring
 
 By default there is no log aggregation of the Kubernetes nodes, each node logs
 locally. Please read over the
-[logging](\logging.html)
+[logging](../logging)
 page for more information.

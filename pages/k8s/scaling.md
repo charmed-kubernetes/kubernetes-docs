@@ -86,7 +86,7 @@ exisiting constraints***, so in this example, we also include the existing
 `root-disk` requirement.
 
 <div class="p-notification--information">
-  <p class="p-notification__response">
+  <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 Constraints are designed to supply the <i>minimum</i> of what is requested. This can
 result in the actual instances far exceeding these values, depending on the backing cloud.
