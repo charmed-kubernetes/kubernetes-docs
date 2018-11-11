@@ -6,11 +6,10 @@ sidebar: k8smain-sidebar
 permalink: news.html
 redirect_from:
   - /reference-release-notes.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
-
 
 # 1.12 Released
 
@@ -43,6 +42,7 @@ the charm, and is usable on any Canonical cluster running Kubernetes 1.10+.
 
 The value for this config must be a YAML mapping that can be safely
 merged with a KubeletConfiguration file. For example:
+
 ```
 juju config kubernetes-worker kubelet-extra-config="{evictionHard: {memory.available: 200Mi}}"
 ```
@@ -84,9 +84,9 @@ page for details.
 
 ## Known issues
 
- - any remaining major issues currently being worked on
- - for the next release
- - if any
+- any remaining major issues currently being worked on
+- for the next release
+- if any
 
 ## Contact Us
 

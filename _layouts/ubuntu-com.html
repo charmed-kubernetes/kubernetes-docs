@@ -1,0 +1,19 @@
+{% raw %}{% extends "kubernetes/docs/base_docs.html" %}{% endraw %}
+
+{% raw %}{% block meta_description %}{% endraw %}
+{{ summary | strip_html }}
+{% raw %}{% endblock %}{% endraw %}
+
+{% raw %}{% block title %}{% endraw %}{{ page.title }} | CDK Documentation{% raw %}{% endblock %}{% endraw %}
+
+{% raw %}{% block meta_copydoc %}{% endraw %}
+
+{% raw %}{% endblock meta_copydoc %}{% endraw %}
+
+{% raw %}{% block content %}{% endraw %}
+
+<h1 id="{{ permalink | replace: ".html", "" }}">{{ page.title }}</h1>
+
+{{ content }}
+
+{% raw %}{% endblock content %}{% endraw %}

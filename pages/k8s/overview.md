@@ -4,7 +4,7 @@ keywords: juju, kubernetes, cdk
 tags: [intro]
 sidebar: k8smain-sidebar
 permalink: overview.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 

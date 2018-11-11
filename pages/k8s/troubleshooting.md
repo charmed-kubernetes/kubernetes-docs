@@ -4,7 +4,7 @@ keywords: juju, troubleshooting, helm
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: troubleshooting.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 

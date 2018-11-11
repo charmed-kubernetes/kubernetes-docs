@@ -4,7 +4,7 @@ keywords: lxd, conjure-up, requirements,developer
 tags: [install]
 sidebar: k8smain-sidebar
 permalink: install-local.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 

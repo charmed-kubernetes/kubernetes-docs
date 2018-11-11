@@ -4,7 +4,7 @@ keywords: juju, decommissioning, destroy-model, destroy-controller, config
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: decommissioning.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 # Decommissioning

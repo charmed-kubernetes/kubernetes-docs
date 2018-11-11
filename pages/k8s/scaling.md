@@ -4,7 +4,7 @@ keywords: juju, scaling, add-unit, ha, high availability
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: scaling.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 
 ---

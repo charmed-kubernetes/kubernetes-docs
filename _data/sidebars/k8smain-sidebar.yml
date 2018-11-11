@@ -9,16 +9,16 @@ entries:
     items:
 
     - title: Home
-      url: /index.html
+      url: /index
       output: web, pdf
       type: homepage
 
     - title: Overview
-      url: /overview.html
+      url: /overview
       output: web, pdf
 
     - title: News
-      url: /news.html
+      url: /news
       output: web, pdf
 
   - title: Install
@@ -27,12 +27,12 @@ entries:
     items:
 
     - title: Quickstart
-      url: /quickstart.html
+      url: /quickstart
       output: web, pdf
       type: homepage
 
     - title: Local install
-      url: /install-local.html
+      url: /install-local
       output: web, pdf
       type: homepage
 
@@ -42,42 +42,42 @@ entries:
     items:
 
     - title: Logging
-      url: /logging.html
+      url: /logging
       output: web, pdf
       type: page
 
     - title: Monitoring
-      url: /monitoring.html
+      url: /monitoring
       output: web, pdf
       type: page
 
     - title: Upgrading
-      url: /upgrading.html
+      url: /upgrading
       output: web, pdf
       type: page
 
     - title: Storage
-      url: /storage.html
+      url: /storage
       output: web, pdf
       type: page
 
     - title: Scaling
-      url: /storage.html
+      url: /storage
       output: web, pdf
       type: page
 
     - title: Validation
-      url: /validation.html
+      url: /validation
       output: web, pdf
       type: page
 
     - title: Decommissioning
-      url: /decommissioning.html
+      url: /decommissioning
       output: web, pdf
       type: page
 
     - title: Troubleshooting
-      url: /troubleshooting.html
+      url: /troubleshooting
       output: web, pdf
       type: page
 
@@ -86,11 +86,11 @@ entries:
     items:
 
     - title: Release notes
-      url: /reference-release-notes.html
+      url: /reference-release-notes
       output: web, pdf
       type: page
 
     - title: Upgrade notes
-      url: /upgrade-notes.html
+      url: /upgrade-notes
       output: web, pdf
       type: page

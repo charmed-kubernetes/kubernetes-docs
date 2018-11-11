@@ -4,7 +4,7 @@ keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: upgrading.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---

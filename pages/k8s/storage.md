@@ -4,7 +4,7 @@ keywords: storage, ceph, nfs, pvc
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: storage.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 
