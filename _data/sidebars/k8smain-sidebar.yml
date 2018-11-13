@@ -62,7 +62,7 @@ entries:
       type: page
 
     - title: Scaling
-      url: /storage.html
+      url: /scaling.html
       output: web, pdf
       type: page
 
