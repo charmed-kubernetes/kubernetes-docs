@@ -13,8 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-<img  src="https://assets.ubuntu.com/v1/afc9346f-k8s-bundle.svg" alt="" width="350" height="350" style="border: 0; float:right; margin-left: 2rem;">
-
 The Canonical Distribution of Kubernetes<sup>&reg;</sup> delivers a ‘pure K8s’ experience, tested across a wide range of clouds and integrated with modern metrics and monitoring. It works across all major public clouds and private infrastructure, enabling your teams to operate Kubernetes clusters on demand, anywhere.
 
 With this quick start guide and some tools from Canonical, you'll have a Kubernetes cluster running on the cloud of your choice in minutes!
@@ -25,7 +23,7 @@ With this quick start guide and some tools from Canonical, you'll have a Kuberne
 - Account credentials for one of the following public clouds:
   - [Amazon Web Services][cloud-aws], including AWS-China and AWS-gov
   - [CloudSigma][cloud-cloudsigma]
-  - [ Google Cloud platform ][cloud-google] (See additional [notes for Google cloud][google-credentials])
+  - [Google Cloud platform ][cloud-google]
   - [Joyent][cloud-joyent]
   - [Microsoft Azure][cloud-azure], including Azure-China
   - [Oracle Cloud][cloud-oracle]
@@ -64,7 +62,7 @@ This will start an interactive, guided deployment of the components of the **Can
 
 The next screen shows a selection of add-ons which can be installed at the same time as Kubernetes.
 
-![conjure-up menu][img-add-ons]
+![conjure-up menu](https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png)
 
 You may want to come back and give some of these a try, but for now, just use the `Tab` key to move down the list and select the `Continue` button on the interface, and press `Enter`.
 
@@ -72,7 +70,7 @@ You may want to come back and give some of these a try, but for now, just use th
 
 The next step is to choose the cloud you wish to deploy to.
 
-![conjure-up menu][img-clouds]
+![conjure-up menu](https://assets.ubuntu.com/v1/a4efde88-CDK-cloud.png)
 
 Select the public cloud you wish to use and continue.
 
@@ -84,7 +82,7 @@ If you have run through this install previously or you have already set up crede
 
 If you haven't previously stored credentials, you will instead be prompted to enter them now:
 
-![conjure-up menu][img-credential]
+![conjure-up menu](https://assets.ubuntu.com/v1/f915816f-CDK-credential.png)
 
 Simply paste in the required fields and use `Tab`, `cursor keys` and `Enter` to navigate.
 
@@ -97,7 +95,7 @@ There are many different types of credentials, and copying and pasting them accu
 
 Juju uses a central _controller_ instance to manage the applications it deploys in separate _models_. You always need at least one controller, but if you have already created one for previous installs in this cloud (even if they weren't for Kubernetes), you can reuse that controller.
 
-![conjure-up controller menu][img-controller]
+![conjure-up controller menu](https://assets.ubuntu.com/v1/f65cdeb8-CDK-controller.png)
 
 Assuming that this is your first time with **conjure-up** and **Juju**, select `Deploy New Self-Hosted Controller` and continue.
 
@@ -107,7 +105,7 @@ The next few **conjure-up** screens deal with configuring and customising your i
 
 Depending on your chosen cloud, the first choice is which network plugin to use:
 
-![conjure-up controller menu][img-network]
+![conjure-up controller menu](https://assets.ubuntu.com/v1/cd3e83d6-CDK-network.png)
 
 Use the cursor keys to navigate and `space` to select either **flannel** _or_ **calico**. If you don't have an opinion about which style of networking you need, just leave the default choice and select `next`. Some clouds do not currently support Calico, in which case this option will not appear.
 
@@ -115,7 +113,7 @@ You will now be asked for your **sudo** password. This is so **conjure-up** can 
 
 The next screen will show the applications to be deployed. See the [overview][overview] if you need a better understanding of what these components do.
 
-![conjure-up controller menu][img-applications]
+![conjure-up controller menu](https://assets.ubuntu.com/v1/421cf437-CDK-applications.png)
 
 By default, this setup will deploy two Kubernetes master nodes and three workers, which can be changed by entering the configuration screen for these components and selecting new values. Note that it will also be possible to increase the number of nodes later, so it isn't necessary to determine how many workers you'll need in advance -- you can just select `Continue`.
 
@@ -123,17 +121,17 @@ By default, this setup will deploy two Kubernetes master nodes and three workers
 
 Now **conjure-up** will start the set up by creating a Juju controller, and you will see the following screen:
 
-![conjure-up controller menu][img-juju]
+![conjure-up controller menu](https://assets.ubuntu.com/v1/112fa567-CDK-juju.png)
 
 As mentioned previously, a Juju controller is a cloud instance which Juju uses to monitor and manage any other nodes and applications it deploys across any number of different models. You will typically only need one Juju controller per cloud, and you will be able to deploy multiple separate models containing additional Kubernetes clusters or other big software applications.
 
 Once the controller has been created, Juju will then create a model and instances within that model to contain the applications which make up the **Canonical Distribution of Kubernetes**. For a few minutes, **conjure-up** will display a status screen, reporting on the progress of the install. You will see the individual status messages change as the instances are created, software is installed on them, and then this software is configured to work with the other elements of the deployment.
 
-![conjure-up controller menu][img-waiting]
+![conjure-up controller menu](https://assets.ubuntu.com/v1/92511391-CDK-waiting.png)
 
 The actual time this takes will depend on a number of factors, including which cloud you are using, but it should be complete in around five minutes. When the installed software is up an running, **conjure-up** will display a final screen indicating that the cluster is up and running and giving details of the running services and their addresses. It should also indicate that the `kubectl` software has been installed on your local machine.
 
-![conjure-up status][img-final]
+![conjure-up status](https://assets.ubuntu.com/v1/bbe1b9f4-CDK-final.png)
 
 Congratulations! You now have a cluster up and running with the **Canonical Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
 
@@ -145,7 +143,7 @@ kubectl cluster-info
 
 The output should look similar to this:
 
-![cli output][img-cli-output]
+![cli output](https://assets.ubuntu.com/v1/d5519ed3-CDK-clusterinfo.png)
 
 This shows the relevant IP addresses for operating your cluster.
 
@@ -163,11 +161,11 @@ kubectl config view | grep password
 
 Open a browser at the address for the Dashboard and log in. You will see an additional authentication screen:
 
-![dashboard image][img-dash-login]
+![dashboard image](https://assets.ubuntu.com/v1/d89b1290-CDK-007.png)
 
 For now you can just choose 'Skip' to get to the Dashboard, but for future administration, you should set up _role based access control_.
 
-![dashboard image][img-dashboard]
+![dashboard image](https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png)
 
 ## Next steps
 
@@ -176,22 +174,6 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 - [Add persistent storage&nbsp;&rsaquo;][storage]
 
 <sub>Kubernetes<sup>&reg;</sup> is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. </sub>
-
-<!--IMAGES-->
-
-[img-cli-output]: https://assets.ubuntu.com/v1/d5519ed3-CDK-clusterinfo.png
-[img-add-ons]: https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png
-[img-applications]: https://assets.ubuntu.com/v1/421cf437-CDK-applications.png
-[img-choose]: https://assets.ubuntu.com/v1/b992cb94-CDK-choose.png
-[img-clouds]: https://assets.ubuntu.com/v1/a4efde88-CDK-cloud.png
-[img-controller]: https://assets.ubuntu.com/v1/f65cdeb8-CDK-controller.png
-[img-final]: https://assets.ubuntu.com/v1/bbe1b9f4-CDK-final.png
-[img-juju]: https://assets.ubuntu.com/v1/112fa567-CDK-juju.png
-[img-network]: https://assets.ubuntu.com/v1/cd3e83d6-CDK-network.png
-[img-waiting]: https://assets.ubuntu.com/v1/92511391-CDK-waiting.png
-[img-credential]: https://assets.ubuntu.com/v1/f915816f-CDK-credential.png
-[img-dash-login]: https://assets.ubuntu.com/v1/d89b1290-CDK-007.png
-[img-dashboard]: https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png
 
 <!-- LINKS -->
 

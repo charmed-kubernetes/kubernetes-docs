@@ -41,48 +41,58 @@ You can now proceed using the main installer. Follow the [install instructions][
 
 ## Ubuntu Server
 
-1.  Install **LXD**
-    ```bash
-    sudo snap install lxd
-    ```
-1.  Run the **LXD** init script
-    ```bash
-    /snap/bin/lxd init
-    ```
-1.  The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
+### 1. Install **LXD**
 
-    - Networking: Do **NOT** enable ipv6 networking on the bridge interface
-    - Storage Pool: Use the 'dir' storage type
+```bash
+sudo snap install lxd
+```
 
-1.  You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
+### 2. Run the **LXD** init script
+
+```bash
+/snap/bin/lxd init
+```
+
+### 3. Configure the installer
+
+The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
+
+- Networking: Do **NOT** enable ipv6 networking on the bridge interface
+- Storage Pool: Use the 'dir' storage type
+
+You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
 
 ## Ubuntu Desktop
 
-1.  Install **LXD**
+### 1. Install **LXD**
 
-    ```bash
-    sudo snap install lxd
-    ```
+```bash
+sudo snap install lxd
+```
 
-1.  In order to access the **LXD** service your user will need to be apart of the `lxd` group. Run the following:
+### 2. Create users
 
-    ```bash
-    sudo usermod -a -G lxd $USER
-    newgrp lxd
-    ```
+In order to access the **LXD** service your user will need to be apart of the `lxd` group. Run the following:
 
-1.  Run the **LXD** init script
+```bash
+sudo usermod -a -G lxd $USER
+newgrp lxd
+```
 
-    ```bash
-    /snap/bin/lxd init
-    ```
+### 3. Run the **LXD** init script
 
-1.  The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
+```bash
+/snap/bin/lxd init
+```
 
-    - Networking: Do **NOT** enable ipv6 networking on the bridge interface
-    - Storage Pool: Use the 'dir' storage type
+### 4. Configure
 
-1.  You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
+The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
+
+- Networking: Do **NOT** enable ipv6 networking on the bridge interface
+- Storage Pool: Use the 'dir' storage type
+
+You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
 
 ## Other platforms (ArchLinux, Debian, Fedora, OpenSUSE )
 

@@ -3,7 +3,7 @@ wrapper_template: "base-docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Documentation for The Canonical Distribution of Kubernetes <sup>&reg;</sup>"
+  title: "Kubernetes documentation"
   description: Documentation for the Canonical Distribution of Kubernetes.
 keywords: homepage
 tags: [getting_started]
@@ -12,8 +12,6 @@ permalink: index.html
 layout: base_noedit
 toc: False
 ---
-
-<img src="https://assets.ubuntu.com/v1/afc9346f-k8s-bundle.svg" alt="" width="350" height="350" style="float:right; margin-left: 2rem; border: 0">
 
 The Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK), is pure Kubernetes tested across the widest range of clouds with modern metrics and monitoring, brought to you by the people who deliver Ubuntu.
 

@@ -107,11 +107,11 @@ You can now navigate to the website at `http://<your-ip>:3000` and login with th
 
 Once logged in, check out the cluster metric dashboard by clicking the `Home` drop-down box and selecting `Kubernetes Metrics (via Prometheus)`:
 
-![grafana dashboard image][grafana-1]
+![grafana dashboard image][https://assets.ubuntu.com/v1/e6934269-grafana-1.png]
 
 You can also check out the system metrics of the cluster by switching the drop-down box to `Node Metrics (via Telegraf):
 
-![grafana dashboard image][grafana-2]
+![grafana dashboard image][https://assets.ubuntu.com/v1/45b87639-grafana-2.png]
 
 ## Monitoring with Nagios
 
@@ -153,7 +153,7 @@ The default username is `nagiosadmin`. The password is randomly generated at ins
 juju ssh nagios/0 sudo cat /var/lib/juju/nagios.passwd
 ```
 
-![nagios dashboard image][nagios-1]
+![nagios dashboard image][https://assets.ubuntu.com/v1/4b109895-cdk-nagios.png]
 
 ### Using an existing Nagios service
 
@@ -215,13 +215,6 @@ You can find the dashboard at the public IP address of your **kibana** applicati
 ```
 juju status kibana --format yaml| grep public-address
 ```
-
-<!-- IMAGES -->
-
-[grafana-1]: https://assets.ubuntu.com/v1/e6934269-grafana-1.png
-[grafana-2]: https://assets.ubuntu.com/v1/45b87639-grafana-2.png
-[nagios-1]: https://assets.ubuntu.com/v1/4b109895-CDK-nagios.png
-[select-1]: https://assets.ubuntu.com/v1/6ffe272e-CDK-select.png
 
 <!-- LINKS -->
 
