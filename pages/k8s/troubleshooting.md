@@ -1,5 +1,10 @@
 ---
-title: "Troubleshooting | Canonical Distribution of Kubernetes&reg;"
+wrapper_template: "base-docs.html"
+markdown_includes:
+  nav: "shared/_side-navigation.md"
+context:
+  title: "Troubleshooting"
+  description: How to troubleshoot the deployment of a Kubernetes cluster.
 keywords: juju, troubleshooting, helm
 tags: [operating]
 sidebar: k8smain-sidebar
@@ -8,10 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# Troubleshooting
-
-This document covers how to troubleshoot the deployment of a Kubernetes cluster,
-it will not cover debugging of workloads inside Kubernetes.
+This document covers how to troubleshoot the deployment of a Kubernetes cluster, it will not cover debugging of workloads inside Kubernetes.
 
 ## Understanding Cluster Status
 
@@ -65,21 +67,11 @@ Machine  State    DNS             Inst id              Series  AZ          Messa
 10       started  34.253.203.147  i-053492139b1080ce0  bionic  eu-west-1c  running
 ```
 
-In this example we can glean some information. The `Workload` column will show
-the status of a given service. The `Message` section will show you the health
-of a given service in the cluster. During deployment and maintenance these
-workload statuses will update to reflect what a given node is doing. For
-example the workload may say `maintenance` while message will describe this
-maintenance as `Installing docker`.
+In this example we can glean some information. The `Workload` column will show the status of a given service. The `Message` section will show you the health of a given service in the cluster. During deployment and maintenance these workload statuses will update to reflect what a given node is doing. For example the workload may say `maintenance` while message will describe this maintenance as `Installing docker`.
 
-During normal operation the Workload should read `active`, the Agent column
-(which reflects what the Juju agent is doing) should read `idle`, and the
-messages will either say `Ready` or another descriptive term. `juju status --color` will also return all green results when a cluster's deployment is
-healthy.
+During normal operation the Workload should read `active`, the Agent column (which reflects what the Juju agent is doing) should read `idle`, and the messages will either say `Ready` or another descriptive term. `juju status --color` will also return all green results when a cluster's deployment is healthy.
 
-Status can become unwieldy for large clusters, it is then recommended to check
-status on individual services, for example to check the status on the workers
-only:
+Status can become unwieldy for large clusters, it is then recommended to check status on individual services, for example to check the status on the workers only:
 
 ```bash
 juju status kubernetes-worker
@@ -91,14 +83,11 @@ or just on the etcd cluster:
 juju status etcd
 ```
 
-Errors will have an obvious message, and will return a red result when used
-with `juju status --color`. Nodes that come up in this manner should be
-investigated.
+Errors will have an obvious message, and will return a red result when used with `juju status --color`. Nodes that come up in this manner should be investigated.
 
 ## SSHing to units
 
-You can ssh to individual units easily with the following convention,
-`juju ssh <servicename>/<unit#>`:
+You can ssh to individual units easily with the following convention, `juju ssh <servicename>/<unit#>`:
 
 ```bash
 juju ssh kubernetes-worker/3
@@ -114,25 +103,17 @@ This will automatically ssh you to the easyrsa unit.
 
 ## Collecting debug information
 
-Sometimes it is useful to collect all the information from a cluster to share
-with a developer to identify problems. This is best accomplished with [CDK
-Field Agent](https://github.com/juju-solutions/cdk-field-agent).
+Sometimes it is useful to collect all the information from a cluster to share with a developer to identify problems. This is best accomplished with [CDK Field Agent](https://github.com/juju-solutions/cdk-field-agent).
 
-Download and execute the collect.py script from [CDK Field
-Agent](https://github.com/juju-solutions/cdk-field-agent) on a box that has a
-Juju client configured with the current controller and model pointing at the
-CDK deployment of interest.
+Download and execute the collect.py script from [CDK Field Agent](https://github.com/juju-solutions/cdk-field-agent) on a box that has a Juju client configured with the current controller and model pointing at the CDK deployment of interest.
 
-Running the script will generate a tarball of system information and includes
-basic information such as systemctl status, Juju logs, charm unit data, etc.
-Additional application-specific information may be included as well.
+Running the script will generate a tarball of system information and includes basic information such as systemctl status, Juju logs, charm unit data, etc. Additional application-specific information may be included as well.
 
 ## Common Problems
 
 ### Load Balancer interfering with Helm
 
-This section assumes you have a working deployment of Kubernetes via Juju using
-a Load Balancer for the API, and that you are using Helm to deploy charts.
+This section assumes you have a working deployment of Kubernetes via Juju using a Load Balancer for the API, and that you are using Helm to deploy charts.
 
 To deploy Helm you will have run:
 
@@ -160,9 +141,7 @@ helm install <chart> --debug
 Error: forwarding ports: error upgrading connection: Upgrade request required
 ```
 
-This is caused by the API load balancer not forwarding ports in the context of
-the helm client-server relationship. To deploy using helm, you will need to
-follow these steps:
+This is caused by the API load balancer not forwarding ports in the context of the helm client-server relationship. To deploy using helm, you will need to follow these steps:
 
 1.  Expose the Kubernetes Master service
 
@@ -213,8 +192,7 @@ follow these steps:
 
     By default, it will look like `https://54.213.123.123:443`. Replace it with the Kubernetes Master endpoint `https://54.210.100.102:6443` and save.
 
-    Note that the default port used by CDK for the Kubernetes Master API is 6443
-    while the port exposed by the load balancer is 443.
+    Note that the default port used by CDK for the Kubernetes Master API is 6443 while the port exposed by the load balancer is 443.
 
 1.  Start helm again!
 
@@ -230,7 +208,4 @@ follow these steps:
 
 ## Logging and monitoring
 
-By default there is no log aggregation of the Kubernetes nodes, each node logs
-locally. Please read over the
-[logging](../logging)
-page for more information.
+By default there is no log aggregation of the Kubernetes nodes, each node logs locally. Please read over the [logging](../logging) page for more information.

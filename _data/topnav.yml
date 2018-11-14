@@ -6,13 +6,13 @@ topnav:
     - title: Home
       url: https://www.ubuntu.com/kubernetes/
     - title: News
-      url: /news.html
+      url: ../news
     - title: Store
       external_url: https://jujucharms.com/canonical-kubernetes/
     - title: Source
       external_url: https://github.com/juju-solutions/bundle-canonical-kubernetes/
     - title: Docs
-      url: /index.html
+      url: /
 
 #Topnav dropdowns
 topnav_dropdowns:

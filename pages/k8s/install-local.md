@@ -1,5 +1,10 @@
 ---
-title: "Logging | Canonical Distribution of Kubernetes&reg;"
+wrapper_template: "base-docs.html"
+markdown_includes:
+  nav: "shared/_side-navigation.md"
+context:
+  title: "Installing to a local machine"
+  description: How to install the Canonical Distribution of Kubernetes on a single machine for easy testing and development.
 keywords: lxd, conjure-up, requirements,developer
 tags: [install]
 sidebar: k8smain-sidebar
@@ -8,19 +13,14 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# Installing to a Local machine
-
 Installing the **Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK)**
 on a single machine is possible for the purposes of testing and development.
 
-Be aware that the full deployment of **CDK** has system requirements which may
-exceed a standard laptop or desktop machine. It is only recommended for a
-machine with 32GB RAM and 250GB of SSD storage.
+Be aware that the full deployment of **CDK** has system requirements which may exceed a standard laptop or desktop machine. It is only recommended for a machine with 32GB RAM and 250GB of SSD storage.
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
-If you don't meet these requirements or want a lightweight way to develop on
-pure Kubernetes, we recommend  <a href="https://microk8s.io/">microk8s</a>
+If you don't meet these requirements or want a lightweight way to develop on pure Kubernetes, we recommend  <a href="https://microk8s.io/">microk8s</a>
 </p></div>
 
 The main requirement for a local install is a local cloud to run **CDK** on. This is achieved by using lightweight containers managed by [LXD][lxd-home]. **LXD** version 3.0 or better is required for the default installer, and there are some specific profile requirements as detailed below.

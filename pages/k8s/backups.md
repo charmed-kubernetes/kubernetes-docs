@@ -1,22 +1,21 @@
 ---
-title: "Backups | Canonical Distribution of Kubernetes&reg;"
+wrapper_template: "base-docs.html"
+markdown_includes:
+  nav: "shared/_side-navigation.md"
+context:
+  title: "Backups"
+  description: How to backup and restore the state of your Kubernetes cluster in the etcd datastore.
 keywords: juju, backup, etcd
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: backups.html
 layout: [base, ubuntu-com]
 toc: False
-summary: This page is currently a work in progress. For existing documentation, please visit <a href="https://kubernetes.io/docs/getting-started-guides/ubuntu/"> https://kubernetes.io/docs/getting-started-guides/ubuntu/ </a>
 ---
 
-# Backups
+The state of your **Kubernetes** cluster is kept in the **etcd** datastore. This page shows how to backup and restore the etcd included in the **Canonical Distribution of Kubernetes <sup>&reg;</sup>**.
 
-The state of your **Kubernetes** cluster is kept in the **etcd** datastore. This page
-shows how to backup and restore the etcd included in the **Canonical
-Distribution of Kubernetes <sup>&reg;</sup>**.
-
-Backing up application specific data, normally stored in a persistent volume, is not
-currently supported by native Kubernetes. Various third party solutions are available -
+Backing up application specific data, normally stored in a persistent volume, is not currently supported by native Kubernetes. Various third party solutions are available -
 please refer to their own documentation for details.
 
 ## Creating an **etcd** snapshot
@@ -26,16 +25,13 @@ please refer to their own documentation for details.
  Snapshots can only be restored on the **same version of etcd**.
   </p></div>
 
-**etcd** is a distributed key/value store. To create a snapshot, all that is required is to run
-the `snapshot` action on one of the units running **etcd**:
+**etcd** is a distributed key/value store. To create a snapshot, all that is required is to run the `snapshot` action on one of the units running **etcd**:
 
 ```bash
 juju run-action etcd/0 snapshot keys-version=v3 --wait
 ```
 
-By specifying `--wait`, the console will wait to return the result of running
-the action, which in this case includes the path and filename of the generated
-snapshot file. For example:
+By specifying `--wait`, the console will wait to return the result of running the action, which in this case includes the path and filename of the generated snapshot file. For example:
 
 ```bash
 unit-etcd-0:
@@ -59,10 +55,7 @@ unit-etcd-0:
  unit: etcd/0
 ```
 
-This path/filename relates to the unit where the action was run. As we will
-likely want to use the snapshot on a different unit, we should fetch the
-snapshot to the local machine. The command to perform this is also helpfully
-supplied in the `copy` section of the output (see above):
+This path/filename relates to the unit where the action was run. As we will likely want to use the snapshot on a different unit, we should fetch the snapshot to the local machine. The command to perform this is also helpfully supplied in the `copy` section of the output (see above):
 
 ```bash
   juju scp etcd/0:/home/ubuntu/etcd-snapshots/etcd-snapshot-2018-09-26-18.04.02.tar.gz .
@@ -79,19 +72,16 @@ sha256sum etcd-snapshot-2018-09-26-18.04.02.tar.gz
 
 <div class="p-notification--warning"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Warning:</span>
-Restoring a snapshot should not be performed when there is more than one unit
-of **etcd** running.
+Restoring a snapshot should not be performed when there is more than one unit of **etcd** running.
  </p></div>
 
-As restoring only works when there is a single unit of **etcd**, it is usual to deploy a new
-instance of the application first.
+As restoring only works when there is a single unit of **etcd**, it is usual to deploy a new instance of the application first.
 
 ```bash
 juju deploy etcd new-etcd --series=bionic
 ```
 
-The `--series` option is included here to illustrate how to specify which series the new unit
-should be running on.
+The `--series` option is included here to illustrate how to specify which series the new unit should be running on.
 
 Next we upload and identify the snapshot file to this new unit:
 
@@ -105,9 +95,7 @@ Then run the restore action:
 juju run-action new-etcd/0 restore --wait
 ```
 
-Once the restore action has finished, you should see output confirming that the
-operation is `completed`. The new etcd application will need to be connected to
-the rest of the deployment:
+Once the restore action has finished, you should see output confirming that the operation is `completed`. The new etcd application will need to be connected to the rest of the deployment:
 
 ```bash
 juju add-relation new-etcd kubernetes-master
@@ -120,8 +108,7 @@ To restore the cluster capabilities of etcd, you can now add more units:
 juju add-unit new-etcd -n 2
 ```
 
-Once the deployment has settled and all `new-etcd` units report ready, verify
-the cluster health with:
+Once the deployment has settled and all `new-etcd` units report ready, verify the cluster health with:
 
 ```bash
  juju run-action new-etcd/0 health --wait

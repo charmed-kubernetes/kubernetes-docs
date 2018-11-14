@@ -22,32 +22,15 @@
 -->
 
           <ul class="p-navigation__links" role="menu">
+              <li class="p-navigation__link" role="menuitem"><a href="https://www.ubuntu.com/kubernetes/">Home</a></li>
 
-<!-- Generate menu items -->
+              <li class="p-navigation__link {% if page.url contains 'news' %}is-selected{% endif %}" role="menuitem"><a href="/news">News</a></li>
 
-            {% assign topnav = site.data[page.topnav] %}
-            {% assign topnav_dropdowns = site.data[page.topnav].topnav_dropdowns %}
-            {% for entry in topnav.topnav %}
-            {% for item in entry.items %}
-            {% if item.external_url %}
-            <li class="p-navigation__link " role="menuitem"><a href="{{item.external_url}}" target="_blank">{{item.title}}</a></li>
-            {% elsif page.url contains item.url %}
-          <li class="p-navigation__link" role="menuitem"><a href="{{item.url | remove: "/"}}">{{item.title}}</a></li>
-            {% else %}
-            <li class="p-navigation__link" role="menuitem"><a href="{{item.url | remove: "/"}}">{{item.title}}</a></li>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-<!--
-<li class="p-navigation__link">
-     <a class=""  href="/cloud" >Cloud</a>
-     <ul class="hover-menu">
-          <li><a href="/financial-services">Financial services</a></li>
-          <li><a href="/telecommunications">Telcos</a></li>
-          <li><a href="/security">Security</a></li>
-     </ul>
-</li>
--->
+              <li class="p-navigation__link " role="menuitem"><a href="https://jujucharms.com/canonical-kubernetes/" target="_blank">Store</a></li>
+
+              <li class="p-navigation__link " role="menuitem"><a href="https://github.com/juju-solutions/bundle-canonical-kubernetes/" target="_blank">Source</a></li>
+
+              <li class="p-navigation__link {% if page.url != '/news/index.html' %}is-selected{% endif %}" role="menuitem"><a href="/">Docs</a></li>
 
           </ul>
 

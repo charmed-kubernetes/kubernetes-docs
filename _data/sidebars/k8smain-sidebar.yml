@@ -62,7 +62,7 @@ entries:
       type: page
 
     - title: Scaling
-      url: /storage
+      url: /scaling
       output: web, pdf
       type: page
 
@@ -86,7 +86,7 @@ entries:
     items:
 
     - title: Release notes
-      url: /reference-release-notes
+      url: /release-notes
       output: web, pdf
       type: page
 
