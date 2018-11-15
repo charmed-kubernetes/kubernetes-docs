@@ -1,0 +1,27 @@
+# 1.13 Release Notes
+
+## What's new
+
+- new feature
+
+descriptive test of new feature
+
+- new feature
+
+descriptive test of new feature
+
+
+## Fixes
+
+- Fixed xxxx xxx xxxx  ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/xxx))
+
+## Known issues
+
+ - any remaining major issues currently being worked on
+ - for the next release
+ - if any
+
+## Contact Us
+
+- Issues: https://github.com/juju-solutions/bundle-canonical-kubernetes/issues
+- IRC: #juju on freenode.net
