@@ -65,6 +65,10 @@ defaults:
       topnav: topnav
 
 # these are defaults used for the frontmatter for these file types
+# Plugins
+plugins_dir: ./_plugins
+plugins:
+  - jekyll-redirect-from
 
 sidebars:
 - home_sidebar
@@ -80,8 +84,4 @@ kramdown:
  hard_wrap: false
  syntax_highlighter: rouge
 whitelist:
-  - jekyll-redirect-from
-  
-# Plugins
-plugins:
   - jekyll-redirect-from

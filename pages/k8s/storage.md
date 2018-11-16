@@ -1,31 +1,27 @@
 ---
-title: "Storage | Canonical Distribution of Kubernetes&reg;"
+wrapper_template: "base-docs.html"
+markdown_includes:
+  nav: "shared/_side-navigation.md"
+context:
+  title: "Storage"
+  description: How to add and configure different types of persistent storage for your Kubernetes cluster.
 keywords: storage, ceph, nfs, pvc
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: storage.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
 ---
 
-# Storage
+On-disk files in a container are ephemeral and can't be shared with other members of a pod. For some applications, this is not an issue, but for many persistent storage is required.
 
-On-disk files in a container are ephemeral and can't be shared with other
-members of a pod. For some applications, this is not an issue, but for many
-persistent storage is required.
-
-The **Canonical Distribution of Kubernetes**<sup>&reg;</sup> makes it easy to
-add and configure different types of persistent storage for your **Kubernetes**
-cluster, as outlined below. For more detail on the concept of storage volumes
-in **Kubernetes**, please see the
-[Kubernetes documentation][kubernetes-storage-docs].
+The **Canonical Distribution of Kubernetes**<sup>&reg;</sup> makes it easy to add and configure different types of persistent storage for your **Kubernetes** cluster, as outlined below. For more detail on the concept of storage volumes in **Kubernetes**, please see the [Kubernetes documentation][kubernetes-storage-docs].
 
 ## Ceph storage
 
 **CDK** can make use of [Ceph][ceph-home] to provide persistent storage
 volumes. The following sections assume you have already deployed a **CDK**
 cluster and you have internet access to the **Juju** Charm Store.
-
 
 ### Deploy Ceph
 
@@ -39,44 +35,30 @@ Begin by adding a minimum number of **Ceph** monitor nodes:
 
 ```bash
  juju deploy -n 3 ceph-mon
- ```
+```
 
- For the storage nodes we will also need to specify storage volumes for the
- backing cloud to add. This is done by using the `--storage` option. The
- [`ceph-osd` charm][ceph-charm] defines two useful types of storage,
- `osd-devices` for the volumes which will be formatted and used to provide
- storage, and `osd-journals` for storage used for journalling.
+For the storage nodes we will also need to specify storage volumes for the backing cloud to add. This is done by using the `--storage` option. The [`ceph-osd` charm][ceph-charm] defines two useful types of storage, `osd-devices` for the volumes which will be formatted and used to provide storage, and `osd-journals` for storage used for journalling.
 
- The format for the `--storage` option is `<storage pool>,<size>,<number>`. The
- storage pools available are dependent on and defined by the backing cloud.
- However, by omitting the storage type, the default pool for that cloud will be
- chosen (E.g. for AWS, the default pool is EBS storage).
+The format for the `--storage` option is `<storage pool>,<size>,<number>`. The storage pools available are dependent on and defined by the backing cloud. However, by omitting the storage type, the default pool for that cloud will be chosen (E.g. for AWS, the default pool is EBS storage).
 
-
-So, for example, to deploy three `ceph-osd` storage nodes, using the default
-storage pool, with 2x 32G volumes of storage per node, and one 8G journal, we
-would use the command:
+So, for example, to deploy three `ceph-osd` storage nodes, using the default storage pool, with 2x 32G volumes of storage per node, and one 8G journal, we would use the command:
 
 ```
  juju deploy -n 3 ceph-osd --storage osd-devices=32G,2 --storage osd-journals=8G,1
 ```
 
-<div class="p-notification--positive"><p class="p-notification__response">
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
-For a more detailed explanation of Juju's storage pools and options, please see the
-relevant <a href="https://docs.jujucharms.com/stable/en/charms-storage">
-Juju documentation</a>.
+For a more detailed explanation of Juju's storage pools and options, please see the relevant <a href="https://docs.jujucharms.com/stable/en/charms-storage">Juju documentation</a>.
 </p></div>
 
-Note that actually deploying these charms with storage may take some time, but you can continue  
+Note that actually deploying these charms with storage may take some time, but you can continue
 
 The `ceph-osd` and `ceph-mon` deployments should then be connected:
 
 ```bash
 juju add-relation ceph-osd ceph-mon
 ```
-
-
 
 ### Relate to CDK
 
@@ -133,6 +115,7 @@ Now you can look at your **CDK** cluster to verify things are working. Running:
 ```bash
 kubectl get sc,po
 ```
+
 ... should return output similar to:
 
 ```no-highlight
@@ -163,8 +146,7 @@ desired:
 juju add-unit ceph-osd -n 2
 ```
 
-Once again, it is necessary to attach appropriate storage volumes as
-before. In this case though, the storage needs to be added on a per-unit basis.
+Once again, it is necessary to attach appropriate storage volumes as before. In this case though, the storage needs to be added on a per-unit basis.
 
 Confirm the running units of `ceph-osd`
 
@@ -172,8 +154,7 @@ Confirm the running units of `ceph-osd`
 juju status ceph-osd
 ```
 
-Add additional storage to existing or new units with the `add-storage` command.
-For example, to add two volumes of 32G to the unit `ceph-osd/2`:
+Add additional storage to existing or new units with the `add-storage` command. For example, to add two volumes of 32G to the unit `ceph-osd/2`:
 
 ```bash
 juju add-storage ceph-osd/2 --storage osd-devices=32G,2
@@ -181,25 +162,17 @@ juju add-storage ceph-osd/2 --storage osd-devices=32G,2
 
 ### Using a separate **Juju** model
 
-In some circumstances it can be useful to locate the persistent storage in a
-different **Juju** model, for example to have one set of storage used by
-different clusters. The only change required is in adding relations between
-**Ceph** and CDK.
+In some circumstances it can be useful to locate the persistent storage in a different **Juju** model, for example to have one set of storage used by different clusters. The only change required is in adding relations between **Ceph** and CDK.
 
-For more information on how to achieve this, please see the [Juju
-documentation][juju-cmr] on cross-model relations.
-
+For more information on how to achieve this, please see the [Juju documentation][juju-cmr] on cross-model relations.
 
 ## NFS
 
-It is possible to add simple storage for **Kubernetes** using NFS. In this
-case, the storage is implemented on the root disk of units running the `nfs`
-charm.
+It is possible to add simple storage for **Kubernetes** using NFS. In this case, the storage is implemented on the root disk of units running the `nfs` charm.
 
 ### Deploy NFS
 
-Make use of **Juju** constraints to allocate an instance with the required
-amount of storage. For example, for 200G of storage:
+Make use of **Juju** constraints to allocate an instance with the required amount of storage. For example, for 200G of storage:
 
 ```bash
 juju deploy nfs --constraints root-disk=200G
@@ -220,6 +193,7 @@ Now you can look at your **CDK** cluster to verify things are working. Running:
 ```bash
 kubectl get sc,po
 ```
+
 ... should return output similar to:
 
 ```no-highlight
@@ -228,20 +202,17 @@ storageclass.storage.k8s.io/default (default)   fuseim.pri/ifs   3m
 
 NAME                                                   READY     STATUS    RESTARTS   AGE
 pod/nfs-client-provisioner-778dcffbc8-2725b            1/1       Running   0          3m
-
 ```
 
 ### Scaling out
 
-If extra storage is required, it is possible to add extra `nfs` units as
-desired. For example, to add three new units, each with 100G of storage:
+If extra storage is required, it is possible to add extra `nfs` units as desired. For example, to add three new units, each with 100G of storage:
 
 ```bash
 juju add-unit nfs  -n 3 --constraints root-disk=100G
 ```
 
-There is no requirement that these additional units should have the same amount
-of storage space as previously.
+There is no requirement that these additional units should have the same amount of storage space as previously.
 
 <!-- LINKS -->
 
