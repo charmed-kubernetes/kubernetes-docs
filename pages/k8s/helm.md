@@ -1,12 +1,16 @@
 ---
-title: "Using Helm | Canonical Distribution of Kubernetes&reg;"
-keywords: quickstart, helm
+wrapper_template: "base-docs.html"
+markdown_includes:
+  nav: "shared/_side-navigation.md"
+context:
+  title: "Using Helm "
+  description: Use Helm to deploy pods on your cluster
+keywords: helm, pod, chart, deploy
 tags: [getting_started]
 sidebar: k8smain-sidebar
 permalink: helm.html
-layout: base
+layout: [base, ubuntu-com]
 toc: False
-
 ---
 
 # Add a Helm Chart
