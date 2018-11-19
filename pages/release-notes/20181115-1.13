@@ -2,9 +2,10 @@
 
 ## What's new
 
-- new feature
+- Keystone support
 
-descriptive test of new feature
+Added support for a relation from keystone to the kubernetes-master charm. When related, kubernetes 
+will use keystone for authentication and potentially authorization.
 
 - new feature
 
