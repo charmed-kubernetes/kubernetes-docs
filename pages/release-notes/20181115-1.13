@@ -4,8 +4,8 @@
 
 - Keystone support
 
-Added support for a relation from keystone to the kubernetes-master charm. When related, kubernetes 
-will use keystone for authentication and potentially authorization.
+Added support for a relation from Keystone to the `kubernetes-master` charm. When related, Kubernetes 
+will use Keystone for authentication and, potentially, authorisation.
 
 - new feature
 
