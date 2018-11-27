@@ -17,7 +17,11 @@ descriptive test of new feature
 
 ## Fixes
 
-- Fixed xxxx xxx xxxx  ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/xxx))
+- Fixed ceph volumes cannot be attached to the pods after 1.12 ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/662))
+- Fixed ceph volumes fail to attach with "node has no NodeID annotation" ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/675))
+- Fixed ceph-xfs volumes failing to format due to "executable file not found in $PATH" ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/668))
+- Fixed ceph volumes not detaching properly ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/669))
+- Fixed ceph-csi addons not getting cleaned up properly ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/680))
 
 ## Known issues
 
