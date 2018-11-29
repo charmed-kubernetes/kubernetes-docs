@@ -7,9 +7,18 @@
 Added support for a relation from Keystone to the `kubernetes-master` charm. When related, Kubernetes 
 will use Keystone for authentication and, potentially, authorisation.
 
-- new feature
+- Vault PKI support
 
-descriptive test of new feature
+Added support for using [Vault](https://jujucharms.com/u/openstack-charmers/vault/) for PKI in place of
+EasyRSA. Vault is more secure and robust than EasyRSA and supports more advanced features for certificate
+management.
+
+- Encryption-at-rest support using Vault
+
+Added support for encryption-at-rest for cluster secrets, leveraging
+[Vault](https://jujucharms.com/u/openstack-charmers/vault/) for data protection. This ensures that even
+the keys used to encrypt the data are protected at rest, unlike many configurations of encryption-at-rest
+for Kubernetes.
 
 - new feature
 
