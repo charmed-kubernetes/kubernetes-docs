@@ -14,21 +14,22 @@ toc: False
 ---
 
 The [docker-registry][registry-charm] charm facilitates the storage and
-distribution of Docker images. Include this in a Kubernetes deployment to
-provide images to cluster components without requiring access to public
-registries. See [https://docs.docker.com/registry/][upstream-registry] for
+distribution of **Docker** images. Include this in a **Kubernetes**
+deployment to provide images to cluster components without requiring
+access to public registries.
+See [https://docs.docker.com/registry/][upstream-registry] for
 details.
 
 ## Deploy
 
 The registry is deployed as a stand alone application. Many deployment
 scenarios are described in the charm readme. The most common scenario for
-Kubernetes integration is to configure a registry with TLS and basic
+**Kubernetes** integration is to configure a registry with TLS and basic
 (htpasswd) authentication enabled.
 
 If needed, consult the [quickstart guide][quickstart] guide to install
-the **Canonical Distribution of Kubernetes**<sup>&reg;</sup>. Then deploy and
-configure `docker-registry` as follows:
+the **Canonical Distribution of Kubernetes**<sup>&reg;</sup>. Then deploy
+and configure `docker-registry` as follows:
 
 ```bash
 juju deploy ~containers/docker-registry
@@ -61,11 +62,11 @@ Login Succeeded
 
 ## Docker on Kubernetes workers
 
-Docker on the Kubernetes workers needs to talk to the registry securely. By
+**Docker** on the Kubernetes workers needs to talk to the registry securely. By
 relating `docker-registry` and `kubernetes-worker`, appropriate certificates
 are added to `/etc/docker/certs.d` on all workers.
 
-Verify basic authentication is working *from a Kubernetes worker*:
+Verify basic authentication is working _from_a_Kubernetes_worker_:
 
 ```bash
 juju run --unit kubernetes-worker/0 "docker login -u admin -p password $REGISTRY"
@@ -82,9 +83,9 @@ Minimally, Kubernetes 1.1x requires the following:
 - quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.16.1
 - k8s.gcr.io/defaultbackend-amd64:1.5
 
-CDK supports optional addons that include the Kubernetes dashboard, Heapster,
-kube-dns, etc. Enabling these addons will require the following additional
-images:
+**CDK** supports optional addons that include the **Kubernetes** dashboard, 
+**Heapster**, **kube-dns**, etc. Enabling these addons will require the
+following additional images:
 
 - cdkbot/addon-resizer-amd64:1.8.1
 - k8s.gcr.io/heapster-amd64:v1.5.3
@@ -96,12 +97,13 @@ images:
 - k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
 - k8s.gcr.io/metrics-server-amd64:v0.2.1
 
-For Calico/Canal support, the following images are used:
+For **Calico**/**Canal** support, the following images are used:
 
 - quay.io/calico/node:v2.6.10
 - quay.io/calico/kube-controllers:v1.0.4
 
-And finally, Sonatype Nexus and Rancher use the following images:
+And finally, **Sonatype Nexus** and **Rancher** use the following
+images:
 
 - sonatype/nexus3:latest
 - rancher/rancher:latest
@@ -140,7 +142,7 @@ juju config kubernetes-worker \
 ```
 
 Unlike individual configurable images on `kubernetes-worker` units, images
-used by CDK addons are controlled by a `kubernetes-master` config option. Push
+used by **CDK** addons are controlled by a `kubernetes-master` config option. Push
 the desired addon images listed above (`kubernetes-dashboard`, `heapster`, etc)
 and configure `kubernetes-master` to use the registry for installation:
 
