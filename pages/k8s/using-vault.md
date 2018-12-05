@@ -20,7 +20,7 @@ also be deployed HA, as well provide a secure secrets store which can be used to
 
 Vault does require an additional database to store its data and (depending on
 configuration) some manual steps will be required after deployment or any reboot so
-that secrets, such as certificates and signing keys, can be accessed.  
+that secrets, such as certificates and signing keys, can be accessed.
 
 ## Deploying CDK with Vault as a root CA
 
@@ -52,7 +52,7 @@ relations:
 - - kubernetes-worker:certificates
   - vault:certificates
 - - vault:shared-db
-  - percona-cluster:shared-db                                                                                                                                                                                 
+  - percona-cluster:shared-db
 ```
 
 Save this to a file named `k8s-vault.yaml` and deploy with:
@@ -129,3 +129,4 @@ More details can be found [in the guide][vault-guide-ha].
 [vault-guide-ha]: https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/app-vault.html#enabling-ha
 [csr]: https://en.wikipedia.org/wiki/Certificate_signing_request
 [leadership]: https://docs.jujucharms.com/stable/en/authors-charm-leadership
+[cdk-bundle]: https://jujucharms.com/canonical-kubernetes
