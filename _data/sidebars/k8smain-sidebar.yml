@@ -76,6 +76,16 @@ entries:
       output: web, pdf
       type: page
 
+    - title: Using Vault as a CA
+      url: /using-vault
+      output: web, pdf
+      type: page
+
+    - title: Encryption at rest
+      url: /encryption-at-rest
+      output: web, pdf
+      type: page
+
     - title: Troubleshooting
       url: /troubleshooting
       output: web, pdf
@@ -92,5 +102,10 @@ entries:
 
     - title: Upgrade notes
       url: /upgrade-notes
+      output: web, pdf
+      type: page
+
+    - title: Certificates and Trust
+      url: /certs-and-trust
       output: web, pdf
       type: page
