@@ -15,7 +15,7 @@ toc: True
 
 As mentioned in the [Certificates and trust reference][certs-doc] documentation,
 [HashiCorp's Vault][vault] can be used to provide either a root or intermediate CA. It can
-also be deployed HA, as well provide a secure secrets store which can be used to enable
+also be deployed HA, as well as provide a secure secrets store which can be used to enable
 [encryption-at-rest for **CDK**][encryption-doc].
 
 Vault does require an additional database to store its data and (depending on
