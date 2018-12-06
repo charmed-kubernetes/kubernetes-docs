@@ -193,7 +193,7 @@ Login would then be done via the token option:
 
 [[https://github.com/juju-solutions/bundle-canonical-kubernetes/blob/mwilson/adding-keystone-images/docs/images/kubernetes_dash.png]]
 # LDAP via Keystone
-Keystone has the ability to use LDAP for authentication. The Keystone charm is related to the Keystone charm in order to support LDAP. You can read about that on the [keystone-ldap charm page](https://jujucharms.com/keystone-ldap)
+Keystone has the ability to use LDAP for authentication. The Keystone charm is related to the Keystone-LDAP subordinate charm in order to support LDAP. Read about the steps involved on the [keystone-ldap charm page](https://jujucharms.com/keystone-ldap)
 
 # Troubleshooting
 
