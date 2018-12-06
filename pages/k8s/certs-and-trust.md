@@ -109,7 +109,7 @@ intermediary CA and does not support [HA][].
 
 For production systems, it is recommended to replace EasyRSA with the [Vault
 charm][vault-charm]. This uses [HashiCorp's Vault][vault] to provide either a
-root or intermediate CA. It can also be deployed HA, as well provide a secure
+root or intermediate CA. It can also be deployed HA, as well as provide a secure
 secrets store which can be used to enable encryption-at-rest for **CDK**. However,
 it requires a database to store its data, and (depending on configuration)
 some manual steps will be required after deployment as well as after any reboot
