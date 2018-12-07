@@ -217,19 +217,19 @@ for authentication/authorisation.
 
 Testing the steps is important to determine the cause of the problem.
 
-### Can you communicate with Keystone and get an authorization token.
+### Can you communicate with Keystone and get an authorization token?
 
 First is to verify that Keystone communication works from both your client and
 the kubernetes-worker machines. The easiest thing to do here is to copy the
 kube-keystone.sh script to the machines of interest from kubernetes-master with
 `juju scp kubernetes-master/0:kube-keystone.sh .`, edit the script to include
-you credentials, `source kube-keystone.sh` and then run `get_keystone_token`.
+your credentials, `source kube-keystone.sh` and then run `get_keystone_token`.
 This will produce a token from the Keystone server. If that isn't working,
 check firewalls settings and your Keystone server. Note that the
 kube-keystone.sh script could be overwritten, so it is a best practice to make
 a copy somewhere and use that.
 
-### Are the pods for Keystone authentication up and running properly
+### Are the pods for Keystone authentication up and running properly?
 
 The Keystone pods live in the kube-system namespace and read a configmap from
 Kubernetes for the policy. Check to make sure they are running:
