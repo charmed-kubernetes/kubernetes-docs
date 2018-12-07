@@ -225,7 +225,7 @@ kube-keystone.sh script to the machines of interest from kubernetes-master with
 `juju scp kubernetes-master/0:kube-keystone.sh .`, edit the script to include
 your credentials, `source kube-keystone.sh` and then run `get_keystone_token`.
 This will produce a token from the Keystone server. If that isn't working,
-check firewalls settings and your Keystone server. Note that the
+check firewall settings on your Keystone server. Note that the
 kube-keystone.sh script could be overwritten, so it is a best practice to make
 a copy somewhere and use that.
 
@@ -262,7 +262,7 @@ I1121 05:02:02.999459       1 keystone.go:171] Authorization policy updated.
 
 ### Is the configmap with the policy correct?
 
-Check the configmap contents. The pods logs above would complain if the yaml
+Check the configmap contents. The pod logs above would complain if the YAML
 isn't valid, but make sure it matches what you expect.
 
 ```bash
