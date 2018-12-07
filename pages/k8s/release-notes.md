@@ -91,9 +91,6 @@ virtual IP. For more details, please see the [documentation][docs-keepalived].
 ## Known issues
 
  - A [current bug](https://github.com/kubernetes/kubernetes/issues/70044) in Kubernetes could prevent the upgrade from properly deleting old pods. `kubectl delete pod <pod_name> --force --grace-period=0` can be used to clean them up.
- - any remaining major issues currently being worked on
- - for the next release
- - if any
 
 ## Contact Us
 
