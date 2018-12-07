@@ -1,0 +1,28 @@
+series: bionic
+applications:
+  keystone:
+    charm: cs:keystone-283
+    num_units: 1
+    options:
+      openstack-origin: cloud:bionic-rocky
+      worker-multiplier: 0.25
+      preferred-api-version: 3
+  mysql:
+    charm: cs:percona-cluster-269
+    num_units: 1
+    options:
+      innodb-buffer-pool-size: 256M
+      max-connections: 1000
+  openstack-dashboard:
+    charm: cs:openstack-dashboard-266
+    num_units: 1
+    expose: true
+    options:
+      openstack-origin: cloud:bionic-rocky
+relations:
+- - keystone:shared-db
+  - mysql:shared-db
+- - openstack-dashboard:identity-service
+  - keystone:identity-service
+- - openstack-dashboard:shared-db
+  - mysql:shared-db
