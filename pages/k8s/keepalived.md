@@ -25,7 +25,7 @@ into your **CDK** model and configured as follows:
 
 1. Deploy the `keepalived` charm:
     ```bash
-    juju deploy cs:~containers/keepalived-3
+    juju deploy cs:~containers/keepalived
     ```
 
 1. Add the required relations :   
@@ -35,8 +35,8 @@ into your **CDK** model and configured as follows:
     juju add-relation keepalived:loadbalancer kubernetes-master:loadbalancer
     juju add-relation keepalived:website kubernetes-worker:kube-api-endpoint
     ```
-    This redirects both the Kubernetes master and worker units to point at the keepalive
-    service reather than the api-endpoint directly.
+    This redirects both the Kubernetes master and worker units to point at the keepalived
+    service rather than the api-endpoint directly.
 
 1. Configure the keepalived application. You should substitute a suitable IP address and
      FQDN in the example below:
