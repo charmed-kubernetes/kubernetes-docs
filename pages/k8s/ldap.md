@@ -16,7 +16,7 @@ toc: False
 There is a distinction between authentication and authorisation:
 
   * Authentication verifies who a user is.
-  * Authorization deals with what a user is allowed to do.
+  * Authorisation deals with what a user is allowed to do.
 
 **CDK** can be configured to use Keystone and LDAP for authentication only
 or both authentication and authorisation.
