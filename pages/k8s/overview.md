@@ -1,19 +1,13 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Overview"
-  description: Understand how the Canonical Distribution of Kubernetes workloads.
-keywords: juju, kubernetes, cdk
-tags: [intro]
-sidebar: k8smain-sidebar
-permalink: overview.html
-layout: [base, ubuntu-com]
-toc: False
+  description: Understand how the Charmed Distribution of Kubernetes workloads.
 ---
 
-Deliver ‘Containers as a Service’ across the enterprise with the **Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK)** , enabling each project to spin up a standardised K8s of arbitrary scale, on demand, with centralised operational control. **CDK** provides a well integrated, turn-key **Kubernetes<sup>&reg;</sup>** platform that is open, extensible, and secure.
+Deliver ‘Containers as a Service’ across the enterprise with the **Charmed Distribution of Kubernetes<sup>&reg;</sup> (CDK)** , enabling each project to spin up a standardised K8s of arbitrary scale, on demand, with centralised operational control. **CDK** provides a well integrated, turn-key **Kubernetes<sup>&reg;</sup>** platform that is open, extensible, and secure.
 
 For more information on the features and benefits of **CDK**, including details on the [Managed Kubernetes][managedk8s] service, please see the [Kubernetes section][k8s-u-c].
 
@@ -43,9 +37,9 @@ Depending on your choice of cloud, **CDK** will also install an integration appl
 
 <!-- LINKS -->
 
-[managedk8s]: https://www.ubuntu.com/kubernetes/managed
-[k8s-u-c]: https://www.ubuntu.com/kubernetes
+[managedk8s]: /kubernetes/managed
+[k8s-u-c]: /kubernetes
 [maas]: https://maas.io
-[cdk]: https://www.ubuntu.com/kubernetes
-[managed-cdk]: https://www.ubuntu.com/kubernetes/managed
+[cdk]: /kubernetes
+[managed-cdk]: /kubernetes/managed
 [juju]: https://jujucharms.com

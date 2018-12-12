@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -39,7 +39,7 @@ Note: These instructions assume you are working with the `Queens` release of
 
 Keystone should be deployed using **Juju**. This is easily achieved by using a bundle,
 which will deploy and relate, Keystone, the OpenStack dashboard and a suitable
-database. An example bundle is available for [download here][keystone-bundle].
+database. An example bundle is [available for download][keystone-bundle].
 
 Deploy the bundle with the following command:
 
@@ -105,7 +105,7 @@ You can determine the web address for the OpenStack dashboard by running:
 juju status openstack-dashboard
 ```
 
-Open the address in a webbrowser and login with the token obtained previously.
+Open the address in a web browser and log in with the token obtained previously.
 
 ## Create the domain for Kubernetes
 You should now be able to access the OpenStack Dashboard and create a new domain.
@@ -127,7 +127,7 @@ Repeat the process for `k8s-viewers` and `k8s-users` if desired. These values
 match with the `keystone-policy` configuration option on the kubernetes-master
 charm.
 
-## Create project for Kubernetes
+## Create a project for Kubernetes
 
 As with the roles, the project name must match the value in the
 `keystone-policy` configuration option on the kubernetes-master charm.
@@ -172,7 +172,7 @@ juju config keystone-ldap domain-name="myorganisationname"
 The Keystone charm will automatically create a domain to support the backend
 once deployed.
 
-For more detailed explanation of the configuration and other options, please see the
+For a more detailed explanation of the configuration and other options, please see the
 [documentation for the ldap-keystone charm][docs-ldap-keystone]
 
 ## Authorisation
@@ -195,16 +195,16 @@ juju config kubernetes-master enable-keystone-authorization=true
 juju config kubernetes-master keystone-policy=$(cat policy.yaml)
 ```
 
-The default policy may be [downloaded here][policy] for easy editing.
+The [default policy may be downloaded][policy] for easy editing.
 
 ## Troubleshooting
 
 As with any application configuration, it is easy to make simple mistakes when entering
-different values or editing config files. If you are having problems, please [read the troubleshooting guide][trouble] for specific tips and information on configuring Keystone/LDAP
+different values or editing config files. If you are having problems, please [read the troubleshooting guide][trouble] for specific tips and information on configuring Keystone/LDAP.
 
 <!--LINKS-->
-[install]: ../quickstart
-[policy]: ../assets/policy.yaml
-[keystone-bundle]: ../assets/keystone.yaml
+[install]: /kubernetes/docs/quickstart
+[policy]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/policy.yaml
+[keystone-bundle]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/keystone.yaml
 [docs-ldap-keystone]: https://jujucharms.com/keystone-ldap
-[trouble]: ../troubleshooting/#troubleshooting-keystoneldap-issues
+[trouble]: /kubernetes/docs/troubleshooting/#troubleshooting-keystoneldap-issues

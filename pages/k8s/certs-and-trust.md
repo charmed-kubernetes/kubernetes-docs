@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,9 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# Securing communications with PKI
-
-The components of **Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK)**
+The components of **Charmed Distribution of Kubernetes<sup>&reg;</sup> (CDK)**
 need to be able to communicate securely over the network. This is accomplished
 using [TLS][] and [public-key encryption][PKI] with a [chain of trust][] up
 to a shared root [Certificate Authority (CA)][CA]. However, when the cluster
@@ -86,8 +84,8 @@ can be used to provide additional names to be added to the SANs list.
 
 In order to provide for two-way security, some services require that clients
 identify themselves via a [client certificate][]. These are more or less the
-same as server certificates, but are presented by a client to the service
-they are connecting to, so that the service can validate that client's identity.
+same as server certificates but are presented by a client to the service
+they are connecting to so that the service can validate that client's identity.
 Client certificates can _only_ be used to identify a client and will be
 rejected by clients if presented by a service they are connecting to.
 
@@ -95,7 +93,7 @@ rejected by clients if presented by a service they are connecting to.
 
 **CDK** can use a CA provided by any charm which [provides a tls-certificates
 endpoint][provides-tls]. The two current recommendations are
-[EasyRSA](#easyrsa) and [Vault](#vault).
+**EasyRSA** and **Vault**.
 
 ## EasyRSA
 
@@ -155,4 +153,4 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
 [expose]: https://docs.jujucharms.com/stable/en/charms-exposing
 [hacluster]: https://jujucharms.com/stable/en/hacluster
 [vault-bug-ttl]: https://bugs.launchpad.net/vault-charm/+bug/1788945
-[vault-cdk]: ../using-vault
+[vault-cdk]: /kubernetes/docs/using-vault

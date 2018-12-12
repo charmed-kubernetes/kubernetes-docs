@@ -1,21 +1,15 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Storage"
   description: How to add and configure different types of persistent storage for your Kubernetes cluster.
-keywords: storage, ceph, nfs, pvc
-tags: [operating]
-sidebar: k8smain-sidebar
-permalink: storage.html
-layout: [base, ubuntu-com]
-toc: False
 ---
 
 On-disk files in a container are ephemeral and can't be shared with other members of a pod. For some applications, this is not an issue, but for many persistent storage is required.
 
-The **Canonical Distribution of Kubernetes**<sup>&reg;</sup> makes it easy to add and configure different types of persistent storage for your **Kubernetes** cluster, as outlined below. For more detail on the concept of storage volumes in **Kubernetes**, please see the [Kubernetes documentation][kubernetes-storage-docs].
+The **Charmed Distribution of Kubernetes**<sup>&reg;</sup> makes it easy to add and configure different types of persistent storage for your **Kubernetes** cluster, as outlined below. For more detail on the concept of storage volumes in **Kubernetes**, please see the [Kubernetes documentation][kubernetes-storage-docs].
 
 ## Ceph storage
 
@@ -43,7 +37,7 @@ The format for the `--storage` option is `<storage pool>,<size>,<number>`. The s
 
 So, for example, to deploy three `ceph-osd` storage nodes, using the default storage pool, with 2x 32G volumes of storage per node, and one 8G journal, we would use the command:
 
-```
+```bash
  juju deploy -n 3 ceph-osd --storage osd-devices=32G,2 --storage osd-journals=8G,1
 ```
 
@@ -82,7 +76,7 @@ Finally, the pools that are defined in the storage class can be created:
 juju run-action ceph-mon/0 create-pool name=xfs-pool --wait
 ```
 
-```
+```yaml
 unit-ceph-mon-0:
   id: c12f0688-f31b-4956-8314-abacd2d6516f
   status: completed
@@ -97,7 +91,7 @@ unit-ceph-mon-0:
 juju run-action ceph-mon/0 create-pool name=ext4-pool --wait
 ```
 
-```
+```yaml
 unit-ceph-mon-0:
   id: 4e82d93d-546f-441c-89e1-d36152c082f2
   status: completed
@@ -160,7 +154,7 @@ Add additional storage to existing or new units with the `add-storage` command. 
 juju add-storage ceph-osd/2 --storage osd-devices=32G,2
 ```
 
-### Using a separate **Juju** model
+### Using a separate Juju model
 
 In some circumstances it can be useful to locate the persistent storage in a different **Juju** model, for example to have one set of storage used by different clusters. The only change required is in adding relations between **Ceph** and CDK.
 

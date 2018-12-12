@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -118,9 +118,9 @@ More details can be found [in the guide][vault-guide-ha].
 
 
 <!-- LINKS -->
-[k8s-vault-yaml]: ../assets/k8s-vault.yaml
-[certs-doc]: ../certs-and-trust
-[encryption-doc]: ../encryption-at-rest
+[k8s-vault-yaml]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/k8s-vault.yaml
+[certs-doc]: /kubernetes/docs/certs-and-trust
+[encryption-doc]: /kubernetes/docs/encryption-at-rest
 [vault]: https://www.vaultproject.io
 [expose]: https://docs.jujucharms.com/stable/en/charms-exposing
 [hacluster]: https://jujucharms.com/stable/en/hacluster

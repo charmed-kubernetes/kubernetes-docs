@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,10 +13,10 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The standard deployment of  the
-**Canonical Distribution of Kubernetes<sup>&reg;</sup> (CDK)** includes a single
+The standard deployment of the
+**Charmed Distribution of Kubernetes<sup>&reg;</sup> (CDK)** includes a single
 instance of the kube-api-loadbalancer.  For many use cases this is perfectly adequate,
-but in a production environment you should be keen to eliminate any single point of
+but in a production environment, you should be keen to eliminate any single point of
 failure.
 
 The recommended way to provide a failover for the kube-api-loadbalancer is by using
@@ -81,5 +81,5 @@ load balancer.
 <!--LINKS-->
 [keepalived-home]: http://www.keepalived.org/
 [SAN]: https://www.openssl.org/docs/manmaster/man5/x509v3_config.html#Subject-Alternative-Name
-[logging-doc]: ../logging
+[logging-doc]: /kubernetes/docs/logging
 [subordinate-charm]: https://docs.jujucharms.com/stable/en/authors-subordinate-applications

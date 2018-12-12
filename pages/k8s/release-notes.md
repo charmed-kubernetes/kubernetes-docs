@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -161,8 +161,8 @@ For operators who currently use the `http-proxy`, `https-proxy` and `no-proxy` J
 
 <!--LINKS-->
 
-[docs-ldap]: ../ldap
-[docs-vault]: ../using-vault
-[docs-ear]: ../encryption-at-rest
-[docs-keepalived]: ../keepalived
-[docs-registry]: ../docker-registry
+[docs-ldap]: /kubernetes/docs/ldap
+[docs-vault]: /kubernetes/docs/using-vault
+[docs-ear]: /kubernetes/docs/encryption-at-rest
+[docs-keepalived]: /kubernetes/docs/keepalived
+[docs-registry]: /kubernetes/docs/docker-registry

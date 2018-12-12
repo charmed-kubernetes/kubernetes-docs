@@ -1,19 +1,13 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Scaling"
   description: Learn how various components of CDK can be horizontally scaled to meet demand or increase reliability.
-keywords: juju, scaling, add-unit, ha, high availability
-tags: [operating]
-sidebar: k8smain-sidebar
-permalink: scaling.html
-layout: [base, ubuntu-com]
-toc: False
 ---
 
-The **Canonical Distribution of Kubernetes<sup>&reg;</sup>** has been designed to be flexible enough to efficiently run your workloads. Various components of **CDK** can be horizontally scaled to meet demand or to increase reliability, as detailed below.
+The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** has been designed to be flexible enough to efficiently run your workloads. Various components of **CDK** can be horizontally scaled to meet demand or to increase reliability, as detailed below.
 
 ## kubernetes-master
 
@@ -73,9 +67,7 @@ To change the constraints for all _future_ units of kubernetes-worker, you can s
 juju set-constraints kubernetes-worker cores=2 mem=6G root-disk=16G
 ```
 
-Note that in this case, any constraints you supply will **_replace all the
-exisiting constraints_**, so in this example, we also include the existing
-`root-disk` requirement.
+Note that in this case, any constraints you supply will **_replace all the exisiting constraints_**, so in this example, we also include the existing `root-disk` requirement.
 
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
@@ -104,11 +96,11 @@ The individual unit (in this example, number 3) can then be safely removed:
 juju remove-unit kubernetes-worker/3
 ```
 
-Note that due to the numbering system used by **Juju**, if you subsequently add additional units of this application, the numbers of any previously deleted units _will_not_ be re-used.
+Note that due to the numbering system used by **Juju**, if you subsequently add additional units of this application, the numbers of any previously deleted units _will not_ be re-used.
 
 ## etcd
 
-The **Canonical Distribution of Kubernetes<sup>&reg;</sup>** installs a three machine cluster for etcd, which provides tolerence for a single failure. Should you wish to extend the fault tolerance, you can add additional units of etcd.
+The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** installs a three machine cluster for etcd, which provides tolerence for a single failure. Should you wish to extend the fault tolerance, you can add additional units of etcd.
 
 ```bash
 juju add-unit etcd -n 2
@@ -118,8 +110,7 @@ The recommended cluster-size for etcd is three, five or seven machines. Adding l
 
 ## Juju high availability
 
-On a default deployment of the **Canonical Distribution of
-Kubernetes<sup>&reg;</sup>**, there is only one controller instance, which isn't desirable for critical applications. It is possible to scale out the controller itself to prevent a single point of failure.
+On a default deployment of the **Charmed Distribution of Kubernetes<sup>&reg;</sup>**, there is only one controller instance, which isn't desirable for critical applications. It is possible to scale out the controller itself to prevent a single point of failure.
 
 **Juju** supports a high availability mode to run multiple controllers with an automatic failover.
 
