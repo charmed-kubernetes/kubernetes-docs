@@ -5,6 +5,12 @@ markdown_includes:
 context:
   title: "Logging"
   description: Learn about the tools and techniques to examine cluster logs as described in the Kubernetes documentation.
+keywords: juju, logging, debug-log
+tags: [operating]
+sidebar: k8smain-sidebar
+permalink: logging.html
+layout: [base, ubuntu-com]
+toc: False
 ---
 
 <div class="p-notification--information">

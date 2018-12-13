@@ -5,6 +5,12 @@ markdown_includes:
 context:
   title: "Installing to a local machine"
   description: How to install the Charmed Distribution of Kubernetes on a single machine for easy testing and development.
+keywords: lxd, conjure-up, requirements,developer
+tags: [install]
+sidebar: k8smain-sidebar
+permalink: install-local.html
+layout: [base, ubuntu-com]
+toc: False
 ---
 
 Installing the Charmed Distribution of Kubernetes<sup>&reg;</sup> (CDK)

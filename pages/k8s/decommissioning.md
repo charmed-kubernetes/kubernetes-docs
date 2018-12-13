@@ -5,6 +5,12 @@ markdown_includes:
 context:
   title: "Decommissioning"
   description: Decommissioning a cluster requires only a few commands, but beware that it will irretrievably destroy the cluster.
+keywords: juju, decommissioning, destroy-model, destroy-controller, config
+tags: [operating]
+sidebar: k8smain-sidebar
+permalink: decommissioning.html
+layout: [base, ubuntu-com]
+toc: False
 ---
 
 Decommissioning a cluster requires only a few commands, but beware that it will irretrievably destroy the cluster, its workloads and any information that was stored within. Before proceeding, it is important to verify that you:
