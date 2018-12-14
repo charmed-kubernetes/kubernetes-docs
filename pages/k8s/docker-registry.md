@@ -40,6 +40,18 @@ juju config docker-registry \
   auth-basic-password='password'
 ```
 
+## Security
+
+Access to the registry can be secured with HTTPS by specifying
+a base64 encoded certificate.
+
+```bash
+juju config docker-registry \
+  tls-cert-blob=$(base64 /path/to/cert) \
+  tls-ca-blob=$(base64 /path/to/ca) \
+  tls-key-blob=$(base64 /path/to/key)
+```
+
 ## Verify
 
 Make note of the registry address. By default, this address is only accessible
