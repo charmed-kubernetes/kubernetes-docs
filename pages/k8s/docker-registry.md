@@ -40,10 +40,11 @@ juju config docker-registry \
   auth-basic-password='password'
 ```
 
-## Security
+### Custom Certificates
 
-Access to the registry can be secured with HTTPS by specifying
-a base64 encoded certificate.
+Relating `docker-registry` to `easyrsa` above will generate new TLS data
+to support secure communication with the registry. Alternatively, custom
+TLS data may be provided as base64-encoded config options to the charm:
 
 ```bash
 juju config docker-registry \
