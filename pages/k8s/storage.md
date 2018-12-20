@@ -76,7 +76,19 @@ juju config kubernetes-master allow-privileged=true
 
 ### Create storage pools
 
-Finally, the pools that are defined in the storage class can be created:
+By default, the `kubernetes-master` charm will create the required pools defined
+in the storage class.  If you're happy with this, you can skip the section.
+
+Otherwise, if you want to change these, you can delete the pools:
+
+```bash
+juju run --unit ceph-mon/0 "ceph tell mon.\* injectargs '--mon-allow-pool-delete=true'"
+
+juju run-action ceph-mon/0 delete-pool pool-name=xfs-pool --wait
+juju run-action ceph-mon/0 delete-pool pool-name=ext4-pool --wait
+```
+
+Then recreate them:
 
 ```bash
 juju run-action ceph-mon/0 create-pool name=xfs-pool --wait
