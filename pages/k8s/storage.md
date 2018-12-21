@@ -97,7 +97,7 @@ Then recreate them, using the options listed from the `list-actions` command ran
 earlier.  For example:
 
 ```bash
-juju run-action ceph-mon/0 create-pool name=xfs-pool --wait
+juju run-action ceph-mon/0 create-pool name=xfs-pool replicas=6 --wait
 ```
 
 ```
@@ -112,7 +112,7 @@ unit-ceph-mon-0:
 ```
 
 ```bash
-juju run-action ceph-mon/0 create-pool name=ext4-pool --wait
+juju run-action ceph-mon/0 create-pool name=ext4-pool replicas=6 --wait
 ```
 
 ```
