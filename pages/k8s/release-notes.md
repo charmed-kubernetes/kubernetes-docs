@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# CVE-2018-18264
+# CVE-2018-18264 - January 10, 2019
 
 ## What happened
 
