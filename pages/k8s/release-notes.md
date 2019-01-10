@@ -17,11 +17,11 @@ toc: False
 
 ## What happened
 
-- A security vulnerability was found in the Kuberentes dashboard that affected all
+- A security vulnerability was found in the Kubernetes dashboard that affected all
 versions of the dashboard.
 
 A new dashboard version, v1.10.1, was released to address this vulnerability. This
-includes an important change to logging in to the dashboard. The skip button is now
+includes an important change to logging in to the dashboard. The Skip button is now
 missing from the login page and a user and password is now required. The easiest way
 to log in to the dashboard is to select your ~/.kube/config file and use credentials
 from there.
