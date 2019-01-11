@@ -163,7 +163,7 @@ Open a browser at the address for the Dashboard and log in. You will see an addi
 
 ![dashboard image](https://assets.ubuntu.com/v1/d89b1290-CDK-007.png)
 
-For now you can just choose 'Skip' to get to the Dashboard, but for future administration, you should set up _role based access control_.
+You will need to log in to the Dashboard with a valid user. The easiest thing to do is to select your kubeconfig file, but for future administration, you should set up _role based access control_.
 
 ![dashboard image](https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png)
 
