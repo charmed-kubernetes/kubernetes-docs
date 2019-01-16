@@ -64,6 +64,7 @@ into your **CDK** model and configured as follows:
 1. Remove unneeded relations:
     ```bash
     juju remove-relation kubernetes-worker:kube-api-endpoint kubeapi-load-balancer:website
+    juju remove-relation kubernetes-master:loadbalancer kubeapi-load-balancer:loadbalancer
     ```
 
 1. Scale up the `kubeapi-load-balancer`. You can specify as many units as your situation requires.
