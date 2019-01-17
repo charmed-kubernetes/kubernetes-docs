@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The state of your **Kubernetes** cluster is kept in the **etcd** datastore. This page shows how to backup and restore the etcd included in the **Canonical Distribution of Kubernetes <sup>&reg;</sup>**.
+The state of your **Kubernetes** cluster is kept in the **etcd** datastore. This page shows how to backup and restore the etcd included in the **Charmed Distribution of Kubernetes <sup>&reg;</sup>**.
 
 Backing up application specific data, normally stored in a persistent volume, is not currently supported by native Kubernetes. Various third party solutions are available -
 please refer to their own documentation for details.
@@ -33,7 +33,7 @@ juju run-action etcd/0 snapshot keys-version=v3 --wait
 
 By specifying `--wait`, the console will wait to return the result of running the action, which in this case includes the path and filename of the generated snapshot file. For example:
 
-```bash
+```yaml
 unit-etcd-0:
  id: 3d6a505e-07d7-4697-8471-60156f87b1b4
  results:
@@ -116,7 +116,7 @@ Once the deployment has settled and all `new-etcd` units report ready, verify th
 
 which should return something similar to:
 
-```bash
+```yaml
 unit-new-etcd-0:
   id: 27fe2081-6513-4968-869d-6c2c092210a1
   results:
