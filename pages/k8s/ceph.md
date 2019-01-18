@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -32,7 +32,7 @@ Setting up a Ceph cluster is easy with Juju. For this example we will deploy thr
 
 ...and then we'll add three storage nodes. For the storage nodes, we will also specify some actual storage for these nodes to use by using `-- storage`. In this case the Juju charm uses labels for different types of storage:
 
-```
+```bash
  juju deploy -n 3 ceph-osd --storage osd-devices=32G,2 --storage osd-journals=8G,1
 ```
 
@@ -70,7 +70,7 @@ And finally, you need the pools that are defined in the storage class:
 juju run-action ceph-mon/0 create-pool name=xfs-pool --wait
 ```
 
-```
+```yaml
 unit-ceph-mon-0:
   id: c12f0688-f31b-4956-8314-abacd2d6516f
   status: completed
@@ -85,7 +85,7 @@ unit-ceph-mon-0:
 juju run-action ceph-mon/0 create-pool name=ext4-pool --wait
 ```
 
-```
+```yaml
 unit-ceph-mon-0:
   id: 4e82d93d-546f-441c-89e1-d36152c082f2
   status: completed
