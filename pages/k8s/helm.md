@@ -1,9 +1,9 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Using Helm "
+  title: "Using Helm with CDK"
   description: Use Helm to deploy pods on your cluster
 keywords: helm, pod, chart, deploy
 tags: [getting_started]
@@ -157,6 +157,6 @@ Congratulations - you have now deployed **Jenkins** with **Helm**
 
 <!-- LINKS -->
 
-[storage]: ./ceph.html
+[storage]: /kubernetes/docs/storage
 [helm-home]: https://helm.sh/
 [jenkins]: https://jenkins.io/
