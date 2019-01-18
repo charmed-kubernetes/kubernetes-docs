@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -44,7 +44,7 @@ relations:
   - ['vault:secrets', 'kubernetes-master:vault-kv']
 ```
 
-To deploy **CDK** with this overlay([download][cdk-vault-overlay]), save it as, e.g.,
+To deploy **CDK** with this overlay - [download it][cdk-vault-overlay]), save it as, e.g.,
 `cdk-vault-overlay.yaml`, and deploy with:
 
 ```
@@ -66,7 +66,7 @@ will remove this restriction.  In the meantime, **LXD** deployments can make use
 encryption at the level of the **LXD** storage pool, or even full-disk-encryption
 on the host machine.
 
-[cdk-vault-overlay]: ../assets/cdk-vault-overlay.yaml
+[cdk-vault-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/cdk-vault-overlay.yaml
 [secrets]: https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/
 [encryption at rest]: https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
 [HashiCorp's Vault]: https://www.vaultproject.io/
