@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -22,13 +22,13 @@ details.
 
 ## Deploy
 
-The registry is deployed as a stand alone application. Many deployment
+The registry is deployed as a stand-alone application. Many deployment
 scenarios are described in the charm readme. The most common scenario for
 **Kubernetes** integration is to configure a registry with TLS and basic
 (htpasswd) authentication enabled.
 
-If needed, consult the [quickstart guide][quickstart] guide to install
-the **Canonical Distribution of Kubernetes**<sup>&reg;</sup>. Then deploy
+If needed, consult the [quickstart guide][quickstart] to install
+the **Charmed Distribution of Kubernetes**<sup>&reg;</sup>. Then deploy
 and configure `docker-registry` as follows:
 
 ```bash
@@ -79,7 +79,7 @@ Login Succeeded
 relating `docker-registry` and `kubernetes-worker`, appropriate certificates
 are added to `/etc/docker/certs.d` on all workers.
 
-Verify basic authentication is working _from_a_Kubernetes_worker_:
+Verify basic authentication is working from a Kubernetes worker:
 
 ```bash
 juju run --unit kubernetes-worker/0 "docker login -u admin -p password $REGISTRY"
@@ -96,8 +96,8 @@ Minimally, Kubernetes 1.1x requires the following:
 - quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.16.1
 - k8s.gcr.io/defaultbackend-amd64:1.5
 
-**CDK** supports optional addons that include the **Kubernetes** dashboard, 
-**Heapster**, **kube-dns**, etc. Enabling these addons will require the
+**CDK** supports optional add-ons that include the **Kubernetes** dashboard,
+**Heapster**, **kube-dns**, etc. Enabling these add-ons will require the
 following additional images:
 
 - cdkbot/addon-resizer-amd64:1.8.1
@@ -155,8 +155,8 @@ juju config kubernetes-worker \
 ```
 
 Unlike individual configurable images on `kubernetes-worker` units, images
-used by **CDK** addons are controlled by a `kubernetes-master` config option. Push
-the desired addon images listed above (`kubernetes-dashboard`, `heapster`, etc)
+used by **CDK** add-ons are controlled by a `kubernetes-master` config option. Push
+the desired add-on images listed above (`kubernetes-dashboard`, `heapster`, etc)
 and configure `kubernetes-master` to use the registry for installation:
 
 ```bash
@@ -167,4 +167,4 @@ juju config kubernetes-master addons-registry=$REGISTRY
 
 [registry-charm]: http://jujucharms.com/u/containers/docker-registry
 [upstream-registry]: https://docs.docker.com/registry/
-[quickstart]: ../quickstart
+[quickstart]: /kubernetes/docs/quickstart

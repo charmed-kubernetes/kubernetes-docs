@@ -49,7 +49,7 @@ To proceed, use the `juju destroy-model` command to target the model you wish to
 
 You will see a warning, and be required to confirm the action. **Juju** will then continue to free up the resources, giving feedback on the process. It may take some minutes to complete depending on the size of the deployed model and the nature of the cloud it is running on.
 
-```no-highlight
+```
 WARNING! This command will destroy the "k8s-testing" model.
 This includes all machines, applications, data and other resources.
 
