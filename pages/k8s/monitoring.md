@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,9 +13,14 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The **Canonical Distribution of Kubernetes**<sup>&reg;</sup> includes the standard **Kubernetes** dashboard for monitoring your cluster. However, it is often advisable to have a monitoring solution which will run whether the cluster itself is running or not. It may also be useful to integrate monitoring into existing setups.
+The **Charmed Distribution of Kubernetes**<sup>&reg;</sup> includes the standard
+**Kubernetes** dashboard for monitoring your cluster. However, it is often advisable to
+have a monitoring solution which will run whether the cluster itself is running or not. It
+may also be useful to integrate monitoring into existing setups.
 
-**Prometheus** is the recommended way to monitor your deployment - instructions are provided below. There are also instructions for setting up other monitoring solutions, or connecting to existing monitoring setups.
+**Prometheus** is the recommended way to monitor your deployment - instructions are
+provided below. There are also instructions for setting up other monitoring solutions, or
+connecting to existing monitoring setups.
 
 ## Monitoring with Prometheus
 
@@ -50,38 +55,49 @@ juju add-relation kubernetes-worker:juju-info telegraf:juju-info
 
 Prometheus will also need an appropriate scraper to collect metrics relevant to the cluster. A useful default is installed when using **conjure-up** (the template for this can be [downloaded here][download-scraper]), but you can also configure it manually by following the steps outlined here:
 
-- Download the scraper file
-  ```bash
-  curl -O  https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
-  ```
-  This is the template, but it needs some specific information for your cluster.
-- Get the relevant address and password from your cluster
-  ```bash
-  api=$(juju run  --unit kubeapi-load-balancer/0 'network-get website --format yaml --ingress-address' | head -1)
-  pass=$(juju run --unit kubernetes-master/0 'grep "password:" /home/ubuntu/config' | awk '{ print $2 }')
-  ```
-  This will fetch the relevant info and store in temporary environment variables for convenience.
-- Substitute in the variables
-  ```bash
-  sed -e 's/K8S_PASSWORD/'"$pass"'/' -e 's/K8S_API_ENDPOINT/'"$api"'/' <prometheus-scrape-k8s.yaml  > myscraper.yaml
-  ```
-- Configure Prometheus to use this scraper
-  ```bash
-  juju config prometheus scrape-jobs="$(<myscraper.yaml)"
-  ```
+#### 1. Download the scraper file
+
+```bash
+curl -O  https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
+```
+This is the template, but it needs some specific information for your cluster.
+
+#### 2. Get the relevant address and password
+
+```bash
+api=$(juju run  --unit kubeapi-load-balancer/0 'network-get website --format yaml --ingress-address' | head -1)
+pass=$(juju run --unit kubernetes-master/0 'grep "password:" /home/ubuntu/config' | awk '{ print $2 }')
+```
+This will fetch the relevant info from your cluster and store in temporary environment variables for convenience.
+
+#### 4. Substitute in the variables
+
+```bash
+sed -e 's/K8S_PASSWORD/'"$pass"'/' -e 's/K8S_API_ENDPOINT/'"$api"'/' <prometheus-scrape-k8s.yaml  > myscraper.yaml
+```
+
+#### 5. Configure Prometheus to use this scraper
+
+```bash
+juju config prometheus scrape-jobs="$(<myscraper.yaml)"
+```
 
 ### Add the dashboards
 
 As with the scraper, there is a [sample dashboard available for download here][download-dashboard]. You can download and configure **grafana** to use it by following these steps:
 
-- Download the sample dashboard configuration
-  ```bash
-  curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json
-  ```
-- Upload this to **grafana**
-  `bash juju run-action --wait grafana/0 import-dashboard dashboard="$(base64 grafana-k8s.json)"`
-  There is also a default Telegraf dashboard. If you wish to install this, it can be done in a similar way:
+#### 1. Download the sample dashboard configuration
 
+```bash
+curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json
+```
+#### 2. Upload this to grafana
+
+```bash
+juju run-action --wait grafana/0 import-dashboard dashboard="$(base64 grafana-k8s.json)"
+```
+
+There is also a default Telegraf dashboard. If you wish to install this, it can be done in a similar way:
 ```bash
 curl -O https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-telegraf.json
 juju run-action --wait grafana/0 import-dashboard  dashboard="$(base64 grafana-telegraf.json)"
@@ -107,11 +123,11 @@ You can now navigate to the website at `http://<your-ip>:3000` and login with th
 
 Once logged in, check out the cluster metric dashboard by clicking the `Home` drop-down box and selecting `Kubernetes Metrics (via Prometheus)`:
 
-![grafana dashboard image][https://assets.ubuntu.com/v1/e6934269-grafana-1.png]
+![grafana dashboard image](https://assets.ubuntu.com/v1/e6934269-grafana-1.png)
 
 You can also check out the system metrics of the cluster by switching the drop-down box to `Node Metrics (via Telegraf):
 
-![grafana dashboard image][https://assets.ubuntu.com/v1/45b87639-grafana-2.png]
+![grafana dashboard image](https://assets.ubuntu.com/v1/45b87639-grafana-2.png)
 
 ## Monitoring with Nagios
 
@@ -204,7 +220,7 @@ juju add-relation filebeat etcd
 
 ### Initialise the dashboard
 
-A sample dashboard is included in kabana for monitoring the beat services. You can deploy it by running the following:
+A sample dashboard is included in kibana for monitoring the beat services. You can deploy it by running the following:
 
 ```
 juju run-action --wait kibana/0 load-dashboard dashboard=beats
@@ -218,7 +234,7 @@ juju status kibana --format yaml| grep public-address
 
 <!-- LINKS -->
 
-[quickstart]: ../quickstart
+[quickstart]: /kubernetes/docs/quickstart
 [nagios]: https://www.nagios.org/
 [elastic]: https://www.elastic.co/
 [download-scraper]: https://raw.githubusercontent.com/conjure-up/spells/master/canonical-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
