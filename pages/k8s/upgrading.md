@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-It is recommended that you keep your **Kubernetes** deployment updated to the latest available stable version. You should also update the other applications which make up the **Canonical Distribution of Kubernetes<sup>&reg;</sup>.** Keeping up to date ensures you have the latest bug-fixes and security patches for smooth operation of your cluster.
+It is recommended that you keep your **Kubernetes** deployment updated to the latest available stable version. You should also update the other applications which make up the **Charmed Distribution of Kubernetes<sup>&reg;</sup>.** Keeping up to date ensures you have the latest bug-fixes and security patches for smooth operation of your cluster.
 
 New minor versions of **Kubernetes** are set to release once per quarter. You can check the latest release version on the [Kubernetes release page on GitHub][k8s-release]. The **CDK** is kept in close sync with upstream Kubernetes: updated versions will be released within a week of a new upstream version of **Kubernetes**.
 
@@ -57,20 +57,22 @@ This includes:
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
 
-### Upgrading **etcd**
+### Upgrading etcd
 
 As **etcd** manages critical data for the cluster, it is advisable to create a snapshot of this data before running an upgrade. This is covered in more detail in the [documentation on backups][backups], but the basic steps are:
 
-- **Run the snapshot action on the charm:**
-  ```bash
-  juju run-action etcd/0 snapshot --wait
-  ```
-  You should see confirmation of the snapshot being created, and the location of the file _on the **etcd** unit_
-- **Fetch a local copy of the snapshot**
-  Knowing the path to the snapshot file from the output of the above command, you can download a local copy:
-  `bash juju scp etcd/0:/home/ubuntu/etcd-snapshots/<filename>.tar.gz .`
-  You can now upgrade **etcd**:
+#### 1. Run the snapshot action on the charm
 
+```bash
+juju run-action etcd/0 snapshot --wait
+```
+You should see confirmation of the snapshot being created, and the location of the file _on the **etcd** unit_
+
+#### 2. Fetch a local copy of the snapshot
+
+Knowing the path to the snapshot file from the output of the above command, you can download a local copy:
+`bash juju scp etcd/0:/home/ubuntu/etcd-snapshots/<filename>.tar.gz .`
+You can now upgrade **etcd**:
 ```bash
 juju upgrade-charm etcd
 ```
@@ -315,8 +317,8 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: ../backups
-[notes]: ../upgrade-notes
+[backups]: /kubernetes/docs/backups
+[notes]: /kubernetes/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: ../validation
+[validation]: /kubernetes/docs/validation
