@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -208,7 +208,7 @@ This is caused by the API load balancer not forwarding ports in the context of t
 
 ## Logging and monitoring
 
-By default there is no log aggregation of the Kubernetes nodes, each node logs locally. Please read over the [logging](../logging) page for more information.
+By default there is no log aggregation of the Kubernetes nodes, each node logs locally. Please read over the [logging](/kubernetes/docs/logging) page for more information.
 
 ## Troubleshooting Keystone/LDAP issues
 
@@ -234,7 +234,6 @@ a copy somewhere and use that.
 The Keystone pods live in the kube-system namespace and read a configmap from
 Kubernetes for the policy. Check to make sure they are running:
 
-{% raw %}
 ```bash
 kubectl -n kube-system get po
 ```
@@ -302,7 +301,6 @@ metadata:
   selfLink: /api/v1/namespaces/kube-system/configmaps/k8s-auth-policy
   uid: 7dc0842b-ed36-11e8-82e1-06d4a9ac9e06
 ```
-{% endraw %}
 
 ### Check the service and endpoints
 
@@ -337,7 +335,6 @@ monitoring-influxdb         10.1.31.2:8086,10.1.31.2:8083   136m
 
 Use a token to auth with the Keystone service directly:
 
-{% raw %}
 ```bash
 cat <<EOF | curl -ks -XPOST -d @- https://10.152.183.200:8443/webhook | python -mjson.tool
 {
@@ -388,7 +385,6 @@ EOF
     }
 }
 ```
-{% endraw %}
 
 Note that you need to change the IP address above to the address of your
 `k8s-keystone-auth-service`. This will talk to the webhook and verify that the token is
