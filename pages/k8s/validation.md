@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -15,7 +15,7 @@ toc: False
 
 End-to-end (e2e) tests for **Kubernetes** provide a mechanism to test the behaviour of the system. This is a useful indicator that the cluster is performing properly, as well as a good validation of any code changes.
 
-For the **Canonical Distribution of Kubernetes<sup>&reg;</sup>**, these tests are encapsulated in an additional **Juju** charm which can be added to your cluster. Actual testing is then run through the charm's actions.
+For the **Charmed Distribution of Kubernetes<sup>&reg;</sup>**, these tests are encapsulated in an additional **Juju** charm which can be added to your cluster. Actual testing is then run through the charm's actions.
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -24,7 +24,7 @@ Your cluster will need to have at least two running worker units for the `e2e` t
   </p>
 </div>
 
-## Deploying the `kubernetes-e2e` charm
+## Deploying the kubernetes-e2e charm
 
 Add the charm to your cluster:
 
@@ -67,7 +67,7 @@ The tests are configured as a **Juju** _action_. To run the default tests:
 juju run-action kubernetes-e2e/0 test
 ```
 
-The command will return with a uuid for that specific test run. See the section on [Test output](#test-output) below for details.
+The command will return with a uuid for that specific test run. See the section on _Test output_ below for details.
 
 ## Running specific tests
 
@@ -87,13 +87,13 @@ Running this command will return a uuid for that specific test run, as with the 
 
 You can check on the current status of the test by running:
 
-```
+```bash
 juju show-action-status 8f8ec748-6ca7-4bbb-86f8-f37e44ba46f9
 ```
 
 where `8f8ec748-6ca7-4bbb-86f8-f37e44ba46f9` is the uuid of the action returned when we initiated the test. This will return YAML output indicating the current status, which can be either `running`, `completed` or `failed`.
 
-```no-highlight
+```yaml
 actions:
 - action: test
   completed at: n/a
@@ -110,7 +110,7 @@ juju show-action-status  8f8ec748-6ca7-4bbb-86f8-f37e44ba46f9
 
 Which will return output similar to:
 
-```no-highlight
+```yaml
 results:
   junit: /home/ubuntu/8f8ec748-6ca7-4bbb-86f8-f37e44ba46f9-junit.tar.gz
   log: /home/ubuntu/8f8ec748-6ca7-4bbb-86f8-f37e44ba46f9.log.tar.gz
