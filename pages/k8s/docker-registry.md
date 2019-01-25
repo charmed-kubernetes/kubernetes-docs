@@ -33,8 +33,8 @@ and configure `docker-registry` as follows:
 
 ```bash
 juju deploy ~containers/docker-registry
-juju relate docker-registry easyrsa:client
-juju relate docker-registry kubernetes-worker:docker-registry
+juju add-relation docker-registry easyrsa:client
+juju add-relation docker-registry kubernetes-worker:docker-registry
 juju config docker-registry \
   auth-basic-user='admin' \
   auth-basic-password='password'
@@ -48,10 +48,47 @@ TLS data may be provided as base64-encoded config options to the charm:
 
 ```bash
 juju config docker-registry \
-  tls-cert-blob=$(base64 /path/to/cert) \
   tls-ca-blob=$(base64 /path/to/ca) \
+  tls-cert-blob=$(base64 /path/to/cert) \
   tls-key-blob=$(base64 /path/to/key)
 ```
+
+### Proxied Registry
+
+Advanced networking or highly available deployment scenarios may require
+multiple `docker-registry` units to be deployed behind a proxy. In this case,
+the network information of the proxy will be shared with `kubernetes-worker`
+units when the registry is related.
+
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+SSL pass-thru is not supported between `docker-registry` and `haproxy`.
+Any registry SSL configuration must be removed before creating the proxy
+relation. If SSL is desired in a proxied environment, the administrator must
+ensure certificates used by the proxy are configured on `kubernetes-worker`
+units.
+  </p>
+</div>
+
+The environment described in the `Deploy` section above can be adjusted to
+create a highly available registry as follows:
+
+```bash
+juju deploy haproxy
+juju add-unit docker-registry
+juju remove-relation docker-registry easyrsa:client
+juju add-relation docker-registry haproxy:reverseproxy
+```
+
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+With multiple registry units deployed, the proxy relation allows for a
+highly available deployment. Load balancing across multiple registry units is
+not supported.
+  </p>
+</div>
 
 ## Verify
 
