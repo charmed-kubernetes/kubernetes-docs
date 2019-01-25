@@ -69,7 +69,7 @@ relation. If SSL is desired in a proxied environment, the administrator must
 ensure certificates used by the proxy are configured on `kubernetes-worker`
 units.
   </p>
-</div>>
+</div>
 
 The environment described in the `Deploy` section above can be adjusted to
 create a highly available registry as follows:
@@ -88,7 +88,7 @@ With multiple registry units deployed, the proxy relation allows for a
 highly available deployment. Load balancing across multiple registry units is
 not supported.
   </p>
-</div>>
+</div>
 
 ## Verify
 
