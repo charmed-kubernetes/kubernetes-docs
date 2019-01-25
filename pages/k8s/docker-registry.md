@@ -60,11 +60,16 @@ multiple `docker-registry` units to be deployed behind a proxy. In this case,
 the network information of the proxy will be shared with `kubernetes-worker`
 units when the registry is related.
 
->Note: SSL pass-thru is not supported between `docker-registry` and `haproxy`.
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+SSL pass-thru is not supported between `docker-registry` and `haproxy`.
 Any registry SSL configuration must be removed before creating the proxy
 relation. If SSL is desired in a proxied environment, the administrator must
 ensure certificates used by the proxy are configured on `kubernetes-worker`
 units.
+  </p>
+</div>>
 
 The environment described in the `Deploy` section above can be adjusted to
 create a highly available registry as follows:
@@ -76,9 +81,14 @@ juju remove-relation docker-registry easyrsa:client
 juju add-relation docker-registry haproxy:reverseproxy
 ```
 
->Note: With multiple registry units deployed, the proxy relation allows for a
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+With multiple registry units deployed, the proxy relation allows for a
 highly available deployment. Load balancing across multiple registry units is
 not supported.
+  </p>
+</div>>
 
 ## Verify
 
