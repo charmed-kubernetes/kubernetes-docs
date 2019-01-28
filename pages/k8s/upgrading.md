@@ -112,11 +112,13 @@ For most use cases, it is strongly recommended to use the 'stable' version of ch
 
 ### Upgrading the **kube-api-loadbalancer**
 
-A core part of **CDK** is the kubeapi-load-balancer component. A mismatch of versions could have an effect on API availability and access controls. To ensure API service continuity this upgrade should precede any upgrades to the **Kubernetes** master and worker units.
+A core part of **CDK** is the kubeapi-load-balancer component. To ensure API service continuity this upgrade should precede any upgrades to the **Kubernetes** master and worker units.
 
 ```bash
 juju upgrade-charm kubeapi-load-balancer
 ```
+
+The load balancer itself is based on NGINX, and the version reported by `juju status` is that of NGINX rather than Kubernetes. Unlike the other Kubernetes components, there is no need to set a specific channel or version for this charm. 
 
 ### Upgrading the **kubernetes-master** units
 
