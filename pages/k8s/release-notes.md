@@ -62,6 +62,14 @@ public registries. Full instructions on using this feature are in the [documenta
 The keepalived charm can be used to run multiple kube-api-loadbalancers behind a
 virtual IP. For more details, please see the [documentation][docs-keepalived].
 
+- Nginx Update
+
+Nginx was updated to v0.21.0, which brings a few changes of which to be aware. The first
+is that nginx is now in a namespace by itself which is named after the application name.
+By default this will be ingress-nginx-kubernetes-worker. The second change relates to
+custom configmaps. The name has changed to nginx-configuration and the configmap needs to
+reside in the same namespace as the nginx deployment.
+
 ## Fixes
 
  - Added post deployment script for jaas/jujushell ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/pull/697))
