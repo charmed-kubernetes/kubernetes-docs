@@ -65,7 +65,7 @@ virtual IP. For more details, please see the [documentation][docs-keepalived].
 - Nginx update
 
 Nginx was updated to v0.21.0, which brings a few changes of which to be aware. The first
-is that nginx is now in a namespace by itself which is derived from the application name.
+is that nginx is now in a namespace by itself, which is derived from the application name.
 By default this will be `ingress-nginx-kubernetes-worker`. The second change relates to
 custom configmaps. The name has changed to `nginx-configuration` and the configmap needs to
 reside in the same namespace as the nginx deployment.
