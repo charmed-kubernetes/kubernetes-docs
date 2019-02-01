@@ -156,17 +156,17 @@ Whilst it isn't particularly onerous to do this step manually once or twice, for
 ## Customising the bundle install
 
 A number of the scenarios outlined at the start of this document involved
-customising  the CDK install. There are two main ways to do this, using
+customising  the **CDK** install. There are two main ways to do this, using
 overlays or editing the bundle file itself.
 
 Using an overlay means you can easily apply your customisation to different
-versions of the CDK bundle, with the possible downside that changes in the
-structure of  new versions of CDK may render your overlay obsolete or
+versions of the **CDK** bundle, with the possible downside that changes in the
+structure of  new versions of **CDK** may render your overlay obsolete or
 non-functional (depending on what exactly your overlay does).
 
-Saving a copy of the CDK bundle file and editing that means that your
+Saving a copy of the **CDK** bundle file and editing that means that your
 customisation will always work, but of course, requires that you create a new
-file for each version of CDK.
+file for each version of **CDK**.
 
 Both methods are described below.
 
@@ -222,11 +222,8 @@ More information on the constraints you can use is available in the
 
 
 ### Editing a bundle
-
 #### Fetching the latest CDK bundle
 #### Retrieving a bundle from a running model
-
-
 
 <!-- IMAGES -->
 <!-- LINKS -->
