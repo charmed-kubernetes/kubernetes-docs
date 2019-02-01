@@ -133,12 +133,9 @@ used:
 | AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | https://jujucharms.com/u/containers/aws-integrator/       |
 |------------|----------------------|-------------------------------------------------|-----------------------------------------------------------|
 | Azure      | azure-integrator     | juju deploy cs:~containers/azure-integrator     | https://jujucharms.com/u/containers/azure-integrator/     |
-| CloudSigma | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
 | Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | https://jujucharms.com/u/containers/gcp-integrator/       |
-| Joyent     |                      |                                                 |                                                           |
 | Local      | N/A                  | N/A                                             |                                                           |
 | OpenStack  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
-| Oracle     |                      |                                                 |                                                           |
 | Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
 | vSphere    | vsphere-integrator   | juju deploy cs:~containers/vsphere-integrator   | https://jujucharms.com/u/containers/vsphere-integrator/   |
 
