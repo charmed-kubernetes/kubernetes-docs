@@ -193,11 +193,37 @@ relations:
 
 You can also [download the fragment here][asset-aws-overlay]
 
-
 Juju's bundle format, and valid YAML are discussed more fully in the
-[Juju documentation][juju-bundle].
+[Juju documentation][juju-bundle]. In this case it merely adds a new application,
+specifying the charm to use, and further specifies the relationships to add.
 
-  
+To use this overlay with the **CDK** bundle, it is specified during deploy like this:
+
+```bash
+juju deploy cs:~containers/canonical-kubernetes  --overlay ~/path/aws-overlay.yaml
+```
+
+Substitute in the local path and filename to point to your YAML fragment.
+
+#### Adding or changing constraints
+
+After adding additional components, the most common use of overlays is to change
+constraints (the resources requested for the application). Although these are specified
+already in the **CDK** bundle, they can be overridden by an overlay. It isn't necessary
+to replicate the entirety of an entry, just the parts you wish to change. For example:
+
+```yaml
+kubernetes-worker:
+  constraints: cores=4 mem=8G root-disk=100G
+  num_units: 6
+```
+Changes the machine constraints for Kubernetes workers to add more root disk space,
+and also deploys six units instead of the three specified in the original bundle.
+
+More information on the constraints you can use is available in the
+[Juju documentation][juju-constraints].
+
+
 ### Editing a bundle
 
 #### Fetching the latest CDK bundle
@@ -214,4 +240,5 @@ Juju's bundle format, and valid YAML are discussed more fully in the
 [quickstart]: /kubernetes/quickstart
 [clouds-lxd]: /kubernetes/clouds-lxd
 [juju-bundle]: https://docs.jujucharms.com/stable/en/charms-bundles
+[juju-constraints]: https://docs.jujucharms.com/stable/en/reference-constraints
 [asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
