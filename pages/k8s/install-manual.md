@@ -102,6 +102,8 @@ updated, including for testing and beta versions, so it isn't always the case
 that a higher revision number is 'better'. The revision numbers for the release
 versions of the CDK bundle are shown in the table below:
 
+<a  id="table" />
+
 | Kubernetes version | CDK bundle |
 | --- | --- |
 | 1.13.x         | [canonical-kubernetes-363](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-363/archive/bundle.yaml?channel=stable) |
@@ -139,7 +141,9 @@ used:
 | Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
 | vSphere    | vsphere-integrator   | juju deploy cs:~containers/vsphere-integrator   | https://jujucharms.com/u/containers/vsphere-integrator/   |
 
-The charm should be deployed and relationships established with both the `kubernetes-worker` and `kubernetes-master` charms. For example, in the case of AWS:
+The charm should be deployed and relationships established with both the
+`kubernetes-worker` and `kubernetes-master` charms. For example, in the case of
+AWS:
 
 ```bash
 juju deploy cs:~containers/aws-integrator
@@ -151,7 +155,9 @@ juju add-relation aws-integrator kubernetes-worker
 The `juju trust` command allows the aws-integrator to make use of the
 credentials stored by Juju.
 
-Whilst it isn't particularly onerous to do this step manually once or twice, for repeated use, you may wish to investigate the options on customising your install below.
+Whilst it isn't particularly onerous to do this step manually once or twice,
+for repeated use, you may wish to investigate the options on customising your
+install below.
 
 ## Customising the bundle install
 
@@ -202,6 +208,13 @@ juju deploy cs:~containers/canonical-kubernetes  --overlay ~/path/aws-overlay.ya
 
 Substitute in the local path and filename to point to your YAML fragment.
 
+Note that you will still need to run the command to share credentials with this charm:
+
+```bash
+juju trust aws-integrator
+```
+
+
 #### Adding or changing constraints
 
 After adding additional components, the most common use of overlays is to change
@@ -222,10 +235,44 @@ More information on the constraints you can use is available in the
 
 
 ### Editing a bundle
-#### Fetching the latest CDK bundle
+
+Another way to change or customise an install is to store the YAML bundle file locally and
+edit it with a standard text editor.
+
+The latest version of the **CDK** bundle can always be retrieved by
+[fetching the current stable version from the Juju Charm Store][latest-bundle-file]. For
+other versions, see the [table above](#table).
+
+Care should be taken when editing the YAML file as the format is very strict. For more
+details on the format used by Juju, see the [Juju bundle documentation][juju-bundle].
+
 #### Retrieving a bundle from a running model
 
+Sometimes a more convenient way of getting a local bundle file which matches
+exactly the deployment you want is simply to save a running model as a bundle.
+This will preserve configuration, relations and the charms used in the
+deployment so a structural replica can be recreated.
+
+To export a bundle, it is necessary to run the Juju GUI:
+
+```bash
+juju gui
+```
+
+Running this command will output some login information and a URL for the GUI
+interface (the GUI actually runs on the Juju controller instance). On visiting
+the URL given and logging in, a graphical representation of the current model
+will be shown. To export the model as a YAML bundle, click on the `Export`
+button near the top left of the screen.
+
+![][image-gui]
+
+For more information on the Juju GUI, see the [Juju documentation][juju-gui]
+
 <!-- IMAGES -->
+
+[image-gui]: https://assets.ubuntu.com/v1/19f13565-bundle-export.png
+
 <!-- LINKS -->
 
 [juju-docs]: https://docs.jujucharms.com/reference-install
@@ -234,5 +281,7 @@ More information on the constraints you can use is available in the
 [quickstart]: /kubernetes/quickstart
 [clouds-lxd]: /kubernetes/clouds-lxd
 [juju-bundle]: https://docs.jujucharms.com/stable/en/charms-bundles
+[juju-gui]: https://docs.jujucharms.com/stable/en/controllers-gui
 [juju-constraints]: https://docs.jujucharms.com/stable/en/reference-constraints
 [asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
+[latest-bundle-file]: https://api.jujucharms.com/charmstore/v5/~containers/canonical-kubernetes/archive/bundle.yaml
