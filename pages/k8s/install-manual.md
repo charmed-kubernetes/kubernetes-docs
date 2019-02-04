@@ -132,14 +132,15 @@ installing with **conjure-up**, these charms are automatically added to the
 deployment and configured accordingly. This table explains which charms are
 used:
 
-| AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | https://jujucharms.com/u/containers/aws-integrator/       |
+| Cloud     | Integrator charm   |  Juju deploy command  | Notes/docs  |
 |------------|----------------------|-------------------------------------------------|-----------------------------------------------------------|
-| Azure      | azure-integrator     | juju deploy cs:~containers/azure-integrator     | https://jujucharms.com/u/containers/azure-integrator/     |
-| Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | https://jujucharms.com/u/containers/gcp-integrator/       |
+| AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | [docs](https://jujucharms.com/u/containers/aws-integrator/)       |
+| Azure      | azure-integrator     | juju deploy cs:~containers/azure-integrator     | [docs](https://jujucharms.com/u/containers/azure-integrator/)     |
+| Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | [docs](https://jujucharms.com/u/containers/gcp-integrator/)       |
 | Local      | N/A                  | N/A                                             |                                                           |
-| OpenStack  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
-| Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | https://jujucharms.com/u/containers/openstack-integrator/ |
-| vSphere    | vsphere-integrator   | juju deploy cs:~containers/vsphere-integrator   | https://jujucharms.com/u/containers/vsphere-integrator/   |
+| OpenStack  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
+| Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
+| vSphere    | vsphere-integrator   | juju deploy cs:~containers/vsphere-integrator   | [docs](https://jujucharms.com/u/containers/vsphere-integrator/ )  |
 
 The charm should be deployed and relationships established with both the
 `kubernetes-worker` and `kubernetes-master` charms. For example, in the case of
