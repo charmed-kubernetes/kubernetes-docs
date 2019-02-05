@@ -17,10 +17,10 @@ The recommended way to install the
 **Charmed Distribution of Kubernetes <sup>&reg;</sup>** is using the
 **conjure-up** install tool as described in the
 ['Quick start' documentation][quickstart]. However, in some cases it may be useful to
-customise the install:
+customise the install in ways not possible with **conjure-up**:
 
   - Setting specific options for the master/worker nodes
-  - Adding additional components (e.g. monitoring)
+  - Adding additional components 
   - Configuring storage or networking  
   - Copying an existing configuration
   - Testing a pre-release version
@@ -34,7 +34,7 @@ This documentation first presents the method for installing from the official re
 
 ## Install CDK from the official bundle
 
-The following sections outline a standard installation of CDK using the stable release Juju bundles. The standard bundle includes all the components of Kubernetes, but you will have to also follow the [additional configuration][cloud-specific] steps at the end for Kubernetes to function properly - additional components are required to enable Kubernetes to interact with the cloud it is deployed on.
+The following sections outline a standard installation of CDK using the stable release Juju bundles. The standard bundle includes all the components of Kubernetes, but you will have to also follow the [additional configuration](#additional_configuration) steps at the end for Kubernetes to function properly - additional components are required to enable Kubernetes to interact with the cloud it is deployed on.
 
 ###  Install Juju
 
@@ -124,10 +124,11 @@ Only the latest three versions of CDK are supported at any time.
   </p>
 </div>
 
+<a id="additional_configuration" />
 ### Additional configuration
 
 To allow Kubernetes to access resources and functionality of the underlying
-cloud it is deployed on, additional integrator charms are available. When
+cloud upon which it is deployed, additional integrator charms are available. When
 installing with **conjure-up**, these charms are automatically added to the
 deployment and configured accordingly. This table explains which charms are
 used:
@@ -198,13 +199,13 @@ relations:
 You can also [download the fragment here][asset-aws-overlay]
 
 Juju's bundle format, and valid YAML are discussed more fully in the
-[Juju documentation][juju-bundle]. In this case it merely adds a new application,
+[Juju documentation][juju-bundle]. In this example it merely adds a new application,
 specifying the charm to use, and further specifies the relationships to add.
 
 To use this overlay with the **CDK** bundle, it is specified during deploy like this:
 
 ```bash
-juju deploy cs:~containers/canonical-kubernetes  --overlay ~/path/aws-overlay.yaml
+juju deploy canonical-kubernetes  --overlay ~/path/aws-overlay.yaml
 ```
 
 Substitute in the local path and filename to point to your YAML fragment.
@@ -276,6 +277,7 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui]
 
 <!-- LINKS -->
 
+[jaas]: https://jaas.ai/
 [juju-docs]: https://docs.jujucharms.com/reference-install
 [controller-config]: https://docs.jujucharms.com/controllers-config
 [credentials]: https://docs.jujucharms.com/
