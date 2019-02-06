@@ -20,7 +20,7 @@ The recommended way to install the
 customise the install in ways not possible with **conjure-up**:
 
   - Setting specific options for the master/worker nodes
-  - Adding additional components 
+  - Adding additional components
   - Configuring storage or networking  
   - Copying an existing configuration
   - Testing a pre-release version
@@ -130,7 +130,15 @@ Only the latest three versions of CDK are supported at any time.
 To allow Kubernetes to access resources and functionality of the underlying
 cloud upon which it is deployed, additional integrator charms are available. When
 installing with **conjure-up**, these charms are automatically added to the
-deployment and configured accordingly. This table explains which charms are
+deployment and configured accordingly.
+
+Adding the integrator charms directly with **Juju** is not recommended - it is more
+reliable (and easier) to include these charms at deployment time, using the "overlay"
+method as [described below](#overlay). The manual deployment steps shown here are
+only for reference to give a better understanding of how these charms work in relation to
+**CDK**.
+
+This table explains which charms are
 used:
 
 | Cloud     | Integrator charm   |  Juju deploy command  | Notes/docs  |
@@ -155,11 +163,10 @@ juju add-relation aws-integrator kubernetes-worker
 ```
 
 The `juju trust` command allows the aws-integrator to make use of the
-credentials stored by Juju.
+credentials stored by **Juju**.
 
-Whilst it isn't particularly onerous to do this step manually once or twice,
-for repeated use, you may wish to investigate the options on customising your
-install below.
+This demonstrates how the charm relates to the rest of the **CDK** bundle, but it is
+recommended to use the [overlay](#overlay) method for installing in practice.
 
 ## Customising the bundle install
 
@@ -177,6 +184,8 @@ customisation will always work, but of course, requires that you create a new
 file for each version of **CDK**.
 
 Both methods are described below.
+
+<a id="overlay" />
 
 ### Using overlays
 
