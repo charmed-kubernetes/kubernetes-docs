@@ -82,8 +82,8 @@ juju add-model cdk-test
 
 ### Deploy the CDK bundle
 
-The Juju Charm Store hosts the CDK bundles as well as individual charms.  To deploy
-the latest, stable bundle, run the command:
+The **Juju Charm Store** hosts the **CDK** bundles as well as individual charms.  To
+deploy the latest, stable bundle, run the command:
 
 ```bash
 juju deploy cs:~containers/canonical-kubernetes
@@ -94,7 +94,7 @@ revision number. For example, to deploy the CDK bundle for the Kubernetes 1.12
 release, you could run:
 
 ```bash
-juju deploy cs:~containers/canonical-kubernetes-296
+juju deploy cs:~containers/canonical-kubernetes-357
 ```
 
 The revision numbers for bundles are generated automatically when the bundle is
@@ -106,13 +106,11 @@ versions of the CDK bundle are shown in the table below:
 
 | Kubernetes version | CDK bundle |
 | --- | --- |
-| 1.13.x         | [canonical-kubernetes-363](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-363/archive/bundle.yaml?channel=stable) |
-| 1.12.x         | [canonical-kubernetes-296](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-296/archive/bundle.yaml?channel=stable) |
-| 1.11.x         | [canonical-kubernetes-217](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-217/archive/bundle.yaml?channel=stable) |
-| 1.10.5+         | [canonical-kubernetes-211](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-211/archive/bundle.yaml?channel=stable)  |
-| 1.10.x         | [canonical-kubernetes-188](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-188/archive/bundle.yaml?channel=stable) |
-| 1.9.3+         | [canonical-kubernetes-179](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-179/archive/bundle.yaml?channel=stable) |
-| 1.9.x        | [canonical-kubernetes-150](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-150/archive/bundle.yaml?channel=stable) |
+| 1.13.x         | [canonical-kubernetes-412](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-412/archive/bundle.yaml?channel=stable) |
+| 1.12.x         | [canonical-kubernetes-357](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-357/archive/bundle.yaml?channel=stable) |
+| 1.11.x         | [canonical-kubernetes-254](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-254/archive/bundle.yaml?channel=stable) |
+| 1.10.x         | [canonical-kubernetes-211](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-211/archive/bundle.yaml?channel=stable)  |
+| 1.9.x        | [canonical-kubernetes-179](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-179/archive/bundle.yaml?channel=stable) |
 | 1.8.x | [canonical-kubernetes-132](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-132/archive/bundle.yaml?channel=stable) |
 | 1.7.x | [canonical-kubernetes-101](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-101/archive/bundle.yaml?channel=stable) |
 | 1.6.x | [canonical-kubernetes-38](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-38/archive/bundle.yaml?channel=stable) |
