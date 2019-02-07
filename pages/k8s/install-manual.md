@@ -274,8 +274,13 @@ exactly the deployment you want is simply to save a running model as a bundle.
 This will preserve configuration, relations and the charms used in the
 deployment so a structural replica can be recreated.
 
+This can be done dimply by running the command:
 
+```bash
+juju export-bundle --filename mybundle.yaml
+```
 
+The resulting YAML file will be downloaded to the current working directory.
 
 It is also possible to view, edit and export bundles from the Juju GUI:
 
