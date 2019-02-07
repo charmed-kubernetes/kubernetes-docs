@@ -34,8 +34,8 @@ bundles, then explains how the bundle can be customised.
 
 ## Install CDK from the official bundle
 
-The following sections outline a standard installation of CDK using the stable release
-Juju bundles. The standard bundle includes all the components of Kubernetes, but you
+The following sections outline a standard installation of **CDK** using the stable release
+**Juju** bundles. The standard bundle includes all the components of Kubernetes, but you
 will have to also follow the [additional configuration](#additional_configuration) steps
 at the end for Kubernetes to function properly - additional components are required to
 enable Kubernetes to interact with the cloud it is deployed on.
@@ -54,7 +54,7 @@ For other install options, please see the [Juju documentation][juju-docs].
 
 ### Create a controller
 
-Juju requires a *controller*  instance to manage models and deployed applications.
+**Juju** requires a *controller*  instance to manage models and deployed applications.
 You can make use of a hosted controller ([JAAS][jaas]) or create one in a cloud of
 your choice. For public clouds, you will need to have added a credential first:
 
@@ -82,7 +82,7 @@ To manually install CDK locally using LXD, it is necessary to use a specific con
 ### Create a model
 
 The controller automatically creates a model named 'default'. It is useful to
-have a different model for each deployment of CDK, and for the models to have
+have a different model for each deployment of **CDK**, and for the models to have
 useful names. You can create a new model with the `add-model` command like
 this:
 
@@ -102,7 +102,7 @@ juju deploy cs:~containers/canonical-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the CDK bundle for the Kubernetes 1.12
+revision number. For example, to deploy the **CDK** bundle for the Kubernetes 1.12
 release, you could run:
 
 ```bash
@@ -112,7 +112,7 @@ juju deploy cs:~containers/canonical-kubernetes-357
 The revision numbers for bundles are generated automatically when the bundle is
 updated, including for testing and beta versions, so it isn't always the case
 that a higher revision number is 'better'. The revision numbers for the release
-versions of the CDK bundle are shown in the table below:
+versions of the **CDK** bundle are shown in the table below:
 
 <a  id="table" />
 
@@ -201,7 +201,7 @@ Both methods are described below.
 
 A _bundle overlay_ is a fragment of valid YAML which is dynamically merged on
 top of a bundle before deployment, rather like a patch file. The fragment can
-contain any additional or alternative YAML which is intelligible to Juju. For
+contain any additional or alternative YAML which is intelligible to **Juju**. For
 example, to replicate the steps used above to deploy and connect the
 aws-integrator charm, the following fragment could be used:
 
@@ -253,6 +253,53 @@ and also deploys six units instead of the three specified in the original bundle
 
 More information on the constraints you can use is available in the
 [Juju documentation][juju-constraints].
+
+#### Changing configuration values
+
+Configuration settings are mapped to "options" under the charm entries in the bundle
+YAML. Usually these are only expressed when they differ from the default value in the
+charm. For example, if you look at the fragment for the `kubernetes-worker` in the
+**CDK** bundle:
+
+```yaml
+kubernetes-worker:
+  annotations:
+    gui-x: '100'
+    gui-y: '850'
+  charm: cs:~containers/kubernetes-worker-398
+  constraints: cores=4 mem=4G root-disk=16G
+  expose: true
+  num_units: 3
+  options:
+    channel: 1.13/stable
+  resources:
+    cni-amd64: 12
+    cni-arm64: 10
+    cni-s390x: 11
+    kube-proxy: 0
+    kubectl: 0
+    kubelet: 0
+```
+
+...there is only one entry under 'options', in this case for the snap channel to use. There
+are however, a number of configuration options available
+([more details are in the charm documentation][charm-kworker]).
+We can add additional configuration by supplying the desired settings under options. So,
+for example, where we might do the following through **Juju** to set some proxy
+values:
+
+```bash
+juju config kubernetes-worker https_proxy=https://proxy.example.com
+juju config kubernetes-worker snap_proxy:=https://snap-proxy.example.com
+```
+... we can instead use the following YAML fragment as an overlay:
+
+```yaml
+kubernetes-worker:
+  options:
+    https_proxy: https://proxy.example.com
+    snap_proxy: https://snap-proxy.example.com
+```
 
 
 ### Editing a bundle
@@ -315,3 +362,4 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui]
 [juju-constraints]: https://docs.jujucharms.com/stable/en/reference-constraints
 [asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
 [latest-bundle-file]: https://api.jujucharms.com/charmstore/v5/~containers/canonical-kubernetes/archive/bundle.yaml
+[charm-kworker]: https://jujucharms.com/u/containers/kubernetes-worker/#configuration
