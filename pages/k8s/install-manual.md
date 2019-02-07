@@ -19,7 +19,6 @@ The recommended way to install the
 ['Quick start' documentation][quickstart]. However, in some cases it may be useful to
 customise the install in ways not possible with **conjure-up**:
 
-  - Setting specific options for the master/worker nodes
   - Adding additional components
   - Configuring storage or networking  
   - Copying an existing configuration
@@ -29,16 +28,23 @@ customise the install in ways not possible with **conjure-up**:
 In many cases, using the bundle install method outlined here will be faster and more
 repeatable than customising a deployment post-install.
 
-This documentation first presents the method for installing from the official release bundles, then explains how the bundle can be customised.
+This documentation first presents the method for installing from the official release
+bundles, then explains how the bundle can be customised.
 
 
 ## Install CDK from the official bundle
 
-The following sections outline a standard installation of CDK using the stable release Juju bundles. The standard bundle includes all the components of Kubernetes, but you will have to also follow the [additional configuration](#additional_configuration) steps at the end for Kubernetes to function properly - additional components are required to enable Kubernetes to interact with the cloud it is deployed on.
+The following sections outline a standard installation of CDK using the stable release
+Juju bundles. The standard bundle includes all the components of Kubernetes, but you
+will have to also follow the [additional configuration](#additional_configuration) steps
+at the end for Kubernetes to function properly - additional components are required to
+enable Kubernetes to interact with the cloud it is deployed on.
 
 ###  Install Juju
 
-If Juju has not already been installed on your system, you need to install it first. For Ubuntu 16.04 and later, and other operating systems which support [snaps][snaps], run the command:
+If Juju has not already been installed on your system, you need to install it first. For
+Ubuntu 16.04 and later, and other operating systems which support [snaps][snaps], run
+the command:
 
 ```bash
 sudo snap install juju --classic
@@ -59,20 +65,26 @@ juju add-credential
 ...will step through adding your credential for a specific cloud.
 
 
-The Juju documentation has more information on [adding credentials][credentials] and [configuring a controller][controller-config]
+The Juju documentation has more information on [adding credentials][credentials] and
+[configuring a controller][controller-config]
 
+
+<!-- COMMENTED OUT UNTIL PAGE REFERRED TO IS ADDED
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 To manually install CDK locally using LXD, it is necessary to use a specific container profile before deploying.  See the <a href="/kubernetes/clouds-lxd">notes on LXD</a> before deployment.
   </p>
 </div>
-
+-->
 
 
 ### Create a model
 
-The controller automatically creates a model named 'default'. It is useful to have a different model for each deployment of CDK, and for the models to have useful names. You can create a new model with the `add-model` command like this:
+The controller automatically creates a model named 'default'. It is useful to
+have a different model for each deployment of CDK, and for the models to have
+useful names. You can create a new model with the `add-model` command like
+this:
 
 ```bash
 juju add-model cdk-test
@@ -262,7 +274,10 @@ exactly the deployment you want is simply to save a running model as a bundle.
 This will preserve configuration, relations and the charms used in the
 deployment so a structural replica can be recreated.
 
-To export a bundle, it is necessary to run the Juju GUI:
+
+
+
+It is also possible to view, edit and export bundles from the Juju GUI:
 
 ```bash
 juju gui
