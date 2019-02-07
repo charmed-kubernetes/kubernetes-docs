@@ -98,7 +98,7 @@ The **Juju Charm Store** hosts the **CDK** bundles as well as individual charms.
 deploy the latest, stable bundle, run the command:
 
 ```bash
-juju deploy cs:~containers/canonical-kubernetes
+juju deploy canonical-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
@@ -203,7 +203,7 @@ A _bundle overlay_ is a fragment of valid YAML which is dynamically merged on
 top of a bundle before deployment, rather like a patch file. The fragment can
 contain any additional or alternative YAML which is intelligible to **Juju**. For
 example, to replicate the steps used above to deploy and connect the
-aws-integrator charm, the following fragment could be used:
+`aws-integrator` charm, the following fragment could be used:
 
 ```yaml
 applications:
@@ -217,7 +217,7 @@ relations:
 
 You can also [download the fragment here][asset-aws-overlay]
 
-Juju's bundle format, and valid YAML are discussed more fully in the
+**Juju**'s bundle format, and valid YAML are discussed more fully in the
 [Juju documentation][juju-bundle]. In this example it merely adds a new application,
 specifying the charm to use, and further specifies the relationships to add.
 
