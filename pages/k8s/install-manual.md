@@ -36,9 +36,8 @@ bundles, then explains how the bundle can be customised.
 
 The following sections outline a standard installation of **CDK** using the stable release
 **Juju** bundles. The standard bundle includes all the components of Kubernetes, but you
-will have to also follow the [additional configuration](#additional_configuration) steps
-at the end for Kubernetes to function properly - additional components are required to
-enable Kubernetes to interact with the cloud it is deployed on.
+should also follow the [additional configuration](#additional_configuration) steps
+at the end for Kubernetes  to be able to interact with the cloud it is deployed on.
 
 ###  Install Juju
 
@@ -140,7 +139,7 @@ Only the latest three versions of CDK are supported at any time.
 To allow Kubernetes to access resources and functionality of the underlying
 cloud upon which it is deployed, additional integrator charms are available. When
 installing with **conjure-up**, these charms are automatically added to the
-deployment and configured accordingly.
+deployment and configured appropriately.
 
 Adding the integrator charms directly with **Juju** is not recommended - it is more
 reliable (and easier) to include these charms at deployment time, using the "overlay"
@@ -363,3 +362,4 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui]
 [asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
 [latest-bundle-file]: https://api.jujucharms.com/charmstore/v5/~containers/canonical-kubernetes/archive/bundle.yaml
 [charm-kworker]: https://jujucharms.com/u/containers/kubernetes-worker/#configuration
+[snaps]: https://docs.snapcraft.io/snap-documentation
