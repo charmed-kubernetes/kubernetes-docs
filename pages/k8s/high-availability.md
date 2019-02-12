@@ -13,36 +13,40 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+It is desirable to have a **CDK** cluster that is resilient to failure and highly available. For
+clusters operating in public cloud environments the options and the methodology are
+usually straightforward - cloud providers have HA solutions which will work well in these 
+environments, and these should be used for **CDK**.
 
-It is a natural desire to have a CDK cluster be highly available and resilient to failures.
-This is not an easy task though and requires much more thought than initially expected.
-Note that this document is dealing with on-premise or private cloud clusters that have no
-hardware load balancer such as an F5. The public cloud providers have solutions for this
-and should be used in those situations. For on-premise, we start with the two basic
-components of a Kubernetes cluster: your control plane, the kubernetes-master charm, and
-the worker units, the kubernetes-worker charm.
+For 'on-premises' or private cloud deployments, there are a number of options. This
+documentation will present the strategies and methodology for software solutions only
+- if you have a hardware load-balancer, that would obviously be a better option.
+
+ We start with the two basic components of a **CDK** cluster: 
+ 
+ - your control plane, the kubernetes-master charm
+ - the worker units, the kubernetes-worker charm.
 
 ![master worker image](master-worker.png)
 
-These two things are the points of ingress on the cluster and where we will focus our
-effort for high availability. We need to be able to communicate with the cluster as
-robustly as possible.
 
-### Control Plane
-The first thought when attempting to make the control plan highly available is to scale
-the number of master units with `juju add-unit kubernetes-master`.
+## Control Plane
 
-![multi-master worker image](multi-master.png)
+An initial plan to make the control plane more resilient might be to simply add more 
+master nodes with  `juju add-unit kubernetes-master`:
 
-While this will add more machines, it doesn’t work as initially expected. What happens
-is that the workers will randomly pick a master to communicate with and always use that
-master unit. This means if that master is disabled in a way that doesn’t remove it
-from juju, those workers are simply unable to communicate with the control plane. If
-workers arbitrarily pick the same master, they can also overload the master with traffic.
+![multi-master worker image][img-multi-master]
+
+While this will add more machines, it doesn’t work as may be expected. What
+happens is that the workers will randomly pick a master to communicate with and
+always use that master unit. This means if that master fails in a way that
+doesn’t remove it from **Juju**, those workers are simply unable to communicate
+with the control plane. If workers arbitrarily pick the same master, they can
+also overload the master with traffic, making the additional units redundant.
 
 Load balancing the masters is the next logical step:
 
-![single load balancer image](single-loadbalancer.png)
+![single load balancer image][img-single-load-balancer]
 
 The workers now all use the load balancer to talk to the control plane. This will
 balance the load to the master units, but we have just moved the single point of
@@ -54,43 +58,52 @@ is a solid choice.
 
 The next thought is to add multiple load balancers to add resiliency there:
 
-![multi-load balancer image](multi-load-balancer.png)
+![multi-load balancer image][img-multi-load-balancer]
 
-We’re now back to the problem where the workers are talking to a random load balancer
-and if that balancer fails they will fail. We can float a virtual IP address in the
+We’re now back to the problem where the workers are talking to a random
+load balancer and if that balancer fails they will fail. We can float a virtual IP address in
 front of these load balancers to solve that.
 
-#### Summary
-The way to handle a highly available control plane is virtual IP addresses in front
+The way to handle a highly available control plane is to add virtual IP addresses in front
 of either the master units or load balancers depending on load balance requirements.
-If the desire is simply to avoid a node dying from taking away the cluster, a virtual
+If the desire is simply to avoid a node failing from compromising the cluster, a virtual
 IP on the master nodes will handle that. Note that multiple virtual IP addresses can
-be used if load exceeds a single machine, but realize that without proper load
+be used if load exceeds a single machine, but realise that without proper load
 balancing the load on the master units will not necessarily be even due to the random
 IP selection in the Kubernetes worker charms.
 
-### Worker Ingress
-Worker ingress is a very similar problem to the control plane, with the exception of
-the random IP selection of the API server isn’t relevant to worker ingress. There
-are a few ways to get traffic into Kubernetes. Two common ways are to forward incoming
-traffic to the service IP and route that to any worker. It will get routed by
-kube-proxy to a pod that will service it. The other option is to forward incoming
-traffic to a nodeport on any worker to be proxied.
+## Worker units
+
+Worker ingress is a very similar problem to the control plane, with the
+exception that there is no random selection of which  the random IP selection
+of the API server isn’t relevant to worker ingress. There are a few ways to get
+traffic into Kubernetes. Two common ways are to forward incoming traffic to the
+service IP and route that to any worker. It will get routed by kube-proxy to a
+pod that will service it. The other option is to forward incoming traffic to a
+node port on any worker to be proxied.
 
 Multiple virtual IPs would be a good choice in front of the workers. This allows a
 bit of load balancing with round-robin DNS and also allows individual workers to fail.
 A more robust option would be to add load balancers in front of the workers and
-float virtual IPs on those. Note a downside here is the east-west traffic once the
-traffic hits a worker node as it may be routed due to load or just to find a worker
-with the destination pod. This problem is under active development with projects
-that are Kubernetes-aware such as MetalLB, which will be discussed in the next section.
+float virtual IPs on those. Note a downside here is the increase in internal traffic as it may
+need to be routed due to load or just to find a worker with the correct destination pod. 
+This problem is under active development with projects that are Kubernetes-aware such
+as MetalLB.
 
 ## Solutions
-### [Keepalived][keepalived]
 
-### [HAcluster][hacluster]
+The pages linked below give practical details on how to use the currently supported
+software to enable HA
 
-### [MetalLB][metallb]
+  - [Keepalived][keepalived]
+  - [HAcluster][hacluster]
+  - [MetalLB][metallb]
+
+<!-- IMAGES -->
+
+[img-single-load-balancer]: https://assets.ubuntu.com/v1/b47ac644-single-loadbalancer.png
+[img-multi-load-balancer]: https://assets.ubuntu.com/v1/21062012-multi-load-balancer.png
+[img-multi-master]: https://assets.ubuntu.com/v1/dd44ab17-multi-master.png
 
 <!-- LINKS -->
 
