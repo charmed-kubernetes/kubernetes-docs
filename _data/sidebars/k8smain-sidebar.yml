@@ -116,6 +116,6 @@ entries:
       type: page
 
     - title: Help and Contacts
-      url: /contacts
+      url: /contact
       output: web, pdf
       type: page
