@@ -19,16 +19,13 @@ usually straightforward - cloud providers have HA solutions which will work well
 environments, and these should be used for **CDK**.
 
 For 'on-premises' or private cloud deployments, there are a number of options. This
-documentation will present the strategies and methodology for software solutions only
-- if you have a hardware load-balancer, that would obviously be a better option.
+documentation will present the strategies and methodology for software solutions only -
+if you have a hardware load-balancer, that would obviously be a better option.
 
  We start with the two basic components of a **CDK** cluster: 
  
- - your control plane, the kubernetes-master charm
- - the worker units, the kubernetes-worker charm.
-
-![master worker image](master-worker.png)
-
+ - your control plane, the `kubernetes-master` charm
+ - the worker units, the `kubernetes-worker` charm
 
 ## Control Plane
 
