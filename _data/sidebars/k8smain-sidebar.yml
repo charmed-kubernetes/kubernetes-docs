@@ -114,3 +114,8 @@ entries:
       url: /certs-and-trust
       output: web, pdf
       type: page
+
+    - title: Help and Contacts
+      url: /contact
+      output: web, pdf
+      type: page
