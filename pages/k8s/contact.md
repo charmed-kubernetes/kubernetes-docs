@@ -21,6 +21,10 @@ with suggestions, problems or just to get involved.
 
 Join us on freenode.net in **#cdk8s**.
 
+## Slack
+
+Find us in **#cdk** on the [Kubernetes slack][slack].
+
 ## Bugs
 
 **CDK** bugs  are tracked in [launchpad][lp].
@@ -41,3 +45,4 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 [lp]: https://bugs.launchpad.net/charmed-kubernetes
 [support]: https://www.ubuntu.com/support
 [managed]: https://www.ubuntu.com/kubernetes/managed
+[slack]: http://slack.kubernetes.io/
