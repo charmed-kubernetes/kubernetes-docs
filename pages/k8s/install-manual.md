@@ -134,6 +134,42 @@ Only the latest three versions of CDK are supported at any time.
 </div>
 
 <a id="config" ></a>
+
+### Configure kubectl
+
+You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
+installed, it is easy to add via a snap package:
+
+```bash
+sudo snap install kubectl --classic
+```
+
+For other platforms and install methods, please see the
+[Kubernetes documentation][kubectl].
+
+The config file for accessing the newly deployed cluster is stored in the cluster itself. You
+should use the following command to retrieve it:
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
+```
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+If you have multiple clusters you will need to manage the config file rather than just
+replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+Kubernetes documentation</a> for more information on managing multiple clusters.
+  </p>
+</div>
+
+
+You can verify that kubectl is configured correctly and can see the cluster by running:
+
+```bash
+kubectl cluster-info
+```
+
 ### Additional configuration
 
 To allow Kubernetes to access resources and functionality of the underlying
@@ -213,7 +249,7 @@ relations:
   - ['aws-integrator', 'kubernetes-worker']
   ```
 
-You can also [download the fragment here][asset-aws-overlay]
+You can also [download the fragment here][asset-aws-overlay].
 
 **Juju**'s bundle format, and valid YAML are discussed more fully in the
 [Juju documentation][juju-bundle]. In this example it merely adds a new application,
@@ -362,3 +398,4 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 [latest-bundle-file]: https://api.jujucharms.com/charmstore/v5/~containers/canonical-kubernetes/archive/bundle.yaml
 [charm-kworker]: https://jujucharms.com/u/containers/kubernetes-worker/#configuration
 [snaps]: https://docs.snapcraft.io/snap-documentation
+[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
