@@ -145,7 +145,7 @@ sudo snap install kubectl --classic
 ```
 
 For other platforms and install methods, please see the
-[Kubernetes documentation][kubectl]
+[Kubernetes documentation][kubectl].
 
 The config file for accessing the newly deployed cluster is stored in the cluster itself. You
 should use the following command to retrieve it:
@@ -249,7 +249,7 @@ relations:
   - ['aws-integrator', 'kubernetes-worker']
   ```
 
-You can also [download the fragment here][asset-aws-overlay]
+You can also [download the fragment here][asset-aws-overlay].
 
 **Juju**'s bundle format, and valid YAML are discussed more fully in the
 [Juju documentation][juju-bundle]. In this example it merely adds a new application,
