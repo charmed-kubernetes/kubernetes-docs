@@ -141,7 +141,7 @@ You will need **kubectl** to be able to use your Kubernetes cluster. If it is no
 installed, it is easy to add via a snap package:
 
 ```bash
-sudo snap install kubectl
+sudo snap install kubectl --classic
 ```
 
 For other platforms and install methods, please see the
