@@ -66,6 +66,15 @@ First we need to create a storage class which can be used by Kubernetes.  To sta
 we will create one for the 'General Purpose SSD' type of EBS storage:
 
 ```bash
+kubectl create -f - <<EOY
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-gp2
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+EOY
 ```
 
 You can confirm this has been added by running:
@@ -103,7 +112,7 @@ spec:
 EOY
 ```
 
-This should finish with a confirmation. You can check the cureent PVCs with:
+This should finish with a confirmation. You can check the current PVCs with:
 
 ```bash
 kubectl get pvc
@@ -155,10 +164,103 @@ with the AWS console to make sure all the associated resources have also been re
 
 ### Using ELB Loadbalancers
 
+With the aws-integrator charm in place, actions which invoke a loadbalancer in
+Kubernetes  will automatically generate an AWS Elastic Load Balancer.  This can
+be demonstrated with a simple application. Here we will create a simple
+application running in five pods:
+
+```bash
+kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+```
+
+You can verify that the application and replicas have been created with:
+
+```bash
+ kubectl get deployments hello-world
+ ```
+
+ Which should return output similar to:
+
+ ```bash
+ NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+ hello-world      5/5               5                            5             2m38s
+```
+
+To create a LoadBalancer, the application should now be exposed as a service:
+
+```bash
+ kubectl expose deployment hello-world --type=LoadBalancer --name=hello
+ ```
+
+To check that the service is running correctly:
+
+```bash
+kubectl describe service hello
+```
+
+...which should return output similar to:
+
+```yaml
+Name:                     hello
+Namespace:                default
+Labels:                   run=load-balancer-example
+Annotations:              <none>
+Selector:                 run=load-balancer-example
+Type:                     LoadBalancer
+IP:                       10.152.183.134
+LoadBalancer Ingress:     ad5fc7750350611e99768068a686bb67-239702253.eu-west-1.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  31203/TCP
+Endpoints:                10.1.13.4:8080,10.1.13.5:8080,10.1.35.8:8080 + 2 more...
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+```
+
+You can see that the LoadBalancer Ingress is now associated with an ELB address in front
+of the five endpoints of the  example deployment. Leaving a while for DNS propagation, you
+can test the ingress address:
+
+```bash
+curl  http://ad5fc7750350611e99768068a686bb67-239702253.eu-west-1.elb.amazonaws.com:8080
+```
+```
+Hello Kubernetes!
+```
+
+Note that if you subsequently decommission this service, it is useful to check through
+the AWS console that the ELB resources are also released.
+
 ### Upgrading the integrator-charm
+
+The aws-integrator is not specifically tied to the version of CDK installed and may
+generally be upgraded at any time with the following command:
+
+```bash
+juju upgrade-charm aws-integrator
+```
 
 ### Troubleshooting
 
-<!-- LINKS -->
+If you have any specific problems with the aws-integrator, you can report bugs on
+[Launchpad][bugs].
 
+The aws-integrator charm makes use of IAM accounts in AWS to perform actions, so
+useful information can be obtained from [Amazon's CloudTrail][cloudtrail], which logs such activity.
+
+For logs of what the charm itself believes the world to look like, you can use Juju to replay
+the log history for that specific unit:
+
+```bash
+juju debug-log --replay --include aws-integrator/0
+```
+
+
+<!-- LINKS -->
+[asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
+[quickstart]: /kubernetes/docs/quickstart
+[storage]: /kubernetes/docs/storage
 [ebs-info]: https://aws.amazon.com/ebs/features/
+[cloudtrail]: console.aws.amazon.com/cloudtrail/
+[bugs]: https://bugs.launchpad.net/charmed-kubernetes
