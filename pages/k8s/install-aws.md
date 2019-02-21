@@ -13,11 +13,16 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+The **Charmed Distribution of Kubernetes<sup>;&reg</sup>** will run seamlessly on
+AWS.  With the addition of the `aws-integrator`, your cluster will also be able to directly
+use AWS native features.
+
+
 ## AWS integrator
 
 The `aws-integrator` charm simplifies working with **CDK** on AWS. Using the
 credentials provided to Juju, it acts as a proxy between CDK and the underlying cloud,
-granting permissions to dynamically create, for example EBS volumes.
+granting permissions to dynamically create, for example, EBS volumes.
 
 ### Installing
 
@@ -55,6 +60,9 @@ juju trust aws-integrator
 ```bash
 juju scp kubernetes-master/0:config ~/.kube/config
 ```
+
+For more configuration options and details of the permissions which the integrator uses,
+please see the [charm readme][aws-integrator-readme].
 
 ### Using EBS volumes
 
@@ -157,7 +165,7 @@ EOY
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-If you create EBS volumes and subsequently tear down the cluster, make sure to check
+If you create EBS volumes and subsequently tear down the cluster, check
 with the AWS console to make sure all the associated resources have also been released.
   </p>
 </div>
@@ -229,6 +237,13 @@ curl  http://ad5fc7750350611e99768068a686bb67-239702253.eu-west-1.elb.amazonaws.
 Hello Kubernetes!
 ```
 
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+If you create ELBs and subsequently tear down the cluster, check
+with the AWS console to make sure all the associated resources have also been released.
+  </p>
+</div>
 Note that if you subsequently decommission this service, it is useful to check through
 the AWS console that the ELB resources are also released.
 
@@ -264,3 +279,4 @@ juju debug-log --replay --include aws-integrator/0
 [ebs-info]: https://aws.amazon.com/ebs/features/
 [cloudtrail]: console.aws.amazon.com/cloudtrail/
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
+[aws-integrator-readme]: https://jujucharms.com/u/containers/aws-integrator/
