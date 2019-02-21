@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The **Charmed Distribution of Kubernetes<sup>;&reg</sup>** will run seamlessly on
+The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** will run seamlessly on
 AWS.  With the addition of the `aws-integrator`, your cluster will also be able to directly
 use AWS native features.
 
@@ -240,8 +240,8 @@ Hello Kubernetes!
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-If you create ELBs and subsequently tear down the cluster, check
-with the AWS console to make sure all the associated resources have also been released.
+If you create ELBs and subsequently tear down the cluster, check with the AWS console
+to make sure all the associated resources have also been released.
   </p>
 </div>
 Note that if you subsequently decommission this service, it is useful to check through
@@ -262,7 +262,8 @@ If you have any specific problems with the aws-integrator, you can report bugs o
 [Launchpad][bugs].
 
 The aws-integrator charm makes use of IAM accounts in AWS to perform actions, so
-useful information can be obtained from [Amazon's CloudTrail][cloudtrail], which logs such activity.
+useful information can be obtained from [Amazon's CloudTrail][cloudtrail], which logs
+such activity.
 
 For logs of what the charm itself believes the world to look like, you can use Juju to replay
 the log history for that specific unit:
@@ -273,6 +274,7 @@ juju debug-log --replay --include aws-integrator/0
 
 
 <!-- LINKS -->
+
 [asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [storage]: /kubernetes/docs/storage
