@@ -23,7 +23,7 @@
           {% elsif folderitem.type == "section" %}
           <li class="p-sidebar-nav__item first-level"><a class="p-link--soft" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
           {% else %}
-          <li><a class="p-link--soft" href="{{folderitem.url }}">{{folderitem.title}}</a></li>
+          <li><a class="p-link--soft" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
           {% endif %}
           {% for subfolders in folderitem.childitems %}
           {% if subfolders.output contains "web" %}
@@ -37,7 +37,7 @@
                   {% elsif page.url == subfolderitem.url %}
                   <li class="p-sidebar-nav__item"><a class="p-link--soft" href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
                   {% else %}
-                  <li><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                  <li><a href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
                   {% endif %}
                   {% endif %}
                   {% endfor %}
