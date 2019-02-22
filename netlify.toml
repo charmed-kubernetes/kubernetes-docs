@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/"
-  to = "/kubernetes/docs/"
-  status = 200
-  force = false
