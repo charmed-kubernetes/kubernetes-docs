@@ -1,8 +1,13 @@
-## Canonical Distribution of Kubernetes docs
+## Charmed Distribution of Kubernetes docs
 
-This is a temporary repository for iterating on new versions of the Canonical Kubernetes docs. This repository is set up as a simple github-pages/jekyll website, which serves pages at:
+This is a repository for iterating on new versions of the CDK docs.
+This official docs are published at :
+[https://www.ubuntu.com/kubernetes/docs](https://www.ubuntu.com/kubernetes/docs)
 
-[http://blog.juju.solutions/kubernetes-docs/index.html]
+This repository is set to live publish at:
+[https://cdk-docs.netlify.com/](https://cdk-docs.netlify.com/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4e301cd-70c0-4945-bb09-7198cbdd4753/deploy-status)](https://app.netlify.com/sites/cdk-docs/deploys)
 
 ## Layout
 
@@ -14,6 +19,6 @@ The content is contained in two main places:
 
 ## Testing docs
 
-If you have cloned this repo and wish to build it locally to test changes, the easiest way is to have docker (and docker-compose) installed and run:
+If you have cloned this repo and wish to build it locally to test changes, the easiest way is to use ruby/jekyll
 
-      docker-compose build --no-cache && docker-compose up
+      bundle exec jekyll serve
