@@ -161,7 +161,7 @@ kubectl config view | grep password
 
 Open a browser at the address for the Dashboard and log in. You will see an additional authentication screen:
 
-![dashboard image](https://assets.ubuntu.com/v1/d89b1290-CDK-007.png)
+![dashboard image](https://assets.ubuntu.com/v1/80980265-dashboard_login.png)
 
 You will need to log in to the Dashboard with a valid user. The easiest thing to do is to select your kubeconfig file, but for future administration, you should set up _role based access control_.
 
