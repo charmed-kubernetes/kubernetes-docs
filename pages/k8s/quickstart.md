@@ -30,7 +30,7 @@ With this quick start guide and some tools from Canonical, you'll have a Kuberne
   - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="https://www.ubuntu.com/kubernetes/install">Installing CDK</a> page for details. </p></div>
+<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/install">Installing CDK</a> page for details. </p></div>
 
 ## Install the tools
 
@@ -125,7 +125,7 @@ Now **conjure-up** will start the set up by creating a Juju controller, and you 
 
 As mentioned previously, a Juju controller is a cloud instance which Juju uses to monitor and manage any other nodes and applications it deploys across any number of different models. You will typically only need one Juju controller per cloud, and you will be able to deploy multiple separate models containing additional Kubernetes clusters or other big software applications.
 
-Once the controller has been created, Juju will then create a model and instances within that model to contain the applications which make up the **Canonical Distribution of Kubernetes**. For a few minutes, **conjure-up** will display a status screen, reporting on the progress of the install. You will see the individual status messages change as the instances are created, software is installed on them, and then this software is configured to work with the other elements of the deployment.
+Once the controller has been created, Juju will then create a model and instances within that model to contain the applications which make up the **Charmed Distribution of Kubernetes**. For a few minutes, **conjure-up** will display a status screen, reporting on the progress of the install. You will see the individual status messages change as the instances are created, software is installed on them, and then this software is configured to work with the other elements of the deployment.
 
 ![conjure-up controller menu](https://assets.ubuntu.com/v1/92511391-CDK-waiting.png)
 
@@ -133,7 +133,7 @@ The actual time this takes will depend on a number of factors, including which c
 
 ![conjure-up status](https://assets.ubuntu.com/v1/bbe1b9f4-CDK-final.png)
 
-Congratulations! You now have a cluster up and running with the **Canonical Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
+Congratulations! You now have a cluster up and running with the **Charmed Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
 
 You can now check the status of the cluster yourself by running the command:
 
