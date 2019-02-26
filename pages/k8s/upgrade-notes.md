@@ -19,7 +19,13 @@ This page is intended to deal with specific, special circumstances you may encou
 
 This upgrade includes a transistion between major versions of **etcd**, from 2.3 to 3.x. Between these releases, **etcd** changed the way it accesses storage, so it is necessary to reconfigure this. There is more detailed information on the change and the upgrade proceedure in the [upstream **etcd** documentation][etcd-upgrade].
 
-!!! Warning: This upgrade **must** be completed before attempting to upgrade the running cluster.
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+    This upgrade <strong>must</strong> be completed before attempting to upgrade the running cluster.
+  </p>
+</div>
 
 To make this upgrade more convenient for users of **CDK**, a script has been prepared to manage the transition. The script can be [examined here][script].
 
