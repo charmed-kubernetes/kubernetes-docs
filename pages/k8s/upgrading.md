@@ -118,7 +118,7 @@ A core part of **CDK** is the kubeapi-load-balancer component. To ensure API ser
 juju upgrade-charm kubeapi-load-balancer
 ```
 
-The load balancer itself is based on NGINX, and the version reported by `juju status` is that of NGINX rather than Kubernetes. Unlike the other Kubernetes components, there is no need to set a specific channel or version for this charm. 
+The load balancer itself is based on NGINX, and the version reported by `juju status` is that of NGINX rather than Kubernetes. Unlike the other Kubernetes components, there is no need to set a specific channel or version for this charm.
 
 ### Upgrading the **kubernetes-master** units
 
@@ -251,6 +251,21 @@ juju run-action kubernetes-worker/0 upgrade
 juju run-action kubernetes-worker/1 upgrade
 ...
 ```
+
+## Upgrade Docker
+
+Currently,the version of Docker running on units is not directy managed
+by the charms. If you wish to upgrade Docker to the latest stable version
+available to APT, it is possible to do this on a uni-by-unit basis.
+For example:
+
+```bash
+juju run --unit kubernetes-worker/0 "sudo DEBIAN_FRONTEND=noninteractive apt install -y  --allow-change-held-packages -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' && sudo service docker restart"
+```
+
+Any ouput from the command will appear on the terminal (so, for example, you
+will be able to tell whether an update was found or not). It is recommended to
+run this on a unit-by-unit basis to prevent service interruption.
 
 ## Verify your upgrade
 
