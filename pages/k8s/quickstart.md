@@ -1,5 +1,5 @@
 ---
-wrapper_template: "base-docs.html"
+wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The Canonical Distribution of Kubernetes<sup>&reg;</sup> delivers a ‘pure K8s’ experience, tested across a wide range of clouds and integrated with modern metrics and monitoring. It works across all major public clouds and private infrastructure, enabling your teams to operate Kubernetes clusters on demand, anywhere.
+The Charmed Distribution of Kubernetes<sup>&reg;</sup> delivers a ‘pure K8s’ experience, tested across a wide range of clouds and integrated with modern metrics and monitoring. It works across all major public clouds and private infrastructure, enabling your teams to operate Kubernetes clusters on demand, anywhere.
 
 With this quick start guide and some tools from Canonical, you'll have a Kubernetes cluster running on the cloud of your choice in minutes!
 
@@ -30,11 +30,11 @@ With this quick start guide and some tools from Canonical, you'll have a Kuberne
   - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Canonical Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="https://www.ubuntu.com/kubernetes/install">Installing CDK</a> page for details. </p></div>
+<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="https://www.ubuntu.com/kubernetes/install">Installing CDK</a> page for details. </p></div>
 
 ## Install the tools
 
-The recommended way to install the **Canonical Distribution of Kubernetes&reg;** is with the tools [Juju][jujucharms-com], an application modelling tool, and [conjure-up][conjure-up-io], a guided installer for complex applications.
+The recommended way to install the **Charmed Distribution of Kubernetes&reg;** is with the tools [Juju][jujucharms-com], an application modelling tool, and [conjure-up][conjure-up-io], a guided installer for complex applications.
 
 From the command line, run the following:
 
@@ -54,9 +54,9 @@ To start deploying Kubernetes, simply run:
 conjure-up
 ```
 
-This will start an interactive, guided deployment of the components of the **Canonical Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>.
+This will start an interactive, guided deployment of the components of the **Charmed Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>.
 
-**conjure-up** can be used to deploy many different applications, with a set of processing scripts known as _spells_. Use the arrow keys to select "**Canonical Distribution of Kubernetes**" and press `Enter`
+**conjure-up** can be used to deploy many different applications, with a set of processing scripts known as _spells_. Use the arrow keys to select "**Charmed Distribution of Kubernetes**" and press `Enter`
 
 ![conjure-up menu](https://assets.ubuntu.com/v1/37d476e5-CDK-choose.png)
 
@@ -179,8 +179,8 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 
 [jujucharms-com]: https://jujucharms.com
 [conjure-up-io]: https://conjure-up.io
-[install]: https://www.ubuntu.com/kubernetes/install
-[overview]: ../overview
+[install]: /kubernetes/install
+[overview]: /kubernetes/docs/overview
 [snapd-docs]: https://docs.snapcraft.io/core/install
 [cloud-aws]: https://aws.amazon.com
 [cloud-cloudsigma]: https://www.cloudsigma.com
@@ -189,7 +189,7 @@ Now that you have your cluster, you can put it to work! Here are a few recommend
 [cloud-rackspace]: https://www.rackspace.com/cloud/
 [cloud-azure]: https://azure.microsoft.com/
 [cloud-joyent]: https://www.joyent.com/
-[how-login]: ../howto-login
-[how-helm]: ../howto-helm
-[how-juju]: ../howto-juju
-[storage]: ../storage
+[how-login]: /kubernetes/docs/howto-login
+[how-helm]: /kubernetes/docs/howto-helm
+[how-juju]: /kubernetes/docs/howto-juju
+[storage]: /kubernetes/docs/storage
