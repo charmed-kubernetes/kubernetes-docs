@@ -254,7 +254,14 @@ juju run-action kubernetes-worker/1 upgrade
 
 ## Upgrade Docker
 
-Currently,the version of Docker running on units is not directy managed
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+Upgrading Docker will restart all Docker containers.
+  </p>
+</div>
+
+Currently, the version of Docker running on units is not directy managed
 by the charms. If you wish to upgrade Docker to the latest stable version
 available to APT, it is possible to do this on a uni-by-unit basis.
 For example:
