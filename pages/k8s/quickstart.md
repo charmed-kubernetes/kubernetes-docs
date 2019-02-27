@@ -149,7 +149,7 @@ This shows the relevant IP addresses for operating your cluster.
 
 ### Access the dashboard
 
-To check that everything is actually working, you may want to log in to the Kubernetes Dashboard at the IP address given in the above output.
+To check that everything is actually working, you may want to log in to the Kubernetes Dashboard.
 
 The recommended way to do this is to use the built-in proxy service, run with the following:
 
