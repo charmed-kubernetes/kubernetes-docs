@@ -51,7 +51,7 @@ juju deploy charmed-kubernetes --overlay ~/path/aws-overlay.yaml --overlay ~/pat
 ```
 
 As demonstrated here, you can use multiple overlay files when deploying, so you
-can comnbine GPU support with an integrator charm or other custom configuration.
+can combine GPU support with an integrator charm or other custom configuration.
 
 You may then want to [test a GPU workload](#test)
 
