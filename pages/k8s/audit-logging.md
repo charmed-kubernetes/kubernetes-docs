@@ -14,7 +14,7 @@ toc: False
 ---
 
 Kubernetes auditing provides a security-relevant chronological set of records
-documenting the sequence of activities that have affected system by individual
+documenting the sequence of activities that have affected the system by individual
 users, administrators or other components of the system. This documentation
 covers the configuration and usage of these audit logs in the
 **Charmed Distribution of Kubernetes<sup>&reg;</sup>**. For a more detailed
