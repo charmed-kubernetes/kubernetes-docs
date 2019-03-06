@@ -95,6 +95,11 @@ entries:
       url: /gpu-workers
       output: web,pdf
       type: page
+
+    - title: Audit Logging
+      url: /audit-logging
+      output: web, pdf
+      type: page
       
     - title: Troubleshooting
       url: /troubleshooting
