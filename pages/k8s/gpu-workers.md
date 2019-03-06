@@ -28,7 +28,7 @@ first step, if you are using AWS. All the workers will then be deployed to
 machines with GPUs enabled. There is nothing further to do, enjoy!
 
 If you are installing CDK using a bundle, you can use constraints to specify
-that the worker units are deployed on GPU enabled machines. Because GPU support
+that the worker units are deployed on GPU-enabled machines. Because GPU support
 varies considerably depending on the underlying cloud, this requires specifying
 a particular instance type.
 
@@ -47,7 +47,7 @@ applications:
 And then deployed with CDK like this:
 
 ```bash
-juju deploy charmed-kubernetes --overlay ~/path/aws-overlay.yaml --overlay ~/path/gpu-overlay.yaml
+juju deploy canonical-kubernetes --overlay ~/path/aws-overlay.yaml --overlay ~/path/gpu-overlay.yaml
 ```
 
 As demonstrated here, you can use multiple overlay files when deploying, so you
@@ -58,7 +58,7 @@ You may then want to [test a GPU workload](#test)
 ### Adding GPU workers with AWS
 
 It isn't necessary for all the worker units to have GPU support. You can simply
-add GPU enabled workers to a running cluster. The recommended way to do this is
+add GPU-enabled workers to a running cluster. The recommended way to do this is
 to first create a new constraint for the kubernetes-worker:
 
 ```bash
