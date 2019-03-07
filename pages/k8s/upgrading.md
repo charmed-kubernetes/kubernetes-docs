@@ -51,11 +51,46 @@ The applications which run alongside the core Kubernetes components can be upgra
 
 This includes:
 
+- docker
 - easyrsa
 - etcd
 - flannel
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
+
+### Upgrading docker
+
+Docker can be upgraded independently of other components in the kubernetes master and worker charms.
+
+#### Upgrading the masters
+
+It is recommended that master units are upgraded one at a time as pods will be terminated on the unit.
+
+E.g.
+```
+juju run-action kubernetes-master/0 upgrade-docker
+```
+
+Wait for the worker to settle and pods to spawn.  Then move onto the next.
+```
+juju run-action kubernetes-master/1 upgrade-docker
+```
+Etc.
+
+#### Upgrading the workers
+
+It is also recommended that worker units are upgraded one at a time as pods will be terminated on the unit.
+
+E.g.
+```
+juju run-action kubernetes-worker/0 upgrade-docker
+```
+
+Wait for the worker to settle and pods to spawn.  Then move onto the next.
+```
+juju run-action kubernetes-worker/1 upgrade-docker
+```
+Etc.
 
 ### Upgrading etcd
 
