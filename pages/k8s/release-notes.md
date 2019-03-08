@@ -38,4 +38,4 @@ Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
-[historic]: /release-notes-historic
+[historic]: /kubernetes/docs/release-notes-historic
