@@ -8,7 +8,7 @@ context:
 keywords: kubernetes, news, release, notes
 tags: [news]
 sidebar: k8smain-sidebar
-permalink: release-notes.html
+permalink: release-notes-historic.html
 layout: [base, ubuntu-com]
 toc: False
 ---
