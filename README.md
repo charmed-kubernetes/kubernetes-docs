@@ -6,16 +6,20 @@ This official docs are published at :
 
 This repository is set to live publish at:
 [https://cdk-docs.netlify.com/](https://cdk-docs.netlify.com/)
+This is published from the **current** branch
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a4e301cd-70c0-4945-bb09-7198cbdd4753/deploy-status)](https://app.netlify.com/sites/cdk-docs/deploys)
 
+The development version (master) of docs is published at
+[https://cdk-docs-next.netlify.com/](https://cdk-docs-next.netlify.com/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4e301cd-70c0-4945-bb09-7198cbdd4753/deploy-status)](https://app.netlify.com/sites/cdk-docs-next/deploys)
+
 ## Layout
 
-The content is contained in two main places:
+The content is contained in one main place:
 
 1.  The **pages** folder, which contains markdown files mapping to individual pages of the docs.
-
-1.  The **_posts** folder, which contains blog-like news entires in markdown files.
 
 ## Testing docs
 
