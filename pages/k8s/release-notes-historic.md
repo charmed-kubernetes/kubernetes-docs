@@ -126,14 +126,6 @@ reside in the same namespace as the nginx deployment.
 
  - A [current bug](https://github.com/kubernetes/kubernetes/issues/70044) in Kubernetes could prevent the upgrade from properly deleting old pods. `kubectl delete pod <pod_name> --force --grace-period=0` can be used to clean them up.
 
-## Contact Us
-
-- Issues: https://github.com/juju-solutions/bundle-canonical-kubernetes/issues
-- IRC: #cdk8s on freenode.net
-
-
-
-
 
 ## 1.12 Release Notes
 
@@ -184,14 +176,6 @@ For operators who currently use the `http-proxy`, `https-proxy` and `no-proxy` J
 - Fixed kubernetes-worker unable to restart services after kubernetes-master leader is removed ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/627))
 - Fixed kubeapi-load-balancer default timeout might be too low ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/650))
 - Fixed unable to deploy on NVidia hardware ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/664))
-
-## Contact Us
-
-- Issues: <https://github.com/juju-solutions/bundle-canonical-kubernetes/issues>
-
-- IRC: #cdk8s on freenode.net
-
-
 
 <!--LINKS-->
 
