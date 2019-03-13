@@ -188,9 +188,9 @@ used:
 
 | Cloud     | Integrator charm   |  Juju deploy command  | Notes/docs  |
 |------------|----------------------|-------------------------------------------------|-----------------------------------------------------------|
-| AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | [docs](https://jujucharms.com/u/containers/aws-integrator/)       |
+| AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | [docs][aws-docs]      |
 | Azure      | azure-integrator     | juju deploy cs:~containers/azure-integrator     | [docs](https://jujucharms.com/u/containers/azure-integrator/)     |
-| Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | [docs](https://jujucharms.com/u/containers/gcp-integrator/)       |
+| Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | [docs][gcp-docs]      |
 | Local      | N/A                  | N/A                                             |                                                           |
 | OpenStack  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
 | Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
@@ -389,8 +389,7 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 [juju-docs]: https://docs.jujucharms.com/reference-install
 [controller-config]: https://docs.jujucharms.com/controllers-config
 [credentials]: https://docs.jujucharms.com/
-[quickstart]: /kubernetes/quickstart
-[clouds-lxd]: /kubernetes/clouds-lxd
+[quickstart]: /kubernetes/docs/quickstart
 [juju-bundle]: https://docs.jujucharms.com/stable/en/charms-bundles
 [juju-gui]: https://docs.jujucharms.com/stable/en/controllers-gui
 [juju-constraints]: https://docs.jujucharms.com/stable/en/reference-constraints
@@ -399,3 +398,5 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 [charm-kworker]: https://jujucharms.com/u/containers/kubernetes-worker/#configuration
 [snaps]: https://docs.snapcraft.io/snap-documentation
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[aws-docs]: /kubernetes/docs/aws-integration
+[gcp-docs]: /kubernetes/docs/gcp-integration
