@@ -41,6 +41,21 @@ entries:
       output: web, pdf
       type: homepage
 
+  - title: Cloud integration
+    output: web, pdf
+    type: section
+    items:
+
+    - title: Amazon Web Services
+      url: /aws-integration
+      output: web, pdf
+      type: page
+
+    - title: Google Cloud Platform
+      url: /gcp-integration
+      output: web, pdf
+      type: page
+
   - title: Operations
     output: web, pdf
     type: section
