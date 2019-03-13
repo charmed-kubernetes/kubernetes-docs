@@ -8,7 +8,7 @@ context:
 keywords: help, contact, support
 tags: [contact]
 sidebar: k8smain-sidebar
-permalink: contact.html
+permalink: get-in-touch.html
 layout: [base, ubuntu-com]
 toc: False
 ---
