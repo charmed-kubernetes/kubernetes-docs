@@ -3,7 +3,7 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Contacts"
+  title: "Get in Touch"
   description: How to contact the CDK team
 keywords: help, contact, support
 tags: [contact]
