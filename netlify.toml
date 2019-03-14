@@ -3,3 +3,17 @@
   to = "/:splat"
   status = 200
   force = false
+  
+# COMMENT: This a rule for links within ubuntu.com
+[[redirects]]
+  from = "/kubernetes/*"
+  to = "https://www.ubuntu.com/kubernetes/:splat"
+  status = 200
+  force = false
+  
+ # COMMENT: This a rule for links within ubuntu.com
+[[redirects]]
+  from = "/*"
+  to = "https://www.ubuntu.com/:splat"
+  status = 200
+  force = false

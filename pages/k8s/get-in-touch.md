@@ -3,12 +3,12 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Contacts"
+  title: "Get in Touch"
   description: How to contact the CDK team
 keywords: help, contact, support
 tags: [contact]
 sidebar: k8smain-sidebar
-permalink: contact.html
+permalink: get-in-touch.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -31,7 +31,7 @@ Find us in **#cdk** on the [Kubernetes slack][slack].
 
 ## Documentation
 
-Visit the [documentation site][docs] for issues or comments about this documentation.
+Visit the [documentation repository][docs] for issues or comments about this documentation.
 
 ## Professional support
 
@@ -43,6 +43,6 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 
 [docs]:  https://github.com/juju-solutions/kubernetes-docs
 [lp]: https://bugs.launchpad.net/charmed-kubernetes
-[support]: https://www.ubuntu.com/support
-[managed]: https://www.ubuntu.com/kubernetes/managed
+[support]: /support
+[managed]: /kubernetes/managed
 [slack]: http://slack.kubernetes.io/

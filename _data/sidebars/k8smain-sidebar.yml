@@ -100,7 +100,7 @@ entries:
       url: /audit-logging
       output: web, pdf
       type: page
-      
+
     - title: Troubleshooting
       url: /troubleshooting
       output: web, pdf
@@ -126,6 +126,6 @@ entries:
       type: page
 
     - title: Help and Contacts
-      url: /contact
+      url: /get-in-touch
       output: web, pdf
       type: page
