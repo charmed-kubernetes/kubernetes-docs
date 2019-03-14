@@ -6,7 +6,7 @@ context:
   title: "Audit logging"
   description: Accessing and configuring the Kubernetes audit logs with CDK
 keywords: log, audit, config
-tags: [operations]
+tags: [operating]
 sidebar: k8smain-sidebar
 permalink: audit-logging.html
 layout: [base, ubuntu-com]
