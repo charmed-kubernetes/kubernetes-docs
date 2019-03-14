@@ -122,7 +122,7 @@ kubectl delete po -n calico-monitoring es-master-tigera-elasticsearch-default-0
 ```
 
 For a more robust storage solution, consider deploying Ceph with CDK, as
-documented here: https://www.ubuntu.com/kubernetes/docs/storage
+documented in the [Storage] section.
 
 ## Using your own ElasticSearch
 
@@ -208,4 +208,5 @@ juju config tigera-secure-ee registry=$REGISTRY
 
 [elasticsearch-operator]: https://github.com/upmc-enterprises/elasticsearch-operator
 [tigera byo-elasticsearch]: https://docs.tigera.io/v2.2/getting-started/kubernetes/installation/byo-elasticsearch
+[storage]: https://www.ubuntu.com/kubernetes/docs/storage
 [private docker registry]: https://www.ubuntu.com/kubernetes/docs/docker-registry
