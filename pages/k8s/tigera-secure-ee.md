@@ -63,7 +63,6 @@ The easiest way to do this is with the hostpath provisioner. Create a file named
 ```yaml
 # This manifest implements elasticsearch-storage using local host-path volumes.
 # It is not suitable for production use; and only works on single node clusters.
-# For production or multinode clusters, use a different elasticsearch-storage implementation.
 
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -122,7 +121,8 @@ kubectl delete po -n calico-monitoring es-master-tigera-elasticsearch-default-0
 ```
 
 For a more robust storage solution, consider deploying Ceph with CDK, as
-documented in the [Storage] section.
+documented in the [Storage] section. This will create a default StorageClass
+that elasticsearch-operator will use automatically.
 
 ## Using your own ElasticSearch
 
