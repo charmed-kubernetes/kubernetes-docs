@@ -8,7 +8,7 @@ context:
 keywords: aws, integrator, ebs, elb
 tags: [install]
 sidebar: k8smain-sidebar
-permalink: using-aws.html
+permalink: aws-integration.html
 layout: [base, ubuntu-com]
 toc: False
 ---
