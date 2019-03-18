@@ -4,16 +4,16 @@
   status = 200
   force = false
   
-# COMMENT: This a rule for links within ubuntu.com
+# COMMENT: This a rule for managed kubernetes
 [[redirects]]
-  from = "/kubernetes/*"
-  to = "https://www.ubuntu.com/kubernetes/:splat"
+  from = "/kubernetes/managed"
+  to = "https://www.ubuntu.com/kubernetes/managed"
   status = 200
   force = false
   
- # COMMENT: This a rule for links within ubuntu.com
+ # COMMENT: This a rule for support
 [[redirects]]
-  from = "/*"
-  to = "https://www.ubuntu.com/:splat"
+  from = "/support"
+  to = "https://www.ubuntu.com/support"
   status = 200
   force = false
