@@ -21,11 +21,11 @@ toc: False
 
 ## What's new
 
-- Tigera EE support
+- Tigera Secure EE support
 
 **CDK** extends its support for CNI solutions by adding the option of using
-[**Tigera EE**][tigera-home], the enterprise-ready alternative to Calico. Users are now able
-to deploy **CDK** with **Tigera EE** installed and subsequently configure additional
+[**Tigera Secure EE**][tigera-home], the enterprise-ready alternative to Calico. Users are now able
+to deploy **CDK** with **Tigera Secure EE** installed and subsequently configure additional
 features such as ElasticSearch and the CNX secure connectivity manager. For further
 details, please see the [**CDK** CNI documentation][tigera-docs]
 
