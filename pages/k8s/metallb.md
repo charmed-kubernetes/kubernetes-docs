@@ -37,7 +37,7 @@ it is with a helm chart:
 ```bash
 helm install --name metallb stable/metallb
 ```
-Further configuration can be performed by using a [MetalLB configmap][configmap]
+Further configuration can be performed by using a [MetalLB configmap][configmap].
 
 See also the [Helm with CDK documentation][helm] for using Helm with CDK
 
