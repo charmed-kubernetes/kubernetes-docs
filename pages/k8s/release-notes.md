@@ -21,6 +21,22 @@ toc: False
 
 ## What's new
 
+- Tigera Secure EE support
+
+**CDK** extends its support for CNI solutions by adding the option of using
+[**Tigera Secure EE**][tigera-home], the enterprise-ready alternative to Calico. Users are now able
+to deploy **CDK** with **Tigera Secure EE** installed and subsequently configure additional
+features such as ElasticSearch and the CNX secure connectivity manager. For further
+details, please see the [**CDK** CNI documentation][tigera-docs]
+
+- Additional options for High Availability
+
+Version 1.13 of **CDK** introduced support for **keepalived** to provide HA for the 
+api-loadbalancer. This new release adds support for both **HAcluster** and **MetalLB**. See 
+the relevant [HAcluster][hacluster-docs] and [MetalLB][metallb-docs] pages in the
+documentation, as well as the [HA overview][haoverview] for more information. 
+
+
 - Notable feature xxxxx xx
 
 xxxx xxx xxxx xxx xxxx xx xxx xxxx xxx xx xxx xxxx xxxx xxxx xxx xx xxxx xxxx xxxxxx xx
@@ -39,3 +55,9 @@ Please see [this page][historic] for release notes of earlier versions.
 <!--LINKS-->
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
+[tigera-home]: https://www.tigera.io/tigera-secure-ee/
+[tigera-docs]: /kubernetes/docs/cni-tigera
+[haoverview]:
+[metallb-docs]:
+[hacluster-docs]:
+
