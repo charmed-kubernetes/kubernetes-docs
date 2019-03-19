@@ -72,11 +72,10 @@ IP selection in the Kubernetes worker charms.
 ## Worker units
 
 Worker ingress is a very similar problem to the control plane, with the
-exception that there is no random selection of which  the random IP selection
-of the API server isn’t relevant to worker ingress. There are a few ways to get
-traffic into Kubernetes. Two common ways are to forward incoming traffic to the
-service IP and route that to any worker. It will get routed by kube-proxy to a
-pod that will service it. The other option is to forward incoming traffic to a
+exception that the random selection of IP for the API server isn’t relevant to worker ingress.
+There are a few ways to get traffic into Kubernetes. Two common ways are to forward
+incoming traffic to the service IP and route that to any worker. It will get routed
+by kube-proxy to a pod that will service it. The other option is to forward incoming traffic to a
 node port on any worker to be proxied.
 
 Multiple virtual IPs would be a good choice in front of the workers. This allows a
