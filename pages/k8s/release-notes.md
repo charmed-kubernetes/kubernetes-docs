@@ -57,7 +57,7 @@ The enable-kube-dns option has been removed to avoid confusion. The new
 dns-provider config allows you to enable or disable **KubeDNS** as needed.
 
 For more information on the new dns-provider config, see the
-[dns-provider config description].
+[dns-provider config description][dns-provider-config].
 
 - Notable feature xxxxx xx
 
@@ -82,4 +82,4 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]:
 [metallb-docs]:
 [hacluster-docs]:
-[dns-provider config description]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
+[dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
