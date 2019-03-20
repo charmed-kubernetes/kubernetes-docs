@@ -27,7 +27,7 @@ kubeapi-load-balancer charms are supported. These options are mutually exclusive
 ## Deploying
 In order to use HAcluster, the first decision is if a load balancer is desired. This depends
 on the size of the cluster and the expected control plane load. Note that HAcluster
-requires a minimum of 3 units for a quorum.
+requires a minimum of 3 units for a quorum, so you will need 3 kubeapi-load-balancer or 3 kubernetes-master units to use HAcluster.
 
 ### With Load Balancer
 
@@ -51,8 +51,7 @@ juju relate kubernetes-master hacluster
 
 ## Validation
 
-Once things settle, the virtual IP addresses should be pingable. Note that a new
-configuration file for kubectl will be needed:
+Once things settle, the virtual IP addresses should be pingable. A new kubeconfig file will be created containing the virtual IP addresses. You will need to replace your kubeconfig with the new one:
 
 ```bash
 juju scp kubernetes-master/0:config ~/.kube/config
