@@ -126,7 +126,7 @@ entries:
     type: section
     items:
     
-     - title: Overview
+      - title: Overview
       url: /high-availability
       output: web, pdf
       type: page   
