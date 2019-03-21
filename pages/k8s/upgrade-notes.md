@@ -24,10 +24,10 @@ any of the intervening steps.
 
 ## Upgrading to 1.14
 
-This upgrade includes support for **CoreDNS**. All new deployments of **CDK**
-with Kubernetes 1.14 will install **CoreDNS** by default instead of **KubeDNS**.
+This upgrade includes support for **CoreDNS**. All new deployments of
+**CDK 1.14** will install **CoreDNS** by default instead of **KubeDNS**.
 
-Existing deployments that are upgraded to **CDK** 1.14 will continue to use
+Existing deployments which are upgraded to **CDK 1.14** will continue to use
 **KubeDNS** until the operator chooses to upgrade to **CoreDNS**. To upgrade,
 set the new dns-provider config:
 
