@@ -126,22 +126,22 @@ entries:
     type: section
     items:
     
-      - title: Overview
+    - title: Overview
       url: /high-availability
       output: web, pdf
       type: page   
      
-      - title: keepalived
+    - title: keepalived
       url: /keepalived
       output: web, pdf
       type: page
       
-      - title: HAcluster
+    - title: HAcluster
       url: /hacluster
       output: web, pdf
       type: page
       
-      - title: MetalLB
+    - title: MetalLB
       url: /metallb
       output: web, pdf
       type: page
