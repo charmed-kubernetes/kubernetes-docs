@@ -13,7 +13,40 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-This page is intended to deal with specific, special circumstances you may encounter when upgrading between versions of the **Charmed Distribution of Kubernetes<sup>&reg;</sup>.** The notes are organised according to the upgrade path below, but also be aware that any upgrade that spans more than one minor version may need to beware of notes in any of the intervening steps.
+This page is intended to deal with specific, special circumstances you may
+encounter when upgrading between versions of the
+**Charmed Distribution of Kubernetes<sup>&reg;</sup>.** The notes are
+organised according to the upgrade path below, but also be aware that any
+upgrade that spans more than one minor version may need to beware of notes in
+any of the intervening steps.
+
+<a  id="1.14"> </a>
+
+## Upgrading to 1.14
+
+This upgrade includes support for **CoreDNS**. All new deployments of
+**CDK 1.14** will install **CoreDNS** by default instead of **KubeDNS**.
+
+Existing deployments which are upgraded to **CDK 1.14** will continue to use
+**KubeDNS** until the operator chooses to upgrade to **CoreDNS**. To upgrade,
+set the new dns-provider config:
+
+
+```bash
+juju config kubernetes-master dns-provider=core-dns
+```
+
+Please be aware that changing DNS providers will momentarily interrupt DNS
+availability within the cluster. It is not necessary to recreate pods after the
+upgrade completes.
+
+The `enable-kube-dns` option has been removed to avoid confusion. The new
+`dns-provider` option allows you to enable or disable **KubeDNS** as needed.
+
+For more information on the new `dns-provider config`, see the
+[dns-provider config description][dns-provider-config].
+
+<a  id="1.10"> </a>
 
 ## Upgrading from 1.9.x to 1.10.x
 
@@ -75,3 +108,4 @@ You can now proceed with the rest of the upgrade.
 
 [etcd-upgrade]: https://github.com/etcd-io/etcd/blob/master/Documentation/upgrades/upgrade_3_0.md
 [script]: https://raw.githubusercontent.com/juju-solutions/cdk-etcd-2to3/master/migrate
+[dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67

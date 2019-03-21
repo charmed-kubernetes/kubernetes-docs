@@ -36,6 +36,14 @@ api-loadbalancer. This new release adds support for both **HAcluster** and **Met
 the relevant [HAcluster][hacluster-docs] and [MetalLB][metallb-docs] pages in the
 documentation, as well as the [HA overview][haoverview] for more information. 
 
+- Added CoreDNS support
+
+All new deployments of **CDK 1.14** will install **CoreDNS** by
+default instead of **KubeDNS**.
+
+Existing deployments that are upgraded to **CDK 1.14** will
+continue to use **KubeDNS** until the operator chooses to upgrade to
+**CoreDNS**. See the [upgrade notes][upgrade-notes] for details.
 
 - Notable feature xxxxx xx
 
@@ -53,6 +61,7 @@ xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
+[upgrade-notes]: /kubernetes/docs/upgrade-notes
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [tigera-home]: https://www.tigera.io/tigera-secure-ee/
@@ -60,4 +69,3 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]:
 [metallb-docs]:
 [hacluster-docs]:
-
