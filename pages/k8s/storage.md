@@ -62,16 +62,11 @@ juju add-relation ceph-osd ceph-mon
 
 ### Relate to CDK
 
-Making **CDK** aware of your **Ceph** cluster just requires a **Juju** relation.
+Making **CDK** aware of your **Ceph** cluster requires 2 **Juju** relations.
 
 ```bash
-juju add-relation ceph-mon kubernetes-master
-```
-
-Note that the **Ceph** CSI containers require privileged access:
-
-```bash
-juju config kubernetes-master allow-privileged=true
+juju add-relation ceph-mon:admin kubernetes-master
+juju add-relation ceph-mon:client kubernetes-master
 ```
 
 ### Create storage pools
