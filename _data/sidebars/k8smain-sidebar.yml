@@ -141,7 +141,7 @@ entries:
       output: web, pdf
       type: page
       
-    - title: MetalLB
+      - title: MetalLB
       url: /metallb
       output: web, pdf
       type: page
