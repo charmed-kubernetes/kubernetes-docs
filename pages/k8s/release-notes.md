@@ -43,21 +43,7 @@ default instead of **KubeDNS**.
 
 Existing deployments that are upgraded to **CDK** and Kubernetes 1.14 will
 continue to use **KubeDNS** until the operator chooses to upgrade to
-**CoreDNS**. To upgrade, set the new dns-provider config:
-
-```bash
-juju config kubernetes-master dns-provider=core-dns
-```
-
-Please be aware that changing DNS providers will momentarily interrupt DNS
-availability within the cluster. It is not necessary to recreate pods after the
-upgrade completes.
-
-The enable-kube-dns option has been removed to avoid confusion. The new
-dns-provider config allows you to enable or disable **KubeDNS** as needed.
-
-For more information on the new dns-provider config, see the
-[dns-provider config description][dns-provider-config].
+**CoreDNS**. See the [upgrade notes][upgrade-notes] for details.
 
 - Notable feature xxxxx xx
 
@@ -75,6 +61,7 @@ xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
+[upgrade-notes]: /kubernetes/docs/upgrade-notes
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [tigera-home]: https://www.tigera.io/tigera-secure-ee/
@@ -82,4 +69,3 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]:
 [metallb-docs]:
 [hacluster-docs]:
-[dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
