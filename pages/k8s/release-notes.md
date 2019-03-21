@@ -38,10 +38,10 @@ documentation, as well as the [HA overview][haoverview] for more information.
 
 - Added CoreDNS support
 
-All new deployments of **CDK** with Kubernetes 1.14 will install **CoreDNS** by
+All new deployments of **CDK 1.14** will install **CoreDNS** by
 default instead of **KubeDNS**.
 
-Existing deployments that are upgraded to **CDK** and Kubernetes 1.14 will
+Existing deployments that are upgraded to **CDK 1.14** will
 continue to use **KubeDNS** until the operator chooses to upgrade to
 **CoreDNS**. See the [upgrade notes][upgrade-notes] for details.
 
