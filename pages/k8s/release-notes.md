@@ -65,7 +65,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [tigera-home]: https://www.tigera.io/tigera-secure-ee/
-[tigera-docs]: /kubernetes/docs/cni-tigera
+[tigera-docs]: /kubernetes/docs/tigera-secure-ee
 [haoverview]: /kubernetes/docs/high-availability
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
