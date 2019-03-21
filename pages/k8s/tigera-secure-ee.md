@@ -17,27 +17,34 @@ Tigera Secure EE is a software-defined network solution that can be used with
 Kubernetes. For those familiar with Calico, Tigera Secure EE is essentially
 Calico with enterprise features on top.
 
-Support for Tigera Secure EE in CDK is provided in the form of a
-tigera-secure-ee subordinate charm, which can be used instead of flannel or
-calico.
+Support for Tigera Secure EE in **CDK** is provided in the form of a
+`tigera-secure-ee` subordinate charm, which can be used instead of `flannel` or
+`calico`.
 
 ## Deploying CDK with Tigera Secure EE
 
 Before you start, you will need:
-* Tigera Secure EE license key
-* Tigera private Docker registry credentials (provided as a Docker config.json)
 
-NOTE: Tigera Secure EE's network traffic, much like Calico's, is filtered on
-many clouds. It should work on MaaS, and can work on AWS if you manually
-configure instances to disable source/destination checking.
+*  Tigera Secure EE licence key
+*  Tigera private Docker registry credentials (provided as a Docker config.json)
 
-To start, deploy CDK with Tigera Secure EE:
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+    Tigera Secure EE's network traffic, much like Calico's, is filtered on
+    many clouds. It will work on MAAS, and can work on AWS if you manually
+    configure instances to disable source/destination checking.
+  </p>
+</div>
+
+
+To start, deploy **CDK** with Tigera Secure EE:
 
 ```bash
 juju deploy cs:~containers/kubernetes-tigera-secure-ee
 ```
 
-Configure the tigera-secure-ee charm with your license key and registry
+Configure the `tigera-secure-ee` charm with your licence key and registry
 credentials:
 
 ```bash
@@ -50,11 +57,15 @@ Wait for the deployment to settle before continuing on.
 
 ## Using the built-in elasticsearch-operator
 
-NOTE: elasticsearch-operator is only recommended for testing or demonstrative
-purposes. For production deployments, please skip down to the next section.
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+     The built-in elasticsearch-operator is only recommended for testing or demonstrative
+     purposes. For production deployments, please skip down to the next section.  </p>
+</div>
 
-For testing and quick start purposes, the tigera-secure-ee charm deploys
-[elasticsearch-operator] into your Kubernetes cluster by default. For it to
+For testing and quick start purposes, the `tigera-secure-ee` charm deploys
+[elasticsearch-operator][] into your Kubernetes cluster by default. For it to
 properly work, you will need to create a StorageClass.
 
 The easiest way to do this is with the hostpath provisioner. Create a file named
@@ -108,7 +119,7 @@ spec:
 Apply elasticsearch-storage.yaml:
 
 ```bash
-kubectl apply -f elasticsearch-storage.yaml 
+kubectl apply -f elasticsearch-storage.yaml
 ```
 
 Once you have a StorageClass available, delete the existing PVC and pods so
@@ -120,8 +131,8 @@ kubectl delete po -n calico-monitoring es-data-tigera-elasticsearch-default-0
 kubectl delete po -n calico-monitoring es-master-tigera-elasticsearch-default-0
 ```
 
-For a more robust storage solution, consider deploying Ceph with CDK, as
-documented in the [Storage] section. This will create a default StorageClass
+For a more robust storage solution, consider deploying Ceph with **CDK**, as
+documented in the [Storage][] section. This will create a default StorageClass
 that elasticsearch-operator will use automatically.
 
 ## Using your own ElasticSearch
@@ -157,15 +168,19 @@ command to open port 30601 on the workers:
 juju run --application kubernetes-worker open-port 30601
 ```
 
-NOTE: Do not open this port if your kubernetes-worker units are exposed on a
-network you do not trust. Kibana does not require credentials to use.
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+    Do not open this port if your kubernetes-worker units are exposed on a
+    network you do not trust. Kibana does not require credentials to use./p>
+</div>
 
 Then connect to `http://<kubernetes-worker-ip>:30601` in your web browser.
 
 ## Using a private Docker registry
 
-For a general introduction to using a private Docker registry with CDK, please
-refer to the [Private Docker Registry] page.
+For a general introduction to using a private Docker registry with **CDK**, please
+refer to the [Private Docker Registry][] page.
 
 In addition to the steps documented there, you will need to upload the
 following images to the registry:
@@ -208,5 +223,5 @@ juju config tigera-secure-ee registry=$REGISTRY
 
 [elasticsearch-operator]: https://github.com/upmc-enterprises/elasticsearch-operator
 [tigera byo-elasticsearch]: https://docs.tigera.io/v2.2/getting-started/kubernetes/installation/byo-elasticsearch
-[storage]: https://www.ubuntu.com/kubernetes/docs/storage
-[private docker registry]: https://www.ubuntu.com/kubernetes/docs/docker-registry
+[storage]: /kubernetes/docs/storage
+[private docker registry]: /kubernetes/docs/docker-registry
