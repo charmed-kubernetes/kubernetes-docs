@@ -66,6 +66,6 @@ Please see [this page][historic] for release notes of earlier versions.
 [historic]: /kubernetes/docs/release-notes-historic
 [tigera-home]: https://www.tigera.io/tigera-secure-ee/
 [tigera-docs]: /kubernetes/docs/cni-tigera
-[haoverview]:
-[metallb-docs]:
-[hacluster-docs]:
+[haoverview]: /kubernetes/docs/high-availability
+[metallb-docs]: /kubernetes/docs/metallb
+[hacluster-docs]: /kubernetes/docs/hacluster
