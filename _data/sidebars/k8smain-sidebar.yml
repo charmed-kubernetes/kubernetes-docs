@@ -120,7 +120,32 @@ entries:
       url: /troubleshooting
       output: web, pdf
       type: page
-
+      
+  - title: High Availability
+    output: web, pdf
+    type: section
+    items:
+    
+     - title: Overview
+      url: /high-availability
+      output: web, pdf
+      type: page   
+     
+      - title: keepalived
+      url: /keepalived
+      output: web, pdf
+      type: page
+      
+      - title: HAcluster
+      url: /hacluster
+      output: web, pdf
+      type: page
+      
+    - title: MetalLB
+      url: /metallb
+      output: web, pdf
+      type: page
+      
   - title: Reference
     output: web, pdf
     items:
