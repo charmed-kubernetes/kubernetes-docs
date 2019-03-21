@@ -38,7 +38,7 @@ documentation, as well as the [HA overview][haoverview] for more information.
 
 - Added CoreDNS support
 
-All new deployments of **CDK 1.14** will install **CoreDNS** by
+All new deployments of **CDK 1.14** will install **CoreDNS 1.4.0** by
 default instead of **KubeDNS**.
 
 Existing deployments that are upgraded to **CDK 1.14** will

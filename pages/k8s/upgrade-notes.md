@@ -24,7 +24,7 @@ any of the intervening steps.
 
 ## Upgrading to 1.14
 
-This upgrade includes support for **CoreDNS**. All new deployments of
+This upgrade includes support for **CoreDNS 1.4.0**. All new deployments of
 **CDK 1.14** will install **CoreDNS** by default instead of **KubeDNS**.
 
 Existing deployments which are upgraded to **CDK 1.14** will continue to use
