@@ -172,7 +172,7 @@ juju run --application kubernetes-worker open-port 30601
   <p class="p-notification__response">
     <span class="p-notification__status">Caution:</span>
     Do not open this port if your kubernetes-worker units are exposed on a
-    network you do not trust. Kibana does not require credentials to use./p>
+    network you do not trust. Kibana does not require credentials to use</p>
 </div>
 
 Then connect to `http://<kubernetes-worker-ip>:30601` in your web browser.
@@ -186,25 +186,27 @@ In addition to the steps documented there, you will need to upload the
 following images to the registry:
 
 ```no-highlight
-docker.elastic.co/elasticsearch/elasticsearch-oss:6.4.1
-docker.elastic.co/kibana/kibana-oss:6.4.1
-quay.io/tigera/calicoctl:v2.2.1
-quay.io/tigera/calicoq:v2.2.1
-quay.io/tigera/cnx-apiserver:v2.2.1
-quay.io/tigera/cnx-manager:v2.2.1
-quay.io/tigera/cnx-manager-proxy:v2.2.1
-quay.io/tigera/cnx-node:v2.2.1
-quay.io/tigera/cnx-queryserver:v2.2.1
-quay.io/tigera/es-proxy:v2.2.1
-quay.io/tigera/fluentd:v2.2.1
-quay.io/tigera/kube-controllers:v2.2.1
-quay.io/tigera/typha:v2.2.1
+docker.elastic.co/elasticsearch/elasticsearch-oss:6.4.3
+docker.elastic.co/kibana/kibana-oss:6.4.3
+quay.io/tigera/calicoctl:v2.3.0
+quay.io/tigera/calicoq:v2.3.0
+quay.io/tigera/cnx-apiserver:v2.3.0
+quay.io/tigera/cnx-manager:v2.3.0
+quay.io/tigera/cnx-manager-proxy:v2.3.0
+quay.io/tigera/cnx-node:v2.3.0
+quay.io/tigera/cnx-queryserver:v2.3.0
+quay.io/tigera/es-proxy:v2.3.0
+quay.io/tigera/fluentd:v2.3.0
+quay.io/tigera/kube-controllers:v2.3.0
+quay.io/tigera/cloud-controllers:v2.3.0
+quay.io/tigera/typha:v2.3.0
+quay.io/tigera/intrusion-detection-job-installer:v2.3.0
+quay.io/tigera/es-curator:v2.3.0
 quay.io/coreos/configmap-reload:v0.0.1
 quay.io/coreos/prometheus-config-reloader:v0.0.3
 quay.io/coreos/prometheus-operator:v0.18.1
 quay.io/prometheus/alertmanager:v0.14.0
 quay.io/prometheus/prometheus:v2.2.1
-docker.io/giantswarm/tiny-tools:0.3.0
 docker.io/upmcenterprises/elasticsearch-operator:0.2.0
 docker.io/busybox:latest
 docker.io/alpine:3.7
