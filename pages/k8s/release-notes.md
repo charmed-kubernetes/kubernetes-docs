@@ -45,8 +45,12 @@ Existing deployments that are upgraded to **CDK 1.14** will
 continue to use **KubeDNS** until the operator chooses to upgrade to
 **CoreDNS**. See the [upgrade notes][upgrade-notes] for details.
 
-- one-liner xxxxxx xxxxx xxx
-- one-liner xxx x xx x xx xxx
+ - Docker upgrades: Docker 18.09.2 is the new default in Ubuntu. CDK now includes a charm action to simplify [upgrading Docker across a set of worker nodes][upgrading-docker].
+ 
+- Registry enhancements: Read-only mode, frontend support, and additional TLS configuration options have been added to the Docker registry charm.
+
+- Cloud integrations: New configuration options have been added to the vSphere (`folder` and `respool_path`) and OpenStack (`ignore-volume-az`, `bs-version`, `trust-device-path`) integrator charms.
+
 
 ## Fixes
 
@@ -111,6 +115,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-xxx/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
+[upgrading-docker]: /kubernetes/docs/upgrading#upgrading-docker
 [tigera-home]: https://www.tigera.io/tigera-secure-ee/
 [tigera-docs]: /kubernetes/docs/tigera-secure-ee
 [haoverview]: /kubernetes/docs/high-availability
