@@ -122,6 +122,14 @@ juju config kubernetes-worker ingress=true
 Ingress resources are DNS mappings to your containers, routed through
 [endpoints](https://kubernetes.io/docs/user-guide/services/).
 
+## Something something coreDNS something
+
+```bash
+juju config something
+```
+
+something something, etc.
+
 ## Running the packaged example
 
 As an example for users unfamiliar with Kubernetes, we packaged an action to
