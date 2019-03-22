@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Now you have installed your **CDK** cluster, what can you do with it? This page details
+Now that you have installed your **CDK** cluster, what can you do with it? This page details
 some basic cluster operations, including how to check the status of your cluster and test
 that it is working with the built-in demo deployment.
 
@@ -23,7 +23,7 @@ for more useful guides on operating CDK.
 ## Install and configure kubectl
 
 You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
-installed (it is automatically  intalled if you used conjure-up to deploy **CDK**), it is easy
+installed (it is automatically installed if you used conjure-up to deploy **CDK**), it is easy
 to add via a snap package:
 
 ```bash
@@ -249,7 +249,7 @@ project on github.
 
 ## Next steps
 
-Now your **CDK** cluster is up and running, here are some suggestions for additional
+Now that your **CDK** cluster is up and running, here are some suggestions for additional
 things you may wish to try:
 
 - [Adding Storage][storage]
