@@ -47,9 +47,11 @@ continue to use **KubeDNS** until the operator chooses to upgrade to
 
  - Docker upgrades: Docker 18.09.2 is the new default in Ubuntu. CDK now includes a charm action to simplify [upgrading Docker across a set of worker nodes][upgrading-docker].
  
-- Registry enhancements: Read-only mode, frontend support, and additional TLS configuration options have been added to the Docker registry charm.
+- Registry enhancements: Read-only mode, frontend support, and additional TLS configuration options have been added to the [Docker registry charm](https://jujucharms.com/u/containers/docker-registry/114).
 
-- Cloud integrations: New configuration options have been added to the vSphere (`folder` and `respool_path`) and OpenStack (`ignore-volume-az`, `bs-version`, `trust-device-path`) integrator charms.
+- Cloud integrations: New configuration options have been added to the
+[vSphere](https://jujucharms.com/u/containers/vsphere-integrator/) (`folder` and `respool_path`) and 
+[OpenStack]( https://jujucharms.com/u/containers/openstack-integrator/) (`ignore-volume-az`, `bs-version`, `trust-device-path`) integrator charms.
 
 
 ## Fixes
