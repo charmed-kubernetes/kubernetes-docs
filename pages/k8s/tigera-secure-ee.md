@@ -172,7 +172,7 @@ juju run --application kubernetes-worker open-port 30601
   <p class="p-notification__response">
     <span class="p-notification__status">Caution:</span>
     Do not open this port if your kubernetes-worker units are exposed on a
-    network you do not trust. Kibana does not require credentials to use<./p>
+    network you do not trust. Kibana does not require credentials to use</p>
 </div>
 
 Then connect to `http://<kubernetes-worker-ip>:30601` in your web browser.
