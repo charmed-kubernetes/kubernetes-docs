@@ -122,22 +122,21 @@ juju config kubernetes-worker ingress=true
 Ingress resources are DNS mappings to your containers, routed through
 [endpoints](https://kubernetes.io/docs/user-guide/services/).
 
-## Configuring CoreDNS
+## Configuring DNS
 
 CDK 1.14+ has CoreDNS enabled by default, which allows pods within Kubernetes
 to communicate with other pods or services by name.
 
-If you would like to disable CoreDNS, you can use the dns-provider option to do
-so:
+If you would like to disable DNS (for example, to deploy your own custom DNS
+solution), you can use:
 
 ```bash
 juju config kubernetes-master dns-provider=none
 ```
 
-To make configuration changes to CoreDNS, the best way to do so is by disabling
-CoreDNS in the charm so you can deploy it manually with your own configuration.
-If you do this, make sure you configure kubelet to use the IP of your core-dns
-service:
+To deploy a customised DNS configuration, first disable the charm-managed DNS
+provider (see above). After deploying your DNS pods, don't forget to configure
+kubelet with the IP of your DNS service:
 
 ```bash
 juju config kubernetes-worker kubelet-extra-config="{clusterDNS: ['10.152.183.123']}"
