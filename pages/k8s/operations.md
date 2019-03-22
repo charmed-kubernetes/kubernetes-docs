@@ -134,6 +134,15 @@ so:
 juju config kubernetes-master dns-provider=none
 ```
 
+To make configuration changes to CoreDNS, the best way to do so is by disabling
+CoreDNS in the charm so you can deploy it manually with your own configuration.
+If you do this, make sure you configure kubelet to use the IP of your core-dns
+service:
+
+```bash
+juju config kubernetes-worker kubelet-extra-config="{clusterDNS: ['10.152.183.123']}"
+```
+
 ## Running the packaged example
 
 As an example for users unfamiliar with Kubernetes, we packaged an action to
