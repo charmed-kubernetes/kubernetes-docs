@@ -45,10 +45,8 @@ Existing deployments that are upgraded to **CDK 1.14** will
 continue to use **KubeDNS** until the operator chooses to upgrade to
 **CoreDNS**. See the [upgrade notes][upgrade-notes] for details.
 
-- Notable feature xxxxx xx
-
-xxxx xxx xxxx xxx xxxx xx xxx xxxx xxx xx xxx xxxx xxxx xxxx xxx xx xxxx xxxx xxxxxx xx
-xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
+- one-liner xxxxxx xxxxx xxx
+- one-liner xxx x xx x xx xxx
 
 ## Fixes
 
@@ -60,11 +58,11 @@ xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
  - Added dashboard login using kubeconfig ([Issue](https://github.com/juju-solutions/cdk-addons/pull/72))
  - Added docker registry handling to master ([Issue](https://github.com/juju-solutions/kubernetes/pull/210))
  - Added more TLS options to Docker registry ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/20))
- - Added new folder/respool_path config for Vsphere ([Issue](https://github.com/juju-solutions/charm-vsphere-integrator/pull/2))
+ - Added new folder/respool_path config for vSphere ([Issue](https://github.com/juju-solutions/charm-vsphere-integrator/pull/2))
  - Added proxy support to Docker registry ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/21))
  - Added read-only mode for Docker registry ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/22))
  - Added token auth option for dashboard ([Issue](https://github.com/juju-solutions/cdk-addons/pull/77))
- - Fixed `allow-privileged` not enabled when ceph relation joins ([Issue](https://github.com/juju-solutions/kubernetes/pull/197))
+ - Fixed `allow-privileged` not enabled when Ceph relation joins ([Issue](https://github.com/juju-solutions/kubernetes/pull/197))
  - Fixed apt install source for VaultLocker ([Issue](https://github.com/juju-solutions/layer-vaultlocker/pull/3))
  - Fixed CDK broken when using GPUs due to nvidia-docker2 dependency failure ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/720))
  - Fixed Ceph relation join not creating necessary pools ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/631))
@@ -74,7 +72,7 @@ xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
  - Fixed csi-rbdplugin-attacher crash loop when allow-privileged=auto or false ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/674))
  - Fixed dashboard CVE-2018-18264 ([Issue](https://github.com/juju-solutions/cdk-addons/pull/68))
  - Fixed detecting of changed AppKV values ([Issue](https://github.com/juju-solutions/layer-vault-kv/pull/6))
- - Fixed docker-ce-version config not working for non-nvidia configuration ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/621))
+ - Fixed docker-ce-version config not working for non-NVIDIA configuration ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/621))
  - Fixed Docker registry behavior with multiple frontends ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/26))
  - Fixed Docker registry not cleaning up old relation data ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/28))
  - Fixed Docker registry to correctly handle frontend removal ([Issue](https://github.com/CanonicalLtd/docker-registry-charm/pull/29))
@@ -87,7 +85,7 @@ xxxxxx xxx xxx xx xxxx xxxx  [documentation][doc-link].
  - Fixed handling of nameless and SANless server certificates ([Issue](https://github.com/juju-solutions/layer-easyrsa/pull/16))
  - Fixed inconsistent cert flags ([Issue](https://github.com/juju-solutions/layer-easyrsa/pull/18))
  - Fixed ingress=false not allowing custom ingress to be used ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/718))
- - Fixed installing from outdated docker apt respository ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/388))
+ - Fixed installing from outdated docker APT respository ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/388))
  - Fixed IPv6 disabled on kubeapi-loadbalancer machines leads to error during installation ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/623))
  - Fixed Keystone not working with multiple masters ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/681))
  - Fixed kubeconfig should contain the VIP when keepalived used with kubeapi-load-balancer ([Issue](https://github.com/juju-solutions/bundle-canonical-kubernetes/issues/712))
