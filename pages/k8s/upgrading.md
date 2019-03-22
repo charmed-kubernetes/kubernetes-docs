@@ -58,6 +58,8 @@ This includes:
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
 
+<a id='upgrading-docker'> </a>
+
 ### Upgrading Docker
 
 **CDK** will use the latest stable version of Docker when it is deployed. Since upgrading Docker
