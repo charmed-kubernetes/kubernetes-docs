@@ -15,10 +15,6 @@ toc: False
 
 # 1.14
 
-### April xx, 2019
-
- [canonical-kubernetes-xxx][bundle]
-
 ## What's new
 
 - Tigera Secure EE support
