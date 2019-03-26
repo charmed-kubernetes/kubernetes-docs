@@ -80,7 +80,7 @@ sed -e 's/K8S_PASSWORD/'"$pass"'/' -e 's/K8S_API_ENDPOINT/'"$api"'/' <prometheus
 #### 5. Configure Prometheus to use this scraper
 
 ```bash
-juju configure prometheus scrape-jobs="$(<myscraper.yaml)"
+juju config prometheus scrape-jobs="$(<myscraper.yaml)"
 ```
 
 ### Add the dashboards
@@ -177,8 +177,8 @@ juju ssh nagios/0 sudo cat /var/lib/juju/nagios.passwd
 If you already have an existing **Nagios** installation, the `nrpe` charm can be configured to work with it.
 
 ```bash
-juju configure nrpe export_nagios_definitions=true
-juju configure nrpe nagios_master=<ip-address-of-nagios>
+juju config nrpe export_nagios_definitions=true
+juju config nrpe nagios_master=<ip-address-of-nagios>
 ```
 
 See the [External Nagios][external-nagios] section of the NRPE charm readme for more information.
