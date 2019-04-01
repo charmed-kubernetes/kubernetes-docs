@@ -213,8 +213,8 @@ The [default policy may be downloaded][policy] for easy editing.
 
 ## Custom Certificate Authority
 
-In order for server certificates signed by a custom certificate authority
-attached to Keystone to work properly, some additional configuration is required.
+When using a custom certificate authority attached to Keystone, some additional configuration is
+required.
 
  * Add CA to client machines that will run `kubectl`.
 
