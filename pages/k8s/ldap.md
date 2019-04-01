@@ -111,7 +111,10 @@ Open the address in a web browser and log in with the token obtained previously.
 https://<openstack_dashboard_ip>/horizon
 ```
 
-If you just deployed Keystone and do not have any credentials set, it is useful to note that Keystone creates the domain `admin_domain` by default and has a user named `admin` with a randomly-generated password. You can find the admin password with:
+If you just deployed Keystone and do not have any credentials set, it is useful
+to note that Keystone creates the domain `admin_domain` by default and has a user
+named `admin` with a randomly-generated password. You can find the admin password
+with:
 
 ```bash
 juju run --unit keystone/0 leader-get admin_password
@@ -210,9 +213,10 @@ The [default policy may be downloaded][policy] for easy editing.
 
 ## Custom Certificate Authority
 
-In order for server certificates signed by a custom certificate authority attached to Keystone to work properly requires some configuration.
+In order for server certificates signed by a custom certificate authority
+attached to Keystone to work properly some additional configuration is required.
 
- * Add CA to client machines that will run kubectl.
+ * Add CA to client machines that will run `kubectl`.
 
 ```
 sudo cp custom_ca.crt /usr/local/share/ca-certificates
