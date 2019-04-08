@@ -130,23 +130,25 @@ Then edit the file:
 
 ```bash
 sudo nano /root/cdk/basic_auth.csv
+exit
 ```
 ...adding the appropriate details. You can then restart the master for the changes to take
 effect:
 
 ```bash
-sudo reboot
+juju run-action kubernetes-master/0 restart
 ```
 
+For more detail on the roles and bindings, please see the [Kubernetes RBAC documentation][rbac].
 
 <!-- LINKS -->
 
 
 [upstream-access-control]
 [node]: https://kubernetes.io/docs/reference/access-authn-authz/node/
-[abac]:
-[rbac]:
-[webhook]:
+[abac]: https://kubernetes.io/docs/reference/access-authn-authz/abac/
+[rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[webhook]: https://kubernetes.io/docs/reference/access-authn-authz/webhook/
 [roles]: #rbac
 
 [k8s-audit]: https://kubernetes.io/docs/tasks/debug-application-cluster/au
