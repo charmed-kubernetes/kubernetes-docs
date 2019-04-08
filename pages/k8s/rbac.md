@@ -144,11 +144,9 @@ For more detail on the roles and bindings, please see the [Kubernetes RBAC docum
 <!-- LINKS -->
 
 
-[upstream-access-control]
+[upstream-access-control]: https://kubernetes.io/docs/reference/access-authn-authz/authorization/
 [node]: https://kubernetes.io/docs/reference/access-authn-authz/node/
 [abac]: https://kubernetes.io/docs/reference/access-authn-authz/abac/
 [rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [webhook]: https://kubernetes.io/docs/reference/access-authn-authz/webhook/
 [roles]: #rbac
-
-[k8s-audit]: https://kubernetes.io/docs/tasks/debug-application-cluster/au
