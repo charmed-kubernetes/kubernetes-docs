@@ -196,7 +196,7 @@ ccf9b218845f4d67835f8c6a7c2d1cd4
 
 This token can then be used to log in to the Kubernetes dashboard.
 
-![dashboard image](token-login.png)
+![dashboard image](https://assets.ubuntu.com/v1/4b79b35c-token-login.png)
 
 ## LDAP via Keystone
 
@@ -279,6 +279,7 @@ As with any application configuration, it is easy to make simple mistakes when e
 different values or editing config files. If you are having problems, please
 [read the troubleshooting guide][trouble] for specific tips and information on
 configuring Keystone/LDAP.
+
 
 <!--LINKS-->
 [install]: /kubernetes/docs/quickstart
