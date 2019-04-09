@@ -97,7 +97,7 @@ The script should prompt you to enter an additional command to retrieve the toke
 login to the OpenStack Dashboard. If this step fails, check that the details in the
 `kube-keystone.sh` file are correct.
 
-## Access the Openstack dashboard
+## Access the OpenStack dashboard
 
 You can determine the web address for the OpenStack dashboard by running:
 
@@ -157,36 +157,44 @@ Now ensure the user is added to the project created above.
 
 At this point, Keystone is set up and we have a domain, project, and user
 created in Keystone. With the updated config file copied above in
-~/kube/config, we can use kubectl to authenticate with the api server via
-a token from Keystone. The client-keystone-auth snap will automate
+`~/.kube/config`, we can use `kubectl` to authenticate with the api server
+via a token from Keystone. The `client-keystone-auth` snap will automate
 retrieving a token for us using the environment variables common to
-Openstack such as OS_USERNAME. These environment variables are exported in
-the kube-keystone.sh script we downloaded earlier. To use it, update the
-variables in kube-keystone.sh to match valid user credentials. Pay
-special attention to the OS_AUTH_URL variable and ensure it is using an
+OpenStack such as `OS_USERNAME`. These environment variables are exported in
+the `kube-keystone.sh` script we downloaded earlier. To use it, update the
+variables in `kube-keystone.sh` to match valid user credentials. Pay
+special attention to the `OS_AUTH_URL` variable and ensure it is using an
 IP address that is reachable from the client. Source that file into
 your environment with `source ./kube-keystone.sh`. Any credentials that
 are not supplied via environment variable are queried at run-time for
 each invocation of kubectl.
 
-## Using keystone with the kubernetes-dashboard
+## Using Keystone with the kubernetes-dashboard
 
 When using Keystone with Kubernetes, the Kubernetes dashboard is
 updated by the charms to use token authentication. This means that a token
 from Keystone is required to log in to the Kubernetes dashboard. There is
-currently not a way to automate this, but the kube-keystone.sh file includes
-a function called get_keystone_token, which uses the OS_ environment
+currently no way to automate this, but the `kube-keystone.sh` file includes
+a function called `get_keystone_token`, which uses the `OS_` environment
 variables in order to retrieve a token from Keystone.
 
 ```bash
-$ source ~/bin/kube-keystone.sh 
+source ~/bin/kube-keystone.sh
+```
+```
 Function get_keystone_token created. Type get_keystone_token in order to
 generate a login token for the Kubernetes dashboard.
-$ get_keystone_token
+```
+Enter the command...
+```bash
+get_keystone_token
+```
+...and a token will be generated:
+```
 ccf9b218845f4d67835f8c6a7c2d1cd4
 ```
 
-This token can be used to log in to the Kubernetes dashboard.
+This token can then be used to log in to the Kubernetes dashboard.
 
 ![dashboard image](token-login.png)
 
