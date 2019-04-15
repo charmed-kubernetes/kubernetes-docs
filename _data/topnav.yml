@@ -8,7 +8,7 @@ topnav:
     - title: News
       url: ../news
     - title: Store
-      external_url: https://jujucharms.com/canonical-kubernetes/
+      external_url: https://jujucharms.com/charmed-kubernetes/
     - title: Source
       external_url: https://github.com/juju-solutions/bundle-canonical-kubernetes/
     - title: Docs
