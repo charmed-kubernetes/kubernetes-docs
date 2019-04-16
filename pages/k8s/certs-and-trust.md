@@ -118,7 +118,6 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
 
 
 
-[CDK]: http://jujucharms.com/canonical-kubernetes
 [TLS]: https://www.networkworld.com/article/2303073/lan-wan/lan-wan-what-is-transport-layer-security-protocol.html
 [PKI]: https://github.com/OpenVPN/easy-rsa/blob/master/doc/Intro-To-PKI.md
 [chain of trust]: https://en.wikipedia.org/wiki/Chain_of_trust
