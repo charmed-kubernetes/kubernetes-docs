@@ -119,8 +119,7 @@ kubectl get clusterrolebindings  --all-namespaces
 
 The recommended method for managing Kubernetes users is through an external
 authentication service such as LDAP (see the documentation on
-[using LDAP with CDK][docs-ldap]). While Kubernetes supports such authentication,
-the implementation is left up to the user. You can read more about the Kubernetes
+[using LDAP with CDK][docs-ldap]). You can read more about the Kubernetes
 approach to authentication in this page of the
 [Kubernetes documentation][upstream-authentication].
 
