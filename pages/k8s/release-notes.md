@@ -14,6 +14,15 @@ toc: False
 ---
 
 
+# NAME OF RELEASE
+
+### DATE - BUNDLE REVISION WITH LINK
+
+## Fixes
+
+- Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
+
+
 # 1.14 Bugfix release
 
 ### April 23rd, 2019 - [charmed-kubernetes-33](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-33/archive/bundle.yaml)
