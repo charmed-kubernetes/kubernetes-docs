@@ -18,6 +18,26 @@ toc: False
 
 ### DATE - BUNDLE REVISION WITH LINK
 
+## What's new
+
+- Calico 3.x support
+
+The Calico and Canal charms have been updated to install Calico 3.6.1 by
+default. For users currently running Calico 2.x, the next time you upgrade your
+Calico or Canal charm, the charm will automatically upgrade to Calico 3.6.1
+with no user intervention required.
+
+The Calico charm's `ipip` config option has been changed from a boolean to a
+string to allow for the addition of a new mode. This change is illustrated in
+the table below:
+
+| New value     | Old value         | Description                                           |
+|---------------|-------------------|-------------------------------------------------------|
+| "Never"       | false             | Never use IPIP encapsulation. (The default)           |
+| "Always"      | true              | Always use IPIP encapsulation.                        |
+| "CrossSubnet" | \<Not supported\> | Only use IPIP encapsulation for cross-subnet traffic. |
+
+
 ## Fixes
 
 - Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
