@@ -94,6 +94,7 @@ software to enable HA
   - [Keepalived][keepalived]
   - [HAcluster][hacluster]
   - [MetalLB][metallb]
+  - [Custom Load Balancer/Virtual IP][customlb]
 
 <!-- IMAGES -->
 
@@ -106,3 +107,4 @@ software to enable HA
 [keepalived]: /kubernetes/docs/keepalived
 [hacluster]: /kubernetes/docs/hacluster
 [metallb]: /kubernetes/docs/metallb
+[customlb]: /kubernetes/docs/custom-lb
