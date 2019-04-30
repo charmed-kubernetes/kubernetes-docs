@@ -244,8 +244,6 @@ If you create ELBs and subsequently tear down the cluster, check with the AWS co
 to make sure all the associated resources have also been released.
   </p>
 </div>
-Note that if you subsequently decommission this service, it is useful to check through
-the AWS console that the ELB resources are also released.
 
 ### Upgrading the integrator-charm
 
