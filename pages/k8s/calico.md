@@ -52,6 +52,31 @@ To deploy CDK with Calico, deploy the kubernetes-calico bundle:
 juju deploy cs:~containers/kubernetes-calico
 ```
 
+## Calico configuration options
+
+| Name                |  Type  |  Default value                           | Description                                                    |
+|=====================|========|==========================================|================================================================|
+| calico-node-image   | string | docker.io/calico/node:v3.6.1             | The image id to use for calico/node                            |
+| calico-policy-image | string | docker.io/calico/kube-controllers:v3.6.1 | The image id to use for calico/kube-controllers                |
+| ipip                | string | Never                                    | IPIP mode. Must be one of "Always", "CrossSubnet", or "Never". |
+| nat-outgoing        | bool   | True                                     | Enable NAT on outgoing traffic                                 |
+
+## Calico IPIP configuration
+
+By default, IPIP encapsulation is disabled. To enable IPIP encapsulation, set
+the `ipip` charm config to `Always`:
+
+```
+juju config calico ipip=Always
+```
+
+Alternatively, if you would like IPIP encapsulation to be used for cross-subnet
+traffic only, set the `ipip` charm config to `CrossSubnet`:
+
+```
+juju config calico ipip=CrossSubnet
+```
+
 ## Using a private Docker registry
 
 For a general introduction to using a private Docker registry with **CDK**, please
