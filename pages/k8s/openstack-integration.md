@@ -224,7 +224,7 @@ juju debug-log --replay --include openstack-integrator/0
 
 <!-- LINKS -->
 
-[asset-openstack-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/openstack-overlay.yaml
+[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/openstack-overlay.yaml
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://jujucharms.com/u/containers/openstack-integrator/
