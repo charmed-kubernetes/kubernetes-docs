@@ -14,7 +14,7 @@ toc: False
 ---
 
 The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** will run seamlessly
-on OpenStack.  With the addition of the `openstack-integrator`, your cluster
+on OpenStack. With the addition of the `openstack-integrator`, your cluster
 will also be able to directly use OpenStack native features.
 
 
@@ -43,7 +43,7 @@ relations:
 To use this overlay with the **CDK** bundle, it is specified during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes  --overlay ~/path/openstack-overlay.yaml
+juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml
 ```
 
 Then run the command to share credentials with this charm:
@@ -140,8 +140,8 @@ have also been released.
 ### Using LBaaS load balancers
 
 With the openstack-integrator charm in place, actions which invoke a
-loadbalancer in Kubernetes  will automatically request a load balancer from
-OpenStack using Octavia, if available, or Neutron.  This can be demonstrated
+loadbalancer in Kubernetes will automatically request a load balancer from
+OpenStack using Octavia, if available, or Neutron. This can be demonstrated
 with a simple application. Here we will create a simple application running in
 five pods:
 
