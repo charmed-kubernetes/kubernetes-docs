@@ -3,7 +3,7 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Custom Load Balancers"
+  title: "Custom load balancers"
   description: How to configure your Kubernetes cluster to use a custom load balancer.
 keywords: high availability, vip, load balancer, f5
 tags: [operating]
@@ -15,7 +15,7 @@ toc: False
 
 The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** supports setting a
 custom IP address for the control plane.  There are two ways of achieving this, depending
-on which type of loadbalancing solution you wish to configure:
+on which type of load balancing solution you wish to configure:
 
  -  If you have a virtual IP to place in front of machines, configure the settings on the
     `kubeapi-load-balancer` charm.
@@ -28,7 +28,7 @@ Both solutions are described in the sections below.
 
 # Virtual IP in front of kubeapi-load-balancer
 
-If you have a custom setup with a virtual IP in front of the kubeapi-load-balancer
+If you have a virtual IP in front of the kubeapi-load-balancer
 units which isn't charm based, you should use the loadbalancer-ips configuration to
 specify them:
 
