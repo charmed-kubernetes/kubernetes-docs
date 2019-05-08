@@ -166,7 +166,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Custom loadbalancer
+    - title: Custom load balancer
       url: /custom-loadbalancer
       output: web, pdf
       type: page
