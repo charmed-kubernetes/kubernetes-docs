@@ -115,12 +115,12 @@ entries:
       url: /encryption-at-rest
       output: web, pdf
       type: page
-      
+
     - title: Private Docker registry
       url: /docker-registry
       output: web, pdf
       type: page
-      
+
     - title: Using GPU workers
       url: /gpu-workers
       output: web,pdf
@@ -163,6 +163,11 @@ entries:
 
     - title: MetalLB
       url: /metallb
+      output: web, pdf
+      type: page
+
+    - title: Custom loadbalancer
+      url: /custom-loadbalancer
       output: web, pdf
       type: page
 
