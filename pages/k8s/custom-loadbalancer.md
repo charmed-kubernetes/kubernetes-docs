@@ -8,7 +8,7 @@ context:
 keywords: high availability, vip, load balancer, f5
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: custom-lb.html
+permalink: custom-loadbalancer.html
 layout: [base, ubuntu-com]
 toc: False
 ---
