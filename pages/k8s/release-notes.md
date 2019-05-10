@@ -16,6 +16,15 @@ toc: False
 
 # 1.14 Bugfix release
 
+### DATE - BUNDLE REV
+
+## Fixes
+
+ - Fixed missing core snap resource for etcd, kubernetes-master, kubernetes-worker, and kubernetes-e2e charms ([Issue](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1828063))
+
+
+# 1.14 Bugfix release
+
 ### April 23rd, 2019 - [charmed-kubernetes-31](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-31/archive/bundle.yaml)
 
 ## Fixes
