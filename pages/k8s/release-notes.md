@@ -37,15 +37,6 @@ the table below:
 | "Always"      | true              | Always use IPIP encapsulation.                        |
 | "CrossSubnet" | \<Not supported\> | Only use IPIP encapsulation for cross-subnet traffic. |
 
-- Custom load balancer addresses
-
-Support has been added to specify the IP address of an external load balancer.
-This support is in the kubeapi-load-balancer and the kubernetes-master charms.
-This allows a virtual IP address on the kubeapi-load-balancer charm or the
-IP address of an external load balancer. See
-[custom loadbalancer](https://www.ubuntu.com/kubernetes/docs/custom-loadbalancer)
-for more information.
-
 
 ## Fixes
 
