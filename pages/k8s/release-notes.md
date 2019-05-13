@@ -21,6 +21,11 @@ toc: False
 ## Fixes
 
  - Fixed missing core snap resource for etcd, kubernetes-master, kubernetes-worker, and kubernetes-e2e charms ([Issue](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1828063))
+ - Fixed kubernetes-master charm resetting user changes to basic_auth.csv ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826260))
+ - Fixed charm upgrades removing /srv/kubernetes directory ([Issue](https://bugs.launchpad.net/charm-kubeapi-load-balancer/+bug/1825288))
+ - Fixed docker-opts charm config being ignored on kubernetes-worker ([Issue](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1826463))
+ - Fixed master services constantly restarting due to cert change ([Issue](https://bugs.launchpad.net/charm-easyrsa/+bug/1826625))
+ - Fixed kubernetes-worker tag error on GCP ([Issue](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1827528))
 
 
 # 1.14 Bugfix release
