@@ -52,6 +52,10 @@ To deploy CDK with Calico, deploy the kubernetes-calico bundle:
 juju deploy cs:~containers/kubernetes-calico
 ```
 
+The calico bundle is identical to the standard `charmed-kubernetes` bundle with the
+exception of replacing flannel with calico. You can apply any customisation overlays
+that would apply to `charmed-kubernetes` to this bundle also.
+
 ## Calico configuration options
 
 | Name                |  Type  |  Default value                           | Description                                                    |
@@ -133,7 +137,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 ## Useful links
 
-- 
+-
 
 <!-- LINKS -->
 
