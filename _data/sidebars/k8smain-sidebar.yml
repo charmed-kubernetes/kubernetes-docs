@@ -140,6 +140,11 @@ entries:
       url: /troubleshooting
       output: web, pdf
       type: page
+      
+    - title: Containerd & Docker
+      url: /container-runtime.md
+      output: web, pdf
+      type: page
 
   - title: High Availability
     output: web, pdf
