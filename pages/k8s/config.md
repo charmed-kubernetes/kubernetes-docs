@@ -275,11 +275,12 @@ kubernetes-worker
 |======================|=========|===========|==================================|
 | cidr                 | string  | 10.1.0.0/16|Network CIDR to assign to Flannel |
 | iface                | string  |           |The interface to bind flannel overlay networking. The default value is the interface bound to the cni endpoint. |
-| nagios_context       | string  | juju      |Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like:     juju-myservice-0 If you're running multiple environments with the same services in them this allows you to differentiate between them. |
+| nagios_context       | string  | juju      |Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like `juju-myservice-0`. If you're running multiple environments with the same services in them this allows you to differentiate between them. |
 | nagios_servicegroups | string  |           |A comma-separated list of nagios servicegroups. If left empty, the nagios_context will be used as the servicegroup |
 
 
 ### canal
+
 |Name                  | Type    | Default   | Description                      |
 |======================|=========|===========|==================================|
 | calico-node-image    | string  | quay.io/calico/node:v2.6.12|The image id to use for calico/node. |
@@ -290,6 +291,7 @@ kubernetes-worker
 | nagios_servicegroups | string  |           |A comma-separated list of nagios servicegroups. If left empty, the nagios_context will be used as the servicegroup |
 
 ### calico
+
 |Name                 | Type    | Default   | Description                       |
 |=====================|=========|===========|===================================|
 | calico-node-image   | string  | quay.io/calico/node:v2.6.12|The image id to use for calico/node. |
