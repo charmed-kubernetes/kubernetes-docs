@@ -16,7 +16,7 @@ toc: False
 
 # 1.14 Bugfix release
 
-### DATE - CHARM REV WITH LINK TO BUNDLE
+### June 6th, 2019 - [charmed-kubernetes-96](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-96/archive/bundle.yaml)
 
 ## Fixes
 
