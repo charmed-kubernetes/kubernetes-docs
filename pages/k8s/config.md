@@ -15,7 +15,7 @@ toc: False
 
 The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** ships with a default
 configuration that will "just work" in the majority of cases. However, it
-remains highly configurable to suit use case.
+remains highly configurable to suit your use case.
 
 The commonly used settings are more completely discussed in other relevant
 parts of the documentation, but this page contains complete listings of the
@@ -60,7 +60,7 @@ juju config flannel cidr=10.5.0.0/16
 | bind_to_all_interfaces | boolean | True      |The service binds to all network interfaces if true. The service binds only to the first found bind address of each relation if false |
 | channel                | string  | 2.3/stable|The snap channel to install from|
 | management_port        | int     | 2380      |Port to run the ETCD Management service|
-| nagios_context         | string  | juju      |Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like:     juju-myservice-0 If you're running multiple environments with the same services in them this allows you to differentiate between them. |
+| nagios_context         | string  | juju      |Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like: `juju-myservice-0`. If you're running multiple environments with the same services in them, this allows you to differentiate between them. |
 | nagios_servicegroups   | string  |           |A comma-separated list of nagios servicegroups. If left empty, the nagios_context will be used as the servicegroup |
 | port                   | int     | 2379      |Port to run the public ETCD service on|
 | snap_proxy             | string  |           |DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration settings. HTTP/HTTPS web proxy for Snappy to use when accessing the snap store. |
@@ -230,7 +230,6 @@ rules:
 
 ### kubernetes-worker
 
-kubernetes-worker
 |Name                              | Type    | Default   | Description          |
 |==================================|=========|===========|======================|
 | allow-privileged                 | string  | true      |This option is now deprecated and has no effect. |
@@ -264,7 +263,6 @@ kubernetes-worker
 | snap_proxy                       | string  |           |DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration settings. HTTP/HTTPS web proxy for Snappy to use when accessing the snap store. |
 | snap_proxy_url                   | string  |           |DEPRECATED. Use snap-store-proxy model configuration setting. The address of a Snap Store Proxy to use for snaps e.g. http://snap-proxy.example.com |
 | snapd_refresh                    | string  | max       |How often snapd handles updates for installed snaps. Setting an empty string will check 4x per day. Set to "max" to delay the refresh as long as possible. You may also set a custom string as described in the 'refresh.timer' section here:   https://forum.snapcraft.io/t/system-options/87 |
-
 
 
 ##CNI
@@ -338,7 +336,7 @@ kubernetes-worker
 | snap_proxy_url | string  |           |DEPRECATED. Use snap-store-proxy model configuration setting. The address of a Snap Store Proxy to use for snaps e.g. http://snap-proxy.example.com |
 | snapd_refresh  | string  |           |How often snapd handles updates for installed snaps. The default (an empty string) is 4x per day. Set to "max" to check once per month based on the charm deployment date. You may also set a custom string as described in the 'refresh.timer' section here:   https://forum.snapcraft.io/t/system-options/87 |
 
-###gcp-integrator
+### gcp-integrator
 
 |Name            | Type    | Default   | Description                            |
 |================|=========|===========|========================================|
