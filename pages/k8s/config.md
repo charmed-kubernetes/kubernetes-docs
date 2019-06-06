@@ -336,6 +336,21 @@ rules:
 | snap_proxy_url | string  |           |DEPRECATED. Use snap-store-proxy model configuration setting. The address of a Snap Store Proxy to use for snaps e.g. http://snap-proxy.example.com |
 | snapd_refresh  | string  |           |How often snapd handles updates for installed snaps. The default (an empty string) is 4x per day. Set to "max" to check once per month based on the charm deployment date. You may also set a custom string as described in the 'refresh.timer' section here:   https://forum.snapcraft.io/t/system-options/87 |
 
+### azure-integrator
+
+|Name             | Type    | Default   | Description                           |
+|=================|=========|===========|=======================================|
+| credentials     | string  |           | See [description below for usage](#azure-credentials) |
+| extra_packages  | string  |           |Space separated list of extra deb packages to install. |
+| install_keys    | string  | - |List of signing keys for install_sources package sources, per charmhelpers standard format (a yaml list of strings encoded as a string). The keys should be the full ASCII armoured GPG public keys. While GPG key ids are also supported and looked up on a keyserver, operators should be aware that this mechanism is insecure. null can be used if a standard package signing key is used that will already be installed on the machine, and for PPA sources where the package signing key is securely retrieved from Launchpad. |
+| install_sources | string  | - deb https://packages.microsoft.com/repos/azure-cli/ xenial main
+|List of extra apt sources, per charm-helpers standard format (a yaml list of strings encoded as a string). Each source may be either a line that can be added directly to sources.list(5), or in the form ppa:<user>/<ppa-name> for adding Personal Package Archives, or a distribution component to enable. |
+| package_status  | string  | install   |The status of service-affecting packages will be set to this value in the dpkg database. Valid values are "install" and "hold". |
+
+#### Azure credentials
+
+The base64-encoded JSON credentials data, which must include the 'application-id', 'application-password', and the 'subscription-id'.  These values can be retrieved from Juju using the 'credentials' command and extracting the value of the 'details' key for the appropriate credential. For example, using 'jq', replace '<credential-name>' in the following:      juju credentials --format=json --show-secrets azure | jq '.["local-credentials"]["azure"]["cloud-credentials"]["<credential-name>"]["details"]'  This can be used from bundles with 'include-base64://' (see https://jujucharms.com/docs/stable/charms-bundles#setting-charm-configurations-options-in-a-bundle), or from the command-line with 'juju config aws credentials="$(base64 /path/to/file)"'.  This option will take precedence over the individual config options, if set.  It is strongly recommended that you use 'juju trust' instead, if available. since config values can be read by anyone with read access to the model.
+
 ### gcp-integrator
 
 |Name            | Type    | Default   | Description                            |
