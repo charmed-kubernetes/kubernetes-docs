@@ -47,17 +47,11 @@ For information on configuring the Docker charm, see the [Docker configuration p
 
 ### To migrate to containerd
 
-
-### Add temporary workers
-If you do not intend to switch to containerd, you can skip this step.
-
 If you intend to switch to containerd, it’s recommended that you first add some
 temporary extra worker units. While not strictly necessary, skipping this step will result
-in some cluster down time. Adding temporary additional workers give us a place to move
-running pods while we’re switching the container runtime on our “real” workers. The
-temporary workers will be removed after the switch to containerd is complete.
+in some cluster down time. Adding temporary additional workers provides a place for keeping pods running while new workers are brought online. The temporary workers can then be removed as the pods are migrated to the new workers.
 
-### Deploy temporary workers.
+#### Deploy temporary workers
 ```bash
 CURRENT_WORKER_REV=$(juju status | grep '^kubernetes-worker\s' | awk '{print $7}')
 CURRENT_WORKER_COUNT=$(juju status | grep '^kubernetes-worker/' | wc -l | sed -e 's/^[ \t]*//')
@@ -65,12 +59,12 @@ CURRENT_WORKER_COUNT=$(juju status | grep '^kubernetes-worker/' | wc -l | sed -e
 juju deploy cs:~containers/kubernetes-worker-$CURRENT_WORKER_REV  kubernetes-worker-temp -n $CURRENT_WORKER_COUNT
 ```
 
-## Add necessary relations.
+#### Add necessary relations
 ```bash
 juju status --relations | grep worker: | awk '{print $1,$2}' | sed 's/worker:/worker-temp:/g' | xargs -n2 juju relate
 ```
-Wait for the temp workers to become active before continuing.
-Upgrade the master and worker charms
+Wait for the temporary workers to become active before continuing.
+Upgrade the master and worker charms:
 ```bash
 juju upgrade-charm kubernetes-master
 juju upgrade-charm kubernetes-worker
