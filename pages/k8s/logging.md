@@ -4,7 +4,7 @@ markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Logging"
-  description: Learn about the tools and techniques to examine cluster logs as described in the Kubernetes documentation.
+  description: Learn about the tools and techniques to examine infrastructure and cluster logs.
 keywords: juju, logging, debug-log
 tags: [operating]
 sidebar: k8smain-sidebar
@@ -16,19 +16,27 @@ toc: False
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-This documentation assumes you are using version 2.4.0 or later of <strong>Juju</strong> . If you are using an earlier version you should check the  <a href="https://docs.jujucharms.com/stable/en/troubleshooting-logs">  relevant <emphasis>Juju</emphasis> documentation </a> as some of the associated  commands have changed.
+This documentation assumes you are using version 2.4.0 or later of
+<strong>Juju</strong> . If you are using an earlier version you should check
+the  <a href="https://docs.jujucharms.com/stable/en/troubleshooting-logs">
+relevant <emphasis>Juju</emphasis> documentation </a> as some of the associated
+commands have changed.
   </p>
 </div>
 
-Broadly, there are two types of logs you may be interested in. On cluster or node level;
-for the applications you are running inside your cluster, and at an infrastructure level, the
-applications which are responsible for running the cluster itself. As the
-**Charmed Distribution of Kubernetes<sup>®</sup>** is pure Kubernetes, you can
-use any of the tools and techniques to examine cluster logs as
-[described in the Kubernetes documentation][k8-logs].
+Broadly, there are two types of logs you may be interested in. On cluster or
+node level; for the applications you are running inside your cluster, and at an
+infrastructure level, the applications which are responsible for running the
+cluster itself. As the **Charmed Kubernetes** is pure Kubernetes, you can use
+any of the tools and techniques to examine cluster logs as [described in the
+Kubernetes documentation][k8-logs]. Additionally, you can deploy Graylog
+alongside your cluster - please see the [section on Graylog below](#graylog).
 
-For the infrastructure, your **CDK** deployment has centralised logging set up as default. Each unit in your cluster automatically sends logging information to the controller based on the current logging level. You can use the **Juju**
-command line to easily inspect these logs and to change the logging level, as explained below.
+For the infrastructure, your **CDK** deployment has centralised logging set up
+as default. Each unit in your cluster automatically sends logging information
+to the controller based on the current logging level. You can use the **Juju**
+command line to easily inspect these logs and to change the logging level, as
+explained below.
 
 ## Viewing logs
 
@@ -38,7 +46,8 @@ To view the logs from the current controller and model, simply run:
 juju debug-log
 ```
 
-The default behaviour is to show the last 10 entries and to tail the log (so you will need to terminate the command with `Ctrl-C`).
+The default behaviour is to show the last 10 entries and to tail the log (so
+you will need to terminate the command with `Ctrl-C`).
 
 The output is in the form:
 
@@ -50,7 +59,9 @@ For example, a typical line of output might read:
 unit-kubernetes-master-0: 18:04:11 INFO juju.cmd running jujud [2.4.2 gc go1.10]
 ```
 
-The entity is the unit, machine or application the message originates from (in this case _kubernetes-master/0_). It can be very useful to filter the output based on the entity or log level, and the `debug-log` command has many options.
+The entity is the unit, machine or application the message originates from (in
+this case _kubernetes-master/0_). It can be very useful to filter the output
+based on the entity or log level, and the `debug-log` command has many options.
 
 For a full description, run the command `juju help debug-log` or see the
 [**Juju** documentation][juju-logging]. Some useful examples are outlined below.
@@ -77,7 +88,13 @@ juju debug-log --replay --include=kubernetes-worker/0
 
 ## Viewing logs on a machine
 
-If it becomes necessary for any reason, it is also possible to view logs directly on the running machine. A user with SSH access can connect to the relevant machine and find the logs for all the units running on that machine in the directory `/var/logs/juju`. The `juju ssh` command can be used for this, and you can connect to the relevant machine using a unit identifier. So for example, to look at the logs on the machine running the first unit of `kubernetes-worker` you can run the following:
+If it becomes necessary for any reason, it is also possible to view logs
+directly on the running machine. A user with SSH access can connect to the
+relevant machine and find the logs for all the units running on that machine in
+the directory `/var/logs/juju`. The `juju ssh` command can be used for this,
+and you can connect to the relevant machine using a unit identifier. So for
+example, to look at the logs on the machine running the first unit of
+`kubernetes-worker` you can run the following:
 
 ```bash
 juju ssh kubernetes-worker/0
@@ -90,7 +107,8 @@ Which should show something similar to:
 machine-1.log  machine-lock.log  unit-flannel-1.log  unit-kubernetes-worker-0.log
 ```
 
-Note that the logs from other units (in this case 'flannel') running on this machine can also be found here.
+Note that the logs from other units (in this case 'flannel') running on this
+machine can also be found here.
 
 ## Logging level
 
@@ -106,7 +124,10 @@ This will result in output similar to:
 <root>=WARNING;unit=DEBUG
 ```
 
-...which is the default for any Juju model. This indicates that the _machine_ log level is set to 'WARNING', and the _unit_ logging level is set to 'DEBUG'. As all the software components of your kubernetes cluster run in units, these logs are likely to be useful for diagnosing issues with software.
+...which is the default for any Juju model. This indicates that the _machine_
+log level is set to 'WARNING', and the _unit_ logging level is set to 'DEBUG'.
+As all the software components of your Kubernetes cluster run in units, these
+logs are likely to be useful for diagnosing issues with software.
 
 The logging levels, from most verbose to least verbose, are as follows:
 
@@ -133,11 +154,75 @@ The logging level can be set like this:
 
 ## Additional information
 
-As previously mentioned, you can see more detailed information on accessing the logs from your cluster in the [**Juju** documentation][juju-logging], including the following:
+As previously mentioned, you can see more detailed information on accessing the
+logs from your cluster in the [**Juju** documentation][juju-logging], including
+the following:
 
 - Altering the agent logging setup
 - Setting up remote logging
 - More advanced filtering and additional examples
+
+<a id="graylog"> </a>
+
+## Cluster logs with Graylog
+
+With our Kubernetes cluster deployed, we need to add all the applications required for Graylog:
+
+```bash
+juju deploy bionic/graylog --constraints mem=7G
+juju deploy bionic/elasticsearch --constraints mem=7G
+juju deploy bionic/apache2
+juju deploy bionic/filebeat
+juju deploy bionic/mongodb
+```
+
+Now that all the software is deployed, connect the applications together so they can communicate:
+
+```bash
+juju add-relation apache2:reverseproxy graylog:website
+juju add-relation graylog:elasticsearch elasticsearch:client
+juju add-relation graylog:mongodb mongodb:database
+juju add-relation filebeat:beats-host kubernetes-master:juju-info
+juju add-relation filebeat:beats-host kubernetes-worker:juju-info
+juju add-relation filebeat:logstash graylog:beats
+```
+
+At this point, all the applications can communicate with each other, but we have a bit more configuration to do:
+
+```bash
+juju config apache2 enable_modules="headers proxy_html proxy_http"
+juju config apache2 vhost_http_template="$(base64 <vhost-tmpl>)"
+juju config filebeat kube_logs=True
+```
+
+A sample reverse proxy template can be found at https://raw.githubusercontent.com/conjure-up/spells/master/charmed-kubernetes/addons/graylog/steps/01_install-graylog/graylog-vhost.tmpl.
+
+Finally, you’ll want to expose apache2 to make the web interface accessible:
+
+```bash
+juju expose apache2
+```
+
+Now that we have everything deployed, related, configured, and exposed, you'll need to know the IP address and admin password so you can login:
+
+```bash
+juju status --format yaml apache2/0 | grep public-address
+    public-address: <your-apache2-ip>
+juju run-action --wait graylog/0 show-admin-password
+    admin-password: <your-graylog-password>
+```
+
+Browse to `http://<your-apache2-ip>` and login with `admin` as the username and `<your-graylog-password>` as the password. Note: if the interface is not immediately available, please wait as the reverse proxy configuration may take up to 5 minutes to complete.
+
+Once logged in, head to the `Sources` tab to get an overview of the logs collected from our K8s master and workers:
+
+![Screen Shot 2019-06-13 at 9 31 54 AM](https://user-images.githubusercontent.com/4576822/59441924-ee21b580-8dbe-11e9-84bd-07676bf2d61f.png)
+
+Drill into those logs by clicking the `System / Inputs` tab and selecting `Show received messages` for the filebeat input:
+
+![Screen Shot 2019-06-13 at 9 39 20 AM](https://user-images.githubusercontent.com/4576822/59442102-3214ba80-8dbf-11e9-8f63-34da997bfb52.png)
+
+From here, you may want to play around with various filters or setup Graylog dashboards to help identify the events that are most important to you. Check out the [Graylog Dashboard](http://docs.graylog.org/en/3.0/pages/dashboards.html) docs for details on customizing your view.
 
 <!--LINKS -->
 
