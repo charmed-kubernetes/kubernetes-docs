@@ -37,6 +37,12 @@ the table below:
 | "Always"      | true              | Always use IPIP encapsulation.                        |
 | "CrossSubnet" | \<Not supported\> | Only use IPIP encapsulation for cross-subnet traffic. |
 
+- Calico BGP support
+
+Several new config options have been added to the Calico charm to support BGP
+functionality within Calico. These additions make it possible to configure
+external peerings, route reflectors, and complex IP pool configurations.
+
 - Custom load balancer addresses
 
 Support has been added to specify the IP address of an external load balancer.
@@ -49,6 +55,7 @@ for more information.
 ## Fixes
 
 - Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
+- Fixed Calico IP range should be a config option [Issue](https://bugs.launchpad.net/charm-calico/+bug/1809355))
 
 
 # 1.14 Bugfix release
