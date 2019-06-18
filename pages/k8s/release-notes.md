@@ -16,6 +16,15 @@ toc: False
 
 # 1.14 Bugfix release
 
+### June 18th, 2019 - [charmed-kubernetes-XXX](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+
+## Fixes
+
+ - Fixed leader_set being called by kubernetes-master followers ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1833089))
+
+
+# 1.14 Bugfix release
+
 ### June 6th, 2019 - [charmed-kubernetes-96](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-96/archive/bundle.yaml)
 
 ## Fixes
