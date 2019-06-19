@@ -41,7 +41,9 @@ the table below:
 
 Several new config options have been added to the Calico charm to support BGP
 functionality within Calico. These additions make it possible to configure
-external peerings, route reflectors, and complex IP pool configurations.
+external BGP peers, route reflectors, and multiple IP pools. For instructions
+on how to use the new config options, see the
+[CNI with Calico documentation][cni-with-calico].
 
 - Custom load balancer addresses
 
@@ -192,3 +194,4 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]: /kubernetes/docs/high-availability
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
+[cni-with-calico]: /kubernetes/docs/cni-with-calico
