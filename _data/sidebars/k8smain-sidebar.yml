@@ -96,11 +96,6 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Container runtime
-      url: /container-runtime
-      output: web, pdf
-      type: page
-
     - title: Decommissioning
       url: /decommissioning
       output: web, pdf
