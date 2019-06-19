@@ -96,6 +96,11 @@ entries:
       output: web, pdf
       type: page
 
+    - title: Container runtime
+      url: /container-runtime
+      output: web, pdf
+      type: page
+
     - title: Decommissioning
       url: /decommissioning
       output: web, pdf
@@ -140,7 +145,7 @@ entries:
       url: /troubleshooting
       output: web, pdf
       type: page
-      
+
     - title: Containerd & Docker
       url: /container-runtime.md
       output: web, pdf
