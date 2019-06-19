@@ -56,6 +56,36 @@ entries:
       output: web, pdf
       type: page
 
+  - title: Networking
+    output: web, pdf
+    type: section
+    items:
+
+    - title: CNI overview
+      url: /cni-overview
+      output: web, pdf
+      type: page
+
+    - title: Flannel
+      url: /gcp-integration
+      output: web, pdf
+      type: page
+
+    - title: Calico
+      url: /gcp-integration
+      output: web, pdf
+      type: page
+
+    - title: Canal
+      url: /gcp-integration
+      output: web, pdf
+      type: page
+      
+    - title: Tigera Secure EE
+      url: /tigera-secure-ee
+      output: web, pdf
+      type: page
+
   - title: Operations
     output: web, pdf
     type: section
@@ -128,11 +158,6 @@ entries:
 
     - title: Audit Logging
       url: /audit-logging
-      output: web, pdf
-      type: page
-
-    - title: Using Tigera Secure EE
-      url: /tigera-secure-ee
       output: web, pdf
       type: page
 
