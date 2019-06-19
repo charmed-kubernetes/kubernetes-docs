@@ -67,17 +67,17 @@ entries:
       type: page
 
     - title: Flannel
-      url: /cni-with-flannel
+      url: /cni-flannel
       output: web, pdf
       type: page
 
     - title: Calico
-      url: /cni-with-calico
+      url: /cni-calico
       output: web, pdf
       type: page
 
     - title: Canal
-      url: /cni-with-canal
+      url: /cni-canal
       output: web, pdf
       type: page
       
