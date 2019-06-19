@@ -14,9 +14,8 @@ toc: False
 ---
 
 This page is intended to deal with specific, special circumstances you may
-encounter when upgrading between versions of the
-**Charmed Distribution of Kubernetes<sup>&reg;</sup>.** The notes are
-organised according to the upgrade path below, but also be aware that any
+encounter when upgrading between versions of **Charmed Kubernetes**.
+The notes are organised according to the upgrade path below, but also be aware that any
 upgrade that spans more than one minor version may need to beware of notes in
 any of the intervening steps.
 
@@ -24,12 +23,13 @@ any of the intervening steps.
 
 ## Upgrading to 1.15
 
-This upgrade switches the container runtime to make use of containerd, rather than
-Docker. You have the option of keeping Docker as the container runtime, but even in
-that case you ***must*** perform the upgrade steps. To facilitate different container
-runtimes, the architecture of **CDK** has changed slightly, and the container runtime is
-now part of a separate, subordinate charm rather than being included in the
-`kubernetes-master` and `kubernetes-worker` charms.
+This upgrade switches the container runtime to make use of containerd, rather
+than Docker. You have the option of keeping Docker as the container runtime,
+but even in that case you ***must*** perform the upgrade steps. To facilitate
+different container runtimes, the architecture of **Charmed Kubernetes** has
+changed slightly, and the container runtime is now part of a separate,
+subordinate charm rather than being included in the `kubernetes-master` and
+`kubernetes-worker` charms.
 
 ### To keep Docker as the container runtime
 
