@@ -161,7 +161,7 @@ Once you have a Containerd backed CDK running, you can add Docker backed
 workers like so:
 
 ```bash
-juju deploy cs:~containers/kubernetes-worker kubernetes-worker-docker
+juju deploy cs:~containers/kubernetes-worker-docker
 juju deploy docker
 juju relate docker kubernetes-worker-docker
 ```
