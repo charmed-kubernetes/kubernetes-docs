@@ -44,7 +44,7 @@ After deployment, each AWS instance must be manually configured to disable
 source/destination checks. See AWS's [Disabling Source/Destination Checks][]
 documentation for instructions.
 
-## Deploying CDK with Calico
+## Deploying Charmed Kubernetes with Calico
 
 To deploy CDK with Calico, deploy the kubernetes-calico bundle:
 

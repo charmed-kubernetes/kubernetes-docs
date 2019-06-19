@@ -13,4 +13,60 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-<< Canal Intro>>
+'Canal' is a shorthand for saying "Calico and Flannel", a common practise which sets up Calico to handle policy management and Flannel to manage the network itself. The manual setup is explained in the [Calico documentation][canal].  
+
+
+## Deploying Charmed Kubernetes with Canal
+
+To deploy CDK with Canal, deploy the kubernetes-canal bundle:
+
+```bash
+juju deploy cs:bundle/canonical-kubernetes-canal
+```
+
+The canal bundle is identical to the standard `charmed-kubernetes` bundle with the
+exception of replacing flannel with canal. You can apply any customisation overlays
+that would apply to `charmed-kubernetes` to this bundle also.
+
+## Canal configuration options
+
+|Name                  | Type    | Default   | Description                      |
+|======================|=========|===========|==================================|
+| calico-node-image    | string  | quay.io/calico/node:v2.6.12|The image id to use for calico/node. |
+| calico-policy-image  | string  | quay.io/calico/kube-controllers:v1.0.5|The image id to use for calico/kube-controllers. |
+| cidr                 | string  | 10.1.0.0/16|Network CIDR to assign to Flannel |
+| iface                | string  |           |The interface to bind flannel overlay networking. The default value is the interface bound to the cni endpoint. |
+| nagios_context       | string  | juju      |Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like:     juju-myservice-0 If you're running multiple environments with the same services in them this allows you to differentiate between them. |
+| nagios_servicegroups | string  |           |A comma-separated list of nagios servicegroups. If left empty, the nagios_context will be used as the servicegroup |
+                                |
+
+### Checking the current configuration
+
+To check the current configuration settings for Canal, run the command:
+
+```bash
+juju config canal
+```
+
+### Setting a config option
+
+To set an option, simply run the config command with and additional `<key>=<value>` argument. For example, to set a specific network CIDR:
+
+```bash
+juju config canal cidr="10.5.0.0/16"
+```
+
+## Troubleshooting
+
+If there is an issue with connectivity, it can be useful to inspect the Juju logs. To
+see a complete set of logs for canal:
+
+```bash
+juju debug-log --replay --include=canal
+```
+
+For additional troubleshooting pointers, please see the [dedicated troubleshooting page][troubleshooting].
+
+<!-- LINKS -->
+
+[canal]: https://docs.projectcalico.org/v3.7/getting-started/kubernetes/installation/flannel
