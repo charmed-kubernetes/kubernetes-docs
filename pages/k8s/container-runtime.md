@@ -57,18 +57,23 @@ To set an option, simply run the config command with and additional `<key>=<valu
 juju config containerd gpu_driver=none
 ```
 
-
-
-
 ## Migrating to containerd
 
-If you are running **CDK** version 1.15 or above with Docker, you can transition to using
-containerd by following the steps outlined in
+If you have upgraded to  **Charmed Kubernetes** version 1.15, you can transition to using containerd by following the steps outlined in
 [this section of the upgrade notes][docker2containerd].
 
-## Configuring Docker
+## Using Docker
 
-## Migrating to Docker
+Although the default set up for **Charmed Kubernetes** from version 1.15 is to use containerd to provide the container runtime, it is also possible to
+run workers specifically using Docker. This is done by adding the Docker
+charm to your cluster and deploying Docker-based workers:
+
+```bash
+juju deploy cs:~containers/kubernetes-worker-docker
+juju deploy docker
+juju relate docker kubernetes-worker-docker
+```
+
 
 <!-- LINKS -->
 
