@@ -77,4 +77,4 @@ juju relate docker kubernetes-worker-docker
 
 <!-- LINKS -->
 
-[docker2containerd]:
+[docker2containerd]: /kubernetes/docs/upgrade-notes#1.15
