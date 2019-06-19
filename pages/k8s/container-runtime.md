@@ -13,13 +13,13 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-From 1.15 onwards, **CDK** uses **containerd** as part of a pluggable architecture for
+From 1.15 onwards, **Charmed Kubernetes** uses **containerd** as part of a pluggable architecture for
 container runtimes, instead of directly using Docker only. This change has been
 demonstrated to increase performance, and also provides scope for using different
 runtimes on a case-by case basis.
 
 However, it is also possible to use Docker for running containers as in previous versions
-of **CDK**.
+of **Charmed Kubernetes**.
 
 
 ## Configuring containerd
