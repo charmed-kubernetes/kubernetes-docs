@@ -28,7 +28,9 @@ Calico's network traffic is filtered on many clouds, and may require
 special configuration at the cloud level to support it.
 
 If Calico is configured to use [BGP mode][bgp] (the default), then all of the
-Kubernetes instances must be located in the same subnet.
+Kubernetes instances must be located in the same subnet for Calico to work out
+of the box. Alternatively, the Calico charm may be configured with external
+BGP peers to allow cross-subnet traffic to work.
 
 If Calico is configured to use IPIP mode, then the cloud must be configured to
 allow IPIP (protocol 4) network traffic.
@@ -64,6 +66,16 @@ that would apply to `charmed-kubernetes` to this bundle also.
 | calico-policy-image | string | docker.io/calico/kube-controllers:v3.6.1 | The image id to use for calico/kube-controllers                |
 | ipip                | string | Never                                    | IPIP mode. Must be one of "Always", "CrossSubnet", or "Never". |
 | nat-outgoing        | bool   | True                                     | Enable NAT on outgoing traffic                                 |
+| cidr                | string | 192.168.0.0/16                           | Network CIDR assigned to Calico. This is applied to the default Calico pool, and is also communicated to the Kubernetes charms for use in kube-proxy configuration. |
+| manage-pools        | bool   | True                                     | If true, a default pool is created using the cidr and ipip charm configuration values. Warning: When manage-pools is enabled, the charm will delete any pools that are unrecognized. |
+| global-as-number    | int    | 64512                                    | Global AS number.
+| subnet-as-numbers   | string | {}                                       | Mapping of subnets to AS numbers, specified as YAML. Each Calico node will be assigned an AS number based on the entries in this mapping. |
+| unit-as-numbers     | string | {}                                       | Mapping of unit IDs to AS numbers, specified as YAML. Each Calico node will be assigned an AS number based on the entries in this mapping. |
+| node-to-node-mesh   | bool   | True                                     | When enabled, each Calico node will peer with every other Calico node in the cluster. |
+| global-bgp-peers    | string | []                                       | List of global BGP peers. Each BGP peer is specified with an address and an as-number. |
+| subnet-bgp-peers    | string | {}                                       | Mapping of subnets to lists of BGP peers. Each BGP peer is specified with an address and an as-number. |
+| unit-bgp-peers      | string | {}                                       | Mapping of unit IDs to lists of BGP peers. Each BGP peer is specified with an address and an as-number. |
+| route-reflector-cluster-ids | string | {}                               | Mapping of unit IDs to route reflector cluster IDs. Assigning a route reflector cluster ID allows the node to function as a route reflector. |
 
 ### Checking the current configuration
 
@@ -97,6 +109,207 @@ traffic only, set the `ipip` charm config to `CrossSubnet`:
 
 ```
 juju config calico ipip=CrossSubnet
+```
+
+## Calico BGP configuration
+
+The default configuration of Calico uses BGP mode, with all Calico nodes
+connected in a full node-to-node mesh, and with no external peerings. This
+comes with some limitations which will be explained in the following sections.
+
+### BGP with multiple subnets
+
+If BGP mode is in use, and Calico units are deployed to separate subnets, then
+Calico must be configured to peer with external routers in order to accommodate
+cross-subnet traffic.
+
+For example, if you have units across two subnets (10.0.0.0/24 and
+10.0.1.0/24), and a single router that connects them (with IPs 10.0.0.1,
+10.0.1.1, and AS number 64512), then the simplest configuration would be to
+configure Calico to peer with that router and to use the same AS number.
+
+Configure the AS number:
+```bash
+juju config calico global-as-number=64512
+```
+
+And configure the external peering:
+
+```bash
+juju config calico subnet-bgp-peers="
+10.0.0.0/24:
+- address: 10.0.0.1
+  as-number: 64512
+10.0.1.0/24:
+- address: 10.0.1.1
+  as-number: 64512
+"
+```
+
+You will also need to configure the router to peer with each Calico node. This
+step varies based on the router's BGP implementation. Here's an
+[example configuration for BIRD][bgp-multiple-subnets-bird-example].
+
+### BGP route reflection
+
+By default, all Calico nodes are connected in a full BGP mesh. This works well
+for small deployments, but does not scale well to larger deployments. For
+large deployments, it is recommended that you configure Calico to use
+[route reflection].
+
+For example, in a deployment with more than 10 Calico units, you might
+configure it such that units calico/0 (with IP 10.0.0.2) and calico/1 (with IP
+10.0.0.3) are route reflectors, and all other Calico units only peer with them.
+To do this, you would first configure route reflector cluster IDs:
+
+```bash
+juju config calico route-reflector-cluster-ids="
+0: 0.0.0.0
+1: 0.0.0.0
+"
+```
+
+Then configure every node to peer with the route reflectors:
+```bash
+juju config calico global-bgp-peers="
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.0.3
+  as-number: 64512
+"
+```
+
+And disable the node-to-node-mesh:
+```bash
+juju config calico node-to-node-mesh=false
+```
+
+### BGP with the AS Per Rack model
+
+One commonly used model for Calico deployments on bare metal is the
+[AS Per Rack model]. The configuration in this scenario can be tricky, so let's
+walk through an example.
+
+Given:
+- Two racks:
+  - Rack 0
+    - Subnets 10.0.0.0/24, 10.0.1.0/24
+    - ToR router with IPs 10.0.0.1, 10.0.1.1
+    - Desired route reflectors:
+      - calico/0 at 10.0.0.2
+      - calico/1 at 10.0.1.2
+  - Rack 1
+    - Subnets 10.0.2.0/24, 10.0.3.0/24
+    - ToR router with IPs 10.0.2.1, 10.0.3.1
+    - Desired route reflectors:
+      - calico/2 at 10.0.2.2
+      - calico/3 at 10.0.3.2
+
+Assign a different AS number to each rack:
+
+```bash
+juju config calico subnet-as-numbers="
+10.0.0.0/24: 64512
+10.0.1.0/24: 64512
+10.0.2.0/24: 64513
+10.0.3.0/24: 64513
+"
+```
+
+Next, configure the route reflectors. Each route reflector needs to be assigned
+a cluster ID. The exact cluster ID used isn't important, as long as both route
+reflectors on a given rack share the same cluster ID. For this example, we'll
+choose 0.0.0.0 for rack 0 and 0.0.0.1 for rack 1.
+
+Configure the route reflectors:
+
+```bash
+juju config calico route-reflector-cluster-ids="
+0: 0.0.0.0
+1: 0.0.0.0
+2: 0.0.0.1
+3: 0.0.0.1
+"
+```
+
+Configure route reflectors to peer with the top of rack switches:
+
+```bash
+juju config calico unit-bgp-peers="
+0:
+- address: 10.0.0.1
+  as-number: 64512
+1:
+- address: 10.0.1.1
+  as-number: 64512
+2:
+- address: 10.0.2.1
+  as-number: 64513
+3:
+- address: 10.0.3.1
+  as-number: 64513
+"
+```
+
+Configure Calico nodes to peer with the route reflectors:
+
+```bash
+juju config calico subnet-bgp-peers="
+10.0.0.0/24:
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.1.2
+  as-number: 64512
+10.0.1.0/24:
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.1.2
+  as-number: 64512
+10.0.2.0/24:
+- address: 10.0.2.2
+  as-number: 64513
+- address: 10.0.3.2
+  as-number: 64513
+10.0.3.0/24:
+- address: 10.0.2.2
+  as-number: 64513
+- address: 10.0.3.2
+  as-number: 64513
+"
+```
+
+And disable the node-to-node mesh:
+
+```bash
+juju config calico node-to-node-mesh=false
+```
+
+You will also need to configure the top of rack switches to peer with the
+Calico route reflectors. Instructions for doing this should be provided in the
+documentation for the specific model of switch you are using.
+
+## Configuring multiple Calico pools
+
+The Calico charm creates a single IPPool. If multiple IPPools pools are desired,
+then you must first disable the charm's built-in pool management:
+
+```bash
+juju config calico manage-pools=false
+```
+
+Then use calicoctl to create your own pools. For example:
+
+```bash
+juju ssh calico/0 calicoctl apply -f - << EOF
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+  name: my-pool
+spec:
+  cidr: 192.168.0.0/24
+  ipipMode: Never
+  natOutgoing: true
+EOF
 ```
 
 ## Using a private Docker registry
@@ -150,3 +363,6 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [troubleshooting]: /kubernetes/docs/troubleshooting
 [quickstart]:  /kubernetes/docs/quickstart
 [install-manual]:  /kubernetes/docs/install-manual
+[bgp-multiple-subnets-bird-example]: https://gist.github.com/Cynerva/46712dd1e9b75d42cb38fb966abfa932
+[route reflection]: https://tools.ietf.org/html/rfc4456
+[AS Per Rack model]: https://docs.projectcalico.org/v3.6/networking/design/l3-interconnect-fabric#the-as-per-rack-model

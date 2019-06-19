@@ -67,17 +67,17 @@ entries:
       type: page
 
     - title: Flannel
-      url: /gcp-integration
+      url: /cni-flannel
       output: web, pdf
       type: page
 
     - title: Calico
-      url: /gcp-integration
+      url: /cni-calico
       output: web, pdf
       type: page
 
     - title: Canal
-      url: /gcp-integration
+      url: /cni-canal
       output: web, pdf
       type: page
       
