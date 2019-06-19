@@ -49,7 +49,7 @@ For information on configuring the Docker charm, see the [Docker configuration p
 
 If you intend to switch to containerd, it’s recommended that you first add some
 temporary extra worker units. While not strictly necessary, skipping this step will result
-in some cluster down time. Adding temporary additional workers provides a place for keeping pods running while new workers are brought online. The temporary workers can then be removed as the pods are migrated to the new workers.
+in some cluster down time. Adding temporary additional workers provides a place for keeping pods running while new workers are brought online. The temporary workers can then be removed as the pods are migrated to the new workers. The rest of these instructions assume that you have deployed temporary workers.
 
 #### Deploy temporary workers
 ```bash
@@ -75,10 +75,9 @@ juju upgrade-charm kubernetes-worker
 The kubernetes-worker units will enter a blocked state, with status message
 “Connect a container runtime.”
 
-### Deploy and relate the new Docker charm
-Do this step even if you ultimately intend to use the containerd runtime. Why? Because
-Docker is already installed on your kubernetes-worker units, and the Docker subordinate
-includes clean-up code to uninstall Docker when the Docker charm is replaced with the containerd charm.
+#### Deploy and relate the new Docker charm
+
+This step is needed even if you do not intend to use Docker following the upgrade. Docker is already installed on your `kubernetes-worker` units, and the Docker subordinate includes clean-up code to uninstall Docker when the Docker charm is replaced with the containerd charm.
 
 ```bash
 juju deploy docker
@@ -87,17 +86,9 @@ juju add-relation docker kubernetes-worker
 ```
 (Currently juju deploy cs:~joeborg/docker-0)
 
-If you intend to use Docker, you can stop now. The upgrade is complete, and your worker
-nodes will continue to use the Docker runtime. For information on configuring the Docker
-charm, [click here].
-
 ### Switching to Containerd
-Pause workers
-We need to remove running pods from our workers because while we’re replacing Docker
-with Containerd, our workers will be temporarily unable to run containers. The pods will
-be moved to the temporary workers that we created in an earlier step.
 
-Pause your “real” workers, which will move pods to the temp workers.
+Now, pause the existing workers, which will move pods to the temporary workers.
 
 ```bash
 juju run-action [unit] pause --wait
@@ -114,7 +105,9 @@ One-liner:
 ```bash
 juju status | grep ^kubernetes-worker/ | awk '{print $1}' | tr -d '*' | xargs -n1 -I '{}' juju run-action {} pause --wait
 ```
-Remove Docker
+
+#### Remove Docker
+
 This will uninstall Docker from the workers.
 
 ```bash
@@ -122,15 +115,17 @@ juju remove-relation docker kubernetes-master
 juju remove-relation docker kubernetes-worker
 juju remove-application docker
 ```
-Deploy Containerd
+
+#### Deploy Containerd
+
 ```bash
 juju deploy containerd
 juju add-relation containerd kubernetes-master
 juju add-relation containerd kubernetes-worker
 ```
-(Currently juju deploy cs:~joeborg/containerd-9)
-Resume workers
-Now we can allow pods to be rescheduled or our original workers.
+
+#### Resume workers
+Now we can allow pods to be rescheduled to our original workers.
 
 ```bash
 juju run-action [unit] resume --wait
@@ -148,25 +143,28 @@ One-liner:
 juju status | grep ^kubernetes-worker/ | awk '{print $1}' | tr -d '*' | xargs -n1 -I '{}' juju run-action {} resume --wait
 ```
 Cleanup
-If you deployed temporary workers to avoid down time, you can now pause them to force all pods to migrate back to your “real” workers, then remove the temporary workers.
+
+You can now pause the temporary workers to force all pods to migrate back
+to your “real” workers, then remove the temporary workers.
 
 ```bash
 juju status | grep ^kubernetes-worker-temp/ | awk '{print $1}' | tr -d '*' | xargs -n1 -I '{}' juju run-action {} pause --wait
 
 juju remove-application kubernetes-worker-temp
 ```
-Mixing Containerd and Docker
-TODO
 
-Once you have a Containerd backed CDK running, you can add Docker backed workers like so:
+
+#### Mixing Containerd and Docker
+
+
+Once you have a Containerd backed CDK running, you can add Docker backed
+workers like so:
+
 ```bash
 juju deploy cs:~containers/kubernetes-worker kubernetes-worker-docker
 juju deploy docker
 juju relate docker kubernetes-worker-docker
 ```
-
-
-
 
 <a  id="1.14"> </a>
 
