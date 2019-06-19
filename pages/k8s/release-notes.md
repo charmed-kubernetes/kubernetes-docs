@@ -16,7 +16,7 @@ toc: False
 
 # 1.14 Bugfix release
 
-### June 18th, 2019 - [charmed-kubernetes-XXX](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+### June 19th, 2019 - [charmed-kubernetes-124](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-124/archive/bundle.yaml)
 
 ## Fixes
 
