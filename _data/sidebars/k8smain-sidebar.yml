@@ -142,7 +142,7 @@ entries:
       type: page
 
     - title: Containerd & Docker
-      url: /container-runtime.md
+      url: /container-runtime
       output: web, pdf
       type: page
 
