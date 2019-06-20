@@ -75,7 +75,7 @@ seen with Containerd and will allow us to support runtimes such as
 [Kata](https://katacontainers.io/) in the future.
 
 This change also replaces the Docker layer, in the Kubernetes master and worker
-charms, to subordinate container runtime charms.  This allows the operator to
+charms, with subordinate container runtime charms.  This allows the operator to
 swap the container runtime as desired, as well as granting the ability to mix
 container runtimes within a cluster.
 
