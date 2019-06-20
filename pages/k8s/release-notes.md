@@ -220,3 +220,4 @@ Please see [this page][historic] for release notes of earlier versions.
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
 [cni-with-calico]: /kubernetes/docs/cni-with-calico
+[containerd]: /kubernetes/docs/containerd
