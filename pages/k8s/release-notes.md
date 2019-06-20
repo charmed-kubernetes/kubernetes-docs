@@ -54,6 +54,19 @@ IP address of an external load balancer. See the
 [custom load balancer page](https://www.ubuntu.com/kubernetes/docs/custom-loadbalancer)
 for more information.
 
+- Container image registry
+
+By default, all container images required by the deployment come from the
+[Canonical image registry](https://image-registry.canonical.com:5000). This includes
+images used by the cdk-addons snap, ingress, dns, storage providers, etc. The registry
+can be configured with the new `image-registry` config option on the `kubernetes-master`
+charm.
+
+The `addons-registry` config option is now deprecated. If set, this will take precedence
+over the new `image-registry` option when deploying images from the cdk-addons snap.
+However, the `addons-registry` option will be removed in 1.17. Customers are encouraged
+to migrate to the new `image-registry` option as soon as possible.
+
 ## Fixes
 
 - Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
