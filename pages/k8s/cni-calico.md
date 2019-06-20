@@ -8,7 +8,7 @@ context:
 keywords: CNI, networking
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: cni-with-calico.html
+permalink: cni-calico.html
 layout: [base, ubuntu-com]
 toc: False
 ---
