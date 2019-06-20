@@ -67,6 +67,18 @@ over the new `image-registry` option when deploying images from the cdk-addons s
 However, the `addons-registry` option will be removed in 1.17. Customers are encouraged
 to migrate to the new `image-registry` option as soon as possible.
 
+- Containerd support
+
+CDK now ships with [Containerd](https://containerd.io/) by default.  This move
+leverages the [peformance improvements](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
+seen with Containerd and will allow us to support runtimes such as
+[Kata](https://katacontainers.io/) in the future.
+
+This change also replaces the Docker layer, in the Kubernetes master and worker
+charms, to subordinate container runtime charms.  This allows the operator to
+swap the container runtime as desired, as well as granting the ability to mix
+container runtimes within a cluster.
+
 ## Fixes
 
 - Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
