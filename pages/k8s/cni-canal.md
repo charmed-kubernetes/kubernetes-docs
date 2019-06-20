@@ -8,7 +8,7 @@ context:
 keywords: CNI, networking
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: cni-with-canal.html
+permalink: cni-canal.html
 layout: [base, ubuntu-com]
 toc: False
 ---
