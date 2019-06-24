@@ -20,6 +20,21 @@ toc: False
 
 ## What's new
 
+- Containerd support
+
+Charmed Kubernetes now ships with [Containerd](https://containerd.io/) by default.
+As well as significant
+[peformance improvements](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/),
+using Containerd makes support for additional runtimes such as
+[Kata](https://katacontainers.io/) possible in the future.
+
+This change also replaces the Docker layer, in the Kubernetes master and worker
+charms, with subordinate container runtime charms. This allows the operator to
+swap the container runtime as desired, as well as granting the ability to mix
+container runtimes within a cluster. Because this is a significant change, you 
+are advised to read the [upgrade notes](/kubernetes/docs/upgrade-notes) before
+upgrading from a previous version.
+
 - Calico 3.x support
 
 The Calico and Canal charms have been updated to install Calico 3.6.1 by
@@ -43,7 +58,7 @@ Several new config options have been added to the Calico charm to support BGP
 functionality within Calico. These additions make it possible to configure
 external BGP peers, route reflectors, and multiple IP pools. For instructions
 on how to use the new config options, see the
-[CNI with Calico documentation][cni-with-calico].
+[CNI with Calico documentation][cni-calico].
 
 - Custom load balancer addresses
 
@@ -208,3 +223,4 @@ Please see [this page][historic] for release notes of earlier versions.
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
 [cni-with-calico]: /kubernetes/docs/cni-with-calico
+[containerd]: /kubernetes/docs/containerd
