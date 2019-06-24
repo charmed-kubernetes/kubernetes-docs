@@ -98,7 +98,8 @@ authenticate with the connected registry. This will not work in a containerd env
 as there is no `daemon.json` file nor `docker` command available to invoke.
 
 Users relying on `docker-registry` to serve container images to Kubernetes deployments should
-continue to use the Docker subordinate runtime.
+continue to use the Docker subordinate runtime as outlined in the [upgrade notes](/kubernetes/docs/upgrade-notes#1.15),
+under the heading "To keep Docker as the container runtime".
 
 
 # 1.14 Bugfix release
