@@ -70,8 +70,10 @@ see a complete set of logs for canal:
 juju debug-log --replay --include=canal
 ```
 
-For additional troubleshooting pointers, please see the [dedicated troubleshooting page][troubleshooting].
+For additional troubleshooting pointers, please see the
+[dedicated troubleshooting page][troubleshooting].
 
 <!-- LINKS -->
 
 [canal]: https://docs.projectcalico.org/v3.7/getting-started/kubernetes/installation/flannel
+[troubleshooting]: /kubernetes/docs/troubleshooting
