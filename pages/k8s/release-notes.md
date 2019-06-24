@@ -222,5 +222,5 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]: /kubernetes/docs/high-availability
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
-[cni-with-calico]: /kubernetes/docs/cni-with-calico
+[cni-with-calico]: /kubernetes/docs/cni-calico
 [containerd]: /kubernetes/docs/containerd
