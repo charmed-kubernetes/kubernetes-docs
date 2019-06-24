@@ -22,16 +22,17 @@ toc: False
 
 - Containerd support
 
-Charmed Kubernetes now ships with [Containerd](https://containerd.io/) by default.
-As well as significant
-[peformance improvements](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/),
-using Containerd makes support for additional runtimes such as
-[Kata](https://katacontainers.io/) possible in the future.
+Although Docker is still supported, [containerd](https://containerd.io/) is now 
+the default container runtime in Charmed Kubernetes. Containerd brings significant
+[peformance improvements](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
+and prepares the way for Charmed Kubernetes integration with
+[Kata](https://katacontainers.io/) in the future.
 
-This change also replaces the Docker layer, in the Kubernetes master and worker
-charms, with subordinate container runtime charms. This allows the operator to
-swap the container runtime as desired, as well as granting the ability to mix
-container runtimes within a cluster. Because this is a significant change, you 
+Container runtime code has been moved out of the kubernetes-worker charm, and
+into subordinate charms (one for Docker and one for containerd). This allows 
+the operator to swap the container runtime as desired, and even mix
+container runtimes within a cluster. It also allows for additional container
+runtimes to be supported in the future. Because this is a significant change, you 
 are advised to read the [upgrade notes](/kubernetes/docs/upgrade-notes) before
 upgrading from a previous version.
 
@@ -222,5 +223,5 @@ Please see [this page][historic] for release notes of earlier versions.
 [haoverview]: /kubernetes/docs/high-availability
 [metallb-docs]: /kubernetes/docs/metallb
 [hacluster-docs]: /kubernetes/docs/hacluster
-[cni-calico]: /kubernetes/docs/cni-calico
+[cni-with-calico]: /kubernetes/docs/cni-calico
 [containerd]: /kubernetes/docs/containerd
