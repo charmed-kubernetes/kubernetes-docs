@@ -13,12 +13,12 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-'Canal' is a shorthand for saying "Calico and Flannel", a common practise which sets up Calico to handle policy management and Flannel to manage the network itself. The manual setup is explained in the [Calico documentation][canal].  
+"Canal" is a shorthand for saying "Calico and Flannel", a common practise which sets up Calico to handle policy management and Flannel to manage the network itself. The manual setup is explained in the [Calico documentation][canal].  
 
 
 ## Deploying Charmed Kubernetes with Canal
 
-To deploy CDK with Canal, deploy the kubernetes-canal bundle:
+To deploy a cluster with Canal, deploy the kubernetes-canal bundle:
 
 ```bash
 juju deploy cs:bundle/canonical-kubernetes-canal
