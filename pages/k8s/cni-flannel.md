@@ -5,7 +5,7 @@ markdown_includes:
 context:
   title: "CNI with flannel"
   description: How to manage and deploy Kubernetes with flannel
-keywords: CNI, networking
+keywords: CNI, networking, flannel
 tags: [operating]
 sidebar: k8smain-sidebar
 permalink: cni-flannel.html
@@ -20,9 +20,9 @@ are networked to the host, only how the traffic is transported between hosts. Fo
 more complicated scenarios, see also [Calico][] and [Canal][]
 
 
-## Deploying **CDK** with flannel
+## Deploying **Charmed Kubernetes** with flannel
 
-Flannel is the default choice for networking with **CDK**. If you
+Flannel is the default choice for networking with **Charmed Kubernetes**. If you
 [install using `conjure-up`][quickstart], or by
 [manually deploying the bundle][install-manual] without changing the default settings,
 flannel will be used for CNI.
@@ -39,7 +39,7 @@ flannel will be used for CNI.
 
 ### Checking the current configuration
 
-To check the current configuration settings for Calico, run the command:
+To check the current configuration settings for Flannel, run the command:
 
 ```bash
 juju config flannel
