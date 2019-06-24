@@ -84,8 +84,8 @@ to migrate to the new `image-registry` option as soon as possible.
 
 ## Fixes
 
-- Fixed kubelet-preferred-address-types being set incorrectly ([Issue](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1826397))
-- Fixed Calico IP range should be a config option [Issue](https://bugs.launchpad.net/charm-calico/+bug/1809355))
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.15](https://launchpad.net/charmed-kubernetes/+milestone/1.15).
 
 
 # 1.14 Bugfix release
