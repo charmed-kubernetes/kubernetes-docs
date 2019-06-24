@@ -70,6 +70,16 @@ Note that this upgrade step only applies to deployments which actually use the D
 container runtime. Versions 1.15 and later use containerd by default, and you should
 instead follow the [instructions below](#upgrading-containerd).
 
+#### Version 1.15 and later
+
+The `kubernetes-master` and `kubernetes-worker` are related to the docker subordinate
+charm where present. Whether you are running Docker on its own, or mixed with Containerd, 
+the upgrade process is the same:
+
+```bash
+juju upgrade-charm docker
+```
+
 #### Versions prior to 1.15
 Only the `kubernetes-master` and `kubernetes-worker` units require Docker. The charms for each
 include an action to trigger the upgrade.
@@ -104,14 +114,17 @@ juju run-action kubernetes-worker/0 upgrade-docker --wait
 
 As previously, wait between running the action on sucessive units to allow pods to migrate.
 
-#### Version 1.15 and later
-
-The `kubernetes-master` and `kubernetes worker` are related to the docker subordinate
-charm
 
 <a id='upgrading-containerd'> </a>
 
 ### Upgrading containerd
+
+By default, Versions 1.15 and later use Containerd as the container runtime. This subordinate
+can be upgraded with the command:
+
+```bash
+juju upgrade-charm containerd
+```
 
 ### Upgrading etcd
 
@@ -132,6 +145,9 @@ _on the **etcd** unit_
 Knowing the path to the snapshot file from the output of the above command, you can
 download a local copy:
 `bash juju scp etcd/0:/home/ubuntu/etcd-snapshots/<filename>.tar.gz .`
+
+#### 3. Upgrade 
+
 You can now upgrade **etcd**:
 
 ```bash
