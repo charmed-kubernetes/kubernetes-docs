@@ -14,8 +14,8 @@ toc: False
 ---
 
 [Calico][] is a software-defined network solution that can be used with Kubernetes.
-Support for Calico in **CDK** is provided in the form of a `calico` subordinate
-charm.
+Support for Calico in **Charmed Kubernetes** is provided in the form of a `calico`
+subordinate charm.
 
 Unlike Flannel, Calico provides out-of-the-box support for the
 [NetworkPolicy][] feature of Kubernetes, along with different modes of
@@ -314,8 +314,8 @@ EOF
 
 ## Using a private Docker registry
 
-For a general introduction to using a private Docker registry with **CDK**, please
-refer to the [Private Docker Registry][] page.
+For a general introduction to using a private Docker registry with
+**Charmed Kubernetes**, please refer to the [Private Docker Registry][] page.
 
 In addition to the steps documented there, you will need to upload the
 following images to the registry:
@@ -347,13 +347,13 @@ juju debug-log --replay --include=calico
 
 For additional troubleshooting pointers, please see the [dedicated troubleshooting page][troubleshooting].
 
-
 ## Useful links
 
--
+- The [Calico website][calico-learn] has a thorough explanation of its network management strategy.
 
 <!-- LINKS -->
 
+[calico-learn]: https://www.projectcalico.org/learn/
 [NetworkPolicy]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [Creating an AWS VPC]: https://docs.jujucharms.com/2.5/en/charms-fan-aws-vpc
 [Disabling Source/Destination Checks]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck
