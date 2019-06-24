@@ -80,13 +80,25 @@ charm.
 
 The `addons-registry` config option is now deprecated. If set, this will take precedence
 over the new `image-registry` option when deploying images from the cdk-addons snap.
-However, the `addons-registry` option will be removed in 1.17. Customers are encouraged
+However, the `addons-registry` option will be removed in 1.17. Users are encouraged
 to migrate to the new `image-registry` option as soon as possible.
 
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.15](https://launchpad.net/charmed-kubernetes/+milestone/1.15).
+
+## Known Issues
+
+- Docker-registry interface does not support containerd ([bug 1833579](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1833579))
+
+When a `docker-registry` charm is related, `kubernetes-worker` units will attempt to configure
+the Docker `daemon.json` configuration file and may also attempt to use `docker login` to
+authenticate with the connected registry. This will not work in a containerd environment,
+as there is no `daemon.json` file nor `docker` command available to invoke.
+
+Users relying on `docker-registry` to serve container images to Kubernetes deployments should
+continue to use the Docker subordinate runtime.
 
 
 # 1.14 Bugfix release
