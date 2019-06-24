@@ -35,7 +35,7 @@ subordinate charm rather than being included in the `kubernetes-master` and
 
 Docker is currently installed on your kubernetes-worker units. The Docker subordinate
 charm includes clean-up code to manage the transition to the new pluggable architecture.
-To upgrade whilst retaining Docker as the runtime, you just need to deploy the new charm
+To upgrade whilst retaining Docker as the runtime, you need to additionally deploy the new charm
 and add relations to the master and worker components:
 
 ```bash
@@ -71,15 +71,16 @@ Upgrade the master and worker charms:
 juju upgrade-charm kubernetes-master
 juju upgrade-charm kubernetes-worker
 ```
-(Currently juju upgrade-charm --path cs:~joeborg/kubernetes-master-16 kubernetes-master)
-(Currently juju upgrade-charm --path  cs:~joeborg/kubernetes-worker-35 kubernetes-worker)
 
 The kubernetes-worker units will enter a blocked state, with status message
 “Connect a container runtime.”
 
 #### Deploy and relate the new Docker charm
 
-This step is needed even if you do not intend to use Docker following the upgrade. Docker is already installed on your `kubernetes-worker` units, and the Docker subordinate includes clean-up code to uninstall Docker when the Docker charm is replaced with the containerd charm.
+This step is needed even if you do not intend to use Docker following the
+upgrade. Docker is already installed on your `kubernetes-worker` units, and
+the Docker subordinate includes clean-up code to uninstall Docker when the
+Docker charm is replaced with the containerd charm.
 
 ```bash
 juju deploy docker
@@ -144,7 +145,8 @@ One-liner:
 ```bash
 juju status | grep ^kubernetes-worker/ | awk '{print $1}' | tr -d '*' | xargs -n1 -I '{}' juju run-action {} resume --wait
 ```
-Cleanup
+
+#### Cleanup
 
 You can now pause the temporary workers to force all pods to migrate back
 to your “real” workers, then remove the temporary workers.
