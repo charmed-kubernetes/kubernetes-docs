@@ -69,8 +69,8 @@ run workers specifically using Docker. This is done by adding the Docker
 charm to your cluster and deploying Docker-based workers:
 
 ```bash
-juju deploy cs:~containers/kubernetes-worker-docker
-juju deploy docker
+juju deploy cs:~containers/kubernetes-worker kubernetes-worker-docker
+juju deploy cs:~containers/docker
 juju relate docker kubernetes-worker-docker
 ```
 

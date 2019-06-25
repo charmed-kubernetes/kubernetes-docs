@@ -39,7 +39,7 @@ To upgrade whilst retaining Docker as the runtime, you need to additionally depl
 and add relations to the master and worker components:
 
 ```bash
-juju deploy docker
+juju deploy cs:~containers/docker
 juju add-relation docker kubernetes-master
 juju add-relation docker kubernetes-worker
 ```
@@ -83,11 +83,10 @@ the Docker subordinate includes clean-up code to uninstall Docker when the
 Docker charm is replaced with the containerd charm.
 
 ```bash
-juju deploy docker
+juju deploy cs:~containers/docker
 juju add-relation docker kubernetes-master
 juju add-relation docker kubernetes-worker
 ```
-(Currently juju deploy cs:~joeborg/docker-0)
 
 ### Switching to Containerd
 
@@ -122,7 +121,7 @@ juju remove-application docker
 #### Deploy Containerd
 
 ```bash
-juju deploy containerd
+juju deploy cs:~containers/containerd
 juju add-relation containerd kubernetes-master
 juju add-relation containerd kubernetes-worker
 ```
@@ -165,8 +164,8 @@ Once you have a Containerd backed CDK running, you can add Docker backed
 workers like so:
 
 ```bash
-juju deploy cs:~containers/kubernetes-worker-docker
-juju deploy docker
+juju deploy cs:~containers/kubernetes-worker kubernetes-worker-docker
+juju deploy cs:~containers/docker
 juju relate docker kubernetes-worker-docker
 ```
 
@@ -175,7 +174,7 @@ juju relate docker kubernetes-worker-docker
 ## Upgrading to 1.14
 
 This upgrade includes support for **CoreDNS 1.4.0**. All new deployments of
-**CDK 1.14** will install **CoreDNS** by default instead of **KubeDNS**.
+**Charmed Kubernetes** will install **CoreDNS** by default instead of **KubeDNS**.
 
 Existing deployments which are upgraded to **CDK 1.14** will continue to use
 **KubeDNS** until the operator chooses to upgrade to **CoreDNS**. To upgrade,
