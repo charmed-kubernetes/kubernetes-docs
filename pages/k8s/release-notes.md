@@ -101,6 +101,8 @@ Users relying on `docker-registry` to serve container images to Kubernetes deplo
 continue to use the Docker subordinate runtime as outlined in the [upgrade notes](/kubernetes/docs/upgrade-notes#1.15),
 under the heading "To keep Docker as the container runtime".
 
+- Containerd charm does not work on LXD ([bug 1834524](https://bugs.launchpad.net/charm-containerd/+bug/1834524))
+
 
 # 1.14 Bugfix release
 
