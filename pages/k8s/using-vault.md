@@ -62,6 +62,7 @@ Save this to a file named `k8s-vault.yaml` and deploy with:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ./k8s-vault.yaml
+juju remove-application easyrsa
 ```
 
 Once the deployment settles, you will notice that several applications are in a
@@ -83,9 +84,14 @@ exit
 juju run-action vault/0 authorize-charm token={charm token}
 ```
 
-Note that it is _critical_ that you save all five unseal keys as well as the
-root token.  If the **Vault** unit is ever rebooted, you will have to repeat the
-unseal steps (but not the init step) before the CA can become functional again.
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    It is <strong><em>critical</strong></em> that you save all five unseal keys as well as the root
+    token.  If the <strong>Vault</strong> unit is ever rebooted, you will have to repeat the
+    unseal steps (but not the init step) before the CA can become functional
+    again.
+  </p>
+</div>
 
 ## Transitioning an existing cluster from EasyRSA to Vault
 
@@ -117,18 +123,18 @@ components of the cluster to the new CA and certificates
 (this will include restarting all of the worker
 nodes and result in a brief bit of downtime).
 
-Once that is complete, you will need to re-download the `kubectl` config file,
+After the transition, you must remove **EasyRSA** to prevent it from
+conflicting with **Vault**:
+
+```bash
+juju remove-application easyrsa
+```
+
+You will need to re-download the `kubectl` config file,
 since it contains the certificate info for connecting to the cluster:
 
 ```bash
 juju scp kubernetes-master/0:config ~/.kube/config
-```
-
-Once you are satisfied with the state of the cluster, you can remove the
-**EasyRSA** application with:
-
-```bash
-juju remove-application easyrsa
 ```
 
 ## Using Vault as an intermediary CA
