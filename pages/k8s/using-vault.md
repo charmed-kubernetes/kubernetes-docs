@@ -24,7 +24,7 @@ that secrets, such as certificates and signing keys, can be accessed.
 
 ## Deploying Charmed Kubernetes with Vault as a root CA
 
-When deploying a **Charmed Kubernetes** manually via the
+When deploying **Charmed Kubernetes** manually via the
 [published Juju bundle][cdk-bundle], it is possible to make use of an overlay
 file to change the composition and configuration of the cluster.
 
@@ -100,7 +100,7 @@ be transitioned to use **Vault** as a CA.
 
 Follow the same steps as outlined above, and redeploy the same
 base bundle which was initially deployed on top of the existing deployment,
-adding the overlay ([download][k8s-vault-yaml]).
+adding the Vault overlay ([download][k8s-vault-yaml]).
 
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
