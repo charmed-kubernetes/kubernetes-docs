@@ -86,7 +86,7 @@ juju run-action vault/0 authorize-charm token={charm token}
 
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
-    It is <strong><em>critical</strong></em> that you save all five unseal keys as well as the root
+    It is <strong><em>critical </em></strong> that you save all five unseal keys as well as the root
     token.  If the <strong>Vault</strong> unit is ever rebooted, you will have to repeat the
     unseal steps (but not the init step) before the CA can become functional
     again.
