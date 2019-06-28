@@ -192,7 +192,7 @@ Make use of **Juju** constraints to allocate an instance with the required amoun
 juju deploy nfs --constraints root-disk=200G
 ```
 
-### Relate to harmed Kubernetes
+### Relate to Charmed Kubernetes
 
 The NFS units can be related directly to the **Kubernetes** workers:
 
