@@ -98,7 +98,7 @@ juju run-action vault/0 authorize-charm token={charm token}
 An existing **Charmed Kubernetes** deployment which is using EasyRSA can
 be transitioned to use **Vault** as a CA.
 
-Folow the same steps outlined above, and redeploy the same
+Follow the same steps as outlined above, and redeploy the same
 base bundle which was initially deployed on top of the existing deployment,
 adding the overlay ([download][k8s-vault-yaml]).
 
@@ -119,9 +119,10 @@ juju deploy charmed-kubernetes-139 --overlay ./k8s-vault.yaml
 ```
 
 Then follow the steps to unseal **Vault**. This will transition all of the
-components of the cluster to the new CA and certificates
-(this will include restarting all of the worker
-nodes and result in a brief bit of downtime).
+components of the cluster to the new CA and certificates. This will not cause
+any disruption to running workloads, but you will be unable to issue cluster
+commands with `kubectl` for a brief period.
+
 
 After the transition, you must remove **EasyRSA** to prevent it from
 conflicting with **Vault**:
