@@ -62,6 +62,7 @@ Save this to a file named `k8s-vault.yaml` and deploy with:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ./k8s-vault.yaml
+juju remove-application easyrsa  # remove EasyRSA entirely to avoid conflicts
 ```
 
 Once the deployment settles, you will notice that several applications are in a
@@ -83,25 +84,37 @@ exit
 juju run-action vault/0 authorize-charm token={charm token}
 ```
 
-Note that it is _critical_ that you save all five unseal keys as well as the
-root token.  If the **Vault** unit is ever rebooted, you will have to repeat the
-unseal steps (but not the init step) before the CA can become functional again.
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    It is _critical_ that you save all five unseal keys as well as the root
+    token.  If the **Vault** unit is ever rebooted, you will have to repeat the
+    unseal steps (but not the init step) before the CA can become functional
+    again.
+  </p>
+</div>
 
 ## Transitioning an existing CDK from EasyRSA to Vault
 
-An existing **CDK** deployment which is using Vault can easily transition to
-**Vault** simply by following the same steps as above, redeploying the same
-base bundle that you initially deployed on top of the existing deployment
-with the addition of the overlay and then following the steps to unseal
-**Vault**. This will transition all of the components of the cluster to
-the new CA and certificates (this will include restarting all of the worker
-nodes and result in a brief bit of downtime). Once that is complete, you will
-need to re-download the `kubectl` config file, since it contains the certificate
-info for connecting to the cluster.  Once you are satisfied with the state of
-the cluster, you can remove the **EasyRSA** application with:
+An existing deployment which is using **EasyRSA** can transition to
+**Vault** by following the same steps as above, redeploying the same
+base bundle that you initially deployed on top of the existing deployment with
+the addition of the overlay and then following the steps to unseal **Vault**.
+This will transition all of the components of the cluster to the new CA and
+certificates.
+
+After the transition, you must remove **EasyRSA** to prevent it from
+conflicting with **Vault**:
 
 ```bash
 juju remove-application easyrsa
+```
+
+Once that is complete, you will need to re-download the `kubectl`
+config file, since it contains the certificate info for connecting to the
+cluster, which has now changed:
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
 ```
 
 <div class="p-notification--information">
