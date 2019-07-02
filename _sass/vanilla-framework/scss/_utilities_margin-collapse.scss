@@ -1,5 +1,5 @@
 @import 'settings';
-
+@import 'base_placeholders-margin-collapse';
 // Collapse margins
 @mixin vf-u-margin-collapse {
   .u-no-margin {
@@ -14,7 +14,7 @@
     }
 
     &--bottom {
-      margin-bottom: 0 !important;
+      @extend %u-no-margin--bottom;
     }
 
     &--left {

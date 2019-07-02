@@ -22,6 +22,6 @@
   },
   "homepage": "http://ubuntudesign.github.io/vanilla-framework/",
   "devDependencies": {
-    "vanilla-framework": "0.0.55"
+    "vanilla-framework": "file:_sass/vanilla-framework"
   }
 }

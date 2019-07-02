@@ -13,7 +13,7 @@
     @extend %vf-card;
     @extend %vf-is-bordered;
     @extend %vf-has-round-corners;
-    padding: $spv-intra--scaleable - $px;
+    padding: calc(#{$spv-inner--large} - 1px);
   }
 }
 
@@ -31,11 +31,11 @@
 
 @mixin vf-p-card-overlay {
   .p-card--overlay {
-    background: transparentize($color-x-light, .1);
+    background: transparentize($color-x-light, 0.1);
     color: $color-dark;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-intra--scaleable;
+    padding: $spv-inner--large;
   }
 }
 
@@ -44,9 +44,9 @@
     @extend %vf-bg--light;
     @extend %vf-has-box-shadow;
     @extend %vf-has-round-corners;
-    margin-bottom: $spv-inter--scaleable;
+    margin-bottom: $spv-outer--scaleable;
     overflow: auto;
-    padding: $spv-intra--scaleable;
+    padding: $spv-inner--large;
   }
 }
 
@@ -55,18 +55,14 @@
   // If possible, please consider adding a modifier to a base pattern, so it can be used elsewhere too.
 
   .p-card__image {
-    margin-bottom: $spv-inter--condensed-scaleable;
+    margin-bottom: $spv-outer--small-scaleable;
     vertical-align: top;
     width: 100%;
   }
 
-  .p-card__content {
-    margin-top: - $sp-unit * 2;
-  }
-
   .p-card__header {
     border-bottom: 1px solid $color-mid-light;
-    margin-bottom: $spv-intra--scaleable;
+    padding-bottom: $spv-inner--large;
 
     > .p-link--soft {
       display: inline-block;
@@ -74,21 +70,25 @@
     }
   }
 
+  .p-card__content {
+    @extend %u-no-margin--bottom--default-text;
+  }
+
   .p-card__thumbnail {
     max-height: map-get($icon-sizes, thumb--card);
   }
 
-  .p-card__content {
-    margin-top: - $sp-unit * 2;
-  }
+  [class*='p-card'] {
+    p:not([class^='p-heading--']),
+    h5,
+    h6 {
+      &:last-child {
+        margin-bottom: $spv-nudge-compensation;
+      }
 
-  .p-card__header {
-    border-bottom: 1px solid $color-mid-light;
-    margin-bottom: $spv-intra--scaleable;
-
-    > .p-link--soft {
-      display: inline-block;
-      overflow: auto;
+      &:first-child {
+        margin-top: -#{$sp-unit};
+      }
     }
   }
 }

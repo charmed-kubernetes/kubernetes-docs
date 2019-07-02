@@ -1,0 +1,7 @@
+@import 'base_placeholders-fixed-width-container';
+
+@mixin vf-u-layout {
+  .u-fixed-width {
+    @extend %fixed-width-container;
+  }
+}
