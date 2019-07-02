@@ -88,7 +88,7 @@ The `--series` option is included here to illustrate how to specify which series
 Next we upload and identify the snapshot file to this new unit:
 
 ```bash
-juju attach newer-etcd snapshot=./etcd-snapshot-2018-09-26-18.04.02.tar.gz
+juju attach new-etcd snapshot=./etcd-snapshot-2018-09-26-18.04.02.tar.gz
 ```
 
 Then run the restore action:
