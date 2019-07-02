@@ -106,6 +106,11 @@ entries:
       output: web, pdf
       type: page
 
+    - title: Backups
+      url: /backups
+      output: web, pdf
+      type: page
+
     - title: Upgrading
       url: /upgrading
       output: web, pdf
