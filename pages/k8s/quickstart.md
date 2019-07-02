@@ -13,9 +13,10 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The Charmed Distribution of Kubernetes<sup>&reg;</sup> delivers a ‘pure K8s’ experience, tested across a wide range of clouds and integrated with modern metrics and monitoring. It works across all major public clouds and private infrastructure, enabling your teams to operate Kubernetes clusters on demand, anywhere.
+Charmed Kubernetes<sup>&reg;</sup> delivers a ‘pure K8s’ experience, tested across a wide range of clouds and integrated with modern metrics and monitoring. It works across all major public clouds and private infrastructure, enabling your teams to operate Kubernetes clusters on demand, anywhere.
 
-With this quick start guide and some tools from Canonical, you'll have a Kubernetes cluster running on the cloud of your choice in minutes!
+With this quick start guide and some tools from Canonical, you'll have a
+Kubernetes cluster running on the cloud of your choice in minutes!
 
 ## What you'll need
 
@@ -30,108 +31,124 @@ With this quick start guide and some tools from Canonical, you'll have a Kuberne
   - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/install">Installing CDK</a> page for details. </p></div>
+<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/install">Installing Charmed Kubernetes</a> page for details. </p></div>
 
-## Install the tools
 
-The recommended way to install the **Charmed Distribution of Kubernetes&reg;** is with the tools [Juju][jujucharms-com], an application modelling tool, and [conjure-up][conjure-up-io], a guided installer for complex applications.
+<section class="p-strip--light is-bordered">
+  <div class="row">
+    <div class="col-12">
+      <ol class="p-stepped-list--detailed">
 
-From the command line, run the following:
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title col-12"><span class="p-list-step__bullet">1</span>Install Juju</h3>
+          <div class="p-list-step__content">
 
-```bash
-sudo snap install conjure-up --classic
-```
+<a class="p-link--external" href="https://jaas.ai" > Juju </a> is a tool for
+deploying, configuring, and operating complex software on public or private
+clouds. It can be installed with a snap:
 
-<sub>(Note: the use of 'sudo' may not be required on some versions of Linux)</sub>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="sudo snap install juju --classic" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+            <script id="asciicast-254739" src="https://asciinema.org/a/254739.js" async data-autoplay="true" data-rows="4"></script>
+          </div>
+        </li>
 
-This command will install both **conjure-up** and **Juju** via snap packages.
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">2</span>Find your cloud</h3>
+          <div class="p-list-step__content">
 
-## Run **conjure-up**
+Juju has baked in knowledge of many public clouds such as AWS, Azure and
+Google. You can see which ones are ready to use by running this command:
 
-To start deploying Kubernetes, simply run:
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju clouds" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+            <script id="asciicast-254740" src="https://asciinema.org/a/254740.js" async data-rows="18"></script>
 
-```bash
-conjure-up
-```
+            <p><a class="p-link--external" href="https://docs.jujucharms.com/clouds">Find out more about Clouds in Juju</a></p>
+          </div>
+        </li>
 
-This will start an interactive, guided deployment of the components of the **Charmed Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>.
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">3</span>Add Credentials</h3>
+          <div class="p-list-step__content">
+            <p>Most clouds require credentials so that the cloud knows which operations are authorised and on which account. If you choose to use AWS, for example, you would run <code>juju add-credential aws</code></p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju add-credential aws" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+          </div>
+        </li>
 
-**conjure-up** can be used to deploy many different applications, with a set of processing scripts known as _spells_. Use the arrow keys to select "**Charmed Distribution of Kubernetes**" and press `Enter`
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add Controller</h3>
+          <div class="p-list-step__content">
+            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations.</p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+          </div>
+        </li>
 
-![conjure-up menu](https://assets.ubuntu.com/v1/37d476e5-CDK-choose.png)
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">5</span>Add Model</h3>
+          <div class="p-list-step__content">
+            <p>The model holds a specific deployment, like Kubernetes, which includes all necessary applications and the number of instances of each one. This is where the number of Kubernetes worker nodes are scaled up or down.</p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju add-model k8s-test" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+          </div>
+        </li>
 
-The next screen shows a selection of add-ons which can be installed at the same time as Kubernetes.
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">6</span>Deploy Kubernetes</h3>
+          <div class="p-list-step__content">
+            <p>Add the Kubernetes bundle to the model and deploy the components, including the default number of components, like worker nodes.</p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju deploy charmed-kubernetes" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+          </div>
+        </li>
 
-![conjure-up menu](https://assets.ubuntu.com/v1/a3e45c9d-CDK-add-on.png)
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">&#9734;</span>Useful tips</h3>
+          <div class="p-list-step__content">
+            <p><strong>Observe installation progress:</strong> Watch the deployment process in real-time:</p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="watch -c juju status --color" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+            <p><strong>Observe log messages:</strong> To  view the last twenty log messages for the “k8s-test” model:</p>
+            <div class="p-code-snippet">
+              <input class="p-code-snippet__input" value="juju debug-log -m k8s-test -n 20" readonly="readonly">
+              <button class="p-code-snippet__action">Copy to clipboard</button>
+            </div>
+            <p><strong>Accessing Kubernetes:</strong> Juju creates a .kubeconfig file that is required  for accessing the Kubernetes cluster it created. Follow these instructions to install kubectl (if needed) and export the configuration file: (use kubectl to run commands against Kubernetes clusters)</p>
+            <pre><code>$ mkdir -p ~/.kube
+$ juju scp kubernetes-master/0:config ~/.kube/config
+$ snap install kubectl --classic
+$ kubectl cluster-info</code></pre>
+              <p><strong>Useful Links:</strong> Find out more about Charmed Kubernetes.</p>
+              <ul style="list-style-type: disc;">
+                <li><a href="/kubernetes/docs/install-manual">Manual Install&nbsp;&rsaquo;</a></li>
+                <li><a class="p-link--external" href="https://docs.jujucharms.com/maas-cloud">Find out more about MAAS as a Cloud in Juju</a></li>
+                <li><a class="p-link--external" href="https://docs.jujucharms.com/">Full Juju documentation</a></li>
+                <li><a href="/kubernetes/docs">Full Kubernetes documentation&nbsp;&rsaquo;</a></li>
+              </ul>
+            </div>
+          </li>
 
-You may want to come back and give some of these a try, but for now, just use the `Tab` key to move down the list and select the `Continue` button on the interface, and press `Enter`.
+        </ol>
 
-### Choose a cloud
-
-The next step is to choose the cloud you wish to deploy to.
-
-![conjure-up menu](https://assets.ubuntu.com/v1/a4efde88-CDK-cloud.png)
-
-Select the public cloud you wish to use and continue.
-
-Depending on your cloud, you will also likely see a screen to select the region to use. This maps to the known regions of the cloud you chose. Select an appropriate region and continue.
-
-### Add credentials
-
-If you have run through this install previously or you have already set up credentials with **Juju**, you will be given the option of using these previously stored credentials or adding new ones.
-
-If you haven't previously stored credentials, you will instead be prompted to enter them now:
-
-![conjure-up menu](https://assets.ubuntu.com/v1/f915816f-CDK-credential.png)
-
-Simply paste in the required fields and use `Tab`, `cursor keys` and `Enter` to navigate.
-
-<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-  <span class="p-notification__status">Note:</span>
-There are many different types of credentials, and copying and pasting them accurately can be tricky. If you have any authentication difficulty, it may be easier to add credentials using Juju, (<a href="https://docs.jujucharms.com/stable/en/credentials" > follow this link for documentation</a>)
-</p></div>
-
-### Create a controller
-
-Juju uses a central _controller_ instance to manage the applications it deploys in separate _models_. You always need at least one controller, but if you have already created one for previous installs in this cloud (even if they weren't for Kubernetes), you can reuse that controller.
-
-![conjure-up controller menu](https://assets.ubuntu.com/v1/f65cdeb8-CDK-controller.png)
-
-Assuming that this is your first time with **conjure-up** and **Juju**, select `Deploy New Self-Hosted Controller` and continue.
-
-### Configure your deployment
-
-The next few **conjure-up** screens deal with configuring and customising your install. These are usually additional steps which **conjure-up** can perform before, during or after the actual deployment to set up Kubernetes for quick and easy use.
-
-Depending on your chosen cloud, the first choice is which network plugin to use:
-
-![conjure-up controller menu](https://assets.ubuntu.com/v1/cd3e83d6-CDK-network.png)
-
-Use the cursor keys to navigate and `space` to select either **flannel** _or_ **calico**. If you don't have an opinion about which style of networking you need, just leave the default choice and select `next`. Some clouds do not currently support Calico, in which case this option will not appear.
-
-You will now be asked for your **sudo** password. This is so **conjure-up** can download and install the latest version of `kubectl` (the command line tool for managing Kubernetes) and configure it to work with your new cluster.
-
-The next screen will show the applications to be deployed. See the [overview][overview] if you need a better understanding of what these components do.
-
-![conjure-up controller menu](https://assets.ubuntu.com/v1/421cf437-CDK-applications.png)
-
-By default, this setup will deploy two Kubernetes master nodes and three workers, which can be changed by entering the configuration screen for these components and selecting new values. Note that it will also be possible to increase the number of nodes later, so it isn't necessary to determine how many workers you'll need in advance -- you can just select `Continue`.
-
-### Deploying
-
-Now **conjure-up** will start the set up by creating a Juju controller, and you will see the following screen:
-
-![conjure-up controller menu](https://assets.ubuntu.com/v1/112fa567-CDK-juju.png)
-
-As mentioned previously, a Juju controller is a cloud instance which Juju uses to monitor and manage any other nodes and applications it deploys across any number of different models. You will typically only need one Juju controller per cloud, and you will be able to deploy multiple separate models containing additional Kubernetes clusters or other big software applications.
-
-Once the controller has been created, Juju will then create a model and instances within that model to contain the applications which make up the **Charmed Distribution of Kubernetes**. For a few minutes, **conjure-up** will display a status screen, reporting on the progress of the install. You will see the individual status messages change as the instances are created, software is installed on them, and then this software is configured to work with the other elements of the deployment.
-
-![conjure-up controller menu](https://assets.ubuntu.com/v1/92511391-CDK-waiting.png)
-
-The actual time this takes will depend on a number of factors, including which cloud you are using, but it should be complete in around five minutes. When the installed software is up an running, **conjure-up** will display a final screen indicating that the cluster is up and running and giving details of the running services and their addresses. It should also indicate that the `kubectl` software has been installed on your local machine.
-
-![conjure-up status](https://assets.ubuntu.com/v1/bbe1b9f4-CDK-final.png)
+      </div>
+    </div>
+  </section>
 
 Congratulations! You now have a cluster up and running with the **Charmed Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
 
@@ -153,7 +170,7 @@ To check that everything is actually working, you may want to log in to the Kube
 
 The recommended way to do this is to use the built-in proxy service, run with the following:
 
-```bash 
+```bash
 kubectl proxy
 ```
 
