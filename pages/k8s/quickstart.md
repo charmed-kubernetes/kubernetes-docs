@@ -90,7 +90,7 @@ Google. You can see which ones are ready to use by running this command:
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add Controller</h3>
           <div class="p-list-step__content">
-            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects</p>
+            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects.</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
