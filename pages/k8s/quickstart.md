@@ -43,7 +43,7 @@ Kubernetes cluster running on the cloud of your choice in minutes!
           <h3 class="p-list-step__title col-12"><span class="p-list-step__bullet">1</span>Install Juju</h3>
           <div class="p-list-step__content">
 
-<a class="p-link--external" href="https://jaas.ai" > Juju </a> is a tool for
+<a class="p-link--external" href="https://jaas.ai" > Juju</a> is a tool for
 deploying, configuring, and operating complex software on public or private
 clouds. It can be installed with a snap:
 
@@ -66,7 +66,7 @@ Google. You can see which ones are ready to use by running this command:
               <input class="p-code-snippet__input" value="juju clouds" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
-            <script id="asciicast-254740" src="https://asciinema.org/a/254740.js" async data-rows="18"></script>
+            <script id="asciicast-254740" src="https://asciinema.org/a/254740.js" async data-rows="18" data-autoplay="true"></script>
 
             <p><a class="p-link--external" href="https://docs.jujucharms.com/clouds">Find out more about Clouds in Juju</a></p>
           </div>
@@ -75,18 +75,22 @@ Google. You can see which ones are ready to use by running this command:
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">3</span>Add Credentials</h3>
           <div class="p-list-step__content">
-            <p>Most clouds require credentials so that the cloud knows which operations are authorised and on which account. If you choose to use AWS, for example, you would run <code>juju add-credential aws</code></p>
+<p>Most clouds require credentials so that the cloud knows which operations are authorised, so you will need to supply these for Juju. If you choose to use AWS, for example, you would run:</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="juju add-credential aws" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
+<p>For a different cloud, just substitute in the name from the previous
+   list output by Juju. The data you need to supply will vary depending on the cloud. </p>
+             <script id="asciicast-Wo12W39et3IJzF15rAyVunbbl" src="https://asciinema.org/a/Wo12W39et3IJzF15rAyVunbbl.js" async data-rows="18" data-autoplay="true"></script>
           </div>
+
         </li>
 
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add Controller</h3>
           <div class="p-list-step__content">
-            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations.</p>
+            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
