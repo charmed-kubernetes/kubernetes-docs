@@ -95,6 +95,7 @@ Google. You can see which ones are ready to use by running this command:
               <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
+            <script id="asciicast-2FOd2qvaJL0wWqvZqFeVbwUsz" src="https://asciinema.org/a/2FOd2qvaJL0wWqvZqFeVbwUsz.js" async data-rows="18" data-autoplay="true"></script>
           </div>
         </li>
 
