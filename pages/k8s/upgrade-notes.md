@@ -258,3 +258,4 @@ You can now proceed with the rest of the upgrade.
 [etcd-upgrade]: https://github.com/etcd-io/etcd/blob/master/Documentation/upgrades/upgrade_3_0.md
 [script]: https://raw.githubusercontent.com/juju-solutions/cdk-etcd-2to3/master/migrate
 [dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
+[docker-page]: https://jaas.ai/u/containers/docker#configuration
