@@ -88,7 +88,7 @@ Google. You can see which ones are ready to use by running this command:
         </li>
 
         <li class="p-list-step__item col-12">
-          <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add Controller</h3>
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add a Controller</h3>
           <div class="p-list-step__content">
             <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects.</p>
             <div class="p-code-snippet">
@@ -100,54 +100,48 @@ Google. You can see which ones are ready to use by running this command:
         </li>
 
         <li class="p-list-step__item col-12">
-          <h3 class="p-list-step__title"><span class="p-list-step__bullet">5</span>Add Model</h3>
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">5</span>Add a Model</h3>
           <div class="p-list-step__content">
-            <p>The model holds a specific deployment, like Kubernetes, which includes all necessary applications and the number of instances of each one. This is where the number of Kubernetes worker nodes are scaled up or down.</p>
+            <p>The model holds a specific deployment. It is a good idea to create a new one specifically for each deployment.</p>
             <div class="p-code-snippet">
-              <input class="p-code-snippet__input" value="juju add-model k8s-test" readonly="readonly">
+              <input class="p-code-snippet__input" value="juju add-model k8s" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
+                        <p>Remember that you can have multiple models on each controller, so you can deploy multiple Kubernetes clusters, or other applications.</p>
           </div>
         </li>
 
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">6</span>Deploy Kubernetes</h3>
           <div class="p-list-step__content">
-            <p>Add the Kubernetes bundle to the model and deploy the components, including the default number of components, like worker nodes.</p>
+            <p>Deploy the Kubernetes bundle to the model. This will add instances to the model and deploy the required applications.</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="juju deploy charmed-kubernetes" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
+            <script id="asciicast-8YAPb63aB9kfB7j1M9X6COGer" src="https://asciinema.org/a/8YAPb63aB9kfB7j1M9X6COGer.js" async></script>
           </div>
         </li>
-
         <li class="p-list-step__item col-12">
-          <h3 class="p-list-step__title"><span class="p-list-step__bullet">&#9734;</span>Useful tips</h3>
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">6</span>Monitor the deployment</h3>
           <div class="p-list-step__content">
-            <p><strong>Observe installation progress:</strong> Watch the deployment process in real-time:</p>
+            <p>Juju is now busy creating instances, installing software and connecting the different parts of the cluster together, which can take several minutes. You can monitor what's going on by running:</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="watch -c juju status --color" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
-            <p><strong>Observe log messages:</strong> To  view the last twenty log messages for the “k8s-test” model:</p>
-            <div class="p-code-snippet">
-              <input class="p-code-snippet__input" value="juju debug-log -m k8s-test -n 20" readonly="readonly">
-              <button class="p-code-snippet__action">Copy to clipboard</button>
-            </div>
-            <p><strong>Accessing Kubernetes:</strong> Juju creates a .kubeconfig file that is required  for accessing the Kubernetes cluster it created. Follow these instructions to install kubectl (if needed) and export the configuration file: (use kubectl to run commands against Kubernetes clusters)</p>
-            <pre><code>$ mkdir -p ~/.kube
-$ juju scp kubernetes-master/0:config ~/.kube/config
-$ snap install kubectl --classic
-$ kubectl cluster-info</code></pre>
-              <p><strong>Useful Links:</strong> Find out more about Charmed Kubernetes.</p>
-              <ul style="list-style-type: disc;">
-                <li><a href="/kubernetes/docs/install-manual">Manual Install&nbsp;&rsaquo;</a></li>
-                <li><a class="p-link--external" href="https://docs.jujucharms.com/maas-cloud">Find out more about MAAS as a Cloud in Juju</a></li>
-                <li><a class="p-link--external" href="https://docs.jujucharms.com/">Full Juju documentation</a></li>
-                <li><a href="/kubernetes/docs">Full Kubernetes documentation&nbsp;&rsaquo;</a></li>
-              </ul>
-            </div>
-          </li>
+          </div>
+        </li>
+        <li class="p-list-step__item col-12">
+          <h3 class="p-list-step__title"><span class="p-list-step__bullet">6</span>Start using your cluster!</h3>
+          <div class="p-list-step__content">
+            <p>Congratulations! You have a Kubernetes cluster up and running - now lets use it! The link below takes you to the operations guide, detailing some of the common things you'll want to do next: </p>
+            <p>
+            <a href="/kubernetes/docs/operations">Get started with your new cluster&nbsp;›</a>
+            </p>
+          </div>
+        </li>
+
 
         </ol>
 
@@ -155,47 +149,9 @@ $ kubectl cluster-info</code></pre>
     </div>
   </section>
 
-Congratulations! You now have a cluster up and running with the **Charmed Distribution of Kubernetes**&nbsp;<sup>&reg;</sup>
 
-You can now check the status of the cluster yourself by running the command:
-
-```bash
-kubectl cluster-info
-```
-
-The output should look similar to this:
-
-![cli output](https://assets.ubuntu.com/v1/d5519ed3-CDK-clusterinfo.png)
-
-This shows the relevant IP addresses for operating your cluster.
-
-### Access the dashboard
-
-To check that everything is actually working, you may want to log in to the Kubernetes Dashboard.
-
-The recommended way to do this is to use the built-in proxy service, run with the following:
-
-```bash
-kubectl proxy
-```
-
-The URL for the dashboard will then be [http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
-
-Open a browser at the address for the Dashboard. You will see an authentication screen:
-
-![dashboard image](https://assets.ubuntu.com/v1/80980265-dashboard_login.png)
-
-You will need to log in to the Dashboard with a valid user. The easiest thing to do is to select your kubeconfig file, but for future administration, you should set up _role based access control_.
-
-![dashboard image](https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png)
-
-## Next steps
-
-Now that you have your cluster, you can put it to work! Here are a few recommended starting points:
-
-- [Add persistent storage&nbsp;&rsaquo;][storage]
-
-<sub>Kubernetes<sup>&reg;</sup> is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. </sub>
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
+<span class="p-notification__status">Note:</span> This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/install">Installing Charmed Kubernetes</a> page for details. </p></div>
 
 <!-- LINKS -->
 
