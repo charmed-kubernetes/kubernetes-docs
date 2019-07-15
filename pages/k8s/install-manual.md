@@ -3,9 +3,9 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Installing CDK manually"
-  description: How to install and customise the Charmed Distribution of Kubernetes using Juju bundles.
-keywords: lxd, conjure-up, requirements,developer
+  title: "Installing CDK"
+  description: How to install and customise Charmed Kubernetes using Juju bundles.
+keywords: lxd, requirements,developer
 tags: [install]
 sidebar: k8smain-sidebar
 permalink: install-manual.html
@@ -13,11 +13,11 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The recommended way to install the
-**Charmed Distribution of Kubernetes <sup>&reg;</sup>** is using the
-**conjure-up** install tool as described in the
-['Quick start' documentation][quickstart]. However, in some cases it may be useful to
-customise the install in ways not possible with **conjure-up**:
+
+The ['Quick start' documentation][quickstart] explains how to perform
+a quick and easy general install of **Charmed Kubernetes**.
+However, in some cases it may be useful to
+customise the install:
 
   - Adding additional components
   - Configuring storage or networking  
@@ -25,86 +25,27 @@ customise the install in ways not possible with **conjure-up**:
   - Testing a pre-release version
   - ...and many more
 
-In many cases, using the bundle install method outlined here will be faster and more
-repeatable than customising a deployment post-install.
+## What you will need
 
-This documentation first presents the method for installing from the official release
-bundles, then explains how the bundle can be customised.
+The rest of this page assumes you already have Juju installed and  have added
+credentials for a cloud and bootstrapped a controller.
 
+If you still need to do this, please take a look at the [quickstart
+instructions][quickstart], or, for custom clouds (OpenStack, MAAS), please
+consult the [Juju documentation][juju-docs].
 
-## Install CDK from the official bundle
-
-The following sections outline a standard installation of **CDK** using the stable release
-**Juju** bundles. The standard bundle includes all the components of Kubernetes, but you
-should also follow the [additional configuration](#config) steps at the end for
-Kubernetes  to be able to interact with the cloud it is deployed on.
-
-###  Install Juju
-
-If Juju has not already been installed on your system, you need to install it first. For
-Ubuntu 16.04 and later, and other operating systems which support [snaps][snaps], run
-the command:
-
-```bash
-sudo snap install juju --classic
-```
-
-For other install options, please see the [Juju documentation][juju-docs].
-
-### Create a controller
-
-**Juju** requires a *controller*  instance to manage models and deployed applications.
-You can make use of a hosted controller ([JAAS][jaas]) or create one in a cloud of
-your choice. For public clouds, you will need to have added a credential first:
-
-```bash
-juju add-credential
-```
-
-...will step through adding your credential for a specific cloud.
+To install **Charmed Kubernetes** entirely on your local machine (using
+containers to create a cluster), please see the separate [Localhost
+instructions][localhost].
 
 
-The Juju documentation has more information on [adding credentials][credentials] and
-[configuring a controller][controller-config].
+## Deploying the CDK bundle
 
-
-<!-- COMMENTED OUT UNTIL PAGE REFERRED TO IS ADDED
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-To manually install CDK locally using LXD, it is necessary to use a specific container profile before deploying.  See the <a href="/kubernetes/clouds-lxd">notes on LXD</a> before deployment.
-  </p>
-</div>
--->
-
-
-### Create a model
-
-The controller automatically creates a model named 'default'. It is useful to
-have a different model for each deployment of **CDK**, and for the models to have
-useful names. You can create a new model with the `add-model` command like
-this:
-
-```bash
-juju add-model cdk-test
-```
-
-...susbstituting the desired name.
-
-### Deploy the CDK bundle
-
-The **Juju Charm Store** hosts the **CDK** bundles as well as individual charms.  To
-deploy the latest, stable bundle, run the command:
+The **Juju Charm Store** hosts the **CDK** bundles as well as individual
+charms. To deploy the latest, stable bundle, run the command:
 
 ```bash
 juju deploy charmed-kubernetes
-```
-
-To get the status of the deployment, run `juju status`. For constant updates,
-combine it with the `watch` command:
-
-```
-watch -c juju status --color
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
@@ -118,7 +59,7 @@ juju deploy cs:~containers/canonical-kubernetes-435
 <div class="p-notification--positive">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Older Versions:</span>
-Previous versions of <strong>CDK</strong> used the name
+Previous versions of <strong>Charmed Kubernetes</strong> used the name
 <code>canonical-kubernetes</code>. These versions are still available under that name
 and links in the charm store. Versions from 1.14 onwards will use
 <code>charmed-kubernetes</code>.
@@ -129,12 +70,13 @@ and links in the charm store. Versions from 1.14 onwards will use
 The revision numbers for bundles are generated automatically when the bundle is
 updated, including for testing and beta versions, so it isn't always the case
 that a higher revision number is 'better'. The revision numbers for the release
-versions of the **CDK** bundle are shown in the table below:
+versions of the **Charmed Kubernetes** bundle are shown in the table below:
 
 <a  id="table"></a>
 
 | Kubernetes version | CDK bundle |
 | --- | --- |
+| 1.15.x         | [charmed-kubernetes-139](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-139/archive/bundle.yaml) |
 | 1.14.x         | [charmed-kubernetes-124](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-124/archive/bundle.yaml) |
 | 1.13.x         | [canonical-kubernetes-435](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-435/archive/bundle.yaml?channel=stable) |
 | 1.12.x         | [canonical-kubernetes-357](https://api.jujucharms.com/charmstore/v5/~containers/bundle/canonical-kubernetes-357/archive/bundle.yaml?channel=stable) |
@@ -153,46 +95,6 @@ Only the latest three versions of CDK are supported at any time.
 </div>
 
 <a id="config" ></a>
-
-### Configure kubectl
-
-You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
-installed, it is easy to add via a snap package:
-
-```bash
-sudo snap install kubectl --classic
-```
-
-For other platforms and install methods, please see the
-[Kubernetes documentation][kubectl].
-
-The config file for accessing the newly deployed cluster is stored in the cluster itself. You
-should use the following command to retrieve it:
-
-```bash
-juju scp kubernetes-master/0:config ~/.kube/config
-```
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-If you have multiple clusters you will need to manage the config file rather than just
-replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
-Kubernetes documentation</a> for more information on managing multiple clusters.
-  </p>
-</div>
-
-
-You can verify that kubectl is configured correctly and can see the cluster by running:
-
-```bash
-kubectl cluster-info
-```
-
-You can now continue to operate your cluster. If you are new to CDK or Kubernetes, you
-should check out the [Basic operations documentation][operations], which will explain
-how to get familiar with your cluster. For further customisation options, including cloud
-integration, continue reading below first.
 
 
 ### Additional configuration
