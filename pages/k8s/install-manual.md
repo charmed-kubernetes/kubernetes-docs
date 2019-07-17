@@ -99,6 +99,38 @@ each category!
 </div>
 
 
+<div class="row u-equal-height">
+    <div class="col-6 p-card">
+      <div class="p-card__header">
+        <h2 class="p-heading--four">Calico</h2>
+        <p><em>....</em></p>
+      </div>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
+        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
+        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
+        <li class="p-list__item is-ticked">xxx xxx xxx</li>
+      </ul>
+      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
+      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
+      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
+    </div>
+    <div class="col-6 p-card">
+      <div class="p-card__header">
+        <h2 class="p-heading--four">Calico</h2>
+        <p><em>....</em></p>
+      </div>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
+        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
+        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
+        <li class="p-list__item is-ticked">xxx xxx xxx</li>
+      </ul>
+      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
+      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
+      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
+    </div>
+</div>
 
 To use these overlay files with the current version of Charmed Kubernetes, run
 the following:
