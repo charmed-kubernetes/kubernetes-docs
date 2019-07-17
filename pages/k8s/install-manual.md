@@ -96,6 +96,7 @@ each category!
       xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
       <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
     </div>
+</div>
 
 
 
