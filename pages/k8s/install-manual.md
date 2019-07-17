@@ -13,6 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+<div class="p-card u-float-right">
   <a href="#" class="p-button--base">Edit this page</a>
 </div>
 
