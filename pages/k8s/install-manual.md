@@ -13,6 +13,8 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+  <a href="#" class="p-button--base">Edit this page</a>
+</div>
 
 The ['Quick start' documentation][quickstart] explains how to perform
 a quick and easy general install of **Charmed Kubernetes**.
