@@ -39,17 +39,40 @@ containers to create a cluster), please see the separate [Localhost
 instructions][localhost].
 
 
-## Deploying the CDK bundle
+## Quick custom installs
 
-The **Juju Charm Store** hosts the **CDK** bundles as well as individual
-charms. To deploy the latest, stable bundle, run the command:
+The details of how to edit and customise the Charmed Kubernetes bundle are
+outlined in the sections below. However, using overlays (also explained in more
+detail below) you can make some common quick customisations for networking and
+cloud integration.
+
+The overlay files are available to download directly from
+the links shown here. Be advised that you should use only **one** overlay from
+each category!
+
+***** Table/section of overlays
+
+
+To use these overlay files with the current version of Charmed Kubernetes, run
+the following:
+
+```bash
+juju deploy charmed-kubernetes --overlay aws-overlay.yaml --overlay calico-overlay.yaml
+```
+
+
+
+## Deploying a specific CDK bundle
+
+The **Juju Charm Store** hosts the **Charmed Kubernetes** bundles as well as
+individual charms. To deploy the latest, stable bundle, run the command:
 
 ```bash
 juju deploy charmed-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **CDK** bundle for the Kubernetes 1.13
+revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.13
 release, you could run:
 
 ```bash
@@ -90,7 +113,7 @@ versions of the **Charmed Kubernetes** bundle are shown in the table below:
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-Only the latest three versions of CDK are supported at any time.
+Only the latest three versions of Charmed Kubernetes are supported at any time.
   </p>
 </div>
 
@@ -201,7 +224,7 @@ juju trust aws-integrator
 
 After adding additional components, the most common use of overlays is to change
 constraints (the resources requested for the application). Although these are specified
-already in the **CDK** bundle, they can be overridden by an overlay. It isn't necessary
+already in the **Charmed Kubernetes** bundle, they can be overridden by an overlay. It isn't necessary
 to replicate the entirety of an entry, just the parts you wish to change. For example:
 
 ```yaml
@@ -268,12 +291,13 @@ kubernetes-worker:
 Another way to change or customise an install is to store the YAML bundle file locally and
 edit it with a standard text editor.
 
-The latest version of the **CDK** bundle can always be retrieved by
-[fetching the current stable version from the Juju Charm Store][latest-bundle-file]. For
-other versions, see the [table above](#table).
+The latest version of the **Charmed Kubernetes** bundle can always be retrieved
+by
+[fetching the current stable version from the Juju Charm Store][latest-bundle-file]. For other versions, see the [table above](#table).
 
-Care should be taken when editing the YAML file as the format is very strict. For more
-details on the format used by Juju, see the [Juju bundle documentation][juju-bundle].
+Care should be taken when editing the YAML file as the format is very strict.
+For more details on the format used by Juju, see the
+[Juju bundle documentation][juju-bundle].
 
 #### Retrieving a bundle from a running model
 
