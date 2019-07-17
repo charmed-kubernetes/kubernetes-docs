@@ -41,7 +41,7 @@ instructions][localhost].
 
 ## Quick custom installs
 
-The details of how to edit and customise the Charmed Kubernetes bundle are
+The details of how to edit and customise the **Charmed Kubernetes** bundle are
 outlined in the sections below. However, using overlays (also explained in more
 detail below) you can make some common quick customisations for networking and
 cloud integration.
@@ -50,8 +50,56 @@ The overlay files are available to download directly from
 the links shown here. Be advised that you should use only **one** overlay from
 each category!
 
-***** Table/section of overlays
+<div class="row u-equal-height">
+    <div class="col-6 p-card">
+      <div class="p-card__header">
+        <h2 class="p-heading--four">Calico</h2>
+        <p><em>....</em></p>
+      </div>
+      <ul class="p-list">
+        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
+        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
+        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
+        <li class="p-list__item is-ticked">xxx xxx xxx</li>
+      </ul>
+      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
+      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
+      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
+    </div>
+    <div class="col-6 p-card">
+      <div class="p-card__header">
+        <h2 class="p-heading--four">Canal</h2>
+        <p><em>xxxx xx xx x xx xxxxxxxx xxxxx</em></p>
+      </div>
+      <ul class="p-list">
+       <li class="p-list__item is-ticked">xxxx xx xxxx</li>
+       <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
+       <li class="p-list__item is-ticked">xxx x xxx xxx</li>
+       <li class="p-list__item is-ticked">xxx xxx xxx</li>
+      </ul>
+      <p>xxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
+      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xx.</p>
 
+      <p><a href="/kubernetes/install">Install instructions&nbsp;›</a></p>
+      <p><a href="/kubernetes/managed">Fully managed Kubernetes options&nbsp;›</a>
+      </div>
+
+      <div class="col-6 p-card">
+        <div class="p-card__header">
+          <h2 class="p-heading--four">Tigera EE</h2>
+          <p><em>xxxxxxxxxxxx xx x x xx xxxxxxxxxxx</em></p>
+        </div>
+        <ul class="p-list">
+        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
+        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
+        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
+        <li class="p-list__item is-ticked">xxx xxx xxx</li>
+        </ul>
+        <p>
+          <a href="/kubernetes/contact-us?product=kubernetes-kubeadm" class="js-invoke-modal">Get support for kubeadm&nbsp;›</a>
+        </p>
+      </div>
+    </div>
 
 To use these overlay files with the current version of Charmed Kubernetes, run
 the following:
@@ -62,7 +110,7 @@ juju deploy charmed-kubernetes --overlay aws-overlay.yaml --overlay calico-overl
 
 
 
-## Deploying a specific CDK bundle
+## Deploying a specific Charmed Kubernetes bundle
 
 The **Juju Charm Store** hosts the **Charmed Kubernetes** bundles as well as
 individual charms. To deploy the latest, stable bundle, run the command:
@@ -97,7 +145,7 @@ versions of the **Charmed Kubernetes** bundle are shown in the table below:
 
 <a  id="table"></a>
 
-| Kubernetes version | CDK bundle |
+| Kubernetes version | Charmed Kubernetes bundle |
 | --- | --- |
 | 1.15.x         | [charmed-kubernetes-139](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-139/archive/bundle.yaml) |
 | 1.14.x         | [charmed-kubernetes-124](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-124/archive/bundle.yaml) |
