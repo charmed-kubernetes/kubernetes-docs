@@ -54,8 +54,11 @@ each category!
     <div class="col-6 p-card">
       <div class="p-card__header">
         <h2 class="p-heading--four">Calico</h2>
-        <p><em>....</em></p>
       </div>
+      <p>Calico provides out-of-the-box support for the
+      [NetworkPolicy][] feature of Kubernetes, along with different modes of
+      network encapsulation that advanced users may find useful for optimising
+      the throughput of their clusters.</p>
       <ul class="p-list">
         <li class="p-list__item is-ticked">xxxx xx xxxx</li>
         <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
@@ -68,7 +71,7 @@ each category!
     </div>
     <div class="col-6 p-card">
       <div class="p-card__header">
-        <h2 class="p-heading--four">Calico</h2>
+        <h2 class="p-heading--four">Canal</h2>
         <p><em>....</em></p>
       </div>
       <ul class="p-list">
