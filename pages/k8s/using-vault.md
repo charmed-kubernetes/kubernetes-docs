@@ -102,11 +102,10 @@ be transitioned to use **Vault** as a CA.
   <p markdown="1" class="p-notification__response">
     During the transition, any pods that use ServiceAccounts to talk to the
     Kubernetes API may need to be restarted. Addons that are deployed and
-    managed by **Charmed Kubernetes** will be restarted automatically.
-
-    If you have deployed anything into Kubernetes that talks to the Kubernetes
-    API, it is recommended that you restart them after the transition by using
-    the `kubectl rollout restart` command.
+    managed by **Charmed Kubernetes** will be restarted automatically. If you
+    have deployed anything into Kubernetes that talks to the Kubernetes API, it
+    is recommended that you restart them after the transition by using the
+    `kubectl rollout restart` command.
   </p>
 </div>
 
