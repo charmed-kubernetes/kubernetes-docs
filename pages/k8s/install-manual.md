@@ -53,25 +53,22 @@ each category!
     <div class="col-6 p-card">
       <div class="p-card__header">
         <h2 class="p-heading--four">Calico</h2>
+        <p><em>Networking</em></p>
       </div>
       <p>Calico provides out-of-the-box support for the
       [NetworkPolicy][] feature of Kubernetes, along with different modes of
-      network encapsulation that advanced users may find useful for optimising
+      network encapsulation which advanced users may find useful for optimising
       the throughput of their clusters.</p>
       <ul class="p-list">
-        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
-        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
-        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
-        <li class="p-list__item is-ticked">xxx xxx xxx</li>
+        <li class="p-list__item ">Deploys as a subordinate</li>
+        <li class="p-list__item ">Documentation <a href="#"> here</a></li>
       </ul>
-      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
-      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
+      <p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
     </div>
     <div class="col-6 p-card">
       <div class="p-card__header">
         <h2 class="p-heading--four">Canal</h2>
-        <p><em>....</em></p>
+        <p><em>Networking</em></p>
       </div>
       <ul class="p-list">
         <li class="p-list__item is-ticked">xxxx xx xxxx</li>
@@ -81,12 +78,12 @@ each category!
       </ul>
       <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
       xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
+      <p><a href="#" class="p-button--base">Download canal-overlay.yaml</a></p>
     </div>
     <div class="col-6 p-card">
       <div class="p-card__header">
         <h2 class="p-heading--four">Calico</h2>
-        <p><em>....</em></p>
+        <p><em>Networking</em></p>
       </div>
       <ul class="p-list">
         <li class="p-list__item is-ticked">xxxx xx xxxx</li>
@@ -133,6 +130,25 @@ each category!
       <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
     </div>
 </div>
+
+<div class="row p-divider">
+  <div class="col-4 p-divider__block">
+    <h2>aws-integrator</h2>
+    <p><em>cloud integration</em></p>
+    <p>When running on AWS, xxx xxx xxx xxxx xxxx</p>
+    <p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
+  </div>
+  <div class="col-4 p-divider__block">
+    <h2>Dolor sit</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit.</p>
+  </div>
+  <div class="col-4 p-divider__block">
+    <h2>Cumque commodi</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit.</p>
+  </div>
+</div>
+
+
 
 To use these overlay files with the current version of Charmed Kubernetes, run
 the following:
