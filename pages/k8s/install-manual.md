@@ -13,10 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-<div class="p-card u-float-right">
-  <a href="#" class="p-button--base">Edit this page</a>
-</div>
-
 The ['Quick start' documentation][quickstart] explains how to perform
 a quick and easy general install of **Charmed Kubernetes**.
 However, in some cases it may be useful to
