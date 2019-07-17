@@ -71,7 +71,6 @@ each category!
       <div class="p-card__header">
         <h2 class="p-heading--four">Canal</h2>
         <p><em>xxxx xx xx x xx xxxxxxxx xxxxx</em></p>
-
       </div>
       <ul class="p-list">
        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
@@ -81,7 +80,6 @@ each category!
       </ul>
       <p>xxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
       xxxx xx xxx xxx xx xxxxxxxx xx x xxx xx.</p>
-
       <p><a href="/kubernetes/install">Install instructions&nbsp;›</a></p>
       <p><a href="/kubernetes/managed">Fully managed Kubernetes options&nbsp;›</a>      
     </div>
