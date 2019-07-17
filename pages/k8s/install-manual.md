@@ -66,10 +66,12 @@ each category!
       xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
       <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
     </div>
+
     <div class="col-6 p-card">
       <div class="p-card__header">
         <h2 class="p-heading--four">Canal</h2>
         <p><em>xxxx xx xx x xx xxxxxxxx xxxxx</em></p>
+
       </div>
       <ul class="p-list">
        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
@@ -81,8 +83,8 @@ each category!
       xxxx xx xxx xxx xx xxxxxxxx xx x xxx xx.</p>
 
       <p><a href="/kubernetes/install">Install instructions&nbsp;›</a></p>
-      <p><a href="/kubernetes/managed">Fully managed Kubernetes options&nbsp;›</a>
-      </div>
+      <p><a href="/kubernetes/managed">Fully managed Kubernetes options&nbsp;›</a>      
+    </div>
 
       <div class="col-6 p-card">
         <div class="p-card__header">
