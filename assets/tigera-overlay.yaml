@@ -5,12 +5,7 @@ applications:
     annotations:
       gui-x: '450'
       gui-y: '750'
-    charm: cs:~containers/tigera-secure-ee-59
-    resources:
-      calico-cni: 299
-      calico-cni-arm64: 297
-      calico-node-image: 49
-      calicoctl-image: 49
+    charm: cs:~containers/tigera-secure-ee
   flannel:
 
 relations:
