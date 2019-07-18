@@ -1,0 +1,25 @@
+description: Production-grade Kubernetes cluster with Canal CNI.
+series: bionic
+applications:
+  canal:
+    annotations:
+      gui-x: '450'
+      gui-y: '750'
+    charm: cs:~containers/canal-638
+    resources:
+      calico: 354
+      calico-arm64: 355
+      calico-node-image: 38
+      calico-upgrade: 172
+      calico-upgrade-arm64: 175
+      flannel: 352
+      flannel-arm64: 355
+  flannel:
+
+relations:
+- - canal:etcd
+  - etcd:db
+- - canal:cni
+  - kubernetes-master:cni
+- - canal:cni
+  - kubernetes-worker:cni
