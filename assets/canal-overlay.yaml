@@ -5,15 +5,15 @@ applications:
     annotations:
       gui-x: '450'
       gui-y: '750'
-    charm: cs:~containers/canal-638
+    charm: cs:~containers/canal-634
     resources:
-      calico: 354
-      calico-arm64: 355
-      calico-node-image: 38
-      calico-upgrade: 172
-      calico-upgrade-arm64: 175
-      flannel: 352
-      flannel-arm64: 355
+      calico: 318
+      calico-arm64: 319
+      calico-node-image: 2
+      calico-upgrade: 136
+      calico-upgrade-arm64: 139
+      flannel: 316
+      flannel-arm64: 319
   flannel:
 
 relations:
