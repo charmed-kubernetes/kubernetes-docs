@@ -115,7 +115,7 @@ Deploy **Vault** and Percona Cluster:
 juju deploy cs:percona-cluster
 juju deploy cs:~openstack-charmers-next/vault
 juju config vault auto-generate-root-ca-cert=true
-juju relate vault:shared-db percona-cluster:shared-db
+juju add-relation vault:shared-db percona-cluster:shared-db
 ```
 
 Unseal **Vault** as described earlier in this document.
@@ -123,16 +123,16 @@ Unseal **Vault** as described earlier in this document.
 Relate **Vault** to etcd:
 
 ```bash
-juju relate vault:certificates etcd:certificates
+juju add-relation vault:certificates etcd:certificates
 ```
 
 Wait a few minutes for the cluster to settle, with all units showing as active
 and idle. Then relate **Vault** to Kubernetes:
 
 ```bash
-juju relate vault:certificates kubeapi-load-balancer:certificates
-juju relate vault:certificates kubernetes-master:certificates
-juju relate vault:certificates kubernetes-worker:certificates
+juju add-relation vault:certificates kubeapi-load-balancer:certificates
+juju add-relation vault:certificates kubernetes-master:certificates
+juju add-relation vault:certificates kubernetes-worker:certificates
 ```
 
 Wait a few minutes for the cluster to settle, and ensure that all services and
@@ -151,6 +151,15 @@ since it contains the certificate info for connecting to the cluster:
 ```bash
 juju scp kubernetes-master/0:config ~/.kube/config
 ```
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+If you have multiple clusters you will need to manage the config file rather than just
+replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+Kubernetes documentation</a> for more information on managing multiple clusters.
+  </p>
+</div>
 
 ## Using Vault as an intermediary CA
 
