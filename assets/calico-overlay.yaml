@@ -5,13 +5,7 @@ applications:
     annotations:
       gui-x: '450'
       gui-y: '750'
-    charm: cs:~containers/calico-636
-    resources:
-      calico: 331
-      calico-arm64: 329
-      calico-node-image: 15
-      calico-upgrade: 160
-      calico-upgrade-arm64: 160
+    charm: cs:~containers/calico
   flannel:
 
 relations:
