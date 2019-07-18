@@ -1,4 +1,4 @@
-description: A highly-available, production-grade Kubernetes cluster.
+description: A production-grade Kubernetes cluster with Calico CNI.
 series: bionic
 applications:
   calico:
