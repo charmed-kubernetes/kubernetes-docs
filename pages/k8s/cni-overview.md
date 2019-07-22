@@ -12,6 +12,9 @@ permalink: cni-overview.html
 layout: [base, ubuntu-com]
 toc: False
 ---
+<div class="u-float-right">
+  <a href="https://github.com/charmed-kubernetes/kubernetes-docs/blob/master/pages/k8s/cni-overview.md" class="p-button--neutral">Edit this page</a>
+</div>
 
 Managing a network where containers can interoperate efficiently is very
 important. Kubernetes has adopted the Container Network Interface(CNI)
