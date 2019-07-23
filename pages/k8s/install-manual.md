@@ -41,117 +41,72 @@ instructions][localhost].
 ## Quick custom installs
 
 The details of how to edit and customise the **Charmed Kubernetes** bundle are
-outlined in the sections below. However, using overlays (also explained in more
+outlined [below](#). However, using overlays (also explained in more
 detail below) you can make some common quick customisations for networking and
 cloud integration.
 
-The overlay files are available to download directly from
+Overlay files can be applied when deploying Charmed Kubernetes by specifying them along with the deploy command:
+
+```bash
+juju deploy charmed-kubernetes --overlay your-overlay.yaml
+```
+
+Sample overlay files are available to download directly from
 the links shown here. Be advised that you should use only **one** overlay from
 each category!
 
-<div class="row u-equal-height">
-    <div class="col-6 p-card">
-      <div class="p-card__header">
-        <h2 class="p-heading--four">Calico</h2>
-        <p><em>Networking</em></p>
-      </div>
-      <p>Calico provides out-of-the-box support for the
-      [NetworkPolicy][] feature of Kubernetes, along with different modes of
-      network encapsulation which advanced users may find useful for optimising
-      the throughput of their clusters.</p>
-      <ul class="p-list">
-        <li class="p-list__item ">Deploys as a subordinate</li>
-        <li class="p-list__item ">Documentation <a href="#"> here</a></li>
-      </ul>
-      <p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
-    </div>
-    <div class="col-6 p-card">
-      <div class="p-card__header">
-        <h2 class="p-heading--four">Canal</h2>
-        <p><em>Networking</em></p>
-      </div>
-      <ul class="p-list">
-        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
-        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
-        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
-        <li class="p-list__item is-ticked">xxx xxx xxx</li>
-      </ul>
-      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
-      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="#" class="p-button--base">Download canal-overlay.yaml</a></p>
-    </div>
-    <div class="col-6 p-card">
-      <div class="p-card__header">
-        <h2 class="p-heading--four">Calico</h2>
-        <p><em>Networking</em></p>
-      </div>
-      <ul class="p-list">
-        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
-        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
-        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
-        <li class="p-list__item is-ticked">xxx xxx xxx</li>
-      </ul>
-      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
-      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
-    </div>
+<div class="row p-divider">
+<div class="col-3 p-divider__block">
+<h2>Calico</h2>
+<p><em>Networking</em></p>
+<p>Calico provides out-of-the-box support for the
+NetworkPolicy feature of Kubernetes, along with different modes of
+network encapsulation.</p><br>
+<p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
+</div>
+  <div class="col-3 p-divider__block">
+    <h2>Canal</h2>
+    <p><em>Networking</em></p>
+    <p>Shorthand for "Calico and Flannel", this combination brings in Calico's support for the NetworkPolicy feature of Kubernetes, while utilizing Flannel's UDP-based network traffic.</p>
+    <a href="#" class="p-button--positive">Download canal-overlay.yaml</a>
+  </div>
+  <div class="col-3 p-divider__block">
+    <h2>Tigera Secure EE</h2>
+    <p><em>Networking</em></p>
+    <p>Tigera Secure EE is a commercial version of
+    Calico with additional enterprise features.</p>
+    <p>As well as deploying the software, you will need to configure
+    it with the relevant licence.</p>
+    <a href="#" class="p-button--positive">Download calico-overlay.yaml</a>
+  </div>
 </div>
 
-
-<div class="row u-equal-height">
-    <div class="col-6 p-card">
-      <div class="p-card__header">
-        <h2 class="p-heading--four">Calico</h2>
-        <p><em>....</em></p>
-      </div>
-      <ul class="p-list">
-        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
-        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
-        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
-        <li class="p-list__item is-ticked">xxx xxx xxx</li>
-      </ul>
-      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
-      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
-    </div>
-    <div class="col-6 p-card">
-      <div class="p-card__header">
-        <h2 class="p-heading--four">Calico</h2>
-        <p><em>....</em></p>
-      </div>
-      <ul class="p-list">
-        <li class="p-list__item is-ticked">xxxx xx xxxx</li>
-        <li class="p-list__item is-ticked">xxxxx x xxx xxx xxxxx</li>
-        <li class="p-list__item is-ticked">xxx x xxx xxx</li>
-        <li class="p-list__item is-ticked">xxx xxx xxx</li>
-      </ul>
-      <p>xxxx xxx xxx xxxxxxxxxx xxx xxxxxxxx xxx xxx xxxxxx xxxxxx xxxxx xxx
-      xxxx xx xxx xxx xx xxxxxxxx xx x xxx xxxx xxxxx.</p>
-      <p><a href="https://microk8s.io/" class="p-link--external">xxx  xxx x xxx xxx xxxxx xxx x xxxxxxx</a></p>
-    </div>
-</div>
+---
 
 <div class="row p-divider">
-  <div class="col-4 p-divider__block">
-    <h2>aws-integrator</h2>
-    <p><em>cloud integration</em></p>
-    <p>When running on AWS, xxx xxx xxx xxxx xxxx</p>
-    <p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
+<div class="col-3 p-divider__block">
+<h2>Aws integrator</h2>
+<p><em>Cloud integration</em></p>
+<p>Enables EBS storage and ELB loadbalancers. See <a href="#"> docs</a> for more info.</p><br>
+<p><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></p>
+</div>
+  <div class="col-3 p-divider__block">
+    <h2>GCP integrator</h2>
+    <p><em>Cloud integration</em></p>
+    <p>Integrates with GCP for storage and loadbalancing. See <a href="#"> docs</a> for more info. </p>
+    <a href="#" class="p-button--positive">Download canal-overlay.yaml</a>
   </div>
-  <div class="col-4 p-divider__block">
-    <h2>Dolor sit</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit.</p>
-  </div>
-  <div class="col-4 p-divider__block">
-    <h2>Cumque commodi</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, labore at suscipit necessitatibus cumque commodi velit.</p>
+  <div class="col-3 p-divider__block">
+    <h2>OpenStack integrator</h2>
+    <p><em>Cloud integration</em></p>
+    <p>Provides native features such as Cinder volumes and LBaaS.</p>
+    <p>See <a href="#"> docs</a> for more info. </p>
+    <a href="#" class="p-button--positive">Download calico-overlay.yaml</a>
   </div>
 </div>
 
-
-
-To use these overlay files with the current version of Charmed Kubernetes, run
-the following:
+You can use multiple overlays (of different types) if required. For example, to
+deploy with Calico networking and AWS integration:
 
 ```bash
 juju deploy charmed-kubernetes --overlay aws-overlay.yaml --overlay calico-overlay.yaml
