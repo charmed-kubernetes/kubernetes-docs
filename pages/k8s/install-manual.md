@@ -87,21 +87,46 @@ network encapsulation.</p><br>
 <div class="col-3 p-divider__block">
 <h2>Aws integrator</h2>
 <p><em>Cloud integration</em></p>
-<p>Enables EBS storage and ELB loadbalancers. See <a href="#"> docs</a> for more info.</p><br>
+<p>Enables EBS storage and ELB loadbalancers.</p>
+<p> See <a href="#"> docs</a> for more info.</p><br><br>
 <p><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></p>
 </div>
   <div class="col-3 p-divider__block">
     <h2>GCP integrator</h2>
     <p><em>Cloud integration</em></p>
-    <p>Integrates with GCP for storage and loadbalancing. See <a href="#"> docs</a> for more info. </p>
-    <a href="#" class="p-button--positive">Download canal-overlay.yaml</a>
+    <p>Integrates with GCP for storage and loadbalancing. </p>
+    <p>See <a href="#"> docs</a> for more info. </p><br><br>
+    <a href="#" class="p-button--positive">Download gcp-overlay.yaml</a>
   </div>
   <div class="col-3 p-divider__block">
     <h2>OpenStack integrator</h2>
     <p><em>Cloud integration</em></p>
     <p>Provides native features such as Cinder volumes and LBaaS.</p>
     <p>See <a href="#"> docs</a> for more info. </p>
-    <a href="#" class="p-button--positive">Download calico-overlay.yaml</a>
+    <a href="#" class="p-button--positive">Download os-overlay.yaml</a>
+  </div>
+</div>
+
+<div class="row p-divider">
+<div class="col-3 p-divider__block">
+<h2>Azure integrator</h2>
+<p><em>Cloud integration</em></p>
+<p>Xxxxx xxxx xxxxxx xxx xxx. See <a href="#"> docs</a> for more info.</p><br>
+<p><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></p>
+</div>
+  <div class="col-3 p-divider__block">
+    <h2>Rackspace integrator</h2>
+    <p><em>Cloud integration</em></p>
+    <p>Integrates with GCP for storage and loadbalancing. </p>
+    <p>See <a href="#"> docs</a> for more info. </p>
+    <a href="#" class="p-button--positive">Download gcp-overlay.yaml</a>
+  </div>
+  <div class="col-3 p-divider__block">
+    <h2>vSphere integrator</h2>
+    <p><em>Cloud integration</em></p>
+    <p>Provides native features such as Cinder volumes and LBaaS.</p>
+    <p>See <a href="#"> docs</a> for more info. </p>
+    <a href="#" class="p-button--positive">Download os-overlay.yaml</a>
   </div>
 </div>
 
