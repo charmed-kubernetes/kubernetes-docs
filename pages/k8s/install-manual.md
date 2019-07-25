@@ -245,10 +245,10 @@ To use this overlay with the **Charmed Kubernetes** bundle, it is specified
 during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml
+juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml --trust
 ```
 
-Substitute in the local path and filename to point to your YAML fragment.
+Substitute in the local path and filename to point to your YAML fragment. Note that this overlay requires credential access, so you must use the `--trust` option to deploy it.
 
 #### Adding or changing constraints
 
