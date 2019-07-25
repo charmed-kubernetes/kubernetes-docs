@@ -40,6 +40,7 @@ instructions][localhost].
 
 ## Quick custom installs
 
+
 The details of how to edit and customise the **Charmed Kubernetes** bundle are
 outlined [below](#). However, using overlays (also explained in more
 detail below) you can make some common quick customisations for networking and
@@ -55,80 +56,144 @@ Sample overlay files are available to download directly from
 the links shown here. Be advised that you should use only **one** overlay from
 each category!
 
-<div class="row p-divider">
-<div class="col-3 p-divider__block">
-<h2>Calico</h2>
-<p><em>Networking</em></p>
-<p>Calico provides out-of-the-box support for the
-NetworkPolicy feature of Kubernetes, along with different modes of
-network encapsulation.</p><br>
-<p><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></p>
-</div>
-  <div class="col-3 p-divider__block">
-    <h2>Canal</h2>
-    <p><em>Networking</em></p>
-    <p>Shorthand for "Calico and Flannel", this combination brings in Calico's support for the NetworkPolicy feature of Kubernetes, while utilizing Flannel's UDP-based network traffic.</p>
-    <a href="#" class="p-button--positive">Download canal-overlay.yaml</a>
-  </div>
-  <div class="col-3 p-divider__block">
-    <h2>Tigera Secure EE</h2>
-    <p><em>Networking</em></p>
-    <p>Tigera Secure EE is a commercial version of
-    Calico with additional enterprise features.</p>
-    <p>As well as deploying the software, you will need to configure
-    it with the relevant licence.</p>
-    <a href="#" class="p-button--positive">Download calico-overlay.yaml</a>
-  </div>
-</div>
+
+#### Networking
 
 ---
 
-<div class="row p-divider">
-<div class="col-3 p-divider__block">
-<h2>Aws integrator</h2>
-<p><em>Cloud integration</em></p>
-<p>Enables EBS storage and ELB loadbalancers.</p>
-<p> See <a href="#"> docs</a> for more info.</p><br><br>
-<p><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></p>
+
+<div class="CNI">
+ <div class="row">
+ <div class="col-2 ">
+   <span>Calico</span>
+ </div>
+  <div class="col-6 ">
+   <span>Calico provides out-of-the-box support for the
+   NetworkPolicy feature of Kubernetes, along with different modes of
+   network encapsulation. <a href="#"> Read more...</a></span>
+  </div>
+  <div class="col-4 ">
+    <span><a href="#" class="p-button--positive">Download calico-overlay.yaml</a></span>
+  </div>
 </div>
-  <div class="col-3 p-divider__block">
-    <h2>GCP integrator</h2>
-    <p><em>Cloud integration</em></p>
-    <p>Integrates with GCP for storage and loadbalancing. </p>
-    <p>See <a href="#"> docs</a> for more info. </p><br><br>
-    <a href="#" class="p-button--positive">Download gcp-overlay.yaml</a>
-  </div>
-  <div class="col-3 p-divider__block">
-    <h2>OpenStack integrator</h2>
-    <p><em>Cloud integration</em></p>
-    <p>Provides native features such as Cinder volumes and LBaaS.</p>
-    <p>See <a href="#"> docs</a> for more info. </p>
-    <a href="#" class="p-button--positive">Download os-overlay.yaml</a>
-  </div>
+<br>
+<div class="row">
+<div class="col-2">
+  <span>Canal</span>
+</div>
+ <div class="col-6">
+  <span>Shorthand for "Calico and Flannel", this combination brings in Calico's support for the NetworkPolicy feature of Kubernetes, while utilizing Flannel's UDP-based network traffic.<a href="#"> Read more...</a></span>
+ </div>
+ <div class="col-4">
+   <span class="u-vertically-center"><a href="#" class="p-button--positive">Download canal-overlay.yaml</a></span>
+ </div>
+</div>
+<br>
+<div class="row">
+<div class="col-2">
+  <span>Tigera Secure EE</span>
+</div>
+ <div class="col-6">
+  <span>Tigera Secure EE is a commercial version of
+  Calico with additional enterprise features. As well as deploying the software, you will need to configure
+  it with the relevant licence. <a href="#"> Read more...</a></span>
+ </div>
+ <div class="col-4">
+   <span class="u-vertically-center"><a href="#" class="p-button--positive">Download tigera-overlay.yaml</a></span>
+ </div>
+</div>
+</div>
+<br>
+
+<div class="p-notification--positive">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can read more about CNI support <a href="#"> here </a>.
+  </p>
 </div>
 
-<div class="row p-divider">
-<div class="col-3 p-divider__block">
-<h2>Azure integrator</h2>
-<p><em>Cloud integration</em></p>
-<p>Xxxxx xxxx xxxxxx xxx xxx. See <a href="#"> docs</a> for more info.</p><br>
-<p><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></p>
-</div>
-  <div class="col-3 p-divider__block">
-    <h2>Rackspace integrator</h2>
-    <p><em>Cloud integration</em></p>
-    <p>Integrates with GCP for storage and loadbalancing. </p>
-    <p>See <a href="#"> docs</a> for more info. </p>
-    <a href="#" class="p-button--positive">Download gcp-overlay.yaml</a>
+#### Cloud integration
+
+---
+
+<div class="integration">
+ <div class="row">
+ <div class="col-2 ">
+   <span>AWS integrator</span>
+ </div>
+  <div class="col-6 ">
+   <span>Enables native support such as EBS storage and ELB load balancers. <a href="#"> Read more...</a></span>
   </div>
-  <div class="col-3 p-divider__block">
-    <h2>vSphere integrator</h2>
-    <p><em>Cloud integration</em></p>
-    <p>Provides native features such as Cinder volumes and LBaaS.</p>
-    <p>See <a href="#"> docs</a> for more info. </p>
-    <a href="#" class="p-button--positive">Download os-overlay.yaml</a>
+  <div class="col-4 ">
+    <span><a href="#" class="p-button--positive">Download aws-overlay.yaml</a></span>
   </div>
 </div>
+<br>
+<div class="row">
+<div class="col-2 u-vertically-center">
+  <span>Azure integrator</span>
+</div>
+ <div class="col-6 u-vertically-center">
+  <span>....</span>
+ </div>
+ <div class="col-4 u-vertically-center">
+   <span class="u-vertically-center"><a href="#" class="p-button--positive">Download azure-overlay.yaml</a></span>
+ </div>
+</div>
+<br>
+<div class="row">
+<div class="col-2">
+  <span>GCP integrator</span>
+</div>
+ <div class="col-6">
+  <span>Integrates with GCP for storage and loadbalancing. <a href="#"> Read more...</a></span>
+ </div>
+ <div class="col-4">
+   <span class="u-vertically-center"><a href="#" class="p-button--positive">Download gcp-overlay.yaml</a></span>
+ </div>
+</div>
+<br>
+ <div class="row">
+  <div class="col-2">
+   <span>OpenStack integrator</span>
+ </div>
+  <div class="col-6">
+   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="#"> Read more...</a></span>
+  </div>
+  <div class="col-4">
+    <span><a href="#" class="p-button--positive u-no-margin--right">Download openstack-overlay.yaml</a></span>
+  </div>
+</div>
+<br>
+ <div class="row">
+  <div class="col-2">
+   <span>Rackspace integrator</span>
+ </div>
+  <div class="col-6">
+   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="#"> Read more...</a></span>
+  </div>
+  <div class="col-4">
+    <span><a href="#" class="p-button--positive u-no-margin--right">Download rackspace-overlay.yaml</a></span>
+  </div>
+</div>
+<br>
+ <div class="row">
+  <div class="col-2">
+   <span>vSphere integrator</span>
+ </div>
+  <div class="col-6">
+   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="#"> Read more...</a></span>
+  </div>
+  <div class="col-4">
+    <span><a href="#" class="p-button--positive u-no-margin--right u-no-margin--left">Download vsphere-overlay.yaml</a></span>
+  </div>
+</div>
+</div>
+
+
+
+
+
 
 You can use multiple overlays (of different types) if required.  Note that all
 the 'integrator' charms require the use of the `--trust` option. For example,
