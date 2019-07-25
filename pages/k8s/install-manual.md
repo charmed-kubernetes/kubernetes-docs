@@ -130,12 +130,15 @@ network encapsulation.</p><br>
   </div>
 </div>
 
-You can use multiple overlays (of different types) if required. For example, to
-deploy with Calico networking and AWS integration:
+You can use multiple overlays (of different types) if required.  Note that all
+the 'integrator' charms require the use of the `--trust` option. For example,
+to deploy with Calico networking and AWS integration:
 
 ```bash
-juju deploy charmed-kubernetes --overlay aws-overlay.yaml --overlay calico-overlay.yaml
+juju deploy charmed-kubernetes --overlay aws-overlay.yaml --trust --overlay calico-overlay.yaml
 ```
+
+For more detail on overlays and how they work, see the section [below](#overlay).
 
 
 
@@ -194,66 +197,21 @@ Only the latest three versions of Charmed Kubernetes are supported at any time.
   </p>
 </div>
 
-<a id="config" ></a>
-
-
-### Additional configuration
-
-To allow Kubernetes to access resources and functionality of the underlying
-cloud upon which it is deployed, additional integrator charms are available. When
-installing with **conjure-up**, these charms are automatically added to the
-deployment and configured appropriately.
-
-Adding the integrator charms directly with **Juju** is not recommended - it is more
-reliable (and easier) to include these charms at deployment time, using the "overlay"
-method as [described below](#overlay). The manual deployment steps shown here are
-only for reference to give a better understanding of how these charms work in relation to
-**CDK**.
-
-This table explains which charms are
-used:
-
-| Cloud     | Integrator charm   |  Juju deploy command  | Notes/docs  |
-|------------|----------------------|-------------------------------------------------|-----------------------------------------------------------|
-| AWS        | aws-integrator       | juju deploy cs:~containers/aws-integrator       | [docs][aws-docs]      |
-| Azure      | azure-integrator     | juju deploy cs:~containers/azure-integrator     | [docs](https://jujucharms.com/u/containers/azure-integrator/)     |
-| Google     | gcp-integrator       | juju deploy cs:~containers/gcp-integrator       | [docs][gcp-docs]      |
-| Local      | N/A                  | N/A                                             |                                                           |
-| OpenStack  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
-| Rackspace  | openstack-integrator | juju deploy cs:~containers/openstack-integrator | [docs](https://jujucharms.com/u/containers/openstack-integrator/) |
-| vSphere    | vsphere-integrator   | juju deploy cs:~containers/vsphere-integrator   | [docs](https://jujucharms.com/u/containers/vsphere-integrator/ )  |
-
-The charm should be deployed and relationships established with both the
-`kubernetes-worker` and `kubernetes-master` charms. For example, in the case of
-AWS:
-
-```bash
-juju deploy cs:~containers/aws-integrator
-juju trust aws-integrator
-juju add-relation aws-integrator kubernetes-master
-juju add-relation aws-integrator kubernetes-worker
-```
-
-The `juju trust` command allows the aws-integrator to make use of the
-credentials stored by **Juju**.
-
-This demonstrates how the charm relates to the rest of the **CDK** bundle, but it is
-recommended to use the [overlay](#overlay) method for installing in practice.
 
 ## Customising the bundle install
 
 A number of the scenarios outlined at the start of this document involved
-customising  the **CDK** install. There are two main ways to do this, using
-overlays or editing the bundle file itself.
+customising  the **Charmed Kubernetes** install. There are two main ways to
+do this, using overlays or editing the bundle file itself.
 
 Using an overlay means you can easily apply your customisation to different
-versions of the **CDK** bundle, with the possible downside that changes in the
-structure of  new versions of **CDK** may render your overlay obsolete or
-non-functional (depending on what exactly your overlay does).
+versions of the bundle, with the possible downside that changes in the
+structure of new versions of **Charmed Kubernetes** may render your overlay
+obsolete or non-functional (depending on what exactly your overlay does).
 
-Saving a copy of the **CDK** bundle file and editing that means that your
+Saving a copy of the bundle file and editing that means that your
 customisation will always work, but of course, requires that you create a new
-file for each version of **CDK**.
+file for each version of **Charmed Kubernetes**.
 
 Both methods are described below.
 
@@ -263,7 +221,7 @@ Both methods are described below.
 A _bundle overlay_ is a fragment of valid YAML which is dynamically merged on
 top of a bundle before deployment, rather like a patch file. The fragment can
 contain any additional or alternative YAML which is intelligible to **Juju**. For
-example, to replicate the steps used above to deploy and connect the
+example, to replicate the steps to deploy and connect the
 `aws-integrator` charm, the following fragment could be used:
 
 ```yaml
@@ -271,6 +229,7 @@ applications:
   aws-integrator:
     charm: cs:~containers/aws-integrator
     num_units: 1
+    trust: true
 relations:
   - ['aws-integrator', 'kubernetes-master']
   - ['aws-integrator', 'kubernetes-worker']
@@ -282,7 +241,8 @@ You can also [download the fragment here][asset-aws-overlay].
 [Juju documentation][juju-bundle]. In this example it merely adds a new application,
 specifying the charm to use, and further specifies the relationships to add.
 
-To use this overlay with the **CDK** bundle, it is specified during deploy like this:
+To use this overlay with the **Charmed Kubernetes** bundle, it is specified
+during deploy like this:
 
 ```bash
 juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml
@@ -290,27 +250,23 @@ juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml
 
 Substitute in the local path and filename to point to your YAML fragment.
 
-Note that you will still need to run the command to share credentials with this charm:
-
-```bash
-juju trust aws-integrator
-```
-
-
 #### Adding or changing constraints
 
-After adding additional components, the most common use of overlays is to change
-constraints (the resources requested for the application). Although these are specified
-already in the **Charmed Kubernetes** bundle, they can be overridden by an overlay. It isn't necessary
-to replicate the entirety of an entry, just the parts you wish to change. For example:
+After adding additional components, the most common use of overlays is to
+change constraints (the resources requested for the application). Although
+these are specified already in the **Charmed Kubernetes** bundle, they can be
+overridden by an overlay. It isn't necessary to replicate the entirety of an
+entry, just the parts you wish to change. For example:
 
 ```yaml
 kubernetes-worker:
   constraints: cores=4 mem=8G root-disk=100G
   num_units: 6
 ```
-Changes the machine constraints for Kubernetes workers to add more root disk space,
-and also deploys six units instead of the three specified in the original bundle.
+
+Changes the machine constraints for Kubernetes workers to add more root disk
+space, and also deploys six units instead of the three specified in the
+original bundle.
 
 More information on the constraints you can use is available in the
 [Juju documentation][juju-constraints].
