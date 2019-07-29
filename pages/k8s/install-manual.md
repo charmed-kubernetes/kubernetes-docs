@@ -301,7 +301,9 @@ during deploy like this:
 juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml --trust
 ```
 
-Substitute in the local path and filename to point to your YAML fragment. Note that this overlay requires credential access, so you must use the `--trust` option to deploy it.
+Substitute in the local path and filename to point to your YAML fragment. Note
+that this overlay requires credential access, so you must use the `--trust`
+option to deploy it.
 
 #### Adding or changing constraints
 
@@ -374,8 +376,8 @@ kubernetes-worker:
 
 ### Editing a bundle
 
-Another way to change or customise an install is to store the YAML bundle file locally and
-edit it with a standard text editor.
+Another way to change or customise an install is to store the YAML bundle file
+locally and edit it with a standard text editor.
 
 The latest version of the **Charmed Kubernetes** bundle can always be retrieved
 by
