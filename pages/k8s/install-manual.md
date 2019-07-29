@@ -34,8 +34,8 @@ instructions][quickstart], or, for custom clouds (OpenStack, MAAS), please
 consult the [Juju documentation][juju-docs].
 
 To install **Charmed Kubernetes** entirely on your local machine (using
-containers to create a cluster), please see the separate [Localhost
-instructions][localhost].
+containers to create a cluster), please see the separate
+[Localhost instructions][localhost].
 
 
 ## Quick custom installs
@@ -193,7 +193,7 @@ juju deploy charmed-kubernetes --overlay aws-overlay.yaml --trust --overlay cali
 
 For more detail on overlays and how they work, see the section [below](#overlay).
 
-
+<a href="/kubernetes/docs/operations">Get started with your new cluster&nbsp;›</a>
 
 ## Deploying a specific Charmed Kubernetes bundle
 
@@ -331,7 +331,7 @@ More information on the constraints you can use is available in the
 Configuration settings are mapped to "options" under the charm entries in the bundle
 YAML. Usually these are only expressed when they differ from the default value in the
 charm. For example, if you look at the fragment for the `kubernetes-worker` in the
-**CDK** bundle:
+**Charmed Kubernetes** bundle:
 
 ```yaml
 kubernetes-worker:
@@ -418,6 +418,12 @@ button near the top left of the screen.
 
 For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 
+### Next Steps
+
+Now you have a cluster up and running, check out the
+[Operations guide][operations] for how to use it!
+
+
 <!-- IMAGES -->
 
 [image-gui]: https://assets.ubuntu.com/v1/19f13565-bundle-export.png
@@ -432,7 +438,7 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 [juju-bundle]: https://docs.jujucharms.com/stable/en/charms-bundles
 [juju-gui]: https://docs.jujucharms.com/stable/en/controllers-gui
 [juju-constraints]: https://docs.jujucharms.com/stable/en/reference-constraints
-[asset-aws-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/aws-overlay.yaml
+[asset-aws-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/aws-overlay.yaml
 [latest-bundle-file]: https://api.jujucharms.com/charmstore/v5/charmed-kubernetes/archive/bundle.yaml?channel=stable
 [charm-kworker]: https://jujucharms.com/u/containers/kubernetes-worker/#configuration
 [snaps]: https://docs.snapcraft.io/snap-documentation
@@ -440,3 +446,4 @@ For more information on the Juju GUI, see the [Juju documentation][juju-gui].
 [aws-docs]: /kubernetes/docs/aws-integration
 [gcp-docs]: /kubernetes/docs/gcp-integration
 [operations]: /kubernetes/docs/operations
+[localhost]: /kubernetes/docs/install-local

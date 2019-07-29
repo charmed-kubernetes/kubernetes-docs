@@ -31,7 +31,7 @@ Kubernetes cluster running on the cloud of your choice in minutes!
   - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/install">Installing Charmed Kubernetes</a> page for details. </p></div>
+<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for details. </p></div>
 
 
 <section class="p-strip--light is-bordered">
@@ -66,7 +66,7 @@ Google. You can see which ones are ready to use by running this command:
               <input class="p-code-snippet__input" value="juju clouds" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
-            <script id="asciicast-254740" src="https://asciinema.org/a/254740.js" async data-rows="18" data-autoplay="true"></script>
+            <script id="asciicast-254740" src="https://asciinema.org/a/254740.js" async data-rows="18" ></script>
 
             <p><a class="p-link--external" href="https://docs.jujucharms.com/clouds">Find out more about Clouds in Juju</a></p>
           </div>
@@ -82,7 +82,7 @@ Google. You can see which ones are ready to use by running this command:
             </div>
 <p>For a different cloud, just substitute in the name from the previous
    list output by Juju. The data you need to supply will vary depending on the cloud. </p>
-             <script id="asciicast-Wo12W39et3IJzF15rAyVunbbl" src="https://asciinema.org/a/Wo12W39et3IJzF15rAyVunbbl.js" async data-rows="18" data-autoplay="true"></script>
+             <script id="asciicast-Wo12W39et3IJzF15rAyVunbbl" src="https://asciinema.org/a/Wo12W39et3IJzF15rAyVunbbl.js" async data-rows="18" ></script>
           </div>
 
         </li>
@@ -95,7 +95,7 @@ Google. You can see which ones are ready to use by running this command:
               <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
             </div>
-            <script id="asciicast-2FOd2qvaJL0wWqvZqFeVbwUsz" src="https://asciinema.org/a/2FOd2qvaJL0wWqvZqFeVbwUsz.js" async data-rows="18" data-autoplay="true"></script>
+            <script id="asciicast-2FOd2qvaJL0wWqvZqFeVbwUsz" src="https://asciinema.org/a/2FOd2qvaJL0wWqvZqFeVbwUsz.js" async data-rows="18"></script>
           </div>
         </li>
 
@@ -151,13 +151,13 @@ Google. You can see which ones are ready to use by running this command:
 
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/install">Installing Charmed Kubernetes</a> page for a more detailed guide. </p></div>
+<span class="p-notification__status">Note:</span> This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/docs/install">Installing Charmed Kubernetes</a> page for a more detailed guide. </p></div>
 
 <!-- LINKS -->
 
 [jujucharms-com]: https://jujucharms.com
 [conjure-up-io]: https://conjure-up.io
-[install]: /kubernetes/install
+[install]: /kubernetes/docs/install-manual
 [overview]: /kubernetes/docs/overview
 [snapd-docs]: https://docs.snapcraft.io/core/install
 [cloud-aws]: https://aws.amazon.com
@@ -167,7 +167,4 @@ Google. You can see which ones are ready to use by running this command:
 [cloud-rackspace]: https://www.rackspace.com/cloud/
 [cloud-azure]: https://azure.microsoft.com/
 [cloud-joyent]: https://www.joyent.com/
-[how-login]: /kubernetes/docs/howto-login
-[how-helm]: /kubernetes/docs/howto-helm
-[how-juju]: /kubernetes/docs/howto-juju
 [storage]: /kubernetes/docs/storage
