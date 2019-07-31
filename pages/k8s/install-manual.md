@@ -122,7 +122,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
    <span>AWS integrator</span>
  </div>
   <div class="col-6 ">
-   <span>Enables native support such as EBS storage and ELB load balancers. <a href="#"> Read more...</a></span>
+   <span>Enables native support such as EBS storage and ELB load balancers. <a href="/kubernetes/docs/aws-integration"> Read more...</a></span>
   </div>
   <div class="col-4 ">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/aws-overlay.yaml" class="p-button--positive">Download aws-overlay.yaml</a></span>
@@ -146,7 +146,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
   <span>GCP integrator</span>
 </div>
  <div class="col-6">
-  <span>Integrates with GCP for storage and loadbalancing. <a href="#"> Read more...</a></span>
+  <span>Integrates with GCP for storage and loadbalancing. <a href="/kubernetes/docs/gcp-integration"> Read more...</a></span>
  </div>
  <div class="col-4">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/gcp-overlay.yaml" class="p-button--positive">Download gcp-overlay.yaml</a></span>
@@ -158,7 +158,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
    <span>OpenStack integrator</span>
  </div>
   <div class="col-6">
-   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="#"> Read more...</a></span>
+   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="/kubernetes/docs/openstack-integration"> Read more...</a></span>
   </div>
   <div class="col-4">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-overlay.yaml" class="p-button--positive u-no-margin--right">Download openstack-overlay.yaml</a></span>
@@ -170,7 +170,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
    <span>vSphere integrator</span>
  </div>
   <div class="col-6">
-   <span>Provides support native storage in vSphere. <a href="#"> Read more...</a></span>
+   <span>Provides support native storage in vSphere. </span>
   </div>
   <div class="col-4">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vsphere-overlay.yaml" class="p-button--positive u-no-margin--right u-no-margin--left">Download vsphere-overlay.yaml</a></span>
