@@ -5,7 +5,7 @@ markdown_includes:
 context:
   title: "Installing CDK"
   description: How to install and customise Charmed Kubernetes using Juju bundles.
-keywords: lxd, requirements,developer
+keywords: lxd, requirements, developer
 tags: [install]
 sidebar: k8smain-sidebar
 permalink: install-manual.html
@@ -254,8 +254,11 @@ Only the latest three versions of Charmed Kubernetes are supported at any time.
 ## Customising the bundle install
 
 A number of the scenarios outlined at the start of this document involved
-customising  the **Charmed Kubernetes** install. There are two main ways to
-do this, using overlays or editing the bundle file itself.
+customising the **Charmed Kubernetes** install. There are two main ways to
+do this:
+
+ 1.  Using [overlays](#overlay) in conjunction with the published Charmed Kubernetes bundle.
+ 2.  [Editing the bundle file itself](#edit).
 
 Using an overlay means you can easily apply your customisation to different
 versions of the bundle, with the possible downside that changes in the
@@ -302,8 +305,8 @@ juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml --trust
 ```
 
 Substitute in the local path and filename to point to your YAML fragment. Note
-that this overlay requires credential access, so you must use the `--trust`
-option to deploy it.
+that this overlay contains charms which require credential access, so you must
+use the `--trust` option to deploy it.
 
 #### Adding or changing constraints
 
@@ -373,6 +376,7 @@ kubernetes-worker:
     snap_proxy: https://snap-proxy.example.com
 ```
 
+<a id="edit"></a>
 
 ### Editing a bundle
 

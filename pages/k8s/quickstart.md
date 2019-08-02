@@ -31,7 +31,7 @@ Kubernetes cluster running on the cloud of your choice in minutes!
   - [Rackspace][cloud-rackspace]
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, inluding additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for details. </p></div>
+<span class="p-notification__status">Note:</span> If you don't meet these requirements, there are additional ways of installing the <emphasis>Charmed Distribution of Kubernetes<sup>&reg;</sup></emphasis>, including additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for details. </p></div>
 
 
 <section class="p-strip--light is-bordered">
@@ -43,7 +43,7 @@ Kubernetes cluster running on the cloud of your choice in minutes!
           <h3 class="p-list-step__title col-12"><span class="p-list-step__bullet">1</span>Install Juju</h3>
           <div class="p-list-step__content">
 
-<a class="p-link--external" href="https://jaas.ai" > Juju</a> is a tool for
+<a class="p-link--external" href="https://jaas.ai" >Juju</a> is a tool for
 deploying, configuring, and operating complex software on public or private
 clouds. It can be installed with a snap:
 
@@ -90,7 +90,7 @@ Google. You can see which ones are ready to use by running this command:
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">4</span>Add a Controller</h3>
           <div class="p-list-step__content">
-            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects.</p>
+            <p>The Juju controller is used to manage the software deployed through Juju, from deployment to upgrades to day-two operations. One Juju controller can manage multiple projects or workspaces, which in Juju are known as 'models'.</p>
             <div class="p-code-snippet">
               <input class="p-code-snippet__input" value="juju bootstrap aws my-controller" readonly="readonly">
               <button class="p-code-snippet__action">Copy to clipboard</button>
