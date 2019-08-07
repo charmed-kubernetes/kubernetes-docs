@@ -135,7 +135,7 @@ Google. You can see which ones are ready to use by running this command:
         <li class="p-list-step__item col-12">
           <h3 class="p-list-step__title"><span class="p-list-step__bullet">6</span>Start using your cluster!</h3>
           <div class="p-list-step__content">
-            <p>Congratulations! You have a Kubernetes cluster up and running - now lets use it! The link below takes you to the operations guide, detailing some of the common things you'll want to do next: </p>
+            <p>Congratulations! You have a Kubernetes cluster up and running - now let's use it! The link below takes you to the operations guide, detailing some of the common things you'll want to do next: </p>
             <p>
             <a href="/kubernetes/docs/operations">Get started with your new cluster&nbsp;›</a>
             </p>
