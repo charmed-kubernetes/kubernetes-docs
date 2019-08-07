@@ -122,7 +122,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
    <span>AWS integrator</span>
  </div>
   <div class="col-6 ">
-   <span>Enables native support such as EBS storage and ELB load balancers. <a href="/kubernetes/docs/aws-integration"> Read more...</a></span>
+   <span>Enables support for EBS storage and ELB load balancers. <a href="/kubernetes/docs/aws-integration"> Read more...</a></span>
   </div>
   <div class="col-4 ">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/aws-overlay.yaml" class="p-button--positive">Download aws-overlay.yaml</a></span>
@@ -170,7 +170,7 @@ By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can rea
    <span>vSphere integrator</span>
  </div>
   <div class="col-6">
-   <span>Provides support native storage in vSphere. </span>
+   <span>Provides support for native storage in vSphere. </span>
   </div>
   <div class="col-4">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vsphere-overlay.yaml" class="p-button--positive u-no-margin--right u-no-margin--left">Download vsphere-overlay.yaml</a></span>
@@ -205,11 +205,11 @@ juju deploy charmed-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.13
+revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.14
 release, you could run:
 
 ```bash
-juju deploy cs:~containers/canonical-kubernetes-435
+juju deploy cs:~containers/charmed-kubernetes-124
 ```
 
 <div class="p-notification--positive">
