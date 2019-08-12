@@ -16,7 +16,7 @@ toc: False
 
 # 1.15
 
-### June 26, 2019 -  [charmed-kubernetes-139](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-139/archive/bundle.yaml)
+### June 28, 2019 -  [charmed-kubernetes-142](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-142/archive/bundle.yaml)
 
 ## What's new
 
