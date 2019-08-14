@@ -153,6 +153,7 @@ Google. You can see which ones are ready to use by running this command:
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span> This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for a more detailed guide. </p></div>
 
+
 <!-- LINKS -->
 
 [jujucharms-com]: https://jujucharms.com
