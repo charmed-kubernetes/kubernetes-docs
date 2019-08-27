@@ -20,9 +20,11 @@ toc: False
 
 ## What's new
 
-- Feature 1
+- Kata Containers support
 
-Feature 1 description
+From 1.16 onwards, you have the option of attaching Kata Containers to Charmed
+Kubernetes as part of a pluggable architecture for untrusted container
+runtimes, allowing more to be developed in the future.
 
 ## Fixes
 
