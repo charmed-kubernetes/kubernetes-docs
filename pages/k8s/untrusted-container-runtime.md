@@ -72,9 +72,9 @@ juju add-relation kata kubernetes-worker
 juju add-relation kata:untrusted containerd:untrusted
 ```
 
-## Deploying Pods to Kata
+## Deploying pods to Kata
 
-### Untrusted Annotation
+### Untrusted annotation
 
 The simplest way to run your pods with Kata is to annotate them with
 `io.kubernetes.cri.untrusted-workload: "true"`.  For example.
@@ -120,5 +120,3 @@ spec:
   - name: nginx
     image: nginx
 ```
-
-https://katacontainers.io/
