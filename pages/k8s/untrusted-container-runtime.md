@@ -13,7 +13,8 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-From 1.16 onwards, you have the option of attaching Kata Containers to
+From 1.16 onwards, you have the option of attaching
+[Kata Containers](https://katacontainers.io) to
 **Charmed Kubernetes** as part of a pluggable architecture for untrusted
 container runtimes, allowing more to be developed in the future.
 
@@ -119,3 +120,5 @@ spec:
   - name: nginx
     image: nginx
 ```
+
+https://katacontainers.io/
