@@ -20,6 +20,19 @@ toc: False
 
 ## What's new
 
+- AWS IAM support
+
+Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
+[AWS-IAM documentation](/kubernetes/docs/aws-iam) for details on how to use AWS credentials
+to log in to your Charmed Kubernetes cluster.
+
+- SSL passthrough support
+
+A new configuration parameter was added to the kubernetes-worker charm to enable ssl passthrough.
+This allows TLS termination to happen on the workload. Refer to the
+[upstream documentation](https://kubernetes.github.io/ingress-nginx/user-guide/tls/#ssl-passthrough)
+for more information.
+
 - Feature 1
 
 Feature 1 description
