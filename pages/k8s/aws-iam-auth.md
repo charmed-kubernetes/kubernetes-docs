@@ -4,7 +4,7 @@ markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "AWS-IAM on Charmed Kubernetes"
-  description: Using AWS credentials to authenticate and authorize on Charmed Kubernetes
+  description: Using AWS credentials to authenticate and authorise on Charmed Kubernetes
 keywords: aws, auth, iam
 tags: [install]
 sidebar: k8smain-sidebar
@@ -16,8 +16,8 @@ toc: False
 ## AWS IAM
 
 [AWS IAM](https://aws.amazon.com/iam/) credentials can be used for
-authentication and authorization on your Charmed Kubernetes cluster without
-regard to where it is hosted. The only requirement is that the client
+authentication and authorisation on your Charmed Kubernetes cluster without
+regard to where it is hosted. The only requirement is that both the client
 machine running `kubectl` and the master nodes are able to reach AWS in
 order to get and validate tokens.
 
@@ -25,8 +25,20 @@ order to get and validate tokens.
 ### Installing
 
 The subordinate charm [aws-iam-authenticator][aws-iam-charm]
-and some relations are all that are required. This can be added with the
+and some relations are all that are required. These can be added with the
 following overlay([download it here][asset-aws-iam-overlay]):
+
+```yaml
+applications:
+  aws-iam:
+    charm: cs:~containers/aws-iam
+relations:
+  - ['aws-iam', 'kubernetes-master']
+  - ['aws-iam', 'vault']
+```
+
+or if using easyrsa:
+
 ```yaml
 applications:
   aws-iam:
@@ -49,8 +61,9 @@ The [aws-iam-authenticator][aws-iam-authenticator-github] is configured via
 [Custom Resource Definition or CRD][k8s-crd-docs]s. These resource definitions
 map an AWS IAM role or user to a [Kubernetes RBAC][k8s-rbac-docs] user
 or group. This means that authentication happens via AWS IAM credentials,
-but authorization depends on standard Kubernetes RBAC rules. The CRD for
+but authorisation depends on standard Kubernetes RBAC rules. The CRD for
 this mapping is called an IAMIdentityMapping and looks something like this:
+
 ```yaml
 apiVersion: iamauthenticator.k8s.aws/v1alpha1
 kind: IAMIdentityMapping
@@ -81,7 +94,7 @@ on the [aws-iam-authenticator releases page][aws-iam-authenticator-releases].
 
 In order to use the [aws-iam-authenticator][aws-iam-authenticator-github] with
 kubectl, an updated config file is needed. The config file written to the
-kubernetes-master unit will have a user named aws-iam-user that uses the
+kubernetes-master unit will have a user named `aws-iam-user` that uses the
 `aws-iam-authenticator` client binary and a context named aws-iam-authenticator.
 First, copy the config:
 
@@ -89,10 +102,11 @@ First, copy the config:
 juju scp kubernetes-master/0:config ~/.kube/config
 ```
 
-The config file will need to be edited in order to add the desired arn
-for authentication. Information about this can be found on the
+The config file will need to be edited in order to add the desired
+Amazon Resource Name(ARN) for authentication. Information about this can
+be found on the
 [aws-iam-authenticator documentation][aws-iam-authenticator-config].
-It is necessary to replace <<insert_arn_here>> with the arn of the
+It is necessary to replace <<insert_arn_here>> with the ARN of the
 aws user or role desired. It may also be necessary to adjust the
 command to fully-qualify the path to `aws-iam-authenticator` if
 it is not located in your path.
@@ -107,19 +121,19 @@ Note that the `aws-iam-authenticator` binary behaves like the
 `aws` command line interface in that it will read environment
 variables like AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
 
-### A note about authorization
+### A note about authorisation
 
 The AWS-IAM charm can be used for authentication only or can be used in an
-RBAC-enabled cluster to authorize users as well. If the charm is related to
+RBAC-enabled cluster to authorise users as well. If the charm is related to
 a Charmed Kubernetes cluster without RBAC enabled, any valid AWS IAM
 credential that can assume a role specified in the IAMIdentityMapping
-CRD will be able to do any commands against the cluster. If RBAC is enabled,
+CRD will be able to run commands against the cluster. If RBAC is enabled,
 the user will have the permissions of the user defined in the
 IAMIdentityMapping CRD.
 
 ### Enabling RBAC
 
-In order to get authorization with AWS-IAM, you will need to use RBAC.
+In order to get authorisation with AWS-IAM, you will need to use RBAC.
 Refer to CK [RBAC documentation][k8s-rbac-docs] for complete options, but a
 brief run-down is to do the following. Enable RBAC with
 `juju config kubernetes-master authorization-mode="RBAC,Node"`. At
@@ -132,7 +146,7 @@ Error from server (Forbidden): pods is forbidden: User "knobby" cannot list reso
 ```
 
 The username is pulled from the matching CRD. In this case, the following CRD was used:
-```bash
+```yaml
 apiVersion: iamauthenticator.k8s.aws/v1alpha1
 kind: IAMIdentityMapping
 metadata:
@@ -153,7 +167,7 @@ Logging in with the k8s-view-role matched to the RBAC user knobby. This user has
 no permissions though and so it failed. Now a matching RBAC Role and RoleBinding is
 created.
 
-```bash
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -192,6 +206,7 @@ No resources found.
 ```
 
 Note that this is limited to just the default namespace.
+
 ```bash
 $ kubectl get po -A
 Error from server (Forbidden): pods is forbidden: User "knobby" cannot list resource "pods" in API group "" at the cluster scope
@@ -217,14 +232,14 @@ perform actions, so useful information can be obtained from
 [Amazon's CloudTrail][cloudtrail], which logs such activity.
 
 The flow from kubectl to result is as follows:
-1. kubectl execs aws-iam-authenticator to get a token.
-2. aws-iam-authenticator contacts AWS from the user's machine
+1. kubectl execs `aws-iam-authenticator` to get a token.
+2. `aws-iam-authenticator` contacts AWS from the user's machine
 to get the token.
 3. kubectl passes token to the Kubernetes API server.
 4. The API server passes the token to the webhook pod for verification.
 5. The webhook pod contacts AWS to verify the token.
 6. The webhook pod returns RBAC user information to the API server.
-7. The API server uses RBAC rules to authorize the user.
+7. The API server uses RBAC rules to authorise the user.
 
 One can troubleshoot these steps to figure out where things are going wrong.
  * Run `aws-iam-authenticator token -i <cluster id> -r <aws arn>` to see if a
@@ -232,7 +247,7 @@ token is returned. Note that `aws-iam-authenticator` will cache credentials
 between calls.
  * Check verbose output of `kubectl` command by adding `--v=9` such as
 `kubectl get po --v=9`
- * Check the logs of the aws-iam-authenticator pod with
+ * Check the logs of the `aws-iam-authenticator` deployment with
 `juju run --unit kubernetes-master/0 -- /snap/bin/kubectl -n kube-system logs deploy/aws-iam-authenticator`
  * Check the logs of the API server with `juju run --unit kubernetes-master/0 -- journalctl -u snap.kube-apiserver.daemon.service`
 
