@@ -134,8 +134,8 @@ IAMIdentityMapping CRD.
 ### Enabling RBAC
 
 In order to get authorisation with AWS-IAM, you will need to use RBAC.
-Refer to CK [RBAC documentation][k8s-rbac-docs] for complete options, but a
-brief run-down is to do the following. Enable RBAC with
+Refer to the Charmed Kubernetes [RBAC documentation][k8s-rbac-docs] for complete options, but at
+you will need to do enable RBAC with
 `juju config kubernetes-master authorization-mode="RBAC,Node"`. At
 this point, valid AWS credentials will fail unless connected to a default
 account.
@@ -163,9 +163,8 @@ spec:
   groups:
   - view
 ```
-Logging in with the k8s-view-role matched to the RBAC user knobby. This user has
-no permissions though and so it failed. Now a matching RBAC Role and RoleBinding is
-created.
+Logging in with the k8s-view-role matched against the RBAC user 'knobby'. But this user has
+no permissions, so the command failed. Create an RBAC Role and RoleBinding to grant permissions:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -205,10 +204,10 @@ $ kubectl get po
 No resources found.
 ```
 
-Note that this is limited to just the default namespace.
+Note that the permissions in this example are limited to the 'default' namespace.
 
 ```bash
-$ kubectl get po -A
+$ kubectl get po --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "knobby" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
@@ -224,14 +223,14 @@ juju upgrade-charm aws-iam
 
 ### Troubleshooting
 
-If you have any specific problems with the aws-iam, you
+If you have any specific problems with aws-iam, you
 can report bugs on [Launchpad][bugs].
 
-The aws-iam charm makes use of IAM accounts in AWS to
-perform actions, so useful information can be obtained from
-[Amazon's CloudTrail][cloudtrail], which logs such activity.
+Since aws-iam charm makes use of IAM accounts in AWS to
+perform actions, activity logs can be obtained from
+[Amazon's CloudTrail][cloudtrail].
 
-The flow from kubectl to result is as follows:
+The flow of operations that occur when using kubectl with aws-iam is as follows:
 1. kubectl execs `aws-iam-authenticator` to get a token.
 2. `aws-iam-authenticator` contacts AWS from the user's machine
 to get the token.
