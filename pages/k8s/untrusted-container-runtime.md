@@ -18,28 +18,59 @@ From 1.16 onwards, you have the option of attaching
 **Charmed Kubernetes** as part of a pluggable architecture for untrusted
 container runtimes, allowing more to be developed in the future.
 
-This runtime gives you the ability to fence containers via a hypervisor,
-rather than runc.  If used correctly, this can
-[improve security](https://katacontainers.io/collateral/kata-containers-1pager.pdf).
+Beginning with Charmed Kubernetes 1.16, the
+[Kata Containers](https://katacontainers.io) runtime can be used with
+containerd to safely run insecure or untrusted pods. When enabled, Kata
+provides hypervisor isolation for pods that request it, while trusted pods can
+continue to run on a shared kernel via runc. The instructions below
+demonstrate how to configure and use
+[Kata Containers](https://katacontainers.io).  See
+[here](https://katacontainers.io/collateral/kata-containers-1pager.pdf) for
+more info.
 
 ## Caveat
 
-Kata Containers can only be used on bare metal owing to KVM's reliance on the
-kvm Kernel module, which can't be installed on cloud instances.
+Kata Containers can only be used on hosts that support virtualisation due to
+the reliance on the KVM Kernel module.
 
-If you see an error similar to
+Attempting to use Kata on a host that doesn't support virtualization may result in an error similar to this one:
 
 ```
 Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container: failed to create containerd task: Could not access KVM kernel module: No such file or directory
 qemu-vanilla-system-x86_64: failed to initialize KVM: No such file or directory
 ```
 
-it's probably due to this.
-
 ## Deploying Kata Container
 
 Kata Containers can be deployed to any Charmed Kubernetes cluster that's
 running with [containerd](container-runtime).
+
+### New Cluster
+
+After bootstrapping a Juju controller, you can deploy Charmed Kubernetes with
+the following YAML overlay:
+
+```yaml
+applications:
+  kata:
+    charm: cs:~containers/kata
+relations:
+- - kata:untrusted
+  - containerd:untrusted
+- - kata
+  - kubernetes-master
+- - kata
+  - kubernetes-worker
+
+```
+
+Save this YAML and then deploy:
+
+```bash
+juju deploy charmed-kubernetes --overlay kata.yaml
+```
+
+### Existing Cluster
 
 First, we need to deploy the charm.
 
