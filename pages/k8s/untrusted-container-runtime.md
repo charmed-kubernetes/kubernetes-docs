@@ -23,10 +23,7 @@ demonstrate how to configure and use
 
 ## Caveat
 
-Kata Containers can only be used on hosts that support virtualisation due to
-the reliance on the KVM Kernel module.
-
-Attempting to use Kata on a host that doesn't support virtualization may result in an error similar to this one:
+Due to their reliance on the KVM kernel module, Kata Containers can only be used on hosts that support virtualisation. Attempting to use Kata on a host that doesn't support virtualisation may result in an error similar to this one:
 
 ```
 Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container: failed to create containerd task: Could not access KVM kernel module: No such file or directory
