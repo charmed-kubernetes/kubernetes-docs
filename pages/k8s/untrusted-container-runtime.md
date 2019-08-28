@@ -13,20 +13,13 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-From 1.16 onwards, you have the option of attaching
-[Kata Containers](https://katacontainers.io) to
-**Charmed Kubernetes** as part of a pluggable architecture for untrusted
-container runtimes, allowing more to be developed in the future.
-
-Beginning with Charmed Kubernetes 1.16, the
+Beginning with **Charmed Kubernetes** 1.16, the
 [Kata Containers](https://katacontainers.io) runtime can be used with
 containerd to safely run insecure or untrusted pods. When enabled, Kata
 provides hypervisor isolation for pods that request it, while trusted pods can
 continue to run on a shared kernel via runc. The instructions below
 demonstrate how to configure and use
-[Kata Containers](https://katacontainers.io).  See
-[here](https://katacontainers.io/collateral/kata-containers-1pager.pdf) for
-more info.
+[Kata Containers](https://katacontainers.io).
 
 ## Caveat
 
