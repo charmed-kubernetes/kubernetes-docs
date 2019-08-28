@@ -91,7 +91,6 @@ runtime.
 
 ```bash
 juju add-relation kata:untrusted containerd:untrusted
-
 ```
 
 All together.
@@ -121,7 +120,6 @@ spec:
   containers:
   - name: nginx
     image: nginx
-
 ```
 
 ### RuntimeClass
