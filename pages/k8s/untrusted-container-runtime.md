@@ -30,14 +30,14 @@ Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sand
 qemu-vanilla-system-x86_64: failed to initialize KVM: No such file or directory
 ```
 
-## Deploying Kata Container
+## Deploying Kata Containers
 
 Kata Containers can be deployed to any Charmed Kubernetes cluster that's
 running with [containerd](container-runtime).
 
-### New Cluster
+### Deploying with a new cluster
 
-After bootstrapping a Juju controller, you can deploy Charmed Kubernetes with
+After bootstrapping a Juju controller, you can deploy Kata with Charmed Kubernetes by using
 the following YAML overlay:
 
 ```yaml
@@ -60,30 +60,9 @@ Save this YAML and then deploy:
 juju deploy charmed-kubernetes --overlay kata.yaml
 ```
 
-### Existing Cluster
+### Deploying to an existing cluster
 
-First, we need to deploy the charm.
-
-```bash
-juju deploy cs:~containers/kata
-```
-
-After which, we need to relate the charm to the principals.  Currently, this
-is only to "anchor" the charm.
-
-```bash
-juju add-relation kata kubernetes-master
-juju add-relation kata kubernetes-worker
-```
-
-Finally, we can relate the untrusted container runtime with the container
-runtime.
-
-```bash
-juju add-relation kata:untrusted containerd:untrusted
-```
-
-All together.
+Deploy the Kata charm and add the necessary relations using the following commands:
 
 ```bash
 juju deploy cs:~containers/kata
@@ -97,7 +76,7 @@ juju add-relation kata:untrusted containerd:untrusted
 ### Untrusted annotation
 
 The simplest way to run your pods with Kata is to annotate them with
-`io.kubernetes.cri.untrusted-workload: "true"`.  For example.
+`io.kubernetes.cri.untrusted-workload: "true"`.  For example:
 
 ```yaml
 apiVersion: v1
@@ -115,7 +94,7 @@ spec:
 ### RuntimeClass
 
 If you don't want to taint your workloads as `untrusted`, you can also create
-the following `RuntimeClass`.
+the following `RuntimeClass`:
 
 ```yaml
 apiVersion: node.k8s.io/v1beta1
