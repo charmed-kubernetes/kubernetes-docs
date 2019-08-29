@@ -177,7 +177,7 @@ entries:
       type: page
 
     - title: Kata Containers
-      url: /untrusted-container-runtime
+      url: /kata
       output: web, pdf
       type: page
 
