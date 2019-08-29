@@ -20,6 +20,10 @@ toc: False
 
 ## What's new
 
+- Kata Containers support
+
+Beginning with Charmed Kubernetes 1.16, the [Kata Containers](https://katacontainers.io) runtime can be used with containerd to safely run insecure or untrusted pods. When enabled, Kata provides hypervisor isolation for pods that request it, while trusted pods can continue to run on a shared kernel via runc. For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/docs/kata).
+
 - AWS IAM support
 
 Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
