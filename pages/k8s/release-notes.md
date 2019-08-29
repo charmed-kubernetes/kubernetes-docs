@@ -46,6 +46,9 @@ Feature 1 description
 A list of bug fixes and other minor feature updates in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.16](https://launchpad.net/charmed-kubernetes/+milestone/1.16).
 
+Special thanks to [pierrop](https://github.com/pierrop) for contributing a fix to
+[issue 1841965](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1841965)!
+
 ## Known Issues
 
 - Known issue 1
