@@ -85,7 +85,22 @@ entries:
       url: /tigera-secure-ee
       output: web, pdf
       type: page
+      
+  - title: Container Runtimes
+    output: web, pdf
+    type: section
+    items:
+    
+    - title: Containerd & Docker
+      url: /container-runtime
+      output: web, pdf
+      type: page
 
+    - title: Kata Containers
+      url: /kata
+      output: web, pdf
+      type: page
+      
   - title: Operations
     output: web, pdf
     type: section
@@ -168,16 +183,6 @@ entries:
 
     - title: Troubleshooting
       url: /troubleshooting
-      output: web, pdf
-      type: page
-
-    - title: Containerd & Docker
-      url: /container-runtime
-      output: web, pdf
-      type: page
-
-    - title: Kata Containers
-      url: /kata
       output: web, pdf
       type: page
 
