@@ -3,12 +3,12 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Untrusted container runtimes"
-  description: Configure and use kata containers as the untrusted container runtime
+  title: "Kata Containers"
+  description: Configure and use Kata Containers as an untrusted container runtime
 keywords: kata, untrusted runtime, image
 tags: [architecture]
 sidebar: k8smain-sidebar
-permalink: untrusted-container-runtime.html
+permalink: kata.html
 layout: [base, ubuntu-com]
 toc: False
 ---
