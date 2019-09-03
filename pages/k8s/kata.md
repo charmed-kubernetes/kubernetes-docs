@@ -122,4 +122,4 @@ spec:
 <!-- LINKS -->
 
 [containerd]: /kubernetes/docs/container-runtime
-[kata]: https://katacontainers.io)
+[kata]: https://katacontainers.io
