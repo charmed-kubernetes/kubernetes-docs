@@ -134,8 +134,8 @@ IAMIdentityMapping CRD.
 ### Enabling RBAC
 
 In order to get authorisation with AWS-IAM, you will need to use RBAC.
-Refer to the Charmed Kubernetes [RBAC documentation][k8s-rbac-docs] for complete options, but at
-you will need to do enable RBAC with
+Refer to the Charmed Kubernetes [RBAC documentation][k8s-rbac-docs] for
+complete options, but at a minimum you will need to do enable RBAC with
 `juju config kubernetes-master authorization-mode="RBAC,Node"`. At
 this point, valid AWS credentials will fail unless connected to a default
 account.
