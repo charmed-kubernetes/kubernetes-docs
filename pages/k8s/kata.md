@@ -14,30 +14,30 @@ toc: False
 ---
 
 Beginning with **Charmed Kubernetes** 1.16, the
-[Kata Containers](https://katacontainers.io) runtime can be used with
+[Kata Containers][kata] runtime can be used with
 containerd to safely run insecure or untrusted pods. When enabled, Kata
 provides hypervisor isolation for pods that request it, while trusted pods can
 continue to run on a shared kernel via runc. The instructions below
 demonstrate how to configure and use
-[Kata Containers](https://katacontainers.io).
+[Kata Containers][kata].
 
 ## Caveat
 
 Due to their reliance on the KVM kernel module, Kata Containers can only be used on hosts that support virtualisation. Attempting to use Kata on a host that doesn't support virtualisation may result in an error similar to this one:
 
-```
+```no-highlight
 Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container: failed to create containerd task: Could not access KVM kernel module: No such file or directory
 qemu-vanilla-system-x86_64: failed to initialize KVM: No such file or directory
 ```
 
 ## Deploying Kata Containers
 
-Kata Containers can be deployed to any Charmed Kubernetes cluster that's
-running with [containerd](container-runtime).
+Kata Containers can be deployed to any **Charmed Kubernetes** cluster that's
+running with [containerd][].
 
 ### Deploying with a new cluster
 
-After bootstrapping a Juju controller, you can deploy Kata with Charmed Kubernetes by using
+After bootstrapping a Juju controller, you can deploy Kata with **Charmed Kubernetes** by using
 the following YAML overlay:
 
 ```yaml
@@ -118,3 +118,8 @@ spec:
   - name: nginx
     image: nginx
 ```
+
+<!-- LINKS -->
+
+[containerd]: /kubernetes/docs/container-runtime
+[kata]: https://katacontainers.io)
