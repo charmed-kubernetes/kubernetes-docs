@@ -135,17 +135,22 @@ IAMIdentityMapping CRD.
 
 In order to get authorisation with AWS-IAM, you will need to use RBAC.
 Refer to the Charmed Kubernetes [RBAC documentation][k8s-rbac-docs] for
-complete options, but at a minimum you will need to do enable RBAC with
+complete options, but at a minimum you will need to enable RBAC with
 `juju config kubernetes-master authorization-mode="RBAC,Node"`. At
 this point, valid AWS credentials will fail unless connected to a default
 account.
 
 ```bash
-$ kubectl get po -A
+kubectl get po -A
+```
+... will result in an error:
+
+```
 Error from server (Forbidden): pods is forbidden: User "knobby" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
 The username is pulled from the matching CRD. In this case, the following CRD was used:
+
 ```yaml
 apiVersion: iamauthenticator.k8s.aws/v1alpha1
 kind: IAMIdentityMapping
@@ -163,8 +168,8 @@ spec:
   groups:
   - view
 ```
-Logging in with the k8s-view-role matched against the RBAC user 'knobby'. But this user has
-no permissions, so the command failed. Create an RBAC Role and RoleBinding to grant permissions:
+Logging in with the k8s-view-role matched against the RBAC user 'knobby', but this user has
+no permissions so the command failed. Create an RBAC Role and RoleBinding to grant permissions:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -200,14 +205,21 @@ roleRef:
 Now the command will succeed.
 
 ```bash
-$ kubectl get po
+kubectl get po
+```
+
+```no-highlight
 No resources found.
 ```
 
-Note that the permissions in this example are limited to the 'default' namespace.
+Note that the permissions in this example are limited to the 'default' namespace. For example:
 
 ```bash
-$ kubectl get po --all-namespaces
+kubectl get po --all-namespaces
+```
+...will result in an error:
+
+```no-highlight
 Error from server (Forbidden): pods is forbidden: User "knobby" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
