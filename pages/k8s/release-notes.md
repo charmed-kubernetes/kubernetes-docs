@@ -40,9 +40,11 @@ This allows TLS termination to happen on the workload. Refer to the
 [upstream documentation](https://kubernetes.github.io/ingress-nginx/user-guide/tls/#ssl-passthrough)
 for more information.
 
-- Feature 1
+- Improved LXD support
 
-Feature 1 description
+- Improved Prometheus/Grafana integration
+
+- Improved OpenStack integration
 
 ## Fixes
 
