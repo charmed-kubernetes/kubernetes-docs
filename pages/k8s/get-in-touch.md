@@ -33,6 +33,12 @@ Find us in **#cdk** on the [Kubernetes slack][slack].
 
 Visit the [documentation repository][docs] for issues or comments about this documentation.
 
+## Source Code
+
+The source for the bundles and all the core charms for Charmed Kubernetes is
+[available on GitHub][source].
+
+
 ## Professional support
 
 If you are looking for additional support, find out about [Ubuntu Advantage][support].
@@ -46,3 +52,4 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 [support]: /support
 [managed]: /kubernetes/managed
 [slack]: http://slack.kubernetes.io/
+[source]: https://github.com/charmed-kubernetes
