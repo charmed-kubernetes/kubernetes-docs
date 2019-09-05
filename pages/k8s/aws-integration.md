@@ -270,6 +270,9 @@ the log history for that specific unit:
 juju debug-log --replay --include aws-integrator/0
 ```
 
+## See also:
+
+If you are an AWS user, you may also be interested in how to [use AWS IAM for authorisation and authentication][aws-iam].
 
 <!-- LINKS -->
 
@@ -280,3 +283,4 @@ juju debug-log --replay --include aws-integrator/0
 [cloudtrail]: https://console.aws.amazon.com/cloudtrail/
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [aws-integrator-readme]: https://jujucharms.com/u/containers/aws-integrator/
+[aws-iam]: /kubernetes/docs/aws-iam-auth
