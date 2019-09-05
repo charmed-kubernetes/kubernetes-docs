@@ -266,10 +266,11 @@ between calls.
 
 [asset-aws-iam-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/aws-iam-overlay.yaml
 [aws-iam-charm]: https://jaas.ai/u/containers/aws-iam-authenticator
-[aws-aim-authenticator-github]: https://github.com/kubernetes-sigs/aws-iam-authenticator
+[aws-iam-authenticator-github]: https://github.com/kubernetes-sigs/aws-iam-authenticator
 [k8s-crd-docs]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [cloudtrail]: https://console.aws.amazon.com/cloudtrail/
 [quickstart]: /kubernetes/docs/quickstart
 [bugs]: https://bugs.launchpad.net/aws-iam
 [aws-iam-authenticator-config]: https://github.com/kubernetes-sigs/aws-iam-authenticator#4-set-up-kubectl-to-use-authentication-tokens-provided-by-aws-iam-authenticator-for-kubernetes
+[aws-iam-authenticator-releases]: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases
