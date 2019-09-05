@@ -18,12 +18,13 @@ Beginning with **Charmed Kubernetes** 1.16, the
 containerd to safely run insecure or untrusted pods. When enabled, Kata
 provides hypervisor isolation for pods that request it, while trusted pods can
 continue to run on a shared kernel via runc. The instructions below
-demonstrate how to configure and use
-[Kata Containers][kata].
+demonstrate how to configure and use Kata containers.
 
-## Caveat
+## Requirements
 
-Due to their reliance on the KVM kernel module, Kata Containers can only be used on hosts that support virtualisation. Attempting to use Kata on a host that doesn't support virtualisation may result in an error similar to this one:
+Due to their reliance on the KVM kernel module, Kata Containers can only be used
+on hosts that support virtualisation. Attempting to use Kata on a host that
+doesn't support virtualisation may result in an error similar to this one:
 
 ```no-highlight
 Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container: failed to create containerd task: Could not access KVM kernel module: No such file or directory
@@ -104,7 +105,7 @@ metadata:
 handler: kata
 ```
 
-After this `RuntimeClass` is created, we can run workloads that are pinned to
+After this `RuntimeClass` is created, workloads can be run which are pinned to
 the class.
 
 ```yaml
