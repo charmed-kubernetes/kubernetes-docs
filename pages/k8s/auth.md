@@ -154,7 +154,11 @@ juju run-action kubernetes-master/0 restart
 For more detail on the roles and bindings, please see the
 [Kubernetes RBAC documentation][rbac].
 
-<!-- LINKS -->
+### Using AWS IAM with RBAC
+
+AWS IAM credentials can be used for authentication and authorisation on your Charmed Kubernetes cluster, even if the cluster is not hosted on AWS. For further details see the documentation on [AWS IAM auth][aws-iam].
+
+ <!-- LINKS -->
 
 
 [upstream-auth]: https://kubernetes.io/docs/reference/access-authn-authz/authorization/
@@ -165,3 +169,4 @@ For more detail on the roles and bindings, please see the
 [webhook]: https://kubernetes.io/docs/reference/access-authn-authz/webhook/
 [docs-ldap]: /kubernetes/docs/ldap
 [roles]: #rbac
+[aws-iam]: /kubernetes/docs/aws-iam-auth
