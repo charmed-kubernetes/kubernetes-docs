@@ -13,94 +13,125 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Installing the **Charmed Distribution of Kubernetes<sup>&reg;</sup> (CDK)**
-on a single machine is possible for the purposes of testing and development.
+Installing **Charmed Kubernetes** on a single machine is possible for the
+purposes of testing and development.
 
-Be aware that the full deployment of **CDK** has system requirements which may exceed a standard laptop or desktop machine. It is only recommended for a machine with 32GB RAM and 250GB of SSD storage.
+However, be aware that the full deployment of **Charmed Kubernetes** has system
+requirements which may exceed a standard laptop or desktop machine. It is only
+recommended for a machine with 32GB RAM and 250GB of SSD storage.
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
-If you don't meet these requirements or want a lightweight way to develop on pure Kubernetes, we recommend  <a href="https://microk8s.io/">microk8s</a>
+If you don't meet these requirements or want a lightweight way to develop on
+pure Kubernetes, we recommend  <a href="https://microk8s.io/">microk8s</a>
 </p></div>
 
-The main requirement for a local install is a local cloud to run **CDK** on. This is achieved by using lightweight containers managed by [LXD][lxd-home]. **LXD** version 3.0 or better is required for the default installer, and there are some specific profile requirements as detailed below.
+In order to run locally, you will need a local cloud. This can be achieved by
+using lightweight containers managed by [LXD][lxd-home]. **LXD** version 3.0
+or better is required.
 
-## If **LXD** is already installed
+## 1. Set up LXD
 
-The **conjure-up** installer requires a specific LXD version, profile and storage options which may conflict with any existing version of LXD.
-To avoid problems, migrate from the _deb_ LXD packaging after installing the snap version:
+### If **LXD** is already installed
+
+If you installed LXD from the Snap Store, you can skip this step. If your system
+had LXD pre-installed, or you have installed it from the archive (i.e. with
+`apt install`), you will need to migrate to the Snap version.
+
+If you aren't sure whether LXD is installed, you can check
+installed snaps with:
+
+```bash
+snap list | grep lxd
+```
+
+and installed deb packages with:
+
+```bash
+dpkg -s lxd |  grep Status
+```
+
+If you do have the deb version of LXD installed, you should migrate to the
+snap version after it has been installed. The snap includes a script to do this
+for you:
 
 ```bash
 sudo snap install lxd
-/snap/bin/lxd.migrate
+sudo /snap/bin/lxd.migrate
 ```
 
-This will move all container specific data to the snap version and clean up the unused Debian packages. You should also check out the [notes for using LXD with conjure-up][conjure-lxd].
+This will move all container specific data to the snap version and clean up
+the unused Debian packages, which may take a few minutes.
 
-You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
+If LXD was installed, but never used, there will be no data in the default
+profile, so you should now initialise LXD:
 
-## Ubuntu Server
+```bash
+sudo lxd init
+```
 
-### 1. Install **LXD**
+Currently, **Charmed Kubernetes** only supports `dir` as a storage option and does
+not support ipv6, which should be set to `none` from the init script.
+Additional profiles will be added automatically to LXD to support the
+requirements of **Charmed Kubernetes**.
+
+### If LXD has not previously been installed
+
+LXD 3.0 or above should be installed from a [snap][] and configured
+for **Charmed Kubernetes**
+
+#### Install **LXD**
 
 ```bash
 sudo snap install lxd
 ```
 
-### 2. Run the **LXD** init script
+#### Run the **LXD** init script
 
 ```bash
 /snap/bin/lxd init
 ```
 
-### 3. Configure the installer
-
-The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
+The init script itself may vary depending on the version of LXD. The important
+configuration options for the installer are:
 
 - Networking: Do **NOT** enable ipv6 networking on the bridge interface
 - Storage Pool: Use the 'dir' storage type
 
-You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
 
-## Ubuntu Desktop
+## 2. Install **Juju**
 
-### 1. Install **LXD**
+## 3. Deploy **Charmed Kubernetes**
 
-```bash
-sudo snap install lxd
+## Next Steps
+
+## Troubleshooting
+
+### I get an error message when running lxc/lxd init
+
+The most common cause of this message:
+
+```ǹo-highlight
+Error: Get http://unix.socket/1.0: dial unix /var/snap/lxd/common/lxd/unix.socket: connect: permission denied
 ```
 
-### 2. Create users
+...is that either you have not run `lxd init`, or you are logged in as a user
+who is not part of the `lxd` group (the user installing the snap is
+automatically added).
 
-In order to access the **LXD** service your user will need to be apart of the `lxd` group. Run the following:
+To add the current user to the relevant group:
 
 ```bash
 sudo usermod -a -G lxd $USER
 newgrp lxd
 ```
 
-### 3. Run the **LXD** init script
+You may need to start a new session for this to take effect.
 
 ```bash
-/snap/bin/lxd init
+sudo snap install lxd
 ```
 
-### 4. Configure
-
-The init script itself can vary depending on the version of LXD. The important configuration options for the installer are:
-
-- Networking: Do **NOT** enable ipv6 networking on the bridge interface
-- Storage Pool: Use the 'dir' storage type
-
-You can now proceed using the main installer. Follow the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
-
-## Other platforms (ArchLinux, Debian, Fedora, OpenSUSE )
-
-1.  Install **LXD** using the [instructions for your OS][lxd-install]
-
-1.  Install Conjure up using the [instructions for your OS][conjure-up-install]
-
-1.  Proceed with the relevant steps from the [install instructions][quickstart] and choose `localhost` in the `CHOOSE A CLOUD` step.
 
 <!-- LINKS -->
 
