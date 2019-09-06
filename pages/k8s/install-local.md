@@ -124,6 +124,17 @@ juju add-model k8s
 
 ## 3. Deploy **Charmed Kubernetes**
 
+All that remains is to deploy **Charmed Kubernetes**. A simple install can be achieved with one command:
+
+```bash
+juju deploy charmed-kubernetes
+```
+
+This will install the latest stable version of the **Charmed Kubernetes** with
+the default components and configuration. If you wish to customise this install
+(which may be helpful if you are close to the system requirements), please see
+the [main install page][install].
+
 
 ## Next Steps
 
@@ -162,3 +173,6 @@ sudo snap install lxd
 [conjure-up-install]: https://docs.conjure-up.io/devel/en/user-manual#installing-conjure-up
 [conjure-lxd]: https://docs.conjure-up.io/stable/en/user-manual#users-of-lxd
 [quickstart]: /kubernetes/docs/quickstart
+[Juju]:
+[snap]:
+[install]: /kubernetes/docs/install-manual
