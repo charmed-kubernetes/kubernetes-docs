@@ -140,7 +140,7 @@ the [main install page][install].
 
 ## Troubleshooting
 
-### I get an error message when running lxc/lxd init
+### I get an error message when running lxc or lxd init
 
 The most common cause of this message:
 
@@ -173,6 +173,6 @@ sudo snap install lxd
 [conjure-up-install]: https://docs.conjure-up.io/devel/en/user-manual#installing-conjure-up
 [conjure-lxd]: https://docs.conjure-up.io/stable/en/user-manual#users-of-lxd
 [quickstart]: /kubernetes/docs/quickstart
-[Juju]:
-[snap]:
+[Juju]: https://jaas.ai
+[snap]: https://snapcraft.io/docs/installing-snapd
 [install]: /kubernetes/docs/install-manual
