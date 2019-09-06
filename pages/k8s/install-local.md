@@ -133,7 +133,7 @@ All that remains is to deploy **Charmed Kubernetes**. A simple install can be ac
 juju deploy charmed-kubernetes
 ```
 
-This will install the latest stable version of the **Charmed Kubernetes** with
+This will install the latest stable version of **Charmed Kubernetes** with
 the default components and configuration. If you wish to customise this install
 (which may be helpful if you are close to the system requirements), please see
 the [main install page][install].
@@ -170,7 +170,6 @@ You may need to start a new session for this to take effect.
 ```bash
 sudo snap install lxd
 ```
-
 
 <!-- LINKS -->
 
