@@ -4,8 +4,8 @@ markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Installing to a local machine"
-  description: How to install the Charmed Distribution of Kubernetes on a single machine for easy testing and development.
-keywords: lxd, conjure-up, requirements,developer
+  description: How to install Charmed Kubernetes on a single machine for easy testing and development.
+keywords: lxd, requirements, developer
 tags: [install]
 sidebar: k8smain-sidebar
 permalink: install-local.html
@@ -70,8 +70,8 @@ profile, so you should now initialise LXD:
 sudo lxd init
 ```
 
-Currently, **Charmed Kubernetes** only supports `dir` as a storage option and does
-not support ipv6, which should be set to `none` from the init script.
+Currently, **Charmed Kubernetes** only supports `dir` as a storage option and
+does not support ipv6, which should be set to `none` from the init script.
 Additional profiles will be added automatically to LXD to support the
 requirements of **Charmed Kubernetes**.
 
@@ -101,7 +101,29 @@ configuration options for the installer are:
 
 ## 2. Install **Juju**
 
+[Juju][] should be installed from a snap:
+
+```bash
+sudo snap install juju --classic
+```
+
+Juju comes preconfigured to work with LXD. A cloud created by using LXD
+containers on the local machine is known as `localhost` to Juju. To begin, you
+need to create a Juju controller for this cloud:
+
+```bash
+juju bootstrap localhost
+```
+
+Juju creates a default model, but it is useful to create a new model for each
+project:
+
+```bash
+juju add-model k8s
+```
+
 ## 3. Deploy **Charmed Kubernetes**
+
 
 ## Next Steps
 
