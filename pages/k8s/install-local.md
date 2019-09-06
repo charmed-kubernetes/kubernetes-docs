@@ -102,6 +102,8 @@ does not support ipv6, which should be set to `none` from the init script.
 Additional profiles will be added automatically to LXD to support the
 requirements of **Charmed Kubernetes**.
 
+<a id="step2"></a>
+
 ## 2. Install **Juju**
 
 [Juju][] should be installed from a snap:
