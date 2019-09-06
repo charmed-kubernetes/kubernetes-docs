@@ -5,7 +5,7 @@ markdown_includes:
 context:
   title: "Installing to a local machine"
   description: How to install Charmed Kubernetes on a single machine for easy testing and development.
-keywords: lxd, requirements, developer
+keywords: lxd, localhost, juju, requirements, developer
 tags: [install]
 sidebar: k8smain-sidebar
 permalink: install-local.html
@@ -32,11 +32,36 @@ or better is required.
 
 ## 1. Set up LXD
 
+### If LXD has not previously been installed
+
+LXD 3.0 or above should be installed from a [snap][] and configured
+for **Charmed Kubernetes**
+
+#### Install LXD
+
+```bash
+sudo snap install lxd
+```
+
+#### Run the LXD init script
+
+```bash
+/snap/bin/lxd init
+```
+
+The init script itself may vary depending on the version of LXD. The important
+configuration options for the installer are:
+
+- Networking: Do **NOT** enable ipv6 networking on the bridge interface
+- Storage Pool: Use the 'dir' storage type
+
+You can now move on to the [next step](#step2)
+
 ### If **LXD** is already installed
 
-If you installed LXD from the Snap Store, you can skip this step. If your system
+If you installed LXD from a snap, you can skip this step (but if necessary, you may need to alter the [default profile](#profile)). If your system
 had LXD pre-installed, or you have installed it from the archive (i.e. with
-`apt install`), you will need to migrate to the Snap version.
+`apt install`), you will need to migrate to the snap version.
 
 If you aren't sure whether LXD is installed, you can check
 installed snaps with:
@@ -70,34 +95,12 @@ profile, so you should now initialise LXD:
 sudo lxd init
 ```
 
+<a id="profile"></a>
+
 Currently, **Charmed Kubernetes** only supports `dir` as a storage option and
 does not support ipv6, which should be set to `none` from the init script.
 Additional profiles will be added automatically to LXD to support the
 requirements of **Charmed Kubernetes**.
-
-### If LXD has not previously been installed
-
-LXD 3.0 or above should be installed from a [snap][] and configured
-for **Charmed Kubernetes**
-
-#### Install **LXD**
-
-```bash
-sudo snap install lxd
-```
-
-#### Run the **LXD** init script
-
-```bash
-/snap/bin/lxd init
-```
-
-The init script itself may vary depending on the version of LXD. The important
-configuration options for the installer are:
-
-- Networking: Do **NOT** enable ipv6 networking on the bridge interface
-- Storage Pool: Use the 'dir' storage type
-
 
 ## 2. Install **Juju**
 
@@ -138,6 +141,9 @@ the [main install page][install].
 
 ## Next Steps
 
+Now you have a cluster up and running, check out the
+[Operations guide][operations] for how to use it!
+
 ## Troubleshooting
 
 ### I get an error message when running lxc or lxd init
@@ -176,3 +182,4 @@ sudo snap install lxd
 [Juju]: https://jaas.ai
 [snap]: https://snapcraft.io/docs/installing-snapd
 [install]: /kubernetes/docs/install-manual
+[operations]: /kubernetes/docs/operations
