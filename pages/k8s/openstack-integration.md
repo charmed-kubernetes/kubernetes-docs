@@ -3,8 +3,8 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "CDK on OpenStack"
-  description: Running CDK on OpenStack using the openstack-integrator.
+  title: "Charmed Kubernetes on OpenStack"
+  description: Running Charmed Kubernetes on OpenStack using the openstack-integrator.
 keywords: openstack, integrator, cinder, lbaas
 tags: [install]
 sidebar: k8smain-sidebar
@@ -13,20 +13,20 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The **Charmed Distribution of Kubernetes<sup>&reg;</sup>** will run seamlessly
+**Charmed Kubernetes** will run seamlessly
 on OpenStack. With the addition of the `openstack-integrator`, your cluster
 will also be able to directly use OpenStack native features.
 
 
 ## OpenStack integrator
 
-The `openstack-integrator` charm simplifies working with **CDK** on OpenStack. Using the
-credentials provided to Juju, it acts as a proxy between CDK and the underlying cloud,
+The `openstack-integrator` charm simplifies working with **Charmed Kubernetes** on OpenStack. Using the
+credentials provided to Juju, it acts as a proxy between Charmed Kubernetes and the underlying cloud,
 granting permissions to dynamically create, for example, Cinder volumes.
 
 ### Installing
 
-When installing **CDK** using the Juju bundle, you can add the openstack-integrator at
+When installing **Charmed Kubernetes** using the Juju bundle, you can add the openstack-integrator at
 the same time by using the following overlay file
 ([download it here][asset-openstack-overlay]):
 
@@ -40,7 +40,7 @@ relations:
   - ['openstack-integrator', 'kubernetes-worker']
   ```
 
-To use this overlay with the **CDK** bundle, it is specified during deploy like this:
+To use this overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml
@@ -202,7 +202,7 @@ have also been released.
 
 ### Upgrading the integrator charm
 
-The openstack-integrator is not specifically tied to the version of CDK installed and may
+The openstack-integrator is not specifically tied to the version of Charmed Kubernetes installed and may
 generally be upgraded at any time with the following command:
 
 ```bash

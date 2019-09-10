@@ -4,7 +4,7 @@ markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
   title: "Get in Touch"
-  description: How to contact the CDK team
+  description: How to contact the Charmed Kubernetes team
 keywords: help, contact, support
 tags: [contact]
 sidebar: k8smain-sidebar
@@ -13,9 +13,9 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The team behind the **Charmed Distribution of Kubernetes<sup>&reg;</sup>** are
-keen to help and listen to your feedback. There are a variety of ways to get in touch
-with suggestions, problems or just to get involved.
+The team behind the **Charmed Kubernetes** are
+keen to help and listen to your feedback. There are a variety of ways to get
+in touch with suggestions, problems or just to get involved.
 
 ## IRC
 
@@ -27,7 +27,7 @@ Find us in **#cdk** on the [Kubernetes slack][slack].
 
 ## Bugs
 
-**CDK** bugs  are tracked in [launchpad][lp].
+**Charmed Kubernetes** bugs  are tracked in [launchpad][lp].
 
 ## Documentation
 

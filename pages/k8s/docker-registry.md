@@ -133,9 +133,9 @@ Minimally, Kubernetes 1.1x requires the following:
 - quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.16.1
 - k8s.gcr.io/defaultbackend-amd64:1.5
 
-**CDK** supports optional add-ons that include the **Kubernetes** dashboard,
-**Heapster**, **kube-dns**, etc. Enabling these add-ons will require the
-following additional images:
+**Charmed Kubernetes** supports optional add-ons that include the
+**Kubernetes** dashboard, **Heapster**, **kube-dns**, etc. Enabling these
+add-ons will require the following additional images:
 
 - cdkbot/addon-resizer-amd64:1.8.1
 - k8s.gcr.io/heapster-amd64:v1.5.3
@@ -192,7 +192,7 @@ juju config kubernetes-worker \
 ```
 
 Unlike individual configurable images on `kubernetes-worker` units, images
-used by **CDK** add-ons are controlled by a `kubernetes-master` config option. Push
+used by **Charmed Kubernetes** add-ons are controlled by a `kubernetes-master` config option. Push
 the desired add-on images listed above (`kubernetes-dashboard`, `heapster`, etc)
 and configure `kubernetes-master` to use the registry for installation:
 

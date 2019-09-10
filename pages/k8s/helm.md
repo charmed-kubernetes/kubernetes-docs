@@ -28,9 +28,9 @@ and **Kubernetes** configuration for a wide range of applications using
 sudo snap install helm
 ```
 
-**Helm** needs to install a component on the cluster also (the `Tiller`). It gets the
-information on your cluster from `kubectl`, so if you have more than one cluster, make
-sure you are switched to the correct _context_.
+**Helm** needs to install a component on the cluster also (the `Tiller`). It
+gets the information on your cluster from `kubectl`, so if you have more than
+one cluster, make sure you are switched to the correct _context_.
 
 To install the 'Tiller', run:
 
@@ -40,8 +40,8 @@ helm init
 
 ## Chose a Chart
 
-**Helm**'s application packages are called charts. You can fetch the latest list of charts
-with:
+**Helm**'s application packages are called charts. You can fetch the latest
+list of charts with:
 
 ```bash
  helm repo update
@@ -88,12 +88,16 @@ newly installed pod.  In this case, you should see something similar to:
 ```no-highlight
 NOTES:
 1. Get your 'admin' user password by running:
+  <pre>
   printf $(kubectl get secret --namespace default hipster-orangutan-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+  </pre>
 2. Get the Jenkins URL to visit by running these commands in the same shell:
   NOTE: It may take a few minutes for the LoadBalancer IP to be available.
         You can watch the status of by running 'kubectl get svc --namespace default -w hipster-orangutan-jenkins'
+  <pre>
   export SERVICE_IP=$(kubectl get svc --namespace default hipster-orangutan-jenkins --template "{{ range (index .status.loadBalancer.ingress 0) }}{{ . }}{{ end }}")
   echo http://$SERVICE_IP:8080/login
+  </pre>
 
 3. Login with the password from step 1 and the username: admin
 ```
