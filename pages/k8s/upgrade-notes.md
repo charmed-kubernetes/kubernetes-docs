@@ -160,7 +160,7 @@ juju remove-application kubernetes-worker-temp
 #### Mixing Containerd and Docker
 
 
-Once you have a Containerd backed CDK running, you can add Docker backed
+Once you have a Containerd backed Charmed Kubernetes running, you can add Docker backed
 workers like so:
 
 ```bash
@@ -176,7 +176,7 @@ juju relate docker kubernetes-worker-docker
 This upgrade includes support for **CoreDNS 1.4.0**. All new deployments of
 **Charmed Kubernetes** will install **CoreDNS** by default instead of **KubeDNS**.
 
-Existing deployments which are upgraded to **CDK 1.14** will continue to use
+Existing deployments which are upgraded to **Charmed Kubernetes 1.14** will continue to use
 **KubeDNS** until the operator chooses to upgrade to **CoreDNS**. To upgrade,
 set the new dns-provider config:
 
@@ -209,7 +209,7 @@ This upgrade includes a transistion between major versions of **etcd**, from 2.3
   </p>
 </div>
 
-To make this upgrade more convenient for users of **CDK**, a script has been prepared to manage the transition. The script can be [examined here][script].
+To make this upgrade more convenient for users of **Charmed Kubernetes**, a script has been prepared to manage the transition. The script can be [examined here][script].
 
 To use the script to update **etcd**, follow these steps:
 
