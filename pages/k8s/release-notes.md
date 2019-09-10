@@ -44,7 +44,17 @@ for more information.
 
 - Improved Prometheus/Grafana integration
 
+The setup and configuration of Prometheus and Grafana has been significantly streamlined with
+new relations to allow the charms to manage the scraper job and dashboards. This means that
+monitoring can now be added by specifying a single overlay when deploying Charmed Kubernetes.
+Refer to the [updated documentation](https://ubuntu.com/kubernetes/docs/monitoring) for more information.
+
 - Improved OpenStack integration
+
+The OpenStack Integrator charm can now replace the Kube API Load Balancer by providing a
+native OpenStack load balancer (Octavia or Neutron) to provide HA load balancing for the
+Kubernetes control plane. Refer to the [updated documentation](https://ubuntu.com/kubernetes/docs/openstack-integration)
+for more information.
 
 ## Fixes
 
