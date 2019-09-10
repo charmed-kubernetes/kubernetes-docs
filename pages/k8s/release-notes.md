@@ -14,6 +14,27 @@ toc: False
 ---
 
 
+# 1.16
+
+### September 23, 2019 -  [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+
+## What's new
+
+- Feature 1
+
+Feature 1 description
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.16](https://launchpad.net/charmed-kubernetes/+milestone/1.16).
+
+## Known Issues
+
+- Known issue 1
+
+Known issue 1 description
+
 # 1.15+ck1 Bugfix release
 
 ### August 15, 2019 - [charmed-kubernetes-209](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-209/archive/bundle.yaml)
