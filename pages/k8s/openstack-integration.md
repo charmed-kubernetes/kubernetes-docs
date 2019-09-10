@@ -65,7 +65,7 @@ have also been released.
   </p>
 </div>
 
-To use the overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
+To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml
