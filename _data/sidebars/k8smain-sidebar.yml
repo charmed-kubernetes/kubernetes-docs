@@ -219,7 +219,12 @@ entries:
       url: /certs-and-trust
       output: web, pdf
       type: page
-
+      
+    - title: Snap refresh settings
+      url: /snap-refresh
+      output: web, pdf
+      type: page
+      
     - title: Help and Contacts
       url: /get-in-touch
       output: web, pdf
