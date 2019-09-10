@@ -16,10 +16,10 @@ toc: False
 ## AWS IAM
 
 [AWS IAM](https://aws.amazon.com/iam/) credentials can be used for
-authentication and authorisation on your Charmed Kubernetes cluster without
+authentication and authorisation on your **Charmed Kubernetes** cluster without
 regard to where it is hosted. The only requirement is that both the client
-machine running `kubectl` and the master nodes are able to reach AWS in
-order to get and validate tokens.
+machine running `kubectl` and the master nodes are able to reach AWS in order
+to get and validate tokens.
 
 
 ### Installing
