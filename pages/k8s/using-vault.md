@@ -5,7 +5,7 @@ markdown_includes:
 context:
   title: "Using Vault as a CA"
   description: How to replace EasyRSA with Vault for increased security
-keywords: juju, kubernetes, cdk, security, encryption, vault
+keywords: juju, kubernetes, security, encryption, vault
 tags: [operating, security]
 sidebar: k8smain-sidebar
 permalink: using-vault.html
