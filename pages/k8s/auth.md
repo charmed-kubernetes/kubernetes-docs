@@ -23,7 +23,7 @@ This page provides summary information on the available modes and how to configu
 
  -  **AlwaysAllow**: This is the default mode. All calls to the API server are allowed.
  - **Node**: Grants permissions to kubelets based on the pods they are scheduled to run.
-    When using this mode, **Chamred Kubernetes** will enable `NodeRestriction` and will issue (and
+    When using this mode, **Charmed Kubernetes** will enable `NodeRestriction` and will issue (and
     decommission) tokens for kubernetes-workers as you scale your infrastructure.
     More detailed information can be found in the [Kubernetes documentation][node].
  - **ABAC**: Using attribute-based access control, access rights are granted to users
