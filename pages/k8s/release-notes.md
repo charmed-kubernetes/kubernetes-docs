@@ -20,14 +20,39 @@ toc: False
 
 ## What's new
 
-- Feature 1
+- Kata Containers support
 
-Feature 1 description
+Beginning with Charmed Kubernetes 1.16, the [Kata Containers](https://katacontainers.io) runtime can be used
+with containerd to safely run insecure or untrusted pods. When enabled, Kata provides hypervisor isolation
+for pods that request it, while trusted pods can continue to run on a shared kernel via runc.
+For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/docs/kata).
+
+- AWS IAM support
+
+Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
+[AWS-IAM documentation](/kubernetes/docs/aws-iam) for details on how to use AWS credentials
+to log in to your Charmed Kubernetes cluster.
+
+- SSL passthrough support
+
+A new configuration parameter was added to the kubernetes-worker charm to enable ssl passthrough.
+This allows TLS termination to happen on the workload. Refer to the
+[upstream documentation](https://kubernetes.github.io/ingress-nginx/user-guide/tls/#ssl-passthrough)
+for more information.
+
+- Improved LXD support
+
+- Improved Prometheus/Grafana integration
+
+- Improved OpenStack integration
 
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.16](https://launchpad.net/charmed-kubernetes/+milestone/1.16).
+
+Special thanks to [pierrop](https://github.com/pierrop) for contributing a fix to
+[issue 1841965](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1841965)!
 
 ## Known Issues
 
