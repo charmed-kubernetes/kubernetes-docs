@@ -62,6 +62,15 @@ during deploy like this:
 juju deploy charmed-kubernetes --overlay ~/path/monitoring-pgt-overlay.yaml
 ```
 
+If you wish to add monitoring to an existing deployment, you can export a
+bundle of your current environment and then redeploy it on top of itself with
+the overlay:
+
+```bash
+juju export-bundle --filename mybundle.yaml
+juju deploy ./mybundle.yaml --overlay ~/path/monitoring-pgt-overlay.yaml
+```
+
 ### Retrieve credentials and login
 
 To open the dashboard in your browser you will need to know the URL and login
