@@ -31,7 +31,7 @@ See the [quickstart guide][quickstart] for more details on installing **Charmed 
 
 ### Installation
 
-You can install **Charmed Kubernetes** wiht monitoring using the Juju bundle
+You can install **Charmed Kubernetes** with monitoring using the Juju bundle
 along with the following overlay file ([download it here][monitoring-pgt-overlay]):
 
 ```yaml
