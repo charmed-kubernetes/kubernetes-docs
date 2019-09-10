@@ -46,6 +46,11 @@ for more information.
 
 - Improved OpenStack integration
 
+- Docker Registry with Containerd
+
+The Docker registry charm can now be related directly to the Containerd runtime charm.
+Refer [here][docker-registry] for instructions on how to deploy the charm.
+
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at

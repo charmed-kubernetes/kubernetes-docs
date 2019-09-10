@@ -21,6 +21,16 @@ any of the intervening steps.
 
 <a  id="1.15"> </a>
 
+## Upgrading to 1.16
+
+### Docker Registry with Containerd
+
+When upgrading to 1.16, you may need to remove any fixes made to support the
+Docker Registry charm with Containerd.  This would include removing any
+reference of the registry in the `custom_registries` containerd charm config
+option.  After which, you can see [here][docker-registry] for instructions
+on how to connect correctly.
+
 ## Upgrading to 1.15
 
 This upgrade switches the container runtime to make use of containerd, rather
