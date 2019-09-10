@@ -205,10 +205,8 @@ juju status kibana --format yaml| grep public-address
 
 <!-- LINKS -->
 
-[monitoring-pgt-overlay]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/monitoring-pgt-overlay.yaml
+[monitoring-pgt-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/monitoring-pgt-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [nagios]: https://www.nagios.org/
 [elastic]: https://www.elastic.co/
-[download-scraper]: https://github.com/conjure-up/spells/blob/master/charmed-kubernetes/addons/prometheus/steps/01_install-prometheus/prometheus-scrape-k8s.yaml
-[download-dashboard]: https://raw.githubusercontent.com/conjure-up/spells/master/charmed-kubernetes/addons/prometheus/steps/01_install-prometheus/grafana-k8s.json
 [external-nagios]: https://jujucharms.com/nrpe/
