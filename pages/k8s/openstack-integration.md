@@ -36,11 +36,36 @@ applications:
     charm: cs:~containers/openstack-integrator
     num_units: 1
 relations:
-  - ['openstack-integrator', 'kubernetes-master']
-  - ['openstack-integrator', 'kubernetes-worker']
-  ```
+  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['openstack-integrator', 'kubernetes-worker:openstack']
+```
 
-To use this overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
+If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native OpenStack
+load balancer for the Kubernetes API server, which both reduces the number of machines required and is
+HA. To enable this, use this overlay instead ([download it here][asset-openstack-lb-overlay]):
+
+```yaml
+applications:
+  kubeapi-load-balancer: null
+  openstack-integrator:
+    charm: cs:~containers/openstack-integrator
+    num_units: 1
+relations:
+  - ['openstack-integrator', 'kubernetes-master:loadbalancer']
+  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['openstack-integrator', 'kubernetes-worker:openstack']
+```
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+If you create load balancers and subsequently tear down the cluster, check with
+the OpenStack administration tools to make sure all the associated resources
+have also been released.
+  </p>
+</div>
+
+To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml
@@ -224,7 +249,8 @@ juju debug-log --replay --include openstack-integrator/0
 
 <!-- LINKS -->
 
-[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/openstack-overlay.yaml
+[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-overlay.yaml
+[asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-lb-overlay.yaml
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://jujucharms.com/u/containers/openstack-integrator/
