@@ -152,7 +152,7 @@ Now you have a cluster up and running, check out the
 
 The most common cause of this message:
 
-```ǹo-highlight
+```no-highlight
 Error: Get http://unix.socket/1.0: dial unix /var/snap/lxd/common/lxd/unix.socket: connect: permission denied
 ```
 
@@ -164,13 +164,12 @@ To add the current user to the relevant group:
 
 ```bash
 sudo usermod -a -G lxd $USER
-newgrp lxd
 ```
 
-You may need to start a new session for this to take effect.
+You may need to start a new shell (or logout and login) for this to take effect:
 
 ```bash
-sudo snap install lxd
+newgrp lxd
 ```
 
 <!-- LINKS -->
