@@ -42,6 +42,11 @@ for more information.
 
 - Improved LXD support
 
+LXD containers used for hosting Kubernetes components require some specific profile settings. These
+profiles are now embedded in the charms themselves and applied when deployed, dramatically
+simplifying the process of installing Charmed Kubernetes on a single machine. See the 
+[Local install documentation](/kubernetes/docs/local-install) for the updated instructions.
+
 - Improved Prometheus/Grafana integration
 
 The setup and configuration of Prometheus and Grafana has been significantly streamlined with
