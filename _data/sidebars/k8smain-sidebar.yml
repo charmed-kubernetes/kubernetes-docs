@@ -34,12 +34,12 @@ entries:
     - title: Local install
       url: /install-local
       output: web, pdf
-      type: homepage
+      type: page
 
     - title: Manual install
       url: /install-manual
       output: web, pdf
-      type: homepage
+      type: page
 
   - title: Cloud integration
     output: web, pdf
@@ -55,7 +55,12 @@ entries:
       url: /gcp-integration
       output: web, pdf
       type: page
-
+      
+    - title: LXD
+      url: /install-local
+      output: web, pdf
+      type: page
+      
   - title: Networking
     output: web, pdf
     type: section
