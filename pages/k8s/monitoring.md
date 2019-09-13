@@ -55,7 +55,7 @@ relations:
   - [kubernetes-master:grafana, grafana:dashboards]
 ```
 
-To use this overlay with the **Charmed Kubernetes** bundle, it is specified
+To use this overlay with the **Charmed Kubernetes** bundle, specify it 
 during deploy like this:
 
 ```bash
