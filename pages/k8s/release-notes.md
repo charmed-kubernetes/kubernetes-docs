@@ -18,6 +18,8 @@ toc: False
 
 ### September 23, 2019 -  [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
 
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
 ## What's new
 
 - Kata Containers support
@@ -73,12 +75,6 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 Special thanks to [pierrop](https://github.com/pierrop) for contributing a fix to
 [issue 1841965](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1841965)!
-
-## Known Issues
-
-- Known issue 1
-
-Known issue 1 description
 
 # 1.15+ck1 Bugfix release
 
