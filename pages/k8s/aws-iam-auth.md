@@ -95,8 +95,8 @@ on the [aws-iam-authenticator releases page][aws-iam-authenticator-releases].
 The aws-iam-authenticator is able to use any ARN for authentication. The easiest
 way to get started is to use an empty role as described in the
 [aws-iam documentation][aws-iam-role-creation].
- * Log into AWS console on IAM page
- * Click create new role
+ * Log into AWS console and navigate to [the IAM page][aws-iam-page].
+ * Click "create new role".
  * Choose the "Role for cross-account access" / "Provide access between AWS accounts you own" option.
  * Paste in your AWS account ID number (available in the top right in the console).
  * Your role does not need any additional policies attached.
@@ -292,3 +292,4 @@ between calls.
 [aws-iam-creds]: https://github.com/kubernetes-sigs/aws-iam-authenticator#specifying-credentials--using-aws-profiles
 [aws-iam-role-creation]: https://github.com/kubernetes-sigs/aws-iam-authenticator#1-create-an-iam-role
 [aws-iam-authenticator-releases]: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases
+[aws-iam-page]: https://console.aws.amazon.com/iam/home
