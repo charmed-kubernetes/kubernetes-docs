@@ -18,8 +18,8 @@ toc: False
 [AWS IAM](https://aws.amazon.com/iam/) credentials can be used for
 authentication and authorisation on your **Charmed Kubernetes** cluster without
 regard to where it is hosted. The only requirement is that both the client
-machine running `kubectl` and the master nodes are able to reach AWS in order
-to get and validate tokens.
+machine running `kubectl` and the nodes running the webhook pod(s) are able to
+reach AWS in order to get and validate tokens.
 
 
 ### Installing
@@ -90,6 +90,17 @@ running kubectl. This is executed by kubectl in order to log in and get a token,
 which is then passed to the Kubernetes API server. You can find the binary
 on the [aws-iam-authenticator releases page][aws-iam-authenticator-releases].
 
+#### Setting up AWS Role
+
+The aws-iam-authenticator is able to use any ARN for authentication. The easiest
+way to get started is to use an empty role as described in the
+[aws-iam documentation][aws-iam-role-creation].
+ * Log into AWS console and navigate to [the IAM page][aws-iam-page].
+ * Click "create new role".
+ * Choose the "Role for cross-account access" / "Provide access between AWS accounts you own" option.
+ * Paste in your AWS account ID number (available in the top right in the console).
+ * Your role does not need any additional policies attached.
+
 #### Updating kubectl config
 
 In order to use the [aws-iam-authenticator][aws-iam-authenticator-github] with
@@ -111,7 +122,10 @@ aws user or role desired. It may also be necessary to adjust the
 command to fully-qualify the path to `aws-iam-authenticator` if
 it is not located in your path.
 
-The context that uses `aws-iam-authenticator` can be selected with:
+Before switching context to the aws-iam context, be sure to deploy the CRD
+above to give your user access to the cluster.
+
+The context that uses aws-iam-authenticator can be selected with:
 
 ```bash
 kubectl config use-context aws-iam-authenticator
@@ -119,7 +133,9 @@ kubectl config use-context aws-iam-authenticator
 
 Note that the `aws-iam-authenticator` binary behaves like the
 `aws` command line interface in that it will read environment
-variables like AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
+variables like AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. See
+[aws-iam-authenticator credentials docs][aws-iam-creds] for more
+information.
 
 ### A note about authorisation
 
@@ -273,4 +289,7 @@ between calls.
 [quickstart]: /kubernetes/docs/quickstart
 [bugs]: https://bugs.launchpad.net/aws-iam
 [aws-iam-authenticator-config]: https://github.com/kubernetes-sigs/aws-iam-authenticator#4-set-up-kubectl-to-use-authentication-tokens-provided-by-aws-iam-authenticator-for-kubernetes
+[aws-iam-creds]: https://github.com/kubernetes-sigs/aws-iam-authenticator#specifying-credentials--using-aws-profiles
+[aws-iam-role-creation]: https://github.com/kubernetes-sigs/aws-iam-authenticator#1-create-an-iam-role
 [aws-iam-authenticator-releases]: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases
+[aws-iam-page]: https://console.aws.amazon.com/iam/home
