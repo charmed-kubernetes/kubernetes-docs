@@ -25,11 +25,15 @@ any of the intervening steps.
 
 ### Docker Registry with Containerd
 
-When upgrading to 1.16, you may need to remove any fixes made to support the
-Docker Registry charm with Containerd.  This would include removing any
-reference of the registry in the `custom_registries` containerd charm config
-option.  After which, you can see [here][docker-registry] for instructions
-on how to connect correctly.
+Prior to 1.16, some fixes were required to support using the
+Docker Registry charm with Containerd. 
+
+This charm, if used, is now supported through standard relations. Before upgrading,
+remove any reference of the registry in the `custom_registries`
+[containerd charm configuration](/kubernetes/docs/container-runtime). 
+
+After upgrading, see the [docker registry](/kubernetes/docs/docker-registry)
+instructions for details of how to configure a registry.
 
 ### Admission control plugins
 
