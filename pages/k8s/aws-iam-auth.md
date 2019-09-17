@@ -92,7 +92,7 @@ on the [aws-iam-authenticator releases page][aws-iam-authenticator-releases].
 
 #### Setting up AWS Role
 
-The aws-iam-authenticator is able to use any arn for authentication. The easiest
+The aws-iam-authenticator is able to use any ARN for authentication. The easiest
 way to get started is to use an empty role as described in the
 [aws-iam documentation][aws-iam-role-creation].
  * Log into AWS console on IAM page
