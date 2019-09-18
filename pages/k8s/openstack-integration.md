@@ -26,15 +26,20 @@ granting permissions to dynamically create, for example, Cinder volumes.
 
 ### Installing
 
-When installing **Charmed Kubernetes** using the Juju bundle, you can add the openstack-integrator at
+When installing **Charmed Kubernetes** [using the Juju bundle][install], you can add the openstack-integrator at
 the same time by using the following overlay file
 ([download it here][asset-openstack-overlay]):
 
 ```yaml
+description: Charmed Kubernetes overlay to add native OpenStack support.
 applications:
   openstack-integrator:
+    annotations:
+      gui-x: "600"
+      gui-y: "300"
     charm: cs:~containers/openstack-integrator
     num_units: 1
+    trust: true
 relations:
   - ['openstack-integrator', 'kubernetes-master:openstack']
   - ['openstack-integrator', 'kubernetes-worker:openstack']
@@ -48,8 +53,12 @@ HA. To enable this, use this overlay instead ([download it here][asset-openstack
 applications:
   kubeapi-load-balancer: null
   openstack-integrator:
+    annotations:
+      gui-x: "600"
+      gui-y: "300"
     charm: cs:~containers/openstack-integrator
     num_units: 1
+    trust: true
 relations:
   - ['openstack-integrator', 'kubernetes-master:loadbalancer']
   - ['openstack-integrator', 'kubernetes-master:openstack']
@@ -254,3 +263,4 @@ juju debug-log --replay --include openstack-integrator/0
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://jujucharms.com/u/containers/openstack-integrator/
+[install]: /kubernetes/docs/install-manual
