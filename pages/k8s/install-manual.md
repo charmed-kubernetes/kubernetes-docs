@@ -3,7 +3,7 @@ wrapper_template: "base_docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Installing CDK"
+  title: "Installing Charmed Kubernetes"
   description: How to install and customise Charmed Kubernetes using Juju bundles.
 keywords: lxd, requirements, developer
 tags: [install]
