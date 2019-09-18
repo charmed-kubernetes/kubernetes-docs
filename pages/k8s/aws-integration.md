@@ -27,18 +27,20 @@ dynamically create, for example, EBS volumes.
 
 ### Installing
 
-If you use the [recommended install method][quickstart] with `conjure-up`, the
-integrator charm will be installed by default, and trust granted automatically.
-
-If you install **Charmed Kubernetes** using the Juju bundle, you can add the
+If you install **Charmed Kubernetes** [using the Juju bundle][install], you can add the
 aws-integrator at the same time by using the following overlay file ([download
 it here][asset-aws-overlay]):
 
 ```yaml
+description: Charmed Kubernetes overlay to add native AWS support.
 applications:
   aws-integrator:
+    annotations:
+      gui-x: "600"
+      gui-y: "300"
     charm: cs:~containers/aws-integrator
     num_units: 1
+    trust: true
 relations:
   - ['aws-integrator', 'kubernetes-master']
   - ['aws-integrator', 'kubernetes-worker']
@@ -280,7 +282,7 @@ If you are an AWS user, you may also be interested in how to
 
 <!-- LINKS -->
 
-[asset-aws-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/aws-overlay.yaml
+[asset-aws-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/aws-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [storage]: /kubernetes/docs/storage
 [ebs-info]: https://aws.amazon.com/ebs/features/
@@ -288,3 +290,4 @@ If you are an AWS user, you may also be interested in how to
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [aws-integrator-readme]: https://jujucharms.com/u/containers/aws-integrator/
 [aws-iam]: /kubernetes/docs/aws-iam-auth
+[install]: /kubernetes/docs/install-manual
