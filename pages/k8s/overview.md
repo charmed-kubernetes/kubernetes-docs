@@ -1,7 +1,7 @@
 ---
 wrapper_template: "base-docs.html"
 markdown_includes:
-  nav: "shared/_side-navigation.md"
+  nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "Overview"
   description: Understand how the Charmed Distribution of Kubernetes works.
