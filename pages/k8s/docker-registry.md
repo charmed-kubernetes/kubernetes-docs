@@ -29,12 +29,14 @@ scenarios are described in the charm readme. The most common scenario for
 
 If needed, consult the [quickstart guide][quickstart] to install
 the **Charmed Distribution of Kubernetes**<sup>&reg;</sup>. Then deploy
-and configure `docker-registry` as follows:
+and configure `docker-registry` as follows.  This example relates to a
+containerd charm; this can be replaced with any
+[container runtime][container-runtime].
 
 ```bash
 juju deploy ~containers/docker-registry
 juju add-relation docker-registry easyrsa:client
-juju add-relation docker-registry kubernetes-worker:docker-registry
+juju add-relation docker-registry containerd
 juju config docker-registry \
   auth-basic-user='admin' \
   auth-basic-password='password'

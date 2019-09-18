@@ -19,6 +19,42 @@ The notes are organised according to the upgrade path below, but also be aware t
 upgrade that spans more than one minor version may need to beware of notes in
 any of the intervening steps.
 
+<a  id="1.16"> </a>
+
+## Upgrading to 1.16
+
+### Docker Registry with Containerd
+
+Prior to 1.16, some fixes were required to support using the
+Docker Registry charm with Containerd. 
+
+This charm, if used, is now supported through standard relations. Before upgrading,
+remove any reference of the registry in the `custom_registries`
+[containerd charm configuration](/kubernetes/docs/container-runtime). 
+
+After upgrading, see the [docker registry](/kubernetes/docs/docker-registry)
+instructions for details of how to configure a registry.
+
+### Admission control plugins
+
+In **Charmed Kubernetes 1.16**, the API server parameter by which additional,
+non-default admission control plugins is specified has changed. The old
+parameter was `--admission-control`; the new parameter is `--enable-admission-plugins`.
+
+For example, prior to 1.16, The 'PodSecurityPolicy' admission plugin could be
+applied like this:
+```bash
+juju config kubernetes-master api-extra-args="admission-control=PodSecurityPolicy"
+```
+
+As of 1.16, this changes to:
+```bash
+juju config kubernetes-master api-extra-args="enable-admission-plugins=PodSecurityPolicy"
+```
+
+If using non-default admission plugins, be sure to upgrade your charm config
+accordingly after upgrading to 1.16.
+
 <a  id="1.15"> </a>
 
 ## Upgrading to 1.15
