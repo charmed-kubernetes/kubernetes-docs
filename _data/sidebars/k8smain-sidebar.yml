@@ -31,13 +31,13 @@ entries:
       output: web, pdf
       type: homepage
 
-    - title: Local install
-      url: /install-local
+    - title: Install
+      url: /install-manual
       output: web, pdf
       type: page
 
-    - title: Manual install
-      url: /install-manual
+    - title: Local install
+      url: /install-local
       output: web, pdf
       type: page
 
@@ -58,6 +58,11 @@ entries:
       
     - title: LXD
       url: /install-local
+      output: web, pdf
+      type: page
+      
+    - title: OpenStack
+      url: /openstack-integration
       output: web, pdf
       type: page
       
