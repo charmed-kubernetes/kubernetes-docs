@@ -47,18 +47,20 @@ dynamically create, for example, storage volumes.
 
 ### Installing
 
-If you use the [recommended install method][quickstart] with `conjure-up`, the
-integrator charm will be installed by default, and trust granted automatically.
-
-If you install **Charmed Kubernetes** using the Juju bundle, you can add the
+If you install **Charmed Kubernetes** [using the Juju bundle][install], you can add the
 gcp-integrator at the same time by using the following overlay file ([download
 it here][asset-gcp-overlay]):
 
 ```yaml
+description: Charmed Kubernetes overlay to add native GCP support.
 applications:
   gcp-integrator:
+    annotations:
+      gui-x: "600"
+      gui-y: "300"
     charm: cs:~containers/gcp-integrator
     num_units: 1
+    trust: true
 relations:
   - ['gcp-integrator', 'kubernetes-master']
   - ['gcp-integrator', 'kubernetes-worker']
@@ -316,9 +318,10 @@ juju debug-log --replay --include gcp-integrator/0
 [quickstart]: /kubernetes/docs/quickstart
 [owner]: https://console.cloud.google.com/iam-admin/iam
 [iam-roles]: https://cloud.google.com/compute/docs/access/iam
-[asset-gcp-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/gcp-overlay.yaml
+[asset-gcp-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/gcp-overlay.yaml
 [operations]: https://console.cloud.google.com/compute/operations
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [gcp-integrator-readme]: https://jujucharms.com/u/containers/gcp-integrator/
 [target-pool]: https://cloud.google.com/load-balancing/docs/target-pools
+[install]: /kubernetes/docs/install-manual
