@@ -324,4 +324,4 @@ juju debug-log --replay --include gcp-integrator/0
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [gcp-integrator-readme]: https://jujucharms.com/u/containers/gcp-integrator/
 [target-pool]: https://cloud.google.com/load-balancing/docs/target-pools
-[install]: [install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/docs/install-manual
