@@ -46,7 +46,7 @@ for more information.
 
 LXD containers used for hosting Kubernetes components require some specific profile settings. These
 profiles are now embedded in the charms themselves and applied when deployed, dramatically
-simplifying the process of installing Charmed Kubernetes on a single machine. See the 
+simplifying the process of installing Charmed Kubernetes on a single machine. See the
 [Local install documentation](/kubernetes/docs/local-install) for the updated instructions.
 
 - Improved Prometheus/Grafana integration
@@ -54,13 +54,13 @@ simplifying the process of installing Charmed Kubernetes on a single machine. Se
 The setup and configuration of Prometheus and Grafana has been significantly streamlined with
 new relations to allow the charms to manage the scraper job and dashboards. This means that
 monitoring can now be added by specifying a single overlay when deploying Charmed Kubernetes.
-Refer to the [updated documentation](https://ubuntu.com/kubernetes/docs/monitoring) for more information.
+Refer to the [updated documentation](/kubernetes/docs/monitoring) for more information.
 
 - Improved OpenStack integration
 
 The OpenStack Integrator charm can now replace the Kube API Load Balancer by providing a
 native OpenStack load balancer (Octavia or Neutron) to provide HA load balancing for the
-Kubernetes control plane. Refer to the [updated documentation](https://ubuntu.com/kubernetes/docs/openstack-integration)
+Kubernetes control plane. Refer to the [updated documentation](/kubernetes/docs/openstack-integration)
 for more information.
 
 - Docker Registry with Containerd
