@@ -205,10 +205,7 @@ juju deploy cs:~containers/docker
 juju relate docker kubernetes-worker-docker
 ```
 
-<a  id="1.14"> </a>
-
-
-### Clusters that previously ran etcd 2.3
+### Clusters which previously ran etcd 2.3
 
 If your cluster has run etcd 2.3 at any point in the past, then it is
 strongly recommended not to upgrade the etcd charm to revision 449. Doing so
@@ -217,6 +214,7 @@ https://bugs.launchpad.net/charm-etcd/+bug/1843497
 
 We recommend upgrading etcd directly to charm revision <TBD> instead.
 
+<a  id="1.14"> </a>
 
 ## Upgrading to 1.14
 
