@@ -78,7 +78,7 @@ Special thanks to [pierrop](https://github.com/pierrop) for contributing a fix t
 
 ## Known Issues
 
-The Kubernetes Dashboard for 1.16 is currently in beta. The last stable dashboard no longer works with Kubernetes 1.16.
+The Kubernetes Dashboard shipped with Charmed Kubernetes 1.16 is version 2.0.0-beta4. While unusual to ship a beta component with a stable release, in this case it was necessary, since the latest stable dashboard (v1.10.1) does not work with Kubernetes 1.16.
 
 # 1.15+ck1 Bugfix release
 
