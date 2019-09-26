@@ -28,14 +28,12 @@ When deploying **Charmed Kubernetes** manually via the
 [published Juju bundle][cdk-bundle], it is possible to make use of an overlay
 file to change the composition and configuration of the cluster.
 
-The following overlay file ([download][k8s-vault-yaml]) alters
+The following overlay file ([download][vault-pki-yaml]) alters
 **Charmed Kubernetes** to use **Vault** instead of EasyRSA:
 
 ```yaml
 applications:
-  easyrsa:
-    # it's currently not possible to remove an application in an overlay
-    num_units: 0
+  easyrsa: null
   vault:
     charm: cs:~openstack-charmers-next/vault
     num_units: 1
@@ -62,7 +60,6 @@ Save this to a file named `k8s-vault.yaml` and deploy with:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ./k8s-vault.yaml
-juju remove-application easyrsa
 ```
 
 Once the deployment settles, you will notice that several applications are in a
@@ -208,7 +205,7 @@ and the root token you generated previously.
 
 
 <!-- LINKS -->
-[k8s-vault-yaml]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/k8s-vault.yaml
+[vault-pki-yaml]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vault-pki-overlay.yaml
 [certs-doc]: /kubernetes/docs/certs-and-trust
 [encryption-doc]: /kubernetes/docs/encryption-at-rest
 [vault]: https://www.vaultproject.io
