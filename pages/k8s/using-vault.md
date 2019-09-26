@@ -56,10 +56,10 @@ relations:
   - percona-cluster:shared-db
 ```
 
-Save this to a file named `k8s-vault.yaml` and deploy with:
+Save this to a file named `vault-pki-overlay.yaml` and deploy with:
 
 ```bash
-juju deploy charmed-kubernetes --overlay ./k8s-vault.yaml
+juju deploy charmed-kubernetes --overlay ./vault-pki-overlay.yaml
 ```
 
 Once the deployment settles, you will notice that several applications are in a
