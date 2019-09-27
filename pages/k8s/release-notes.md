@@ -32,7 +32,7 @@ For details on using Kata Containers with Charmed Kubernetes, consult the [docum
 - AWS IAM support
 
 Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
-[AWS-IAM documentation](/kubernetes/docs/aws-iam) for details on how to use AWS credentials
+[AWS-IAM documentation](/kubernetes/docs/aws-iam-auth) for details on how to use AWS credentials
 to log in to your Charmed Kubernetes cluster.
 
 - SSL passthrough support
@@ -47,7 +47,7 @@ for more information.
 LXD containers used for hosting Kubernetes components require some specific profile settings. These
 profiles are now embedded in the charms themselves and applied when deployed, dramatically
 simplifying the process of installing Charmed Kubernetes on a single machine. See the
-[Local install documentation](/kubernetes/docs/local-install) for the updated instructions.
+[Local install documentation](/kubernetes/docs/install-local) for the updated instructions.
 
 - Improved Prometheus/Grafana integration
 
