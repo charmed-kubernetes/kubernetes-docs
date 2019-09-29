@@ -66,7 +66,7 @@ for more information.
 - Docker Registry with Containerd
 
 The Docker registry charm can now be related directly to the Containerd runtime charm.
-Refer to the [documentation][docker-registry] for instructions on how to deploy the charm.
+Refer to the [documentation](/kubernetes/docs/docker-registry) for instructions on how to deploy the charm.
 
 ## Fixes
 
