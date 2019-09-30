@@ -158,6 +158,12 @@ Please refer to the upstream
 [Kubernetes Audit Webhook Backend documentation][k8s-audit-backend] for more
 information about the audit webhook config format and related options.
 
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    Request edits to this page or file a bug <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/audit-logging.md" class="p-notification__action">here</a>
+  </p>
+</div>
+
 <!-- LINKS -->
 [k8s-audit]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/
 [k8s-audit-policy]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/#policy
