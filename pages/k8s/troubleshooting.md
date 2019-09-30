@@ -107,11 +107,11 @@ To collect comprehensive debug output from your Charmed Kubernetes cluster, inst
 [juju-crashdump](https://github.com/juju/juju-crashdump) on a computer that has the Juju client installed, with the current controller and model pointing at your Charmed Kubernetes deployment.
 
 ```bash
-sudo snap install juju-crashdump --channel edge
+sudo snap install juju-crashdump --classic --channel edge
 juju-crashdump -a debug-layer -a config
 ```
 
-Running juju-crashdump script will generate a tarball of debug information that includes systemd unit status and logs, Juju logs, charm unit data, and Kubernetes cluster information. It is recommended that you include this tarball when [filing a bug](https://bugs.launchpad.net/charmed-kubernetes). 
+Running the `juju-crashdump` script will generate a tarball of debug information that includes systemd unit status and logs, Juju logs, charm unit data, and Kubernetes cluster information. It is recommended that you include this tarball when [filing a bug](https://bugs.launchpad.net/charmed-kubernetes). 
 
 ## Common Problems
 
