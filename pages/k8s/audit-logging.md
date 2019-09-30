@@ -160,7 +160,7 @@ information about the audit webhook config format and related options.
 
 <div class="p-notification--information">
   <p class="p-notification__response">
-    Request edits to this page or file a bug <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/audit-logging.md" class="p-notification__action">here</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/audit-logging.md" class="p-notification__action">Edit this page</a> or <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
 
