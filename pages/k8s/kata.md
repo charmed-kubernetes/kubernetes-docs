@@ -79,7 +79,7 @@ juju add-relation kata:untrusted containerd:untrusted
 ### Deploying to AWS
 
 A convenient way to try Charmed Kubernetes with Kata Containers is to deploy it to AWS. 
-Because of the virtualisation requirements highlighted above, using Kata Container on
+Because of the virtualisation requirements highlighted above, using Kata Containers on
 AWS requires that a special instance type be used. To deploy Charmed Kubernetes with 
 Kata Containers on AWS, write the following overlay to a file:
 
