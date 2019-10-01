@@ -4,7 +4,7 @@ markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "Logging"
-  description: Learn about the tools and techniques to examine cluster logs as described in the Kubernetes documentation.
+  description: Learn about the tools and techniques to examine infrastructure and cluster logs.
 keywords: juju, logging, debug-log
 tags: [operating]
 sidebar: k8smain-sidebar
@@ -16,19 +16,24 @@ toc: False
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-This documentation assumes you are using version 2.4.0 or later of <strong>Juju</strong> . If you are using an earlier version you should check the  <a href="https://docs.jujucharms.com/stable/en/troubleshooting-logs">  relevant <emphasis>Juju</emphasis> documentation </a> as some of the associated  commands have changed.
+This documentation assumes you are using version 2.4.0 or later of
+<strong>Juju</strong>. If you are using an earlier version you should check
+the <a href="https://docs.jujucharms.com/stable/en/troubleshooting-logs">
+relevant <emphasis>Juju</emphasis> documentation</a> as some of the associated
+commands have changed.
   </p>
 </div>
 
-Broadly, there are two types of logs you may be interested in. On cluster or node level;
-for the applications you are running inside your cluster, and at an infrastructure level, the
-applications which are responsible for running the cluster itself. As
-**Charmed Kubernetes** is pure Kubernetes, you can
-use any of the tools and techniques to examine cluster logs as
-[described in the Kubernetes documentation][k8-logs].
+Broadly, there are two types of logs you may be interested in. On cluster or
+node level; for the applications you are running inside your cluster, and at an
+infrastructure level, the applications which are responsible for running the
+cluster itself. As **Charmed Kubernetes** is pure Kubernetes, you can use
+any of the tools and techniques to examine cluster logs as [described in the
+Kubernetes documentation][k8-logs]. Additionally, you can deploy Graylog
+alongside your cluster - please see the [section on Graylog below](#graylog).
 
 For the infrastructure, your **Charmed Kubernetes** deployment has centralised
-logging set up as default. Each unit in your cluster automatically sends
+logging set up by default. Each unit in your cluster automatically sends
 logging information to the controller based on the current logging level. You
 can use the **Juju** command line to easily inspect these logs and to change
 the logging level, as explained below.
@@ -41,7 +46,8 @@ To view the logs from the current controller and model, simply run:
 juju debug-log
 ```
 
-The default behaviour is to show the last 10 entries and to tail the log (so you will need to terminate the command with `Ctrl-C`).
+The default behaviour is to show the last 10 entries and to tail the log (so
+you will need to terminate the command with `Ctrl-C`).
 
 The output is in the form:
 
@@ -156,10 +162,114 @@ the following:
 - Setting up remote logging
 - More advanced filtering and additional examples
 
+<a id="graylog"> </a>
+
+## Cluster logs with Graylog
+
+The recommended way to retrive logs from your cluster is to use a combination
+of **Elasticsearch**, **Graylog** and **Filebeat**. These provide a dashboard
+from which you can monitor both machine-level and cluster-level logs.
+See the [quickstart guide][quickstart] for more details on installing **Charmed Kubernetes**.
+
+### Installation
+
+You can install **Charmed Kubernetes** with Graylog logging using the Juju
+bundle along with the following overlay file
+([download it here][logging-egf-overlay]):
+
+```yaml
+applications:
+  apache2:
+    charm: cs:bionic/apache2
+    num_units: 1
+    expose: true
+    options:
+      enable_modules: "headers proxy_html proxy_http"
+  elasticsearch:
+    charm: cs:bionic/elasticsearch
+    constraints: mem=7G root-disk=16G
+    num_units: 1
+    options:
+      apt-repository: "deb https://artifacts.elastic.co/packages/6.x/apt stable main"
+  filebeat:
+    charm: cs:bionic/filebeat
+    options:
+      install_sources: "deb https://artifacts.elastic.co/packages/6.x/apt stable main"
+      kube_logs: True
+  graylog:
+    charm: cs:bionic/graylog
+    constraints: mem=7G root-disk=16G
+    num_units: 1
+    options:
+      channel: "3/stable"
+  mongodb:
+    charm: cs:bionic/mongodb
+    num_units: 1
+    options:
+      extra_daemon_options: "--bind_ip_all"
+relations:
+  - ["apache2:reverseproxy", "graylog:website"]
+  - ["graylog:elasticsearch", "elasticsearch:client"]
+  - ["graylog:mongodb", "mongodb:database"]
+  - ["filebeat:beats-host", "kubernetes-master:juju-info"]
+  - ["filebeat:beats-host", "kubernetes-worker:juju-info"]
+  - ["filebeat:logstash", "graylog:beats"]
+```
+
+To use this overlay with the **Charmed Kubernetes** bundle, specify it
+during deploy like this:
+
+```bash
+juju deploy charmed-kubernetes --overlay ~/path/logging-egf-overlay.yaml
+```
+
+If you wish to add Graylog logging to an existing deployment, you can export a
+bundle of your current environment and then redeploy it on top of itself with
+the overlay:
+
+```bash
+juju export-bundle --filename mybundle.yaml
+juju deploy ./mybundle.yaml --overlay ~/path/logging-egf-overlay.yaml
+```
+
+At this point, all the applications can communicate with each other, but we
+need to configure the reverse proxy to access the Graylog web interface:
+
+```bash
+juju config apache2 vhost_http_template="$(base64 <vhost-tmpl>)"
+```
+
+A sample reverse proxy template can be found at https://raw.githubusercontent.com/conjure-up/spells/master/charmed-kubernetes/addons/graylog/steps/01_install-graylog/graylog-vhost.tmpl.
+
+### Using Graylog
+
+Now that we have everything configured, you'll need to know the web server IP
+address and Graylog admin password so you can login:
+
+```bash
+juju status --format yaml apache2/0 | grep public-address
+    public-address: <your-apache2-ip>
+juju run-action --wait graylog/0 show-admin-password
+    admin-password: <your-graylog-password>
+```
+
+Browse to `http://<your-apache2-ip>` and login with `admin` as the username and `<your-graylog-password>` as the password. Note: if the interface is not immediately available, please wait as the reverse proxy configuration may take up to 5 minutes to complete.
+
+Once logged in, head to the `Sources` tab to get an overview of the logs collected from our K8s master and workers:
+
+![Screen Shot 2019-06-13 at 9 31 54 AM](https://user-images.githubusercontent.com/4576822/59441924-ee21b580-8dbe-11e9-84bd-07676bf2d61f.png)
+
+Drill into those logs by clicking the `System / Inputs` tab and selecting `Show received messages` for the filebeat input:
+
+![Screen Shot 2019-06-13 at 9 39 20 AM](https://user-images.githubusercontent.com/4576822/59442102-3214ba80-8dbf-11e9-8f63-34da997bfb52.png)
+
+From here, you may want to play around with various filters or setup Graylog dashboards to help identify the events that are most important to you. Check out the [Graylog Dashboard](http://docs.graylog.org/en/3.0/pages/dashboards.html) docs for details on customizing your view.
+
 <!--LINKS -->
 
 [juju-logging]: https://docs.jujucharms.com/stable/en/troubleshooting-logs
 [k8-logs]: https://kubernetes.io/docs/concepts/cluster-administration/logging/
+[logging-egf-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/logging-egf-overlay.yaml
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
