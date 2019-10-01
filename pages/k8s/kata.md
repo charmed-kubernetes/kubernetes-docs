@@ -31,6 +31,10 @@ Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sand
 qemu-vanilla-system-x86_64: failed to initialize KVM: No such file or directory
 ```
 
+To fulfill this requirement, using Kata Containers on a public cloud may require a
+special instance type be used for the worker nodes. See the "Deploying to AWS" section
+below for an example.
+
 ## Deploying Kata Containers
 
 Kata Containers can be deployed to any **Charmed Kubernetes** cluster that's
@@ -74,15 +78,16 @@ juju add-relation kata:untrusted containerd:untrusted
 
 ### Deploying to AWS
 
-A good way to get started with Kata Containers is to deploy it to AWS.  First,
-bootstrap Juju to an AWS region of choice.  Once this is done, write the following
-YAML overlay for Juju:
+A convenient way to try Charmed Kubernetes with Kata Containers is to deploy it to AWS. 
+Because of the virtualisation requirements highlighted above, using Kata Container on
+AWS requires that a special instance type be used. To deploy Charmed Kubernetes with 
+Kata Containers on AWS, write the following overlay to a file:
 
 ```yaml
 applications:
   kubernetes-worker:
     constraints: instance-type=i3.metal
-    num_units: 3
+    num_units: 1
   kata:
     charm: cs:~containers/kata
 relations:
@@ -100,8 +105,9 @@ Once written, deploy it with:
 juju deploy charmed-kubernetes --overlay kata.yaml
 ```
 
-Due to the high costs of `i3.metal` instance types, it might be wise to tune down
-the `num_units` field if you're just experimenting.
+Due to the high costs of `i3.metal` instance types, the example above deploys only one
+worker node. Feel free to edit the `num_units` field to suit your needs, or add more
+workers later with the `juju add-unit kubernetes-worker` command.
 
 ## Deploying pods to Kata
 
