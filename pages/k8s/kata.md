@@ -72,6 +72,37 @@ juju add-relation kata kubernetes-worker
 juju add-relation kata:untrusted containerd:untrusted
 ```
 
+### Deploying to AWS
+
+A good way to get started with Kata Containers is to deploy it to AWS.  First,
+bootstrap Juju to an AWS region of choice.  Once this is done, write the following
+YAML overlay for Juju:
+
+```yaml
+applications:
+  kubernetes-worker:
+    constraints: instance-type=i3.metal
+    num_units: 3
+  kata:
+    charm: cs:~containers/kata
+relations:
+- - kata:untrusted
+  - containerd:untrusted
+- - kata
+  - kubernetes-master
+- - kata
+  - kubernetes-worker
+```
+
+Once written, deploy it with:
+
+```bash
+juju deploy charmed-kubernetes --overlay kata.yaml
+```
+
+Due to the high costs of `i3.metal` instance types, it might be wise to tune down
+the `num_units` field if you're just experimenting.
+
 ## Deploying pods to Kata
 
 ### Untrusted annotation
