@@ -79,9 +79,9 @@ juju add-relation kata:untrusted containerd:untrusted
 ### Deploying to AWS
 
 A convenient way to try Charmed Kubernetes with Kata Containers is to deploy it to AWS. 
-Because of the virtualisation requirements highlighted above, using Kata Containers on
-AWS requires that a special instance type be used. To deploy Charmed Kubernetes with 
-Kata Containers on AWS, write the following overlay to a file:
+A special AWS instance type is required to provide the necessary virtualisation support.
+To deploy Charmed Kubernetes with Kata Containers on AWS, write the following overlay
+to a file or [download it here][kata-aws-overlay.yaml]:
 
 ```yaml
 applications:
@@ -102,7 +102,7 @@ relations:
 Once written, deploy it with:
 
 ```bash
-juju deploy charmed-kubernetes --overlay kata.yaml
+juju deploy charmed-kubernetes --overlay kata-aws-overlay.yaml
 ```
 
 Due to the high costs of `i3.metal` instance types, the example above deploys only one
@@ -161,3 +161,4 @@ spec:
 
 [containerd]: /kubernetes/docs/container-runtime
 [kata]: https://katacontainers.io
+[kata-aws-overlay.yaml]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/kata-aws-overlay.yaml
