@@ -401,3 +401,13 @@ such as timeouts or errors with the webhook.
 ```bash
 juju run --unit kubernetes-master/0 -- journalctl -u snap.kube-apiserver.daemon.service
 ```
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/troubleshooting.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

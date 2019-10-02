@@ -158,14 +158,27 @@ Please refer to the upstream
 [Kubernetes Audit Webhook Backend documentation][k8s-audit-backend] for more
 information about the audit webhook config format and related options.
 
+<<<<<<< HEAD
 <div class="p-notification--information">
   <p class="p-notification__response">
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/audit-logging.md" class="p-notification__action">Edit this page</a> or <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
 
+=======
+>>>>>>> master
 <!-- LINKS -->
 [k8s-audit]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/
 [k8s-audit-policy]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/#policy
 [k8s-audit-log]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/#log-backend
 [k8s-audit-backend]: https://kubernetes.io/docs/tasks/debug-application-cluster/audit/#webhook-backend
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/audit-logging.md" class="p-notification__action">edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>
