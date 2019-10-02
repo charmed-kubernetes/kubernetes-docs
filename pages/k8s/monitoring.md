@@ -168,6 +168,36 @@ juju config nrpe nagios_master=<ip-address-of-nagios>
 
 See the [External Nagios][external-nagios] section of the NRPE charm readme for more information.
 
+### Nagios configuration notes
+
+It should be noted that the default Nagios configuration includes monitoring swap.
+Swap is diabled on Kubernetes nodes. Information about this can be found in
+[Kubernetes issue 53533 about swap][swap-issue].
+In order to remove the Nagios error about swap on the Kubernetes nodes,
+disable swap reporting in NRPE.
+
+```bash
+juju config nrpe swap=''
+juju config nrpe swap_activity=''
+```
+
+Note that this will disable swap reporting on the entire subordinate. This
+means there will be no swap reporting on any application related to NRPE.
+This can be made more selective by deploying multiple NRPE charms and
+relating them to different applications. For example:
+
+```bash
+juju deploy nrpe --series bionic
+juju deploy nrpe --series bionic k8s-nrpe
+juju add-relation k8s-nrpe kubernetes-master
+juju add-relation k8s-nrpe kubernetes-worker
+juju add-relation nrpe etcd
+juju add-relation nrpe easyrsa
+juju add-relation nrpe kubeapi-load-balancer
+juju config k8s-nrpe swap=''
+juju config k8s-nrpe swap_activity=''
+```
+
 ## Monitoring with **Elasticsearch**
 
 Elasticsearch ([https://www.elastic.co/][elastic]) is a popular monitoring application which
@@ -219,3 +249,4 @@ juju status kibana --format yaml| grep public-address
 [nagios]: https://www.nagios.org/
 [elastic]: https://www.elastic.co/
 [external-nagios]: https://jujucharms.com/nrpe/
+[swap-issue]: https://github.com/kubernetes/kubernetes/issues/53533
