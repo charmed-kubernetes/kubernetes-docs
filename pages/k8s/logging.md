@@ -166,14 +166,14 @@ the following:
 
 ## Cluster logs with Graylog
 
-The recommended way to retrive logs from your cluster is to use a combination
+The recommended way to retrieve logs from your cluster is to use a combination
 of **Elasticsearch**, **Graylog** and **Filebeat**. These provide a dashboard
 from which you can monitor both machine-level and cluster-level logs.
 See the [quickstart guide][quickstart] for more details on installing **Charmed Kubernetes**.
 
 ### Installation
 
-You can install **Charmed Kubernetes** with Graylog logging using the Juju
+You can install **Charmed Kubernetes** with Graylog logging using the **Juju**
 bundle along with the following overlay file
 ([download it here][logging-egf-overlay]):
 
@@ -232,14 +232,23 @@ juju export-bundle --filename mybundle.yaml
 juju deploy ./mybundle.yaml --overlay ~/path/logging-egf-overlay.yaml
 ```
 
-At this point, all the applications can communicate with each other, but we
-need to configure the reverse proxy to access the Graylog web interface:
+At this point, all the applications can communicate with each other. To enable
+the Graylog web interface, configure the reverse proxy with the following
+template ([download it here][graylog-vhost]):
 
 ```bash
-juju config apache2 vhost_http_template="$(base64 <vhost-tmpl>)"
+<Location "/">
+    RequestHeader set X-Graylog-Server-URL "http://{{servername}}/"
+    ProxyPass http://{{graylog_web}}/
+    ProxyPassReverse http://{{graylog_web}}/
+</Location>
 ```
 
-A sample reverse proxy template can be found at https://raw.githubusercontent.com/conjure-up/spells/master/charmed-kubernetes/addons/graylog/steps/01_install-graylog/graylog-vhost.tmpl.
+Use the above template to configure `apache2` like this:
+
+```bash
+juju config apache2 vhost_http_template="$(base64 ~/path/graylog-vhost.tmpl)"
+```
 
 ### Using Graylog
 
@@ -253,23 +262,33 @@ juju run-action --wait graylog/0 show-admin-password
     admin-password: <your-graylog-password>
 ```
 
-Browse to `http://<your-apache2-ip>` and login with `admin` as the username and `<your-graylog-password>` as the password. Note: if the interface is not immediately available, please wait as the reverse proxy configuration may take up to 5 minutes to complete.
+Browse to `http://<your-apache2-ip>` and login with `admin` as the username
+and `<your-graylog-password>` as the password. Note: if the interface is not
+immediately available, please wait as the reverse proxy configuration may take
+up to 5 minutes to complete.
 
-Once logged in, head to the `Sources` tab to get an overview of the logs collected from our K8s master and workers:
+Once logged in, head to the `Sources` tab to get an overview of the logs
+collected from our K8s master and workers:
 
 ![Screen Shot 2019-06-13 at 9 31 54 AM](https://user-images.githubusercontent.com/4576822/59441924-ee21b580-8dbe-11e9-84bd-07676bf2d61f.png)
 
-Drill into those logs by clicking the `System / Inputs` tab and selecting `Show received messages` for the filebeat input:
+Drill into those logs by clicking the `System / Inputs` tab and selecting
+`Show received messages` for the filebeat input:
 
 ![Screen Shot 2019-06-13 at 9 39 20 AM](https://user-images.githubusercontent.com/4576822/59442102-3214ba80-8dbf-11e9-8f63-34da997bfb52.png)
 
-From here, you may want to play around with various filters or setup Graylog dashboards to help identify the events that are most important to you. Check out the [Graylog Dashboard](http://docs.graylog.org/en/3.0/pages/dashboards.html) docs for details on customizing your view.
+From here, you may want to explore various filters or setup Graylog dashboards
+to help identify the events that are most important to you. Check out the
+[Graylog Dashboard docs][graylog-dashboards] for details on customizing your
+view.
 
 <!--LINKS -->
 
 [juju-logging]: https://docs.jujucharms.com/stable/en/troubleshooting-logs
 [k8-logs]: https://kubernetes.io/docs/concepts/cluster-administration/logging/
 [logging-egf-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/logging-egf-overlay.yaml
+[graylog-vhost]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/master/assets/graylog-vhost.tmpl
+[graylog-dashboards]: http://docs.graylog.org/en/3.0/pages/dashboards.html
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
