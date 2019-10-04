@@ -68,6 +68,13 @@ for more information.
 The Docker registry charm can now be related directly to the Containerd runtime charm.
 Refer to the [documentation](/kubernetes/docs/docker-registry) for instructions on how to deploy the charm.
 
+- Renamed default container registry
+
+The Canonical container image registry has a new, firewall-friendly name:
+`image-registry.canonical.com:5000` is now `rocks.canonical.com`. The old URL
+is an alias for `rocks` and will continue to work. However, the default
+configuration for current charms has changed to the new URL.
+
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
