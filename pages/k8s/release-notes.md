@@ -14,6 +14,18 @@ toc: False
 ---
 
 
+# 1.17
+
+### December 10, 2019 -  [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
+## What's new
+
+## Fixes
+
+## Known Issues
+
 # 1.16
 
 ### September 27, 2019 -  [charmed-kubernetes-252](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-252/archive/bundle.yaml)
