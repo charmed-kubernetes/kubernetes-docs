@@ -148,7 +148,9 @@ The logging level can be set like this:
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Caution!</span>
-    It isn't a good idea to leave the logging level at 'TRACE' for any longer than you actually need to. Verbose logging not only consumes network bandwidth but also fills up the database on the controller.
+    It isn't a good idea to leave the logging level at 'TRACE' for any longer than
+    you actually need to. Verbose logging not only consumes network bandwidth but
+    also fills up the database on the controller.
   </p>
 </div>
 
@@ -263,23 +265,29 @@ juju run-action --wait graylog/0 show-admin-password
 ```
 
 Browse to `http://<your-apache2-ip>` and login with `admin` as the username
-and `<your-graylog-password>` as the password. Note: if the interface is not
-immediately available, please wait as the reverse proxy configuration may take
-up to 5 minutes to complete.
+and `<your-graylog-password>` as the password. 
+
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+    If the interface is not immediately available, please wait as the reverse
+    proxy configuration may take up to 5 minutes to complete.
+  </p>
+</div>
 
 Once logged in, head to the `Sources` tab to get an overview of the logs
 collected from our K8s master and workers:
 
-![Screen Shot 2019-06-13 at 9 31 54 AM](https://user-images.githubusercontent.com/4576822/59441924-ee21b580-8dbe-11e9-84bd-07676bf2d61f.png)
+![Screen Shot of graylog](https://assets.ubuntu.com/v1/5b8c576e-graylog-1.png)
 
 Drill into those logs by clicking the `System / Inputs` tab and selecting
 `Show received messages` for the filebeat input:
 
-![Screen Shot 2019-06-13 at 9 39 20 AM](https://user-images.githubusercontent.com/4576822/59442102-3214ba80-8dbf-11e9-8f63-34da997bfb52.png)
+![Screen Shot of graylog](https://assets.ubuntu.com/v1/ee6de56c-graylog-2.png)
 
 From here, you may want to explore various filters or setup Graylog dashboards
 to help identify the events that are most important to you. Check out the
-[Graylog Dashboard docs][graylog-dashboards] for details on customizing your
+[Graylog Dashboard docs][graylog-dashboards] for details on customising your
 view.
 
 <!--LINKS -->
