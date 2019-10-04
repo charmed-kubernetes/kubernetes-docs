@@ -21,8 +21,11 @@ Generic notes about charms. Possible links to upgrades?
 ## Core charms
 
 [kubernetes-master][]
+
 [kubernetes-worker][]
+
 [kubeapi-load-balancer][]
+
 [etcd][]
 ...
 
@@ -36,7 +39,9 @@ charms (Flannel, Calico, etc.)
 These charms are specific to particular clouds
 
 [aws-integrator][]
+
 [gcp-integrator][]
+
 [openstack-integrator][]
 
 
