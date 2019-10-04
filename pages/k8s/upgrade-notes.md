@@ -212,7 +212,7 @@ strongly recommended not to upgrade the etcd charm to revision 449. Doing so
 will cause etcd to lose all of its data. For details, see
 https://bugs.launchpad.net/charm-etcd/+bug/1843497
 
-We recommend upgrading etcd directly to charm revision <TBD> instead.
+We recommend upgrading etcd directly to charm revision 460 instead.
 
 <a  id="1.14"> </a>
 
