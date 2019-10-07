@@ -23,8 +23,8 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 - Nagios checks
 
-Added nagios checks for kubernetes master and worker charm. These checks further enhance the monitoring and
-reporting available via nagios by adding checks for node registration and API server connectivity.
+Added Nagios checks for kubernetes master and worker charm. These checks further enhance the monitoring and
+reporting available via Nagios by adding checks for node registration and API server connectivity.
 
 ## Fixes
 
