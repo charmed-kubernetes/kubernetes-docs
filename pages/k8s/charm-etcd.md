@@ -24,8 +24,11 @@ xxx xxxxxx xx xxxxxx xxxxx xxxxxx xxxxx xxx
 
 **Type**: boolean &nbsp;&nbsp;&nbsp; **Default**: True
 
+<pre>
 The service binds to all network interfaces if true. The service binds
 only to the first found bind address of each relation if false
+
+</pre>
 
 ---
 
@@ -33,20 +36,27 @@ only to the first found bind address of each relation if false
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**: 2.3/stable
 
+<pre>
 The snap channel to install from
+</pre>
+
 ---
 
 ### management_port
 
 **Type**: int &nbsp;&nbsp;&nbsp; **Default**: 2380
 
+<pre>
 Port to run the ETCD Management service
+</pre>
+
 ---
 
 ### nagios_context
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**: juju
 
+<pre>
 Used by the nrpe subordinate charms.
 A string that will be prepended to instance name to set the host name
 in nagios. So for instance the hostname would be something like:
@@ -54,14 +64,19 @@ in nagios. So for instance the hostname would be something like:
 If you're running multiple environments with the same services in them
 this allows you to differentiate between them.
 
+</pre>
+
 ---
 
 ### nagios_servicegroups
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
+<pre>
 A comma-separated list of nagios servicegroups.
 If left empty, the nagios_context will be used as the servicegroup
+
+</pre>
 
 ---
 
@@ -69,14 +84,20 @@ If left empty, the nagios_context will be used as the servicegroup
 
 **Type**: int &nbsp;&nbsp;&nbsp; **Default**: 2379
 
+<pre>
 Port to run the public ETCD service on
+</pre>
+
 ---
 
 ### snap_proxy
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
+<pre>
 DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration settings. HTTP/HTTPS web proxy for Snappy to use when accessing the snap store.
+
+</pre>
 
 ---
 
@@ -84,7 +105,10 @@ DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration setting
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
+<pre>
 DEPRECATED. Use snap-store-proxy model configuration setting. The address of a Snap Store Proxy to use for snaps e.g. http://snap-proxy.example.com
+
+</pre>
 
 ---
 
@@ -92,11 +116,14 @@ DEPRECATED. Use snap-store-proxy model configuration setting. The address of a S
 
 **Type**: string &nbsp;&nbsp;&nbsp; **Default**: max
 
+<pre>
 How often snapd handles updates for installed snaps. Set to an empty
 string to check 4x per day. Set to "max" (the default) to check once per
 month based on the charm deployment date. You may also set a custom
 string as described in the 'refresh.timer' section here:
   https://forum.snapcraft.io/t/system-options/87
+
+</pre>
 
 ---
 
