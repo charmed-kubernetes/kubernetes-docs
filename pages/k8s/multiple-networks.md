@@ -3,7 +3,7 @@ wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Multiple Networks"
+  title: "Using Multiple Networks"
   description: Using multiple networks with Charmed Kubernetes.
 keywords: juju, network, networking
 tags: [operating]
