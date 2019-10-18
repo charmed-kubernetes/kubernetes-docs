@@ -20,32 +20,33 @@ different networks explicitly.
 Currently, multiple networks are only supported in Juju on MAAS.
 
 The rest of this document assumes you're familiar with the basics of MAAS and
-Juju. If you're not, you can familiarize yourself with them by reading the
+Juju. If you're not, you can familiarise yourself with them by reading the
 [MAAS documentation](https://maas.io/docs) and
 [Juju documentation](https://jaas.ai/docs).
 
-## Configuring MAAS
+## Configure MAAS
 
 Preconditions:
-1. You have MAAS nodes that are attached to multiple logical networks (separate
+
+-   You have MAAS nodes that are attached to multiple logical networks (separate
 physical networks or VLANs).
-2. You have commissioned the nodes in MAAS.
+-   You have commissioned the nodes in MAAS.
 
 ### Create spaces in MAAS
 
-In the Subnets tab of the MAAS GUI, click Add -> Space to create spaces as
+In the 'Subnets' tab of the MAAS GUI, click `Add -> Space` to create spaces as
 needed. To add subnets to a space, enter the subnet's VLAN configuration page
-(click in the VLAN column on the main Subnets page) and assign it to the space.
+(click in the 'VLAN' column on the main Subnets page) and assign it to the space.
 
 ### Enable network interfaces on nodes
 
 By default, only the first network interface is enabled on each node. You need
 to manually enable the rest.
 
-Go to the Nodes tab, click on a node, and click the Interfaces tab. Set each
-interface's IP mode to `Auto assign`.
+Go to the 'Nodes' tab, click on a node, and click the 'Interfaces' tab. Set
+each interface's IP mode to `Auto assign`.
 
-## Configuring Juju
+## Configure Juju
 
 If you've already bootstrapped a Juju controller, use `juju reload-spaces` to
 pick up the changes from MAAS. Otherwise, bootstrap a new Juju controller and
@@ -54,7 +55,7 @@ the new controller should pick up the spaces automatically.
 Run `juju spaces` and make sure you see the network spaces and subnet
 assignments that you're expecting to see.
 
-## Using bindings to direct network traffic
+## Use bindings to direct network traffic
 
 Using bindings, you can direct specific kinds of network traffic in your Charmed
 Kubernetes cluster to go through specific networks.
