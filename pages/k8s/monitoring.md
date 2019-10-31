@@ -119,7 +119,7 @@ scraping, and then setting up Grafana to use this data in interesting ways.
 #### Installing kube-state-metrics
 
 The Charmed Kubernetes team provides a
-juju k8s charm][kube-state-metrics-charm] to install
+[juju k8s charm][kube-state-metrics-charm] to install
 [kube-state-metrics][kube-state-metrics]. It can also be installed by
 following the instructions on the
 [kube-state-metrics project page][kube-state-metrics]. To install with Juju
@@ -278,6 +278,8 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 [quickstart]: /kubernetes/docs/quickstart
 [nagios]: https://www.nagios.org/
 [external-nagios]: https://jujucharms.com/nrpe/
+[kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics
+[kube-state-metrics-charm]: https://github.com/charmed-kubernetes/charm-kube-state-metrics
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
