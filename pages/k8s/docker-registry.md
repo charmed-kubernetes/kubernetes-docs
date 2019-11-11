@@ -112,20 +112,6 @@ Login Succeeded
 ...
 ```
 
-## Docker on Kubernetes workers
-
-**Docker** on the Kubernetes workers needs to talk to the registry securely. By
-relating `docker-registry` and `kubernetes-worker`, appropriate certificates
-are added to `/etc/docker/certs.d` on all workers.
-
-Verify basic authentication is working from a Kubernetes worker:
-
-```bash
-juju run --unit kubernetes-worker/0 "docker login -u admin -p password $REGISTRY"
-Login Succeeded
-...
-```
-
 ## Kubernetes images
 
 Make a note of the Docker images that the registry will need to provide.
