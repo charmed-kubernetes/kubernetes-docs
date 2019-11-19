@@ -8,7 +8,7 @@ context:
 keywords: snaps, upgrading
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: snap-refresh.html
+permalink: snap-coherence.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -45,8 +45,8 @@ documentation for details on this method of deployment.
 
 Once deployed, the proxy will need to be registered. This process generates a
 snap store id that will be used by **Charmed Kubernetes** charms. Registration
-is described in the above doc links depending on your chosen method of
-deployment.
+is described in the documentation available at the given links depending on
+your chosen method of deployment.
 
 The remainder of this guide assumes a snap store proxy is available in your
 environment in a `snap-store-proxy/0` unit.
@@ -54,7 +54,7 @@ environment in a `snap-store-proxy/0` unit.
 ## Configure charms to use the proxy
 
 Charm applications must be configured to use the proxied snap store. This is
-done by acknowledging the signed assertion that allows snapd to trust the
+done by acknowledging the signed assertion that allows `snapd` to trust the
 proxy, followed by setting the core snap proxy to the new store id:
 
 ```bash
