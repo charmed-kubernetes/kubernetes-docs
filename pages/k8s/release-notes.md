@@ -13,6 +13,44 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.17
+
+### December xx, 2019 - [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
+## What's new
+
+- CIS Benchmark
+
+The **Center for Internet Security (CIS)** maintains a [Kubernetes benchmark][cis-benchmark]
+that is helpful to ensure clusters are deployed in accordance with security best practices.
+See [benchmarking](/kubernetes/docs/benchmarking) documentation to check how well a cluster
+complies with this benchmark.
+
+- Snap Coherence
+
+Beginning with Charmed Kubernetes 1.17, revisions of snap packages used by `kubernetes-master` and
+`kubernetes-worker` charms can be controlled by a snap store proxy. See
+[snap coherence](/kubernetes/docs/snap-coherence) documentation for details on this feature.
+
+- Feature X
+
+Feature description.
+
+- Feature Y
+
+Feature description.
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.17](https://launchpad.net/charmed-kubernetes/+milestone/1.17).
+
+## Known Issues
+
+Known issues/workarounds for this release.
+
 # 1.16+ck2 Bugfix release
 
 ### November 22, 2019 - [charmed-kubernetes-316](https://api.jujucharms.com/charmstore/v5/bundle/charmed-kubernetes-316/archive/bundle.yaml)
@@ -380,6 +418,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [cni-calico]: /kubernetes/docs/cni-calico
 [containerd]: /kubernetes/docs/containerd
 [container-runtime]: /kubernetes/docs/container-runtime
+[cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
