@@ -17,7 +17,7 @@ The **Center for Internet Security (CIS)** maintains a
 [Kubernetes benchmark][cis-benchmark] that is helpful to ensure clusters are
 deployed in accordance with security best practices. **Charmed Kubernetes**
 includes support for the [kube-bench][] utility, which reports how well a
-cluster complies with the benchmark.
+cluster complies with this benchmark.
 
 ## Run kube-bench
 
@@ -73,7 +73,7 @@ Specify the `kube-bench` release to install and run. The default value of
 `upstream` will compile and use a local kube-bench binary built from the master
 branch of the [upstream repository][kube-bench].
 
-## Example Use Case
+## Example use case
 
 Benchmark the `kubernetes-worker` charm using a custom configuration archive:
 
@@ -135,7 +135,7 @@ results:
 status: completed
 ```
 
-## Remove Applied Remediations
+## Remove applied remediations
 
 The `cis-benchmark` action does not track individual remediations that it
 applies. However, it does support removing all configuration that it may have
@@ -162,7 +162,7 @@ status: completed
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/snap-refresh.md" class="p-notification__action">edit this page</a> 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/benchmarking.md" class="p-notification__action">edit this page</a> 
     or 
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
