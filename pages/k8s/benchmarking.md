@@ -23,8 +23,8 @@ cluster complies with this benchmark.
 
 The `kubernetes-master`, `kubernetes-worker`, and `etcd` charms used by
 **Charmed Kubernetes** include a `cis-benchmark` action that will install,
-configure, and run the benchmark on respective components. Run this action
-on the units you wish to test with the following:
+configure, and run the benchmark on the respective components. Run this
+action on the units you wish to test with the following:
 
 ```bash
 juju run-action --wait etcd/0 cis-benchmark
@@ -52,7 +52,7 @@ status: completed
 ## Configure kube-bench
 
 The following parameters can be adjusted to change the default action behavior.
-See the descriptions in the [actions.yaml][layer-cis-benchmark-config] for
+See the descriptions in the [actions.yaml][layer-cis-benchmark-config] file for
 additional supported values beyond the defaults.
 
 ### apply
