@@ -34,6 +34,12 @@ Beginning with Charmed Kubernetes 1.17, revisions of snap packages used by `kube
 `kubernetes-worker` charms can be controlled by a snap store proxy. See
 [snap coherence](/kubernetes/docs/snap-coherence) documentation for details on this feature.
 
+- Nagios checks
+
+Additional Nagios checks have been added for the `kubernetes-master` and `kubernetes-worker` charms.
+These checks enhance the monitoring and reporting available via Nagios by collecting data on node
+registration and API server connectivity.
+
 - Feature X
 
 Feature description.
