@@ -47,7 +47,7 @@ This allows for more information to be gathered for display in Prometheus dashbo
 - Storage Classes created by default
 Storage classes will now be created if the `kubernetes-master` charm is related to an
 integrator charm. These classes are for AWS, GCE, Openstack, and Azure and named cdk-ebs,
-cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectfully.
+cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
 
 - Feature X
 
