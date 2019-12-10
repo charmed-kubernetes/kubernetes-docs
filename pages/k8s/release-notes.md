@@ -25,14 +25,17 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 The **Center for Internet Security (CIS)** maintains a [Kubernetes benchmark][cis-benchmark]
 that is helpful to ensure clusters are deployed in accordance with security best practices.
-See [benchmarking](/kubernetes/docs/benchmarking) documentation to check how well a cluster
+See [CIS Compliance](/kubernetes/docs/cis-compliance) documentation to check how well a cluster
 complies with this benchmark.
 
 - Snap Coherence
 
-Beginning with Charmed Kubernetes 1.17, revisions of snap packages used by `kubernetes-master` and
-`kubernetes-worker` charms can be controlled by a snap store proxy. See
-[snap coherence](/kubernetes/docs/snap-coherence) documentation for details on this feature.
+Beginning with Charmed Kubernetes 1.17, updates to Kubernetes snap packages used by
+`kubernetes-master` and `kubernetes-worker` charms will be applied in a controlled fashion. Known
+as **Snap Coherence**, this feature ensures snap updates are first applied to individual master
+units, followed by workers. If an update fails, the process is aborted before affecting the entire
+cluster. This feature also allows snap revisions to be controlled by a snap store proxy. See
+[snap coherence](/kubernetes/docs/snap-coherence) documentation for details.
 
 - Nagios checks
 
@@ -40,31 +43,38 @@ Additional Nagios checks have been added for the `kubernetes-master` and `kubern
 These checks enhance the monitoring and reporting available via Nagios by collecting data on node
 registration and API server connectivity.
 
-- More metrics
-kube-state-metrics is now added by default to the cluster when monitoring is enabled.
-This allows for more information to be gathered for display in Prometheus dashboards.
+- Improved metrics
+
+`kube-state-metrics` is now added by default to the cluster when monitoring is enabled. New default
+dashboards are also included to highlight these metrics with Prometheus/Grafana.
 
 - Storage Classes created by default
 Storage classes will now be created if the `kubernetes-master` charm is related to an
-integrator charm. These classes are for AWS, GCE, Openstack, and Azure and named cdk-ebs,
+integrator charm. These classes are for AWS, GCE, Openstack, and Azure and are named cdk-ebs,
 cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
 
-- Feature X
 
-Feature description.
+## Component Upgrades
 
-- Feature Y
+Many of the componentes in Charmed Kubernetes 1.17 have been updgraded. The following list
+highlights some of the more notable version changes:
 
-Feature description.
+- calico 3.10.1
+- coredns 1.6.5
+- etcd 3.3
+- nfs-provisioner 3.1.0
+- nginx-ingress-controller 0.26.1
 
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.17](https://launchpad.net/charmed-kubernetes/+milestone/1.17).
 
-## Known Issues
+## Notes / Known Issues
 
-Known issues/workarounds for this release.
+- The `registry` action for the `kubernetes-worker` charm has been deprecated and will be removed
+in a future release. To enable a custom container registry, please see the
+[registry](/kubernetes/docs/docker-registry) documentation.
 
 # 1.16+ck2 Bugfix release
 
