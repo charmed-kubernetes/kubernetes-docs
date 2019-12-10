@@ -43,6 +43,17 @@ Additional Nagios checks have been added for the `kubernetes-master` and `kubern
 These checks enhance the monitoring and reporting available via Nagios by collecting data on node
 registration and API server connectivity.
 
+- Improved metrics
+
+`kube-state-metrics` is now added by default to the cluster when monitoring is enabled. New default
+dashboards are also included to highlight these metrics with Prometheus/Grafana.
+
+- Storage Classes created by default
+Storage classes will now be created if the `kubernetes-master` charm is related to an
+integrator charm. These classes are for AWS, GCE, Openstack, and Azure and are named cdk-ebs,
+cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
+
+
 ## Component Upgrades
 
 Many of the componentes in Charmed Kubernetes 1.17 have been updgraded. The following list
