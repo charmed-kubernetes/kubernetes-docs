@@ -56,7 +56,7 @@ cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
 
 ## Component Upgrades
 
-Many of the componentes in Charmed Kubernetes 1.17 have been updgraded. The following list
+Many of the components in Charmed Kubernetes 1.17 have been upgraded. The following list
 highlights some of the more notable version changes:
 
 - calico 3.10.1
