@@ -111,15 +111,15 @@ drop-down box to `Node Metrics (via Telegraf):
 
 ### Adding kube-state-metrics
 
-The project [kube-state-metrics][kube-state-metrics] is a nice addon for
+The [kube-state-metrics project][kube-state-metrics] is a useful addon for
 monitoring workloads and their statuses. This involves installing a pod
-and service into Kubernetes, pointing prometheus at that endpoint for
-scraping, and then setting up Grafana to use this data in interesting ways.
+and service into Kubernetes, pointing Prometheus at that endpoint for
+scraping, and then setting up Grafana to use this data.
 
 #### Installing kube-state-metrics
 
 The Charmed Kubernetes team provides a
-[juju k8s charm][kube-state-metrics-charm] to install
+[Juju k8s charm][kube-state-metrics-charm] to install
 [kube-state-metrics][kube-state-metrics]. It can also be installed by
 following the instructions on the
 [kube-state-metrics project page][kube-state-metrics]. To install with Juju
