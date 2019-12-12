@@ -25,8 +25,8 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 The **Center for Internet Security (CIS)** maintains a [Kubernetes benchmark][cis-benchmark]
 that is helpful to ensure clusters are deployed in accordance with security best practices.
-See [CIS Compliance](/kubernetes/docs/cis-compliance) documentation to check how well a cluster
-complies with this benchmark.
+See the [CIS Compliance](/kubernetes/docs/cis-compliance) documentation for instructions on
+how to run this compliance benchmark.
 
 - Snap Coherence
 
@@ -49,6 +49,7 @@ registration and API server connectivity.
 dashboards are also included to highlight these metrics with Prometheus/Grafana.
 
 - Storage Classes created by default
+
 Storage classes will now be created if the `kubernetes-master` charm is related to an
 integrator charm. These classes are for AWS, GCE, Openstack, and Azure and are named cdk-ebs,
 cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
