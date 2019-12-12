@@ -109,6 +109,110 @@ drop-down box to `Node Metrics (via Telegraf):
 
 ![grafana dashboard image](https://assets.ubuntu.com/v1/45b87639-grafana-2.png)
 
+### Adding kube-state-metrics
+
+The [kube-state-metrics project][kube-state-metrics] is a useful addon for
+monitoring workloads and their statuses. This involves installing a pod
+and service into Kubernetes, pointing Prometheus at that endpoint for
+scraping, and then setting up Grafana to use this data.
+
+#### Installing kube-state-metrics
+
+The Charmed Kubernetes team provides a
+[Juju k8s charm][kube-state-metrics-charm] to install
+[kube-state-metrics][kube-state-metrics]. It can also be installed by
+following the instructions on the
+[kube-state-metrics project page][kube-state-metrics]. To install with Juju
+after installing Charmed Kubernetes, first you need to ensure you have your
+kubeconfig.
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
+```
+
+Then it is necessary to create the Juju cloud and bootstrap into your
+Kubernetes cluster.
+
+NOTE: It may be necessary to adjust the add-k8s line below to reflect
+your needs and cloud configuration.
+
+```bash
+juju add-k8s myk8s
+juju add-model kube-state-metrics
+```
+
+Finally, deploy the kube-state-metrics charm
+
+```bash
+juju deploy cs:~containers/charm-kube-state-metrics
+```
+
+This will give you a service that is reachable internally to Kubernetes. You
+need to expose this to your Prometheus charm, wherever it may live. This
+could involve changing the service to be a node port service or possibly a
+load balancer service. This depends entirely on the cloud and makeup of
+machines and how to best reach your Kubernetes cluster from your Prometheus.
+
+#### Scraping kube-state-metrics with Prometheus
+
+One you have a way to access your kube-state-metrics, test that with a curl
+command. We will assume that IP 10.10.10.10 routes properly to the service.
+Replace with your actual IP address in the commands below:
+
+```bash
+curl http://10.10.10.10:8080/metrics
+```
+
+If that returns metrics, the Kubernetes side is set up properly and now it is
+necessary to tell Prometheus about the endpoint. This is done by adding a
+scrape config to the Prometheus configuration file. If you deployed Prometheus
+with Juju, add to the scrape-jobs configuration file.
+
+```bash
+juju config prometheus scrape-jobs="$(cat <<EOF
+- job_name: 'kube-state-metrics'
+  static_configs:
+    - targets:
+      - 10.10.10.10:8080
+      - 10.10.10.10:8081
+EOF
+)"
+```
+
+Notice the two different targets are the two ports exposed in the service. If
+the service was changed to a nodeport service, these port numbers will need
+to change as well to match the assigned ports on the nodes.
+
+
+#### Grafana graphs of the kube-state-metrics data
+
+Many of the metrics coming from kube-state-metrics will have a value of 1
+and initially appear to be of little use, but with some creativity lots of
+interesting Grafana graphs can be made from the data. Here are some examples
+of such queries.
+
+Find the number of pods in a specific phase such as failed pods:
+
+```bash
+count(kube_pod_status_phase{phase="Running"} > 0)
+count(kube_pod_status_phase{phase="Failed"} > 0)
+```
+
+To show the number of 500 response codes for the last 5 minutes
+broken down on the pod label version:
+
+```bash
+sum(rate(http_request_count{code=~"^(?:5..)$"}[5m])) by (pod)
+* on (pod) group_left(label_version) kube_pod_labels
+```
+
+Pod restarts and the number of pods restarted:
+
+```bash
+count(sum by (pod)(delta(kube_pod_container_status_restarts_total[15m]) > 0))
+sum by (pod)(delta(kube_pod_container_status_restarts_total[15m]) > 0)
+```
+
 ## Monitoring with Nagios
 
 **Nagios** ([https://www.nagios.org/][nagios]) is widely used for monitoring
@@ -174,6 +278,8 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 [quickstart]: /kubernetes/docs/quickstart
 [nagios]: https://www.nagios.org/
 [external-nagios]: https://jujucharms.com/nrpe/
+[kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics
+[kube-state-metrics-charm]: https://github.com/charmed-kubernetes/charm-kube-state-metrics
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
