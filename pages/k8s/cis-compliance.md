@@ -3,12 +3,12 @@ wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Benchmarking"
-  description: How to benchmark a Charmed Kubernetes cluster
-keywords: benchmarking
+  title: "CIS compliance"
+  description: Running the CIS benchmark on a Charmed Kubernetes cluster
+keywords: compliance, testing
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: benchmarking.html
+permalink: cis-compliance.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -17,7 +17,8 @@ The **Center for Internet Security (CIS)** maintains a
 [Kubernetes benchmark][cis-benchmark] that is helpful to ensure clusters are
 deployed in accordance with security best practices. **Charmed Kubernetes**
 includes support for the [kube-bench][] utility, which reports how well a
-cluster complies with this benchmark.
+cluster complies with this benchmark. This page details how to run these
+tests.
 
 ## Run kube-bench
 
@@ -75,7 +76,8 @@ branch of the [upstream repository][kube-bench].
 
 ## Example use case
 
-Benchmark the `kubernetes-worker` charm using a custom configuration archive:
+Run the CIS benchmark on the `kubernetes-worker` charm using a custom
+configuration archive:
 
 ```bash
 juju run-action --wait kubernetes-worker/0 cis-benchmark \
@@ -96,7 +98,7 @@ results:
 status: completed
 ```
 
-Attempt to apply all known fixes to failing benchmark tests using the same
+Attempt to apply all known fixes to the failing benchmark tests using the same
 configuration archive:
 
 ```bash
@@ -161,9 +163,9 @@ status: completed
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/benchmarking.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/cis-compliance.md" class="p-notification__action">edit this page</a> 
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
