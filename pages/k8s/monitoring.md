@@ -132,7 +132,7 @@ juju config kubernetes-master enable-metrics=true
 To view metrics scraped from
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics),
 refer to
-[Monitoring with Prometheus, Grafana, and Telegraf](#Monitoring-with-Prometheus,-Grafana,-and-Telegraf)
+[Monitoring with Prometheus, Grafana, and Telegraf](#monitoring-with-prometheus-grafana-and-telegraf)
 and enable Grafana.  You can then open the **Charmed Kubernetes Dashboard**.
 
 ## Monitoring with Nagios
