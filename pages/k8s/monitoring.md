@@ -118,8 +118,9 @@ endpoint for scraping, and then setting up Grafana to use this data.
 
 #### Installing kube-state-metrics
 
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) are
-added, automatically, when `enable-metrics` is set to  `true ` on the
+Starting with Charmed Kubernetes 1.17,
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+are added, automatically, when `enable-metrics` is set to  `true ` on the
 `kubernetes-master` charm.  This is enabled by default.  Enable
 with the following command.
 
