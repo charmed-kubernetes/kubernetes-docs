@@ -90,6 +90,17 @@ juju run-action vault/0 authorize-charm token={charm token}
   </p>
 </div>
 
+### Refreshing certificates
+
+Currently, Vault does not auto-reissue certificates. Generated certificates
+will expire in 30 days. To refresh the certificates, you should run the
+following:
+
+```bash
+juju run-action vault/0 reissue-certificates --wait
+```
+
+
 ## Transitioning an existing cluster from EasyRSA to Vault
 
 An existing **Charmed Kubernetes** deployment which is using EasyRSA can
@@ -237,9 +248,9 @@ relations:
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/using-vault.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/using-vault.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
