@@ -57,9 +57,9 @@ cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
 - Support for etcd 3.3 and 3.4
 
 Whilst Charmed Kubernetes 1.17 ships with etcd 3.3 by default, it also brings support for
-running etcd 3.4.  To do so, you can simply run the followiung Juju command.
+running etcd 3.4. To do so, you can simply run the followiung Juju command:
 
-```
+```bash
 juju config etcd channel=3.4/stable
 ```
 
