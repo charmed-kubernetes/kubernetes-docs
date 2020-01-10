@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Charmed Kubernetes is installed based on the contents of a Juju 'bundle', which
+Charmed Kubernetes is installed based on the contents of a Juju bundle, which
 specifies exact revisions of Juju charms to be used.
 
 The current release of Charmed Kubernetes is: **1.17**
@@ -36,7 +36,7 @@ Many installs may make use of overlays to replace specific components at
 install time (e.g. CNI), or simply add additional functionality (e.g.
 monitoring). These components are not typically pinned to a specific revision.
 
-### cloud integration
+### Cloud integration
 
 -   aws-integrator
 -   azure-integrator
