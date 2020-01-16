@@ -13,6 +13,16 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.17+ck1 Bugfix release
+
+### January 15, 2020 - [charmed-kubernetes-372](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-372/archive/bundle.yaml)
+
+## Fixes
+
+We fixed an issue where pod-to-pod network traffic was being unnecessarily
+masqueraded when using Flannel or Canal. More details can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck1).
+
 # 1.17
 
 ### December 17, 2019 - [charmed-kubernetes-335](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-335/archive/bundle.yaml)
