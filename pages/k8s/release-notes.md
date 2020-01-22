@@ -13,6 +13,50 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.18
+
+### April xx, 2020 - [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
+## What's new
+
+- Feature X
+
+Feature description.
+
+- Feature Y
+
+Feature description.
+
+## Component Upgrades
+
+Many of the components in Charmed Kubernetes 1.18 have been upgraded. The following list
+highlights some of the more notable version changes:
+
+- calico xxx
+- coredns xxx
+- dashboard xxx
+- etcd xxx
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.18](https://launchpad.net/charmed-kubernetes/+milestone/1.18).
+
+## Notes / Known Issues
+
+- Heapster, InfluxDB, Grafana addons have been removed from `cdk-addons`
+
+Heapster was initially [deprecated][heapster-deprecation] in 1.11; users
+were encouraged to move to the `metrics-server` for similar functionality.
+With 1.18, the `cluster-monitoring` addons (Heapster, InfluxDB, and Grafana)
+have been removed from the Kubernetes source tree and therefore removed from
+the `cdk-addons` snap as well. Customers relying on these addons should
+migrate to a `metrics-server` solution prior to upgrading. Note: these
+removals do not affect the Kubernetes Dashboard nor the methods described in
+[Monitoring Charmed Kubernetes](/kubernetes/docs/monitoring).
+
 # 1.17+ck1 Bugfix release
 
 ### January 15, 2020 - [charmed-kubernetes-372](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-372/archive/bundle.yaml)
@@ -463,6 +507,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [containerd]: /kubernetes/docs/containerd
 [container-runtime]: /kubernetes/docs/container-runtime
 [cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
+[heapster-deprecation]: https://github.com/kubernetes-retired/heapster/blob/master/docs/deprecation.md
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
