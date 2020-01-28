@@ -16,6 +16,42 @@ toc: False
 The `kubernetes-worker` charm xxxxxxxxxxxxxxxx xx x xxxxxxxxxxxxxxxxxxxxxxxx xx
 xxx xxxx xxx xxxxxx xx xxxxxx xxxxx xxxxxx xxxxx xxx
 
+
+
+
+
+## Configuration
+
+
+
+## Actions
+
+
+| property | type | default | descrption |
+|----------|------|---------|------------|
+|  allow-privileged | string  | True  |  This option is now deprecated and has no effect. |
+| channel   | string  | 1.17/stable  | Snap channel to install Kubernetes worker services from  |
+| default-backend-image  | string  | auto  | Docker image to use for the default backend. Auto will select an image based on architecture.  |
+| ingress   | boolean  | True  | Deploy the default http backend and ingress controller to handle ingress requests.  |
+| ingress-ssl-chain-completion   | boolean  | False  | [See notes](#config-description-ingress-ssl-chain-completion)   |
+| ingress-ssl-passthrough  |   |   |   |
+| kubelet-extra-args  |   |   |   |
+| kubelet-extra-config  |   |   |   |
+| labels   |   |   |   |
+| nagios_context   |   |   |   |
+| nagios_servicesgroups  |   |   |   |
+| nginx-image   |   |   |   |
+| proxy-extra-args   |   |   |   |
+| require-manual-upgrade   |   |   |   |
+| snap_proxy   |   |   |   |
+| snap_proxy_url   |   |   |   |
+| snapd_refresh   |   |   |   |
+| sysctl   | string  | [See notes](#config-default-sysctl)  | [See notes](#config-description-sysctl)   |
+
+
+
+
+
 ## kubernetes-worker charm configuration
 
 <!-- CONFIG STARTS -->
@@ -79,7 +115,7 @@ controller.
 
 ### kubelet-extra-args
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 Space separated list of flags and key=value pairs that will be passed as arguments to
 kubelet. For example a value like this:
@@ -113,7 +149,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/
 
 ### labels
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 Labels can be used to organize and to select subsets of nodes in the
 cluster. Declare node labels in key=value format, separated by spaces.
@@ -135,7 +171,7 @@ this allows you to differentiate between them.
 
 ### nagios_servicegroups
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 A comma-separated list of nagios servicegroups.
 If left empty, the nagios_context will be used as the servicegroup
@@ -153,7 +189,7 @@ based on architecture.
 
 ### proxy-extra-args
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 Space separated list of flags and key=value pairs that will be passed as arguments to
 kube-proxy. For example a value like this:
@@ -174,7 +210,7 @@ it manually by running the upgrade action.
 
 ### snap_proxy
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration settings. HTTP/HTTPS web proxy for Snappy to use when accessing the snap store.
 
@@ -182,7 +218,7 @@ DEPRECATED. Use snap-http-proxy and snap-https-proxy model configuration setting
 
 ### snap_proxy_url
 
-**Type**: string &nbsp;&nbsp;&nbsp; **Default**: 
+**Type**: string &nbsp;&nbsp;&nbsp; **Default**:
 
 DEPRECATED. Use snap-store-proxy model configuration setting. The address of a Snap Store Proxy to use for snaps e.g. http://snap-proxy.example.com
 
