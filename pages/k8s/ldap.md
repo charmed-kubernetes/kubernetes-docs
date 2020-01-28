@@ -117,7 +117,7 @@ named `admin` with a randomly-generated password. You can find the admin passwor
 with:
 
 ```bash
-juju run --unit keystone/0 leader-get admin_password
+juju run --unit keystone/0 leader-get admin_passwd
 ```
 
 ### Create the domain for Kubernetes
@@ -250,7 +250,7 @@ juju config kubernetes-master enable-keystone-authorization=true
  policy can be applied by running:
 
 ```bash
-juju config kubernetes-master keystone-policy=$(cat policy.yaml)
+juju config kubernetes-master keystone-policy="$(cat policy.yaml)"
 ```
 
 The [default policy may be downloaded][policy] for easy editing.
