@@ -82,12 +82,7 @@ Registry credentials. Setting this config allows Kubelet to pull images from
 registries where auth is required.
 
 The value for this config must be a JSON array of credential objects, like this:
-
-```
   [{"url": "https://my.registry:port", "username": "user", "password": "pass"}]
-```
-
-
 
 [Back to table](#table-custom_registries)
 
@@ -108,6 +103,7 @@ the proxy defined in http_proxy or https_proxy. Must be less than
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

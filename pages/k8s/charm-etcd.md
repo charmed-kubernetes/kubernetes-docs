@@ -474,18 +474,14 @@ How often snapd handles updates for installed snaps. Set to an empty
 string to check 4x per day. Set to "max" (the default) to check once per
 month based on the charm deployment date. You may also set a custom
 string as described in the 'refresh.timer' section here:
-
-```
   https://forum.snapcraft.io/t/system-options/87
-```
-
-
 
 [Back to table](#table-snapd_refresh)
 
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

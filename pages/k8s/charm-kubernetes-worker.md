@@ -212,12 +212,7 @@ kube-proxy. For example a value like this:
 ```
 
 will result in kube-apiserver being run with the following options:
-
-```
   --runtime-config=batch/v2alpha1=true --profiling=true
-```
-
-
 
 [Back to table](#table-proxy-extra-args)
 
@@ -232,12 +227,7 @@ How often snapd handles updates for installed snaps. Setting an empty
 string will check 4x per day. Set to "max" to delay the refresh as long
 as possible. You may also set a custom string as described in the
 'refresh.timer' section here:
-
-```
   https://forum.snapcraft.io/t/system-options/87
-```
-
-
 
 [Back to table](#table-snapd_refresh)
 
@@ -279,6 +269,7 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

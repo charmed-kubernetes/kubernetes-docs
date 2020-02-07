@@ -117,12 +117,7 @@ Docker login credentials. Setting this config allows Kubelet to pull images from
 registries where auth is required.
 
 The value for this config must be a JSON array of credential objects, like this:
-
-```
   [{"server": "my.registry", "username": "myUser", "password": "myPass"}]
-```
-
-
 
 [Back to table](#table-docker-logins)
 
@@ -198,6 +193,7 @@ nvidia-docker2=2.0.3+docker18.09.1-1
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

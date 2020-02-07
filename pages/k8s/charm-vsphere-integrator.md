@@ -145,6 +145,7 @@ It is strongly recommended that you use 'juju trust' instead, if available.
 
 
 
+
 ## Resource Usage Note
 
 By relating to this charm, other charms can directly allocate resources, such

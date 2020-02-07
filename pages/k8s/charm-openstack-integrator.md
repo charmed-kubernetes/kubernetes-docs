@@ -293,12 +293,7 @@ balancers managed by integrated workloads, such as Kubernetes.
 **Description:**
 
 How often snapd handles updates for installed snaps. The default (an empty string) is 4x per day. Set to "max" to check once per month based on the charm deployment date. You may also set a custom string as described in the 'refresh.timer' section here:
-
-```
   https://forum.snapcraft.io/t/system-options/87
-```
-
-
 
 [Back to table](#table-snapd_refresh)
 
@@ -335,6 +330,7 @@ recommended approach.  If not set, will use the upstream default.
 
 
 <!-- CONFIG ENDS -->
+
 
 
 
