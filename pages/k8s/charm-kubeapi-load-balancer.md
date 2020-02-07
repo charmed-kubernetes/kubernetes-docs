@@ -88,7 +88,6 @@ in nagios. So for instance the hostname would be something like:
 
 ```
     juju-myservice-0
-
 ```
 
 If you're running multiple environments with the same services in them
@@ -99,6 +98,7 @@ this allows you to differentiate between them.
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

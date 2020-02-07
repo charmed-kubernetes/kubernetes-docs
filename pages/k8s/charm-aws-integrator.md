@@ -238,6 +238,7 @@ How often snapd handles updates for installed snaps. The default (an empty strin
 
 
 
+
 [interface]: https://github.com/juju-solutions/interface-aws-integration
 [api-doc]: https://github.com/juju-solutions/interface-aws-integration/blob/master/docs/requires.md
 [CDK]: https://jujucharms.com/canonical-kubernetes

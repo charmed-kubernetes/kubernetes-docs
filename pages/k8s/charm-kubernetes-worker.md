@@ -132,14 +132,12 @@ kubelet. For example a value like this:
 
 ```
   runtime-config=batch/v2alpha1=true profiling=true
-
 ```
 
 will result in kubelet being run with the following options:
 
 ```
   --runtime-config=batch/v2alpha1=true --profiling=true
-
 ```
 
 Note: As of Kubernetes 1.10.x, many of Kubelet's args have been deprecated, and can
@@ -166,7 +164,6 @@ merged with a KubeletConfiguration file. For example:
 
 ```
   {evictionHard: {memory.available: 200Mi}}
-
 ```
 
 
@@ -188,7 +185,6 @@ in nagios. So for instance the hostname would be something like:
 
 ```
     juju-myservice-0
-
 ```
 
 If you're running multiple environments with the same services in them
@@ -208,7 +204,6 @@ kube-proxy. For example a value like this:
 
 ```
   runtime-config=batch/v2alpha1=true profiling=true
-
 ```
 
 will result in kube-apiserver being run with the following options:
@@ -257,7 +252,6 @@ use the proxy-extra-args config to set them, e.g.:
 ```
   juju config kubernetes-master proxy-extra-args="conntrack-min=1000000 conntrack-max-per-core=250000"
   juju config kubernetes-worker proxy-extra-args="conntrack-min=1000000 conntrack-max-per-core=250000"
-
 ```
 
 The proxy-extra-args conntrack-min and conntrack-max-per-core can be set to 0 to ignore
@@ -269,6 +263,7 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

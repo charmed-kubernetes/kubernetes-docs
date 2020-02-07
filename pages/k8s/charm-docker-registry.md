@@ -360,7 +360,6 @@ in nagios. So for instance the hostname would be something like:
 
 ```
     juju-myservice-0
-
 ```
 
 If you're running multiple environments with the same services in them
@@ -455,6 +454,7 @@ nvidia-docker2=2.0.3+docker18.09.1-1
 
 
 <!-- CONFIG ENDS -->
+
 
 
 

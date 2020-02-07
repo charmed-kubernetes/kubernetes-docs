@@ -455,7 +455,6 @@ in nagios. So for instance the hostname would be something like:
 
 ```
     juju-myservice-0
-
 ```
 
 If you're running multiple environments with the same services in them
@@ -481,6 +480,7 @@ string as described in the 'refresh.timer' section here:
 
 
 <!-- CONFIG ENDS -->
+
 
 
 
