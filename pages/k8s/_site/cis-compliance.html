@@ -1,0 +1,142 @@
+<p>The <strong>Center for Internet Security (CIS)</strong> maintains a
+<a href="https://www.cisecurity.org/benchmark/kubernetes/">Kubernetes benchmark</a> that is helpful to ensure clusters are
+deployed in accordance with security best practices. <strong>Charmed Kubernetes</strong>
+includes support for the <a href="https://github.com/aquasecurity/kube-bench">kube-bench</a> utility, which reports how well a
+cluster complies with this benchmark. This page details how to run these
+tests.</p>
+
+<h2 id="run-kube-bench">Run kube-bench</h2>
+
+<p>The <code class="highlighter-rouge">kubernetes-master</code>, <code class="highlighter-rouge">kubernetes-worker</code>, and <code class="highlighter-rouge">etcd</code> charms used by
+<strong>Charmed Kubernetes</strong> include a <code class="highlighter-rouge">cis-benchmark</code> action that will install,
+configure, and run the benchmark on the respective components. Run this
+action on the units you wish to test with the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action <span class="nt">--wait</span> etcd/0 cis-benchmark
+</code></pre></div></div>
+
+<p>By default, the action will display a summary of any issues found as well as
+the command that was executed on the unit. A <code class="highlighter-rouge">report</code> command is included
+to facilitate transferring the full benchmark report to a local machine for
+analysis.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">results</span><span class="pi">:</span>
+  <span class="na">cmd</span><span class="pi">:</span> <span class="s">/home/ubuntu/kube-bench/kube-bench -D /home/ubuntu/kube-bench/cfg --version</span>
+    <span class="s">1.13-snap-etcd --noremediations --noresults master</span>
+  <span class="na">report</span><span class="pi">:</span> <span class="s">juju scp etcd/0:/home/ubuntu/kube-bench-results/results-text-49681_7h .</span>
+  <span class="na">summary</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="no">== Summary ==</span>
+    <span class="no">7 checks PASS</span>
+    <span class="no">0 checks FAIL</span>
+    <span class="no">0 checks WARN</span>
+    <span class="no">4 checks INFO</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+</code></pre></div></div>
+
+<h2 id="configure-kube-bench">Configure kube-bench</h2>
+
+<p>The following parameters can be adjusted to change the default action behavior.
+See the descriptions in the <a href="https://raw.githubusercontent.com/charmed-kubernetes/layer-cis-benchmark/master/actions.yaml">actions.yaml</a> file for
+additional supported values beyond the defaults.</p>
+
+<h3 id="apply">apply</h3>
+
+<p>When a failure is detected, this action can attempt to automatically fix it.
+This parameter is <code class="highlighter-rouge">none</code> by default, meaning the action will not attempt to
+apply any automatic remediations.</p>
+
+<h3 id="config">config</h3>
+
+<p>Specify an archive of custom configuration scripts to use during the benchmark.
+This parameter is set by default to an archive that is known to work with
+snap-based components.</p>
+
+<h3 id="release">release</h3>
+
+<p>Specify the <code class="highlighter-rouge">kube-bench</code> release to install and run. The default value of
+<code class="highlighter-rouge">upstream</code> will compile and use a local kube-bench binary built from the master
+branch of the <a href="https://github.com/aquasecurity/kube-bench">upstream repository</a>.</p>
+
+<h2 id="example-use-case">Example use case</h2>
+
+<p>Run the CIS benchmark on the <code class="highlighter-rouge">kubernetes-worker</code> charm using a custom
+configuration archive:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action <span class="nt">--wait</span> kubernetes-worker/0 cis-benchmark <span class="se">\</span>
+  <span class="nv">config</span><span class="o">=</span><span class="s1">'https://github.com/charmed-kubernetes/kube-bench-config/archive/master.zip'</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">results</span><span class="pi">:</span>
+  <span class="na">cmd</span><span class="pi">:</span> <span class="s">/home/ubuntu/kube-bench/kube-bench -D /home/ubuntu/kube-bench/cfg --version</span>
+    <span class="s">1.13-snap-k8s --noremediations --noresults node</span>
+  <span class="na">report</span><span class="pi">:</span> <span class="s">juju scp kubernetes-worker/0:/home/ubuntu/kube-bench-results/results-text-8c71ktcn .</span>
+  <span class="na">summary</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="no">== Summary ==</span>
+    <span class="no">16 checks PASS</span>
+    <span class="no">5 checks FAIL</span>
+    <span class="no">2 checks WARN</span>
+    <span class="no">1 checks INFO</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+</code></pre></div></div>
+
+<p>Attempt to apply all known fixes to the failing benchmark tests using the same
+configuration archive:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action <span class="nt">--wait</span> kubernetes-worker/0 cis-benchmark <span class="se">\</span>
+  <span class="nv">apply</span><span class="o">=</span><span class="s1">'dangerous'</span> <span class="se">\</span>
+  <span class="nv">config</span><span class="o">=</span><span class="s1">'https://github.com/charmed-kubernetes/kube-bench-config/archive/master.zip'</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">results</span><span class="pi">:</span>
+  <span class="na">cmd</span><span class="pi">:</span> <span class="s">/home/ubuntu/kube-bench/kube-bench -D /home/ubuntu/kube-bench/cfg --version</span>
+    <span class="s">1.13-snap-k8s --noremediations --noresults node</span>
+  <span class="na">report</span><span class="pi">:</span> <span class="s">juju scp kubernetes-worker/0:/home/ubuntu/kube-bench-results/results-json-7b3g6jdg .</span>
+  <span class="na">summary</span><span class="pi">:</span> <span class="s">Applied 5 remediations. Re-run with "apply=none" to generate a new report.</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+</code></pre></div></div>
+
+<p>Re-run the initial action to see if previous failures have been fixed:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action <span class="nt">--wait</span> kubernetes-worker/0 cis-benchmark <span class="se">\</span>
+  <span class="nv">config</span><span class="o">=</span><span class="s1">'https://github.com/charmed-kubernetes/kube-bench-config/archive/master.zip'</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">results</span><span class="pi">:</span>
+  <span class="na">cmd</span><span class="pi">:</span> <span class="s">/home/ubuntu/kube-bench/kube-bench -D /home/ubuntu/kube-bench/cfg --version</span>
+    <span class="s">1.13-snap-k8s --noremediations --noresults node</span>
+  <span class="na">report</span><span class="pi">:</span> <span class="s">juju scp kubernetes-worker/0:/home/ubuntu/kube-bench-results/results-text-m72vicwe .</span>
+  <span class="na">summary</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="no">== Summary ==</span>
+    <span class="no">21 checks PASS</span>
+    <span class="no">0 checks FAIL</span>
+    <span class="no">2 checks WARN</span>
+    <span class="no">1 checks INFO</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+</code></pre></div></div>
+
+<h2 id="remove-applied-remediations">Remove applied remediations</h2>
+
+<p>The <code class="highlighter-rouge">cis-benchmark</code> action does not track individual remediations that it
+applies. However, it does support removing all configuration that it may have
+set on a unit. To clear this data, set the <code class="highlighter-rouge">apply</code> parameter to <code class="highlighter-rouge">reset</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action <span class="nt">--wait</span> kubernetes-worker/0 cis-benchmark <span class="se">\</span>
+  <span class="nv">apply</span><span class="o">=</span><span class="s1">'reset'</span>
+</code></pre></div></div>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">results</span><span class="pi">:</span>
+  <span class="na">summary</span><span class="pi">:</span> <span class="s">Reset is complete. Re-run with "apply=none" to generate a new report.</span>
+<span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+</code></pre></div></div>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/cis-compliance.md" class="p-notification__action">edit this page</a> 
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

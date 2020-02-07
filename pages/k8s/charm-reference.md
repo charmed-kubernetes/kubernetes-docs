@@ -1,7 +1,7 @@
 ---
 wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/docs/shared/_side-navigation(/kubernetes/docs/)"
 context:
   title: "Charm reference"
   description: Detailed configuration and usage for the Charmed Kubernetes charms
@@ -14,42 +14,50 @@ toc: False
 ---
 
 
-General into xxxxxxxxx
+General intro xxxxxxxxx
 
-Generic notes about charms. Possible links to upgrades?
+
 
 ## Core charms
 
-[kubernetes-master][]
 
+[charm-aws-iam](/kubernetes/docs/charm-aws-iam)
 
-[kubernetes-worker-a][]
+[charm-aws-integrator](/kubernetes/docs/charm-aws-integrator)
 
-[kubernetes-worker-b][]
+[charm-calico](/kubernetes/docs/charm-calico)
 
-[kubernetes-worker-c][]
+[charm-canal](/kubernetes/docs/charm-canal)
 
+[charm-containerd](/kubernetes/docs/charm-containerd)
 
-[kubeapi-load-balancer][]
+[charm-docker](/kubernetes/docs/charm-docker)
 
-[etcd][]
-...
+[charm-docker-registry](/kubernetes/docs/charm-docker-registry)
 
-## CNI Charms
+[charm-easyrsa](/kubernetes/docs/charm-easyrsa)
 
-See the [CNI Overview][cni] for more detail on the individual CNI-related
-charms (Flannel, Calico, etc.)
+[charm-etcd](/kubernetes/docs/charm-etcd)
 
-## Integrator Charms
+[charm-flannel](/kubernetes/docs/charm-flannel)
 
-These charms are specific to particular clouds
+[charm-gcp-integrator](/kubernetes/docs/charm-gcp-integrator)
 
-[aws-integrator][]
+[charm-kata](/kubernetes/docs/charm-kata)
 
-[gcp-integrator][]
+[charm-keepalived](/kubernetes/docs/charm-keepalived)
 
-[openstack-integrator][]
+[charm-kubeapi-load-balancer](/kubernetes/docs/)
 
+[charm-kubernetes-master](/kubernetes/docs/)
+
+[charm-kubernetes-worker](/kubernetes/docs/charm-kubernetes-worker)
+
+[charm-openstack-integrator](/kubernetes/docs/charm-openstack-integrator)
+
+[charm-tigera-secure-ee](/kubernetes/docs/charm-tigera-secure-ee)
+
+[charm-vsphere-integrator](/kubernetes/docs/charm-vsphere-integrator)
 
 
 

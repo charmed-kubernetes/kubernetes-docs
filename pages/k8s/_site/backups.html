@@ -1,0 +1,122 @@
+<p>The state of your <strong>Kubernetes</strong> cluster is kept in the <strong>etcd</strong> datastore.
+This page shows how to backup and restore the etcd included in
+<strong>Charmed Kubernetes</strong>.</p>
+
+<p>Backing up application specific data, normally stored in a persistent volume, is not currently supported by native Kubernetes. Various third party solutions are available -
+please refer to their own documentation for details.</p>
+
+<h2 id="creating-an-etcd-snapshot">Creating an <strong>etcd</strong> snapshot</h2>
+
+<div class="p-notification--warning"><p class="p-notification__response">
+ <span class="p-notification__status">Warning:</span>
+ Snapshots can only be restored on the <strong>same version of etcd</strong>.
+  </p></div>
+
+<p><strong>etcd</strong> is a distributed key/value store. To create a snapshot, all that is required is to run the <code class="highlighter-rouge">snapshot</code> action on one of the units running <strong>etcd</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action etcd/0 snapshot keys-version<span class="o">=</span>v3 <span class="nt">--wait</span>
+</code></pre></div></div>
+
+<p>By specifying <code class="highlighter-rouge">--wait</code>, the console will wait to return the result of running the action, which in this case includes the path and filename of the generated snapshot file. For example:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">unit-etcd-0</span><span class="pi">:</span>
+ <span class="na">id</span><span class="pi">:</span> <span class="s">3d6a505e-07d7-4697-8471-60156f87b1b4</span>
+ <span class="na">results</span><span class="pi">:</span>
+   <span class="na">copy</span><span class="pi">:</span>
+     <span class="na">cmd</span><span class="pi">:</span> <span class="s">juju scp etcd/0:/home/ubuntu/etcd-snapshots/etcd-snapshot-2018-09-26-18.04.02.tar.gz</span>
+       <span class="s">.</span>
+   <span class="na">snapshot</span><span class="pi">:</span>
+     <span class="na">path</span><span class="pi">:</span> <span class="s">/home/ubuntu/etcd-snapshots/etcd-snapshot-2018-09-26-18.04.02.tar.gz</span>
+     <span class="na">sha256</span><span class="pi">:</span> <span class="s">e85ae4d49b6a889de2063031379ab320cc8f09b6e328cdff2fb9179fc641eee9</span>
+     <span class="na">size</span><span class="pi">:</span> <span class="s">68K</span>
+     <span class="na">version</span><span class="pi">:</span> <span class="pi">|-</span>
+       <span class="no">etcdctl version: 3.2.10</span>
+       <span class="no">API version: 2</span>
+ <span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+ <span class="na">timing</span><span class="pi">:</span>
+   <span class="na">completed</span><span class="pi">:</span> <span class="s">2018-09-26 18:04:04 +0000 UTC</span>
+   <span class="na">enqueued</span><span class="pi">:</span> <span class="s">2018-09-26 18:04:04 +0000 UTC</span>
+   <span class="na">started</span><span class="pi">:</span> <span class="s">2018-09-26 18:04:03 +0000 UTC</span>
+ <span class="na">unit</span><span class="pi">:</span> <span class="s">etcd/0</span>
+</code></pre></div></div>
+
+<p>This path/filename relates to the unit where the action was run. As we will likely want to use the snapshot on a different unit, we should fetch the snapshot to the local machine. The command to perform this is also helpfully supplied in the <code class="highlighter-rouge">copy</code> section of the output (see above):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  juju scp etcd/0:/home/ubuntu/etcd-snapshots/etcd-snapshot-2018-09-26-18.04.02.tar.gz <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>It is also wise to check the sha256 checksum of the file you have copied
+against the value in the previous output:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sha256sum </span>etcd-snapshot-2018-09-26-18.04.02.tar.gz
+</code></pre></div></div>
+
+<h2 id="restoring-a-snapshot">Restoring a snapshot</h2>
+
+<div class="p-notification--warning"><p class="p-notification__response">
+<span class="p-notification__status">Warning:</span>
+Restoring a snapshot should not be performed when there is more than one unit of <strong>etcd</strong> running.
+ </p></div>
+
+<p>As restoring only works when there is a single unit of <strong>etcd</strong>, it is usual to deploy a new instance of the application first.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy etcd new-etcd <span class="nt">--series</span><span class="o">=</span>bionic <span class="nt">--config</span> <span class="nv">channel</span><span class="o">=</span>3.2/stable
+juju deploy cs:~containers/easyrsa new-easyrsa <span class="nt">--series</span><span class="o">=</span>bionic
+juju add-relation new-etcd:certificates new-easyrsa:client
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">--series</code> option is included here to illustrate how to specify which series the new unit should be running on.
+The <code class="highlighter-rouge">--config</code> option is required to specify the same channel of etcd as the original unit.</p>
+
+<p>Next we upload and identify the snapshot file to this new unit:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju attach new-etcd <span class="nv">snapshot</span><span class="o">=</span>./etcd-snapshot-2018-09-26-18.04.02.tar.gz
+</code></pre></div></div>
+
+<p>Then run the restore action:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action new-etcd/0 restore <span class="nt">--wait</span>
+</code></pre></div></div>
+
+<p>Once the restore action has finished, you should see output confirming that the operation is <code class="highlighter-rouge">completed</code>. The new etcd application will need to be connected to the rest of the deployment:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju add-relation new-etcd kubernetes-master
+juju add-relation new-etcd flannel
+</code></pre></div></div>
+
+<p>To restore the cluster capabilities of etcd, you can now add more units:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju add-unit new-etcd <span class="nt">-n</span> 2
+</code></pre></div></div>
+
+<p>Once the deployment has settled and all <code class="highlighter-rouge">new-etcd</code> units report ready, verify the cluster health with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> juju run-action new-etcd/0 health <span class="nt">--wait</span>
+</code></pre></div></div>
+
+<p>which should return something similar to:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">unit-new-etcd-0</span><span class="pi">:</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">27fe2081-6513-4968-869d-6c2c092210a1</span>
+  <span class="na">results</span><span class="pi">:</span>
+    <span class="na">result-map</span><span class="pi">:</span>
+      <span class="na">message</span><span class="pi">:</span> <span class="pi">|-</span>
+        <span class="no">member 3c149609bfcf7692 is healthy: got healthy result from https://172.31.18.7:2379</span>
+        <span class="no">cluster is healthy</span>
+  <span class="na">status</span><span class="pi">:</span> <span class="s">completed</span>
+  <span class="na">timing</span><span class="pi">:</span>
+    <span class="na">completed</span><span class="pi">:</span> <span class="s">2018-10-26 15:16:33 +0000 UTC</span>
+    <span class="na">enqueued</span><span class="pi">:</span> <span class="s">2018-10-26 15:16:32 +0000 UTC</span>
+    <span class="na">started</span><span class="pi">:</span> <span class="s">2018-10-26 15:16:33 +0000 UTC</span>
+  <span class="na">unit</span><span class="pi">:</span> <span class="s">new-etcd/0</span>
+</code></pre></div></div>
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/backups.md" class="p-notification__action">edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

@@ -1,0 +1,438 @@
+<p><a href="https://www.projectcalico.org/">Calico</a> is a software-defined network solution that can be used with Kubernetes.
+Support for Calico in <strong>Charmed Kubernetes</strong> is provided in the form of a <code class="highlighter-rouge">calico</code>
+subordinate charm.</p>
+
+<p>Unlike Flannel, Calico provides out-of-the-box support for the
+<a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">NetworkPolicy</a> feature of Kubernetes, along with different modes of
+network encapsulation that advanced users may find useful for optimising
+the throughput of their clusters.</p>
+
+<h2 id="cloud-configuration">Cloud configuration</h2>
+
+<p>Calico’s network traffic is filtered on many clouds, and may require
+special configuration at the cloud level to support it.</p>
+
+<p>If Calico is configured to use <a href="https://docs.projectcalico.org/v3.7/networking/service-advertisement#about-advertising-kubernetes-services-over-bgp">BGP mode</a> (the default), then all of the
+Kubernetes instances must be located in the same subnet for Calico to work out
+of the box. Alternatively, the Calico charm may be configured with external
+BGP peers to allow cross-subnet traffic to work.</p>
+
+<p>If Calico is configured to use IPIP mode, then the cloud must be configured to
+allow IPIP (protocol 4) network traffic.</p>
+
+<h3 id="aws">AWS</h3>
+
+<p>On AWS, it is recommended to run Calico in BGP mode. This usually requires the
+creation of a VPC that has only a single subnet associated with it. See Juju’s
+<a href="https://docs.jujucharms.com/2.5/en/charms-fan-aws-vpc">Creating an AWS VPC</a> documentation for instructions on how to create a VPC
+that’s compatible with Juju.</p>
+
+<p>After deployment, each AWS instance must be manually configured to disable
+source/destination checks. See AWS’s <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck">Disabling Source/Destination Checks</a>
+documentation for instructions.</p>
+
+<h2 id="deploying-charmed-kubernetes-with-calico">Deploying Charmed Kubernetes with Calico</h2>
+
+<p>To deploy Charmed Kubernetes with Calico, deploy the kubernetes-calico bundle:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy cs:~containers/kubernetes-calico
+</code></pre></div></div>
+
+<p>The Calico bundle is identical to the standard <code class="highlighter-rouge">charmed-kubernetes</code> bundle with the
+exception of replacing Flannel with Calico. You can apply any customisation overlays
+that would apply to <code class="highlighter-rouge">charmed-kubernetes</code> to this bundle also.</p>
+
+<h2 id="calico-configuration-options">Calico configuration options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>calico-node-image</td>
+      <td>string</td>
+      <td>docker.io/calico/node:v3.6.1</td>
+      <td>The image id to use for calico/node</td>
+    </tr>
+    <tr>
+      <td>calico-policy-image</td>
+      <td>string</td>
+      <td>docker.io/calico/kube-controllers:v3.6.1</td>
+      <td>The image id to use for calico/kube-controllers</td>
+    </tr>
+    <tr>
+      <td>ipip</td>
+      <td>string</td>
+      <td>Never</td>
+      <td>IPIP mode. Must be one of “Always”, “CrossSubnet”, or “Never”.</td>
+    </tr>
+    <tr>
+      <td>nat-outgoing</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>Enable NAT on outgoing traffic</td>
+    </tr>
+    <tr>
+      <td>cidr</td>
+      <td>string</td>
+      <td>192.168.0.0/16</td>
+      <td>Network CIDR assigned to Calico. This is applied to the default Calico pool, and is also communicated to the Kubernetes charms for use in kube-proxy configuration.</td>
+    </tr>
+    <tr>
+      <td>manage-pools</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>If true, a default pool is created using the cidr and ipip charm configuration values. Warning: When manage-pools is enabled, the charm will delete any pools that are unrecognized.</td>
+    </tr>
+    <tr>
+      <td>global-as-number</td>
+      <td>int</td>
+      <td>64512</td>
+      <td>Global AS number.</td>
+    </tr>
+    <tr>
+      <td>subnet-as-numbers</td>
+      <td>string</td>
+      <td>{}</td>
+      <td>Mapping of subnets to AS numbers, specified as YAML. Each Calico node will be assigned an AS number based on the entries in this mapping.</td>
+    </tr>
+    <tr>
+      <td>unit-as-numbers</td>
+      <td>string</td>
+      <td>{}</td>
+      <td>Mapping of unit IDs to AS numbers, specified as YAML. Each Calico node will be assigned an AS number based on the entries in this mapping.</td>
+    </tr>
+    <tr>
+      <td>node-to-node-mesh</td>
+      <td>bool</td>
+      <td>True</td>
+      <td>When enabled, each Calico node will peer with every other Calico node in the cluster.</td>
+    </tr>
+    <tr>
+      <td>global-bgp-peers</td>
+      <td>string</td>
+      <td>[]</td>
+      <td>List of global BGP peers. Each BGP peer is specified with an address and an as-number.</td>
+    </tr>
+    <tr>
+      <td>subnet-bgp-peers</td>
+      <td>string</td>
+      <td>{}</td>
+      <td>Mapping of subnets to lists of BGP peers. Each BGP peer is specified with an address and an as-number.</td>
+    </tr>
+    <tr>
+      <td>unit-bgp-peers</td>
+      <td>string</td>
+      <td>{}</td>
+      <td>Mapping of unit IDs to lists of BGP peers. Each BGP peer is specified with an address and an as-number.</td>
+    </tr>
+    <tr>
+      <td>route-reflector-cluster-ids</td>
+      <td>string</td>
+      <td>{}</td>
+      <td>Mapping of unit IDs to route reflector cluster IDs. Assigning a route reflector cluster ID allows the node to function as a route reflector.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="checking-the-current-configuration">Checking the current configuration</h3>
+
+<p>To check the current configuration settings for Calico, run the command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico
+</code></pre></div></div>
+
+<h3 id="setting-a-config-option">Setting a config option</h3>
+
+<p>To set an option, simply run the config command with and additional <code class="highlighter-rouge">&lt;key&gt;=&lt;value&gt;</code> argument. For example, to disable NAT on outgoing traffic:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico nat-outgoing<span class="o">=</span>False
+</code></pre></div></div>
+
+<p>Config settings which require additional explanation are described below.</p>
+
+<h2 id="calico-ipip-configuration">Calico IPIP configuration</h2>
+
+<p>By default, IPIP encapsulation is disabled. To enable IPIP encapsulation, set
+the <code class="highlighter-rouge">ipip</code> charm config to <code class="highlighter-rouge">Always</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico ipip=Always
+</code></pre></div></div>
+
+<p>Alternatively, if you would like IPIP encapsulation to be used for cross-subnet
+traffic only, set the <code class="highlighter-rouge">ipip</code> charm config to <code class="highlighter-rouge">CrossSubnet</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico ipip=CrossSubnet
+</code></pre></div></div>
+
+<h2 id="calico-bgp-configuration">Calico BGP configuration</h2>
+
+<p>The default configuration of Calico uses BGP mode, with all Calico nodes
+connected in a full node-to-node mesh, and with no external peerings. This
+comes with some limitations which will be explained in the following sections.</p>
+
+<div class="p-notification--positive">
+<p class="p-notification__response">
+<span class="p-notification__status">Note:</span>
+If you intend to use MetalLB with Calico in BGP mode,
+please also refer to this
+<a href="https://metallb.universe.tf/configuration/calico/">
+explanation of the required MetalLB configuration</a> from the
+<a href="https://metallb.universe.tf/"> MetalLB website</a>
+</p></div>
+
+<h3 id="bgp-with-multiple-subnets">BGP with multiple subnets</h3>
+
+<p>If BGP mode is in use, and Calico units are deployed to separate subnets, then
+Calico must be configured to peer with external routers in order to accommodate
+cross-subnet traffic.</p>
+
+<p>For example, if you have units across two subnets (10.0.0.0/24 and
+10.0.1.0/24), and a single router that connects them (with IPs 10.0.0.1,
+10.0.1.1, and AS number 64512), then the simplest configuration would be to
+configure Calico to peer with that router and to use the same AS number.</p>
+
+<p>Configure the AS number:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico global-as-number<span class="o">=</span>64512
+</code></pre></div></div>
+
+<p>And configure the external peering:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico subnet-bgp-peers<span class="o">=</span><span class="s2">"
+10.0.0.0/24:
+- address: 10.0.0.1
+  as-number: 64512
+10.0.1.0/24:
+- address: 10.0.1.1
+  as-number: 64512
+"</span>
+</code></pre></div></div>
+
+<p>You will also need to configure the router to peer with each Calico node. This
+step varies based on the router’s BGP implementation. Here’s an
+<a href="https://gist.github.com/Cynerva/46712dd1e9b75d42cb38fb966abfa932">example configuration for BIRD</a>.</p>
+
+<h3 id="bgp-route-reflection">BGP route reflection</h3>
+
+<p>By default, all Calico nodes are connected in a full BGP mesh. This works well
+for small deployments, but does not scale well to larger deployments. For
+large deployments, it is recommended that you configure Calico to use
+<a href="https://tools.ietf.org/html/rfc4456">route reflection</a>.</p>
+
+<p>For example, in a deployment with more than 10 Calico units, you might
+configure it such that units calico/0 (with IP 10.0.0.2) and calico/1 (with IP
+10.0.0.3) are route reflectors, and all other Calico units only peer with them.
+To do this, you would first configure route reflector cluster IDs:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico route-reflector-cluster-ids<span class="o">=</span><span class="s2">"
+0: 0.0.0.0
+1: 0.0.0.0
+"</span>
+</code></pre></div></div>
+
+<p>Then configure every node to peer with the route reflectors:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico global-bgp-peers<span class="o">=</span><span class="s2">"
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.0.3
+  as-number: 64512
+"</span>
+</code></pre></div></div>
+
+<p>And disable the node-to-node-mesh:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico node-to-node-mesh<span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
+
+<h3 id="bgp-with-the-as-per-rack-model">BGP with the AS Per Rack model</h3>
+
+<p>One commonly used model for Calico deployments on bare metal is the
+<a href="https://docs.projectcalico.org/v3.6/networking/design/l3-interconnect-fabric#the-as-per-rack-model">AS Per Rack model</a>. The configuration in this scenario can be tricky, so let’s
+walk through an example.</p>
+
+<p>Given:</p>
+<ul>
+  <li>Two racks:
+    <ul>
+      <li>Rack 0
+        <ul>
+          <li>Subnets 10.0.0.0/24, 10.0.1.0/24</li>
+          <li>ToR router with IPs 10.0.0.1, 10.0.1.1</li>
+          <li>Desired route reflectors:
+            <ul>
+              <li>calico/0 at 10.0.0.2</li>
+              <li>calico/1 at 10.0.1.2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Rack 1
+        <ul>
+          <li>Subnets 10.0.2.0/24, 10.0.3.0/24</li>
+          <li>ToR router with IPs 10.0.2.1, 10.0.3.1</li>
+          <li>Desired route reflectors:
+            <ul>
+              <li>calico/2 at 10.0.2.2</li>
+              <li>calico/3 at 10.0.3.2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Assign a different AS number to each rack:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico subnet-as-numbers<span class="o">=</span><span class="s2">"
+10.0.0.0/24: 64512
+10.0.1.0/24: 64512
+10.0.2.0/24: 64513
+10.0.3.0/24: 64513
+"</span>
+</code></pre></div></div>
+
+<p>Next, configure the route reflectors. Each route reflector needs to be assigned
+a cluster ID. The exact cluster ID used isn’t important, as long as both route
+reflectors on a given rack share the same cluster ID. For this example, we’ll
+choose 0.0.0.0 for rack 0 and 0.0.0.1 for rack 1.</p>
+
+<p>Configure the route reflectors:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico route-reflector-cluster-ids<span class="o">=</span><span class="s2">"
+0: 0.0.0.0
+1: 0.0.0.0
+2: 0.0.0.1
+3: 0.0.0.1
+"</span>
+</code></pre></div></div>
+
+<p>Configure route reflectors to peer with the top of rack switches:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico unit-bgp-peers<span class="o">=</span><span class="s2">"
+0:
+- address: 10.0.0.1
+  as-number: 64512
+1:
+- address: 10.0.1.1
+  as-number: 64512
+2:
+- address: 10.0.2.1
+  as-number: 64513
+3:
+- address: 10.0.3.1
+  as-number: 64513
+"</span>
+</code></pre></div></div>
+
+<p>Configure Calico nodes to peer with the route reflectors:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico subnet-bgp-peers<span class="o">=</span><span class="s2">"
+10.0.0.0/24:
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.1.2
+  as-number: 64512
+10.0.1.0/24:
+- address: 10.0.0.2
+  as-number: 64512
+- address: 10.0.1.2
+  as-number: 64512
+10.0.2.0/24:
+- address: 10.0.2.2
+  as-number: 64513
+- address: 10.0.3.2
+  as-number: 64513
+10.0.3.0/24:
+- address: 10.0.2.2
+  as-number: 64513
+- address: 10.0.3.2
+  as-number: 64513
+"</span>
+</code></pre></div></div>
+
+<p>And disable the node-to-node mesh:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico node-to-node-mesh<span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
+
+<p>You will also need to configure the top of rack switches to peer with the
+Calico route reflectors. Instructions for doing this should be provided in the
+documentation for the specific model of switch you are using.</p>
+
+<h2 id="configuring-multiple-calico-pools">Configuring multiple Calico pools</h2>
+
+<p>The Calico charm creates a single IPPool. If multiple IPPools pools are desired,
+then you must first disable the charm’s built-in pool management:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config calico manage-pools<span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
+
+<p>Then use calicoctl to create your own pools. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju ssh calico/0 calicoctl apply <span class="nt">-f</span> - <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh">
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+  name: my-pool
+spec:
+  cidr: 192.168.0.0/24
+  ipipMode: Never
+  natOutgoing: true
+</span><span class="no">EOF
+</span></code></pre></div></div>
+
+<h2 id="using-a-private-docker-registry">Using a private Docker registry</h2>
+
+<p>For a general introduction to using a private Docker registry with
+<strong>Charmed Kubernetes</strong>, please refer to the <a href="/kubernetes/docs/docker-registry">Private Docker Registry</a> page.</p>
+
+<p>In addition to the steps documented there, you will need to upload the
+following images to the registry:</p>
+
+<pre><code class="language-no-highlight">docker.io/calico/node:v3.6.1
+docker.io/calico/kube-controllers:v3.6.1
+</code></pre>
+
+<p>And configure Calico to use the registry:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">IP</span><span class="o">=</span><span class="sb">`</span>juju run <span class="nt">--unit</span> docker-registry/0 <span class="s1">'network-get website --ingress-address'</span><span class="sb">`</span>
+<span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span><span class="sb">`</span>juju config docker-registry registry-port<span class="sb">`</span>
+<span class="nb">export </span><span class="nv">REGISTRY</span><span class="o">=</span><span class="nv">$IP</span>:<span class="nv">$PORT</span>
+juju config calico <span class="se">\</span>
+  calico-node-image<span class="o">=</span><span class="nv">$registry</span>/calico/node:v3.6.1 <span class="se">\</span>
+  calico-policy-image<span class="o">=</span><span class="nv">$registry</span>/calico/kube-controllers:v3.6.1
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If there is an issue with connectivity, it can be useful to inspect the Juju logs.
+To see a complete set of logs for Calico</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju debug-log <span class="nt">--replay</span> <span class="nt">--include</span><span class="o">=</span>calico
+</code></pre></div></div>
+
+<p>For additional troubleshooting pointers, please see the <a href="/kubernetes/docs/troubleshooting">dedicated troubleshooting page</a>.</p>
+
+<h2 id="useful-links">Useful links</h2>
+
+<ul>
+  <li>The <a href="https://www.projectcalico.org/learn/">Calico website</a> has a thorough explanation of its network management strategy.</li>
+</ul>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/cni-calico.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

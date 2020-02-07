@@ -1,0 +1,207 @@
+<p>As mentioned in the <a href="/kubernetes/docs/certs-and-trust">Certificates and trust reference</a> documentation,
+<a href="https://www.vaultproject.io">HashiCorp’s Vault</a> can be used to provide either a root or intermediate CA. It can
+also be deployed HA, as well as provide a secure secrets store which can be used to enable
+<a href="/kubernetes/docs/encryption-at-rest">encryption-at-rest for <strong>Charmed Kubernetes</strong></a>.</p>
+
+<p>Vault does require an additional database to store its data and (depending on
+configuration) some manual steps will be required after deployment or any reboot so
+that secrets, such as certificates and signing keys, can be accessed.</p>
+
+<h2 id="deploying-charmed-kubernetes-with-vault-as-a-root-ca">Deploying Charmed Kubernetes with Vault as a root CA</h2>
+
+<p>When deploying <strong>Charmed Kubernetes</strong> manually via the
+<a href="https://jujucharms.com/charmed-kubernetes">published Juju bundle</a>, it is possible to make use of an overlay
+file to change the composition and configuration of the cluster.</p>
+
+<p>The following overlay file (<a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vault-pki-overlay.yaml">download</a>) alters
+<strong>Charmed Kubernetes</strong> to use <strong>Vault</strong> instead of EasyRSA:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">applications</span><span class="pi">:</span>
+  <span class="na">easyrsa</span><span class="pi">:</span> <span class="no">null</span>
+  <span class="na">vault</span><span class="pi">:</span>
+    <span class="na">charm</span><span class="pi">:</span> <span class="s">cs:~openstack-charmers-next/vault</span>
+    <span class="na">num_units</span><span class="pi">:</span> <span class="s">1</span>
+    <span class="na">options</span><span class="pi">:</span>
+      <span class="c1"># this makes Vault act as a self-signed root CA</span>
+      <span class="na">auto-generate-root-ca-cert</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">percona-cluster</span><span class="pi">:</span>
+    <span class="na">charm</span><span class="pi">:</span> <span class="s">cs:percona-cluster</span>
+    <span class="na">num_units</span><span class="pi">:</span> <span class="s">1</span>
+<span class="na">relations</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">kubernetes-master:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">etcd:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">kubernetes-worker:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">kubeapi-load-balancer:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">vault:shared-db</span>
+  <span class="pi">-</span> <span class="s">percona-cluster:shared-db</span>
+</code></pre></div></div>
+
+<p>Save this to a file named <code class="highlighter-rouge">vault-pki-overlay.yaml</code> and deploy with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy charmed-kubernetes <span class="nt">--overlay</span> ./vault-pki-overlay.yaml
+</code></pre></div></div>
+
+<p>Once the deployment settles, you will notice that several applications are in a
+<code class="highlighter-rouge">blocked</code> state in <strong>Juju</strong>, with <strong>Vault</strong> indicating that it needs to be initialised
+and unsealed. To unseal <strong>Vault</strong>, you can read <a href="https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/app-vault.html#initialize-and-unseal-vault">the guide</a> for
+in-depth instructions (you may also need to <a href="https://docs.jujucharms.com/stable/en/charms-deploying#exposing-deployed-applications">expose</a> <strong>Vault</strong>), or you can use
+the <strong>Vault</strong> client already on the deployed unit with the following steps:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju ssh vault/0
+<span class="nb">export </span><span class="nv">HISTCONTROL</span><span class="o">=</span>ignorespace  <span class="c"># enable leading space to suppress command history</span>
+<span class="nb">export </span><span class="nv">VAULT_ADDR</span><span class="o">=</span><span class="s1">'http://localhost:8200'</span>
+vault operator init <span class="nt">-key-shares</span><span class="o">=</span>5 <span class="nt">-key-threshold</span><span class="o">=</span>3  <span class="c"># this will give you 5 keys and a root token</span>
+  vault operator unseal <span class="o">{</span>key1<span class="o">}</span>
+  vault operator unseal <span class="o">{</span>key2<span class="o">}</span>
+  vault operator unseal <span class="o">{</span>key3<span class="o">}</span>
+  <span class="nv">VAULT_TOKEN</span><span class="o">={</span>root token<span class="o">}</span> vault token create <span class="nt">-ttl</span> 10m  <span class="c"># this will give you a token to auth the charm</span>
+<span class="nb">exit
+</span>juju run-action vault/0 authorize-charm <span class="nv">token</span><span class="o">={</span>charm token<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    It is <strong><em>critical </em></strong> that you save all five unseal keys as well as the root
+    token.  If the <strong>Vault</strong> unit is ever rebooted, you will have to repeat the
+    unseal steps (but not the init step) before the CA can become functional
+    again.
+  </p>
+</div>
+
+<h2 id="transitioning-an-existing-cluster-from-easyrsa-to-vault">Transitioning an existing cluster from EasyRSA to Vault</h2>
+
+<p>An existing <strong>Charmed Kubernetes</strong> deployment which is using EasyRSA can
+be transitioned to use <strong>Vault</strong> as a CA.</p>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    During the transition, any pods that use ServiceAccounts to talk to the
+    Kubernetes API may need to be restarted. Addons that are deployed and
+    managed by <strong>Charmed Kubernetes</strong> will be restarted automatically. If you
+    have deployed anything into Kubernetes that talks to the Kubernetes API, it
+    is recommended that you restart them after the transition by using the
+    <code class="highlighter-rouge">kubectl rollout restart</code> command.
+  </p>
+</div>
+
+<p>Deploy <strong>Vault</strong> and Percona Cluster:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy cs:percona-cluster
+juju deploy cs:~openstack-charmers-next/vault
+juju config vault auto-generate-root-ca-cert<span class="o">=</span><span class="nb">true
+</span>juju add-relation vault:shared-db percona-cluster:shared-db
+</code></pre></div></div>
+
+<p>Unseal <strong>Vault</strong> as described earlier in this document.</p>
+
+<p>Relate <strong>Vault</strong> to etcd:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju add-relation vault:certificates etcd:certificates
+</code></pre></div></div>
+
+<p>Wait a few minutes for the cluster to settle, with all units showing as active
+and idle. Then relate <strong>Vault</strong> to Kubernetes:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju add-relation vault:certificates kubeapi-load-balancer:certificates
+juju add-relation vault:certificates kubernetes-master:certificates
+juju add-relation vault:certificates kubernetes-worker:certificates
+</code></pre></div></div>
+
+<p>Wait a few minutes for the cluster to settle, and ensure that all services and
+workloads are functioning as expected.</p>
+
+<p>After the transition, you must remove <strong>EasyRSA</strong> to prevent it from
+conflicting with <strong>Vault</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju remove-application easyrsa
+</code></pre></div></div>
+
+<p>You will need to re-download the <code class="highlighter-rouge">kubectl</code> config file,
+since it contains the certificate info for connecting to the cluster:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju scp kubernetes-master/0:config ~/.kube/config
+</code></pre></div></div>
+
+<div class="p-notification--caution">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Caution:</span>
+If you have multiple clusters you will need to manage the config file rather than just
+replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+Kubernetes documentation</a> for more information on managing multiple clusters.
+  </p>
+</div>
+
+<h2 id="using-vault-as-an-intermediary-ca">Using Vault as an intermediary CA</h2>
+
+<p>If you don’t wish <strong>Vault</strong> to act as a self-signed root CA, you can remove the
+<code class="highlighter-rouge">auto-generate-root-ca-cert: true</code> option from the overlay and follow <a href="https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/app-certificate-management.html">these
+instructions</a> to generate a
+<a href="https://en.wikipedia.org/wiki/Certificate_signing_request">Certificate Signing Request (CSR)</a>, have it signed by a trusted root CA,
+and upload it back to <strong>Vault</strong>.</p>
+
+<h2 id="using-vault-in-auto-unseal-mode">Using Vault in Auto-Unseal mode</h2>
+
+<p>The <strong>Vault</strong> charm supports the ability to store and manage the unseal keys and
+root token using <strong>Juju</strong> <a href="https://docs.jujucharms.com/stable/en/authors-charm-leadership">leadership data</a>. Note that this means that
+the unseal keys can be accessed at any time from the machine that <strong>Vault</strong> is
+running on, significantly reducing the security of <strong>Vault</strong>, particularly with
+respect to serving as a secure secrets store. If you are comfortable with this
+reduction in security and don’t want to have to deal with the manual steps
+involved in managing the unseal keys and root token, you can add the following
+to the <code class="highlighter-rouge">options</code> section of <code class="highlighter-rouge">vault</code> in the overlay above:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="na">totally-unsecure-auto-unlock</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div></div>
+
+<h2 id="using-vault-with-ha">Using Vault with HA</h2>
+
+<p><strong>Vault</strong> also supports HA mode by adding a second unit and a relation to Etcd.
+To deploy with this configuration, you can use the following overlay
+(<a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vault-pki-ha-overlay.yaml">download</a>) instead with the instructions from above to
+deploy, init, and unseal Vault:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">applications</span><span class="pi">:</span>
+  <span class="na">easyrsa</span><span class="pi">:</span> <span class="no">null</span>
+  <span class="na">vault</span><span class="pi">:</span>
+    <span class="na">charm</span><span class="pi">:</span> <span class="s">cs:~openstack-charmers-next/vault</span>
+    <span class="na">num_units</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="na">options</span><span class="pi">:</span>
+      <span class="na">auto-generate-root-ca-cert</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">percona-cluster</span><span class="pi">:</span>
+    <span class="na">charm</span><span class="pi">:</span> <span class="s">cs:percona-cluster</span>
+    <span class="na">num_units</span><span class="pi">:</span> <span class="s">1</span>
+<span class="na">relations</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">kubernetes-master:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">etcd:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">kubernetes-worker:certificates</span>
+  <span class="pi">-</span> <span class="s">vault:certificates</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">vault:shared-db</span>
+  <span class="pi">-</span> <span class="s">percona-cluster:shared-db</span>
+<span class="pi">-</span> <span class="pi">-</span> <span class="s">vault:etcd</span>
+  <span class="pi">-</span> <span class="s">etcd:db</span>
+</code></pre></div></div>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    You will only need to perform the <code class="highlighter-rouge">vault init</code> step once, but you will
+    need to unseal each unit individually.
+  </p>
+</div>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/using-vault.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

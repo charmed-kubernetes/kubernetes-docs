@@ -1,0 +1,102 @@
+<p>The core Kubernetes components used in <strong>Charmed Kubernetes</strong> are installed as
+snap packages. These include:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">kube-apiserver</code></li>
+  <li><code class="highlighter-rouge">kube-controller-manager</code></li>
+  <li><code class="highlighter-rouge">kube-scheduler</code></li>
+  <li><code class="highlighter-rouge">kube-proxy</code></li>
+  <li><code class="highlighter-rouge">kubelet</code></li>
+  <li><code class="highlighter-rouge">kubectl</code></li>
+</ul>
+
+<p>By default, the <code class="highlighter-rouge">snapd</code> daemon periodically checks installed snaps for updates
+and will automatically refresh upgradeable packages to ensure the software is
+current. If desired, an administrator can setup a
+<a href="https://docs.ubuntu.com/snap-store-proxy/">Snap Store Proxy</a> to have more control over the snap revisions
+used in a deployment.</p>
+
+<p>When configured, snaps used by <code class="highlighter-rouge">kubernetes-master</code> and <code class="highlighter-rouge">kubernetes-worker</code>
+charms will track revisions defined on the proxy rather than those available
+in the upstream Snap Store.</p>
+
+<h2 id="deploy-a-snap-store-proxy">Deploy a Snap Store Proxy</h2>
+
+<p>The <a href="https://docs.ubuntu.com/snap-store-proxy/en/install">installation guide</a> covers manual installation of a
+Snap Store Proxy and is best suited for administrators that wish to use
+existing infrastructure for the proxy.</p>
+
+<p>A bundle is also available for those that wish to Juju deploy a full snap
+proxy environment. See the <a href="https://github.com/johnsca/charm-snap-store-proxy">Snap Store Proxy charm</a>
+documentation for details on this method of deployment.</p>
+
+<p>Once deployed, the proxy will need to be registered. This process generates a
+snap store id that will be used by <strong>Charmed Kubernetes</strong> charms. Registration
+is described in the documentation available at the given links depending on
+your chosen method of deployment.</p>
+
+<p>The remainder of this guide assumes a snap store proxy is available in your
+environment in a <code class="highlighter-rouge">snap-store-proxy/0</code> unit.</p>
+
+<h2 id="configure-charms-to-use-the-proxy">Configure charms to use the proxy</h2>
+
+<p>Charm applications must be configured to use the proxied snap store. This is
+done by acknowledging the signed assertion that allows <code class="highlighter-rouge">snapd</code> to trust the
+proxy, followed by setting the core snap proxy to the new store id:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-s</span> http://&lt;domain&gt;/v2/auth/store/assertions | <span class="nb">sudo </span>snap ack /dev/stdin
+<span class="nb">sudo </span>snap <span class="nb">set </span>core proxy.store<span class="o">=</span>&lt;STORE_ID&gt;
+</code></pre></div></div>
+
+<p>Relevant commands will be shown in <code class="highlighter-rouge">juju status</code> output when the proxy is
+deployed with the <code class="highlighter-rouge">snap-store-proxy</code> charm:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>juju status snap-store-proxy/0
+...
+snap-store-proxy/0<span class="k">*</span>  active    idle   11       18.144.52.58    80/tcp  <span class="se">\</span>
+  curl <span class="nt">-s</span> http://18.144.52.58/v2/auth/store/assertions | <span class="nb">sudo </span>snap ack /dev/stdin <span class="p">;</span> <span class="se">\</span>
+  <span class="nb">sudo </span>snap <span class="nb">set </span>core proxy.store<span class="o">=</span>&lt;STORE_ID&gt;
+</code></pre></div></div>
+
+<p>Run the required commands on <code class="highlighter-rouge">kubernetes-master</code> and <code class="highlighter-rouge">kubernetes-worker</code> units:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run <span class="nt">--application</span> kubernetes-master <span class="se">\</span>
+  <span class="s1">'curl -s http://18.144.52.58/v2/auth/store/assertions | sudo snap ack /dev/stdin ; \
+  sudo snap set core proxy.store=&lt;STORE_ID&gt;'</span>
+juju run <span class="nt">--application</span> kubernetes-worker <span class="se">\</span>
+  <span class="s1">'curl -s http://18.144.52.58/v2/auth/store/assertions | sudo snap ack /dev/stdin ; \
+  sudo snap set core proxy.store=&lt;STORE_ID&gt;'</span>
+</code></pre></div></div>
+
+<h2 id="override-snap-revisions">Override snap revisions</h2>
+
+<p>Use <code class="highlighter-rouge">snap-proxy override</code> to lock a snap channel to a particular revision. For
+example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>juju run <span class="nt">--unit</span> snap-store-proxy/0 <span class="s1">'sudo snap-proxy override kubectl 1.16/stable=1342'</span>
+kubectl 1.16/stable amd64 1342
+<span class="nv">$ </span>juju run <span class="nt">--unit</span> snap-store-proxy/0 <span class="s1">'sudo snap-proxy list-overrides kubectl'</span>
+kubectl 1.16/stable amd64 1342 <span class="o">(</span>upstream 1309<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Any unit that uses the proxy to install <code class="highlighter-rouge">kubectl 1.16/stable</code> will now receive
+revision 1342, even though the upstream snap store has this channel revision
+defined as 1309. Repeat the above process to override channel revisions for
+any desired snap.</p>
+
+<p>Every subsequent hook will check for new snap revisions from the snap store
+proxy. When updates are available, the relevant snaps will first be refreshed
+across all <code class="highlighter-rouge">kubernetes-master</code> units. If the update is successful, the
+<code class="highlighter-rouge">kubernetes-worker</code> units will then be refreshed.</p>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/snap-refresh.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

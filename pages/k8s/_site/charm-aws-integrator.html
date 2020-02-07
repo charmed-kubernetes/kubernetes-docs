@@ -1,0 +1,238 @@
+<p>This charm acts as a proxy to AWS and provides an <a href="https://github.com/juju-solutions/interface-aws-integration">interface</a> to apply a
+certain set of changes via IAM roles, profiles, and tags to the instances of
+the applications that are related to this charm.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>When on AWS, this charm can be deployed, granted trust via Juju to access AWS,
+and then related to an application that supports the <a href="https://github.com/juju-solutions/interface-aws-integration">interface</a>.  The set
+of permissions that the related application could request is documented in the
+interface’s <a href="https://github.com/juju-solutions/interface-aws-integration/blob/master/docs/requires.md">Requires API documentation</a>.</p>
+
+<p>For example, <a href="https://jujucharms.com/canonical-kubernetes">CDK</a> has support for this, and can be deployed with the
+following bundle overlay:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">applications</span><span class="pi">:</span>
+  <span class="na">aws-integrator</span><span class="pi">:</span>
+    <span class="na">charm</span><span class="pi">:</span> <span class="s">cs:~containers/aws-integrator</span>
+    <span class="na">num_units</span><span class="pi">:</span> <span class="s">1</span>
+<span class="na">relations</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="pi">[</span><span class="s1">'</span><span class="s">aws-integrator'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">kubernetes-master'</span><span class="pi">]</span>
+  <span class="pi">-</span> <span class="pi">[</span><span class="s1">'</span><span class="s">aws-integrator'</span><span class="pi">,</span> <span class="s1">'</span><span class="s">kubernetes-worker'</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<p>Then deploy CDK using this overlay:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy cs:canonical-kubernetes --overlay ./k8s-aws-overlay.yaml
+</code></pre></div></div>
+
+<p>The charm then needs to be granted access to credentials that it can use to
+setup integrations.  Using Juju 2.4 or later, you can easily grant access to
+the credentials used deploy the integrator itself:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju trust aws-integrator
+</code></pre></div></div>
+
+<p>To deploy with earlier versions of Juju, or if you wish to provide it different
+credentials, you will need to provide the cloud credentials via the <code class="highlighter-rouge">credentials</code>,
+charm config options.</p>
+
+<h1 id="permissions-requirements">Permissions Requirements</h1>
+
+<p>The credentials given to the charm must include the following access rights:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EC2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AssociateIamInstanceProfile</td>
+    </tr>
+    <tr>
+      <td>CreateTags</td>
+    </tr>
+    <tr>
+      <td>DescribeInstances</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>IAM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AddRoleToInstanceProfile</td>
+    </tr>
+    <tr>
+      <td>AttachRolePolicy</td>
+    </tr>
+    <tr>
+      <td>CreateInstanceProfile</td>
+    </tr>
+    <tr>
+      <td>CreatePolicy</td>
+    </tr>
+    <tr>
+      <td>CreateRole</td>
+    </tr>
+    <tr>
+      <td>DeleteInstanceProfile</td>
+    </tr>
+    <tr>
+      <td>DeletePolicy</td>
+    </tr>
+    <tr>
+      <td>DeleteRole</td>
+    </tr>
+    <tr>
+      <td>DetachRolePolicy</td>
+    </tr>
+    <tr>
+      <td>ListAttachedRolePolicies</td>
+    </tr>
+    <tr>
+      <td>ListInstanceProfiles</td>
+    </tr>
+    <tr>
+      <td>ListPolicies</td>
+    </tr>
+    <tr>
+      <td>ListRoles</td>
+    </tr>
+    <tr>
+      <td>RemoveRoleFromInstanceProfile</td>
+    </tr>
+    <tr>
+      <td>CreatePolicyVersion</td>
+    </tr>
+    <tr>
+      <td>ListPolicyVersions</td>
+    </tr>
+    <tr>
+      <td>GetPolicyVersion</td>
+    </tr>
+    <tr>
+      <td>DeletePolicyVersion</td>
+    </tr>
+    <tr>
+      <td>SetDefaultPolicyVersion</td>
+    </tr>
+    <tr>
+      <td>GetPolicy</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>STS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GetCallerIdentity</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that these may be different from the permissions that Juju requires to operate.</p>
+
+<h1 id="resource-usage-note">Resource Usage Note</h1>
+
+<p>By relating to this charm, other charms can directly allocate resources, such
+as EBS volumes and ELBs, which could lead to cloud charges and count against
+quotas.  Because these resources are not managed by Juju, they will not be
+automatically deleted when the models or applications are destroyed, nor will
+they show up in Juju’s status or GUI.  It is therefore up to the operator to
+manually delete these resources when they are no longer needed, using the
+AWS console or API.</p>
+
+<h1 id="examples">Examples</h1>
+
+<p>Following are some examples using AWS integration with CDK.</p>
+
+<h2 id="creating-a-pod-with-an-ebs-backed-volume">Creating a pod with an EBS-backed volume</h2>
+
+<p>This script creates a busybox pod with a persistent volume claim backed by
+AWS’s Elastic Block Storage.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># create a storage class using the `kubernetes.io/aws-ebs` provisioner</span>
+kubectl create <span class="nt">-f</span> - <span class="o">&lt;&lt;</span><span class="no">EOY</span><span class="sh">
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-1
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+</span><span class="no">EOY
+
+</span><span class="c"># create a persistent volume claim using that storage class</span>
+kubectl create <span class="nt">-f</span> - <span class="o">&lt;&lt;</span><span class="no">EOY</span><span class="sh">
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: testclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: ebs-1
+</span><span class="no">EOY
+
+</span><span class="c"># create the busybox pod with a volume using that PVC:</span>
+kubectl create <span class="nt">-f</span> - <span class="o">&lt;&lt;</span><span class="no">EOY</span><span class="sh">
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  namespace: default
+spec:
+  containers:
+    - image: busybox
+      command:
+        - sleep
+        - "3600"
+      imagePullPolicy: IfNotPresent
+      name: busybox
+      volumeMounts:
+        - mountPath: "/pv"
+          name: testvolume
+  restartPolicy: Always
+  volumes:
+    - name: testvolume
+      persistentVolumeClaim:
+        claimName: testclaim
+</span><span class="no">EOY
+</span></code></pre></div></div>
+
+<h2 id="creating-a-service-with-an-aws-load-balancer">Creating a service with an AWS load-balancer</h2>
+
+<p>The following script starts the hello-world pod behind an AWS Elastic Load Balancer.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+kubectl run hello-world <span class="nt">--replicas</span><span class="o">=</span>5 <span class="nt">--labels</span><span class="o">=</span><span class="s2">"run=load-balancer-example"</span> <span class="nt">--image</span><span class="o">=</span>gcr.io/google-samples/node-hello:1.0  <span class="nt">--port</span><span class="o">=</span>8080
+kubectl expose deployment hello-world <span class="nt">--type</span><span class="o">=</span>LoadBalancer <span class="nt">--name</span><span class="o">=</span>hello
+watch kubectl get svc <span class="nt">-o</span> wide <span class="nt">--selector</span><span class="o">=</span><span class="nv">run</span><span class="o">=</span>load-balancer-example
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<!-- CONFIG STARTS -->
+<!--AUTOGENERATED CONFIG TEXT - DO NOT EDIT -->
+
+<!-- CONFIG ENDS -->
+

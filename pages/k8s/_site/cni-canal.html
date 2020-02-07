@@ -1,0 +1,111 @@
+<p>“Canal” is a shorthand for saying “Calico and Flannel”, a common practise which sets
+up Calico to handle policy management and Flannel to manage the network itself. This
+combination brings in Calico’s support for the NetworkPolicy feature of Kubernetes,
+while utilizing Flannel’s UDP-based network traffic to provide for an easier setup
+experience that works in a wider variety of host network environments without
+special configuration.</p>
+
+<h2 id="deploying-charmed-kubernetes-with-canal">Deploying Charmed Kubernetes with Canal</h2>
+
+<p>To deploy a cluster with Canal, deploy the kubernetes-canal bundle:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy cs:bundle/canonical-kubernetes-canal
+</code></pre></div></div>
+
+<p>The canal bundle is identical to the standard <code class="highlighter-rouge">charmed-kubernetes</code> bundle with the
+exception of replacing flannel with canal. You can apply any customisation overlays
+that would apply to <code class="highlighter-rouge">charmed-kubernetes</code> to this bundle also.</p>
+
+<h2 id="canal-configuration-options">Canal configuration options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>calico-node-image</td>
+      <td>string</td>
+      <td>docker.io/calico/node:v3.6.1</td>
+      <td>The image id to use for calico/node.</td>
+    </tr>
+    <tr>
+      <td>calico-policy-image</td>
+      <td>string</td>
+      <td>docker.io/calico/kube-controllers:v3.6.1</td>
+      <td>The image id to use for calico/kube-controllers.</td>
+    </tr>
+    <tr>
+      <td>cidr</td>
+      <td>string</td>
+      <td>10.1.0.0/16</td>
+      <td>Network CIDR to assign to Flannel</td>
+    </tr>
+    <tr>
+      <td>iface</td>
+      <td>string</td>
+      <td> </td>
+      <td>The interface to bind flannel overlay networking. The default value is the interface bound to the cni endpoint.</td>
+    </tr>
+    <tr>
+      <td>nagios_context</td>
+      <td>string</td>
+      <td>juju</td>
+      <td>Used by the nrpe subordinate charms. A string that will be prepended to instance name to set the host name in nagios. So for instance the hostname would be something like:     juju-myservice-0 If you’re running multiple environments with the same services in them this allows you to differentiate between them.</td>
+    </tr>
+    <tr>
+      <td>nagios_servicegroups</td>
+      <td>string</td>
+      <td> </td>
+      <td>A comma-separated list of nagios servicegroups. If left empty, the nagios_context will be used as the servicegroup</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="checking-the-current-configuration">Checking the current configuration</h3>
+
+<p>To check the current configuration settings for Canal, run the command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config canal
+</code></pre></div></div>
+
+<h3 id="setting-a-config-option">Setting a config option</h3>
+
+<p>To set an option, simply run the config command with and additional <code class="highlighter-rouge">&lt;key&gt;=&lt;value&gt;</code> argument. For example, to set a specific network CIDR:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config canal <span class="nv">cidr</span><span class="o">=</span><span class="s2">"10.5.0.0/16"</span>
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If there is an issue with connectivity, it can be useful to inspect the Juju logs. To
+see a complete set of logs for canal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju debug-log <span class="nt">--replay</span> <span class="nt">--include</span><span class="o">=</span>canal
+</code></pre></div></div>
+
+<p>For additional troubleshooting pointers, please see the
+<a href="/kubernetes/docs/troubleshooting">dedicated troubleshooting page</a>.</p>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/cni-canal.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

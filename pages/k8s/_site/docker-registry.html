@@ -1,0 +1,142 @@
+<p>The <a href="http://jujucharms.com/u/containers/docker-registry">docker-registry</a> charm facilitates the storage and
+distribution of container images. Include this in a <strong>Kubernetes</strong>
+deployment to provide images to cluster components without requiring
+access to public registries.
+See <a href="https://docs.docker.com/registry/">https://docs.docker.com/registry/</a> for
+details.</p>
+
+<h2 id="deploy">Deploy</h2>
+
+<p>The registry is deployed as a stand-alone application. Many deployment
+scenarios are described in the <a href="http://jujucharms.com/u/containers/docker-registry">charm readme</a>. The most common
+scenario for <strong>Kubernetes</strong> integration is to configure a registry with TLS
+and basic (htpasswd) authentication enabled.</p>
+
+<p>If needed, consult the <a href="/kubernetes/docs/quickstart">quickstart guide</a> to install
+<strong>Charmed Kubernetes</strong>. Then deploy and configure <code class="highlighter-rouge">docker-registry</code> as
+follows.  This example relates to a containerd charm; this can be replaced
+with any <a href="/kubernetes/docs/container-runtime">container runtime</a>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy ~containers/docker-registry
+juju add-relation docker-registry easyrsa:client
+juju add-relation docker-registry containerd
+juju config docker-registry <span class="se">\</span>
+  auth-basic-user<span class="o">=</span><span class="s1">'admin'</span> <span class="se">\</span>
+  auth-basic-password<span class="o">=</span><span class="s1">'password'</span>
+</code></pre></div></div>
+
+<h3 id="custom-certificates">Custom Certificates</h3>
+
+<p>Relating <code class="highlighter-rouge">docker-registry</code> to <code class="highlighter-rouge">easyrsa</code> above will generate new TLS data
+to support secure communication with the registry. Alternatively, custom
+TLS data may be provided as base64-encoded config options to the charm:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config docker-registry <span class="se">\</span>
+  tls-ca-blob<span class="o">=</span><span class="k">$(</span><span class="nb">base64</span> /path/to/ca<span class="k">)</span> <span class="se">\</span>
+  tls-cert-blob<span class="o">=</span><span class="k">$(</span><span class="nb">base64</span> /path/to/cert<span class="k">)</span> <span class="se">\</span>
+  tls-key-blob<span class="o">=</span><span class="k">$(</span><span class="nb">base64</span> /path/to/key<span class="k">)</span>
+</code></pre></div></div>
+
+<h3 id="proxied-registry">Proxied Registry</h3>
+
+<p>Advanced networking or highly available deployment scenarios may require
+multiple <code class="highlighter-rouge">docker-registry</code> units to be deployed behind a proxy. In this case,
+the network information of the proxy will be shared with the container runtime
+units when the registry is related.</p>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+SSL pass-thru is supported between ‘docker-registry’ and ‘haproxy’, though
+manual configuration is required. The recommended approach for a proxied
+registry is to disable SSL on ‘docker-registry’ prior to relating it to
+‘haproxy’. Consult the ‘docker-registry’ charm readme if SSL is required in a
+proxied environment.
+  </p>
+</div>
+
+<p>The environment described in the <code class="highlighter-rouge">Deploy</code> section above can be adjusted to
+create a highly available registry as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy haproxy
+juju add-unit docker-registry
+juju remove-relation docker-registry easyrsa:client
+juju add-relation docker-registry haproxy:reverseproxy
+</code></pre></div></div>
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+With multiple registry units deployed, the proxy relation allows for a
+highly available deployment. Load balancing across multiple registry units is
+not supported.
+  </p>
+</div>
+
+<h2 id="verify">Verify</h2>
+
+<p>Make note of the registry address. By default, this address is only accessible
+within the deployment model. See the <a href="http://jujucharms.com/u/containers/docker-registry">charm readme</a> for host
+and proxy configuration options if desired.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">IP</span><span class="o">=</span><span class="sb">`</span>juju run <span class="nt">--unit</span> docker-registry/0 <span class="s1">'network-get website --ingress-address'</span><span class="sb">`</span>
+<span class="nb">export </span><span class="nv">PORT</span><span class="o">=</span><span class="sb">`</span>juju config docker-registry registry-port<span class="sb">`</span>
+<span class="nb">export </span><span class="nv">REGISTRY</span><span class="o">=</span><span class="nv">$IP</span>:<span class="nv">$PORT</span>
+</code></pre></div></div>
+
+<p>Verify basic authentication is working:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run <span class="nt">--unit</span> docker-registry/0 <span class="s2">"docker login -u admin -p password </span><span class="nv">$REGISTRY</span><span class="s2">"</span>
+Login Succeeded
+...
+</code></pre></div></div>
+
+<h2 id="kubernetes-images">Kubernetes images</h2>
+
+<p>A list of images that may be used by <strong>Charmed Kubernetes</strong> can be found in
+the <a href="https://github.com/charmed-kubernetes/bundle/blob/master/container-images.txt">container-images.txt</a> document. This is a
+comprehensive list sorted by release; not all images are required for all
+deployments. Take note of the images required by your deployment that will
+need to be hosted in your private registry.</p>
+
+<h2 id="hosting-images">Hosting images</h2>
+
+<p>To make an image available in the deployed registry, it must be tagged and
+pushed. As an example, push the <code class="highlighter-rouge">defaultbackend-amd64</code> image to
+<code class="highlighter-rouge">docker-registry</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run-action docker-registry/0 <span class="se">\</span>
+  push <span class="se">\</span>
+  <span class="nv">image</span><span class="o">=</span>k8s.gcr.io/defaultbackend-amd64:1.5 <span class="se">\</span>
+  <span class="nv">tag</span><span class="o">=</span><span class="nv">$REGISTRY</span>/defaultbackend-amd64:1.5 <span class="se">\</span>
+  <span class="nt">--wait</span>
+...
+  results:
+    outcome: success
+    raw: pushed 172.31.28.74:5000/k8s.gcr.io/defaultbackend-amd64:1.5
+  status: completed
+...
+</code></pre></div></div>
+
+<p>The above procedure should be repeated for all required images.</p>
+
+<h2 id="using-hosted-images">Using hosted images</h2>
+
+<p>The image registry used by <strong>Charmed Kubernetes</strong> is controlled by a
+<code class="highlighter-rouge">kubernetes-master</code> config option. Configure <code class="highlighter-rouge">kubernetes-master</code> to use your
+private registry as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config kubernetes-master image-registry<span class="o">=</span><span class="nv">$REGISTRY</span>
+</code></pre></div></div>
+
+<!-- LINKS -->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/docker-registry.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>

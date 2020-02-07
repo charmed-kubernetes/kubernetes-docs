@@ -1,0 +1,263 @@
+<p>There is a distinction between authentication and authorisation:</p>
+
+<ul>
+  <li>Authentication verifies who a user is.</li>
+  <li>Authorisation deals with what a user is allowed to do.</li>
+</ul>
+
+<p><strong>Charmed Kubernetes</strong> can be configured to use Keystone and LDAP for authentication only
+or both authentication and authorisation.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>This document assumes you have already <a href="/kubernetes/docs/quickstart">installed</a> <strong>Charmed Kubernetes</strong>.</li>
+  <li>For LDAP authentication, this documentation assumes you already have a suitable LDAP
+ server running.</li>
+  <li>You will need to install the Keystone client. This can be done by running:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>snap <span class="nb">install </span>client-keystone-auth
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="install-keystone">Install Keystone</h2>
+
+<p>Note: These instructions assume you are working with the <code class="highlighter-rouge">Queens</code> release of
+<strong>OpenStack</strong>, the default supported version for Ubuntu 18.04 (Bionic)</p>
+
+<p>Keystone should be deployed using <strong>Juju</strong>. This is easily achieved by using a bundle,
+which will deploy and relate, Keystone, the OpenStack dashboard and a suitable
+database. An example bundle is <a href="https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/keystone.yaml">available for download</a>.</p>
+
+<p>Deploy the bundle with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy ./keystone.yaml
+</code></pre></div></div>
+
+<p>You should now add a relation for the kubernetes-master nodes to accept Keystone
+credentials:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju add-relation keystone:identity-credentials kubernetes-master:keystone-credentials
+</code></pre></div></div>
+
+<p>You can check that the new applications have deployed and are running with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju status
+</code></pre></div></div>
+
+<p>The Keystone application will need to be accessible by <code class="highlighter-rouge">kubectl</code> running on your desktop.
+You will also need to access the dashboard for the following steps. This can be achieved
+with Juju by running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju expose keystone
+juju expose openstack-dashboard
+</code></pre></div></div>
+
+<p>Note that, if security is a concern, this access can subsequently be reversed with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju unexpose keystone
+juju unexpose openstack-dashboard
+</code></pre></div></div>
+
+<h2 id="fetch-the-keystone-script">Fetch the Keystone script</h2>
+
+<p>When related to Keystone, the Kubernetes master application will generate a utility
+script. This should be copied to the local client with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju scp kubernetes-master/0:kube-keystone.sh ~/kube-keystone.sh
+</code></pre></div></div>
+
+<p>The file will need to be edited to replace the value for <code class="highlighter-rouge">OS_AUTH_URL</code>, which should
+point at the public address for Keystone, and the username if different. At this point the
+file should be sourced:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/kube-keystone.sh
+</code></pre></div></div>
+
+<p>The script should prompt you to enter an additional command to retrieve the token to
+login to the OpenStack Dashboard. If this step fails, check that the details in the
+<code class="highlighter-rouge">kube-keystone.sh</code> file are correct.</p>
+
+<h2 id="access-the-openstack-dashboard">Access the OpenStack dashboard</h2>
+
+<p>You can determine the web address for the OpenStack dashboard by running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju status openstack-dashboard
+</code></pre></div></div>
+
+<p>Open the address in a web browser and log in with the token obtained previously.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;openstack_dashboard_ip&gt;/horizon
+</code></pre></div></div>
+
+<p>If you just deployed Keystone and do not have any credentials set, it is useful
+to note that Keystone creates the domain <code class="highlighter-rouge">admin_domain</code> by default and has a user
+named <code class="highlighter-rouge">admin</code> with a randomly-generated password. You can find the admin password
+with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju run <span class="nt">--unit</span> keystone/0 leader-get admin_passwd
+</code></pre></div></div>
+
+<h3 id="create-the-domain-for-kubernetes">Create the domain for Kubernetes</h3>
+<p>You should now create a new domain for Kubernetes.</p>
+
+<p><img src="https://assets.ubuntu.com/v1/00468cda-ldap1.png" alt="dashboard image" /></p>
+
+<p>After creating, be sure to set the domain context so users and roles are added to the
+proper domain.</p>
+
+<p><img src="https://assets.ubuntu.com/v1/f6913d43-ldap2.png" alt="dashboard image" /></p>
+
+<h3 id="create-a-role-for-kubernetes">Create a role for Kubernetes</h3>
+
+<p>Create an appropriate role for Kubernetes:</p>
+
+<p><img src="https://assets.ubuntu.com/v1/f65d9f1f-ldap3.png" alt="dashboard image" /></p>
+
+<p>Repeat the process for <code class="highlighter-rouge">k8s-viewers</code> and <code class="highlighter-rouge">k8s-users</code> if desired. These values
+match with the <code class="highlighter-rouge">keystone-policy</code> configuration option on the kubernetes-master
+charm.</p>
+
+<h3 id="create-a-project-for-kubernetes">Create a project for Kubernetes</h3>
+
+<p>As with the roles, the project name must match the value in the
+<code class="highlighter-rouge">keystone-policy</code> configuration option on the kubernetes-master charm.</p>
+
+<p><img src="https://assets.ubuntu.com/v1/442f2a24-ldap4.png" alt="dashboard image" /></p>
+
+<h3 id="create-a-user-for-kubernetes">Create a user for Kubernetes</h3>
+
+<p>Now ensure the user is added to the project created above.</p>
+
+<p><img src="https://assets.ubuntu.com/v1/d6149d7c-ldap5.png" alt="dashboard image" /></p>
+
+<h2 id="using-kubectl-with-keystone">Using kubectl with Keystone</h2>
+
+<p>At this point, Keystone is set up and we have a domain, project, and user
+created in Keystone. With the updated config file copied above in
+<code class="highlighter-rouge">~/.kube/config</code>, we can use <code class="highlighter-rouge">kubectl</code> to authenticate with the api server
+via a token from Keystone. The <code class="highlighter-rouge">client-keystone-auth</code> snap will automate
+retrieving a token for us using the environment variables common to
+OpenStack such as <code class="highlighter-rouge">OS_USERNAME</code>. These environment variables are exported in
+the <code class="highlighter-rouge">kube-keystone.sh</code> script we downloaded earlier. To use it, update the
+variables in <code class="highlighter-rouge">kube-keystone.sh</code> to match valid user credentials. Pay
+special attention to the <code class="highlighter-rouge">OS_AUTH_URL</code> variable and ensure it is using an
+IP address that is reachable from the client. Source that file into
+your environment with <code class="highlighter-rouge">source ./kube-keystone.sh</code>. Any credentials that
+are not supplied via environment variable are queried at run-time for
+each invocation of kubectl.</p>
+
+<h2 id="using-keystone-with-the-kubernetes-dashboard">Using Keystone with the kubernetes-dashboard</h2>
+
+<p>When using Keystone with Kubernetes, the Kubernetes dashboard is
+updated by the charms to use token authentication. This means that a token
+from Keystone is required to log in to the Kubernetes dashboard. There is
+currently no way to automate this, but the <code class="highlighter-rouge">kube-keystone.sh</code> file includes
+a function called <code class="highlighter-rouge">get_keystone_token</code>, which uses the <code class="highlighter-rouge">OS_</code> environment
+variables in order to retrieve a token from Keystone.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/bin/kube-keystone.sh
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Function get_keystone_token created. Type get_keystone_token in order to
+generate a login token for the Kubernetes dashboard.
+</code></pre></div></div>
+<p>Enter the command…</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_keystone_token
+</code></pre></div></div>
+<p>…and a token will be generated:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ccf9b218845f4d67835f8c6a7c2d1cd4
+</code></pre></div></div>
+
+<p>This token can then be used to log in to the Kubernetes dashboard.</p>
+
+<p><img src="https://assets.ubuntu.com/v1/4b79b35c-token-login.png" alt="dashboard image" /></p>
+
+<h2 id="ldap-via-keystone">LDAP via Keystone</h2>
+
+<p>Keystone has the ability to use LDAP for authentication.
+The Keystone charm is related to the Keystone-LDAP subordinate charm in order to
+support LDAP.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju deploy keystone-ldap
+juju add-relation keystone-ldap keystone
+</code></pre></div></div>
+
+<p>Now you need to add configuration to point to the LDAP server. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config keystone-ldap ldap-server<span class="o">=</span><span class="s2">"ldap://10.10.10.10/"</span> <span class="se">\</span>
+            ldap-user<span class="o">=</span><span class="s2">"cn=admin,dc=test,dc=com"</span> <span class="se">\</span>
+            ldap-password<span class="o">=</span><span class="s2">"password"</span> <span class="se">\</span>
+            ldap-suffix<span class="o">=</span><span class="s2">"dc=test,dc=com"</span>
+
+</code></pre></div></div>
+
+<p>By default, the name of the application (‘keystone-ldap’) is the name of
+the domain for which a domain specific configuration will be configured;
+you can change this using the domain-name option:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config keystone-ldap domain-name<span class="o">=</span><span class="s2">"myorganisationname"</span>
+</code></pre></div></div>
+
+<p>The Keystone charm will automatically create a domain to support the backend
+once deployed.</p>
+
+<p>For a more detailed explanation of the configuration and other options, please see the
+<a href="https://jujucharms.com/keystone-ldap">documentation for the ldap-keystone charm</a></p>
+
+<h2 id="authorisation">Authorisation</h2>
+
+<p>By default, <strong>Charmed Kubernetes</strong> will setup only authentication with Keystone. This allows the use of
+other methods such as RBAC for authorisation but using Keystone for authentication:
+usernames will come from Keystone, but what they can do in the cluster
+is controlled by another system.</p>
+
+<p><strong>Charmed Kubernetes</strong> can  also use Keystone for authorisation as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config kubernetes-master enable-keystone-authorization<span class="o">=</span><span class="nb">true</span>
+</code></pre></div></div>
+
+<p>When authorisation is enabled, the policy is defined in the configuration. A new
+ policy can be applied by running:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config kubernetes-master keystone-policy<span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">cat </span>policy.yaml<span class="k">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p>The <a href="https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/policy.yaml">default policy may be downloaded</a> for easy editing.</p>
+
+<h2 id="custom-certificate-authority">Custom Certificate Authority</h2>
+
+<p>When using a custom certificate authority attached to Keystone, some additional configuration is
+required.</p>
+
+<ul>
+  <li>Add CA to client machines that will run <code class="highlighter-rouge">kubectl</code>.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp custom_ca.crt /usr/local/share/ca-certificates
+sudo update-ca-certificates
+</code></pre></div></div>
+<ul>
+  <li>Add CA to the kubernetes-master configuration</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>juju config kubernetes-master keystone-ssl-ca<span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">base64 </span>custom_ca.crt<span class="k">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>As with any application configuration, it is easy to make simple mistakes when entering
+different values or editing config files. If you are having problems, please
+<a href="/kubernetes/docs/troubleshooting/#troubleshooting-keystoneldap-issues">read the troubleshooting guide</a> for specific tips and information on
+configuring Keystone/LDAP.</p>
+
+<!--LINKS-->
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/ldap.md" class="p-notification__action">edit this page</a> 
+    or 
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>
