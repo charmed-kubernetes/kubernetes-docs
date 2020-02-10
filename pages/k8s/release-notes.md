@@ -21,13 +21,9 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 ## What's new
 
-- Feature X
+- New SSL options for default ingress controller
 
-Feature description.
-
-- Feature Y
-
-Feature description.
+TODO: Write feature description based on https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1859156 and https://github.com/charmed-kubernetes/charm-kubernetes-worker/pull/49/files
 
 ## Component Upgrades
 
