@@ -24,7 +24,7 @@ and then related to an application that supports the [interface][].  The set
 of permissions that the related application could request is documented in the
 interface's [Requires API documentation][api-doc].
 
-For example, [CDK][] has support for this, and can be deployed with the
+For example, [Charmed Kubernetes][] has support for this, and can be deployed with the
 following bundle overlay:
 
 ```yaml
@@ -37,10 +37,10 @@ relations:
   - ['aws-integrator', 'kubernetes-worker']
 ```
 
-Then deploy CDK using this overlay:
+Then deploy Charmed Kubernetes using this overlay:
 
 ```
-juju deploy cs:canonical-kubernetes --overlay ./k8s-aws-overlay.yaml
+juju deploy cs:charmed-kubernetes --overlay ./k8s-aws-overlay.yaml
 ```
 
 The charm then needs to be granted access to credentials that it can use to
@@ -108,7 +108,7 @@ AWS console or API.
 
 # Examples
 
-Following are some examples using AWS integration with CDK.
+Following are some examples using AWS integration with Charmed Kubernetes.
 
 ## Creating a pod with an EBS-backed volume
 
@@ -241,4 +241,4 @@ How often snapd handles updates for installed snaps. The default (an empty strin
 
 [interface]: https://github.com/juju-solutions/interface-aws-integration
 [api-doc]: https://github.com/juju-solutions/interface-aws-integration/blob/master/docs/requires.md
-[CDK]: https://jujucharms.com/canonical-kubernetes
+[Charmed Kubernetes]: https://jaas.ai/charmed-kubernetes
