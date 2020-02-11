@@ -26,7 +26,7 @@ When on a vSphere cloud, this charm can be deployed, granted trust via Juju to
 access vSphere, and then related to an application that supports the
 [interface][].
 
-For example, [Canonical Kubernetes][] (CDK) has support for this, and can be
+For example, [Charmed Kubernetes][] has support for this, and can be
 deployed with the following bundle overlay:
 
 ```yaml
@@ -42,7 +42,7 @@ relations:
 Using Juju 2.4 or later:
 
 ```bash
-juju deploy cs:canonical-kubernetes --overlay ./k8s-vsphere-overlay.yaml
+juju deploy cs:charmed-kubernetes --overlay ./k8s-vsphere-overlay.yaml
 juju trust vsphere-integrator
 ```
 
@@ -159,7 +159,7 @@ vCenter console or API.
 
 ## Examples
 
-Following are some examples using vSphere integration with CDK.
+Following are some examples using vSphere integration with Charmed Kubernetes.
 
 ### Creating a pod with a PersistentDisk-backed volume
 
@@ -222,5 +222,5 @@ EOY
 ```
 
 [interface]: https://github.com/juju-solutions/interface-vsphere-integration
-[Canonical Kubernetes]: https://jujucharms.com/canonical-kubernetes
+[Charmed Kubernetes]: https://jaas.ai/charmed-kubernetes
 [vmware documentation]: https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/existing.html
