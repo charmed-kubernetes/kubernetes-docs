@@ -22,7 +22,7 @@ are related to this charm.
 When on OpenStack, this charm can be deployed, granted trust via Juju to access
 OpenStack, and then related to an application that supports the [interface][].
 
-For example, [CDK][] has support for this, and can be deployed with the
+For example, [Charmed Kubernetes][] has support for this, and can be deployed with the
 following bundle overlay:
 
 ```yaml
@@ -38,7 +38,7 @@ relations:
 Using Juju 2.4-beta1 or later:
 
 ```
-juju deploy cs:canonical-kubernetes --overlay ./k8s-openstack-overlay.yaml
+juju deploy cs:charmed-kubernetes --overlay ./k8s-openstack-overlay.yaml
 juju trust openstack-integrator
 ```
 
@@ -57,7 +57,7 @@ needed, using the OpenStack console or API.
 
 # Examples
 
-Following are some examples using OpenStack integration with CDK.
+Following are some examples using OpenStack integration with Charmed Kubernetes.
 
 ## Creating a pod with a PersistentDisk-backed volume
 
@@ -343,4 +343,4 @@ recommended approach.  If not set, will use the upstream default.
 
 
 [interface]: https://github.com/juju-solutions/interface-openstack-integration
-[CDK]: https://jujucharms.com/canonical-kubernetes
+[Charmed Kubernetes]: https://jaas.ai/charmed-kubernetes
