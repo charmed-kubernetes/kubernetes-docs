@@ -22,7 +22,7 @@ the applications that are related to this charm.
 When on GCP, this charm can be deployed, granted trust via Juju to access GCP,
 and then related to an application that supports the [interface][].
 
-For example, [CDK][] has support for this, and can be deployed with the
+For example, [Charmed Kubernetes][] has support for this, and can be deployed with the
 following bundle overlay:
 
 ```yaml
@@ -35,10 +35,10 @@ relations:
   - ['gcp-integrator', 'kubernetes-worker']
 ```
 
-Then deploy CDK using this overlay:
+Then deploy Charmed Kubernetes using this overlay:
 
 ```
-juju deploy cs:canonical-kubernetes --overlay ./k8s-gcp-overlay.yaml
+juju deploy cs:charmed-kubernetes --overlay ./k8s-gcp-overlay.yaml
 ```
 
 The charm then needs to be granted access to credentials that it can use to
@@ -69,7 +69,7 @@ needed, using the Google Cloud console or API.
 
 # Examples
 
-Following are some examples using GCP integration with CDK.
+Following are some examples using GCP integration with Charmed Kubernetes.
 
 ## Creating a pod with a PersistentDisk-backed volume
 
@@ -201,5 +201,5 @@ How often snapd handles updates for installed snaps. The default (an empty strin
 
 [interface]: https://github.com/juju-solutions/interface-gcp-integration
 [api-doc]: https://github.com/juju-solutions/interface-gcp-integration/blob/master/docs/requires.md
-[CDK]: https://jujucharms.com/canonical-kubernetes
+[Charmed Kubernetes]: https://jaas.ai/charmed-kubernetes
 [iam-api]: https://console.developers.google.com/apis/api/iam.googleapis.com/overview
