@@ -244,7 +244,7 @@ In order to enable authorization feature in **Charmed Kubernetes** one should ch
 of the charm and switch to **RBAC** authorization mode as follows:
 
 ```bash
-juju config kubernetes-master authorization-mode="RBAC"
+juju config kubernetes-master authorization-mode="Node,RBAC"
 ```
 
 **Charmed Kubernetes** can  also use Keystone for authorisation as follows:
