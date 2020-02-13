@@ -32,10 +32,10 @@ The EasyRSA charm will become a Certificate Authority (CA) and generate a CA
 certificate. Other charms need only to relate to EasyRSA with a requires
 using the `tls-certificates` interface.
 
-To get a server certificate from EasyRSA, the charm must include the
-`interface:tls-certificates` interface in the `layer.yaml` file. The charm must
-also require the `tls` interface, in the `metadata.yaml`. The relation name may
-be named what ever you wish, assume the relation is named "certificates" for
+To get a server certificate from EasyRSA, a charm must include the
+`interface:tls-certificates` interface in its `layer.yaml` file. The charm must
+also require the `tls` interface, in its `metadata.yaml`. The relation name may
+be named what ever you wish. Assume the relation is named "certificates" for
 these examples.
 
 ### CA
@@ -114,11 +114,3 @@ def store_server(tls):
     write_file('/home/ubuntu/server.cert', server_cert)
     write_file('/home/ubuntu/server.key', server_key)
 ```
-
-
-
-
-## Contact
-
- * Author: Matthew Bruzek &lt;Matthew.Bruzek@canonical.com&gt;
- * Contributor: Cory Johns &lt;Cory.Johns@canonical.com&gt;
