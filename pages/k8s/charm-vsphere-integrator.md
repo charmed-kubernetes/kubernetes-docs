@@ -13,9 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-
-
-
 This charm acts as a proxy to VMware vSphere and provides an [interface][] to
 provide a set of credentials for a somewhat limited project user to the
 applications that are related to this charm.
@@ -159,7 +156,8 @@ vCenter console or API.
 
 ## Examples
 
-Following are some examples using vSphere integration with Charmed Kubernetes.
+The following are some examples using vSphere integration with Charmed
+Kubernetes.
 
 ### Creating a pod with a PersistentDisk-backed volume
 

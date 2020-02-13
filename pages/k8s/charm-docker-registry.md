@@ -12,7 +12,6 @@ permalink: charm-docker-registry.html
 layout: [base, ubuntu-com]
 toc: False
 ---
-# Introduction
 
 This charm provides a registry for storage and distribution of docker images.
 See https://docs.docker.com/registry/ for details.
