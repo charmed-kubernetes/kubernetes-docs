@@ -22,14 +22,14 @@ those nodes, failing over when one goes down.
 The Keepalived charm is a
 [subordinate](https://jujucharms.com/docs/stable/authors-subordinate-applications).
 
-### Using with Kubernetes ([CDK](https://jujucharms.com/canonical-kubernetes))
+### Using with Kubernetes ([Charmed Kubernetes](https://jujucharms.com/canonical-kubernetes))
 
-Use keepalived with CDK to ensure kubeapi-load-balancer is not a single
+Use keepalived with Charmed Kubernetes to ensure kubeapi-load-balancer is not a single
 point of failure.
 
 ```
-# These instructions assume you've deployed CDK already:
-# juju deploy canonical-kubernetes
+# These instructions assume you've deployed Charmed Kubernetes already:
+# juju deploy charmed-kubernetes
 
 # deploy the keepalived charm
 juju deploy keepalived
@@ -40,12 +40,12 @@ juju relate keepalived:lb-sink kubeapi-load-balancer:website
 juju relate keepalived:loadbalancer kubernetes-master:loadbalancer
 juju relate keepalived:website kubernetes-worker:kube-api-endpoint
 
-# remove CDK relations that are no longer needed
+# remove Charmed Kubernetes relations that are no longer needed
 juju remove-relation kubernetes-worker:kube-api-endpoint kubeapi-load-balancer:website
 juju remove-relation kubernetes-master:loadbalancer kubeapi-load-balancer:loadbalancer
 
 
-# NOTE: ensure this relation from CDK is preserved, so that the
+# NOTE: ensure this relation from Charmed Kubernetes is preserved, so that the
 # load-balancer knows about backend endpoints
 juju relate kubernetes-master:kube-api-endpoint kubeapi-load-balancer:apiserver || true
 
@@ -91,29 +91,3 @@ juju add-relation haproxy keepalived
 
 
 <!-- CONFIG ENDS -->
-
-
-
-
-
-
-
-
-
-
-
-
-## Build Instructions
-
-With tox pre-installed, run the following in the top-level directory of this
-source repository:
-
-```
-tox -e build
-```
-
-The charm will be present under `build/builds/keepalived`.
-
-## Further information
-
-- [Keepalived Homepage](http://www.keepalived.org/)

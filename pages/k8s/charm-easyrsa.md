@@ -13,19 +13,12 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-
-
 This charm delivers the EasyRSA application to act as a Certificate Authority
-(CA) and creates certificates for related charms.
-
-EasyRSA is a command line utility to build and manage Public Key
-Infrastructure (PKI) Certificate Authority (CA).
-
-The purpose of a Public Key Infrastructure (PKI) is to facilitate the secure
-electronic transfer of information.
+(CA) and create certificates for related charms.
 
 ## Deployment
-You can deploy an EasyRSA charm with Juju:
+
+To deploy EasyRSA:
 
 ```
 juju deploy easyrsa
@@ -33,13 +26,13 @@ juju deploy tls-client
 juju add-relation easyrsa tls-client
 ```
 
-## Using the easyrsa charm
+## Using the EasyRSA charm
 
-The easyrsa charm will become a Certificate Authority (CA) and generate a CA
-certificate. Other charms need only to relate to easyrsa with a requires
+The EasyRSA charm will become a Certificate Authority (CA) and generate a CA
+certificate. Other charms need only to relate to EasyRSA with a requires
 using the `tls-certificates` interface.
 
-To get a server certificate from easyrsa, the charm must include the
+To get a server certificate from EasyRSA, the charm must include the
 `interface:tls-certificates` interface in the `layer.yaml` file. The charm must
 also require the `tls` interface, in the `metadata.yaml`. The relation name may
 be named what ever you wish, assume the relation is named "certificates" for
@@ -64,7 +57,7 @@ def store_ca(tls):
 
 ### Client certificate and key
 
-The easyrsa charm generates a client certificate after the CA certificate is
+The EasyRSA charm generates a client certificate after the CA certificate is
 created. If another charm needs the CA the code must react to the flag
 `certificates.client.cert.available`.  The relationship object has a method
 that returns the client cert and client key called `get_client_cert`.
@@ -106,7 +99,7 @@ def send_data(tls):
 
 ### Server certificate and key
 
-The easyrsa charm generates the server certificate and key after the request
+The EasyRSA charm generates the server certificate and key after the request
 have been made. If another charm needs the server certificate the code must
 react to the flag `{relation_name}.server.cert.available`.  The relationship
 object has a method that returns the server cert and server key called
