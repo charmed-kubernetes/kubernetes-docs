@@ -14,7 +14,9 @@ toc: False
 ---
 
 This charm provides a registry for storage and distribution of docker images.
-See https://docs.docker.com/registry/ for details.
+See [https://docs.docker.com/registry/][upstream-project] for details.
+
+[upstream-project]: https://docs.docker.com/registry/
 
 ## Deployment
 
@@ -71,30 +73,9 @@ juju config docker-registry \
 
 ### Proxied Registry
 
-This charm supports `http` proxy relation that allows operators to
+This charm supports an `http` proxy relation that allows operators to
 control how the registry is exposed on the network. This is achieved by
-relating to a proxy provider, such as `haproxy`.
-
-#### TLS/SSL
-TLS is supported between `haproxy` and `docker-registry` although some manual configuration is required.
-
-You will be required to create the directory structure suppled to the `docker-registry` charm config `tls-ca-path` and copy your proxy's PEM, along with your CAs certificate to that directory.
-
-By default charm config is set to `/etc/docker/registry` to check you can run: `juju config --model <YOURMODEL> docker-registry`.
-
-The steps to configure are set out below:
-```
-1. juju ssh haproxy/$UNIT_NUM
-2. mkdir -p <$TLS_CA_PATH>
-3. (Might not be required): chown -R ubuntu:ubuntu <$TLS_CA_PATH>
-4. ctrl+d
-5a. juju config haproxy ssl_key=$BASE64_PROXY_KEY ssl_cert=$BASE64_PROXY_CERT
-5b. juju scp <CA.crt> haproxy/$UNIT_NUM:<$TLS_CA_PATH>/
-6. juju resolve haproxy/$UNIT_NUM
-```
-
-haproxy should now come back up.
-> Please note depending on your certificates you may be required to add the proxy to your insecure registries in [`daemon.json`](https://docs.docker.com/registry/insecure/)
+deploying and relating to a proxy provider, such as `haproxy`:
 
 ```bash
 juju deploy cs:~containers/docker-registry
@@ -110,6 +91,19 @@ will fail over to a backup if the primary service becomes unavailable.
 
 >Note: HA deployments require the proxy to be in `active-passive` peering
 mode, which is the default for `haproxy`.
+
+#### TLS/SSL
+TLS is supported between `haproxy` and `docker-registry`, though some manual
+configuration is required. You will need to transfer the registry CA certificate
+to the proxy so the registry certificate can be verified. The path to the
+CA must match on both registry and proxy units. For example:
+
+```bash
+juju run --unit haproxy/$UNIT_NUM 'mkdir -p /etc/docker/registry'
+juju run --unit haproxy/$UNIT_NUM 'chown ubuntu:ubuntu /etc/docker/registry'
+juju scp docker-registry/$UNIT_NUM:/etc/docker/registry/ca.crt ./ca.crt
+juju scp ./ca.crt haproxy/$UNIT_NUM:/etc/docker/registry
+```
 
 ### Nagios Monitoring
 
@@ -564,8 +558,3 @@ Per https://github.com/docker/distribution/issues/2292, upload an empty file
 called "files" at the root of the container to workaround the issue.
 
 For more details on the swift driver configuration see [here for more details.](https://github.com/docker/docker.github.io/blob/master/registry/storage-drivers/swift.md)
-
-## Contact
-
-The `docker-registry` charm is free and open source software created by the
-~containers team at Canonical.
