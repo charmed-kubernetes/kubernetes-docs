@@ -213,11 +213,6 @@ once the charm has finished installing you have the ability to use [Docker
 Compose](https://docs.docker.com/compose/) functionality such as control files,
 and logging.
 
-# Contact Information
-
-This charm is available at <https://jujucharms.com/docker> and contains the
-open source operations code to deploy on all public clouds in the Juju
-ecosystem.
 
 ## Docker links
 

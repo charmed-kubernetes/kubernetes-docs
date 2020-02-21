@@ -111,25 +111,6 @@ this allows you to differentiate between them.
 <!-- CONFIG ENDS -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Known Limitations
 
 This subordinate does not support being co-located with other deployments of

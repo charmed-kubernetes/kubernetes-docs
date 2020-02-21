@@ -105,23 +105,6 @@ the proxy defined in http_proxy or https_proxy. Must be less than
 <!-- CONFIG ENDS -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-## Contact Information
-
-This charm is available at <https://jujucharms.com/containerd> and contains the
-open source operations code to deploy on all public clouds in the Juju
-ecosystem.
-
 ## Containerd links
 
   - The [Containerd homepage](https://containerd.io/)
