@@ -30,7 +30,7 @@ requires a Software Defined Network (SDN), a Container Runtime such as
 [containerd](https://jaas.ai/u/containers/containerd), and Transport Layer
 Security (TLS) so the components in a cluster communicate securely.
 
-Please take a look at the [Canonical Distribution of Kubernetes](https://jujucharms.com/canonical-kubernetes/)
+Please take a look at the [Charmed Kubernetes]( https://jaas.ai/charmed-kubernetes)
 or the [Kubernetes core](https://jaas.ai/kubernetes-core) bundles for
 examples of complete models of Kubernetes clusters.
 
