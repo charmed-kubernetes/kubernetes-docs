@@ -49,12 +49,6 @@ This charm will automatically scale out with the
 principal charm.
 
 
-## Contact Information
-
-This charm is available at <https://jujucharms.com/kata> and contains the
-open source operations code to deploy on all public clouds in the Juju
-ecosystem.
-
 ## Containerd links
 
   - The [Kata Containers homepage](https://katacontainers.io/)

@@ -261,8 +261,8 @@ will result in kube-controller-manager being run with the following options:
 <a id="dashboard-auth-description"> </a>
 **Description:**
 
-Method of authentication for the Kubernetes dashboard. Allowed values are "auto", 
-"basic", and "token". If set to "auto", basic auth is used unless Keystone is 
+Method of authentication for the Kubernetes dashboard. Allowed values are "auto",
+"basic", and "token". If set to "auto", basic auth is used unless Keystone is
 related to kubernetes-master, in which case token auth is used.
 
 [Back to table](#table-dashboard-auth)
@@ -618,12 +618,3 @@ This action restarts the master processes `kube-apiserver`,
  - [Kubernetes issue tracker](https://github.com/kubernetes/kubernetes/issues)
  - [Kubernetes documentation](http://kubernetes.io/docs/)
  - [Kubernetes releases](https://github.com/kubernetes/kubernetes/releases)
-
-# Contact
-
-The kubernetes-master charm is free and open source operations created
-by the containers team at Canonical.
-
-Canonical also offers enterprise support and customization services. Please
-refer to the [Kubernetes product page](https://www.ubuntu.com/cloud/kubernetes)
-for more details.
