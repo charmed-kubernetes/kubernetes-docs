@@ -13,11 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-
-General intro xxxxxxxxx
-
-
-
 ## Core charms
 
 
@@ -47,9 +42,9 @@ General intro xxxxxxxxx
 
 [charm-keepalived](/kubernetes/docs/charm-keepalived)
 
-[charm-kubeapi-load-balancer](/kubernetes/docs/)
+[charm-kubeapi-load-balancer](/kubernetes/docs/charm-kubeapi-load-balancer)
 
-[charm-kubernetes-master](/kubernetes/docs/)
+[charm-kubernetes-master](/kubernetes/docs/charm-kubernetes-master)
 
 [charm-kubernetes-worker](/kubernetes/docs/charm-kubernetes-worker)
 
