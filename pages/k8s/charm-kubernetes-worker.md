@@ -13,15 +13,14 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-This charm deploys a container runtime, and additionally stands up the Kubernetes
+This charm deploys a container runtime and the Kubernetes
 worker applications: kubelet, and kube-proxy.
 
 In order for this charm to be useful, it should be deployed with its companion
 charm kubernetes-master and linked with an SDN-Plugin and a container runtime
 such as containerd.
 
-This charm has also been bundled up for your convenience so you can skip the
-above steps, and deploy it with a single command:
+This charm is part of the [Charmed Kubernetes bundle](https://jaas.ai/charmed-kubernetes/bundle) bundle which can be deployed with a single command::
 
 ```bash
 juju deploy charmed-kubernetes
@@ -32,9 +31,9 @@ For more information about Charmed Kubernetes see the [overview documentation](/
 ## Scale out
 
 To add additional compute capacity to your Kubernetes workers, you may
-`juju add-unit` scale the cluster of applications. They will automatically
-join any related kubernetes-master, and enlist themselves as ready once the
-deployment is complete.
+`juju add-unit kubernetes-worker` to scale the cluster. The new units will
+automatically join any related kubernetes-master, and enlist themselves as
+ready once the deployment is complete.
 
 ## Snap Configuration
 
@@ -44,8 +43,6 @@ default, the snapd daemon will refresh all snaps installed from the store
 four (4) times per day. A charm configuration option is provided for operators
 to control this refresh frequency.
 
-NOTE: this is a global configuration option and will affect the refresh
-time for all snaps installed on a system.
 
 ### Examples:
 
@@ -72,9 +69,8 @@ juju config kubernetes-worker snapd_refresh="max"
 juju config kubernetes-worker snapd_refresh=""
 ```
 
-For more information on the possible values for snapd_refresh, see the
-refresh.timer section in the system options documentation.
 
+For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
 
 ## Configuration
 
@@ -265,15 +261,11 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 <!-- CONFIG ENDS -->
 
 
+## Actions
 
-
-
-
-
-
-## Operational actions
-
-The kubernetes-worker charm supports the following Operational Actions:
+The kubernetes-worker charm models a few one time operations called
+[Juju actions](https://jaas.ai/docs/working-with-actions) that can be run by
+Juju users.
 
 ### Pause
 

@@ -12,14 +12,6 @@ permalink: charm-kubernetes-master.html
 layout: [base, ubuntu-com]
 toc: False
 ---
-[Kubernetes](http://kubernetes.io/) is an open source system for managing
-application containers across a cluster of hosts. The Kubernetes project was
-started by Google in 2014, combining the experience of running production
-workloads combined with best practices from the community.
-
-The Kubernetes project defines some new terms that may be unfamiliar to users
-or operators. For more information please refer to the concept guide in the
-[getting started guide](https://kubernetes.io/docs/home/).
 
 This charm is an encapsulation of the Kubernetes master processes and the
 operations to run on any cloud for the entire lifecycle of the cluster.
@@ -39,7 +31,7 @@ requires a Software Defined Network (SDN), a Container Runtime such as
 Security (TLS) so the components in a cluster communicate securely.
 
 Please take a look at the [Canonical Distribution of Kubernetes](https://jujucharms.com/canonical-kubernetes/)
-or the [Kubernetes core](https://jujucharms.com/kubernetes-core/) bundles for
+or the [Kubernetes core](https://jaas.ai/kubernetes-core) bundles for
 examples of complete models of Kubernetes clusters.
 
 # Resources
@@ -80,10 +72,7 @@ juju config kubernetes-master snapd_refresh="max"
 juju config kubernetes-master snapd_refresh=""
 ```
 
-For more information on the possible values for `snapd_refresh`, see the
-*refresh.timer* section in the [system options][] documentation.
-
-[system options]: https://forum.snapcraft.io/t/system-options/87
+For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
 
 ## Configuration
 
@@ -576,20 +565,9 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # DNS for the cluster
 
-The DNS add-on allows the pods to have a DNS names in addition to IP addresses.
+The DNS add-on allows pods to have DNS names in addition to IP addresses.
 The Kubernetes cluster DNS server (based off the SkyDNS library) supports
 forward lookups (A records), service lookups (SRV records) and reverse IP
 address lookups (PTR records). More information about the DNS can be obtained
@@ -598,7 +576,7 @@ from the [Kubernetes DNS admin guide](http://kubernetes.io/docs/admin/dns/).
 # Actions
 
 The kubernetes-master charm models a few one time operations called
-[Juju actions](https://jujucharms.com/docs/stable/actions) that can be run by
+[Juju actions](https://jaas.ai/docs/working-with-actions) that can be run by
 Juju users.
 
 #### create-rbd-pv
