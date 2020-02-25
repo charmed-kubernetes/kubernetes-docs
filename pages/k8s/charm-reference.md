@@ -15,6 +15,9 @@ toc: False
 
 ## Core charms
 
+These are the core charms used by Charmed Kubernetes. See the individual pages
+linked below for specific usage and configuration.
+
 
 [charm-aws-iam](/kubernetes/docs/charm-aws-iam)
 
