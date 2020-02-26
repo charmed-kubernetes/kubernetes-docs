@@ -36,7 +36,7 @@ examples of complete models of Kubernetes clusters.
 
 # Resources
 
-The kubernetes-master charm takes advantage of the [Juju Resources](https://jujucharms.com/docs/2.0/developer-resources)
+The kubernetes-master charm takes advantage of the [Juju Resources](https://jaas.ai/docs/juju-resources)
 feature to deliver the Kubernetes software.
 
 In deployments on public clouds the Charm Store provides the resource to the
