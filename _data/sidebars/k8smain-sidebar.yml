@@ -245,6 +245,12 @@ entries:
       output: web, pdf
       type: page
 
+
+    - title: Charm Reference
+      url: /charm-reference
+      output: web, pdf
+      type: page
+      
     - title: Supported versions
       url: /supported-versions
       output: web, pdf
