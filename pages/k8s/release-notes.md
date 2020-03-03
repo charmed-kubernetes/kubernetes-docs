@@ -21,7 +21,7 @@ toc: False
 
 CephFS is now supported in Charmed Kubernetes. This allows for ReadWriteMany volumes
 which can be attached to multiple pods. More information can be found in the
-[storage documentation](https://ubuntu.com/kubernetes/docs/storage).
+[storage documentation](/kubernetes/docs/storage).
 
 Additional bug fixes included in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2).
