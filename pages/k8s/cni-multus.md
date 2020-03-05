@@ -15,7 +15,8 @@ toc: False
 
 [Multus][multus] is a CNI plugin for Kubernetes that enables attaching multiple
 network interfaces to pods. Multus support for **Charmed Kubernetes** is
-provided as a Kubernetes charm.
+provided by the Multus charm, which must be deployed into a Kubernetes model
+in Juju.
 
 ## Requirements
 
@@ -23,9 +24,9 @@ provided as a Kubernetes charm.
 
 The Multus charm requires functionality from Juju 2.8+, which is currently
 under active development. In order to run Multus, you will need a Juju
-controller running Juju 2.8 from edge.
+controller running a Juju 2.8 build from edge.
 
-Install Juju 2.8 from edge:
+Install the Juju 2.8 client from edge:
 
 ```
 sudo snap install juju --channel edge --classic
@@ -46,18 +47,15 @@ In order to deploy Multus, the first requirement is that you must have
 persistent volume support enabled in your **Charmed Kubernetes** cluster.
 
 If your cluster includes any of the cloud integrator charms, then you should
-have persistent volume support already, and can skip this section.
-
-Otherwise, you can read the [Storage][storage] documentation page to learn how
-to enable persistent volume support by adding Ceph to your cluster.
+have persistent volume support already. Otherwise, you can read the
+[Storage][storage] documentation page to learn how to enable persistent volume
+support by adding Ceph to your cluster.
 
 ### Creating a Kubernetes model in Juju
 
-Multus support for **Charmed Kubernetes** is provided as a Kubernetes charm,
-which means that you will need to create a Kubernetes model in Juju.
+To deploy the Multus charm, you will first need a Kubernetes model in Juju.
 
-First, make sure your local kubeconfig is pointing to the correct Kubernetes
-cluster:
+Make sure your local kubeconfig is pointing to the correct Kubernetes cluster:
 
 ```
 juju scp kubernetes-master/0:config ~/.kube/config
