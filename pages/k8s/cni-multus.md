@@ -190,7 +190,7 @@ net2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 8951
 
 In this case, `eth0` is the default interface that gets attached to all pods,
 while `net1` and `net2` are the additional interfaces that Multus attached to
-the pod based on what it saw in the `k8s.v1.cni.cncf.io/networks` annotation.
+the pod based on the pod's `k8s.v1.cni.cncf.io/networks` annotation.
 
 For additional examples of how you can use Multus, please refer to the official
 Multus documentation here: [Create network attachment definition][multus-examples].
