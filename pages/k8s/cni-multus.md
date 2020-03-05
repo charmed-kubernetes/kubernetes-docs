@@ -213,6 +213,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [multus]: https://github.com/intel/multus-cni
 [storage]: /kubernetes/docs/storage
 [multus-examples]: https://github.com/intel/multus-cni/blob/master/doc/how-to-use.md#create-network-attachment-definition
+[troubleshooting]: /kubernetes/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
