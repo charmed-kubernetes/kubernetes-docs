@@ -25,6 +25,21 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 TODO: Write feature description based on https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1859156 and https://github.com/charmed-kubernetes/charm-kubernetes-worker/pull/49/files
 
+- Multus support
+
+This release of Charmed Kubernetes introduces support for
+[Multus](https://github.com/intel/multus-cni), a CNI provider that makes it
+possible to attach multiple network interfaces to your pods.
+
+Along the way, we've also updated existing charms to make it possible for
+multiple CNI providers to be deployed together in the same cluster.
+
+Please note that while we are making Multus support available today, it is
+dependent on functionality in Juju that is not yet considered stable. For more
+details on the current state of Multus support in Charmed Kubernetes and how to
+get started, please refer to the
+[Multus documentation page](/kubernetes/docs/cni-multus).
+
 ## Component Upgrades
 
 Many of the components in Charmed Kubernetes 1.18 have been upgraded. The following list
