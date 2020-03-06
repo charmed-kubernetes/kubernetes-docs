@@ -101,7 +101,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Using Multiple Networks
+    - title: Using Multiple Host Networks
       url: /multiple-networks
       output: web, pdf
       type: page

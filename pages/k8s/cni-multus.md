@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-[Multus][multus] is a CNI plugin for Kubernetes that enables attaching multiple
+[Multus][multus] is a CNI plugin for Kubernetes which enables attaching multiple
 network interfaces to pods. Multus support for **Charmed Kubernetes** is
 provided by the Multus charm, which must be deployed into a Kubernetes model
 in Juju.
@@ -41,10 +41,17 @@ sudo snap refresh juju --channel edge
 Once you have the Juju 2.8 edge client, any new controllers you bootstrap will
 include the 2.8 features required by Multus.
 
+### CNI providers
+
+Multus is not a replacement for other CNI providers. Your **Charmed Kubernetes**
+deployment must include at least one of the other CNI providers documented in the
+[CNI overview][cni-overview] page.
+
 ### Persistent volume support
 
-In order to deploy Multus, the first requirement is that you must have
-persistent volume support enabled in your **Charmed Kubernetes** cluster.
+In order to deploy Multus, you will need a Kubernetes model in Juju, which
+requires persistent volume support to be enabled in your **Charmed Kubernetes**
+cluster.
 
 If your cluster includes any of the cloud integrator charms, then you should
 have persistent volume support already. Otherwise, you can read the
@@ -209,6 +216,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 <!-- LINKS -->
 
 [multus]: https://github.com/intel/multus-cni
+[cni-overview]: /kubernetes/docs/cni-overview
 [storage]: /kubernetes/docs/storage
 [multus-examples]: https://github.com/intel/multus-cni/blob/master/doc/how-to-use.md#create-network-attachment-definition
 [troubleshooting]: /kubernetes/docs/troubleshooting
