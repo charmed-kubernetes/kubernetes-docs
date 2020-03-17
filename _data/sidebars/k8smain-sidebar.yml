@@ -96,7 +96,12 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Using Multiple Networks
+    - title: Multus
+      url: /cni-multus
+      output: web, pdf
+      type: page
+
+    - title: Using Multiple Host Networks
       url: /multiple-networks
       output: web, pdf
       type: page
