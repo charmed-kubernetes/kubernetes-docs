@@ -50,7 +50,7 @@ To use this overlay with the **Charmed Kubernetes** bundle, it is specified
 during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes  --overlay azure-overlay.yaml --trust
+juju deploy charmed-kubernetes --overlay azure-overlay.yaml --trust
 ```
 
 ... and remember to fetch the configuration file!
