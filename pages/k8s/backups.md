@@ -83,6 +83,9 @@ As restoring only works when there is a single unit of **etcd**, it is usual to 
 juju deploy etcd new-etcd --series=bionic --config channel=3.2/stable
 juju deploy cs:~containers/easyrsa new-easyrsa --series=bionic
 juju add-relation new-etcd:certificates new-easyrsa:client
+juju add-relation kubeapi-load-balancer:certificates new-easyrsa:client
+juju add-relation kubernetes-master:certificates new-easyrsa:client
+juju add-relation kubernetes-worker:certificates new-easyrsa:client
 ```
 
 The `--series` option is included here to illustrate how to specify which series the new unit should be running on.
