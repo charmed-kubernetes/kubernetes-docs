@@ -85,7 +85,10 @@ to your pod to adjust the mounted volume permissions, such as:
       securityContext:
         runAsUser: 0
       image: ubuntu  # or whatever image your pod is using
-      command: ['chmod', '0777', '/data']  # adjust the mount point per your pod
+      volumeMounts:
+        - name: shared-data  # adjust volume name and mountPath
+          mountPath: /data   # to match your pod spec
+      command: ['chmod', '0777', '/data']
 ```
 </p></div>
 
