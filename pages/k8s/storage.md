@@ -72,6 +72,23 @@ juju add-relation ceph-fs ceph-mon
 **Charmed Kubernetes** will then deploy the CephFS provisioner pod
 and create a `cephfs` storage class in the cluster.
 
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
+<span class="p-notification__status">Note:</span>
+Due to an upstream issue, containers running as a non-root user with a ReadWriteMany (RWX) CephFS volume
+will not be able to write to the mounted directory. This will be fixed with the next release after the
+next OpenStack charms release. In the meantime, you can work around this by adding a simple initContainer
+to your pod to adjust the mounted volume permissions, such as:
+
+```yaml
+  initContainers:
+    - name: fix-cephfs-rwx-volume-perm
+      securityContext:
+        runAsUser: 0
+      image: ubuntu  # or whatever image your pod is using
+      command: ['chmod', '0777', '/data']  # adjust the mount point per your pod
+```
+</p></div>
+
 ### Relate to Charmed Kubernetes
 
 Making **Charmed Kubernetes** aware of your **Ceph** cluster requires 2 **Juju** relations.
