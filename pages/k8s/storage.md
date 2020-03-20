@@ -78,18 +78,20 @@ Due to an upstream issue, containers running as a non-root user with a ReadWrite
 will not be able to write to the mounted directory. This will be fixed with the next release after the
 next OpenStack charms release. In the meantime, you can work around this by adding a simple initContainer
 to your pod to adjust the mounted volume permissions, such as:
-
-```yaml
-  initContainers:
-    - name: fix-cephfs-rwx-volume-perm
-      securityContext:
-        runAsUser: 0
-      image: ubuntu  # or whatever image your pod is using
-      volumeMounts:
-        - name: shared-data  # adjust volume name and mountPath
-          mountPath: /data   # to match your pod spec
-      command: ['chmod', '0777', '/data']
-```
+<div class="language-yaml highlighter-rouge">
+  <div class="highlight">
+    <pre class="highlight">
+    <code>
+initContainers:
+  - name: fix-cephfs-rwx-volume-perm
+    securityContext:
+      runAsUser: 0
+    image: ubuntu  # or whatever image your pod is using
+    volumeMounts:
+      - name: shared-data  # adjust volume name and mountPath
+        mountPath: /data   # to match your pod spec
+    command: ['chmod', '0777', '/data']
+</code></pre></div></div>
 </p></div>
 
 ### Relate to Charmed Kubernetes
