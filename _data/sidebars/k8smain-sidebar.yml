@@ -17,8 +17,13 @@ entries:
       url: /overview
       output: web, pdf
 
-    - title: News
-      url: /news
+  - title: Releases
+    url: /news
+    output: web, pdf
+    items:
+
+    - title: 1.16
+      url: /1.16/components
       output: web, pdf
 
   - title: Install
@@ -255,7 +260,7 @@ entries:
       url: /charm-reference
       output: web, pdf
       type: page
-      
+
     - title: Supported versions
       url: /supported-versions
       output: web, pdf

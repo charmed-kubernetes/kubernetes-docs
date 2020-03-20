@@ -8,7 +8,7 @@ context:
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: upgrading.html
+permalink: 1.16/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -418,9 +418,9 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/upgrading.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/upgrading.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
