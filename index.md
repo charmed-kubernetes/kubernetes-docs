@@ -25,7 +25,7 @@ Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because 
 
 ## What's new
 
-- [Version 1.15 released&nbsp;&rsaquo;](../release-notes)
+- [Version 1.18 released&nbsp;&rsaquo;](../release-notes)
 
 ## Tutorials
 
