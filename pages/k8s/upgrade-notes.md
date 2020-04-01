@@ -19,7 +19,7 @@ The notes are organised according to the upgrade path below, but also be aware t
 upgrade that spans more than one minor version may need to beware of notes in
 any of the intervening steps.
 
-<a  id="1.16"> </a>
+<a  id="1.18"> </a>
 
 ## Upgrading to 1.18
 
