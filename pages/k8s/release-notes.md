@@ -40,6 +40,12 @@ details on the current state of Multus support in Charmed Kubernetes and how to
 get started, please refer to the
 [Multus documentation page](/kubernetes/docs/cni-multus).
 
+- CIS Benchmark 1.5.0
+
+The `cis-benchmark` action now supports version 1.5.0 of the CIS Kubernetes Benchmark.
+See the [CIS compliance](/kubernetes/docs/cis-compliance) page for information on
+running this action on Charmed Kubernetes components.
+
 - Containerd version hold
 
 The version of [containerd](https://containerd.io/) will now be held.  This means that the version of [containerd](https://containerd.io/) will not be upgraded along with the charm.  To update [containerd](https://containerd.io/) to the latest stable, currently 1.3.3, you can call the `upgrade-containerd` action.  For example:
