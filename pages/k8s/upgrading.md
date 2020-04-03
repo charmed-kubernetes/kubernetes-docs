@@ -58,17 +58,35 @@ This includes:
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
 
+
+
+<a id='upgrading-containerd'> </a>
+
+### Upgrading Containerd
+
+By default, Versions 1.15 and later use Containerd as the container
+runtime. This subordinate charm can be upgraded with the command:
+
+```bash
+juju upgrade-charm containerd
+```
+
 <a id='upgrading-docker'> </a>
 
-### Upgrading Docker
+### Upgrading Docker (if used)
 
-**Charmed Kubernetes** will use the latest stable version of Docker when it is deployed. Since upgrading Docker
-can cause service disruption, there will be no automatic upgrades and instead this process must
-be triggered by the operator.
+By default, versions of Charmed Kubernetes since 1.15 use the Containerd
+runtime. You will only need to upgrade the Docker runtime if you have
+explicitly set that to be the container runtime. If this is not the case, you
+should skip this section.
 
-Note that this upgrade step only applies to deployments which actually use the Docker
-container runtime. Versions 1.15 and later use containerd by default, and you should
-instead follow the [instructions below](#upgrading-containerd).
+**Charmed Kubernetes** will use the latest stable version of Docker when it is
+deployed. Since upgrading Docker can cause service disruption, there will be no
+automatic upgrades and instead this process must be triggered by the operator.
+
+Note that this upgrade step only applies to deployments which actually use the
+Docker container runtime. Versions 1.15 and later use containerd by default,
+and you should instead follow the [instructions above](#upgrading-containerd).
 
 #### Version 1.15 and later
 
@@ -115,16 +133,7 @@ juju run-action kubernetes-worker/0 upgrade-docker --wait
 As previously, wait between running the action on sucessive units to allow pods to migrate.
 
 
-<a id='upgrading-containerd'> </a>
 
-### Upgrading containerd
-
-By default, Versions 1.15 and later use Containerd as the container
-runtime. This subordinate charm can be upgraded with the command:
-
-```bash
-juju upgrade-charm containerd
-```
 
 ### Upgrading etcd
 
