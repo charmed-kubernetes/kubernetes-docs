@@ -54,7 +54,7 @@ This includes:
 - Docker
 - easyrsa
 - etcd
-- flannel
+- flannel, calico or other CNI
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
 
@@ -160,17 +160,21 @@ The other infrastructure applications can be upgraded by running the `upgrade-ch
 command:
 
 ```bash
-juju upgrade-charm flannel
 juju upgrade-charm easyrsa
 ```
 
-Any other infrastructure charms can be upgraded in a similar way.
+Any other infrastructure charms should be upgraded in a similar way. For
+example, if you are using the flannel CNI:
+
+```bash
+juju upgrade-charm flannel
+```
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 Some services may be briefly interrupted during the upgrade process. Upgrading
-<strong>flannel</strong> will cause a small amount of network downtime. Upgrading
+your CNI (e.g. flannel) will cause a small amount of network downtime. Upgrading
 <strong>easyrsa</strong> will not cause any downtime. The behaviour of other
 components you have added to your cluster may vary - check individual documentation
 for these charms for more information on upgrades.
