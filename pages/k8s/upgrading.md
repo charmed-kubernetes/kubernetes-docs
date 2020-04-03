@@ -40,10 +40,10 @@ As with all upgrades, there is a possibility that there may be unforeseen diffic
 
 You should also make sure:
 
-- The machine from which you will perform the backup has sufficient internet access to retrieve updated software
-- Your cluster is running normally
-- You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
-- You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
+-   The machine from which you will perform the backup has sufficient internet access to retrieve updated software
+-   Your cluster is running normally
+-   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
+-   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
 
 ## Infrastructure updates
 
@@ -410,6 +410,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
 [backups]: /kubernetes/docs/backups
+[release-notes]: /kubernetes/docs/release-notes
 [notes]: /kubernetes/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
@@ -418,9 +419,9 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/upgrading.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/upgrading.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>
