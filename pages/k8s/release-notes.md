@@ -85,6 +85,17 @@ migrate to a `metrics-server` solution prior to upgrading. Note: these
 removals do not affect the Kubernetes Dashboard nor the methods described in
 [Monitoring Charmed Kubernetes](/kubernetes/docs/monitoring).
 
+- Containerd cannot pull images from a registry with TLS mutual authentication
+
+An issue with the `containerd` charm prevents pulling images from a private
+container registry when TLS mutual authentication is enabled. Where possible,
+users can workaround this issue by disabling mutual authentication on the
+registry. More details can be found in the following bug:
+
+https://bugs.launchpad.net/charm-containerd/+bug/1853653
+
+
+
 # 1.17+ck1 Bugfix release
 
 ### January 15, 2020 - [charmed-kubernetes-372](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-372/archive/bundle.yaml)
