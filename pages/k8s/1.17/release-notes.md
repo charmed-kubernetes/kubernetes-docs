@@ -8,7 +8,7 @@ context:
 keywords: kubernetes,  release, notes
 tags: [news]
 sidebar: k8smain-sidebar
-permalink: release-notes.html
+permalink: 1.17/release-notes.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -217,17 +217,17 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 - Containerd support
 
-Although Docker is still supported, [containerd](https://containerd.io/) is now 
+Although Docker is still supported, [containerd](https://containerd.io/) is now
 the default container runtime in Charmed Kubernetes. Containerd brings significant
 [peformance improvements](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 and prepares the way for Charmed Kubernetes integration with
 [Kata](https://katacontainers.io/) in the future.
 
 Container runtime code has been moved out of the kubernetes-worker charm, and
-into subordinate charms (one for Docker and one for containerd). This allows 
+into subordinate charms (one for Docker and one for containerd). This allows
 the operator to swap the container runtime as desired, and even mix
 container runtimes within a cluster. It also allows for additional container
-runtimes to be supported in the future. Because this is a significant change, you 
+runtimes to be supported in the future. Because this is a significant change, you
 are advised to read the [upgrade notes](/kubernetes/docs/upgrade-notes) before
 upgrading from a previous version.
 
@@ -480,9 +480,9 @@ Please see [this page][historic] for release notes of earlier versions.
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/release-notes.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/release-notes.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>

@@ -328,29 +328,73 @@ These charms are frequently used with Charmed Kubernetes.
 
 These are the container images used by this release:
 
-<!-- GENERATED CONTAINER IMAGES -->
-
-<!-- CONTAINER IMAGES END -->
+-   k8scsi/csi-node-driver-registrar:v1.0.2           
+-   k8scsi/csi-provisioner:v1.0.2                      
+-   k8scsi/csi-snapshotter:v1.0.2                      
+-   coredns/coredns-arm64:1.6.2
+-   coredns/coredns-s390x:1.6.2
+-   kubernetesui/metrics-scraper:v1.0.1
+-   heapster-influxdb-amd64:1.3.3
+-   heapster-influxdb-arm64:1.3.3
+-   heapster-influxdb-s390x:1.3.3
+-   heapster-grafana-amd64:1.4.3
+-   heapster-grafana-arm64:1.4.3
+-   heapster-grafana-s390x:1.4.3
+-   heapster-amd64:v1.6.0-beta.1
+-   heapster-arm64:v1.6.0-beta.1
+-   heapster-s390x:v1.6.0-beta.1
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-s390x:1.8.5
+-   k8s-dns-kube-dns-amd64:1.14.13
+-   k8s-dns-kube-dns-arm64:1.14.13
+-   k8s-dns-kube-dns-s390x:1.14.13
+-   k8s-dns-dnsmasq-nanny-amd64:1.14.13
+-   k8s-dns-dnsmasq-nanny-arm64:1.14.13
+-   k8s-dns-dnsmasq-nanny-s390x:1.14.13
+-   k8s-dns-sidecar-amd64:1.14.13
+-   k8s-dns-sidecar-arm64:1.14.13
+-   k8s-dns-sidecar-s390x:1.14.13
+-   metrics-server-amd64:v0.3.6
+-   metrics-server-arm64:v0.3.2
+-   metrics-server-s390x:v0.3.2
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-s390x:1.8.5
+-   coreos/kube-state-metrics:v1.8.0
+-   nvidia/k8s-device-plugin:1.0.0-beta4
+-   external_storage/nfs-client-provisioner:latest
+-   kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.26.1
+-   kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.26.1
+-   kubernetes-ingress-controller/nginx-ingress-controller-s390x:0.20.0
+-   defaultbackend-amd64:1.5
+-   defaultbackend-arm64:1.5
+-   defaultbackend-s390x:1.4
+-   k8scloudprovider/openstack-cloud-controller-manager:v1.15.0
+-   k8scloudprovider/cinder-csi-plugin:v1.15.0
+-   k8scsi/csi-attacher:v1.0.1
+-   k8scsi/csi-provisioner:v1.0.2
+-   k8scsi/csi-snapshotter:v1.0.2
+-   k8scsi/csi-node-driver-registrar:v1.1.0
 
 ## Snaps
 
 The following snaps are used by this release of Charmed Kubernetes:
 
-
 | snap  | confinement | summary | link |
 |-------|-------------|---------|------|
-|aws-cli| ? | Resource to side-load aws-cli snap in network-restricted deployments. | ? |
-|core| ? | core snap | ? |
-|etcd| ? | Snap package of etcd | ? |
+|aws-cli| classic | Resource to side-load aws-cli snap in network-restricted deployments. | [store page](https://snapcraft.io/aws-cli) |
+|core| strict | core snap | [store page](https://snapcraft.io/core) |
+|etcd| classic | Snap package of etcd | [store page](https://snapcraft.io/etcd) |
 |gcloud| ? | Resource to side-load gcloud snap in network-restricted deployments. | ? |
-|cdk-addons| ? | CDK addons snap | ? |
-|kube-apiserver| ? | kube-apiserver snap | ? |
-|kube-controller-manager| ? | kube-controller-manager snap | ? |
-|kube-proxy| ? | kube-proxy snap | ? |
-|kube-scheduler| ? | kube-scheduler snap | ? |
-|kubectl| ? | kubectl snap | ? |
-|kubelet| ? | kubelet snap | ? |
-|openstackclients| ? | Resource to side-load openstackclients snap in network-restricted deployments. | ? |
+|cdk-addons| strict | CDK addons snap | [store page](https://snapcraft.io/cdk-addons) |
+|kube-apiserver| strict | kube-apiserver snap | [store page](https://snapcraft.io/kube-apiserver) |
+|kube-controller-manager| strict | kube-controller-manager snap | [store page](https://snapcraft.io/kube-controller-manager) |
+|kube-proxy| classic | kube-proxy snap | [store page](https://snapcraft.io/kube-proxy) |
+|kube-scheduler| strict | kube-scheduler snap | [store page](https://snapcraft.io/kube-scheduler) |
+|kubectl| classic | kubectl snap | [store page](https://snapcraft.io/kubectl) |
+|kubelet| classic | kubelet snap | [store page](https://snapcraft.io/kubelet) |
+|openstackclients| classic | Resource to side-load openstackclients snap in network-restricted deployments. | [store page](https://snapcraft.io/openstackclients) |
 
 
 
@@ -364,4 +408,3 @@ The following snaps are used by this release of Charmed Kubernetes:
 [bugs]: /kubernetes/docs/
 [source]: https://github.com/charmed-kubernetes
 [1.17 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.17
-
