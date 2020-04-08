@@ -8,7 +8,7 @@ context:
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: upgrading.html
+permalink: 1.16/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -88,8 +88,6 @@ Note that this upgrade step only applies to deployments which actually use the
 Docker container runtime. Versions 1.15 and later use containerd by default,
 and you should instead follow the [instructions above](#upgrading-containerd).
 
-#### Version 1.15 and later
-
 The `kubernetes-master` and `kubernetes-worker` are related to the docker subordinate
 charm where present. Whether you are running Docker on its own, or mixed with Containerd,
 the upgrade process is the same:
@@ -98,41 +96,17 @@ the upgrade process is the same:
 juju upgrade-charm docker
 ```
 
-#### Versions prior to 1.15
-Only the `kubernetes-master` and `kubernetes-worker` units require Docker. The charms for each
-include an action to trigger the upgrade.
+### Docker Registry with Containerd
 
-Before the upgrade, it is useful to list all the units effected:
+Prior to 1.16, some fixes were required to support using the Docker Registry charm with Containerd.
 
-```bash
-juju status kubernetes-* --format=short
-```
+This charm, if used, is now supported through standard relations. Before
+upgrading, remove any reference of the registry in the custom_registries
+containerd charm configuration.
 
-...will return a list of the current `kubernetes-master` and `kubernetes-worker` units.
-
-Start with the `kubernetes-master` units and run the upgrade action on one unit at a time:
-
-```bash
-juju run-action kubernetes-master/0 upgrade-docker --wait
-```
-
-As Docker is restarted on the unit, pods will be terminated. Wait for them to respawn before
-moving on to the next unit:
-
-```bash
-juju run-action kubernetes-master/1 upgrade-docker --wait
-```
-
-Once all the `kubernetes-master` units have been upgraded and the pods have respawned, the
-same procedure can then be applied to the `kubernetes-worker` units.
-
-```bash
-juju run-action kubernetes-worker/0 upgrade-docker --wait
-```
-
-As previously, wait between running the action on sucessive units to allow pods to migrate.
-
-
+After upgrading, see the
+[docker registry instructions](/kubernetes/docs/docker-registry) for details
+of how to configure a registry.
 
 
 ### Upgrading etcd
@@ -367,6 +341,26 @@ juju status
 
 It is recommended that you run a [cluster validation][validation] to ensure that the cluster upgrade has successfully completed.
 
+## Admission control plugins
+
+In Charmed Kubernetes 1.16, the API server parameter by which additional,
+non-default admission control plugins is specified has changed. The old
+parameter was `--admission-control`; the new parameter is
+`--enable-admission-plugins`.
+
+For example, prior to 1.16, The ‘PodSecurityPolicy’ admission plugin could be
+applied like this:
+
+```bash
+juju config kubernetes-master api-extra-args="admission-control=PodSecurityPolicy"
+```
+
+As of 1.16, this changes to:
+
+```bash
+juju config kubernetes-master api-extra-args="enable-admission-plugins=PodSecurityPolicy"
+If using non-default admission plugins, be sure to upgrade your charm config accordingly after upgrading to 1.16.
+```
 
 ## Known Issues
 
