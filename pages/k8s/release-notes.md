@@ -94,6 +94,18 @@ registry. More details can be found in the following bug:
 
 https://bugs.launchpad.net/charm-containerd/+bug/1853653
 
+- Storage class cdk-cinder has incorrect provisioner
+
+The value of the provisioner field for the Cinder plugin provided by the
+OpenStack cloud-provider was changed upstream, and the corresponding change
+in cdk-addons was accidentally reverted just prior to release. This will
+cause issues provisioning new volumes using the cdk-cinder storage class.
+A workaround is to create a new storage class with the proper value of
+"cinder.csi.openstack.org". This will be fixed in the first patch release,
+1.18+ck1, and will be automatically applied.
+
+https://bugs.launchpad.net/cdk-addons/+bug/1871945
+
 
 
 # 1.17+ck1 Bugfix release
