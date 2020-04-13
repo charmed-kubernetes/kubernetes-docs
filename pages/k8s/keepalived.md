@@ -89,7 +89,7 @@ balancer.
 
 <!--LINKS-->
 [keepalived-home]: http://www.keepalived.org/
-[SAN]: https://www.openssl.org/docs/manmaster/man5/x509v3_config.html#Subject-Alternative-Name
+[SANs]: https://www.openssl.org/docs/manmaster/man5/x509v3_config.html#Subject-Alternative-Name
 [logging-doc]: /kubernetes/docs/logging
 [subordinate-charm]: https://docs.jujucharms.com/stable/en/authors-subordinate-applications
 
