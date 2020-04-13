@@ -41,17 +41,18 @@ follows:
 1. Configure the keepalived application. You should substitute a suitable IP address and
      FQDN in the example below:
     ```bash
+    export VIP=10.10.74.250
     export VIP_HOSTNAME=test.example.com
-    juju config keepalived virtual_ip=10.10.74.250
+    juju config keepalived virtual_ip=$VIP
     juju config keepalived port=443
     juju config keepalived vip_hostname=$VIP_HOSTNAME
     ```
 
-1.  Add the new hostname to the API server certificate. This is done by specifying an
-    additional [SAN][]:
+1.  Add both the new hostname and VIP to the API server certificate. This is done by specifying
+    additional [SANs][]:
     ```bash
-    juju config kubeapi-load-balancer extra_sans=$VIP_HOSTNAME
-    juju config kubernetes-master extra_sans=$VIP_HOSTNAME
+    juju config kubeapi-load-balancer extra_sans="$VIP $VIP_HOSTNAME"
+    juju config kubernetes-master extra_sans="$VIP $VIP_HOSTNAME"
     ```
 
 1. Wait for the new service to settle. You can check the status of the `keepalived`
@@ -71,6 +72,12 @@ follows:
     In this example, we add two additional units for a total of three:
     ```bash
     juju add-unit kubeapi-load-balancer -n 2
+    ```
+
+1. Check for correct functionality by using kubectl and verifying it returns results. You can also check the SANs listed in the certificate returned by the VIP.
+    ```bash
+    kubectl get pods --all-namespaces
+    openssl s_client -connect $VIP:443 | openssl x509 -noout -text
     ```
 
 Note that the `keepalived` application is a
