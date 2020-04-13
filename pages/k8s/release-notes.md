@@ -21,9 +21,12 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 ## What's new
 
-- New SSL options for default ingress controller
+- New SSL options for nginx-ingress-controller
 
-TODO: Write feature description based on https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1859156 and https://github.com/charmed-kubernetes/charm-kubernetes-worker/pull/49/files
+New configuration options on the kubernetes-worker charm,
+`ingress-default-ssl-certificate` and `ingress-default-ssl-key`, allow you to
+configure nginx-ingress-controller with your own SSL certificate for serving
+Kubernetes ingress traffic.
 
 - Multus support
 
