@@ -51,20 +51,25 @@ running this action on Charmed Kubernetes components.
 
 - Containerd version hold
 
-The version of [containerd](https://containerd.io/) will now be held.  This means that the version of [containerd](https://containerd.io/) will not be upgraded along with the charm.  To update [containerd](https://containerd.io/) to the latest stable, currently 1.3.3, you can call the `upgrade-containerd` action.  For example:
+The version of [containerd](https://containerd.io/) will now be held. This means 
+that the version of [containerd](https://containerd.io/) will not be upgraded along
+with the charm. To update containerd to the latest stable, currently 1.3.3, you can
+call the `upgrade-containerd` action:
 
 ```bash
 juju run-action --wait containerd/0 upgrade-containerd
 ```
 
-After completion, the results of the upgrade will be returned.  Run this for each instance of the `containerd` charm.  The upgrades can be staggered to avoid downtime.
+This will perform the upgrade and return any output. If you have more than
+one unit of containerd,  you should run this on each unit. The upgrades can be
+staggered to avoid downtime.
 
 ## Component Upgrades
 
 Many of the components in Charmed Kubernetes 1.18 have been upgraded. The following list
 highlights some of the more notable version changes:
 
-- containerd 1.3.3 (see above `upgrade-containerd` note)
+- containerd 1.3.3 (see above)
 - coredns 1.6.7
 - dashboard 2.0.0-rc5
 - etcd 3.3.15
