@@ -29,13 +29,11 @@ and basic (htpasswd) authentication enabled.
 
 If needed, consult the [quickstart guide][quickstart] to install
 **Charmed Kubernetes**. Then deploy and configure `docker-registry` as
-follows.  This example relates to a containerd charm; this can be replaced
-with any [container runtime][container-runtime].
+follows.
 
 ```bash
 juju deploy ~containers/docker-registry
 juju add-relation docker-registry easyrsa:client
-juju add-relation docker-registry containerd
 juju config docker-registry \
   auth-basic-user='admin' \
   auth-basic-password='password'
@@ -113,7 +111,9 @@ Login Succeeded
 
 ## Connecting to a Charmed Kubernetes cluster
 
-To connect the private registry to an existing Charmed Kubernetes cluster, run the relevant command.
+Relate the deployed registry to the appropriate
+[container runtime][container-runtime] for your cluster. This configures
+the runtime with authentication, proxy, and/or TLS data from the registry.
 
 ### Containerd
 
