@@ -60,6 +60,7 @@ applications:
     num_units: 1
     trust: true
 relations:
+  - ['kubernetes-master:kube-api-endpoint', 'kubernetes-worker:kube-api-endpoint']
   - ['openstack-integrator', 'kubernetes-master:loadbalancer']
   - ['openstack-integrator', 'kubernetes-master:openstack']
   - ['openstack-integrator', 'kubernetes-worker:openstack']
@@ -77,13 +78,7 @@ have also been released.
 To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml
-```
-
-Then run the command to share credentials with this charm:
-
-```bash
-juju trust openstack-integrator
+juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml --trust
 ```
 
 ... and remember to fetch the configuration file!
@@ -101,7 +96,7 @@ Many  pods you may wish to deploy will require storage. Although you can use any
 of storage supported by Kubernetes (see the [storage documentation][storage]), you
 also have the option to use Cinder storage volumes, if supported by your OpenStack.
 
-A `cinder` storage class will be automatically created for you when the integrator is
+A `cdk-cinder` storage class will be automatically created when the integrator is
 used.  This storage class can then be used when creating a Persistent Volume Claim:
 
 ```bash
@@ -115,8 +110,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
-  storageClassName: cinder
+      storage: 1Gi
+  storageClassName: cdk-cinder
 EOY
 ```
 

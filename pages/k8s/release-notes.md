@@ -97,6 +97,19 @@ registry. More details can be found in the following bug:
 
 https://bugs.launchpad.net/charm-containerd/+bug/1853653
 
+=======
+# 1.17+ck2 Bugfix release
+
+### March 2, 2020 - [charmed-kubernetes-410](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-410/archive/bundle.yaml)
+
+## Fixes
+
+CephFS is now supported in Charmed Kubernetes. This allows for ReadWriteMany volumes
+which can be attached to multiple pods. More information can be found in the
+[storage documentation](/kubernetes/docs/storage).
+
+Additional bug fixes included in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2).
 
 # 1.17+ck1 Bugfix release
 

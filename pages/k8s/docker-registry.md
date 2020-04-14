@@ -111,6 +111,22 @@ Login Succeeded
 ...
 ```
 
+## Connecting to a Charmed Kubernetes cluster
+
+To connect the private registry to an existing Charmed Kubernetes cluster, run the relevant command.
+
+### Containerd
+
+```bash
+juju add-relation docker-registry containerd
+```
+
+### Docker
+
+```bash
+juju add-relation docker-registry docker
+```
+
 ## Kubernetes images
 
 A list of images that may be used by **Charmed Kubernetes** can be found in
