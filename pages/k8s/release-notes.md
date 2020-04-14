@@ -15,7 +15,7 @@ toc: False
 
 # 1.18
 
-### April xx, 2020 - [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+### April 13, 2020 - [charmed-kubernetes-430](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-430/archive/bundle.yaml)
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
 
