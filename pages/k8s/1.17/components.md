@@ -27,11 +27,11 @@ which comprise the 1.17 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs'> Documentation </a>
+<a class='p-button--brand' href='/kubernetes/docs/'> Documentation </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.17/release-notes'>Release notes </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.17/upgrade'>Upgrading </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.17/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
-<a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
+<a class='p-button--brand' href='https://github.com/charmed-kubernetes/'>Source </a>
 <a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.17'>Milestone </a>
 
 ## What's new
@@ -324,7 +324,7 @@ These charms are frequently used with Charmed Kubernetes.
  </table>
 
 
-## Images
+## Container Images
 
 These are the container images used by this release:
 
@@ -376,6 +376,26 @@ These are the container images used by this release:
 -   k8scsi/csi-provisioner:v1.0.2
 -   k8scsi/csi-snapshotter:v1.0.2
 -   k8scsi/csi-node-driver-registrar:v1.1.0
+
+To list all of the Charmed Kubernetes container images in the Canonical registry:
+
+```bash
+curl https://rocks.canonical.com/v2/_catalog | python3 -mjson.tool | grep -E '^\s*"cdk/'
+```
+
+To list the tags available for a specific image use the following command,
+indicating the path of the package. For example, for the `coredns-amd64` image:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/coredns/coredns-amd64/tags/list
+```
+
+...or for the arm64 version of the metrics server:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/metrics-server-arm64/tags/list
+```
+
 
 ## Snaps
 
