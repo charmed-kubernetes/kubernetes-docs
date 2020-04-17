@@ -27,11 +27,11 @@ which comprise the 1.18 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs'> Documentation </a>
+<a class='p-button--brand' href='/kubernetes/docs/'> Documentation </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.18/release-notes'>Release notes </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.18/upgrade'>Upgrading </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.18/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
-<a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
+<a class='p-button--brand' href='https://github.com/charmed-kubernetes'>Source </a>
 <a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.18'>Milestone </a>
 
 ## What's new
@@ -329,8 +329,76 @@ These charms are frequently used with Charmed Kubernetes.
 These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-s390x:1.8.5
+-   addon-resizer-s390x:1.8.5
+-   cephcsi/cephfsplugin:v1.0.0
+-   cephcsi/rbdplugin:v1.0.0
+-   coredns/coredns-amd64:1.6.7
+-   coredns/coredns-arm64:1.6.7
+-   coredns/coredns-s390x:1.6.7
+-   coreos/kube-state-metrics:v1.9.5
+-   defaultbackend-amd64:1.5
+-   defaultbackend-arm64:1.5
+-   defaultbackend-s390x:1.4
+-   external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
+-   k8s-dns-dnsmasq-nanny-amd64:1.14.13
+-   k8s-dns-dnsmasq-nanny-arm64:1.14.13
+-   k8s-dns-dnsmasq-nanny-s390x:1.14.13
+-   k8s-dns-kube-dns-amd64:1.14.13
+-   k8s-dns-kube-dns-arm64:1.14.13
+-   k8s-dns-kube-dns-s390x:1.14.13
+-   k8s-dns-sidecar-amd64:1.14.13
+-   k8s-dns-sidecar-arm64:1.14.13
+-   k8s-dns-sidecar-s390x:1.14.13
+-   k8scloudprovider/cinder-csi-plugin:v1.17.0
+-   k8scloudprovider/k8s-keystone-auth:latest
+-   k8scloudprovider/openstack-cloud-controller-manager:v1.17.0
+-   k8scsi/csi-attacher:v1.0.1
+-   k8scsi/csi-attacher:v2.0.0
+-   k8scsi/csi-node-driver-registrar:v1.0.2
+-   k8scsi/csi-node-driver-registrar:v1.1.0
+-   k8scsi/csi-provisioner:v1.0.2
+-   k8scsi/csi-provisioner:v1.4.0
+-   k8scsi/csi-resizer:v0.3.0
+-   k8scsi/csi-snapshotter:v1.0.2
+-   k8scsi/csi-snapshotter:v1.2.2
+-   kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.30.0
+-   kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.30.0
+-   kubernetes-ingress-controller/nginx-ingress-controller-s390x:0.20.0
+-   kubernetesui/dashboard-amd64:v2.0.0-rc5
+-   kubernetesui/dashboard-arm64:v2.0.0-rc5
+-   kubernetesui/dashboard-s390x:v2.0.0-rc5
+-   kubernetesui/metrics-scraper:v1.0.3
+-   metrics-server-amd64:v0.3.6
+-   metrics-server-arm64:v0.3.6
+-   metrics-server-s390x:v0.3.6
+-   nvidia/k8s-device-plugin:1.0.0-beta5
 
 <!-- CONTAINER IMAGES END -->
+
+
+To list all of the Charmed Kubernetes container images in the Canonical registry:
+
+```bash
+curl https://rocks.canonical.com/v2/_catalog | python3 -mjson.tool | grep -E '^\s*"cdk/'
+```
+
+To list the tags available for a specific image use the following command,
+indicating the path of the package. For example, for the `coredns-amd64` image:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/coredns/coredns-amd64/tags/list
+```
+
+...or for the arm64 version of the metrics server:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/metrics-server-arm64/tags/list
+```
 
 ## Snaps
 
