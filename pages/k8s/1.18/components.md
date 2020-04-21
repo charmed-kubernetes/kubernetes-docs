@@ -37,7 +37,7 @@ Other information about this release can be found on the following pages:
 ## What's new
 
 For a list of new features, changes, deprecations, and bug fixes in this
-release, please see the [Release notes](release-notes).
+release, please see the [Release notes](/kubernetes/docs/1.18/release-notes).
 
 ## Core charms
 
