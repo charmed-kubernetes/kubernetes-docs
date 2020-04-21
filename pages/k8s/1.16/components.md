@@ -31,7 +31,7 @@ Other information about this release can be found on the following pages:
 <a class='p-button--brand' href='/kubernetes/docs/1.16/release-notes'>Release notes </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.16/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
-<a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
+<a class='p-button--brand' href='https://github.com/charmed-kubernetes'>Source </a>
 <a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.16'>Milestone </a>
 
 ## What's new
@@ -330,7 +330,80 @@ These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
 
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-ppc64le:1.8.5
+-   addon-resizer-s390x:1.8.5
+-   cephcsi/rbdplugin:v1.0.0
+-   coredns/coredns:1.6.2
+-   defaultbackend-amd64:1.5
+-   defaultbackend-arm64:1.5
+-   defaultbackend-s390x:1.4
+-   external_storage/nfs-client-provisioner:latest
+-   external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
+-   heapster-amd64:v1.6.0-beta.1
+-   heapster-arm64:v1.6.0-beta.1
+-   heapster-grafana-amd64:v4.4.3
+-   heapster-grafana-arm64:v4.4.3
+-   heapster-grafana-ppc64le:v4.4.3
+-   heapster-grafana-s390x:v4.4.3
+-   heapster-influxdb-amd64:v1.3.3
+-   heapster-influxdb-arm64:v1.3.3
+-   heapster-influxdb-ppc64le:v1.3.3
+-   heapster-influxdb-s390x:v1.3.3
+-   heapster-ppc64le:v1.6.0-beta.1
+-   heapster-s390x:v1.6.0-beta.1
+-   k8s-dns-dnsmasq-nanny:1.14.13
+-   k8s-dns-kube-dns:1.14.13
+-   k8s-dns-sidecar:1.14.13
+-   k8scloudprovider/cinder-csi-plugin:v1.15.0
+-   k8scloudprovider/k8s-keystone-auth:latest
+-   k8scloudprovider/openstack-cloud-controller-manager:v1.15.0
+-   k8scsi/csi-attacher:v1.0.1
+-   k8scsi/csi-node-driver-registrar:v1.0.2
+-   k8scsi/csi-node-driver-registrar:v1.1.0
+-   k8scsi/csi-provisioner:v1.0.2
+-   k8scsi/csi-snapshotter:v1.0.2
+-   kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.25.1
+-   kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.25.1
+-   kubernetes-ingress-controller/nginx-ingress-controller-s390x:0.20.0
+-   kubernetesui/dashboard-amd64:v2.0.0-beta4
+-   kubernetesui/dashboard-arm64:v2.0.0-beta4
+-   kubernetesui/dashboard-ppc64le:v2.0.0-beta4
+-   kubernetesui/metrics-scraper:v1.0.1
+-   metrics-server-amd64:v0.3.6
+-   metrics-server-arm64:v0.3.6
+-   metrics-server-ppc64le:v0.3.6
+-   metrics-server-s390x:v0.3.6
+-   nvidia/k8s-device-plugin:1.0.0-beta5
+-   pause-amd64:3.1
+-   pause-arm64:3.1
+-   pause-ppc64le:3.1
+-   pause-s390x:3.1
+-   rancher/rancher:latest
+-   sonatype/nexus3:latest
 <!-- CONTAINER IMAGES END -->
+
+
+To list all of the Charmed Kubernetes container images in the Canonical registry:
+
+```bash
+curl https://rocks.canonical.com/v2/_catalog | python3 -mjson.tool | grep -E '^\s*"cdk/'
+```
+
+To list the tags available for a specific image use the following command,
+indicating the path of the package. For example, for the `coredns-amd64` image:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/coredns/coredns-amd64/tags/list
+```
+
+...or for the arm64 version of the metrics server:
+
+```bash
+curl https://rocks.canonical.com/v2/cdk/metrics-server-arm64/tags/list
+```
+
 
 ## Snaps
 
