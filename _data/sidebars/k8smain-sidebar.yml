@@ -17,8 +17,25 @@ entries:
       url: /overview
       output: web, pdf
 
-    - title: News
-      url: /news
+  - title: Supported versions
+    output: web, pdf
+    type: section
+    items:
+      
+    - title: 1.18
+      url: /1.18/components
+      output: web, pdf
+
+    - title: 1.17
+      url: /1.17/components
+      output: web, pdf
+
+    - title: 1.16
+      url: /1.16/components
+      output: web, pdf
+
+    - title: Version info
+      url: /supported-versions
       output: web, pdf
 
   - title: Install
