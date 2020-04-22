@@ -355,6 +355,16 @@ juju run-action kubernetes-worker/1 upgrade
 ...
 ```
 
+<a id='upgrading-series'> </a>
+
+## Upgrading the Machine's Series
+
+All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/upgrading-series).
+As each machine is upgraded, the applications on that machine will be stopped and the unit will
+go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
+from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
+from the pool until the upgrade is complete.
+
 ## Verify your upgrade
 
 The output from:
