@@ -365,17 +365,19 @@ go into a `blocked` status until the upgrade is complete. For the worker units, 
 from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
 from the pool until the upgrade is complete.
 
-## Verify your upgrade
+<a id='verify-upgrade'> </a>
 
-The output from:
+## Verify an Upgrade
+
+Once an upgrade is complete and units settle, the output from:
 
 ```bash
 juju status
 ```
 
-... should now indicate the selected version of **Kubernetes** is running.
+... should indicate that all units are active and the correct version of **Kubernetes** is running.
 
-It is recommended that you run a [cluster validation][validation] to ensure that the cluster upgrade has successfully completed.
+It is recommended that you run a [cluster validation][validation] to ensure that the cluster is fully functional.
 
 
 ## Known Issues
