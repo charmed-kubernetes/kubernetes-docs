@@ -102,6 +102,15 @@ registry. More details can be found in the following bug:
 
 https://bugs.launchpad.net/charm-containerd/+bug/1853653
 
+- New provisioner value for Cinder storage classes
+
+The new version of the openstack-provisioner includes an upstream change
+to the `provisioner` field for storage classes using Cinder. The `cdk-cinder`
+storage class will be automatically updated, but any manually created storage
+classes will need to be edited and the `provisioner` field changed to
+`cinder.csi.openstack.org`. Existing volumes will be unaffected, but new
+PVCs using those storage classes will hang until the storage class is updated.
+
 =======
 # 1.17+ck2 Bugfix release
 
@@ -392,6 +401,16 @@ We intend to fix this shortly after release. For now, if you want to deploy
 Charmed Kubernetes on LXD, we recommend using the Docker subordinate charm
 instead. Instructions for this can be found in the
 [Container runtimes][container-runtime] section of our documentation.
+
+- New provisioner value for Cinder storage classes
+
+The switch to the external cloud provider for OpenStack includes an upstream change
+to the `provisioner` field for storage classes using Cinder. A `cdk-cinder`
+storage class will be automatically created with the correct value, but any
+manually created storage classes will need to be edited and the `provisioner`
+field changed to `csi-cinderplugin`. Existing volumes will be unaffected, but
+new PVCs using those storage classes will hang until the storage class is
+updated.
 
 
 # 1.14 Bugfix release
