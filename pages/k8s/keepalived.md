@@ -44,7 +44,6 @@ follows:
     export VIP=10.10.74.250
     export VIP_HOSTNAME=test.example.com
     juju config keepalived virtual_ip=$VIP
-    juju config keepalived port=443
     juju config keepalived vip_hostname=$VIP_HOSTNAME
     ```
 
