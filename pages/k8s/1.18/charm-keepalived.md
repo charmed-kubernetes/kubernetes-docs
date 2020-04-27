@@ -57,7 +57,6 @@ juju relate kubernetes-master:kube-api-endpoint kubeapi-load-balancer:apiserver 
 # configure keepalived (values are examples, substitute your own)
 export VIP_HOSTNAME=test.example.com
 juju config keepalived virtual_ip=10.10.74.250
-juju config keepalived port=443
 juju config keepalived vip_hostname=$VIP_HOSTNAME
 
 # set extra_sans to update api server ssl cert
