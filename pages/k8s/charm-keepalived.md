@@ -14,17 +14,13 @@ toc: False
 ---
 
 [Keepalived](http://www.keepalived.org/) is software which provides high
-availability by assigning two or more nodes a virtual IP (VIP) and monitoring
+availability by assigning two or more nodes a virtual IP and monitoring
 those nodes, failing over when one goes down.
 
 ## Usage
 
 The Keepalived charm is a
 [subordinate](https://jujucharms.com/docs/stable/authors-subordinate-applications).
-Allocating a VIP and ensuring that it can route to all of the instances is a manual
-process which depends on your infrastructure.  It does require that the VIP can be
-assigned to each instance, and that the VRRP protocol is allowed on the network.
-Because of this, this charm will generally not work on public clouds.
 
 ### Using with Kubernetes ([Charmed Kubernetes](https://jujucharms.com/canonical-kubernetes))
 
