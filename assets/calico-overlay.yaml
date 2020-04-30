@@ -6,7 +6,6 @@ applications:
       gui-x: '450'
       gui-y: '750'
     charm: cs:~containers/calico
-  flannel:
 
 relations:
 - - calico:etcd
