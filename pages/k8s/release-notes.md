@@ -13,6 +13,34 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.18+ck1 Bugfix release
+
+### June xxx, 2020 - [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-xxx/archive/bundle.yaml)
+
+Before upgrading from 1.17 or earlier, please read the
+[upgrade notes](/kubernetes/docs/upgrade-notes).
+
+## Fixes
+
+All container runtime subordinate charms now support a `custom-registry-ca`
+option that can be used to specify a `base64` encoded Certificate Authority
+(CA) certificate. The value set here will be installed as a system-wide
+trusted CA. This allows `kubernetes-worker` units to pull containers from
+an external registry that utilizes a self-signed TLS certificate. See the
+[related issue](https://bugs.launchpad.net/layer-container-runtime-common/+bug/1831153)
+for more details.
+
+For users that require custom TLS configuration per external registry, the
+`containerd` subordinate charm has expanded the `custom_registries` config
+option to support `ca_file`, `cert_file`, and `cert_key`. These can be set for
+each custom container registry to enable TLS without altering the system-wide
+trusted CAs. See the
+[related issue](https://bugs.launchpad.net/charm-containerd/+bug/1879347)
+for more details.
+
+Additional bug fixes included in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.18+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.18+ck1).
+
 # 1.18
 
 ### April 13, 2020 - [charmed-kubernetes-430](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-430/archive/bundle.yaml)
