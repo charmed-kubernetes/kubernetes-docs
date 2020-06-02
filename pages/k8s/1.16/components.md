@@ -147,7 +147,7 @@ release. These charms are maintained by the Charmed Kubernetes team.
 </tr>
 <tr>
   <td> gcp-integrator </td>
-  <td> Pharm to enable GCP integrations via Juju relations. </td>
+  <td> Charm to enable GCP integrations via Juju relations. </td>
   <td> <a href="/kubernetes/docs/1.16/charm-gcp-integrator">docs</a> </td> <td> <a href="https://github.com/juju-solutions/charm-gcp-integrator"> source </a> </td>
   <td> <a href="https://bugs.launchpad.net/charmed-kubernetes"> bugs</a> </td>
   <td> 20 </td>
