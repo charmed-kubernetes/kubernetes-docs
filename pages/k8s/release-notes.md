@@ -43,6 +43,12 @@ Both of the above options allow the container runtime located on
 `kubernetes-worker` units to pull containers from a registry that utilizes
 custom TLS certificates.
 
+- New memory constraint for `kubeapi-load-balancer`
+
+Deploying Charmed Kubernetes now requires a minimum of 4GB of RAM for the
+`kubeapi-load-balancer`. This addresses OOM errors reported in the
+[related issue](https://bugs.launchpad.net/charmed-kubernetes-bundles/+bug/1873044).
+
 ## Fixes
 
 Bug fixes included in this release can be found at
