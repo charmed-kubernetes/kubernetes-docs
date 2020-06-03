@@ -49,6 +49,13 @@ Deploying Charmed Kubernetes now requires a minimum of 4GB of RAM for the
 `kubeapi-load-balancer`. This addresses OOM errors reported in the
 [related issue](https://bugs.launchpad.net/charmed-kubernetes-bundles/+bug/1873044).
 
+- Updated profile when deploying to LXD
+
+An updated LXD profile has been included in `kubernetes-master` and
+`kubernetes-worker` charms. This resolves an
+[issue](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1876618)
+where containers would fail to start in a LXD environment.
+
 ## Fixes
 
 Bug fixes included in this release can be found at
