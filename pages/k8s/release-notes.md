@@ -37,11 +37,8 @@ possible to attach multiple network interfaces to your pods.
 Along the way, we've also updated existing charms to make it possible for
 multiple CNI providers to be deployed together in the same cluster.
 
-Please note that while we are making Multus support available today, it is
-dependent on functionality in Juju that is not yet considered stable. For more
-details on the current state of Multus support in Charmed Kubernetes and how to
-get started, please refer to the
-[Multus documentation page](/kubernetes/docs/cni-multus).
+For more details on Multus support in Charmed Kubernetes and how to get started,
+please refer to the [Multus documentation page](/kubernetes/docs/cni-multus).
 
 - CIS Benchmark 1.5.0
 
