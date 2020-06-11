@@ -15,7 +15,7 @@ toc: False
 
 # 1.18+ck1 Bugfix release
 
-### June 11, 2020 - [charmed-kubernetes-xxx](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-464/archive/bundle.yaml)
+### June 11, 2020 - [charmed-kubernetes-464](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-464/archive/bundle.yaml)
 
 Before upgrading from 1.17 or earlier, please read the
 [upgrade notes](/kubernetes/docs/upgrade-notes).
