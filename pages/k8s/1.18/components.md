@@ -331,13 +331,14 @@ These charms are frequently used with Charmed Kubernetes.
 These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
--   cdk/addon-resizer-amd64:1.8.5  
+-   addon-resizer-amd64:1.8.5
+-   addon-resizer-arm64:1.8.5
+-   addon-resizer-ppc64le:1.8.5
+-   addon-resizer-s390x:1.8.5
 -   cephcsi/cephfsplugin:v1.0.0
 -   cephcsi/rbdplugin:v1.0.0
--   cinder-csi-plugin:v1.17.0
 -   coredns/coredns:1.6.7
 -   coreos/kube-state-metrics:v1.9.5
--   dashboard-amd64:v2.0.0-rc5
 -   defaultbackend-amd64:1.5
 -   defaultbackend-arm64:1.5
 -   defaultbackend-s390x:1.4
@@ -345,7 +346,9 @@ These are the container images used by this release:
 -   k8s-dns-dnsmasq-nanny:1.14.13
 -   k8s-dns-kube-dns:1.14.13
 -   k8s-dns-sidecar:1.14.13
--   k8s-keystone-auth:latest
+-   k8scloudprovider/cinder-csi-plugin:v1.17.0
+-   k8scloudprovider/k8s-keystone-auth:latest
+-   k8scloudprovider/openstack-cloud-controller-manager:v1.17.0
 -   k8scsi/csi-attacher:v1.0.1
 -   k8scsi/csi-attacher:v2.0.0
 -   k8scsi/csi-node-driver-registrar:v1.0.2
@@ -355,16 +358,25 @@ These are the container images used by this release:
 -   k8scsi/csi-resizer:v0.3.0
 -   k8scsi/csi-snapshotter:v1.0.2
 -   k8scsi/csi-snapshotter:v1.2.2
--   metrics-scraper:v1.0.3
+-   kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.30.0
+-   kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.30.0
+-   kubernetes-ingress-controller/nginx-ingress-controller-s390x:0.20.0
+-   kubernetesui/dashboard-amd64:v2.0.0-rc5
+-   kubernetesui/dashboard-arm64:v2.0.0-rc5
+-   kubernetesui/dashboard-ppc64le:v2.0.0-rc5
+-   kubernetesui/dashboard-s390x:v2.0.0-rc5
+-   kubernetesui/metrics-scraper:v1.0.3
 -   metrics-server-amd64:v0.3.6
+-   metrics-server-arm64:v0.3.6
+-   metrics-server-ppc64le:v0.3.6
+-   metrics-server-s390x:v0.3.6
 -   microbot-amd64:latest
 -   microbot-arm64:latest
--   nginx-ingress-controller-amd64:0.30.0
--   nginx-ingress-controller-arm64:0.30.0
--   nginx-ingress-controller-s390x:0.20.0
 -   nvidia/k8s-device-plugin:1.0.0-beta6
--   openstack-cloud-controller-manager:v1.17.0
+-   pause-amd64:3.2
 -   pause-arm64:3.2
+-   pause-ppc64le:3.2
+-   pause-s390x:3.2
 -   rancher/rancher:latest
 -   registry-amd64:2.6
 -   registry-arm64:2.6
