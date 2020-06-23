@@ -270,9 +270,9 @@ DNS provider addon to use. Can be "auto", "core-dns", "kube-dns", or
 CoreDNS is only supported on Kubernetes 1.14+.
 
 When set to "auto", the behavior is as follows:
-- New deployments of Kubernetes 1.14+ will use CoreDNS
-- New deployments of Kubernetes 1.13 or older will use KubeDNS
-- Upgraded deployments will continue to use whichever provider was
+-   New deployments of Kubernetes 1.14+ will use CoreDNS
+-   New deployments of Kubernetes 1.13 or older will use KubeDNS
+-   Upgraded deployments will continue to use whichever provider was
 previously used.
 
 [Back to table](#table-dns-provider)
@@ -573,6 +573,7 @@ reflect the purpose and resources of your cluster.
 The configuration section above details all available configuration options,
 this section deals with specific, commonly used settings.
 
+<a id="config-ipvs"> </a>
 ## IPVS (IP Virtual Server)
 
 IPVS implements transport-layer load balancing as part of the Linux kernel, and
