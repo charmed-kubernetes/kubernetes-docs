@@ -292,7 +292,7 @@ update the configuration for the workers:
     ```bash
     juju config kubernetes-worker sysctl
     ```
-    This should return a sting of config options, e.g.:
+    This should return a string of config options, e.g.:
     ```
     { net.ipv4.conf.all.forwarding : 1, net.ipv4.neigh.default.gc_thresh1 : 128, net.ipv4.neigh.default.gc_thresh2 : 28672, net.ipv4.neigh.default.gc_thresh3 : 32768, net.ipv6.neigh.default.gc_thresh1 : 128, net.ipv6.neigh.default.gc_thresh2 : 28672, net.ipv6.neigh.default.gc_thresh3 : 32768, fs.inotify.max_user_instances : 8192, fs.inotify.max_user_watches: 1048576 }
     ```
@@ -333,7 +333,8 @@ update the configuration for the workers:
         emptyDir:
           medium: HugePages  
     ```
-    &nbsp;
+    Huge page usage in a namespace can be managed with ResourceQuota,
+    similar to other compute resources.
 4.  To verify, you can exec into the pod and check the `/proc/meminfo`.
     ```
     kubectl exec hugepage-test cat /proc/meminfo | grep HugePages_
