@@ -326,7 +326,8 @@ These charms are frequently used with Charmed Kubernetes.
 
 ## Container Images
 
-These are the container images used by this release:
+The [addons][] installed alongside Kubernetes make use of additional container
+images. These are the ones used by this release::
 
 -   k8scsi/csi-node-driver-registrar:v1.0.2           
 -   k8scsi/csi-provisioner:v1.0.2                      
@@ -422,6 +423,7 @@ The following snaps are used by this release of Charmed Kubernetes:
 
 
 <!-- LINKS -->
+[addons]: /kubernetes/docs/cdk-addons
 [documentation]: /kubernetes/docs/
 [release notes]: /kubernetes/docs/release-notes#1.17
 [upgrade notes]: /kubernetes/docs/

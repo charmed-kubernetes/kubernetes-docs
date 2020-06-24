@@ -21,7 +21,7 @@ entries:
     output: web, pdf
     type: section
     items:
-      
+
     - title: 1.18
       url: /1.18/components
       output: web, pdf
@@ -150,6 +150,11 @@ entries:
 
     - title: Basic operations
       url: /operations
+      output: web, pdf
+      type: page
+
+    - title: Addons
+      url: /cdk-addons
       output: web, pdf
       type: page
 
