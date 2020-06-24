@@ -328,7 +328,8 @@ These charms are frequently used with Charmed Kubernetes.
 
 ## Images
 
-These are the container images used by this release:
+The [addons][] installed alongside Kubernetes make use of additional container
+images. These are the ones used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
 -   addon-resizer-amd64:1.8.5
@@ -409,6 +410,7 @@ The following snaps are used by this release of Charmed Kubernetes:
 
 
 <!-- LINKS -->
+[addons]: /kubernetes/docs/cdk-addons
 [documentation]: /kubernetes/docs/
 [release notes]: /kubernetes/docs/release-notes#1.18
 [upgrade notes]: /kubernetes/docs/
