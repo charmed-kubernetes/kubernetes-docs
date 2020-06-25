@@ -616,7 +616,7 @@ for example, to add the `PodSecurityPolicy` admission controller:
     juju config kubernetes-master api-extra-args="enable-admission-plugins=PodSecurityPolicy"
     ```
 
-Note that prior to Kubernetes 1.16(kubernetes-master revision 778), the config
+Note that prior to Kubernetes 1.16 (kubernetes-master revision 778), the config
 setting was `admission-control`, rather than `enable-admission-plugin`.
 
 ## DNS for the cluster
