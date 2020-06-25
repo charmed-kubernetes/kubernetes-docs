@@ -229,6 +229,21 @@ have also been released.
   </p>
 </div>
 
+#### Note: LBaaS and Security Groups
+
+Charmed Kubernetes and the OpenStack integrator assume by default that you will
+be using Octavia for load balancers, and that the Amphora instances providing
+the LBs will reside in the same subnet as the workers and have at least traffic
+on the NodePort range (30000-32767) open from the Amphora instances to the
+worker instances. In general, Juju assumes that traffic between units in a model
+and other resources used by that model is unrestricted or is otherwise managed
+outside of Juju.
+
+If you are instead using Neutron-based LBaaS or have more restrictions on
+traffic between resources within or used by the model, you may need to either
+set the `manage-security-groups` config option on the OpenStack Integrator charm
+to `true`, or manage the security group rules manually.
+
 ### Upgrading the integrator charm
 
 The openstack-integrator is not specifically tied to the version of Charmed Kubernetes installed and may
