@@ -617,7 +617,7 @@ for example, to add the `PodSecurityPolicy` admission controller:
     ```
 
 Note that prior to Kubernetes 1.16 (kubernetes-master revision 778), the config
-setting was `admission-control`, rather than `enable-admission-plugin`.
+setting was `admission-control`, rather than `enable-admission-plugins`.
 
 ## DNS for the cluster
 
