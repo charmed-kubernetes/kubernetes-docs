@@ -241,8 +241,8 @@ outside of Juju.
 
 If you are instead using Neutron-based LBaaS or have more restrictions on
 traffic between resources within or used by the model, you may need to either
-set the `manage-security-groups` config option on the OpenStack Integrator charm
-to `true`, or manage the security group rules manually.
+set the `manage-security-groups` [config option][charm-config] on the OpenStack
+Integrator charm to `true`, or manage the security group rules manually.
 
 ### Upgrading the integrator charm
 
@@ -274,6 +274,7 @@ juju debug-log --replay --include openstack-integrator/0
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://jujucharms.com/u/containers/openstack-integrator/
 [install]: /kubernetes/docs/install-manual
+[charm-config]: https://ubuntu.com/kubernetes/docs/charm-openstack-integrator#configuration
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
