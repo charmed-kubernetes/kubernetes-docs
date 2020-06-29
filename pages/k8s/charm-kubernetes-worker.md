@@ -277,6 +277,17 @@ This requires configuration of both the `kubernetes-master` and
 `kubernetes-worker` charms. Please see the configuration section on
 the [kubernetes-master page](../charm-kubernetes-master#config-ipvs).
 
+### Configuring kubelet
+
+Each worker runs the node agent, `kubelet` with a set of arguments and
+configuration set by this charm. In some cases it may be desirable to add
+options or arguments, for which the charm provides two mechanisms
+
+[kubelet-extra-args](#kubelet-extra-args-description) for command line options.
+[kubelet-extra-config](#kubelet-extra-config-description) for configuration.
+
+The definitive reference for `kubelet` is the [upstream documentation][kubelet-docs].
+
 ### HugePages
 
 HugePages are a standard memory management feature of the Linux kernel to
@@ -359,3 +370,4 @@ migrate unless otherwise directed via their application declaration.
 
 <!-- LINKS -->
 [charm-kubernetes-master]: /charm-kubernetes-master
+[kubelet-docs]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/
