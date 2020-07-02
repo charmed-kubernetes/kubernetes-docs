@@ -37,7 +37,7 @@ these levels bestow, please check the following pages of Juju documentation:
 
 -   [Juju user types][juju-user-types] - describes the different types of users
     supported by Juju and their abilities.
--   [Working with multiple users] - An explanation of how to share control of
+-   [Working with multiple users][juju-users] - An explanation of how to share control of
     a cluster with multiple Juju users.
 -   [Machine auth][] - describes how SSH keys are stored and used by Juju.
 
@@ -49,11 +49,11 @@ Charmed Kubernetes is deployed may also have access to your cluster. Describing
 the security mechanisms of these clouds is out of the scope of this
 documentation, but you may find the following links useful.
 
-Amazon Web Services -	<https://aws.amazon.com/security/>
-Google Cloud Platform	- <https://cloud.google.com/security/>
-Metal As A Service(MAAS) -  <https://maas.io/docs/security>
-Microsoft Azure	- <https://docs.microsoft.com/en-us/azure/security/azure-security>
-VMWare VSphere	- <https://www.vmware.com/security/hardening-guides.html>
+-   Amazon Web Services -	<https://aws.amazon.com/security/>
+-   Google Cloud Platform	- <https://cloud.google.com/security/>
+-   Metal As A Service(MAAS) -  <https://maas.io/docs/security>
+-   Microsoft Azure	- <https://docs.microsoft.com/en-us/azure/security/azure-security>
+-   VMWare VSphere	- <https://www.vmware.com/security/hardening-guides.html>
 
 ## Kubernetes Security
 
@@ -80,15 +80,18 @@ The **Center for Internet Security (CIS)** maintains a
 [Kubernetes benchmark][cis-benchmark] that is helpful to ensure clusters are
 deployed in accordance with security best practices. **Chamred Kubernetes**
 supports the `kube-bench` utility to report how well a cluster complies
-with a benchmark. If you want to test your cluster, please see the
+with a benchmark.
+
+To test your cluster, please see the
 [CIS compliance][] section of the Charmed Kubernetes docs.
 
 
 <!-- LINKS -->
 
+[cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
 [Kubernetes Security documentation]: https://kubernetes.io/docs/concepts/security/overview/
 [Machine auth]: https://juju.is/docs/machine-auth
-[juju-users]: https://juju.is/docs/working-with-multiple-
+[juju-users]: https://juju.is/docs/working-with-multiple-users
 [juju-user-types]: https://juju.is/docs/user-types-and-abilities
 [CIS compliance]: /kubernetes/docs/cis-compliance
 [k8s-auth]: /kubernetes/docs/auth
