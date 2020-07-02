@@ -13,6 +13,15 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+This page provides an overview of various aspects of security to be considered
+when operation a **Charmed Kubernetes** cluster. To consider security properly,
+this means not just aspects of Kubernetes itself, but also how and where
+it is installed and operated.
+
+A lot of important aspects of security therefore lie outside the direct scope
+of **Charmed Kubernetes**, but links for further reading
+are provided.
+
 
 ## Juju
 
@@ -78,7 +87,7 @@ any of the methods and options described by the upstream
 
 The **Center for Internet Security (CIS)** maintains a
 [Kubernetes benchmark][cis-benchmark] that is helpful to ensure clusters are
-deployed in accordance with security best practices. **Chamred Kubernetes**
+deployed in accordance with security best practices. **Charmed Kubernetes**
 supports the `kube-bench` utility to report how well a cluster complies
 with a benchmark.
 
