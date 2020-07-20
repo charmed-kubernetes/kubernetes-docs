@@ -28,7 +28,7 @@ Calico is the only CNI which supports IPv6 at this time.
 ## Example
 
 You can use the following overlay file ([download it here](asset-ipv4-ipv6-overlay])
-to enable IPv4 preferred dual-stack to the [charmed-kubernetes-calico][] bundle:
+to enable IPv4 preferred dual-stack to the [kubernetes-calico][] bundle:
 
 ```yaml
 description: Charmed Kubernetes overlay to enable IPv4-IPv6 dual-stack.
@@ -148,3 +148,9 @@ which may be resolvable with some tweaks to the OpenStack environment:
 ### MAAS
 
 TBD
+
+
+<!-- LINKS -->
+
+[asset-ipv4-ipv6-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/ipv4-ipv6.yaml
+[kubernetes-calico]: https://jaas.ai/u/containers/kubernetes-calico
