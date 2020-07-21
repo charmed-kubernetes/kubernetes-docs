@@ -13,17 +13,17 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+<div class="p-notification--caution"><p markdown="1" class="p-notification__response">
+<span class="p-notification__status">Note:</span>
+Calico is the only CNI which supports IPv6 at this time.
+</p></div>
+
 As of Kubernetes 1.19, support for IPv6 is in beta and [dual-stack][] is in alpha.
 Charmed Kubernetes can enable these by including IPv6 CIDRs in the `cidr`
 config for the Calico charm and the `service-cidr` config for the Kubernetes
 Master charm.  These can contain up to two comma-separated values, with the
 first CIDR in the list being the preferred family for pods, or the default for
 services.  You can override the `IPFamily` for a service when creating it.
-
-<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span>
-Calico is the only CNI which supports IPv6 at this time.
-</p></div>
 
 ## Example
 
