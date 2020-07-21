@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-As of Kubernetes 1.19, support for IPv6 is in beta and dual-stack is in alpha.
+As of Kubernetes 1.19, support for IPv6 is in beta and [dual-stack][] is in alpha.
 Charmed Kubernetes can enable these by including IPv6 CIDRs in the `cidr`
 config for the Calico charm and the `service-cidr` config for the Kubernetes
 Master charm.  These can contain up to two comma-separated values, with the
@@ -27,8 +27,9 @@ Calico is the only CNI which supports IPv6 at this time.
 
 ## Example
 
-You can use the following overlay file ([download it here](asset-ipv4-ipv6-overlay])
-to enable IPv4 preferred dual-stack to the [kubernetes-calico][] bundle:
+You can use the following overlay file ([download it here][asset-ipv4-ipv6-overlay])
+along with [the Calico overylay][asset-calico-overlay] to enable IPv4-preferred
+dual-stack:
 
 ```yaml
 description: Charmed Kubernetes overlay to enable IPv4-IPv6 dual-stack.
@@ -39,12 +40,16 @@ applications:
   kubernetes-master:
     options:
       service-cidr: "10.152.183.0/24,fd00:c00b:2::/112"
-  kubernetes-worker:
-    resources: null
+```
+
+You can deploy all of that with:
+
+```
+juju deploy cs:charmed-kubernetes --overlay ./calico-overlay.yaml --overlay ipv4-ipv6-overlay.yaml
 ```
 
 Once that is deployed, you can use the following spec ([download it
-here](asset-nginx-dual-stack)) to run a dual-stack enabled nginx pod with an
+here][asset-nginx-dual-stack]) to run a dual-stack enabled nginx pod with an
 IPv6 service in front of it:
 
 ```yaml
@@ -100,7 +105,8 @@ The following arise because Juju does not fully support IPv6:
 
 * By default, connections to the API server will use the IPv4 address even when
   running a cluster in IPv6-preferred or IPv6-only mode. This can be modified
-  in the client config by hand or overridden via the `loadbalancer-ips` config.
+  in the client config by hand or overridden via the `loadbalancer-ips` config
+  on the kubernetes-master and / or kubeapi-load-balancer charms.
 
 * IPv6 NodePort listeners won't function on the master, though they will work
   on the worker units.
@@ -152,5 +158,7 @@ TBD
 
 <!-- LINKS -->
 
-[asset-ipv4-ipv6-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/ipv4-ipv6.yaml
-[kubernetes-calico]: https://jaas.ai/u/containers/kubernetes-calico
+[dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
+[asset-calico-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/calico-overlay.yaml
+[asset-ipv4-ipv6-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/ipv4-ipv6-overlay.yaml
+[asset-nginx-dual-stack]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/specs/nginx-dual-stack.yaml
