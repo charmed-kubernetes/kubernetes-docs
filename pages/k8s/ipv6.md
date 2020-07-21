@@ -28,7 +28,7 @@ Calico is the only CNI which supports IPv6 at this time.
 ## Example
 
 You can use the following overlay file ([download it here][asset-ipv4-ipv6-overlay])
-along with [the Calico overylay][asset-calico-overlay] to enable IPv4-preferred
+along with [the Calico overlay][asset-calico-overlay] to enable IPv4-preferred
 dual-stack:
 
 ```yaml
