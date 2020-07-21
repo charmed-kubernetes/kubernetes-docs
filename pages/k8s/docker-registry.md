@@ -3,8 +3,8 @@ wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Private Docker Registry"
-  description: How to use a private Docker registry to serve Docker images to your Kubernetes cluster components.
+  title: "Custom Container Registry"
+  description: How to use a custom container registry to serve images to your Kubernetes cluster components.
 keywords: juju, docker, registry
 tags: [operating]
 sidebar: k8smain-sidebar

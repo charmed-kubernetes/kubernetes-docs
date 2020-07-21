@@ -213,7 +213,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Private Docker registry
+    - title: Custom Container Registry
       url: /docker-registry
       output: web, pdf
       type: page
