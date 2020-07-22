@@ -18,14 +18,30 @@ toc: False
 Calico is the only CNI which supports IPv6 at this time.
 </p></div>
 
-As of Kubernetes 1.19, support for IPv6 is in beta and [dual-stack][] is in alpha.
-Charmed Kubernetes can enable these by including IPv6 CIDRs in the `cidr`
-config for the Calico charm and the `service-cidr` config for the Kubernetes
-Master charm.  These can contain up to two comma-separated values, with the
-first CIDR in the list being the preferred family for pods, or the default for
-services.  You can override the `IPFamily` for a service when creating it.
+As of Kubernetes 1.19, support for IPv6 is in beta and [dual-stack][](running clusters
+with both IPv4 and IPv6) is in alpha.
+Charmed Kubernetes supports both these features, though it is important to be 
+familiar with the [known issues](#known-issues) described below. 
 
-## Example
+## Enabling IPv6 and dual-stack in Charmed Kubernetes
+
+These features can be used simply by changing the configuration for Calico and the 
+Kubernetes master to include the relevant CIDRs.
+
+For Calico, the `cidr` configuration can contain two comma-separated values, with the
+first CIDR in the list being the preferred family for pods.
+
+For the Kubernetes master, the `service-cidr` configuration can contain two 
+comma-separated values, with the first being the default family for services.
+
+Note that Kubernetes supports [explicitly setting the `IPFamily`][ip-family] for a
+service when creating it.
+
+The following example shows how to deploy Charmed Kubernetes with IPv6 and dual-stack
+enabled.
+
+
+### Example deployment
 
 You can use the following overlay file ([download it here][asset-ipv4-ipv6-overlay])
 along with [the Calico overlay][asset-calico-overlay] to enable IPv4-preferred
@@ -89,12 +105,13 @@ spec:
     run: nginxdualstack
 ```
 
+<a id='known-issues> </a>
 ## Known Issues
 
-Because of the beta / alpha feature status for IPv6 / dual-stack in Kubernetes,
-and because of the fact that Juju does not officially support IPv6, there are
-some things that don't work 100% and some limitations on how you can configure
-IPv6. These will also vary depending on the underlying cloud provider.
+Because of the pre-release feature status for IPv6 and dual-stack in Kubernetes
+and since Juju does not officially support IPv6, there are currently
+some things which won't work 100% and some limitations on IPv6 configuration. 
+These will also vary depending on the underlying cloud provider.
 
 ### Juju
 
@@ -106,7 +123,7 @@ The following arise because Juju does not fully support IPv6:
 * By default, connections to the API server will use the IPv4 address even when
   running a cluster in IPv6-preferred or IPv6-only mode. This can be modified
   in the client config by hand or overridden via the `loadbalancer-ips` config
-  on the kubernetes-master and / or kubeapi-load-balancer charms.
+  on the [kubernetes-master] and / or kubeapi-load-balancer charms.
 
 * IPv6 NodePort listeners won't function on the master, though they will work
   on the worker units.
@@ -159,6 +176,7 @@ TBD
 <!-- LINKS -->
 
 [dual-stack]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/
+[ip-family]: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services
 [asset-calico-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/calico-overlay.yaml
 [asset-ipv4-ipv6-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/ipv4-ipv6-overlay.yaml
 [asset-nginx-dual-stack]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/specs/nginx-dual-stack.yaml
