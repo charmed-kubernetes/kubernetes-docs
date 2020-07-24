@@ -238,6 +238,16 @@ entries:
       output: web, pdf
       type: page
 
+    - title: Certificates and Trust
+      url: /certs-and-trust
+      output: web, pdf
+      type: page
+
+    - title: CIS Compliance
+      url: /cis-compliance
+      output: web, pdf
+      type: page
+
 
   - title: High Availability
     output: web, pdf
@@ -283,7 +293,6 @@ entries:
       output: web, pdf
       type: page
 
-
     - title: Charm Reference
       url: /charm-reference
       output: web, pdf
@@ -291,16 +300,6 @@ entries:
 
     - title: Supported versions
       url: /supported-versions
-      output: web, pdf
-      type: page
-
-    - title: Certificates and Trust
-      url: /certs-and-trust
-      output: web, pdf
-      type: page
-
-    - title: CIS compliance
-      url: /cis-compliance
       output: web, pdf
       type: page
 
