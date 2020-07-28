@@ -23,6 +23,7 @@ with both IPv4 and IPv6) is in alpha.
 Charmed Kubernetes supports both these features, though it is important to be 
 familiar with the [known issues](#known-issues) described below. 
 
+<a id='enabling'> </a>
 ## Enabling IPv6 and dual-stack in Charmed Kubernetes
 
 These features can be used simply by changing the configuration for Calico and the 
@@ -41,6 +42,7 @@ The following example shows how to deploy Charmed Kubernetes with IPv6 and dual-
 enabled.
 
 
+<a id='example'> </a>
 ### Example deployment
 
 You can use the following overlay file ([download it here][asset-ipv4-ipv6-overlay])
@@ -105,12 +107,12 @@ spec:
     run: nginxdualstack
 ```
 
-<a id='known-issues> </a>
+<a id='known-issues'> </a>
 ## Known Issues
 
 Because of the pre-release feature status for IPv6 and dual-stack in Kubernetes
 and since Juju does not officially support IPv6, there are currently
-some things which won't work 100% and some limitations on IPv6 configuration. 
+some things which won't work 100% and some limitations on IPv6 configuration.
 These will also vary depending on the underlying cloud provider.
 
 ### Juju
