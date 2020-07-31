@@ -74,13 +74,14 @@ and create a `cephfs` storage class in the cluster.
 
 <div class="p-notification--caution"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
-CephFS support in Kubernetes requires at least Ubuntu Bionic and OpenStack
-Train, and OpenStack Ussuri or newer is recommended.
+CephFS support in Kubernetes requires at least Ubuntu 18.04LTS and OpenStack
+Train. OpenStack Ussuri or newer is recommended.
 </p></div>
 
-When deploying **Charmed Kubernetes** on Bionic, you will need to explicitly
-set the `install_sources` config option on the `kubernetes-master` charm to
-include `cloud:bionic-ussuri` (or whatever OpenStack release you are using).
+When deploying **Charmed Kubernetes** on Ubuntu 18.04(Bionic), you will need 
+to explicitly set the `install_sources` config option on the `kubernetes-master`
+charm to include `cloud:bionic-ussuri` (or whatever OpenStack release you are
+using).
 
 When using OpenStack Train, ReadWriteMany (RWX) CephFS volumes on containers
 running as a non-root user will be mounted as owned by root instead of the
