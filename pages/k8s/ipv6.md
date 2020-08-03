@@ -163,16 +163,11 @@ The following arise when using AWS as the underlying cloud provider:
 
 ### OpenStack
 
-Overall OpenStack is pretty straightforward.  I only encountered one issue
-which may be resolvable with some tweaks to the OpenStack environment:
-
-* Neutron LBaaS didn't seem to work well with an IPv6 LB, but this may have
-  been a configuration issue.
-
+No additional issues with IPv6 on OpenStack are known at this time.
 
 ### MAAS
 
-TBD
+No additional issues with IPv6 on MAAS are known at this time.
 
 
 <!-- LINKS -->
