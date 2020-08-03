@@ -128,6 +128,11 @@ entries:
       output: web, pdf
       type: page
 
+    - title: IPv6
+      url: /ipv6
+      output: web, pdf
+      type: page
+
   - title: Container Runtimes
     output: web, pdf
     type: section
