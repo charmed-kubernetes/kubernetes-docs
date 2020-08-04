@@ -30,9 +30,31 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 ## What's new
 
--   xxxx
--   xxxx
+- IPv6 support
 
+(description)
+
+- CIS benchmark compliance
+
+(description)
+
+- Authentication updates
+
+(description)
+
+- New Calico configuration options
+
+(description) `veth-mtu` for Calico. `ignore-loose-rpf` for Calico/Canal/Tigera Secure EE.
+
+## Component upgrades
+
+- addon-resizer 1.8.9
+- ceph-csi 1.1.0
+- cloudprovider-openstack (TODO https://bugs.launchpad.net/cdk-addons/+bug/1889433)
+- coredns 1.6.7
+- kube-state-metrics 1.9.7
+- kubernetes-dashboard 2.0.1
+- nginx-ingress 0.31.1
 
 ## Fixes
 
