@@ -32,7 +32,13 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 - IPv6 support
 
-(description)
+This release of Charmed Kubernetes can now enable the alpha IPv6 dual-stack or
+beta IPv6-only support in Kubernetes by using IPv6 CIDRs in addition to or
+instead of IPv4 CIDRs in the Kubernetes Master charm's `service-cidr` and the
+Calico charm's `cidr` charm config.
+
+More information can be found in [Using IPv6 with Charmed Kubernetes][ipv6],
+including limitations and known issues.
 
 - CIS benchmark compliance
 
@@ -49,8 +55,8 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 ## Component upgrades
 
 - addon-resizer 1.8.9
-- ceph-csi 1.1.0
-- cloudprovider-openstack (TODO https://bugs.launchpad.net/cdk-addons/+bug/1889433)
+- ceph-csi 2.1.2
+- cloud-provider-openstack (TODO https://bugs.launchpad.net/cdk-addons/+bug/1889433)
 - coredns 1.6.7
 - kube-state-metrics 1.9.7
 - kubernetes-dashboard 2.0.1
@@ -71,6 +77,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
+[ipv6]: /kubernetes/docs/ipv6
 
 
 <!-- FEEDBACK -->
