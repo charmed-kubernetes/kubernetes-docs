@@ -52,6 +52,10 @@ including limitations and known issues.
 
 (description) `veth-mtu` for Calico. `ignore-loose-rpf` for Calico/Canal/Tigera Secure EE.
 
+- Ubuntu 20.04
+
+The default operating system for deployed machines is now Ubuntu 20.04 (Focal). Ubuntu 18.04 (Bionic) and 16.04 (Xenial) are still supported.
+
 ## Component upgrades
 
 - addon-resizer 1.8.9
