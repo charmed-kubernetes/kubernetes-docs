@@ -386,23 +386,23 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
       <tbody>
         <tr>
           <td><pre>apply</pre></td>
-          <td>Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.
-          <strong>Default:</strong> none
+          <td><p>Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.</p>
+          <p><strong>Default:</strong> none</p>
         </td>
         </tr>
         <tr>
           <td><pre>config</pre></td>
-          <td>Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#<hash_type>=<checksum>' to verify the
-archive integrity when downloaded. <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+          <td><p>Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#<hash_type>=<checksum>' to verify the
+archive integrity when downloaded. <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530</p>
         </td>
         </tr>
         <tr>
           <td><pre>release</pre></td>
-          <td>Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench
-          This value may also be set to an accessible archive containing a
-          pre-built kube-bench binary, for example:
-          https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077
-          <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
+          <td><p>Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench</p>
+          <p>This value may also be set to an accessible archive containing a
+          pre-built kube-bench binary, for example:</p>
+          <p>https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077</p>
+          <p><strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548</p>
         </td>
         </tr>
 
@@ -623,6 +623,7 @@ DEPRECATED: See https://ubuntu.com/kubernetes/docs/docker-registry
 <hr>
 
 
+##
 
 <!-- LINKS -->
 [charm-kubernetes-master]: /charm-kubernetes-master
