@@ -743,7 +743,7 @@ The default value is known to be compatible with snap components. When
 using a custom URL, append '#<hash_type>=<checksum>' to verify the
 archive integrity when downloaded.
 
-              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+              <strong>Default:</strong> <https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530>
         </td>
         </tr>
 
@@ -766,7 +766,6 @@ pre-built kube-bench binary, for example:
       </table>
     </div>
   </div>
-
 <hr>
 
 <div class="row">
