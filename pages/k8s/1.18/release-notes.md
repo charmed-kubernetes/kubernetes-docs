@@ -17,8 +17,6 @@ toc: False
 
 ### August 12, 2020 - [charmed-kubernetes-485](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-485/archive/bundle.yaml)
 
-## What's new
-
 ## Fixes
 
 Bug fixes included in this release can be found at
