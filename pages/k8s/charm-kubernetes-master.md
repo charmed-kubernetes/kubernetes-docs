@@ -665,27 +665,24 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
 ```
 
 
-   <div class="row">
-        <div class="col-2">
-            <h5> apply-manifest</h5>
-     </div>
-             <div class="col-7">
-            <p>Apply JSON formatted Kubernetes manifest to cluster</p>
-
-     </div>
-      </div>
-
-          <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-7">
+<div class="row">
+  <div class="col-2">
+     <h5> apply-manifest</h5>
+  </div>
+  <div class="col-7">
+  <p>Apply JSON formatted Kubernetes manifest to cluster</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2">
+  </div>
+  <div class="col-7">
       <p>This action has the following parameters:</p>
       <table class ="u-table-layout--auto">
         <thead>
           <tr>
             <th>parameter</th>
             <th>Description</th>
-
           </tr>
         </thead>
         <tbody>
