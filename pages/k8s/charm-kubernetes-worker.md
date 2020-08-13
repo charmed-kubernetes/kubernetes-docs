@@ -357,270 +357,299 @@ update the configuration for the workers:
 
 The following actions are available. You can run an action with the following
 
-```bash
-juju run-action kubernetes-worker ACTION [parameters] [--wait]
-```
-
+The following actions are available. You can run an action with the following ```bash juju run-action kubernetes-worker ACTION [parameters] [--wait] ```
 <div class="row">
   <div class="col-2">
-     <h5> cis-benchmark</h5>
+    <h5>
+      cis-benchmark
+    </h5>
   </div>
   <div class="col-7">
-    <p>Run the CIS Kubernetes Benchmark against snap-based components.
-</p>
+    <p>
+      Run the CIS Kubernetes Benchmark against snap-based components.
+    </p>
   </div>
 </div>
-
 <div class="row">
-  <div class="col-2">
-  </div>
+  <div class="col-2"></div>
   <div class="col-7">
-    <p>This action has the following parameters:</p>
-    <table class ="u-table-layout--auto">
+    <p>
+      This action has the following parameters:
+    </p>
+    <table class="u-table-layout--auto">
       <thead>
         <tr>
-          <th>parameter</th>
-          <th>Description</th>
+          <th>
+            parameter
+          </th>
+          <th>
+            Description
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><pre>apply</pre></td>
-          <td><p>Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.</p>
-          <p><strong>Default:</strong> none</p>
-        </td>
+          <td>
+            <pre>apply</pre>
+          </td>
+          <td>
+            Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster. <strong>Default:</strong> none
+          </td>
         </tr>
         <tr>
-          <td><pre>config</pre></td>
-          <td><p>Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#<hash_type>=<checksum>' to verify the
-archive integrity when downloaded. <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530</p>
-        </td>
+          <td>
+            <pre>config</pre>
+          </td>
+          <td>
+            Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#=' to verify the archive integrity when downloaded. <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+          </td>
         </tr>
         <tr>
-          <td><pre>release</pre></td>
-          <td><p>Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench</p>
-          <p>This value may also be set to an accessible archive containing a
-          pre-built kube-bench binary, for example:</p>
-          <p>https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077</p>
-          <p><strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548</p>
-        </td>
+          <td>
+            <pre>release</pre>
+          </td>
+          <td>
+            Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077 <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
+          </td>
         </tr>
-
       </tbody>
-      </table>
-    </div>
-  </div>
-
-<hr>
-
-<div class="row">
-  <div class="col-2">
-     <h5> debug</h5>
-  </div>
-  <div class="col-7">
-    <p>Collect debug data</p>
+    </table>
   </div>
 </div>
-
 <hr>
-
 <div class="row">
   <div class="col-2">
-     <h5> microbot</h5>
+    <h5>
+      debug
+    </h5>
   </div>
   <div class="col-7">
-    <p>Launch microbot containers</p>
+    <p>
+      Collect debug data
+    </p>
   </div>
 </div>
-
+<hr>
 <div class="row">
   <div class="col-2">
+    <h5>
+      microbot
+    </h5>
   </div>
   <div class="col-7">
-    <p>This action has the following parameters:</p>
-    <table class ="u-table-layout--auto">
+    <p>
+      Launch microbot containers
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-7">
+    <p>
+      This action has the following parameters:
+    </p>
+    <table class="u-table-layout--auto">
       <thead>
         <tr>
-          <th>parameter</th>
-          <th>Description</th>
+          <th>
+            parameter
+          </th>
+          <th>
+            Description
+          </th>
         </tr>
       </thead>
       <tbody>
-
         <tr>
-          <td><pre>delete</pre></td>
-          <td>Remove a microbots deployment, service, and ingress if True.
-              <strong>Default:</strong> False
-        </td>
+          <td>
+            <pre>delete</pre>
+          </td>
+          <td>
+            Remove a microbots deployment, service, and ingress if True. <strong>Default:</strong> False
+          </td>
         </tr>
-
         <tr>
-          <td><pre>replicas</pre></td>
-          <td>Number of microbots to launch in Kubernetes.
-              <strong>Default:</strong> 3
-        </td>
+          <td>
+            <pre>replicas</pre>
+          </td>
+          <td>
+            Number of microbots to launch in Kubernetes. <strong>Default:</strong> 3
+          </td>
         </tr>
-
       </tbody>
-      </table>
-    </div>
-  </div>
-
-<hr>
-
-<div class="row">
-  <div class="col-2">
-     <h5> pause</h5>
-  </div>
-  <div class="col-7">
-    <p>Mark the node as unschedulable to prevent new pods from arriving, and
-evict existing pods.
-</p>
+    </table>
   </div>
 </div>
-
+<hr>
 <div class="row">
   <div class="col-2">
+    <h5>
+      pause
+    </h5>
   </div>
   <div class="col-7">
-    <p>This action has the following parameters:</p>
-    <table class ="u-table-layout--auto">
+    <p>
+      Mark the node as unschedulable to prevent new pods from arriving, and evict existing pods.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-7">
+    <p>
+      This action has the following parameters:
+    </p>
+    <table class="u-table-layout--auto">
       <thead>
         <tr>
-          <th>parameter</th>
-          <th>Description</th>
+          <th>
+            parameter
+          </th>
+          <th>
+            Description
+          </th>
         </tr>
       </thead>
       <tbody>
-
         <tr>
-          <td><pre>delete-local-data</pre></td>
-          <td>Continue even if there are pods using emptyDir (local data that will
-be deleted when the node is drained).
-
-              <strong>Default:</strong> False
-        </td>
+          <td>
+            <pre>delete-local-data</pre>
+          </td>
+          <td>
+            Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained). <strong>Default:</strong> False
+          </td>
         </tr>
-
         <tr>
-          <td><pre>force</pre></td>
-          <td>Continue even if there are pods not managed by a
-ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
-
-              <strong>Default:</strong> False
-        </td>
+          <td>
+            <pre>force</pre>
+          </td>
+          <td>
+            Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet. <strong>Default:</strong> False
+          </td>
         </tr>
-
       </tbody>
-      </table>
-    </div>
-  </div>
-
-<hr>
-
-<div class="row">
-  <div class="col-2">
-     <h5> registry</h5>
-  </div>
-  <div class="col-7">
-    <p>Create a private Docker registry.
-DEPRECATED: See https://ubuntu.com/kubernetes/docs/docker-registry
-</p>
+    </table>
   </div>
 </div>
-
+<hr>
 <div class="row">
   <div class="col-2">
+    <h5>
+      registry
+    </h5>
   </div>
   <div class="col-7">
-    <p>This action has the following parameters:</p>
-    <table class ="u-table-layout--auto">
+    <p>
+      Create a private Docker registry. DEPRECATED: See https://ubuntu.com/kubernetes/docs/docker-registry
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-7">
+    <p>
+      This action has the following parameters:
+    </p>
+    <table class="u-table-layout--auto">
       <thead>
         <tr>
-          <th>parameter</th>
-          <th>Description</th>
+          <th>
+            parameter
+          </th>
+          <th>
+            Description
+          </th>
         </tr>
       </thead>
       <tbody>
-
         <tr>
-          <td><pre>delete</pre></td>
-          <td>Remove a registry replication controller, service, and ingress if True.
-              <strong>Default:</strong> False
-        </td>
+          <td>
+            <pre>delete</pre>
+          </td>
+          <td>
+            Remove a registry replication controller, service, and ingress if True. <strong>Default:</strong> False
+          </td>
         </tr>
-
         <tr>
-          <td><pre>domain</pre></td>
-          <td>The domain name for the registry. Must match the Common Name of the certificate.
-              <strong>Default:</strong>
-        </td>
+          <td>
+            <pre>domain</pre>
+          </td>
+          <td>
+            The domain name for the registry. Must match the Common Name of the certificate. <strong>Default:</strong>
+          </td>
         </tr>
-
         <tr>
-          <td><pre>htpasswd</pre></td>
-          <td>base64 encoded htpasswd file used for authentication.
-              <strong>Default:</strong>
-        </td>
+          <td>
+            <pre>htpasswd</pre>
+          </td>
+          <td>
+            base64 encoded htpasswd file used for authentication. <strong>Default:</strong>
+          </td>
         </tr>
-
         <tr>
-          <td><pre>htpasswd-plain</pre></td>
-          <td>base64 encoded plaintext version of the htpasswd file, needed by docker daemons to authenticate to the registry.
-              <strong>Default:</strong>
-        </td>
+          <td>
+            <pre>htpasswd-plain</pre>
+          </td>
+          <td>
+            base64 encoded plaintext version of the htpasswd file, needed by docker daemons to authenticate to the registry. <strong>Default:</strong>
+          </td>
         </tr>
-
         <tr>
-          <td><pre>ingress</pre></td>
-          <td>Create an Ingress resource for the registry (or delete resource object if "delete" is True)
-              <strong>Default:</strong> False
-        </td>
+          <td>
+            <pre>ingress</pre>
+          </td>
+          <td>
+            Create an Ingress resource for the registry (or delete resource object if "delete" is True) <strong>Default:</strong> False
+          </td>
         </tr>
-
         <tr>
-          <td><pre>tlscert</pre></td>
-          <td>base64 encoded TLS certificate for the registry. Common Name must match the domain name of the registry.
-              <strong>Default:</strong>
-        </td>
+          <td>
+            <pre>tlscert</pre>
+          </td>
+          <td>
+            base64 encoded TLS certificate for the registry. Common Name must match the domain name of the registry. <strong>Default:</strong>
+          </td>
         </tr>
-
         <tr>
-          <td><pre>tlskey</pre></td>
-          <td>base64 encoded TLS key for the registry.
-              <strong>Default:</strong>
-        </td>
+          <td>
+            <pre>tlskey</pre>
+          </td>
+          <td>
+            base64 encoded TLS key for the registry. <strong>Default:</strong>
+          </td>
         </tr>
-
       </tbody>
-      </table>
-    </div>
-  </div>
-
-<hr>
-
-<div class="row">
-  <div class="col-2">
-     <h5> resume</h5>
-  </div>
-  <div class="col-7">
-    <p>Mark node as schedulable.
-</p>
+    </table>
   </div>
 </div>
-
 <hr>
-
 <div class="row">
   <div class="col-2">
-     <h5> upgrade</h5>
+    <h5>
+      resume
+    </h5>
   </div>
   <div class="col-7">
-    <p>Upgrade the kubernetes snaps</p>
+    <p>
+      Mark node as schedulable.
+    </p>
   </div>
 </div>
-
 <hr>
+<div class="row">
+  <div class="col-2">
+    <h5>
+      upgrade
+    </h5>
+  </div>
+  <div class="col-7">
+    <p>
+      Upgrade the kubernetes snaps
+    </p>
+  </div>
+</div>
+<hr>
+
 
 
 ##
