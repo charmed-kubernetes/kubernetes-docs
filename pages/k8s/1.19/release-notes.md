@@ -42,7 +42,13 @@ including limitations and known issues.
 
 - CIS benchmark compliance
 
-(description)
+Charmed Kubernetes is now compliant with the Center for Internet Security (CIS)
+benchmark for Kubernetes. A new webhook authentication mechanism, RBAC-by-default,
+and other significant changes to the `kubernetes-master` and `kubernetes-worker`
+charms can be found in the [related bug][cis-bug].
+
+More information about running the benchmark and analyzing test results can
+be found in the [CIS compliance for Charmed Kubernetes][cis-benchmark].
 
 - Authentication updates
 
@@ -79,6 +85,9 @@ Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
+[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
+[cis-benchmark]: kubernetes/docs/cis-compliance
+[cis-bug]: https://bugs.launchpad.net/charm-kubernetes-master/+bug/1887810
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [ipv6]: /kubernetes/docs/ipv6
