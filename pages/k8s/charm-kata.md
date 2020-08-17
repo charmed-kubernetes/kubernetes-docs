@@ -53,6 +53,10 @@ juju add-relation kata:untrusted containerd:untrusted
 This charm will automatically scale out with the
 principal charm.
 
+<!-- ACTIONS STARTS -->
+
+<!-- ACTIONS ENDS -->
+
 
 ## Containerd links
 
