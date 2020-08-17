@@ -48,9 +48,13 @@ benchmark for Kubernetes. Significant changes to the `kubernetes-master` and
 about these changes, running the benchmark, and analyzing test results in the
 [CIS compliance for Charmed Kubernetes][cis-benchmark] documentation.
 
-- Authentication updates
+- Authentication changes
 
-(description)
+File-based authentication is not compliant with the CIS benchmark. Charmed Kubernetes
+now deploys a webhook authentication service that compares API requests to Kubernetes
+secrets. If needed, any existing entries in previous authentication files
+(`basic_auth.csv` and `known_tokens.csv`) are migrated to secrets during the
+`kubernetes-master` charm upgrade.
 
 - New Calico configuration options
 
