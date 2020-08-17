@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-kubernetes-master.html
 layout: [base, ubuntu-com]
 toc: False
+charm_revision: '0'
+charm_name: 'kubernetes-master'
 ---
 
 This charm is an encapsulation of the Kubernetes master processes and the
