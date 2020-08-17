@@ -14,11 +14,11 @@ toc: False
 ---
 
 The **Center for Internet Security (CIS)** maintains a
-[Kubernetes benchmark][cis-benchmark] that helps ensure clusters are
+[Kubernetes benchmark][cis-benchmark] which helps ensure clusters are
 deployed in accordance with security best practices. **Charmed Kubernetes**
 includes support for the [kube-bench][] utility, which reports how well a
 cluster complies with this benchmark. This page highlights compliance
-requirements as well as details on running the benchmark and analyzing test
+requirements as well as details on running the benchmark and analysing test
 results.
 
 ## Compliance Requirements
