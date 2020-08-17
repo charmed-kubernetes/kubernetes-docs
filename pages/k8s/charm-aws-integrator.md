@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-aws-integrator.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: aws-integrator
+charm_revision: '0'
 ---
 
 This charm acts as a proxy to AWS and provides an [interface][] to apply a

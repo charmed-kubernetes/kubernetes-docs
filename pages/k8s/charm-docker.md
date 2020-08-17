@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-docker.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: docker
+charm_revision: '0'
 ---
 
 

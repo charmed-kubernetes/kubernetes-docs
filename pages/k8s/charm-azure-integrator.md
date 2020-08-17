@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-azure-integrator.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: azure-integrator
+charm_revision: '0'
 ---
 
 This charm acts as a proxy to Azure and provides an [interface][] to apply a

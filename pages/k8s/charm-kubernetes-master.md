@@ -1,18 +1,21 @@
 ---
-wrapper_template: "kubernetes/docs/base_docs.html"
-markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
-context:
-  title: "kubernetes-master charm"
-  description: Kubernetes-master Charm reference
-keywords: kubernetes-master, charm, config
-tags: [reference]
-sidebar: k8smain-sidebar
-permalink: charm-kubernetes-master.html
-layout: [base, ubuntu-com]
-toc: False
+charm_name: kubernetes-master
 charm_revision: '0'
-charm_name: 'kubernetes-master'
+context:
+  description: Kubernetes-master Charm reference
+  title: kubernetes-master charm
+keywords: kubernetes-master, charm, config
+layout:
+- base
+- ubuntu-com
+markdown_includes:
+  nav: kubernetes/docs/shared/_side-navigation.md
+permalink: charm-kubernetes-master.html
+sidebar: k8smain-sidebar
+tags:
+- reference
+toc: false
+wrapper_template: kubernetes/docs/base_docs.html
 ---
 
 This charm is an encapsulation of the Kubernetes master processes and the
@@ -1090,6 +1093,7 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
 </div>
 <hr>
 
+<!-- ACTIONS ENDS -->
 
 
 

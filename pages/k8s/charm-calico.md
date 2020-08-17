@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-calico.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: calico
+charm_revision: '0'
 ---
 
 Calico is a new approach to virtual networking and network security for containers,

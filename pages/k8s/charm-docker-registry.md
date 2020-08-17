@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-docker-registry.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: docker-registry
+charm_revision: '0'
 ---
 
 This charm provides a registry for storage and distribution of docker images.

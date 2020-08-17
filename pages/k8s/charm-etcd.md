@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-etcd.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: etcd
+charm_revision: '0'
 ---
 
 Etcd is a highly available distributed key value store that provides a reliable

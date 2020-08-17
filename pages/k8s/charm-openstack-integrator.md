@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-openstack-integrator.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: openstack-integrator
+charm_revision: '0'
 ---
 
 This charm acts as a proxy to OpenStack and provides an [interface][] to provide

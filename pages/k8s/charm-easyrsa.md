@@ -11,6 +11,8 @@ sidebar: k8smain-sidebar
 permalink: charm-easyrsa.html
 layout: [base, ubuntu-com]
 toc: False
+charm_name: easyrsa
+charm_revision: '0'
 ---
 
 This charm delivers the EasyRSA application to act as a Certificate Authority
