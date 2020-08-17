@@ -665,7 +665,6 @@ You can run an action with the following
 ```bash
 juju run-action kubernetes-master ACTION [parameters] [--wait]
 ```
-
 <div class="row">
   <div class="col-2">
     <h5>
@@ -701,7 +700,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>json</pre>
           </td>
           <td>
-            The content of the manifest to deploy in JSON format <strong>Default:</strong>
+            <p>
+              The content of the manifest to deploy in JSON format
+            </p>
+            <p>
+              <strong>Default:</strong>
+            </p>
           </td>
         </tr>
       </tbody>
@@ -744,7 +748,15 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>apply</pre>
           </td>
           <td>
-            Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster. <strong>Default:</strong> none
+            <p>
+              Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures.
+            </p>
+            <p>
+              Note: Applying any remediation may result in an unusable cluster.
+            </p>
+            <p>
+              <strong>Default:</strong> none
+            </p>
           </td>
         </tr>
         <tr>
@@ -752,7 +764,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>config</pre>
           </td>
           <td>
-            Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#=' to verify the archive integrity when downloaded. <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+            <p>
+              Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
+            </p>
+            <p>
+              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+            </p>
           </td>
         </tr>
         <tr>
@@ -760,7 +777,15 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>release</pre>
           </td>
           <td>
-            Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077 <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
+            <p>
+              Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench
+            </p>
+            <p>
+              This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube-bench/releases/download/v0.0.34/kube-bench_0.0.34_linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db074d41ef324a25be5b944e79619ad1a079fca077
+            </p>
+            <p>
+              <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
+            </p>
           </td>
         </tr>
       </tbody>
@@ -803,7 +828,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>filesystem</pre>
           </td>
           <td>
-            File system type to format the volume. <strong>Default:</strong> xfs
+            <p>
+              File system type to format the volume.
+            </p>
+            <p>
+              <strong>Default:</strong> xfs
+            </p>
           </td>
         </tr>
         <tr>
@@ -811,7 +841,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>mode</pre>
           </td>
           <td>
-            Access mode for the persistent volume. <strong>Default:</strong> ReadWriteOnce
+            <p>
+              Access mode for the persistent volume.
+            </p>
+            <p>
+              <strong>Default:</strong> ReadWriteOnce
+            </p>
           </td>
         </tr>
         <tr>
@@ -819,7 +854,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>name</pre>
           </td>
           <td>
-            Name the persistent volume. <strong>Default:</strong>
+            <p>
+              Name the persistent volume.
+            </p>
+            <p>
+              <strong>Default:</strong>
+            </p>
           </td>
         </tr>
         <tr>
@@ -827,7 +867,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>size</pre>
           </td>
           <td>
-            Size in MB of the RBD volume. <strong>Default:</strong>
+            <p>
+              Size in MB of the RBD volume.
+            </p>
+            <p>
+              <strong>Default:</strong>
+            </p>
           </td>
         </tr>
         <tr>
@@ -835,7 +880,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>skip-size-check</pre>
           </td>
           <td>
-            Allow creation of overprovisioned RBD. <strong>Default:</strong> False
+            <p>
+              Allow creation of overprovisioned RBD.
+            </p>
+            <p>
+              <strong>Default:</strong> False
+            </p>
           </td>
         </tr>
       </tbody>
@@ -904,7 +954,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>name</pre>
           </td>
           <td>
-            Namespace name eg. staging <strong>Default:</strong>
+            <p>
+              Namespace name eg. staging
+            </p>
+            <p>
+              <strong>Default:</strong>
+            </p>
           </td>
         </tr>
       </tbody>
@@ -947,7 +1002,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>name</pre>
           </td>
           <td>
-            Namespace name eg. staging <strong>Default:</strong>
+            <p>
+              Namespace name eg. staging
+            </p>
+            <p>
+              <strong>Default:</strong>
+            </p>
           </td>
         </tr>
       </tbody>
@@ -1016,7 +1076,12 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
             <pre>fix-cluster-name</pre>
           </td>
           <td>
-            If using the OpenStack cloud provider, whether to fix the cluster name sent to it to include the cluster tag. This fixes an issue with load balancers conflicting with other clusters in the same project but will cause new load balancers to be created which will require manual intervention to resolve. <strong>Default:</strong> True
+            <p>
+              If using the OpenStack cloud provider, whether to fix the cluster name sent to it to include the cluster tag. This fixes an issue with load balancers conflicting with other clusters in the same project but will cause new load balancers to be created which will require manual intervention to resolve.
+            </p>
+            <p>
+              <strong>Default:</strong> True
+            </p>
           </td>
         </tr>
       </tbody>
@@ -1025,7 +1090,6 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
 </div>
 <hr>
 
-<!-- ACTIONS ENDS -->
 
 
 
