@@ -418,7 +418,7 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
               Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
             </p>
             <p>
-              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
+              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-c onfig/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87 d0ed7c139a83e88915530
             </p>
           </td>
         </tr>
@@ -431,7 +431,7 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
               Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube- bench/releases/download/v0.0.34/kube-bench_0.0.34_ linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db 074d41ef324a25be5b944e79619ad1a079fca077
             </p>
             <p>
-              <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
+              <strong>Default:</strong> https://github.com/aquasecurity/kube- bench/releases/download/v0.2.3/kube-bench_0.2.3_li nux_amd64.tar.gz#sha256=429a1db271689aafec009434de d1dea07a6685fee85a1deea638097c8512d548
             </p>
           </td>
         </tr>
