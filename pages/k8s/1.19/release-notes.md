@@ -64,6 +64,13 @@ secrets. If needed, any existing entries in previous authentication files
 
 The default operating system for deployed machines is now Ubuntu 20.04 (Focal). Ubuntu 18.04 (Bionic) and 16.04 (Xenial) are still supported.
 
+- SR-IOV CNI
+
+A new SR-IOV CNI addon has been made available for Charmed Kubernetes. Using
+SR-IOV CNI, it is now possible to take network interfaces that are SR-IOV
+Virtual Functions and attach them directly to pods. For more information, see
+the new [SR-IOV CNI documentation][cni-sriov].
+
 ## Component upgrades
 
 - addon-resizer 1.8.9
@@ -92,6 +99,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [ipv6]: /kubernetes/docs/ipv6
+[cni-sriov]: /kubernetes/docs/cni-sriov
 
 
 <!-- FEEDBACK -->
