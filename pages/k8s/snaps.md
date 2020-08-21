@@ -80,13 +80,14 @@ systemctl status snap.kube-apiserver.daemon
 The snap can be configured using `snap set`:
 
 ```bash
-sudo snap set kube-apiserver \
-  etcd-servers=https://172.31.9.254:2379 \
-  etcd-certfile=/root/certs/client.crt \
-  etcd-keyfile=/root/certs/client.key \
-  etcd-cafile=/root/certs/ca.crt \
-  service-cluster-ip-range=10.123.123.0/24 \
-  cert-dir=/root/certs
+sudo snap set kube-apiserver args="
+--etcd-servers=https://172.31.9.254:2379
+--etcd-certfile=/root/certs/client.crt
+--etcd-keyfile=/root/certs/client.key
+--etcd-cafile=/root/certs/ca.crt
+--service-cluster-ip-range=10.123.123.0/24
+--cert-dir=/root/certs
+"
 ```
 
 <div class="p-notification--information">
@@ -102,7 +103,7 @@ sudo snap set kube-apiserver \
 After configuring, restart the service and you should see it running:
 
 ```bash
-sudo service snap.kube-apiserver.daemon restart
+sudo snap restart kube-apiserver
 systemctl status snap.kube-apiserver.daemon
 ```
 ```no-highlight
