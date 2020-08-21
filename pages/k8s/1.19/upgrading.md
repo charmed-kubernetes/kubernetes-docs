@@ -236,19 +236,26 @@ cluster.
   </p>
 </div>
 
-To start upgrading the Kubernetes master units, first upgrade the charm:
+To start upgrading the **Kubernetes** master units, first upgrade the charm:
 
 ```bash
 juju upgrade-charm kubernetes-master
 ```
 
-Once the charm has been upgraded, verify secrets have been created for expected users:
+Once the charm has been upgraded, you may fetch an updated admin kubeconfig file
+with the following:
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
+```
+
+Verify secrets have been created for expected users:
 
 ```bash
 juju run --unit kubernetes-master/0 'kubectl --kubeconfig /root/.kube/config get secrets'
 ```
 
-At a minimum, secrets for the following users should be listed:
+Minimally, secrets for the following users should be listed:
 
 - *admin*, *kube-controller-manager*, *kube-proxy*, *kubelet-n*, *system-kube-scheduler*, *system-monitoring*
 
