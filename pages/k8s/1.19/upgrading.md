@@ -231,8 +231,7 @@ is no need to set a specific channel or version for this charm.
 New in 1.19, master units rely on Kubernetes secrets for authentication. Entries
 in the previously used "basic_auth.csv" and "known_tokens.csv" will be migrated to
 secrets and new kubeconfig files will be created during the upgrade. Administrators
-must replace any existing kubeconfig files that may have been used outside of the
-cluster.
+should update any existing kubeconfig files that are used outside of the cluster.
   </p>
 </div>
 
