@@ -27,9 +27,7 @@ are just provided as a maintained and tested way of keeping up to date.
 
 `kubeadm` - a tool for bootstrapping a Kubernetes cluster. [Docs][kubeadm] &#124; [Snap][kubeadm-snap]
 
-`kubefed` - for running commands on federated clusters. [Docs][kubefed] &#124; [Snap][kubefed-snap]
-
-These are all installed in the same way. For example:
+These are installed in the same way. For example:
 
 ```bash
 sudo snap install kubectl --classic
@@ -114,37 +112,6 @@ systemctl status snap.kube-apiserver.daemon
    ...
 ```
 
-### Configuration
-
-The keys and values for `snap set` map directly to arguments that you would
-normally pass to the service. You can view a list of arguments by invoking the
-service directly, e.g. `kube-apiserver -h`.
-
-For configuring the snaps, drop the leading dashes and pass them through
-`snap set`. For example, if you want kube-apiserver to be invoked like this:
-
-```bash
-kube-apiserver --etcd-servers https://172.31.9.254:2379 --allow-privileged
-```
-
-You would configure the snap like this:
-
-```bash
-snap set kube-apiserver etcd-servers=https://172.31.9.254:2379 allow-privileged=true
-```
-
-Note, also, that we had to specify a value of true for `allow-privileged`. This
-applies to all boolean flags.
-
-Config values are persisted individually, so if you later call
-`snap set kube-apiserver allow-privileged=false`, the value for `etcd-servers`
-will remain unchanged. You can remove an existing configuration by setting it
-to null:
-
-```bash
-snap set kube-apiserver allow-privileged=null
-```
-
 ## Going further
 
 Want to know more? Here are a couple good things to know:
@@ -174,7 +141,14 @@ This contains the actual arguments that get passed to the service by the snap:
 </div>
 
 The source code for the snaps can be found here:
-<https://github.com/juju-solutions/release/tree/rye/snaps/snap>
+
+<https://launchpad.net/snap-kubectl>
+<https://launchpad.net/snap-kubeadm>
+<https://launchpad.net/snap-kube-apiserver>
+<https://launchpad.net/snap-kube-controller-manager>
+<https://launchpad.net/snap-kube-scheduler>
+<https://launchpad.net/snap-kubelet>
+<https://launchpad.net/snap-kube-proxy>
 
 
 
