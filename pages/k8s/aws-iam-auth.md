@@ -275,7 +275,7 @@ between calls.
  * Check verbose output of `kubectl` command by adding `--v=9` such as
 `kubectl get po --v=9`
  * Check the logs of the `aws-iam-authenticator` deployment with
-`juju run --unit kubernetes-master/0 -- /snap/bin/kubectl -n kube-system logs deploy/aws-iam-authenticator`
+`juju run --unit kubernetes-master/0 -- /snap/bin/kubectl --kubeconfig /root/.kube/config -n kube-system logs deploy/aws-iam-authenticator`
  * Check the logs of the API server with `juju run --unit kubernetes-master/0 -- journalctl -u snap.kube-apiserver.daemon.service`
 
 <!-- LINKS -->
