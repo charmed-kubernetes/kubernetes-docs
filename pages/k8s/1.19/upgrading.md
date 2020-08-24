@@ -225,13 +225,40 @@ is no need to set a specific channel or version for this charm.
 
 ### Upgrading the **kubernetes-master** units
 
-To start upgrading the Kubernetes master units, first upgrade the charm:
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+New in 1.19, master units rely on Kubernetes secrets for authentication. Entries
+in the previously used "basic_auth.csv" and "known_tokens.csv" will be migrated to
+secrets and new kubeconfig files will be created during the upgrade. Administrators
+should update any existing kubeconfig files that are used outside of the cluster.
+  </p>
+</div>
+
+To start upgrading the **Kubernetes** master units, first upgrade the charm:
 
 ```bash
 juju upgrade-charm kubernetes-master
 ```
 
-Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.10 version of **Kubernetes**, you would enter:
+Once the charm has been upgraded, you may fetch an updated admin kubeconfig file
+with the following:
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
+```
+
+Verify secrets have been created for expected users:
+
+```bash
+juju run --unit kubernetes-master/0 'kubectl --kubeconfig /root/.kube/config get secrets'
+```
+
+Minimally, secrets for the following users should be listed:
+
+- *admin*, *kube-controller-manager*, *kube-proxy*, *kubelet-n*, *system-kube-scheduler*, *system-monitoring*
+
+With secrets verified, the charm can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.10 version of **Kubernetes**, you would enter:
 
 ```bash
 juju config kubernetes-master channel=1.10/stable
