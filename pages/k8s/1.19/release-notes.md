@@ -91,6 +91,16 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes / Known Issues
 
+- The `insecure-bind-address` and `insecure-port` options to `kube-apiserver` have
+been removed in this release. Using `juju run` with `kubectl` to interact with the
+cluster now requires an explicit `--kubeconfig <file>` option:
+
+    ```bash
+    juju run --unit kubernetes-master/0 'kubectl --kubeconfig /root/.kube/config get nodes'
+    NAME              STATUS   ROLES    AGE   VERSION
+    ip-172-31-10-19   Ready    <none>   71m   v1.19.0
+    ```
+
 ## Previous releases
 
 Please see [this page][historic] for release notes of earlier versions.
