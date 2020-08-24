@@ -56,6 +56,9 @@ secrets. If needed, any existing entries in previous authentication files
 (`basic_auth.csv` and `known_tokens.csv`) are migrated to secrets during the
 `kubernetes-master` charm upgrade.
 
+More information about this new service can be found in the
+[Authorisation and Authentication][authn] documentation.
+
 - New Calico configuration options
 
 (description) `veth-mtu` for Calico. `ignore-loose-rpf` for Calico/Canal/Tigera Secure EE.
@@ -95,12 +98,12 @@ Please see [this page][historic] for release notes of earlier versions.
 <!--LINKS-->
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
-[cis-benchmark]: kubernetes/docs/cis-compliance
+[cis-benchmark]: /kubernetes/docs/cis-compliance
 [bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [ipv6]: /kubernetes/docs/ipv6
 [cni-sriov]: /kubernetes/docs/cni-sriov
-
+[authn]: /kubernetes/docs/auth#authn
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
