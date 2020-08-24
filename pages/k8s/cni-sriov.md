@@ -170,7 +170,7 @@ The last step is to create a pod that requests the
 intel.com/intel_sriov_netdevice resource and uses the
 NetworkAttachmentDefinition defined above:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -189,9 +189,13 @@ spec:
       limits:
         intel.com/intel_sriov_netdevice: '1'
 ```
-
-NOTE: The pod must be created in the same namespace as the
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+The pod must be created in the same namespace as the
 NetworkAttachmentDefinition.
+  </p>
+</div>
 
 If all goes well, the pod should come up in a Running state with the SR-IOV VF
 available from within the device. The interface's name in this example will be
