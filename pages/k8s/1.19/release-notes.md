@@ -13,17 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# 1.19 pre-release
-
-<div class="p-notification--warning">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Warning:</span>
-This version is currently in pre-release and is presented here solely for
-testing purposes. Any information on this and other pages connected to this release
-is subject to change.
-  </p>
-</div>
-
 ### August XXth, 2020 - [charmed-kubernetes-475](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-475/archive/bundle.yaml)
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
@@ -84,6 +73,9 @@ SR-IOV CNI, it is now possible to take network interfaces that are SR-IOV
 Virtual Functions and attach them directly to pods. For more information, see
 the new [SR-IOV CNI documentation][cni-sriov].
 
+For a full list of the changes introduced in Kubernetes 1.19, please see the 
+[upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md)
+
 ## Component upgrades
 
 - addon-resizer 1.8.9
@@ -110,6 +102,10 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     NAME              STATUS   ROLES    AGE   VERSION
     ip-172-31-10-19   Ready    <none>   71m   v1.19.0
     ```
+## Deprecations and API changes
+
+For details of deprecation notices and API changes for Kubernetes 1.19, please see the 
+relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md#deprecation)
 
 ## Previous releases
 
