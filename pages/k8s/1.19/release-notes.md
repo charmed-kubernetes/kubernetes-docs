@@ -60,8 +60,18 @@ More information about this new service can be found in the
 [Authorisation and Authentication][authn] documentation.
 
 - New Calico configuration options
+  
+The new `veth-mtu` setting allows fine tuning of the MTU setting for optimum
+performance on the underlying network. See the
+[Calico documentation][veth-mtu] for more details and recommendations, and
+the [Calico charm docs][1.19-calico] for information on how to set this
+configuration.
 
-(description) `veth-mtu` for Calico. `ignore-loose-rpf` for Calico/Canal/Tigera Secure EE.
+Calico and related charms(Canal, Tigera Secure EE) also have a new
+`ignore-loose-rpf` configuration option. By default, for security, these charms check
+that the kernel has strict reverse path forwarding set (net.ipv4.conf.all.rp_filter
+set to 0 or 1). In some circumstances your container network may need to spoof IP
+adresses, in which case you can now set `ignore-loose-rpf`.
 
 - Ubuntu 20.04
 
@@ -114,6 +124,8 @@ Please see [this page][historic] for release notes of earlier versions.
 [ipv6]: /kubernetes/docs/ipv6
 [cni-sriov]: /kubernetes/docs/cni-sriov
 [authn]: /kubernetes/docs/auth#authn
+[veth-mtu]: https://docs.projectcalico.org/networking/mtu
+[1.19-calico]: /kubernetes/docs/1.19/charm-calico
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
