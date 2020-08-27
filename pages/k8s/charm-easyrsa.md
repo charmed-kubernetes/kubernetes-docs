@@ -1,18 +1,21 @@
 ---
-wrapper_template: "kubernetes/docs/base_docs.html"
-markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
-context:
-  title: "EasyRSA charm"
-  description: Kubernetes-master Charm reference
-keywords: kubernetes-master, charm, config
-tags: [reference]
-sidebar: k8smain-sidebar
-permalink: charm-easyrsa.html
-layout: [base, ubuntu-com]
-toc: False
 charm_name: easyrsa
 charm_revision: '0'
+context:
+  description: Kubernetes-master Charm reference
+  title: EasyRSA charm
+keywords: kubernetes-master, charm, config
+layout:
+- base
+- ubuntu-com
+markdown_includes:
+  nav: kubernetes/docs/shared/_side-navigation.md
+permalink: charm-easyrsa.html
+sidebar: k8smain-sidebar
+tags:
+- reference
+toc: false
+wrapper_template: kubernetes/docs/base_docs.html
 ---
 
 This charm delivers the EasyRSA application to act as a Certificate Authority

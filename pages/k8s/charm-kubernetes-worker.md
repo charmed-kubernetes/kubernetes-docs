@@ -384,59 +384,28 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>apply</pre>
-          </td>
-          <td>
-            <p>
-              Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.
-            </p>
-            <p>
-              <strong>Default:</strong> none
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>config</pre>
-          </td>
-          <td>
-            <p>
-              Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
-            </p>
-            <p>
-              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-c onfig/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87 d0ed7c139a83e88915530
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>release</pre>
-          </td>
-          <td>
-            <p>
-              Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube- bench/releases/download/v0.0.34/kube-bench_0.0.34_ linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db 074d41ef324a25be5b944e79619ad1a079fca077
-            </p>
-            <p>
-              <strong>Default:</strong> https://github.com/aquasecurity/kube- bench/releases/download/v0.2.3/kube-bench_0.2.3_li nux_amd64.tar.gz#sha256=429a1db271689aafec009434de d1dea07a6685fee85a1deea638097c8512d548
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>apply</pre>
+    <p>
+      Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.
+    </p>
+    <p>
+      <strong>Default:</strong> none
+    </p><br>
+    <pre>config</pre>
+    <p>
+      Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
+    </p>
+    <p>
+      <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-c onfig/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87 d0ed7c139a83e88915530
+    </p><br>
+    <pre>release</pre>
+    <p>
+      Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube- bench/releases/download/v0.0.34/kube-bench_0.0.34_ linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db 074d41ef324a25be5b944e79619ad1a079fca077
+    </p>
+    <p>
+      <strong>Default:</strong> https://github.com/aquasecurity/kube- bench/releases/download/v0.2.3/kube-bench_0.2.3_li nux_amd64.tar.gz#sha256=429a1db271689aafec009434de d1dea07a6685fee85a1deea638097c8512d548
+    </p><br>
   </div>
 </div>
 <hr>
@@ -471,46 +440,21 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>delete</pre>
-          </td>
-          <td>
-            <p>
-              Remove a microbots deployment, service, and ingress if True.
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>replicas</pre>
-          </td>
-          <td>
-            <p>
-              Number of microbots to launch in Kubernetes.
-            </p>
-            <p>
-              <strong>Default:</strong> 3
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>delete</pre>
+    <p>
+      Remove a microbots deployment, service, and ingress if True.
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
+    <pre>replicas</pre>
+    <p>
+      Number of microbots to launch in Kubernetes.
+    </p>
+    <p>
+      <strong>Default:</strong> 3
+    </p><br>
   </div>
 </div>
 <hr>
@@ -532,46 +476,21 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>delete-local-data</pre>
-          </td>
-          <td>
-            <p>
-              Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>force</pre>
-          </td>
-          <td>
-            <p>
-              Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>delete-local-data</pre>
+    <p>
+      Continue even if there are pods using emptyDir (local data that will be deleted when the node is drained).
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
+    <pre>force</pre>
+    <p>
+      Continue even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet.
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
   </div>
 </div>
 <hr>
@@ -593,111 +512,56 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>delete</pre>
-          </td>
-          <td>
-            <p>
-              Remove a registry replication controller, service, and ingress if True.
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>domain</pre>
-          </td>
-          <td>
-            <p>
-              The domain name for the registry. Must match the Common Name of the certificate.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>htpasswd</pre>
-          </td>
-          <td>
-            <p>
-              base64 encoded htpasswd file used for authentication.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>htpasswd-plain</pre>
-          </td>
-          <td>
-            <p>
-              base64 encoded plaintext version of the htpasswd file, needed by docker daemons to authenticate to the registry.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>ingress</pre>
-          </td>
-          <td>
-            <p>
-              Create an Ingress resource for the registry (or delete resource object if "delete" is True)
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>tlscert</pre>
-          </td>
-          <td>
-            <p>
-              base64 encoded TLS certificate for the registry. Common Name must match the domain name of the registry.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>tlskey</pre>
-          </td>
-          <td>
-            <p>
-              base64 encoded TLS key for the registry.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>delete</pre>
+    <p>
+      Remove a registry replication controller, service, and ingress if True.
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
+    <pre>domain</pre>
+    <p>
+      The domain name for the registry. Must match the Common Name of the certificate.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>htpasswd</pre>
+    <p>
+      base64 encoded htpasswd file used for authentication.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>htpasswd-plain</pre>
+    <p>
+      base64 encoded plaintext version of the htpasswd file, needed by docker daemons to authenticate to the registry.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>ingress</pre>
+    <p>
+      Create an Ingress resource for the registry (or delete resource object if "delete" is True)
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
+    <pre>tlscert</pre>
+    <p>
+      base64 encoded TLS certificate for the registry. Common Name must match the domain name of the registry.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>tlskey</pre>
+    <p>
+      base64 encoded TLS key for the registry.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
   </div>
 </div>
 <hr>

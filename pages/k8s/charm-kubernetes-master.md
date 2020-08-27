@@ -686,33 +686,14 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>json</pre>
-          </td>
-          <td>
-            <p>
-              The content of the manifest to deploy in JSON format
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>json</pre>
+    <p>
+      The content of the manifest to deploy in JSON format
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
   </div>
 </div>
 <hr>
@@ -734,59 +715,28 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>apply</pre>
-          </td>
-          <td>
-            <p>
-              Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.
-            </p>
-            <p>
-              <strong>Default:</strong> none
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>config</pre>
-          </td>
-          <td>
-            <p>
-              Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
-            </p>
-            <p>
-              <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-config/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87d0ed7c139a83e88915530
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>release</pre>
-          </td>
-          <td>
-            <p>
-              Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube- bench/releases/download/v0.0.34/kube-bench_0.0.34_ linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db 074d41ef324a25be5b944e79619ad1a079fca077
-            </p>
-            <p>
-              <strong>Default:</strong> https://github.com/aquasecurity/kube-bench/releases/download/v0.2.3/kube-bench_0.2.3_linux_amd64.tar.gz#sha256=429a1db271689aafec009434ded1dea07a6685fee85a1deea638097c8512d548
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>apply</pre>
+    <p>
+      Apply remediations to address benchmark failures. The default, 'none', will not attempt to fix any reported failures. Set to 'conservative' to resolve simple failures. Set to 'dangerous' to attempt to resolve all failures. Note: Applying any remediation may result in an unusable cluster.
+    </p>
+    <p>
+      <strong>Default:</strong> none
+    </p><br>
+    <pre>config</pre>
+    <p>
+      Archive containing configuration files to use when running kube-bench. The default value is known to be compatible with snap components. When using a custom URL, append '#&lt;hash_type&gt;=&lt;checksum&gt;' to verify the archive integrity when downloaded.
+    </p>
+    <p>
+      <strong>Default:</strong> https://github.com/charmed-kubernetes/kube-bench-c onfig/archive/cis-1.5.zip#sha1=cb8e78712ee5bfeab87 d0ed7c139a83e88915530
+    </p><br>
+    <pre>release</pre>
+    <p>
+      Set the kube-bench release to run. If set to 'upstream', the action will compile and use a local kube-bench binary built from the master branch of the upstream repository: https://github.com/aquasecurity/kube-bench This value may also be set to an accessible archive containing a pre-built kube-bench binary, for example: https://github.com/aquasecurity/kube- bench/releases/download/v0.0.34/kube-bench_0.0.34_ linux_amd64.tar.gz#sha256=f96d1fcfb84b18324f1299db 074d41ef324a25be5b944e79619ad1a079fca077
+    </p>
+    <p>
+      <strong>Default:</strong> https://github.com/aquasecurity/kube- bench/releases/download/v0.2.3/kube-bench_0.2.3_li nux_amd64.tar.gz#sha256=429a1db271689aafec009434de d1dea07a6685fee85a1deea638097c8512d548
+    </p><br>
   </div>
 </div>
 <hr>
@@ -808,85 +758,42 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>filesystem</pre>
-          </td>
-          <td>
-            <p>
-              File system type to format the volume.
-            </p>
-            <p>
-              <strong>Default:</strong> xfs
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>mode</pre>
-          </td>
-          <td>
-            <p>
-              Access mode for the persistent volume.
-            </p>
-            <p>
-              <strong>Default:</strong> ReadWriteOnce
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>name</pre>
-          </td>
-          <td>
-            <p>
-              Name the persistent volume.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>size</pre>
-          </td>
-          <td>
-            <p>
-              Size in MB of the RBD volume.
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <pre>skip-size-check</pre>
-          </td>
-          <td>
-            <p>
-              Allow creation of overprovisioned RBD.
-            </p>
-            <p>
-              <strong>Default:</strong> False
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>filesystem</pre>
+    <p>
+      File system type to format the volume.
+    </p>
+    <p>
+      <strong>Default:</strong> xfs
+    </p><br>
+    <pre>mode</pre>
+    <p>
+      Access mode for the persistent volume.
+    </p>
+    <p>
+      <strong>Default:</strong> ReadWriteOnce
+    </p><br>
+    <pre>name</pre>
+    <p>
+      Name the persistent volume.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>size</pre>
+    <p>
+      Size in MB of the RBD volume.
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
+    <pre>skip-size-check</pre>
+    <p>
+      Allow creation of overprovisioned RBD.
+    </p>
+    <p>
+      <strong>Default:</strong> False
+    </p><br>
   </div>
 </div>
 <hr>
@@ -934,33 +841,14 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>name</pre>
-          </td>
-          <td>
-            <p>
-              Namespace name eg. staging
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>name</pre>
+    <p>
+      Namespace name eg. staging
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
   </div>
 </div>
 <hr>
@@ -982,33 +870,14 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>name</pre>
-          </td>
-          <td>
-            <p>
-              Namespace name eg. staging
-            </p>
-            <p>
-              <strong>Default:</strong>
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>name</pre>
+    <p>
+      Namespace name eg. staging
+    </p>
+    <p>
+      <strong>Default:</strong>
+    </p><br>
   </div>
 </div>
 <hr>
@@ -1056,33 +925,14 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
     <p>
       This action has the following parameters:
     </p>
-    <table class="u-table-layout--auto">
-      <thead>
-        <tr>
-          <th>
-            parameter
-          </th>
-          <th>
-            Description
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <pre>fix-cluster-name</pre>
-          </td>
-          <td>
-            <p>
-              If using the OpenStack cloud provider, whether to fix the cluster name sent to it to include the cluster tag. This fixes an issue with load balancers conflicting with other clusters in the same project but will cause new load balancers to be created which will require manual intervention to resolve.
-            </p>
-            <p>
-              <strong>Default:</strong> True
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <hr>
+    <pre>fix-cluster-name</pre>
+    <p>
+      If using the OpenStack cloud provider, whether to fix the cluster name sent to it to include the cluster tag. This fixes an issue with load balancers conflicting with other clusters in the same project but will cause new load balancers to be created which will require manual intervention to resolve.
+    </p>
+    <p>
+      <strong>Default:</strong> True
+    </p><br>
   </div>
 </div>
 <hr>

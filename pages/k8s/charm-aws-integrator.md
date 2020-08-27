@@ -1,18 +1,21 @@
 ---
-wrapper_template: "kubernetes/docs/base_docs.html"
-markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
-context:
-  title: "AWS integrator charm"
-  description: Kubernetes-master Charm reference
-keywords: kubernetes-master, charm, config
-tags: [reference]
-sidebar: k8smain-sidebar
-permalink: charm-aws-integrator.html
-layout: [base, ubuntu-com]
-toc: False
 charm_name: aws-integrator
 charm_revision: '0'
+context:
+  description: Kubernetes-master Charm reference
+  title: AWS integrator charm
+keywords: kubernetes-master, charm, config
+layout:
+- base
+- ubuntu-com
+markdown_includes:
+  nav: kubernetes/docs/shared/_side-navigation.md
+permalink: charm-aws-integrator.html
+sidebar: k8smain-sidebar
+tags:
+- reference
+toc: false
+wrapper_template: kubernetes/docs/base_docs.html
 ---
 
 This charm acts as a proxy to AWS and provides an [interface][] to apply a
