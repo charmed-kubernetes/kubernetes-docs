@@ -49,18 +49,18 @@ More information about this new service can be found in the
 [Authorisation and Authentication][authn] documentation.
 
 - New Calico configuration options
-  
+
 The new `veth-mtu` setting allows fine tuning of the MTU setting for optimum
 performance on the underlying network. See the
 [Calico documentation][veth-mtu] for more details and recommendations, and
 the [Calico charm docs][1.19-calico] for information on how to set this
 configuration.
 
-Calico and related charms(Canal, Tigera Secure EE) also have a new
+Calico and related charms (Canal, Tigera Secure EE) also have a new
 `ignore-loose-rpf` configuration option. By default, for security, these charms check
-that the kernel has strict reverse path forwarding set (net.ipv4.conf.all.rp_filter
-set to 0 or 1). In some circumstances your container network may need to spoof IP
-adresses, in which case you can now set `ignore-loose-rpf`.
+that the kernel has strict reverse path forwarding set (`net.ipv4.conf.all.rp_filter`
+set to `0` or `1`). In some circumstances you may need to set this to 2, in which case
+you can now set `ignore-loose-rpf=true` to ignore the check.
 
 - Ubuntu 20.04
 
@@ -73,7 +73,7 @@ SR-IOV CNI, it is now possible to take network interfaces that are SR-IOV
 Virtual Functions and attach them directly to pods. For more information, see
 the new [SR-IOV CNI documentation][cni-sriov].
 
-For a full list of the changes introduced in Kubernetes 1.19, please see the 
+For a full list of the changes introduced in Kubernetes 1.19, please see the
 [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md)
 
 ## Component upgrades
@@ -104,7 +104,7 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     ```
 ## Deprecations and API changes
 
-For details of deprecation notices and API changes for Kubernetes 1.19, please see the 
+For details of deprecation notices and API changes for Kubernetes 1.19, please see the
 relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md#deprecation)
 
 ## Previous releases
