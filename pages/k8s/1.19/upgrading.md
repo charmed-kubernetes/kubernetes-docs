@@ -3,12 +3,12 @@ wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Upgrading"
+  title: "Upgrading to 1.19"
   description: How to upgrade your version of Charmed Kubernetes.
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: upgrading.html
+permalink: 1.19/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
