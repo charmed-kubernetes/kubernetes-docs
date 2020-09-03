@@ -14,7 +14,8 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '492'
+charm_revision: '501'
+charm_name: flannel
 bundle_release: '1.18'
 ---
 
