@@ -1,22 +1,22 @@
 ---
-wrapper_template: kubernetes/docs/base_docs.html
+bundle_release: '1.18'
+charm_name: kubeapi-load-balancer
+charm_revision: '742'
+context:
+  description: Nginx Load Balancer
+  title: 'Kubeapi-load-balancer charm '
+keywords: component, charms, versions, release
+layout:
+- base
+- ubuntu-com
 markdown_includes:
   nav: kubernetes/docs/shared/_side-navigation.md
-context:
-  title: 'Kubeapi-load-balancer charm '
-  description: Nginx Load Balancer
-keywords: component, charms, versions, release
-tags:
-    - reference
-sidebar: k8smain-sidebar
 permalink: 1.18/charm-kubeapi-load-balancer.html
-layout:
-    - base
-    - ubuntu-com
+sidebar: k8smain-sidebar
+tags:
+- reference
 toc: false
-charm_revision: '742'
-charm_name: kubeapi-load-balancer
-bundle_release: '1.18'
+wrapper_template: kubernetes/docs/base_docs.html
 ---
 
 Simple NGINX reverse proxy to lend a hand in HA kubernetes-master deployments.
