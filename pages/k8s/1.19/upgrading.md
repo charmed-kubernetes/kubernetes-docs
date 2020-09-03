@@ -44,6 +44,7 @@ You should also make sure:
 -   Your cluster is running normally
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.19 which may impact your workloads. 
 
 ## Infrastructure updates
 
