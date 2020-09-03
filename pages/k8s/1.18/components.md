@@ -27,7 +27,6 @@ which comprise the 1.18 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs'> Documentation </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.18/release-notes'>Release notes </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.18/upgrade'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
@@ -331,54 +330,103 @@ These are the container images used by this release:
 <!-- GENERATED CONTAINER IMAGES -->
 
 addon-resizer-amd64:1.8.5
+
 addon-resizer-arm64:1.8.5
+
 addon-resizer-ppc64le:1.8.5
+
 addon-resizer-s390x:1.8.5
+
 cephcsi/cephfsplugin:v1.0.0
+
 cephcsi/rbdplugin:v1.0.0
+
 coredns/coredns:1.6.7
+
 coreos/kube-state-metrics:v1.9.5
+
 defaultbackend-amd64:1.5
+
 defaultbackend-arm64:1.5
+
 defaultbackend-s390x:1.4
+
 external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
+
 k8s-dns-dnsmasq-nanny:1.14.13
+
 k8s-dns-kube-dns:1.14.13
+
 k8s-dns-sidecar:1.14.13
+
 k8scloudprovider/cinder-csi-plugin:v1.17.0
+
 k8scloudprovider/k8s-keystone-auth:latest
+
 k8scloudprovider/openstack-cloud-controller-manager:v1.17.0
+
 k8scsi/csi-attacher:v1.0.1
+
 k8scsi/csi-attacher:v2.0.0
+
 k8scsi/csi-node-driver-registrar:v1.0.2
+
 k8scsi/csi-node-driver-registrar:v1.1.0
+
 k8scsi/csi-provisioner:v1.0.2
+
 k8scsi/csi-provisioner:v1.4.0
+
 k8scsi/csi-resizer:v0.3.0
+
 k8scsi/csi-snapshotter:v1.0.2
+
 k8scsi/csi-snapshotter:v1.2.2
+
 kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.30.0
+
 kubernetes-ingress-controller/nginx-ingress-controller-arm64:0.30.0
+
 kubernetes-ingress-controller/nginx-ingress-controller-s390x:0.20.0
+
 kubernetesui/dashboard-amd64:v2.0.0-rc5
+
 kubernetesui/dashboard-arm64:v2.0.0-rc5
+
 kubernetesui/dashboard-ppc64le:v2.0.0-rc5
+
 kubernetesui/dashboard-s390x:v2.0.0-rc5
+
 kubernetesui/metrics-scraper:v1.0.3
+
 metrics-server-amd64:v0.3.6
+
 metrics-server-arm64:v0.3.6
+
 metrics-server-ppc64le:v0.3.6
+
 metrics-server-s390x:v0.3.6
+
 microbot-amd64:latest
+
 microbot-arm64:latest
+
 nvidia/k8s-device-plugin:v0.7.0-rc.7
+
 pause-amd64:3.2
+
 pause-arm64:3.2
+
 pause-ppc64le:3.2
+
 pause-s390x:3.2
+
 rancher/rancher:latest
+
 registry-amd64:2.6
+
 registry-arm64:2.6
+
 sonatype/nexus3:latest
 
 <!-- CONTAINER IMAGES END -->
@@ -390,18 +438,19 @@ The following snaps are used by this release of Charmed Kubernetes:
 
 | snap  | confinement | summary | link |
 |-------|-------------|---------|------|
-|aws-cli| ? | Resource to side-load aws-cli snap in network-restricted deployments. | ? |
-|core| ? | core snap | ? |
-|etcd| ? | Snap package of etcd | ? |
+|aws-cli| classic | Resource to side-load aws-cli snap in network-restricted deployments. | [store page](https://snapcraft.io/aws-cli) |
+|core| strict | core snap | [store page](https://snapcraft.io/core) |
+|etcd| classic | Snap package of etcd | [store page](https://snapcraft.io/etcd) |
 |gcloud| ? | Resource to side-load gcloud snap in network-restricted deployments. | ? |
-|cdk-addons| ? | CDK addons snap | ? |
-|kube-apiserver| ? | kube-apiserver snap | ? |
-|kube-controller-manager| ? | kube-controller-manager snap | ? |
-|kube-proxy| ? | kube-proxy snap | ? |
-|kube-scheduler| ? | kube-scheduler snap | ? |
-|kubectl| ? | kubectl snap | ? |
-|kubelet| ? | kubelet snap | ? |
-|openstackclients| ? | Resource to side-load openstackclients snap in network-restricted deployments. | ? |
+|cdk-addons| strict | CDK addons snap | [store page](https://snapcraft.io/cdk-addons) |
+|kube-apiserver| strict | kube-apiserver snap | [store page](https://snapcraft.io/kube-apiserver) |
+|kube-controller-manager| strict | kube-controller-manager snap | [store page](https://snapcraft.io/kube-controller-manager) |
+|kube-proxy| classic | kube-proxy snap | [store page](https://snapcraft.io/kube-proxy) |
+|kube-scheduler| strict | kube-scheduler snap | [store page](https://snapcraft.io/kube-scheduler) |
+|kubectl| classic | kubectl snap | [store page](https://snapcraft.io/kubectl) |
+|kubelet| classic | kubelet snap | [store page](https://snapcraft.io/kubelet) |
+|openstackclients| classic | Resource to side-load openstackclients snap in network-restricted deployments. | [store page](https://snapcraft.io/openstackclients) |
+
 
 
 
@@ -415,4 +464,3 @@ The following snaps are used by this release of Charmed Kubernetes:
 [bugs]: /kubernetes/docs/
 [source]: https://github.com/charmed-kubernetes
 [1.18 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.18
-
