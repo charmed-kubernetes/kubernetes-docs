@@ -123,6 +123,15 @@ Please see [this page][historic] for release notes of earlier versions.
 [veth-mtu]: https://docs.projectcalico.org/networking/mtu
 [1.19-calico]: /kubernetes/docs/1.19/charm-calico
 
+# 1.18+ck2 Bugfix release
+
+### August 12, 2020 - [charmed-kubernetes-485](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-485/archive/bundle.yaml)
+
+## Fixes
+
+Bug fixes included in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.18+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.18+ck2).
+
 
 # 1.18+ck1 Bugfix release
 
