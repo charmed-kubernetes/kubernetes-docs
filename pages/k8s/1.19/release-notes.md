@@ -102,6 +102,10 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     NAME              STATUS   ROLES    AGE   VERSION
     ip-172-31-10-19   Ready    <none>   71m   v1.19.0
     ```
+
+- The webhook authentication service included in this release runs on port `5000`
+of each `kubernetes-master` unit. Ensure this port is available prior to upgrading.
+
 ## Deprecations and API changes
 
 For details of deprecation notices and API changes for Kubernetes 1.19, please see the
