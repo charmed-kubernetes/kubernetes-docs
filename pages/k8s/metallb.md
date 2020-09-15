@@ -42,13 +42,30 @@ explanation of the required configuration</a> from the
 
 </p></div>
 
-Currently, the best way to install MetalLB on Charmed Kubernetes is with a helm chart:
+The best way to install MetalLB in layer 2 mode on Charmed Kubernetes is with 
+the MetalLB Operator. The MetalLB Operator is a charm bundle that allows the 
+deployment of both the controller and speaker components.
 
 ```bash
-helm install --name metallb stable/metallb
+juju add-model metallb-system
+juju deploy cs:~charmed-kubernetes/metallb-operator
 ```
-Further configuration can be performed by using a [MetalLB configmap][configmap].
+The ip range allocated to MetalLB is edited via the configuration of the metallb-controller:
 
+```bash
+juju config metallb-controller iprange=<IP_RANGE>
+```
+
+Currently, to deploy MetalLB in BGP mode, the recommended way is to use the upstream
+manifests:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
+# On first install only
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+```
+The BGP configuration can then be performed by using a [MetalLB configmap][configmap].
 
 
 <!-- LINKS -->
@@ -57,7 +74,7 @@ Further configuration can be performed by using a [MetalLB configmap][configmap]
 [arp]: https://tools.ietf.org/html/rfc826
 [bgp]: https://tools.ietf.org/html/rfc1105
 [helm]: /kubernetes/docs/helm
-[configmap]: https://metallb.universe.tf/configuration/
+[configmap]: https://metallb.universe.tf/configuration/#bgp-configuration
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
