@@ -17,7 +17,7 @@ toc: False
 [MetalLB][metallb] is a Kubernetes-aware solution that will monitor for services with
 the type `LoadBalancer` and assign them an IP address from a virtual pool.
 
-It uses BGP([Border Gateway Protocol][bgp]) or ARP([Address Resolution Protocol][arp])
+It uses BGP([Border Gateway Protocol][bgp]) or Layer 2 (with ARP [Address Resolution Protocol][arp])
 to expose services.
 
 MetalLB has support for local traffic, meaning that the machine that receives the
