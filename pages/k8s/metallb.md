@@ -62,7 +62,7 @@ juju add-model metallb-system k8s-cloud
 Then deploy the MetalLB operator:
 
 ```bash
-juju deploy cs:~charmed-kubernetes/metallb-operator
+juju deploy cs:~containers/metallb-operator
 ```
 
 The IP range allocated to MetalLB can be controlled via the configuration of the metallb-controller:
@@ -70,6 +70,7 @@ The IP range allocated to MetalLB can be controlled via the configuration of the
 ```bash
 juju config metallb-controller iprange="192.168.1.240-192.168.1.250"
 ```
+
 Multiple IP pools can be specified as well, if using a CIDR notation delimited by a comma:
 ```bash
 juju config metallb-controller iprange="192.168.1.240/28, 10.0.0.0/28"
