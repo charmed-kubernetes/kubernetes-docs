@@ -66,21 +66,21 @@ you can now set `ignore-loose-rpf=true` to ignore the check.
 
 The default operating system for deployed machines is now Ubuntu 20.04 (Focal). Ubuntu 18.04 (Bionic) and 16.04 (Xenial) are still supported.
 
+- MetalLB Operator
+
+MetalLB offers a software network load balancing implementation that allows for 
+LoadBalancing services in Kubernetes. This bundle has been made available
+in the Charm Store to be deployed along Charmed Kubernetes, MicroK8s, or any Kubernetes
+supported by Juju. This operator deploys upstream MetalLB in layer 2 mode. The BGP mode 
+of upstream MetalLB is not supported yet. For more information about deploying and 
+operating MetalLB, please see the [MetalLB documentation](https://ubuntu.com/kubernetes/docs/metallb).
+
 - SR-IOV CNI
 
 A new SR-IOV CNI addon has been made available for Charmed Kubernetes. Using
 SR-IOV CNI, it is now possible to take network interfaces that are SR-IOV
 Virtual Functions and attach them directly to pods. For more information, see
 the new [SR-IOV CNI documentation][cni-sriov].
-
-- MetalLB Operator
-
-MetalLB offers a software network load balancing implementation that allows for 
-LoadBalancing services in Kubernetes. This bundle has been made available
-in the charm store to be deployed along Charmed Kubernetes, MicroK8s, or any Kubernetes
-supported by Juju. This operator deploys upstream MetalLB in layer 2 mode. The BGP mode 
-of upstream MetalLB is not supported yet. For more information about deploying and 
-operating MetalLB, please see the [MetalLB documentation](https://ubuntu.com/kubernetes/docs/metallb).
 
 For a full list of the changes introduced in Kubernetes 1.19, please see the
 [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md)
