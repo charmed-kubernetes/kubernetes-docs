@@ -68,7 +68,11 @@ juju deploy cs:~charmed-kubernetes/metallb-operator
 The IP range allocated to MetalLB can be controlled via the configuration of the metallb-controller:
 
 ```bash
-juju config metallb-controller iprange=<IP_RANGE>
+juju config metallb-controller iprange="192.168.1.240-192.168.1.250"
+```
+Multiple IP pools can be specified as well, if using a CIDR notation delimited by a comma:
+```bash
+juju config metallb-controller iprange="192.168.1.240/28, 10.0.0.0/28"
 ```
 
 Currently, to deploy MetalLB in BGP mode, the recommended way is to use the upstream
