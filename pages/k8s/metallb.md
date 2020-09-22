@@ -46,11 +46,26 @@ The best way to install MetalLB in layer 2 mode on Charmed Kubernetes is with
 the MetalLB Operator. The MetalLB Operator is a charm bundle that allows the 
 deployment of both the controller and speaker components.
 
+To deploy the operator, you will first need a Kubernetes model in Juju.
+Add your Kubernetes as a cloud to your Juju controller:
+
+```
+juju add-k8s k8s-cloud --controller $(juju switch | cut -d: -f1)
+```
+
+And create a new Kubernetes model:
+
+```
+juju add-model metallb-system k8s-cloud
+```
+
+Then deploy the MetalLB operator:
+
 ```bash
-juju add-model metallb-system
 juju deploy cs:~charmed-kubernetes/metallb-operator
 ```
-The ip range allocated to MetalLB is edited via the configuration of the metallb-controller:
+
+The IP range allocated to MetalLB can be controlled via the configuration of the metallb-controller:
 
 ```bash
 juju config metallb-controller iprange=<IP_RANGE>
