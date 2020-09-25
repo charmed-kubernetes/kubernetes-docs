@@ -98,7 +98,7 @@ For a full list of the changes introduced in Kubernetes 1.19, please see the
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
-[https://launchpad.net/charmed-kubernetes/+milestone/1.19](https://launchpad.net/charmed-kubernetes/+milestone/1.18).
+[https://launchpad.net/charmed-kubernetes/+milestone/1.19](https://launchpad.net/charmed-kubernetes/+milestone/1.19).
 
 ## Notes / Known Issues
 
@@ -111,6 +111,13 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     NAME              STATUS   ROLES    AGE   VERSION
     ip-172-31-10-19   Ready    <none>   71m   v1.19.0
     ```
+
+- Due to a bug in the pacemaker package on Ubuntu, Charmed Kubernetes does not
+work with HAcluster on Ubuntu 20.04 (Focal). If you intend to use HAcluster,
+we recommend deploying on Ubuntu 18.04 (Bionic) instead. Details
+about this bug can be found at
+[https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762](https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762).
+
 ## Deprecations and API changes
 
 For details of deprecation notices and API changes for Kubernetes 1.19, please see the
