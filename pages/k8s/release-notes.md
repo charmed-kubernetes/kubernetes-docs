@@ -112,6 +112,9 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     ip-172-31-10-19   Ready    <none>   71m   v1.19.0
     ```
 
+- The webhook authentication service included in this release runs on port 5000 of each 
+kubernetes-master unit. Ensure this port is available prior to upgrading.
+
 - Due to a bug in the pacemaker package on Ubuntu, Charmed Kubernetes does not
 work with HAcluster on Ubuntu 20.04 (Focal). If you intend to use HAcluster,
 we recommend deploying to Ubuntu 18.04 (Bionic) instead. Details
