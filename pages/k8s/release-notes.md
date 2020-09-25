@@ -118,6 +118,8 @@ we recommend deploying to Ubuntu 18.04 (Bionic) instead. Details
 about this bug can be found at
 [https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762](https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762).
 
+- Additional known issues scheduled for the first 1.19 bugfix release can be found at [https://launchpad.net/charmed-kubernetes/+milestone/1.19+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.19+ck1)
+
 ## Deprecations and API changes
 
 For details of deprecation notices and API changes for Kubernetes 1.19, please see the
