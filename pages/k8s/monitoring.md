@@ -37,15 +37,15 @@ along with the following overlay file ([download it here][monitoring-pgt-overlay
 ```yaml
 applications:
   prometheus:
-    charm: cs:prometheus2
+    charm: cs:prometheus2-11
     constraints: "mem=4G root-disk=16G"
     num_units: 1
   grafana:
-    charm: cs:grafana
+    charm: cs:grafana-37
     expose: true
     num_units: 1
   telegraf:
-    charm: cs:telegraf
+    charm: cs:telegraf-36
 relations:
   - [prometheus:grafana-source, grafana:grafana-source]
   - [telegraf:prometheus-client, prometheus:target]
