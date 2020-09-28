@@ -121,7 +121,7 @@ need to edit the manifest before applying it.
 
 If you forgot to apply this manifest before deploying MetalLB, the units will
 fail in the start hook. But don't worry! You can apply the manifest afterwards,
-and the resolve the units that are in error to get them back into a working state:
+and then resolve the units that are in error to get them back into a working state:
 
 ```bash
 juju resolve metallb-controller/0
