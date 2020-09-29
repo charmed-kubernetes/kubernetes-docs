@@ -98,7 +98,7 @@ For a full list of the changes introduced in Kubernetes 1.19, please see the
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
-[https://launchpad.net/charmed-kubernetes/+milestone/1.19](https://launchpad.net/charmed-kubernetes/+milestone/1.18).
+[https://launchpad.net/charmed-kubernetes/+milestone/1.19](https://launchpad.net/charmed-kubernetes/+milestone/1.19).
 
 ## Notes / Known Issues
 
@@ -111,6 +111,18 @@ cluster now requires an explicit `--kubeconfig <file>` option:
     NAME              STATUS   ROLES    AGE   VERSION
     ip-172-31-10-19   Ready    <none>   71m   v1.19.0
     ```
+
+- The webhook authentication service included in this release runs on port 5000 of each 
+kubernetes-master unit. Ensure this port is available prior to upgrading.
+
+- Due to a bug in the pacemaker package on Ubuntu, Charmed Kubernetes does not
+work with HAcluster on Ubuntu 20.04 (Focal). If you intend to use HAcluster,
+we recommend deploying to Ubuntu 18.04 (Bionic) instead. Details
+about this bug can be found at
+[https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762](https://bugs.launchpad.net/ubuntu/+source/pacemaker/+bug/1881762).
+
+- Additional known issues scheduled for the first 1.19 bugfix release can be found at [https://launchpad.net/charmed-kubernetes/+milestone/1.19+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.19+ck1)
+
 ## Deprecations and API changes
 
 For details of deprecation notices and API changes for Kubernetes 1.19, please see the
@@ -285,7 +297,6 @@ classes will need to be edited and the `provisioner` field changed to
 `cinder.csi.openstack.org`. Existing volumes will be unaffected, but new
 PVCs using those storage classes will hang until the storage class is updated.
 
-=======
 # 1.17+ck2 Bugfix release
 
 ### March 2, 2020 - [charmed-kubernetes-410](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-410/archive/bundle.yaml)
