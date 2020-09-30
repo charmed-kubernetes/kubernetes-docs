@@ -24,6 +24,13 @@ The `openstack-integrator` charm simplifies working with **Charmed Kubernetes** 
 credentials provided to Juju, it acts as a proxy between Charmed Kubernetes and the underlying cloud,
 granting permissions to dynamically create, for example, Cinder volumes.
 
+### Prerequisites
+
+Openstack integration requires [Octavia][octavia] to be available in the
+underlying OpenStack cloud. Without Octavia, both the openstack-integrator
+charm and the openstack-cloud-controller-manager pod that gets deployed into
+Kubernetes will be unable to create load balancers properly.
+
 ### Installing
 
 When installing **Charmed Kubernetes** [using the Juju bundle][install], you can add the openstack-integrator at
@@ -170,9 +177,8 @@ have also been released.
 
 With the openstack-integrator charm in place, actions which invoke a
 loadbalancer in Kubernetes will automatically request a load balancer from
-OpenStack using Octavia, if available, or Neutron. This can be demonstrated
-with a simple application. Here we will create a simple application running in
-five pods:
+OpenStack using Octavia. This can be demonstrated with a simple application.
+Here we will create a simple application running in five pods:
 
 ```bash
 kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
@@ -231,21 +237,15 @@ have also been released.
 
 #### Note: LBaaS and Security Groups
 
-Charmed Kubernetes and the OpenStack integrator assume by default that you will
-be using Octavia for load balancers, and that the Amphora instances providing
-the LBs will reside in the same subnet as the workers and have at least traffic
-on the NodePort range (30000-32767) open from the Amphora instances to the
-worker instances. In general, Juju assumes that traffic between units in a model
-and other resources used by that model is unrestricted or is otherwise managed
-outside of Juju.
+Charmed Kubernetes and the OpenStack integrator assume by default that the
+Amphora instances providing the LBs will reside in the same subnet as the
+workers and have at least traffic on the NodePort range (30000-32767) open from
+the Amphora instances to the worker instances. In general, Juju assumes that
+traffic between units in a model and other resources used by that model is
+unrestricted or is otherwise managed outside of Juju.
 
-If you are instead using Neutron-based LBaaS, or if you have more restrictions
-on traffic between resources within or used by the model, you may need to
-either set the `manage-security-groups` [config option][charm-config] on the
-OpenStack Integrator charm to `true`, or manage the security group rules
-manually. Setting `manage-security-groups` to `true` will cause Kubernetes to
-ensure that the nodes' port security groups include a rule allowing traffic from
-the Amphorae to the nodes within the NodePort range.
+If you have more restrictions on traffic between resources within or used by
+the model, you may need to manage the security group rules manually.
 
 ### Upgrading the integrator charm
 
@@ -271,6 +271,7 @@ juju debug-log --replay --include openstack-integrator/0
 
 <!-- LINKS -->
 
+[octavia]: https://docs.openstack.org/octavia/latest/reference/introduction.html
 [asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-overlay.yaml
 [asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-lb-overlay.yaml
 [storage]: /kubernetes/docs/storage
