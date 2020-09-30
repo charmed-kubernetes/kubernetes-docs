@@ -27,9 +27,8 @@ granting permissions to dynamically create, for example, Cinder volumes.
 ### Prerequisites
 
 Openstack integration requires [Octavia][octavia] to be available in the
-underlying OpenStack cloud. Without Octavia, both the openstack-integrator
-charm and the openstack-cloud-controller-manager pod that gets deployed into
-Kubernetes will be unable to create load balancers properly.
+underlying OpenStack cloud, both to support Kubernetes LoadBalancer services
+and to support creating a load balancer for the Kubernetes API.
 
 ### Installing
 
