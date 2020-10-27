@@ -177,6 +177,10 @@ be demonstrated with a simple application. Here we will create a simple
 application running in five pods:
 
 ```bash
+# Kubernetes 1.18+
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+
+# Kubernetes 1.17 and below. 
 kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
 ```
 
