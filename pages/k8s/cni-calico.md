@@ -35,6 +35,9 @@ BGP peers to allow cross-subnet traffic to work.
 If Calico is configured to use IPIP mode, then the cloud must be configured to
 allow IPIP (protocol 4) network traffic.
 
+If all else fails, then running Calico with VXLAN encapsulation enabled should
+make it work on most clouds with no special configuration.
+
 ### AWS
 
 On AWS, it is recommended to run Calico in BGP mode. This usually requires the
@@ -64,7 +67,8 @@ that would apply to `charmed-kubernetes` to this bundle also.
 |---------------------|--------|------------------------------------------|----------------------------------------------------------------|
 | calico-node-image   | string | docker.io/calico/node:v3.6.1             | The image id to use for calico/node                            |
 | calico-policy-image | string | docker.io/calico/kube-controllers:v3.6.1 | The image id to use for calico/kube-controllers                |
-| ipip                | string | Never                                    | IPIP mode. Must be one of "Always", "CrossSubnet", or "Never". |
+| ipip                | string | Never                                    | IPIP encapsulation mode. Must be one of "Always", "CrossSubnet", or "Never". This is incompatible with VXLAN encapsulation. If VXLAN encapsulation is enabled, then this must be set to "Never". |
+| vxlan               | string | Never                                    | VXLAN encapsulation mode. Must be one of "Always", "CrossSubnet", or "Never". This is incompatible with IPIP encapsulation. If IPIP encapsulation is enabled, then this must be set to "Never". |
 | nat-outgoing        | bool   | True                                     | Enable NAT on outgoing traffic                                 |
 | cidr                | string | 192.168.0.0/16                           | Network CIDR assigned to Calico. This is applied to the default Calico pool, and is also communicated to the Kubernetes charms for use in kube-proxy configuration. |
 | manage-pools        | bool   | True                                     | If true, a default pool is created using the cidr and ipip charm configuration values. Warning: When manage-pools is enabled, the charm will delete any pools that are unrecognized. |
@@ -109,6 +113,22 @@ traffic only, set the `ipip` charm config to `CrossSubnet`:
 
 ```
 juju config calico ipip=CrossSubnet
+```
+
+## Calico VXLAN configuration
+
+By default, VXLAN encapsulation is disabled. To enable VXLAN encapsulation, set
+the `vxlan` charm config to `Always`:
+
+```
+juju config calico vxlan=Aways
+```
+
+Alternatively, if you would like VXLAN encapsulation to be used for cross-subnet
+traffic only, set the `vxlan` charm config to `CrossSubnet`:
+
+```
+juju config calico vxlan=CrossSubnet
 ```
 
 ## Calico BGP configuration
