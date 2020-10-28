@@ -121,7 +121,7 @@ By default, VXLAN encapsulation is disabled. To enable VXLAN encapsulation, set
 the `vxlan` charm config to `Always`:
 
 ```
-juju config calico vxlan=Aways
+juju config calico vxlan=Always
 ```
 
 Alternatively, if you would like VXLAN encapsulation to be used for cross-subnet
