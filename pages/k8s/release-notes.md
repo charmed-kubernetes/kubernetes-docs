@@ -13,6 +13,43 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+### TBD - TBD
+
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
+## What's new
+
+- Calico VXLAN support
+
+The Calico charm now supports enabling VXLAN encapsulation for Calico network
+traffic. This provides an easier alternative to the direct routing or IPIP
+encapsulation modes, making it possible to run Calico on any Juju cloud without
+special cloud configuration. For more details, see the
+[Calico CNI documentation page][cni-calico].
+
+For a full list of the changes introduced in Kubernetes 1.20, please see the
+[upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md)
+
+## Component upgrades
+
+- TODO
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.20](https://launchpad.net/charmed-kubernetes/+milestone/1.20).
+
+## Notes / Known Issues
+
+- TODO
+
+- Additional known issues scheduled for the first 1.20 bugfix release can be found at [https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1)
+
+## Deprecations and API changes
+
+For details of deprecation notices and API changes for Kubernetes 1.20, please see the
+relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#deprecation)
+
 ### September 30th, 2020 - [charmed-kubernetes-519](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-519/archive/bundle.yaml)
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
