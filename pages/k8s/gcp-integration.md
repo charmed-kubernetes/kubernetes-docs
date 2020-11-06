@@ -215,6 +215,15 @@ Kubernetes  will automatically generate a GCP [Target Pool][target-pool] and the
 relevant forwarding rules.  This can be demonstrated with a simple application. Here we
 will create an application running in five pods:
 
+For **Kubernetes 1.18+** and above, use the `kubectl create` command to
+initiate the deployment :
+
+```bash
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
+```
+
+For **Kubernetes 1.17 and earlier** the `kubectl run` command can be used:
+
 ```bash
 kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
 ```
@@ -323,9 +332,9 @@ juju debug-log --replay --include gcp-integrator/0
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/gcp-integration.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/gcp-integration.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>

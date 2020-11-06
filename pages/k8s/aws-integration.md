@@ -176,11 +176,16 @@ Kubernetes  will automatically generate an AWS Elastic Load Balancer.  This can
 be demonstrated with a simple application. Here we will create a simple
 application running in five pods:
 
-```bash
-# Kubernetes 1.18+
-kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+For **Kubernetes 1.18+** and above, use the `kubectl create` command to
+initiate the deployment :
 
-# Kubernetes 1.17 and below. 
+```bash
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
+```
+
+For **Kubernetes 1.17 and earlier** the `kubectl run` command can be used:
+
+```bash
 kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
 ```
 
@@ -293,9 +298,9 @@ If you are an AWS user, you may also be interested in how to
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can 
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/aws-integration.md" class="p-notification__action">edit this page</a> 
-    or 
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/aws-integration.md" class="p-notification__action">edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
   </p>
 </div>

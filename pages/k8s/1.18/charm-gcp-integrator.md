@@ -146,7 +146,7 @@ The following script starts the hello-world pod behind a GCE-backed load-balance
 ```sh
 #!/bin/bash
 
-kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
 kubectl expose deployment hello-world --type=LoadBalancer --name=hello
 watch kubectl get svc -o wide --selector=run=load-balancer-example
 ```
