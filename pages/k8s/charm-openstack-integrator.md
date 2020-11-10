@@ -124,7 +124,7 @@ The following script starts the hello-world pod behind a OpenStack-backed load-b
 
 kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
 kubectl expose deployment hello-world --type=LoadBalancer --name=hello
-watch kubectl get svc -o wide --selector=run=load-balancer-example
+watch kubectl get svc hello -o wide
 ```
 
 ## Configuration
