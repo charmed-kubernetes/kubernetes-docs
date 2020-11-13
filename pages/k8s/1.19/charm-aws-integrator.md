@@ -207,12 +207,11 @@ EOY
 
 The following script starts the hello-world pod behind an AWS Elastic Load Balancer.
 
-```sh
-#!/bin/bash
-
-kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
-kubectl expose deployment hello-world --type=LoadBalancer --name=hello
-watch kubectl get svc hello -o wide 
+```bash
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
+kubectl scale deployment hello-world --replicas=5
+kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port=8080
+watch kubectl get svc hello -o wide
 ```
 
 ## Configuration
