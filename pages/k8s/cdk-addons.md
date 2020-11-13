@@ -69,7 +69,7 @@ the `enable-dashboard-addon` [kubernetes-master configuration][] option to `fals
 deploy the charm into a Kubernetes model on your cluster:
 
 ```bash
-juju config -m cluster-model kubernetes-master enable-dashboard-addon=false
+juju config -m cluster-model kubernetes-master enable-dashboard-addons=false
 juju add-k8s k8s-cloud --controller mycontroller
 juju add-model kubernetes-dashboard k8s-cloud
 juju deploy cs:~containers/kubernetes-dashboard-bundle
