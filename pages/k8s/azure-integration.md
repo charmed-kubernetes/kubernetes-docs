@@ -176,7 +176,7 @@ Here are the commands for Kubernetes 1.17 and below where the kubectl run comman
 # Kubernetes 1.17 and below
 kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
 kubectl expose deployment hello-world --type=LoadBalancer --name=hello
-watch kubectl get svc -o wide --selector=run=load-balancer-example
+watch kubectl get svc hello -o wide
 ```
 
 You can then verify this works by loading the described IP address (on port
