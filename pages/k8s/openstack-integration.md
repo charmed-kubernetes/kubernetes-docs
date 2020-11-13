@@ -177,39 +177,31 @@ have also been released.
 With the openstack-integrator charm in place, actions which invoke a
 loadbalancer in Kubernetes will automatically request a load balancer from
 OpenStack using Octavia. This can be demonstrated with a simple application.
-Here we will create a simple application running in five pods:
-
-For **Kubernetes 1.18+** and above, use the `kubectl create` command to
-initiate the deployment :
+Here we will create a simple application and scale it to five pods:
 
 ```bash
-kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0 --replicas=5 --port=8080
-```
-
-For **Kubernetes 1.17 and earlier** the `kubectl run` command can be used:
-
-```bash
-kubectl run hello-world --replicas=5 --labels="run=load-balancer-example" --image=gcr.io/google-samples/node-hello:1.0  --port=8080
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
+kubectl scale deployment hello-world --replicas=5
 ```
 
 You can verify that the application and replicas have been created with:
 
 ```bash
- kubectl get deployments hello-world
- ```
+kubectl get deployments hello-world
+```
 
- Which should return output similar to:
+Which should return output similar to:
 
- ```bash
- NAME              READY   UP-TO-DATE   AVAILABLE   AGE
- hello-world      5/5               5                            5             2m38s
+```bash
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+hello-world      5/5               5                            5             2m38s
 ```
 
 To create a LoadBalancer, the application should now be exposed as a service:
 
 ```bash
- kubectl expose deployment hello-world --type=LoadBalancer --name=hello
- ```
+kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port 8080
+```
 
 To check that the service is running correctly:
 
