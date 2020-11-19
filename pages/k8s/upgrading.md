@@ -175,8 +175,14 @@ copy:
 
 #### 2. Fetch a local copy of the snapshot
 
-You can use the `juju scp` command from the output above to download a local copy:
-`juju scp etcd/X:/home/ubuntu/etcd-snapshots/etcd-snapshot-xxxx-xx-xx-xx.xx.xx.tar.gz .`
+You can use the `juju scp` command from the output above to download a local copy. For example:
+
+```
+juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.tar.gz .
+```
+
+Substitute in your own etcd unit number and filename, or copy and paste the command from the previous
+output. Remember to add the ` .` at the end to copy to your local directory! 
 
 
 #### 3. Upgrade
