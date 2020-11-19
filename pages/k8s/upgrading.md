@@ -162,14 +162,28 @@ this data before running an upgrade. This is covered in more detail in the
 ```bash
 juju run-action etcd/0 snapshot --wait
 ```
-You should see confirmation of the snapshot being created, and the location of the file
-_on the **etcd** unit_
+You should see confirmation of the snapshot being created, and the command needed to download the snapshot  
+_from the **etcd** unit_. See the following truncated, example output:
+
+```
+...
+copy:
+      cmd: juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.tar.gz
+        .
+...
+```
 
 #### 2. Fetch a local copy of the snapshot
 
-Knowing the path to the snapshot file from the output of the above command, you can
-download a local copy:
-`bash juju scp etcd/0:/home/ubuntu/etcd-snapshots/<filename>.tar.gz .`
+You can use the `juju scp` command from the output above to download a local copy. For example:
+
+```
+juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.tar.gz .
+```
+
+Substitute in your own etcd unit number and filename, or copy and paste the command from the previous
+output. Remember to add the ` .` at the end to copy to your local directory! 
+
 
 #### 3. Upgrade
 
