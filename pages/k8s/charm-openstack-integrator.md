@@ -28,23 +28,23 @@ When on OpenStack, this charm can be deployed, granted trust via Juju to access
 OpenStack, and then related to an application that supports the [interface][].
 
 For example, [Charmed Kubernetes][] has support for this, and can be deployed with the
-following bundle overlay:
+following bundle overlay ([download it here][asset-openstack-overlay]):
 
 ```yaml
 applications:
   openstack-integrator:
     charm: cs:~containers/openstack-integrator
     num_units: 1
+    trust: true
 relations:
-  - ['openstack-integrator', 'kubernetes-master']
-  - ['openstack-integrator', 'kubernetes-worker']
+  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 
-Using Juju 2.4-beta1 or later:
+Using Juju 2.4 or later:
 
 ```
-juju deploy cs:charmed-kubernetes --overlay ./k8s-openstack-overlay.yaml
-juju trust openstack-integrator
+juju deploy cs:charmed-kubernetes --overlay ./k8s-openstack-overlay.yaml --trust
 ```
 
 To deploy with earlier versions of Juju, you will need to provide the cloud
@@ -332,5 +332,6 @@ recommended approach.  If not set, will use the upstream default.
 
 <!-- ACTIONS ENDS -->
 
+[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-overlay.yaml
 [interface]: https://github.com/juju-solutions/interface-openstack-integration
 [Charmed Kubernetes]: https://jaas.ai/charmed-kubernetes
