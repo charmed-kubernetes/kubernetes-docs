@@ -3,12 +3,12 @@ wrapper_template: "kubernetes/docs/base_docs.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Kubernetes Snaps"
-  description: How to manage and refresh snaps
-keywords: snaps
+  title: "Kubernetes Packages"
+  description: How to manage / refresh snaps and install Debian packages
+keywords: snaps, debs
 tags: [reference]
 sidebar: k8smain-sidebar
-permalink: snaps.html
+permalink: packages.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -159,7 +159,37 @@ The source code for the snaps can be found here:
 
 <https://launchpad.net/snap-kube-proxy>
 
+## Debian Packages
 
+Debian packages are available through a PPA which provides the following:
+
+* <https://launchpad.net/kubectl>
+* <https://launchpad.net/kubelet>
+* <https://launchpad.net/kubeadm>
+* <https://launchpad.net/kubernetes-cni>
+* <https://launchpad.net/cri-tools>
+
+To install, first add the PPA of desired version:
+
+```bash
+sudo apt-add-repository ppa:k8s-maintainers/1.19
+```
+
+A list of available PPA's can be found at <https://launchpad.net/~k8s-maintainers>.
+
+Once the PPA is added, installing the tools can be performed with:
+
+```bash
+sudo apt install kubeadm
+```
+
+<div class="p-notification--information">
+  <p class="p-notification__response">
+  Note: If you install tools such as **kubectl** from both the snap
+  store and the apt archive they will be in different locations. Depending on your
+  environment the snap may be resolved before the Debian installed package.
+  </p>
+</div>
 
 <!-- LINKS -->
 
