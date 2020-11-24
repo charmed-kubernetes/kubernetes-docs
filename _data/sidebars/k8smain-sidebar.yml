@@ -318,7 +318,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Kubernetes snaps
+    - title: Kubernetes packages
       url: /snaps
       output: web, pdf
       type: page
