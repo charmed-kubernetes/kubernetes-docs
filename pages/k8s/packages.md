@@ -4,7 +4,7 @@ markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "Kubernetes Packages"
-  description: How to manage / refresh snaps and install Debian packages
+  description: How to manage and refresh snaps or Debian packages
 keywords: snaps, debs
 tags: [reference]
 sidebar: k8smain-sidebar
@@ -200,3 +200,14 @@ sudo apt install kubeadm
 [kubeadm-snap]: https://snapcraft.io/kubeadm
 [kubefed-snap]: https://snapcraft.io/kubefed
 [kubectl-snap]: https://snapcraft.io/kubectl
+
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/packages.md" class="p-notification__action">edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>
