@@ -213,9 +213,6 @@ There is a known issue thatthe `kubernetes-master` units
 need to be restarted after the certificate change. These units may settle in
 the <code>active/idle</code> state but all new pods will hang in the 
 <code>pending</code> state. . <br><br>
-<a class='p-button--brand' href='/kubernetes/docs/1.19/upgrading'>Upgrade to 1.19 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.18/upgrading'>Upgrade to 1.18 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.17/upgrading'>Upgrade to 1.17 </a>
   </p>
 </div>
 
@@ -228,9 +225,6 @@ the <code>active/idle</code> state but all new pods will hang in the
   minutes for model to settle back into the <code>active/idle</code> state.
   </p>
 </div>
-
- > **Important**: 
-
 
 ## Actions
 
