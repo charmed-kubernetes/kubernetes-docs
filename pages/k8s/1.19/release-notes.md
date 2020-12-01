@@ -4,11 +4,11 @@ markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
-  description: Release notes for CDK
+  description: Release notes for CDK 1.19
 keywords: kubernetes,  release, notes
 tags: [news]
 sidebar: k8smain-sidebar
-permalink: release-notes.html
+permalink: 1.19/release-notes.html
 layout: [base, ubuntu-com]
 toc: False
 ---
