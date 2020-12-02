@@ -76,10 +76,34 @@ juju unexpose keystone
 juju unexpose openstack-dashboard
 ```
 
+## Using existing Keystone from Openstack model
+
+If you have an existing Keystone application deployed as part of the Openstack in a separate Juju model,
+it is possible to re-use it for authenticating and authorising users in Kubernetes.
+
+To do it, first deploy [openstack-integrator charm][openstack-integrator]
+
+```bash
+juju deploy cs:~containers/openstack-integrator
+```
+Use 'juju trust' to grant openstack-integrator a permission to access Openstack model,
+or configure credentials config parameter manually
+
+```bash
+juju trust openstack-integrator
+```
+
+Finally add a relation between kubernetes-master and openstack-integrator
+
+```bash
+juju add-relation kubernetes-master:keystone-credentials openstack-integrator:keystone-credentials
+```
+
 ## Fetch the Keystone script
 
-When related to Keystone, the Kubernetes master application will generate a utility
-script. This should be copied to the local client with:
+When related to Keystone directly (or to openstack-integrator keystone-credentials interface),
+ the Kubernetes master application will generate a utility script. 
+This should be copied to the local client with:
 
 ```bash
 juju scp kubernetes-master/0:kube-keystone.sh ~/kube-keystone.sh
@@ -292,6 +316,8 @@ configuring Keystone/LDAP.
 [keystone-bundle]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/keystone.yaml
 [docs-ldap-keystone]: https://jujucharms.com/keystone-ldap
 [trouble]: /kubernetes/docs/troubleshooting/#troubleshooting-keystoneldap-issues
+[openstack-integrator]: /kubernetes/docs/openstack-integration
+
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
