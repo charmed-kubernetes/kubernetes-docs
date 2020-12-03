@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '52'
-charm_name: azure-integrator
 bundle_release: '1.19'
 ---
 

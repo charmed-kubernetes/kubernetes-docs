@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '69'
-charm_name: aws-integrator
 bundle_release: '1.19'
 ---
 

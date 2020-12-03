@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '746'
-charm_name: canal
 bundle_release: '1.19'
 ---
 

@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '62'
-charm_name: gcp-integrator
 bundle_release: '1.19'
 ---
 

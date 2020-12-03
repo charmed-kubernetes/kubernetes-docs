@@ -14,8 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '97'
-charm_name: containerd
+charm_revision: '99'
 bundle_release: '1.19'
 ---
 

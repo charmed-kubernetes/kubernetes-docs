@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '151'
-charm_name: tigera-secure-ee
 bundle_release: '1.19'
 ---
 

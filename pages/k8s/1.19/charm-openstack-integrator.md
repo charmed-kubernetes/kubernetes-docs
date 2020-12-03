@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '93'
-charm_name: openstack-integrator
 bundle_release: '1.19'
 ---
 

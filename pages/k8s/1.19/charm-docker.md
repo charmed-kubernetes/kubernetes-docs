@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '89'
-charm_name: docker
 bundle_release: '1.19'
 ---
 

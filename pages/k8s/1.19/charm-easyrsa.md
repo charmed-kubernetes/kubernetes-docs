@@ -14,8 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '339'
-charm_name: easyrsa
+charm_revision: '341'
 bundle_release: '1.19'
 ---
 

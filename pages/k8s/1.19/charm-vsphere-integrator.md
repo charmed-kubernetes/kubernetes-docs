@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '48'
-charm_name: vsphere-integrator
 bundle_release: '1.19'
 ---
 

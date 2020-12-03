@@ -15,7 +15,6 @@ layout:
     - ubuntu-com
 toc: false
 charm_revision: '755'
-charm_name: calico
 bundle_release: '1.19'
 ---
 

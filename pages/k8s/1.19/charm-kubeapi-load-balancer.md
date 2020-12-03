@@ -14,8 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '753'
-charm_name: kubeapi-load-balancer
+charm_revision: '754'
 bundle_release: '1.19'
 ---
 

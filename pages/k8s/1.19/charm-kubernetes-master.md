@@ -14,8 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '912'
-charm_name: kubernetes-master
+charm_revision: '918'
 bundle_release: '1.19'
 ---
 
