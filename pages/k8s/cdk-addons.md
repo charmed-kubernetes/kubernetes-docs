@@ -84,6 +84,22 @@ juju config kubernetes-master enable-dashboard-addons=false
 juju config kubernetes-master enable-dashboard-addons=true
 ```
 
+For additional control over the Kubernetes Dashboard (Different versions,
+authentication methods...) you can also deploy it into the cluster using the
+[Kubernetes Dashboard operator bundle](kubernetes-dashboard-bundle).
+
+To do so, set the `enable-dashboard-addons` [kubernetes-master configuration][]
+option to `false` and deploy the charm into a Kubernetes model on your cluster:
+
+```bash
+juju config -m cluster-model kubernetes-master enable-dashboard-addons=false
+juju add-k8s k8s-cloud --controller mycontroller
+juju add-model kubernetes-dashboard k8s-cloud
+juju deploy cs:~containers/kubernetes-dashboard-bundle
+```
+
+For accessing the Dashboard use the same instructions in the [Operations page][].
+
 ## Nvidia plugin
 Sourced from: <https://github.com/NVIDIA/k8s-device-plugin.git>
 
