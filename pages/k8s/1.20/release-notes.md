@@ -19,6 +19,14 @@ toc: False
 
 ## What's new
 
+- Calico VXLAN support
+
+The Calico charm now supports enabling VXLAN encapsulation for Calico network
+traffic. This provides an easier alternative to the direct routing or IPIP
+encapsulation modes, making it possible to run Calico on any Juju cloud without
+special cloud configuration. For more details, see the
+[Calico CNI documentation page][cni-calico].
+
 ## Component upgrades
 
 ## Fixes
