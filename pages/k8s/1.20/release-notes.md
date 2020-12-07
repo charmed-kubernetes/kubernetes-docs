@@ -34,7 +34,7 @@ Kubernetes cluster instead of being managed by the `cdk-addons` snap. This allow
 for more control over the component, including additional configuration options
 and easier contribution of bug fixes or upgrades to that component.
 
-Details on how to set this up can be found in the [CoreDNS section of the Addons page][corends].
+Details on how to set this up can be found in the [CoreDNS section of the Addons page][coredns].
 
 ## Component upgrades
 
