@@ -27,6 +27,15 @@ encapsulation modes, making it possible to run Calico on any Juju cloud without
 special cloud configuration. For more details, see the
 [Calico CNI documentation page][cni-calico].
 
+- CoreDNS operator charm support
+
+The CoreDNS component can now be deployed as an operator charm inside the
+Kubernetes cluster instead of being managed by the `cdk-addons` snap. This allows
+for more control over the component, including additional configuration options
+and easier contribution of bug fixes or upgrades to that component.
+
+Details on how to set this up can be found in the [CoreDNS section of the Addons page][corends].
+
 ## Component upgrades
 
 ## Fixes
@@ -57,3 +66,4 @@ Please see [this page][rel] for release notes of earlier versions.
 [authn]: /kubernetes/docs/auth#authn
 [veth-mtu]: https://docs.projectcalico.org/networking/mtu
 [1.19-calico]: /kubernetes/docs/1.19/charm-calico
+[coredns]: /kubernetes/docs/cdk-addons#coredns
