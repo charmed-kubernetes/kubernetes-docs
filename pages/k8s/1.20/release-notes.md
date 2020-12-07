@@ -36,6 +36,15 @@ and easier contribution of bug fixes or upgrades to that component.
 
 Details on how to set this up can be found in the [CoreDNS section of the Addons page][coredns].
 
+- Kubernetes Dashboard operator charm support
+
+The Kubernetes Dashboard component can now be deployed as an operator charm inside the
+Kubernetes cluster instead of being managed by the `cdk-addons` snap. This allows
+for more control over the component, including additional configuration options
+and easier contribution of bug fixes or upgrades to that component.
+
+Details on how to set this up can be found in the [Kubernetes Dashboard section of the Addons page][dashboard].
+
 ## Component upgrades
 
 ## Fixes
@@ -67,3 +76,4 @@ Please see [this page][rel] for release notes of earlier versions.
 [veth-mtu]: https://docs.projectcalico.org/networking/mtu
 [1.19-calico]: /kubernetes/docs/1.19/charm-calico
 [coredns]: /kubernetes/docs/cdk-addons#coredns
+[dashboard]: /kubernetes/docs/cdk-addons#kubernetes-dashboard
