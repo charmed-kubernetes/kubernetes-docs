@@ -57,8 +57,8 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Deprecations and API changes
 
-For details of deprecation notices and API changes for Kubernetes 1.19, please see the
-relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md#deprecation)
+For details of deprecation notices and API changes for Kubernetes 1.20, please see the
+relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#deprecation)
 
 ## Previous releases
 
