@@ -15,7 +15,7 @@ sidebar: k8smain-sidebar
 tags:
 - reference
 toc: false
-wrapper_template: kubernetes/docs/base_docs.html
+wrapper_template: templates/docs/markdown.html
 ---
 
 Etcd is a highly available distributed key value store that provides a reliable

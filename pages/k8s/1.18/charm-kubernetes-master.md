@@ -16,7 +16,7 @@ sidebar: k8smain-sidebar
 tags:
 - reference
 toc: false
-wrapper_template: kubernetes/docs/base_docs.html
+wrapper_template: templates/docs/markdown.html
 ---
 
 This charm is an encapsulation of the Kubernetes master processes and the
