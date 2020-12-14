@@ -256,6 +256,11 @@ generally be upgraded at any time with the following command:
 juju upgrade-charm openstack-integrator
 ```
 
+### Using Keystone
+
+The `openstack-integrator` also provides an interface for authentication and authorisation using 
+Keystone. This is covered in detail in the [Keystone and LDAP documentation][ldap].
+
 ### Troubleshooting
 
 If you have any specific problems with the openstack-integrator, you can report bugs on
@@ -278,6 +283,7 @@ juju debug-log --replay --include openstack-integrator/0
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://jujucharms.com/u/containers/openstack-integrator/
 [install]: /kubernetes/docs/install-manual
+[ldap]: /kubernetes/docs/ldap
 [charm-config]: https://ubuntu.com/kubernetes/docs/charm-openstack-integrator#configuration
 
 <!-- FEEDBACK -->
