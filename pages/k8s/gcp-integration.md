@@ -91,7 +91,7 @@ GCP storage types.
 
 GCP storage currently comes in two types - SSD (pd-ssd) or
 'standard'(pd-standard). To use these, we need to create a storage classes in
-Kubernetes.  
+Kubernetes.
 
 For the standard disks:
 
