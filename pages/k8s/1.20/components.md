@@ -14,7 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-bundle_revision: '552'
+bundle_revision: '559'
 bundle_release: '1.20'
 ---
 
@@ -337,25 +337,20 @@ These are the container images used by this release:
 
 The following snaps are used by this release of Charmed Kubernetes:
 
-
 | snap  | confinement | summary | link |
 |-------|-------------|---------|------|
-|aws-cli| ? | Resource to side-load aws-cli snap in network-restricted deployments. | ? |
-|core| ? | core snap | ? |
-|etcd| ? | Snap package of etcd | ? |
+|aws-cli| classic | Resource to side-load aws-cli snap in network-restricted deployments. | [store page](https://snapcraft.io/aws-cli) |
+|core| strict | core snap | [store page](https://snapcraft.io/core) |
+|etcd| classic | Snap package of etcd | [store page](https://snapcraft.io/etcd) |
 |gcloud| ? | Resource to side-load gcloud snap in network-restricted deployments. | ? |
-|cdk-addons| ? | CDK addons snap | ? |
-|kube-apiserver| ? | kube-apiserver snap | ? |
-|kube-controller-manager| ? | kube-controller-manager snap | ? |
-|kube-proxy| ? | kube-proxy snap | ? |
-|kube-scheduler| ? | kube-scheduler snap | ? |
-|kubectl| ? | kubectl snap | ? |
-|kubelet| ? | kubelet snap | ? |
-|openstackclients| ? | Resource to side-load openstackclients snap in network-restricted deployments. | ? |
-
-
-
-
+|cdk-addons| strict | CDK addons snap | [store page](https://snapcraft.io/cdk-addons) |
+|kube-apiserver| strict | kube-apiserver snap | [store page](https://snapcraft.io/kube-apiserver) |
+|kube-controller-manager| strict | kube-controller-manager snap | [store page](https://snapcraft.io/kube-controller-manager) |
+|kube-proxy| classic | kube-proxy snap | [store page](https://snapcraft.io/kube-proxy) |
+|kube-scheduler| strict | kube-scheduler snap | [store page](https://snapcraft.io/kube-scheduler) |
+|kubectl| classic | kubectl snap | [store page](https://snapcraft.io/kubectl) |
+|kubelet| classic | kubelet snap | [store page](https://snapcraft.io/kubelet) |
+|openstackclients| classic | Resource to side-load openstackclients snap in network-restricted deployments. | [store page](https://snapcraft.io/openstackclients) |
 
 
 <!-- LINKS -->
