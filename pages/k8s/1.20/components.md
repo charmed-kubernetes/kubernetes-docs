@@ -27,7 +27,6 @@ which comprise the 1.20 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs'> Documentation </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.20/release-notes'>Release notes </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.20/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
