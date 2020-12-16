@@ -330,6 +330,55 @@ These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
 
+-   addon-resizer-amd64:1.8.9
+-   addon-resizer-arm64:1.8.9
+-   addon-resizer-ppc64le:1.8.9
+-   addon-resizer-s390x:1.8.9
+-   cephcsi/cephcsi:v2.1.2
+-   coredns/coredns:1.6.7
+-   coreos/kube-state-metrics:v1.9.7
+-   defaultbackend-amd64:1.5
+-   defaultbackend-arm64:1.5
+-   defaultbackend-s390x:1.4
+-   diverdane/nginxdualstack:1.0.0
+-   external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
+-   google-samples/node-hello:1.0
+-   jujusolutions/juju-db:4.0
+-   jujusolutions/jujud-operator:2.8.6
+-   jujusolutions/jujud-operator:2.8.7
+-   k8s-artifacts-prod/ingress-nginx/controller:v0.34.1
+-   k8s-dns-dnsmasq-nanny:1.15.10
+-   k8s-dns-kube-dns:1.15.10
+-   k8s-dns-sidecar:1.15.10
+-   k8scloudprovider/cinder-csi-plugin:v1.18.0
+-   k8scloudprovider/k8s-keystone-auth:v1.19.0
+-   k8scloudprovider/openstack-cloud-controller-manager:v1.18.0
+-   k8scsi/csi-attacher:v2.1.1
+-   k8scsi/csi-node-driver-registrar:v1.2.0
+-   k8scsi/csi-node-driver-registrar:v1.3.0
+-   k8scsi/csi-provisioner:v1.4.0
+-   k8scsi/csi-resizer:v0.4.0
+-   k8scsi/csi-resizer:v0.5.0
+-   k8scsi/csi-snapshotter:v1.2.2
+-   kubernetes-ingress-controller/nginx-ingress-controller-ppc64le:0.20.0
+-   kubernetesui/dashboard:v2.0.1
+-   kubernetesui/metrics-scraper:v1.0.4
+-   library/busybox:1.32
+-   library/nginx:1.18
+-   library/ubuntu:focal
+-   metrics-server-amd64:v0.3.6
+-   metrics-server-arm64:v0.3.6
+-   metrics-server-ppc64le:v0.3.6
+-   metrics-server-s390x:v0.3.6
+-   microbot-amd64:latest
+-   microbot-arm64:latest
+-   microbot-s390x:latest
+-   nvidia/k8s-device-plugin:v0.7.2
+-   pause:3.2
+-   rancher/rancher:latest
+-   registry-amd64:2.6
+-   registry-arm64:2.6
+-   sonatype/nexus3:latest
 
 <!-- CONTAINER IMAGES END -->
 
