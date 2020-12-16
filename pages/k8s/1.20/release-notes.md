@@ -15,7 +15,7 @@ toc: False
 
 # 1.20
 
-### December XXth, 2020 - [charmed-kubernetes-XXX](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+### December 16th, 2020 - [charmed-kubernetes-559](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-559/archive/bundle.yaml)
 
 ## What's new
 
