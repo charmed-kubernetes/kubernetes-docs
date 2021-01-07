@@ -252,7 +252,7 @@ juju scp kubernetes-master/0:config ~/.kube/config
 Verify secrets have been created for expected users:
 
 ```bash
-juju run --unit kubernetes-master/0 'kubectl --kubeconfig /root/.kube/config get secrets'
+juju run --unit kubernetes-master/0 'kubectl --kubeconfig /root/.kube/config get secrets -n kube-system --field-selector type=juju.is/token-auth'
 ```
 
 Minimally, secrets for the following users should be listed:
