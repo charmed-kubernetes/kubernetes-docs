@@ -13,6 +13,13 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.20+ck1 Bugfix release
+
+### January XXth, 2021 - [charmed-kubernetes-545](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+
+## Fixes
+
+
 # 1.20
 
 ### December 16th, 2020 - [charmed-kubernetes-559](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-559/archive/bundle.yaml)
