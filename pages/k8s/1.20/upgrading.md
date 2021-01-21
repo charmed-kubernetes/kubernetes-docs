@@ -32,7 +32,7 @@ This page describes the general upgrade process. It is important to follow the s
     <span class="p-notification__status">Caution:</span>
 There is a known issue 
 <a href="https://bugs.launchpad.net/juju/+bug/1904619"> (https://bugs.launchpad.net/juju/+bug/1904619)</a>
-with container profiles not surviving an upgrade. If your container-based applications fail to
+with container profiles not surviving an upgrade in clouds running on LXD. If your container-based applications fail to
 work properly after an upgrade, please see this 
 <a href="/kubernetes/docs/troubleshooting#lxd"> topic on the troubleshooting page</a>
   </p>
