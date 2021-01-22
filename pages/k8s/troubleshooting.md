@@ -118,8 +118,9 @@ Running the `juju-crashdump` script will generate a tarball of debug information
 <a id="lxd"> </a>
 ### Charms deployed to LXD containers fail after upgrade/reboot
 
-For deployments using Juju's `localhost` cloud, which deploys charms to LXD/LXC containers, there is
-a known issue ([https://bugs.launchpad.net/juju/+bug/1904619](https://bugs.launchpad.net/juju/+bug/1904619))
+For deployments using Juju's `localhost` cloud, which deploys charms to LXD/LXC containers, or other 
+cases where applications are deployed to LXD, there is a known issue
+([https://bugs.launchpad.net/juju/+bug/1904619](https://bugs.launchpad.net/juju/+bug/1904619))
 with the profiles applied by Juju. The LXD profile used by Juju is named after the charm, including
 the revision number. Upgrading the charm causes Juju to create a new profile for LXD which does not
 necessarily contain the same settings which were originally supplied. If services based on LXD
