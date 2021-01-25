@@ -188,7 +188,7 @@ It could also contain a base64-encoded CA certificate in endpoint-tls-ca key val
 
 This can be used from bundles with 'include-base64://' (see
 https://jujucharms.com/docs/stable/charms-bundles#setting-charm-configurations-options-in-a-bundle),
-or from the command-line with 'juju config openstack credentials="$(base64 /path/to/file)"'.
+or from the command-line with 'juju config openstack-integrator credentials="$(base64 /path/to/file)"'.
 
 It is strongly recommended that you use 'juju trust' instead, if available.
 
