@@ -33,6 +33,18 @@ in the previously used "basic_auth.csv" and "known_tokens.csv" will be migrated 
 secrets and new kubeconfig files will be created during the upgrade. Administrators
 should update any existing kubeconfig files that are used outside of the cluster.
 
+As of Kubernetes 1.19, kube-proxy's userspace proxier no longer works. Before you
+upgrade, check the proxy-extra-args configs to make sure that the userspace proxy
+mode is not being used in your cluster:
+
+```
+juju config kubernetes-master proxy-extra-args
+juju config kubernetes-worker proxy-extra-args
+```
+
+If you see `proxy-mode=userspace` in the charm configs, remove it, then proceed
+with the upgrade.
+
 Please follow the [upgrade instructions for 1.19](/kubernetes/docs/1.19/upgrading).
 
 
