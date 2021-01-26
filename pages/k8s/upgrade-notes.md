@@ -37,7 +37,7 @@ As of Kubernetes 1.19, kube-proxy's userspace proxier no longer works. Before yo
 upgrade, check the proxy-extra-args configs to make sure that the userspace proxy
 mode is not being used in your cluster:
 
-```
+```bash
 juju config kubernetes-master proxy-extra-args
 juju config kubernetes-worker proxy-extra-args
 ```
