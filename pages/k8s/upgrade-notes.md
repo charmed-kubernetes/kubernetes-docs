@@ -33,6 +33,10 @@ in the previously used "basic_auth.csv" and "known_tokens.csv" will be migrated 
 secrets and new kubeconfig files will be created during the upgrade. Administrators
 should update any existing kubeconfig files that are used outside of the cluster.
 
+There is a [known issue](https://bugs.launchpad.net/charm-etcd/+bug/1913227)
+with etcd 3.2 and Kubernetes 1.19. If you are still running etcd 3.2, upgrade
+to etcd 3.4 prior to upgrading Kubernetes.
+
 As of Kubernetes 1.19, kube-proxy's userspace proxier no longer works. Before you
 upgrade, check the proxy-extra-args configs to make sure that the userspace proxy
 mode is not being used in your cluster:
