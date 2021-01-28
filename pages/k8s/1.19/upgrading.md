@@ -484,6 +484,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
+[supported-versions]: /kubernetes/docs/supported-versions
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
