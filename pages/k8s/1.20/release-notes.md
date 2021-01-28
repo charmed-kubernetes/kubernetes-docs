@@ -19,6 +19,18 @@ toc: False
 
 ## Fixes
 
+- Secret names
+
+[LP 1906732](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1906732)
+highlighted an issue where `kubernetes-worker` units would overwrite existing
+secrets when deployed as different application names. This lead to some worker
+units losing the ability to authenticate with the cluster. This has be resolved
+by ensuring new secrets are uniquely named in the form: `auth-$username-$random`.
+
+A list of additional bug fixes and other minor feature updates in this release
+can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1).
+
 
 # 1.20
 
