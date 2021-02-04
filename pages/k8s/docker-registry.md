@@ -27,7 +27,7 @@ When deployed and related to the cluster as described below, this
 registry will be checked first for any image requests, so it can be used
 in addition to public registries. For more details of the mechanics of 
 the Docker Registry, see the
-[upstream documentation at https://docs.docker.com/registry][upstream registry].
+[upstream documentation at https://docs.docker.com/registry][upstream-registry].
 
 ## Deploying
 
