@@ -19,6 +19,11 @@ toc: False
 
 ## Fixes
 
+A list of bug fixes and other minor feature updates in this release can be found at
+[https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1).
+
+## Notes / Known Issues
+
 - Secret names
 
 [LP 1906732](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1906732)
@@ -27,10 +32,13 @@ secrets when deployed as different application names. This lead to some worker
 units losing the ability to authenticate with the cluster. This has be resolved
 by ensuring new secrets are uniquely named in the form: `auth-$username-$random`.
 
-A list of additional bug fixes and other minor feature updates in this release
-can be found at
-[https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.20+ck1).
+- Juju and GCP
 
+[LP 1761838](https://bugs.launchpad.net/juju/+bug/1761838) describes an issue
+with Juju and Google cloud where deployments may fail due to FAN networking.
+Workaround this by disabling FAN configuration for Google cloud models:
+
+`juju model-config -m <model_name> fan-config="" container-networking-method=""`
 
 # 1.20
 
