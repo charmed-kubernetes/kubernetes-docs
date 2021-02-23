@@ -15,7 +15,7 @@ toc: False
 
 # 1.20+ck1 Bugfix release
 
-### January XXth, 2021 - [charmed-kubernetes-545](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+### February 23rd, 2021 - [charmed-kubernetes-596](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-596/archive/bundle.yaml)
 
 ## Fixes
 
