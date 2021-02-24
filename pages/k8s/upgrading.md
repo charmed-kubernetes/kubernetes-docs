@@ -280,7 +280,7 @@ juju upgrade-charm kubernetes-master
 Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.19 version of **Kubernetes**, you would enter:
 
 ```bash
-juju config kubernetes-master channel=1.18/stable
+juju config kubernetes-master channel=1.19/stable
 ```
 
 If you wanted to try a release candidate for 1.20, the channel would be `1.20/candidate`.
