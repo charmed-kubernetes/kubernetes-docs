@@ -1,6 +1,6 @@
-## Charmed Distribution of Kubernetes docs
+## Charmed Kubernetes documentation
 
-This is a repository for iterating on new versions of the CDK docs.
+This is a repository for iterating on new versions of the Charmed Kubernetes docs.
 This official docs are published at :
 [https://www.ubuntu.com/kubernetes/docs](https://www.ubuntu.com/kubernetes/docs)
 
