@@ -1,5 +1,5 @@
 ---
-wrapper_template: kubernetes/docs/base_docs.html
+wrapper_template: templates/docs/markdown.html
 markdown_includes:
   nav: kubernetes/docs/shared/_side-navigation.md
 context:
@@ -14,7 +14,7 @@ layout:
     - base
     - ubuntu-com
 toc: false
-charm_revision: '173'
+charm_revision: '174'
 bundle_release: '1.20'
 ---
 
