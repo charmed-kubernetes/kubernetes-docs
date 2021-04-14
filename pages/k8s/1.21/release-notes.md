@@ -19,7 +19,22 @@ toc: False
 
 ## What's new
 
+- Container images by release
+
+[LP 1891530](https://bugs.launchpad.net/cdk-addons/+bug/1891530) describes an
+upgrade failure for deployments that use a private image registry. The Charmed
+Kubernetes release process now publishes a
+[list of required images per-release][images-per-release] for administrators
+to easily determine what registry changes are needed prior to an upgrade.
+
 ## Component upgrades
+
+- cloud-pprovider-openstack 1.20.0
+- coredns 1.8.3
+- kube-state-metrics 1.9.8
+- kubernetes-dashboard 2.2.0
+- nginx-ingress 0.44.0
+- pause 3.4.1
 
 ## Fixes
 
@@ -28,12 +43,13 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes / Known Issues
 
+- [LP 1920216](https://bugs.launchpad.net/operator-metallb/+bug/1920216) MetalLB
+speaker pod logs error with "selfLink was empty, can't make reference".
 
 ## Deprecations and API changes
 
 For details of other deprecation notices and API changes for Kubernetes 1.21, please see the
 relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.21.md#deprecation)
-
 
 ## Previous releases
 
@@ -42,4 +58,4 @@ Please see [this page][rel] for release notes of earlier versions.
 <!--LINKS-->
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [rel]: /kubernetes/docs/release-notes
-
+[images-per-release]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
