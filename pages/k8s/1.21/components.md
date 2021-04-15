@@ -329,38 +329,75 @@ These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
 
+-  cdkbot/microbot-amd64:latest
+-  cdkbot/microbot-arm64:latest
+-  cdkbot/microbot-s390x:latest
+-  cdkbot/registry-amd64:2.6
+-  cdkbot/registry-arm64:2.6
+-  cephcsi/cephcsi:v2.1.2
+-  coredns/coredns:1.8.3
+-  coreos/kube-state-metrics:v1.9.8
+-  defaultbackend-amd64:1.5
+-  defaultbackend-arm64:1.5
+-  defaultbackend-ppc64le:1.5
+-  defaultbackend-s390x:1.4
+-  external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
+-  k8s-artifacts-prod/ingress-nginx/controller:v0.44.0
+-  k8s-dns-dnsmasq-nanny:1.15.10
+-  k8s-dns-kube-dns:1.15.10
+-  k8s-dns-sidecar:1.15.10
+-  k8scloudprovider/cinder-csi-plugin:v1.20.0
+-  k8scloudprovider/k8s-keystone-auth:v1.20.0
+-  k8scloudprovider/openstack-cloud-controller-manager:v1.20.0
+-  k8scsi/csi-attacher:v2.1.1
+-  k8scsi/csi-node-driver-registrar:v1.3.0
+-  k8scsi/csi-provisioner:v1.4.0
+-  k8scsi/csi-resizer:v0.5.0
+-  k8scsi/csi-snapshotter:v1.2.2
+-  kubernetes-ingress-controller/nginx-ingress-controller-ppc64le:0.20.0
+-  kubernetesui/dashboard:v2.2.0
+-  kubernetesui/metrics-scraper:v1.0.6
+-  metrics-server-amd64:v0.3.6
+-  metrics-server-arm64:v0.3.6
+-  metrics-server-ppc64le:v0.3.6
+-  metrics-server-s390x:v0.3.6
+-  nvidia/k8s-device-plugin:v0.9.0
+-  pause:3.4.1
+-  rancher/rancher:latest
+-  sig-storage/csi-attacher:v2.2.1
+-  sig-storage/csi-node-driver-registrar:v1.3.0
+-  sig-storage/csi-provisioner:v1.6.1
+-  sig-storage/csi-resizer:v0.5.1
+-  sig-storage/csi-snapshotter:v2.1.3
+-  sig-storage/livenessprobe:v2.1.0
+-  sonatype/nexus3:latest
+
 <!-- CONTAINER IMAGES END -->
 
 ## Snaps
 
 The following snaps are used by this release of Charmed Kubernetes:
 
-
 | snap  | confinement | summary | link |
 |-------|-------------|---------|------|
-|aws-cli| ? | Resource to side-load aws-cli snap in network-restricted deployments. | ? |
-|core| ? | core snap | ? |
-|etcd| ? | Snap package of etcd | ? |
+|aws-cli| classic | Resource to side-load aws-cli snap in network-restricted deployments. | [store page](https://snapcraft.io/aws-cli) |
+|core| strict | core snap | [store page](https://snapcraft.io/core) |
+|etcd| classic | Snap package of etcd | [store page](https://snapcraft.io/etcd) |
 |gcloud| ? | Resource to side-load gcloud snap in network-restricted deployments. | ? |
-|cdk-addons| ? | CDK addons snap | ? |
-|kube-apiserver| ? | kube-apiserver snap | ? |
-|kube-controller-manager| ? | kube-controller-manager snap | ? |
-|kube-proxy| ? | kube-proxy snap | ? |
-|kube-scheduler| ? | kube-scheduler snap | ? |
-|kubectl| ? | kubectl snap | ? |
-|kubelet| ? | kubelet snap | ? |
-|openstackclients| ? | Resource to side-load openstackclients snap in network-restricted deployments. | ? |
-
-
-
-
-
+|cdk-addons| strict | CDK addons snap | [store page](https://snapcraft.io/cdk-addons) |
+|kube-apiserver| strict | kube-apiserver snap | [store page](https://snapcraft.io/kube-apiserver) |
+|kube-controller-manager| strict | kube-controller-manager snap | [store page](https://snapcraft.io/kube-controller-manager) |
+|kube-proxy| classic | kube-proxy snap | [store page](https://snapcraft.io/kube-proxy) |
+|kube-scheduler| strict | kube-scheduler snap | [store page](https://snapcraft.io/kube-scheduler) |
+|kubectl| classic | kubectl snap | [store page](https://snapcraft.io/kubectl) |
+|kubelet| classic | kubelet snap | [store page](https://snapcraft.io/kubelet) |
+|openstackclients| classic | Resource to side-load openstackclients snap in network-restricted deployments. | [store page](https://snapcraft.io/openstackclients) |
 
 <!-- LINKS -->
 [documentation]: /kubernetes/docs/
 [release notes]: /kubernetes/docs/release-notes#1.21
-[upgrade notes]: /kubernetes/docs/
-[bugs]: /kubernetes/docs/
-[source]: https://github.com/charmed-kubernetes
+[upgrade notes]: /kubernetes/docs/1.21/upgrade-notes
+[bugs]: https://bugs.launchpad.net/charmed-kubernetes
+[source]: https://github.com/charmed-kubernetes/bundle
 [1.21 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.21
 
