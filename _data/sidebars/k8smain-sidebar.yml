@@ -21,17 +21,17 @@ entries:
     output: web, pdf
     type: section
     items:
-
+      
+    - title: '1.21'
+      url: /1.21/components
+      output: web, pdf
+      
     - title: '1.20'
       url: /1.20/components
       output: web, pdf
       
     - title: '1.19'
       url: /1.19/components
-      output: web, pdf
-      
-    - title: '1.18'
-      url: /1.18/components
       output: web, pdf
 
     - title: Version info
