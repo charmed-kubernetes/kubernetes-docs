@@ -54,6 +54,15 @@ speaker pod logs error with "selfLink was empty, can't make reference".
 
 ## Deprecations and API changes
 
+- Private container registry action
+
+The `registry` action of the `kubernetes-worker` charm is deprecated and will
+be removed in a future release. See the
+[Private Docker Registry](https://ubuntu.com/kubernetes/docs/docker-registry)
+documentation for using a custom registry with Charmed Kubernetes.
+
+- Upstream
+
 For details of other deprecation notices and API changes for Kubernetes 1.21, please see the
 relevant sections of the [upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.21.md#deprecation)
 
