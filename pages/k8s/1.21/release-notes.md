@@ -19,6 +19,12 @@ toc: False
 
 ## What's new
 
+- Azure Arc conformance
+
+Charmed Kubernetes is compliant with the Azure Arc Validation test suite.
+More information about this program can be found in the
+[azure-arc-validation documentation][arc-docs].
+
 - Container images by release
 
 [LP 1891530](https://bugs.launchpad.net/cdk-addons/+bug/1891530) describes an
@@ -59,3 +65,4 @@ Please see [this page][rel] for release notes of earlier versions.
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [rel]: /kubernetes/docs/release-notes
 [images-per-release]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
+[arc-docs]: https://github.com/Azure/azure-arc-validation/blob/main/README.md
