@@ -216,9 +216,8 @@ release. These charms are maintained by the Charmed Kubernetes team.
   <td> <a href="https://jaas.ai/u/containers/vsphere-integrator/65"> 65 </td>
   <td> -- </td>
 </tr>
-
- </tbody>
- </table>
+</tbody>
+</table>
 
 ## Compatible Charms
 
@@ -318,10 +317,8 @@ These charms are frequently used with Charmed Kubernetes.
   <td> <a href="https://jaas.ai/vault">docs</a> </td>
   <td>  </td>
 </tr>
-
- </tbody>
- </table>
-
+</tbody>
+</table>
 
 ## Images
 
