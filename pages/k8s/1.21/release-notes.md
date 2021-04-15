@@ -35,7 +35,7 @@ to easily determine what registry changes are needed prior to an upgrade.
 
 ## Component upgrades
 
-- cloud-pprovider-openstack 1.20.0
+- cloud-provider-openstack 1.20.0
 - coredns 1.8.3
 - kube-state-metrics 1.9.8
 - kubernetes-dashboard 2.2.0
