@@ -15,7 +15,7 @@ toc: False
 
 # 1.21
 
-### April 15, 2021 - [charmed-kubernetes-634](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-634/archive/bundle.yaml)
+### April 15, 2021 - [charmed-kubernetes-632](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-632/archive/bundle.yaml)
 
 ## What's new
 
