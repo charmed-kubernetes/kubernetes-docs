@@ -144,8 +144,8 @@ the [main install page][install].
 <div class="p-notification--warning"><p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Bug Warning:</span>
 There is currently a bug, <a href="https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1903566"> LP#1903566</a>,
-which prevents <code>Kubelet</code> from running properly on LXD. Until this is fixed, a 
-workaround is to configure kubelet to protect the kernel defaults:
+which prevents <code>Kubelet</code> from running properly on LXD. 
+Until this is fixed, a workaround is to configure kubelet to override kernel defaults:
   
 <pre><code>
 juju config kubernetes-worker kubelet-extra-config='{protectKernelDefaults: false}'
