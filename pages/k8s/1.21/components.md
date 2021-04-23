@@ -28,7 +28,7 @@ which comprise the 1.21 release of Charmed Kubernetes.
 Other information about this release can be found on the following pages:
 
 <a class='p-button--brand' href='/kubernetes/docs/1.21/release-notes'>Release notes </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.21/upgrade'>Upgrading </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.21/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
 <a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
 <a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.21'>Milestone </a>
