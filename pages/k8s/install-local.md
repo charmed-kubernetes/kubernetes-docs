@@ -146,10 +146,10 @@ the [main install page][install].
 There is currently a bug, <a href="https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1903566"> LP#1903566</a>,
 which prevents <code>Kubelet</code> from running properly on LXD. 
 Until this is fixed, a workaround is to configure kubelet to override kernel defaults:
-  
-<pre><code>
+<br>
+<code>
 juju config kubernetes-worker kubelet-extra-config='{protectKernelDefaults: false}'
-</code></pre>
+</code><br>
 
 </p></div>
 
