@@ -216,9 +216,9 @@ release. These charms are maintained by the Charmed Kubernetes team.
   <td> <a href="https://jaas.ai/u/containers/vsphere-integrator/78"> 78 </td>
   <td> -- </td>
 </tr>
-
  </tbody>
  </table>
+
 
 ## Compatible Charms
 
@@ -370,7 +370,6 @@ These are the container images used by this release:
 -  sig-storage/livenessprobe:v2.1.0
 -  sonatype/nexus3:latest
 
-
 This is a list of the images which have been added or updated since the previous release:
 
 -  coredns/coredns:1.8.3
@@ -392,7 +391,6 @@ This is a list of the images which have been added or updated since the previous
 
 
 <!-- CONTAINER IMAGES END -->
-
 
 ## Snaps
 
