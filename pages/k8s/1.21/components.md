@@ -42,7 +42,7 @@ release, please see the [Release notes](release-notes).
 
 These charms are the core components or official optional components of the
 release. These charms are maintained by the Charmed Kubernetes team.
-
+<!--
 <table class ="u-table-layout--auto">
   <thead>
     <tr>
@@ -320,6 +320,7 @@ These charms are frequently used with Charmed Kubernetes.
 </tr>
 </tbody>
 </table>
+-->
 
 ## Images
 
