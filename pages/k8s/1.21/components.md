@@ -371,7 +371,7 @@ These are the container images used by this release:
 -  sonatype/nexus3:latest
 
 
-This is alist of the images which have been added or updated since the previous release:
+This is a list of the images which have been added or updated since the previous release:
 
 -  coredns/coredns:1.8.3
 -  coreos/kube-state-metrics:v1.9.8
