@@ -38,7 +38,7 @@ cloud-provided load balancer with health checks, such as Octavia or ELB.
 
 [openstack-vip]: https://medium.com/jexia/virtual-ip-with-openstack-neutron-dd9378a48bdf
 
-### Using with Kubernetes ([Charmed Kubernetes](https://jujucharms.com/canonical-kubernetes))
+### Using with Kubernetes ([Charmed Kubernetes](https://charmhub.io/charmed-kubernetes))
 
 Use keepalived with Charmed Kubernetes to ensure kubeapi-load-balancer is not a single
 point of failure.

@@ -190,9 +190,7 @@ in the following:
 
 
 This can be used from bundles with 'include-base64://' (see
-https://discourse.charmhub.io/t/bundle-reference/1158
-
-),
+https://discourse.charmhub.io/t/bundle-reference/1158),
 or from the command-line with 'juju config aws credentials="$(base64 /path/to/file)"'.
 
 This option will take precedence over the individual config options, if set.

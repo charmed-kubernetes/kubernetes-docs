@@ -284,7 +284,7 @@ things you may wish to try:
 ## Additional Resources
 
 - [Kubernetes User Guide](https://kubernetes.io/docs/user-guide/)
-- [The Charmed Distribution of Kubernetes](https://jujucharms.com/charmed-kubernetes/)
+- [The Charmed Kubernetes page on Charmhub.io](https://charmhub.io/charmed-kubernetes/)
 - [Bundle source][bundle-source]
 - [Bug tracker](https://bugs.launchpad.net/charmed-kubernetes)
 
