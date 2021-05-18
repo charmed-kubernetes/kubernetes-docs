@@ -16,7 +16,7 @@ sidebar: k8smain-sidebar
 tags:
 - reference
 toc: false
-wrapper_template: templates/docs/markdown.html
+wrapper_template: "templates/docs/markdown.html"
 ---
 
 [Keepalived](http://www.keepalived.org/) is software which provides high
@@ -26,8 +26,7 @@ those nodes, failing over when one goes down.
 ## Usage
 
 The Keepalived charm is a
-[subordinate](https://juju.is/docs/sdk#heading--subordinate-charms
-).
+[subordinate](https://juju.is/docs/sdk#heading--subordinate-charms).
 
 Allocating a VIP and ensuring that it can route to all of the instances is a
 manual process which depends on your infrastructure.  It does require that the
