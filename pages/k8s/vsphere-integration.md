@@ -22,7 +22,7 @@ to directly use native vSphere features such as storage.
     Note: These instructions for deploying Charmed Kubernetes with the vSphere integrator
     assume that Juju has been configured appropriately for your vSphere server. For
     reference, the configuration options may be found in the
-    <a href"https://juju.is/docs/olm/vmware-vsphere" >Juju documentation</a>.
+    <a href="https://juju.is/docs/olm/vmware-vsphere" >Juju documentation</a>.
   </p>
 </div>
 
