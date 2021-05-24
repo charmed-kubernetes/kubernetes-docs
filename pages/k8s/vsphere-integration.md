@@ -189,7 +189,7 @@ EOY
 ```
 
 For more configuration options and details of the permissions which the integrator uses,
-please see the [vsphere charm page][vsphere-integrator].
+please see the [vSphere integrator charm page][vsphere-integrator].
 
 <!-- LINKS -->
 
