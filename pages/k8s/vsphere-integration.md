@@ -199,6 +199,7 @@ please see the [vSphere integrator charm page][vsphere-integrator].
 [vsphere-integrator]: /kubernetes/docs/charm-vsphere-integrator
 [vsphere-juju]: https://juju.is/docs/olm/vmware-vsphere
 [install]: /kubernetes/docs/install-manual
+[vmware documentation]: https://vmware.github.io/vsphere-storage-for-kubernetes/documentation/existing.html
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
