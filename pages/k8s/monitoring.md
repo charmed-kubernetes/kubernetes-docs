@@ -38,15 +38,15 @@ along with the following overlay file ([download it here][monitoring-pgt-overlay
 applications:
   prometheus:
     series: bionic
-    charm: cs:prometheus2-11
+    charm: cs:prometheus2
     constraints: "mem=4G root-disk=16G"
     num_units: 1
   grafana:
-    charm: cs:grafana-37
+    charm: cs:grafana
     expose: true
     num_units: 1
   telegraf:
-    charm: cs:telegraf-36
+    charm: cs:telegraf
 relations:
   - [prometheus:grafana-source, grafana:grafana-source]
   - [telegraf:prometheus-client, prometheus:target]
