@@ -19,6 +19,12 @@ toc: False
 
 ## What's new
 
+- Calico BGP Service IP Advertisement
+
+The Calico charm now supports advertising Kubernetes service IPs over BGP. More
+information can be found in the
+[CNI with Calico][calico-service-ip-advertisement] page.
+
 ## Component upgrades
 
 ## Fixes
@@ -61,3 +67,4 @@ Please see [this page][rel] for release notes of earlier versions.
 [rel]: /kubernetes/docs/release-notes
 [images-per-release]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
 [arc-docs]: https://github.com/Azure/azure-arc-validation/blob/main/README.md
+[calico-service-ip-advertisement]: /kubernetes/docs/cni-calico#service-ip-advertisement
