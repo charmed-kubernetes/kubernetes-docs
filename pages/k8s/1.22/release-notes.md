@@ -25,6 +25,14 @@ The Calico charm now supports advertising Kubernetes service IPs over BGP. More
 information can be found in the
 [CNI with Calico][calico-service-ip-advertisement] page.
 
+- Improved load balancer provider support
+
+The support for load balancing the Kubernetes control plane is being improved with
+two new relation endpoints: `loadbalancer-external` and `loadbalancer-internal`.
+This change adds support for Azure native load balancers for the Kubernetes control
+plane, and improves LB configurability while still simplifying the relations needed
+between the various components of the cluster.
+
 ## Component upgrades
 
 ## Fixes
