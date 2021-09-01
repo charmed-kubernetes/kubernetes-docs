@@ -15,7 +15,7 @@ toc: False
 
 # 1.22
 
-### August XXX, 2021 - [charmed-kubernetes-XXX](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-XXX/archive/bundle.yaml)
+### September 1, 2021 - [charmed-kubernetes-761](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-761/archive/bundle.yaml)
 
 ## What's new
 
