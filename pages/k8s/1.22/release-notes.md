@@ -35,7 +35,7 @@ between the various components of the cluster.
 
 ## Component upgrades
 
-- cephcsi 3.3.1
+- cephcsi 3.3.1 (note: see [upstream notes][cephcsi-upgrade] if upgrading from a previous release)
 - kube-dns 1.17.3 (note: coredns 1.8.3 is the default DNS provider)
 - nginx-ingress 1.0.0-beta.3
 - metrics-server 0.5.0
@@ -87,3 +87,4 @@ Please see [this page][rel] for release notes of earlier versions.
 [rel]: /kubernetes/docs/release-notes
 [calico-service-ip-advertisement]: /kubernetes/docs/cni-calico#service-ip-advertisement
 [upstream-changelog]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.22.md#deprecation
+[cephcsi-upgrade]: https://github.com/ceph/ceph-csi/blob/devel/docs/ceph-csi-upgrade.md
