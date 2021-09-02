@@ -24,7 +24,7 @@ Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because 
 [Getting started with the Charmed Kubernetes<sup>&reg;</sup>&nbsp;&rsaquo;](../quickstart)
 
 ## What's new
-- [Version 1.21 released&nbsp;&rsaquo;](../release-notes)
+- [Version 1.22 released&nbsp;&rsaquo;](../release-notes)
 
 ## Tutorials
 
