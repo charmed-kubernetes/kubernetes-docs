@@ -98,7 +98,7 @@ Registry endpoints and credentials. Setting this config allows Kubelet
 to pull images from registries where auth is required.
 
 The value for this config must be a JSON array of credential objects, like this:
-[{"host": "my.registry:port", "username": "user", "password": "pass"}]
+`[{"host": "my.registry:port", "username": "user", "password": "pass"}]`
 
 `host` could be registry host address, e.g.:  myregistry.io:9000, 10.10.10.10:5432.
 or a name, e.g.: myregistry.io, myregistry.
