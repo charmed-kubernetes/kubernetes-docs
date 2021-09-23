@@ -68,11 +68,8 @@ juju deploy charmed-kubernetes  --overlay ~/path/equinix-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp --proxy kubernetes-master/0:config ~/.kube/config
 ```
-
-For more configuration options and details of the permissions which the integrator uses,
-please see the [charm readme][aws-integrator-readme].
 
 ## Post install
 
@@ -101,15 +98,144 @@ stringData:
 EOY
 ```
 
-
-
+The next steps are to confirm the version of the CCM to use:
 
 ```bash
-curl  http://ad5fc7750350611e99768068a686bb67-239702253.eu-west-1.elb.amazonaws.com:8080
+export CCM_VERSION=3.1.0
+kubectl apply -f https://github.com/equinix/cloud-provider-equinix-metal/releases/download/v${CCM_VERSION}/deployment.yaml
 ```
+...enable premissions for the `kube-vip` loadbalancer:
+
+```bash
+kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
 ```
+
+... and deploy:
+
+```bash
+kubectl apply -f <<EOY
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  creationTimestamp: null
+  name: kube-vip-ds
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: kube-vip-ds
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: kube-vip-ds
+    spec:
+      containers:
+      - args:
+        - manager
+        env:
+        - name: vip_arp
+          value: "false"
+        - name: vip_interface
+          value: lo
+        - name: port
+          value: "6443"
+        - name: vip_cidr
+          value: "32"
+        - name: svc_enable
+          value: "true"
+        - name: vip_startleader
+          value: "false"
+        - name: vip_addpeerstolb
+          value: "true"
+        - name: annotation
+          value: metal.equinix.com
+        - name: bgp_enable
+          value: "true"
+        - name: bgp_routerid
+        - name: bgp_as
+          value: "65000"
+        - name: bgp_peeraddress
+        - name: bgp_peerpass
+        - name: bgp_peeras
+          value: "65000"
+        - name: vip_address
+        image: plndr/kube-vip:v0.3.6
+        imagePullPolicy: Always
+        name: kube-vip
+        resources: {}
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_RAW
+            - SYS_TIME
+      hostNetwork: true
+      serviceAccountName: kube-vip
+  updateStrategy: {}
+status:
+  currentNumberScheduled: 0
+  desiredNumberScheduled: 0
+  numberMisscheduled: 0
+  numberReady: 0
+```
+
+Note: in some Equinix Metal facilities it is required to define a static route on each Kubernetes Worker node to allow the traffic to the workloads exposed via the Load Balancer to go via proper gateway:
+
+```bash
+juju exec --application kubernetes-worker 'GATEWAY_IP=$(curl https://metadata.platformequinix.com/metadata | jq -r ".network.addresses[] | select(.public == false) | .gateway"); sudo ip route add 169.254.255.1 via $GATEWAY_IP; sudo ip route add 169.254.255.2 via $GATEWAY_IP'
+```
+
+## Using load balancers
+
+With the cloud load balancer capabilities enabled, actions which invoke a loadbalancer
+in Kubernetes will automatically trigger creation of the ElasticIP in the Metal cloud
+and associate it with the KubeVIP service, simultaneously adjusting BGP tables in the
+cloud and forward the traffic to Kubernetes nodes. This can be demonstrated with a
+simple application. Here we will create a simple application and scale it to five pods:
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
+kubectl scale deployment hello-world --replicas=5
+ 
+You can verify that the application and replicas have been created with:
+
+```bash
+kubectl get deployments hello-world
+```
+Which should return output similar to:
+
+```text
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+hello-world      5/5               5                            5             2m38s
+```
+
+To create a LoadBalancer, the application should now be exposed as a service:
+
+```bash
+kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port 8080
+```
+
+To check that the service is running correctly:
+
+```bash
+kubectl get service hello
+```
+
+...which should return output similar to:
+
+```text
+NAME    TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+hello   LoadBalancer   10.152.183.136   202.49.242.3  8080:32662/TCP   2m
+```
+
+You can see that the External IP is now in front of the five endpoints of the example deployment. You can test the ingress address:
+
+```bash
+curl  http://202.49.242.3:8080
+```
+```text 
 Hello Kubernetes!
 ```
+
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
