@@ -47,9 +47,14 @@ your auth token).
 
 ## Installing
 
-If you install **Charmed Kubernetes** [using the Juju bundle][install], xxxxxxxxxxxx xxxx
- using the following overlay file 
- ([download it here][asset-equinix-overlay]):
+To deploy **Charmed Kubernetes** on Equinix Metal, it is also recommended to deploy
+some storage and to use Calico for networking. You can deploy and configure
+Charmed kubernetes any way you like, but this example overlay will help you get started.
+
+It adjusts the default bundle to use Calico networking, deploys Ceph for storage and 
+co-locates some services to make more efficient use of the available instances.
+
+You can copy this example or ([download it here][asset-equinix-overlay]):
 
 ```yaml
 machines:
@@ -195,7 +200,7 @@ relations:
 To use this overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes  --overlay ~/path/equinix-overlay.yaml --trust
+juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml 
 ```
 
 ... and remember to fetch the configuration file!
@@ -247,7 +252,7 @@ kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
 ... and deploy:
 
 ```bash
-kubectl apply -f <<EOY
+kubectl apply -f - <<EOY
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -312,6 +317,7 @@ status:
   desiredNumberScheduled: 0
   numberMisscheduled: 0
   numberReady: 0
+EOY
 ```
 
 Note: in some Equinix Metal facilities it is required to define a static route on each Kubernetes Worker node to allow the traffic to the workloads exposed via the Load Balancer to go via proper gateway:
@@ -370,38 +376,12 @@ curl  http://202.49.242.3:8080
 Hello Kubernetes!
 ```
 
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-xxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxx x x x x x x x x x xxxxxxxxxxxxxxxxx
-  </p>
-</div>
-
-
-### Troubleshooting
-
-If you have any specific problems with the aws-integrator, you can report bugs on
-[Launchpad][bugs].
-
-
-```
-
-## See also:
-
-If you are an AWS user, you may also be interested in how to
-[use AWS IAM for authorisation and authentication][aws-iam].
-
 <!-- LINKS -->
 
-[asset-equinix-overlay]: 
+[asset-equinix-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/equinix-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [storage]: /kubernetes/docs/storage
-[ebs-info]: https://aws.amazon.com/ebs/features/
-[cloudtrail]: https://console.aws.amazon.com/cloudtrail/
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
-[aws-integrator-readme]: https://charmhub.io/containers-aws-integrator
-[aws-iam]: /kubernetes/docs/aws-iam-auth
 [install]: /kubernetes/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
 
