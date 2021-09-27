@@ -203,11 +203,20 @@ To use this overlay with the **Charmed Kubernetes** bundle, it is specified duri
 juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml 
 ```
 
-... and remember to fetch the configuration file!
+... and when the deployment has settled, remember to fetch the configuration file!
 
 ```bash
 juju scp --proxy kubernetes-master/0:config ~/.kube/config
 ```
+
+You can check the status by running:
+
+```
+juju status
+```
+
+At this point, there will be error messages on the workers as the pods will not run until
+the Cloud Controller Manager has been run.
 
 ## Post install
 
@@ -231,7 +240,7 @@ stringData:
     {
     "apiKey": "<Metal API key>",
     "projectID": "<Metal Project ID>",
-    “loadbalancer”: “kube-vip://”
+    "loadbalancer": "kube-vip://"
     }
 EOY
 ```
@@ -333,8 +342,11 @@ in Kubernetes will automatically trigger creation of the ElasticIP in the Metal 
 and associate it with the KubeVIP service, simultaneously adjusting BGP tables in the
 cloud and forward the traffic to Kubernetes nodes. This can be demonstrated with a
 simple application. Here we will create a simple application and scale it to five pods:
+
+```bash
 kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
 kubectl scale deployment hello-world --replicas=5
+```
  
 You can verify that the application and replicas have been created with:
 
