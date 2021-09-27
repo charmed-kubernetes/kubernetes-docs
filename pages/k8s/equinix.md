@@ -15,7 +15,8 @@ toc: False
 
 As with any cloud supported by Juju, **Charmed Kubernetes** can be deployed and used on
 [Equinix Metal][]. This document provides some extra information and an overlay to 
-help get the most out of this cloud
+help get the most out of this cloud. For instructions on installing Juju itself, please
+see the latest [Juju documentation][].
 
 
 ## Before installing
@@ -396,6 +397,7 @@ Hello Kubernetes!
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [install]: /kubernetes/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
+[Juju documentation]: https://juju.is/docs/olm/installing-juju
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
