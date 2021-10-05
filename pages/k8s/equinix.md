@@ -410,6 +410,7 @@ Hello Kubernetes!
 [install]: /kubernetes/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
 [Juju documentation]: https://juju.is/docs/olm/installing-juju
+[Equinix Metal]: https://metal.equinix.com/
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
