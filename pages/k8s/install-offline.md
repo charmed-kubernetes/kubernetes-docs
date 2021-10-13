@@ -110,6 +110,9 @@ Notes about charm upgrades/updates
 <!-- Even if deploying to a different cloud, LXD image access may still be required
 e.g. when deploying to LXD containers as part of Kubernetes Core bundle !-->
 
+### Ubuntu SSO
+<!-- Not needed for CK, but needed on the snap store proxy... !-->
+
 ## Useful links
 
 
