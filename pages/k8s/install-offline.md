@@ -64,7 +64,7 @@ IoT that are easy to install, secure, cross‐platform and dependency‐free.
 While it is _possible_ to download a snap package from the store, each snap will then
 need to be authenticated, and subsequent updates, even in the case of security
 updates, will require manual intervention. To avoid this, the recommended
-solution is to install a to use the [snap-store-proxy][] software.
+solution is to use the [snap-store-proxy][] software.
 
 The snap store proxy can also be configured to run in an "air-gap" mode, which 
 disconnects it from the upstream store and allows 
@@ -107,8 +107,12 @@ the Charmed Kubernetes bundle repository on github. You can inspect or download 
 lists from the [container images][] directory.  
 
 Using this list, it is possible to fetch the desired images locally on a system which 
-has access to public repositories. For example, to do this with Docker you could run:
+has access to public repositories. 
+
+For example, to do this with Docker you could run:
+
 ```bash
+docker login
 RELEASE=v1.21.5
 wget "https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/container-images/$RELEASE.txt"
 for container_image in $(cat $RELEASE.txt); do
@@ -117,6 +121,7 @@ for container_image in $(cat $RELEASE.txt); do
 done
 rm -rf $RELEASE.txt 
 ```
+
 When using the Juju docker-registry charm, the image archives can be copied to the running unit
 added to the registry. Note that if the `docker-registry` charm itself has been deployed offline,
 you will also need to fetch the registry image:
