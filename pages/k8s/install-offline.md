@@ -17,6 +17,7 @@ There are many reasons why it may be desirable to install Charmed Kubernetes
 on a system which does not have unfettered access to the internet. To make
 this possible, it is necessary to prepare the required resources, and configure
 Charmed Kubernetes to make use of them.
+
 As user needs may vary, this documentation does not present a proscriptive 
 recipe, but outlines the types of resources which are required and some 
 recommendations on how to provide them. If you are already installing 
@@ -66,7 +67,10 @@ updates, will require manual intervention. To avoid this, the recommended
 solution is to install a to use the [snap-store-proxy][] software.
 
 The snap store proxy can also be configured to run in an "air-gap" mode, which 
-disconnects it from the upstream store and allows  
+disconnects it from the upstream store and allows 
+
+Note: Running the Snap Store Proxy also requires access to a PostgreSQL database,
+and an Ubuntu SSO account.
 
 ## Juju 
 
@@ -76,17 +80,34 @@ are in the relevant section of the [Juju documentation][offline mode].
 
 ## Container images
 
-`Charmed Kubernetes` relies on pulling container images to function. Canonical provides a 
-list of images required for each release at [github container images][github-container-images]. 
-During configuration of the kubernetes cluster, configure the cloud to pull images from the
-private container registry via the [containerd][] charm.  
+`Charmed Kubernetes` relies on container images for many of its components. To
+run an air-gap or offline installation, it will be necessary to make these 
+images available to Juju, which is usually achieved by running a local 
+image registry, such as Docker.
+
+### Creating a private registry
+
+The registry is simply a store for managing and serving up the requested images. 
+Many public clouds (Azure, AWS, Google etc) also have registry components which
+could be used, but for the small number of images required for Charmed Kubernetes
+it is sufficient to run a local repository using Docker.
+
+The recommended method is to use Juju to deploy a Docker registry and use that to 
+serve the required images. See the [Docker registry documentation][] for more
+details.
+
+### Fetching the required images
+
+A list of the required images for each supported release is made available as part of
+the Charmed Kubernetes bundle repository on github. You can inspect or download the 
+lists from the [container images][] directory.  
 
 1. Determine the latest image list for the selected bundle/kubernetes release (eg. `1.21.5.txt`)
 1. Download the image list
 1. Create an archive of all the container images
 ```bash
 cd /tmp
-sudo snap install docker  # used to pull and save container images
+sudo snap install docker  
 RELEASE=v1.21.5
 rm -rf $RELEASE.txt
 wget "https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/container-images/$RELEASE.txt"
@@ -95,7 +116,7 @@ for container_image in $(cat $RELEASE.txt); do
   mkdir -p $(dirname cdk-containers/$container_image)
   sudo docker save $container_image | gzip > cdk-containers/${container_image}.tgz
 done
-tar -czvf cdk-containers.tgz cdk-containers/  # Create a tar.gz file with the container images
+tar -czvf cdk-containers.tgz cdk-containers/ 
 ```
 
 
