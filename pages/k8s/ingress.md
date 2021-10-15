@@ -34,7 +34,7 @@ the cluster.
 
 By default, **Charmed Kubernetes** sets up the [NGINX Ingress Controller][ingress-nginx],
 which can be customized via the config options on the [worker charm][].
-[`Ingress` resources][ingress-resource] can then be used to configure routes for specific
+[`Ingress` resources][ingress-resources] can then be used to configure routes for specific
 applications.
 
 ## Istio Ingress
