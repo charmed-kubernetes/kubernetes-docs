@@ -94,7 +94,11 @@ it is sufficient to run a local repository using Docker.
 
 The recommended method is to use Juju to deploy a Docker registry and use that to 
 serve the required images. See the [Docker registry documentation][] for more
-details.
+details. 
+
+Note that if you wish to deploy the registry in the same Juju model (recommended) as
+Charmed Kubernetes, you should populate the registry with the images before
+deploying the rest of Charmed Kubernetes.
 
 ### Fetching the required images
 
@@ -102,23 +106,40 @@ A list of the required images for each supported release is made available as pa
 the Charmed Kubernetes bundle repository on github. You can inspect or download the 
 lists from the [container images][] directory.  
 
-1. Determine the latest image list for the selected bundle/kubernetes release (eg. `1.21.5.txt`)
-1. Download the image list
-1. Create an archive of all the container images
+Using this list, it is possible to fetch the desired images locally on a system which 
+has access to public repositories. For example, to do this with Docker you could run:
 ```bash
-cd /tmp
-sudo snap install docker  
 RELEASE=v1.21.5
-rm -rf $RELEASE.txt
 wget "https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/container-images/$RELEASE.txt"
 for container_image in $(cat $RELEASE.txt); do
-  sudo docker pull $container_image
-  mkdir -p $(dirname cdk-containers/$container_image)
-  sudo docker save $container_image | gzip > cdk-containers/${container_image}.tgz
+  docker pull $container_image
+  docker save $container_image | gzip > ${container_image//[^A-Za-z0-9-]/.}.tgz
 done
-tar -czvf cdk-containers.tgz cdk-containers/ 
+rm -rf $RELEASE.txt 
+```
+When using the Juju docker-registry charm, the image archives can be copied to the running unit
+added to the registry. Note that if the `docker-registry` charm itself has been deployed offline,
+you will also need to fetch the registry image:
+
+```bash
+docker pull registry
+docker save registry | gzip > registry.tgz
+```
+The local image files can then be copied to the unit running the docker-registry and loaded:
+
+```bash
+juju scp *.tgz docker-registry/0:
+juju ssh docker-registry
+ls -1 *.tgz | xargs --no-run-if-empty -L 1 docker load -i
+rm -rf *.tgz
+exit
 ```
 
+You can confirm the images are present by running the action:
+
+```bash
+juju run-action --wait docker-registry/0 images
+```
 
 ## Python packages and PyPI
 
