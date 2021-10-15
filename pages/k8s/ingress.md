@@ -52,6 +52,15 @@ The Istio bundle requires a load balancer provider. If you're not using a cloud
 integrator which provides this, [MetalLB][] is can be used.
 </p></div>
 
+
+## Multiple Ingress Controllers
+
+Multiple ingress controllers or gateways can be used at the same time, typically with
+different configuration or exposure. The `networking.k8s.io/v1` defines an
+[`IngressClass` resource][ingress-class] to select between controllers, but some
+controllers may rely on annotations, such as Istio's
+[`kubernetes.io/ingress.class` annotation][istio-annotation].
+
 <!-- LINKS -->
 
 [ingress-nginx]: https://kubernetes.github.io/ingress-nginx/
@@ -62,3 +71,5 @@ integrator which provides this, [MetalLB][] is can be used.
 [istio-traffic]: https://istio.io/latest/docs/concepts/traffic-management/
 [virt-svc]: https://istio.io/latest/docs/concepts/traffic-management/#virtual-services
 [istio-ingress]: https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/
+[ingress-class]: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class
+[istio-annotation]: https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/#configuring-ingress-using-an-ingress-resource
