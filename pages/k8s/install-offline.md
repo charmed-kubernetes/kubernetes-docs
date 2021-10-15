@@ -130,11 +130,12 @@ you will also need to fetch the registry image:
 docker pull registry
 docker save registry | gzip > registry.tgz
 ```
+
 The local image files can then be copied to the unit running the docker-registry and loaded:
 
 ```bash
 juju scp *.tgz docker-registry/0:
-juju ssh docker-registry
+juju ssh docker-registry/0
 ls -1 *.tgz | xargs --no-run-if-empty -L 1 docker load -i
 rm -rf *.tgz
 exit
@@ -228,7 +229,7 @@ juju deploy ./bundle.yaml  # deploys local charms into the model
 [controller-config]: https://juju.is/docs/olm/create-controllers
 [credentials]: https://juju.is/docs/olm/credentials
 [customize-bundle]: /kubernetes/docs/install-manual#customising-the-bundle-install
-[github-container-images]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
+[container images]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
 [juju-bundle]: https://juju.is/docs/sdk/bundles
 [juju-constraints]: https://juju.is/docs/olm/constraints
 [juju-docs]: https://juju.is/docs/olm/installing-juju
