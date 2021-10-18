@@ -41,7 +41,7 @@ applications.
 ## Istio Ingress
 
 By deploying the [Istio bundle][] into your cluster, you can use the
-[Istio traffice management features][istio-traffic]. You can then relate Kubernetes
+[Istio traffic management features][istio-traffic]. You can then relate Kubernetes
 charms which support the `ingress` relation to automatically manage [`VirtualServices`][virt-svc],
 manually manage [`VirtualServices`][virt-svc] for your applications, or even use
 [`Ingress` resources][istio-ingress].
