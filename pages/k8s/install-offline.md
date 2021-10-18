@@ -57,6 +57,15 @@ but some additional charms may be based on other series.
 
 ## Snap packages
 
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
+<span class="p-notification__status">Snap resources</span>
+Many current charms include snaps as bundled resources. The inclusion of
+snaps as charm resources is deprecated, and these will be removed in future
+versions of snaps. Deployments will need to be able to access the 
+official Snap Store or use the Snap Store Proxy to gain access to the required
+snaps. </a>
+</p></div>
+
 The majority of charms, including all the core Charmed Kubernetes charms, rely on
 [snap][] packages to deliver applications. Snaps are packages for desktop, cloud and
 IoT that are easy to install, secure, cross‐platform and dependency‐free.
@@ -67,7 +76,10 @@ updates, will require manual intervention. To avoid this, the recommended
 solution is to use the [snap-store-proxy][] software.
 
 The snap store proxy can also be configured to run in an "air-gap" mode, which 
-disconnects it from the upstream store and allows 
+disconnects it from the upstream store and allows snaps to be "sideloaded" into
+the local store. Information on how to do this is in the 
+[snap store proxy documentation][sideload].
+
 
 Note: Running the Snap Store Proxy also requires access to a PostgreSQL database,
 and an Ubuntu SSO account.
@@ -116,7 +128,7 @@ docker login
 RELEASE=v1.21.5
 wget "https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/container-images/$RELEASE.txt"
 for container_image in $(cat $RELEASE.txt); do
-  docker pull $container_image
+  docker pull rocks.canonical.com/cdk/$container_image
   docker save $container_image | gzip > ${container_image//[^A-Za-z0-9-]/.}.tgz
 done
 rm -rf $RELEASE.txt 
@@ -168,9 +180,10 @@ patches  can be published to a locally available livepatch hosting server.
 ## Charmed Kubernetes 
 
 ### Bundle and charms
+
 The specific bundle and charms which fulfill those bundles must be first retrieved, then locally installed
 into Juju. One can retrieve the [bundles][], [overlays][], and charms to install locally
-from the charmstore. 
+from the charmstore.
 
 from a connected machine:
 
@@ -181,17 +194,19 @@ from a connected machine:
 
 ```bash
 cd /tmp
-sudo snap install charm                # this app can pull from the charm store
-rm -rf local-charmed-k8s/              # temporary directory to hold the entire bundle
+sudo snap install charm                
+rm -rf local-charmed-k8s/              
 BUNDLE=cs:charmed-kubernetes-733       # Choose a deployment bundle (example is 1.21.x)
 charm pull $BUNDLE local-charmed-k8s/  # pull the bundle
-# complete customization of the local-charmed-k8s/bundle.yaml
+
 for CHARM in $(cat local-charmed-k8s/bundle.yaml | grep 'cs:' | cut -d":" -f2- | sort | uniq); do
   charm pull $CHARM local-charmed-k8s/$CHARM  # pull each charm of the bundle
   sed -i s#$CHARM#\"./$CHARM\"#g local-charmed-k8s/bundle.yaml
 done
 tar -czvf local-charmed-k8s.tgz local-charmed-k8s/  # Create a tar.gz file with the bundle
 ```
+
+<!-- any additional charms not part of core bundle !-->
 
 on air-gapped machine with access to the juju controller, 
 1. Copy the local-charmed-k8s.tgz
@@ -205,6 +220,8 @@ juju deploy ./bundle.yaml  # deploys local charms into the model
 
 
 ## Configuring Charmed Kubernetes to work with proxies
+
+
 
 
 ## Additional considerations
@@ -244,6 +261,7 @@ juju deploy ./bundle.yaml  # deploys local charms into the model
 [rsync]: https://help.ubuntu.com/community/Rsyncmirror
 [apt-mirror]: https://www.howtoforge.com/local_debian_ubuntu_mirror
 [aptly]: https://www.aptly.info/doc/overview/
+[sideload]: https://docs.ubuntu.com/snap-store-proxy/en/airgap#usage
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
