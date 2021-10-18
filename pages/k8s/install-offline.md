@@ -149,12 +149,12 @@ juju run-action --wait docker-registry/0 images
 
 ## Python packages and PyPI
 
-`Charmed Kubernetes` base charms all come with the pip wheels necessary to deploy the cloud.
-Other charms (such as subordinate charms) used to monitor or provide metric data of those
-machines may require pip packages to install into their virtual environments which aren't
-bundled as wheels, and expect to install those dependencies from pypi. There is no
-guarantee that any non-standard `Charmed Kubernetes` charm won't attempt to reach out to pypi
-during it's install hooks. Any charm attempting to do so, will need to handle pip installing
+**Charmed Kubernetes** base charms all come with the pip wheels necessary.
+Other charms used to monitor or provide metric data of those machines may require pip 
+packages to install into their virtual environments which aren't
+bundled as wheels, and expect to install those dependencies from PyPI. There is no
+guarantee that any non-standard Charmed Kubernetes charm won't attempt to reach out to PyPI
+during installation. Any charm attempting to do so, will need to handle pip installing
 from a different pypi-server using the `extra-index-url` argument and charm configs.
 
 ## Livepatch Proxy
