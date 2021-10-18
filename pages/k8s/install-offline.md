@@ -70,6 +70,10 @@ The majority of charms, including all the core Charmed Kubernetes charms, rely o
 [snap][] packages to deliver applications. Snaps are packages for desktop, cloud and
 IoT that are easy to install, secure, cross‐platform and dependency‐free.
 
+The list of snaps required by Charmed Kubernetes is detailed in the "components"
+page for each release. For example, for 1.22, the 
+[snaps are listed here][1.22-components].
+
 While it is _possible_ to download a snap package from the store, each snap will then
 need to be authenticated, and subsequent updates, even in the case of security
 updates, will require manual intervention. To avoid this, the recommended
@@ -238,11 +242,9 @@ juju deploy ./bundle.yaml  # deploys local charms into the model
 
 
 <!-- LINKS -->
-
-[aptly]: https://www.aptly.info/
 [bundles]: /kubernetes/docs/supported-versions
-[apt-mirror]: https://apt-mirror.github.io/
 [containerd]: https://ubuntu.com/kubernetes/docs/1.21/charm-containerd
+[1.22-components]: https://ubuntu.com/kubernetes/docs/1.22/components#snaps
 [controller-config]: https://juju.is/docs/olm/create-controllers
 [credentials]: https://juju.is/docs/olm/credentials
 [customize-bundle]: /kubernetes/docs/install-manual#customising-the-bundle-install
