@@ -61,7 +61,7 @@ but some additional charms may be based on other series.
 <span class="p-notification__status">Snap resources</span>
 Many current charms include snaps as bundled resources. The inclusion of
 snaps as charm resources is deprecated, and these will be removed in future
-versions of snaps. Deployments will need to be able to access the 
+versions of these charms. Deployments will need to be able to access the 
 official Snap Store or use the Snap Store Proxy to gain access to the required
 snaps. </a>
 </p></div>
