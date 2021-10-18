@@ -14,7 +14,8 @@ toc: False
 ---
 
 Applications in Kubernetes can be exposed outside of the cluster in several ways, such
-via `NodePort` or `LoadBalancer` type services, or via ingress controllers or gateways.
+as via `NodePort` or `LoadBalancer` type services, or via ingress controllers or
+gateways.
 
 `NodePort` services expose the service directly via a port on each of the nodes, which
 can then be manually managed by firewall rules or external load balancers.
@@ -49,7 +50,7 @@ manually manage [`VirtualServices`][virt-svc] for your applications, or even use
 <p markdown="1" class="p-notification__response">
 <span class="p-notification__status">Note:</span>
 The Istio bundle requires a load balancer provider. If you're not using a cloud
-integrator which provides this, [MetalLB][] is can be used.
+integrator which provides this, [MetalLB][] can be used.
 </p></div>
 
 
