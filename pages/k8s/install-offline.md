@@ -125,19 +125,6 @@ lists from the [container images][] directory.
 Using this list, it is possible to fetch the desired images locally on a system which 
 has access to public repositories. 
 
-For example, to do this with Docker you could run:
-
-```bash
-docker login
-RELEASE=v1.21.5
-wget "https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/container-images/$RELEASE.txt"
-for container_image in $(cat $RELEASE.txt); do
-  docker pull rocks.canonical.com/cdk/$container_image
-  docker save $container_image | gzip > ${container_image//[^A-Za-z0-9-]/.}.tgz
-done
-rm -rf $RELEASE.txt 
-```
-
 When using the Juju docker-registry charm, the image archives can be copied to the running unit
 added to the registry. Note that if the `docker-registry` charm itself has been deployed offline,
 you will also need to fetch the registry image:
@@ -178,7 +165,7 @@ from a different pypi-server using the `extra-index-url` argument and charm conf
 The Linux Kernel supports realtime updates to the running kernel without restarting
 the existing kernel. In normal use this requires network access to pull the kernel 
 patches and apply to the running kernel. However, with [On Prem Livepatch][on-prem-livepatch],
-patches  can be published to a locally available livepatch hosting server.
+patches can be published to a locally available livepatch hosting server.
 
 
 ## Charmed Kubernetes 
@@ -187,40 +174,40 @@ patches  can be published to a locally available livepatch hosting server.
 
 The specific bundle and charms which fulfill those bundles must be first retrieved, then locally installed
 into Juju. One can retrieve the [bundles][], [overlays][], and charms to install locally
-from the charmstore.
+from the charmstore using the [Shrinkwrap][cdk-shrinkwrap] offline management tool.   
 
-from a connected machine:
+from an internet connected machine:
 
-1. Download the installable bundle
-1. [Customize][customize-bundle] the bundle.yaml
-1. Pull the charms for the bundle
-1. Create archive of the deployment
+1. Download the installable bundles, charms, snaps, and containers using [Shrinkwrap][cdk-shrinkwrap]
+1. Pull the archive for the deployment
 
 ```bash
-cd /tmp
-sudo snap install charm                
-rm -rf local-charmed-k8s/              
+git clone https://github.com/charmed-kubernetes/cdk-shrinkwrap.git /tmp/.shrinkwrap
+cd /tmp/.shrinkwrap
 BUNDLE=cs:charmed-kubernetes-733       # Choose a deployment bundle (example is 1.21.x)
-charm pull $BUNDLE local-charmed-k8s/  # pull the bundle
-
-for CHARM in $(cat local-charmed-k8s/bundle.yaml | grep 'cs:' | cut -d":" -f2- | sort | uniq); do
-  charm pull $CHARM local-charmed-k8s/$CHARM  # pull each charm of the bundle
-  sed -i s#$CHARM#\"./$CHARM\"#g local-charmed-k8s/bundle.yaml
-done
-tar -czvf local-charmed-k8s.tgz local-charmed-k8s/  # Create a tar.gz file with the bundle
+./shrinkwrap-lxc.sh $BUNDLE 
+ls /tmp/.shrinkwrap/build/
 ```
 
-<!-- any additional charms not part of core bundle !-->
-
-on air-gapped machine with access to the juju controller, 
-1. Copy the local-charmed-k8s.tgz
-1. Deploy
+In air-gapped environment with access to the juju controller, 
+1. Extract the tar.gz file
+2. Print Available instructions from the deploy.sh
+   1. Push the simple-stream images to the juju cloud image backing services
+   2. Push necessary `deb` packages to the apt proxy
+   3. Push the snaps to the snap-store-proxy
+   4. Push the container images to your offline container registry
+3. Ensure the juju environment is configured to pull from the snap-store-proxy and container registry
+   1. this will require configuration changed on the `containerd` charm in `./charms/bundle.yaml`
+   2. ensure `applcations.containerd.options` includes `custom_registries` settings
+4. Finally, deploy the juju charms and resources from the provided local bundle.
 ```bash
-tar -xvf local-charmed-k8s.tgz
-cd local-charmed-k8s/
-juju deploy ./bundle.yaml  # deploys local charms into the model
+tar -xvf cs:charmed-kubernetes-733-stable-*.tar.gz --force-local
+cd cs:charmed-kubernetes-733-stable-*/
+./deploy.sh
+# examine provided instructions
+# modif
+juju deploy ...
 ```
-
 
 
 ## Configuring Charmed Kubernetes to work with proxies
@@ -245,6 +232,7 @@ juju deploy ./bundle.yaml  # deploys local charms into the model
 [bundles]: /kubernetes/docs/supported-versions
 [containerd]: https://ubuntu.com/kubernetes/docs/1.21/charm-containerd
 [1.22-components]: https://ubuntu.com/kubernetes/docs/1.22/components#snaps
+[cdk-shrinkwrap]: https://github.com/charmed-kubernetes/cdk-shrinkwrap
 [controller-config]: https://juju.is/docs/olm/create-controllers
 [credentials]: https://juju.is/docs/olm/credentials
 [customize-bundle]: /kubernetes/docs/install-manual#customising-the-bundle-install
