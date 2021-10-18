@@ -74,3 +74,14 @@ controllers may rely on annotations, such as Istio's
 [istio-ingress]: https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/
 [ingress-class]: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class
 [istio-annotation]: https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/#configuring-ingress-using-an-ingress-resource
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <p class="p-notification__response">
+    We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/ingress.md" class="p-notification__action">edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" class="p-notification__action">file a bug here</a>.
+  </p>
+</div>
+
