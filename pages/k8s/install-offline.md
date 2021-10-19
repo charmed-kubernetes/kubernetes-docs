@@ -172,9 +172,9 @@ patches can be published to a locally available livepatch hosting server.
 
 ### Bundle and charms
 
-The specific bundle and charms which fulfill those bundles must be first retrieved, then locally installed
-into Juju. One can retrieve the [bundles][], [overlays][], and charms to install locally
-from the charmstore using the [Shrinkwrap][cdk-shrinkwrap] offline management tool.   
+The specific bundle and charms which are required by those bundles must first be retrieved,
+then locally installed with Juju. The [bundles][], [overlays][], and charms to install
+can be retrieved using the [Shrinkwrap][cdk-shrinkwrap] tool.   
 
 from an internet connected machine:
 
@@ -189,17 +189,17 @@ BUNDLE=cs:charmed-kubernetes-733       # Choose a deployment bundle (example is 
 ls /tmp/.shrinkwrap/build/
 ```
 
-In air-gapped environment with access to the juju controller, 
+In air-gapped environment with access to the Juju controller, 
 1. Extract the tar.gz file
-2. Print Available instructions from the deploy.sh
-   1. Push the simple-stream images to the juju cloud image backing services
-   2. Push necessary `deb` packages to the apt proxy
-   3. Push the snaps to the snap-store-proxy
-   4. Push the container images to your offline container registry
-3. Ensure the juju environment is configured to pull from the snap-store-proxy and container registry
+1. Print Available instructions from the deploy.sh
+   1. Push the simple-stream images to the Juju cloud image backing services
+   1. Push necessary `deb` packages to the APT proxy
+   1. Push the snaps to the snap-store-proxy
+   1. Push the container images to your offline container registry
+1. Ensure the Juju environment is configured to pull from the snap-store-proxy and container registry
    1. this will require configuration changed on the `containerd` charm in `./charms/bundle.yaml`
-   2. ensure `applcations.containerd.options` includes `custom_registries` settings
-4. Finally, deploy the juju charms and resources from the provided local bundle.
+   1. ensure `applcations.containerd.options` includes `custom_registries` settings
+1. Finally, deploy the Juju charms and resources from the provided local bundle.
 ```bash
 tar -xvf cs:charmed-kubernetes-733-stable-*.tar.gz --force-local
 cd cs:charmed-kubernetes-733-stable-*/
