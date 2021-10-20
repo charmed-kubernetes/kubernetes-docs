@@ -77,12 +77,12 @@ page for each release. For example, for 1.22, the
 While it is _possible_ to download a snap package from the store, each snap will then
 need to be authenticated, and subsequent updates, even in the case of security
 updates, will require manual intervention. To avoid this, the recommended
-solution is to use the [snap-store-proxy][] software.
+solution is to use the [Snap Store Proxy][] software.
 
-The snap store proxy can also be configured to run in an "air-gap" mode, which 
+The Snap Store Proxy can also be configured to run in an "air-gap" mode, which 
 disconnects it from the upstream store and allows snaps to be "sideloaded" into
 the local store. Information on how to do this is in the 
-[snap store proxy documentation][sideload].
+[Snap Store Proxy documentation][sideload].
 
 
 Note: Running the Snap Store Proxy also requires access to a PostgreSQL database,
@@ -247,7 +247,7 @@ juju deploy ...
 [quickstart]: /kubernetes/docs/quickstart
 [snap]: https://snapcraft.io
 [snaps]: https://docs.snapcraft.io/snap-documentation
-[snap-store-proxy]: https://docs.ubuntu.com/snap-store-proxy
+[Snap Store Proxy]: https://docs.ubuntu.com/snap-store-proxy
 [rsync]: https://help.ubuntu.com/community/Rsyncmirror
 [apt-mirror]: https://www.howtoforge.com/local_debian_ubuntu_mirror
 [aptly]: https://www.aptly.info/doc/overview/
