@@ -229,7 +229,7 @@ entries:
       type: page
 
     - title: Proxy Configuration
-      url: /proxy-settings
+      url: /proxies
       output: web, pdf
       type: page
 

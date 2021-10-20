@@ -8,7 +8,7 @@ context:
 keywords: oflline, proxy, configuration
 tags: [configure]
 sidebar: k8smain-sidebar
-permalink: proxy-settings.html
+permalink: proxies.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -31,6 +31,9 @@ A Juju model can define proxies for the resources Charmed Kubernetes will need:
 
 Note that Juju can also set other proxy types, but these are not relevant to
 Charmed Kubernetes.
+
+##
+
 
 ## Setting proxies for the Juju model
 
