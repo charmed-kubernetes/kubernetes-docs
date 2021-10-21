@@ -150,6 +150,26 @@ You can confirm the images are present by running the action:
 juju run-action --wait docker-registry/0 images
 ```
 
+## OS images
+
+Juju will require access to OS images to install on machines. This is usually handled
+by Juju in conjunction with the underlying cloud, and has no need of any user 
+interaction. If you are using a private cloud which has not yet been configured for use
+with Juju or Ubuntu images, the following documentation may be useful.
+
+-  OpenStack image metadata [from Juju docs][simplestreams]
+-  Image metadata for MAAS [from the MAAS docs][maas-images]
+
+### LXD
+
+[LXD][] is a special case, as not only can Charmed Kubernetes be deployed entirely 
+on LXD containers (See the [localhost documentation][]), but LXD is also used in other
+clouds to co-locate applications on a single machine. In both cases, the OS images need 
+to be fetched from somewhere. This can be configured in various ways using LXD, either 
+by pre-caching image files or pointing to an accessible repository. This is covered
+in detail in the [LXD image documentation][].
+
+
 ## Python packages and PyPI
 
 **Charmed Kubernetes** base charms all come with the pip wheels necessary.
@@ -170,7 +190,10 @@ patches can be published to a locally available livepatch hosting server.
 
 ## Charmed Kubernetes 
 
-### Bundle and charms
+### Shrinkwrap
+
+
+#### Bundle and charms
 
 The specific bundle and charms which are required by those bundles must first be retrieved,
 then locally installed with Juju. The [bundles][], [overlays][], and charms to install
@@ -212,14 +235,8 @@ juju deploy ...
 
 ## Configuring Charmed Kubernetes to work with proxies
 
-
-
-
+Whether you decide to proxy any or all of the above services, 
 ## Additional considerations
-
-
-### Ubuntu SSO
-<!-- Not needed for CK, but needed on the snap store proxy... !-->
 
 ## Useful links
 
@@ -229,6 +246,9 @@ juju deploy ...
 
 
 <!-- LINKS -->
+[LXD image documentation]: https://linuxcontainers.org/lxd/docs/master/image-handling
+[maas-images]: https://maas.io/docs/snap/3.1/ui/using-image-streams
+[simplestreams]: https://juju.is/docs/olm/cloud-image-metadata
 [bundles]: /kubernetes/docs/supported-versions
 [containerd]: https://ubuntu.com/kubernetes/docs/1.21/charm-containerd
 [1.22-components]: https://ubuntu.com/kubernetes/docs/1.22/components#snaps
