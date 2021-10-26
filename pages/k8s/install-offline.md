@@ -222,8 +222,8 @@ In air-gapped environment with access to the Juju controller,
    1. Push the snaps to the snap-store-proxy
    1. Push the container images to your offline container registry
 1. Ensure the Juju environment is configured to pull from the snap-store-proxy and container registry
-   1. this will require configuration changed on the `containerd` charm in `./charms/bundle.yaml`
-   1. ensure `applcations.containerd.options` includes `custom_registries` settings
+   1. This will require configuration changes on the `containerd` application and `kubernetes-master` application in the `./bundle.yaml`
+   1. Ensure `applcations.containerd.options` includes `custom_registries` settings
 1. Finally, deploy the Juju charms and resources from the provided local bundle.
 ```bash
 tar -xvf cs:charmed-kubernetes-733-stable-*.tar.gz --force-local
