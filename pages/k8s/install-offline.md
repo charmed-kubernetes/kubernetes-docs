@@ -102,7 +102,7 @@ and an Ubuntu SSO account.
 
 Since `Charmed Kubernetes` requires Juju, the Juju environment will also
 need to be deployed in an offline-mode. Details of how to install and run Juju
-are in the relevant section of the [Juju documentation][offline mode].
+are in the relevant section of the [Juju documentation][offline-mode].
 
 ## Container images
 
@@ -119,7 +119,7 @@ could be used, but for the small number of images required for Charmed Kubernete
 it is sufficient to run a local repository using Docker.
 
 The recommended method is to use Juju to deploy a Docker registry and use that to
-serve the required images. See the [Docker registry documentation][] for more
+serve the required images. See the [Docker registry documentation][registry] for more
 details. 
 
 Note that if you wish to deploy the registry in the same Juju model (recommended) as
@@ -179,7 +179,7 @@ to be fetched from somewhere.
 
 This can be configured in various ways using LXD, either 
 by pre-caching image files or pointing to an accessible repository. This is covered
-in detail in the [LXD image documentation][].
+in detail in the [LXD image documentation][LXD-image].
 
 ## Python packages and PyPI
 
@@ -254,7 +254,7 @@ is covered in the [proxy documentation][].
 
 
 <!-- LINKS -->
-[LXD image documentation]: https://linuxcontainers.org/lxd/docs/master/image-handling
+[LXD-image]: https://linuxcontainers.org/lxd/docs/master/image-handling
 [maas-images]: https://maas.io/docs/snap/3.1/ui/using-image-streams
 [simplestreams]: https://juju.is/docs/olm/cloud-image-metadata
 [bundles]: /kubernetes/docs/supported-versions
@@ -281,6 +281,9 @@ is covered in the [proxy documentation][].
 [aptly]: https://www.aptly.info/doc/overview/
 [sideload]: https://docs.ubuntu.com/snap-store-proxy/en/airgap#usage
 [proxy documentation]: /kubernetes/docs/proxies
+[registry]: /kubernetes/docs/docker-registry
+[LXD]: https://linuxcontainers.org/lxd/introduction/
+[local-install]: /kubernetes/docs/install-local
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
