@@ -48,10 +48,6 @@ There are many ways of setting up a local mirror. The repository is essentially 
 a directory of files and some means of serving them (http, ftp, etc). It is common to
 use tools such as **rsync**, **apt-mirror** or **aptly** to create the mirror.
 
-If a proxy is already in use for the APT repository, it can be configured
-according to the instructions under the heading 
-[Configuring Charmed Kubernetes to work with proxies][]
-
 ### Series and architectures
 
 Note that the mirror should contain packages for the required series (e.g. focal 
@@ -173,7 +169,7 @@ with Juju or Ubuntu images, the following documentation may be useful.
 ### LXD
 
 [LXD][] is a special case, as not only can Charmed Kubernetes be deployed entirely
-on LXD containers (See the [localhost documentation][]), but LXD is also used in other
+on LXD containers (See the [localhost documentation][local-install]), but LXD is also used in other
 clouds to co-locate applications on a single machine. In both cases, the OS images need
 to be fetched from somewhere. 
 
