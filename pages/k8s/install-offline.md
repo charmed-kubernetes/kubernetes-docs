@@ -104,8 +104,7 @@ are in the relevant section of the [Juju documentation][offline-mode].
 
 `Charmed Kubernetes` relies on container images for many of its components. To
 run an air-gap or offline installation, it will be necessary to make these
-images available to Juju, which is usually achieved by running a local
-image registry, such as Docker.
+images through Juju configuration or a Juju deployed registry.
 
 ### Creating a private registry
 
@@ -116,7 +115,7 @@ it is sufficient to run a local repository using Docker.
 
 The recommended method is to use Juju to deploy a Docker registry and use that to
 serve the required images. See the [Docker registry documentation][registry] for more
-details. 
+details.
 
 Note that if you wish to deploy the registry in the same Juju model (recommended) as
 Charmed Kubernetes, you should populate the registry with the images before
@@ -129,8 +128,8 @@ the Charmed Kubernetes bundle repository on github. You can inspect or download 
 lists from the [container images][] directory.  
 
 Using this list, it is possible to fetch the desired images locally on a system which
-has access to public repositories. 
-
+has access to public repositories. The Shrinkwrap tool also gathers all the necessary
+images for a specific release into one "containers" folder of the resulting `tar.gz` ready for installation with docker-load, docker-tag, and docker-push
 When using the Juju docker-registry charm, the image archives can be copied to the running unit
 added to the registry. Note that if the `docker-registry` charm itself has been deployed offline,
 you will also need to fetch the registry image:
@@ -182,10 +181,9 @@ in detail in the [LXD image documentation][LXD-image].
 **Charmed Kubernetes** base charms all come with the necessary pip wheels.
 Other charms (e.g. those used to monitor or provide metric data) may require  
 additional packages which aren't bundled as wheels, and expect to install those
-dependencies from PyPI. There is no guarantee that any non-standard
-Charmed Kubernetes charm won't attempt to reach out to PyPI
-during installation. Any charm attempting to do so, will need to handle pip installing
-from a different pypi-server using the `extra-index-url` argument and charm configs.
+dependencies from PyPI. Any charm attempting to do so, will need to handle pip installing
+from a different pypi-server using the `extra-index-url` argument and charm configuration.
+Check the documentation of any additional charms.
 
 ## Livepatch Proxy
 
