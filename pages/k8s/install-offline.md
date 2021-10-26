@@ -25,6 +25,15 @@ services in a restricted environment you may already have some 'air-gap'
 resources available, and may only need to configure Charmed Kubernetes to
 make use of them.
 
+<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
+<span class="p-notification__status">Shrinkwrap</span>
+A simple tool for collecting the bundle and charm files, as well as automating some of 
+the work required to install offline is available. 
+The <a href="https://github.com/charmed-kubernetes/cdk-shrinkwrap"> shrinkwrap repository</a>
+contains the latest version and docs.
+</p></div>
+
+
 ## Apt package repository
 
 Access to a repository is required for installing software which is not yet available 
@@ -165,18 +174,19 @@ with Juju or Ubuntu images, the following documentation may be useful.
 [LXD][] is a special case, as not only can Charmed Kubernetes be deployed entirely 
 on LXD containers (See the [localhost documentation][]), but LXD is also used in other
 clouds to co-locate applications on a single machine. In both cases, the OS images need 
-to be fetched from somewhere. This can be configured in various ways using LXD, either 
+to be fetched from somewhere. 
+
+This can be configured in various ways using LXD, either 
 by pre-caching image files or pointing to an accessible repository. This is covered
 in detail in the [LXD image documentation][].
 
-
 ## Python packages and PyPI
 
-**Charmed Kubernetes** base charms all come with the pip wheels necessary.
-Other charms used to monitor or provide metric data of those machines may require pip 
-packages to install into their virtual environments which aren't
-bundled as wheels, and expect to install those dependencies from PyPI. There is no
-guarantee that any non-standard Charmed Kubernetes charm won't attempt to reach out to PyPI
+**Charmed Kubernetes** base charms all come with the necessary pip wheels.
+Other charms (e.g. those used to monitor or provide metric data) may require  
+additional packages which aren't bundled as wheels, and expect to install those
+dependencies from PyPI. There is no guarantee that any non-standard
+Charmed Kubernetes charm won't attempt to reach out to PyPI
 during installation. Any charm attempting to do so, will need to handle pip installing
 from a different pypi-server using the `extra-index-url` argument and charm configs.
 
@@ -189,9 +199,6 @@ patches can be published to a locally available livepatch hosting server.
 
 
 ## Charmed Kubernetes 
-
-### Shrinkwrap
-
 
 #### Bundle and charms
 
@@ -235,10 +242,10 @@ juju deploy ...
 
 ## Configuring Charmed Kubernetes to work with proxies
 
-Whether you decide to proxy any or all of the above services, 
-## Additional considerations
+Whether you decide to proxy any or all of the above services, the only extra configuration required
+is for Juju to route the traffic to the relevant proxies. Proxy configuration for Charmed Kubernetes 
+is covered in the [proxy documentation][].
 
-## Useful links
 
 
 <!-- IMAGES -->
@@ -253,7 +260,7 @@ Whether you decide to proxy any or all of the above services,
 [containerd]: https://ubuntu.com/kubernetes/docs/1.21/charm-containerd
 [1.22-components]: https://ubuntu.com/kubernetes/docs/1.22/components#snaps
 [cdk-shrinkwrap]: https://github.com/charmed-kubernetes/cdk-shrinkwrap
-[controller-config]: https://juju.is/docs/olm/create-controllers
+[controller-config]: https://juju.is/docs/olm/controllers
 [credentials]: https://juju.is/docs/olm/credentials
 [customize-bundle]: /kubernetes/docs/install-manual#customising-the-bundle-install
 [container images]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
@@ -272,6 +279,7 @@ Whether you decide to proxy any or all of the above services,
 [apt-mirror]: https://www.howtoforge.com/local_debian_ubuntu_mirror
 [aptly]: https://www.aptly.info/doc/overview/
 [sideload]: https://docs.ubuntu.com/snap-store-proxy/en/airgap#usage
+[proxy documentation]: /kubernetes/docs/proxies
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
