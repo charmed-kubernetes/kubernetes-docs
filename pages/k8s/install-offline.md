@@ -73,7 +73,7 @@ Many current charms include snaps as bundled resources. The inclusion of
 snaps as charm resources is deprecated, and these will be removed in future
 versions of these charms. Deployments will need to be able to access the
 official Snap Store or use the Snap Store Proxy to gain access to the required
-snaps. </a>
+snaps.
 </p></div>
 
 The majority of charms, including all the core Charmed Kubernetes charms, rely on
