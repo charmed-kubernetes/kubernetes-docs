@@ -18,7 +18,7 @@ on a system which does not have unfettered access to the internet. To make
 this possible, it is necessary to prepare the required resources, and configure
 Charmed Kubernetes to make use of them.
 
-As user needs may vary, this documentation does not present a proscriptive 
+As user needs may vary, this documentation does not present a prescriptive 
 recipe, but outlines the types of resources which are required and some 
 recommendations on how to provide them. If you are already installing 
 services in a restricted environment you may already have some 'air-gap'
@@ -125,11 +125,13 @@ deploying the rest of Charmed Kubernetes.
 
 A list of the required images for each supported release is made available as part of
 the Charmed Kubernetes bundle repository on github. You can inspect or download the
-lists from the [container images][] directory.  
+lists from the [container images][] directory. 
 
 Using this list, it is possible to fetch the desired images locally on a system which
-has access to public repositories. The Shrinkwrap tool also gathers all the necessary
-images for a specific release into one "containers" folder of the resulting `tar.gz` ready for installation with docker-load, docker-tag, and docker-push
+has access to public repositories. The shrinkwrap tool also gathers all the necessary
+images for a specific release into one "containers" folder of the resulting tar.gz 
+ready for installation.
+
 When using the Juju docker-registry charm, the image archives can be copied to the running unit
 added to the registry. Note that if the `docker-registry` charm itself has been deployed offline,
 you will also need to fetch the registry image:
@@ -179,7 +181,7 @@ in detail in the [LXD image documentation][LXD-image].
 ## Python packages and PyPI
 
 **Charmed Kubernetes** base charms all come with the necessary pip wheels.
-Other charms (e.g. those used to monitor or provide metric data) may require  
+Other charms (e.g. those used to monitor or provide metric data) may require
 additional packages which aren't bundled as wheels, and expect to install those
 dependencies from PyPI. Any charm attempting to do so, will need to handle pip installing
 from a different pypi-server using the `extra-index-url` argument and charm configuration.
@@ -217,8 +219,6 @@ ls /tmp/.shrinkwrap/build/
 In air-gapped environment with access to the Juju controller, 
 1. Extract the tar.gz file
 1. Print Available instructions from the deploy.sh
-   1. Push the simple-stream images to the Juju cloud image backing services
-   1. Push necessary `deb` packages to the APT proxy
    1. Push the snaps to the snap-store-proxy
    1. Push the container images to your offline container registry
 1. Ensure the Juju environment is configured to pull from the snap-store-proxy and container registry
