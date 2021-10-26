@@ -230,7 +230,7 @@ tar -xvf cs:charmed-kubernetes-733-stable-*.tar.gz --force-local
 cd cs:charmed-kubernetes-733-stable-*/
 ./deploy.sh
 # examine provided instructions
-# modif
+# ensure necessary modifications are considered
 juju deploy ...
 ```
 
