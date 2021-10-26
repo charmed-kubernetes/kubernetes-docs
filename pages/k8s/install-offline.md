@@ -34,13 +34,14 @@ contains the latest version and docs.
 </p></div>
 
 
-## Apt package repository
+## APT package repository
 
-Access to a repository is required for installing software which is not yet available 
-as snap packages, as well as receiving updates for the underlying operating system. 
+Access to a repository is required for installing software which is not yet available
+as snap packages, as well as receiving updates for the underlying operating system.
 In normal use this requires network access to  `http://archive.ubuntu.com/` or one
 of its localised mirrors.
-In order to access the apt package repository, it is common to set up a local 
+
+In order to access the APT package repository, it is common to set up a local
 mirror or allow traffic through a proxy to the main archive.
 
 There are many ways of setting up a local mirror. The repository is essentially just
@@ -70,7 +71,7 @@ but some additional charms may be based on other series.
 <span class="p-notification__status">Snap resources</span>
 Many current charms include snaps as bundled resources. The inclusion of
 snaps as charm resources is deprecated, and these will be removed in future
-versions of these charms. Deployments will need to be able to access the 
+versions of these charms. Deployments will need to be able to access the
 official Snap Store or use the Snap Store Proxy to gain access to the required
 snaps. </a>
 </p></div>
@@ -80,7 +81,7 @@ The majority of charms, including all the core Charmed Kubernetes charms, rely o
 IoT that are easy to install, secure, cross‐platform and dependency‐free.
 
 The list of snaps required by Charmed Kubernetes is detailed in the "components"
-page for each release. For example, for 1.22, the 
+page for each release. For example, for 1.22, the
 [snaps are listed here][1.22-components].
 
 While it is _possible_ to download a snap package from the store, each snap will then
@@ -88,9 +89,9 @@ need to be authenticated, and subsequent updates, even in the case of security
 updates, will require manual intervention. To avoid this, the recommended
 solution is to use the [Snap Store Proxy][] software.
 
-The Snap Store Proxy can also be configured to run in an "air-gap" mode, which 
+The Snap Store Proxy can also be configured to run in an "air-gap" mode, which
 disconnects it from the upstream store and allows snaps to be "sideloaded" into
-the local store. Information on how to do this is in the 
+the local store. Information on how to do this is in the
 [Snap Store Proxy documentation][sideload].
 
 
@@ -99,25 +100,25 @@ and an Ubuntu SSO account.
 
 ## Juju 
 
-Since `Charmed Kubernetes` requires Juju, the Juju environment will also 
+Since `Charmed Kubernetes` requires Juju, the Juju environment will also
 need to be deployed in an offline-mode. Details of how to install and run Juju
 are in the relevant section of the [Juju documentation][offline mode].
 
 ## Container images
 
 `Charmed Kubernetes` relies on container images for many of its components. To
-run an air-gap or offline installation, it will be necessary to make these 
-images available to Juju, which is usually achieved by running a local 
+run an air-gap or offline installation, it will be necessary to make these
+images available to Juju, which is usually achieved by running a local
 image registry, such as Docker.
 
 ### Creating a private registry
 
-The registry is simply a store for managing and serving up the requested images. 
+The registry is simply a store for managing and serving up the requested images.
 Many public clouds (Azure, AWS, Google etc) also have registry components which
 could be used, but for the small number of images required for Charmed Kubernetes
 it is sufficient to run a local repository using Docker.
 
-The recommended method is to use Juju to deploy a Docker registry and use that to 
+The recommended method is to use Juju to deploy a Docker registry and use that to
 serve the required images. See the [Docker registry documentation][] for more
 details. 
 
@@ -128,10 +129,10 @@ deploying the rest of Charmed Kubernetes.
 ### Fetching the required images
 
 A list of the required images for each supported release is made available as part of
-the Charmed Kubernetes bundle repository on github. You can inspect or download the 
+the Charmed Kubernetes bundle repository on github. You can inspect or download the
 lists from the [container images][] directory.  
 
-Using this list, it is possible to fetch the desired images locally on a system which 
+Using this list, it is possible to fetch the desired images locally on a system which
 has access to public repositories. 
 
 When using the Juju docker-registry charm, the image archives can be copied to the running unit
@@ -162,7 +163,7 @@ juju run-action --wait docker-registry/0 images
 ## OS images
 
 Juju will require access to OS images to install on machines. This is usually handled
-by Juju in conjunction with the underlying cloud, and has no need of any user 
+by Juju in conjunction with the underlying cloud, and has no need of any user
 interaction. If you are using a private cloud which has not yet been configured for use
 with Juju or Ubuntu images, the following documentation may be useful.
 
@@ -171,9 +172,9 @@ with Juju or Ubuntu images, the following documentation may be useful.
 
 ### LXD
 
-[LXD][] is a special case, as not only can Charmed Kubernetes be deployed entirely 
+[LXD][] is a special case, as not only can Charmed Kubernetes be deployed entirely
 on LXD containers (See the [localhost documentation][]), but LXD is also used in other
-clouds to co-locate applications on a single machine. In both cases, the OS images need 
+clouds to co-locate applications on a single machine. In both cases, the OS images need
 to be fetched from somewhere. 
 
 This can be configured in various ways using LXD, either 
@@ -193,14 +194,14 @@ from a different pypi-server using the `extra-index-url` argument and charm conf
 ## Livepatch Proxy
 
 The Linux Kernel supports realtime updates to the running kernel without restarting
-the existing kernel. In normal use this requires network access to pull the kernel 
+the existing kernel. In normal use this requires network access to pull the kernel
 patches and apply to the running kernel. However, with [On Prem Livepatch][on-prem-livepatch],
 patches can be published to a locally available livepatch hosting server.
 
 
 ## Charmed Kubernetes 
 
-#### Bundle and charms
+### Bundle and charms
 
 The specific bundle and charms which are required by those bundles must first be retrieved,
 then locally installed with Juju. The [bundles][], [overlays][], and charms to install
@@ -240,10 +241,10 @@ juju deploy ...
 ```
 
 
-## Configuring Charmed Kubernetes to work with proxies
+### Configuring Charmed Kubernetes to work with proxies
 
 Whether you decide to proxy any or all of the above services, the only extra configuration required
-is for Juju to route the traffic to the relevant proxies. Proxy configuration for Charmed Kubernetes 
+is for Juju to route the traffic to the relevant proxies. Proxy configuration for Charmed Kubernetes
 is covered in the [proxy documentation][].
 
 
