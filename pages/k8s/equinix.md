@@ -15,7 +15,8 @@ toc: False
 
 As with any cloud supported by Juju, **Charmed Kubernetes** can be deployed and used on
 [Equinix Metal][]. This document provides some extra information and an overlay to 
-help get the most out of this cloud
+help get the most out of this cloud. For instructions on installing Juju itself, please
+see the latest [Juju documentation][].
 
 
 ## Before installing
@@ -51,6 +52,15 @@ To deploy **Charmed Kubernetes** on Equinix Metal, it is also recommended to dep
 some storage and to use Calico for networking. You can deploy and configure
 Charmed kubernetes any way you like, but this example overlay will help you get started.
 
+You can [download the example bundle here][asset-equinix-bundle]
+
+It can then be installed with the command:
+
+```bash
+juju deploy ./equinix-bundle.yaml
+```
+
+<!-- COMMENTED OUT UNTIL OVERLAYS WORK
 It adjusts the default bundle to use Calico networking, deploys Ceph for storage and 
 co-locates some services to make more efficient use of the available instances.
 
@@ -202,12 +212,23 @@ To use this overlay with the **Charmed Kubernetes** bundle, it is specified duri
 ```bash
 juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml 
 ```
+-->
 
-... and remember to fetch the configuration file!
+
+When the deployment has settled, remember to fetch the configuration file!
 
 ```bash
 juju scp --proxy kubernetes-master/0:config ~/.kube/config
 ```
+
+You can check the status by running:
+
+```
+juju status
+```
+
+At this point, there will be error messages on the workers as the pods will not run until
+the Cloud Controller Manager has been run.
 
 ## Post install
 
@@ -231,7 +252,7 @@ stringData:
     {
     "apiKey": "<Metal API key>",
     "projectID": "<Metal Project ID>",
-    “loadbalancer”: “kube-vip://”
+    "loadbalancer": "kube-vip://"
     }
 EOY
 ```
@@ -239,7 +260,7 @@ EOY
 The next steps are to confirm the version of the CCM to use:
 
 ```bash
-export CCM_VERSION=3.1.0
+export CCM_VERSION=3.2.2
 kubectl apply -f https://github.com/equinix/cloud-provider-equinix-metal/releases/download/v${CCM_VERSION}/deployment.yaml
 ```
 
@@ -333,8 +354,11 @@ in Kubernetes will automatically trigger creation of the ElasticIP in the Metal 
 and associate it with the KubeVIP service, simultaneously adjusting BGP tables in the
 cloud and forward the traffic to Kubernetes nodes. This can be demonstrated with a
 simple application. Here we will create a simple application and scale it to five pods:
+
+```bash
 kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
 kubectl scale deployment hello-world --replicas=5
+```
  
 You can verify that the application and replicas have been created with:
 
@@ -378,12 +402,15 @@ Hello Kubernetes!
 
 <!-- LINKS -->
 
+[asset-equinix-bundle]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/specs/equinix-bundle.yaml
 [asset-equinix-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/equinix-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [install]: /kubernetes/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
+[Juju documentation]: https://juju.is/docs/olm/installing-juju
+[Equinix Metal]: https://metal.equinix.com/
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
