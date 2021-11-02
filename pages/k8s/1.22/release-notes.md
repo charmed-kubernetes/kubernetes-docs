@@ -117,15 +117,15 @@ in LXD containers.
 - [LP 1936816](https://bugs.launchpad.net/bugs/1936816) and [LP 1913228](https://bugs.launchpad.net/bugs/1913228) Filesystem Hierachy Standards
   
   Applications running inside a kubernetes-master should set pid files and log files in 
-appropriate operational locations like `/run/` and `/var/log/cdk/`. Care was taken to restart 
+appropriate operational locations like `/run/` and `/var/log/kubernetes/`. Care was taken to restart 
 services using these new locations and migrate some existing files out of `/root/cdk/`.
 
   For the service `cdk.master.auth-webhook` the new pid file and log files are named 
-`/run/cdk.master.auth-webhook.pid` and `/var/log/cdk/cdk.master.auth-webhook.log` 
+`/run/cdk.master.auth-webhook.pid` and `/var/log/kubernetes/cdk.master.auth-webhook.log` 
 to match the systemctl service name.
 
   If the [`filebeat`](https://charmhub.io/filebeat) charm is related to kubernetes-master,
-ensure that its logpath include this new path ( e.g. `juju config filebeat logpath='/var/log/cdk/*.log'` )
+ensure that its logpath include this new path ( e.g. `juju config filebeat logpath='/var/log/kubernetes/*.log'` )
 
 ## Deprecations and API changes
 
