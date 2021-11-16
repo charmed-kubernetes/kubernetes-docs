@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/docs/shared/_side-navigation.md" # Fix syntax highlighting: _.
 context:
   title: "Charmed Kubernetes on OpenStack"
   description: Running Charmed Kubernetes on OpenStack using the openstack-integrator.
@@ -51,6 +51,61 @@ relations:
   - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 
+To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
+
+```bash
+juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml --trust
+```
+
+... and remember to fetch the configuration file!
+
+```bash
+juju scp kubernetes-master/0:config ~/.kube/config
+```
+
+For more configuration options and details of the permissions which the integrator uses,
+please see the [charm docs][openstack-integrator-readme].
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+Resources allocated by Kubernetes or the integrator are usually cleaned up automatically when no
+longer needed. However, it is recommended to periodically, and particularly after tearing down a
+cluster, use the OpenStack administration tools to make sure all unused resources have been
+successfully released.
+  </p>
+</div>
+
+### Using Octavia Load Balancers
+
+There are two ways in which Octavia load balancers can be used with **Charmed Kubernetes**:
+load balancers automatically created by Kubernetes for `Services` which sit in front of `Pods` and
+are defined with `type=LoadBalancer`, and as a replacement for the load balancer in front of the
+API server itself.
+
+In either case, the load balancers can optionally have floating IPs (FIPs) attached to them to
+allow for external access.
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+For security reasons, the SGs automatically managed by Juju will not by default allow traffic into
+the nodes from external networks which can otherwise reach the FIPs. The easiest way to allow this
+is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic from the FIP
+network, according to your security and network traffic policy and needs. Alternatively, you could
+create a separate SG to manage the rule(s) across multiple models or controllers.
+  </p>
+</div>
+
+#### LoadBalancer-type Pod Services
+
+To use Octavia for `LoadBalancer` type services in the cluster, you will also need to set the
+`subnet-id` config to the appropriate tenant subnet where your nodes reside, and if desired, the
+`floating-network-id` config to whatever network you want FIPs created in.  See the [Charm config
+docs][charm-config] for more details.
+
+#### API Server Load Balancer
+
 If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native OpenStack
 load balancer for the Kubernetes API server, which both reduces the number of machines required and is
 HA. To enable this, use this overlay instead ([download it here][asset-openstack-lb-overlay]):
@@ -72,29 +127,9 @@ relations:
   - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-If you create load balancers and subsequently tear down the cluster, check with
-the OpenStack administration tools to make sure all the associated resources
-have also been released.
-  </p>
-</div>
-
-To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
-
-```bash
-juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml --trust
-```
-
-... and remember to fetch the configuration file!
-
-```bash
-juju scp kubernetes-master/0:config ~/.kube/config
-```
-
-For more configuration options and details of the permissions which the integrator uses,
-please see the [charm readme][openstack-integrator-readme].
+You will also need to set the `lb-subnet` config to the appropriate tenant subnet where your nodes
+reside, and if desired, the `lb-floating-network` config to whatever network you want the FIP created
+in.  See the [Charm config docs][charm-config] for more details.
 
 ### Using Cinder volumes
 
