@@ -94,6 +94,10 @@ the nodes from external networks which can otherwise reach the FIPs. The easiest
 is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic from the FIP
 network, according to your security and network traffic policy and needs. Alternatively, you could
 create a separate SG to manage the rule(s) across multiple models or controllers.
+
+Manual SG intervention will also be required if you wish to have the Amphora instances in a
+different subnet from the node instances, since you will need to allow at least traffic on the
+NodePort range (30000-32767) from the Amphorae into the nodes.
   </p>
 </div>
 
@@ -103,6 +107,52 @@ To use Octavia for `LoadBalancer` type services in the cluster, you will also ne
 `subnet-id` config to the appropriate tenant subnet where your nodes reside, and if desired, the
 `floating-network-id` config to whatever network you want FIPs created in.  See the [Charm config
 docs][charm-config] for more details.
+
+As an example of this usage, this will create a simple application, scale it to five pods,
+and expose it with a `LoadBalancer`-type `Service`:
+
+```bash
+kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
+kubectl scale deployment hello-world --replicas=5
+kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port 8080
+```
+
+You can verify that the application and replicas have been created with:
+
+```bash
+kubectl get deployments hello-world
+```
+
+Which should return output similar to:
+
+```bash
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+hello-world      5/5               5                            5             2m38s
+```
+
+To check that the service is running correctly:
+
+```bash
+kubectl get service hello
+```
+
+...which should return output similar to:
+
+```yaml
+NAME    TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+hello   LoadBalancer   10.152.183.136   202.49.242.3  8080:32662/TCP   2m
+```
+
+You can see that the External IP is now in front of the five endpoints of the
+example deployment. You can test the ingress address:
+
+```bash
+curl  http://202.49.242.3:8080
+```
+```
+Hello Kubernetes!
+```
+
 
 #### API Server Load Balancer
 
@@ -131,7 +181,7 @@ You will also need to set the `lb-subnet` config to the appropriate tenant subne
 reside, and if desired, the `lb-floating-network` config to whatever network you want the FIP created
 in.  See the [Charm config docs][charm-config] for more details.
 
-### Using Cinder volumes
+### Using Cinder Volumes
 
 Many  pods you may wish to deploy will require storage. Although you can use any type
 of storage supported by Kubernetes (see the [storage documentation][storage]), you
@@ -198,93 +248,9 @@ spec:
 EOY
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-If you create Cinder volumes and subsequently tear down the cluster, check with
-the OpenStack administration tools to make sure all the associated resources
-have also been released.
-  </p>
-</div>
+### Using Keystone Authentication / Authorisation
 
-### Using LBaaS load balancers
-
-With the openstack-integrator charm in place, actions which invoke a
-loadbalancer in Kubernetes will automatically request a load balancer from
-OpenStack using Octavia. This can be demonstrated with a simple application.
-Here we will create a simple application and scale it to five pods:
-
-```bash
-kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
-kubectl scale deployment hello-world --replicas=5
-```
-
-You can verify that the application and replicas have been created with:
-
-```bash
-kubectl get deployments hello-world
-```
-
-Which should return output similar to:
-
-```bash
-NAME              READY   UP-TO-DATE   AVAILABLE   AGE
-hello-world      5/5               5                            5             2m38s
-```
-
-To create a LoadBalancer, the application should now be exposed as a service:
-
-```bash
-kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port 8080
-```
-
-To check that the service is running correctly:
-
-```bash
-kubectl get service hello
-```
-
-...which should return output similar to:
-
-```yaml
-NAME    TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-hello   LoadBalancer   10.152.183.136   202.49.242.3  8080:32662/TCP   2m
-```
-
-You can see that the External IP is now in front of the five endpoints of the
-example deployment. You can test the ingress address:
-
-```bash
-curl  http://202.49.242.3:8080
-```
-```
-Hello Kubernetes!
-```
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-If you create load balancers and subsequently tear down the cluster, check with
-the OpenStack administration tools to make sure all the associated resources
-have also been released.
-  </p>
-</div>
-
-#### Note: LBaaS and Security Groups
-
-Charmed Kubernetes and the OpenStack integrator assume by default that the
-Amphora instances providing the LBs will reside in the same subnet as the
-workers and have at least traffic on the NodePort range (30000-32767) open from
-the Amphora instances to the worker instances. In general, Juju assumes that
-traffic between units in a model and other resources used by that model is
-unrestricted or is otherwise managed outside of Juju.
-
-If you have more restrictions on traffic between resources within or used by
-the model, you may need to manage the security group rules manually.
-
-### Using Keystone
-
-The `openstack-integrator` also provides an interface for authentication and authorisation using 
+The `openstack-integrator` also provides an interface for authentication and authorisation using
 Keystone. This is covered in detail in the [Keystone and LDAP documentation][ldap].
 
 ### Upgrading the integrator charm
