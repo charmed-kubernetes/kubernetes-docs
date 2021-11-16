@@ -93,8 +93,8 @@ For security reasons, the SGs automatically managed by Juju will not by default 
 the nodes from external networks which can otherwise reach the FIPs. The easiest way to allow this
 is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic from the FIP
 network, according to your security and network traffic policy and needs. Alternatively, you could
-create a separate SG to manage the rule(s) across multiple models or controllers.
-
+create a separate SG to manage the rule(s) across multiple models or controllers.<br/>
+<br/>
 Manual SG intervention will also be required if you wish to have the Amphora instances in a
 different subnet from the node instances, since you will need to allow at least traffic on the
 NodePort range (30000-32767) from the Amphorae into the nodes.
