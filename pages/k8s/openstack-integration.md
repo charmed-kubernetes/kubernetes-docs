@@ -89,11 +89,12 @@ allow for external access.
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-For security reasons, the SGs automatically managed by Juju will not by default allow traffic into
-the nodes from external networks which can otherwise reach the FIPs. The easiest way to allow this
-is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic from the FIP
-network, according to your security and network traffic policy and needs. Alternatively, you could
-create a separate SG to manage the rule(s) across multiple models or controllers.<br/>
+For security reasons, the security groups automatically managed by Juju will not by default allow
+traffic into the nodes from external networks which can otherwise reach the FIPs. The easiest way to
+allow this is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic
+from the FIP network, according to your security and network traffic policy and needs.
+Alternatively, you could create a separate SG to manage the rule(s) across multiple models or
+controllers.<br/>
 <br/>
 Manual SG intervention will also be required if you wish to have the Amphora instances in a
 different subnet from the node instances, since you will need to allow at least traffic on the
@@ -156,9 +157,10 @@ Hello Kubernetes!
 
 #### API Server Load Balancer
 
-If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native OpenStack
-load balancer for the Kubernetes API server, which both reduces the number of machines required and is
-HA. To enable this, use this overlay instead ([download it here][asset-openstack-lb-overlay]):
+If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native
+OpenStack load balancer for the Kubernetes API server, which simplifies the model and is properly
+HA, which kubeapi-load-balancer on its own is not. To enable this, use this overlay instead
+([download it here][asset-openstack-lb-overlay]):
 
 ```yaml
 applications:
