@@ -91,12 +91,12 @@ allow for external access.
     <span class="p-notification__status">Note:</span>
 For security reasons, the security groups automatically managed by Juju will not by default allow
 traffic into the nodes from external networks which can otherwise reach the FIPs. The easiest way to
-allow this is to add a rule to the model SG (named `juju-<model UUID>`) to allow ingress traffic
+allow this is to add a rule to the model security group (named `juju-<model UUID>`) to allow ingress traffic
 from the FIP network, according to your security and network traffic policy and needs.
-Alternatively, you could create a separate SG to manage the rule(s) across multiple models or
+Alternatively, you could create a separate security group to manage the rule(s) across multiple models or
 controllers.<br/>
 <br/>
-Manual SG intervention will also be required if you wish to have the Amphora instances in a
+Configuring or creating a security group will also be necessary if you wish to have the Amphora instances in a
 different subnet from the node instances, since you will need to allow at least traffic on the
 NodePort range (30000-32767) from the Amphorae into the nodes.
   </p>
@@ -106,8 +106,8 @@ NodePort range (30000-32767) from the Amphorae into the nodes.
 
 To use Octavia for `LoadBalancer` type services in the cluster, you will also need to set the
 `subnet-id` config to the appropriate tenant subnet where your nodes reside, and if desired, the
-`floating-network-id` config to whatever network you want FIPs created in.  See the [Charm config
-docs][charm-config] for more details.
+`floating-network-id` config to whatever network you want FIPs created in.  See the 
+[Charm config docs][charm-config] for more details.
 
 As an example of this usage, this will create a simple application, scale it to five pods,
 and expose it with a `LoadBalancer`-type `Service`:
