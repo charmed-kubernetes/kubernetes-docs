@@ -23,8 +23,8 @@ results.
 
 ## Compliance Requirements
 
-**Charmed Kubernetes** 1.19 is compliant by default. Key configuration changes
-from previous releases include the following:
+**Charmed Kubernetes** is compliant by default. Key configuration changes
+from releases prior to 1.19 include the following:
 
 ### [kubernetes-master][k8s-master]
 
