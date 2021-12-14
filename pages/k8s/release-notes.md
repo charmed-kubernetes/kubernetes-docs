@@ -13,6 +13,46 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.23
+
+### December ???, 2021 - [charmed-kubernetes-857](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-857/archive/bundle.yaml)
+
+## What's new
+
+- CNI support added to kubernetes-master
+
+The core CNI plugins have been added to kubernetes-master, and the CNI
+subordinate charms have been updated to render CNI configuration when attached
+to kubernetes-master. These changes pave the way for Kubelet to be added to
+kubernetes-master in a future release.
+
+## Component upgrades
+
+- kube-dns 1.21.1 (note: coredns 1.8.3 is the default DNS provider)
+- metrics-server 0.5.1
+
+## Fixes
+
+A list of bug fixes and other feature updates in this release can be found at
+[the launchpad milestone page](https://launchpad.net/charmed-kubernetes/+milestone/1.23).
+
+## Notes and Known Issues
+
+- [LP 1907153](https://bugs.launchpad.net/snapd/+bug/1907153) Snap install failure in LXD
+
+Snaps may fail to install when the `kubernetes-master` charm is deployed to a LXD container.
+This happens when the version of `snapd` on the host does not match the version inside the
+container. As a workaround, ensure the same version of `snapd` is installed on the host and
+in LXD containers.
+
+## Deprecations and API changes
+
+- Upstream
+
+For details of other deprecation notices and API changes for Kubernetes 1.23, please see the
+relevant sections of the [upstream release notes][upstream-changelog-1.23].
+
+
 # 1.22+ck2 Bugfix release
 
 ### October 27, 2021 - [charmed-kubernetes-814](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-814/archive/bundle.yaml)
@@ -465,6 +505,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [dashboard]: /kubernetes/docs/cdk-addons#kubernetes-dashboard
 [calico-service-ip-advertisement]: /kubernetes/docs/cni-calico#service-ip-advertisement
 [upstream-changelog]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.22.md#deprecation
+[upstream-changelog-1.23]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md#deprecation
 [cephcsi-upgrade]: https://github.com/ceph/ceph-csi/blob/devel/docs/ceph-csi-upgrade.md
 
 <!-- FEEDBACK -->
