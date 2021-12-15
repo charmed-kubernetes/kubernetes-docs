@@ -26,6 +26,12 @@ subordinate charms have been updated to render CNI configuration when attached
 to kubernetes-master. These changes pave the way for Kubelet to be added to
 kubernetes-master in a future release.
 
+- Grafana dashboard for etcd
+
+The etcd charm can now be related to the Prometheus and Grafana charms. When
+doing so, a new Grafana dashboard will be created that makes it easier to monitor
+the performance characteristics of etcd.
+
 ## Component upgrades
 
 - kube-dns 1.21.1 (note: coredns 1.8.3 is the default DNS provider)
