@@ -15,7 +15,7 @@ toc: False
 
 # 1.23
 
-### December ???, 2021 - [charmed-kubernetes-857](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-857/archive/bundle.yaml)
+### December ???, 2021 - [charmed-kubernetes-862](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-862/archive/bundle.yaml)
 
 ## What's new
 
