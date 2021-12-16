@@ -349,7 +349,7 @@ These charms are frequently used with Charmed Kubernetes.
 These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
- 
+
 -  cdkbot/microbot-amd64:latest
 -  cdkbot/microbot-arm64:latest
 -  cdkbot/microbot-s390x:latest
