@@ -1,5 +1,5 @@
 ---
-wrapper_template: templates/docs/markdown.html
+wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: kubernetes/docs/shared/_side-navigation.md
 context:
@@ -236,9 +236,9 @@ release. These charms are maintained by the Charmed Kubernetes team.
   <td> <a href="https://jaas.ai/u/containers/vsphere-integrator/144"> 144 </a> </td>
   <td> -- </td>
 </tr>
-
  </tbody>
  </table>
+
 
 ## Compatible Charms
 
@@ -411,10 +411,6 @@ The following snaps are used by this release of Charmed Kubernetes:
 |kubectl| classic | kubectl snap | [store page](https://snapcraft.io/kubectl) |
 |kubelet| classic | kubelet snap | [store page](https://snapcraft.io/kubelet) |
 |openstackclients| classic | Resource to side-load openstackclients snap in network-restricted deployments. | [store page](https://snapcraft.io/openstackclients) |
-
-
-
-
 
 
 <!-- LINKS -->
