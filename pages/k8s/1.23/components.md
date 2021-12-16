@@ -222,7 +222,7 @@ release. These charms are maintained by the Charmed Kubernetes team.
   <td> tigera-secure-ee </td>
   <td> Tigera Secure Enterprise Edition </td>
   <td> <a href="/kubernetes/docs/1.23/charm-tigera-secure-ee">docs</a> </td>
-  <td> <a href="https://github.com/charmed-kubernetes/layer-tigera-secure-ee"> source </td>
+  <td> <a href="https://github.com/charmed-kubernetes/layer-tigera-secure-ee"> </a> source </td>
   <td> <a href="https://bugs.launchpad.net/charmed-kubernetes"> bugs</a> </td>
   <td> <a href="https://jaas.ai/u/containers/tigera-secure-ee/252"> 252 </a> </td>
   <td> -- </td>
