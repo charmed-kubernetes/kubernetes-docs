@@ -13,6 +13,42 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.24
+
+### Month DD, YYYY - [charmed-kubernetes-???](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-???/archive/bundle.yaml)
+
+## What's new
+
+- Title of new thing
+
+Description of new thing.
+
+## Component upgrades
+
+- component-name x.x.x
+
+## Fixes
+
+A list of bug fixes and other feature updates in this release can be found at
+[the launchpad milestone page](https://launchpad.net/charmed-kubernetes/+milestone/1.24).
+
+## Notes and Known Issues
+
+- [LP 1907153](https://bugs.launchpad.net/snapd/+bug/1907153) Snap install failure in LXD
+
+Snaps may fail to install when the `kubernetes-master` charm is deployed to a LXD container.
+This happens when the version of `snapd` on the host does not match the version inside the
+container. As a workaround, ensure the same version of `snapd` is installed on the host and
+in LXD containers.
+
+## Deprecations and API changes
+
+- Upstream
+
+For details of other deprecation notices and API changes for Kubernetes 1.24, please see the
+relevant sections of the [upstream release notes][upstream-changelog-1.24].
+
+
 # 1.23
 
 ### December 15, 2021 - [charmed-kubernetes-862](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-862/archive/bundle.yaml)
@@ -525,6 +561,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [calico-service-ip-advertisement]: /kubernetes/docs/cni-calico#service-ip-advertisement
 [upstream-changelog]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.22.md#deprecation
 [upstream-changelog-1.23]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md#deprecation
+[upstream-changelog-1.24]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#deprecation
 [cephcsi-upgrade]: https://github.com/ceph/ceph-csi/blob/devel/docs/ceph-csi-upgrade.md
 
 <!-- FEEDBACK -->
