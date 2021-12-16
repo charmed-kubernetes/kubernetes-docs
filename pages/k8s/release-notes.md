@@ -19,9 +19,13 @@ toc: False
 
 ## What's new
 
-- Title of new thing
+- Kubelet added to kubernetes-master
 
-Description of new thing.
+The kubernetes-master charm now includes Kubelet, allowing kubernetes-master
+units to participate as fully functioning nodes within Kubernetes clusters. By
+default, the kubernetes-master nodes will be configured with a taint to prevent
+pods from being scheduled to them. The new `register-with-taints` config option
+can be used to control this behavior at deploy time.
 
 ## Component upgrades
 
