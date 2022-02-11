@@ -2,9 +2,9 @@
 charm_name: vsphere-integrator
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: vSphere Charm reference
   title: vSphere integrator charm
-keywords: kubernetes-master, charm, config
+keywords: vsphere, charm, config
 layout:
 - base
 - ubuntu-com
@@ -37,7 +37,7 @@ applications:
     charm: cs:~containers/vsphere-integrator
     num_units: 1
 relations:
-  - ['vsphere-integrator', 'kubernetes-master']
+  - ['vsphere-integrator', 'kubernetes-control-plane']
   - ['vsphere-integrator', 'kubernetes-worker']
 ```
 

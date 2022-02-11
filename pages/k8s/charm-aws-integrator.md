@@ -2,9 +2,9 @@
 charm_name: aws-integrator
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: AWS Integrator Charm reference
   title: AWS integrator charm
-keywords: kubernetes-master, charm, config
+keywords: aws-integrator, charm, config
 layout:
 - base
 - ubuntu-com
@@ -39,7 +39,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['aws-integrator', 'kubernetes-master']
+  - ['aws-integrator', 'kubernetes-control-plane']
   - ['aws-integrator', 'kubernetes-worker']
 ```
 

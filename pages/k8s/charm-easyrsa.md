@@ -2,9 +2,9 @@
 charm_name: easyrsa
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: EasyRSA Charm reference
   title: EasyRSA charm
-keywords: kubernetes-master, charm, config
+keywords: easyrsa, charm, config
 layout:
 - base
 - ubuntu-com
@@ -207,7 +207,7 @@ units.
 <div class="p-notification--warning">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Warning:</span>
-There is a known issue thatthe `kubernetes-master` units
+There is a known issue thatthe `kubernetes-control-plane` units
 need to be restarted after the certificate change. These units may settle in
 the <code>active/idle</code> state but all new pods will hang in the
 <code>pending</code> state. . <br><br>

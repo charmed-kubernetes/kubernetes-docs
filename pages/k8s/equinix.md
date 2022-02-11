@@ -152,7 +152,7 @@ applications:
       "": alpha
     to:
     - lxd:1
-  kubernetes-master:
+  kubernetes-control-plane:
     options:
       authorization-mode: "RBAC,Node"
       channel: 1.22/stable
@@ -194,12 +194,12 @@ relations:
 - - 'calico:etcd'
   - 'etcd:db'
 - - 'calico:cni'
-  - 'kubernetes-master:cni'
+  - 'kubernetes-control-plane:cni'
 - - 'calico:cni'
   - 'kubernetes-worker:cni'
-- - 'kubernetes-master:ceph-storage'
+- - 'kubernetes-control-plane:ceph-storage'
   - 'ceph-mon:admin'
-- - 'kubernetes-master:ceph-client'
+- - 'kubernetes-control-plane:ceph-client'
   - 'ceph-mon:client'
 - - 'ceph-mon:radosgw'
   - 'ceph-radosgw:mon'
@@ -218,7 +218,7 @@ juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml
 When the deployment has settled, remember to fetch the configuration file!
 
 ```bash
-juju scp --proxy kubernetes-master/0:config ~/.kube/config
+juju scp --proxy kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 You can check the status by running:

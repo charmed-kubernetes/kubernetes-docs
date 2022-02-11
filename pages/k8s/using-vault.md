@@ -44,7 +44,7 @@ applications:
     charm: cs:percona-cluster
     num_units: 1
 relations:
-- - kubernetes-master:certificates
+- - kubernetes-control-plane:certificates
   - vault:certificates
 - - etcd:certificates
   - vault:certificates
@@ -147,7 +147,7 @@ and idle. Then relate **Vault** to Kubernetes:
 
 ```bash
 juju add-relation vault:certificates kubeapi-load-balancer:certificates
-juju add-relation vault:certificates kubernetes-master:certificates
+juju add-relation vault:certificates kubernetes-control-plane:certificates
 juju add-relation vault:certificates kubernetes-worker:certificates
 ```
 
@@ -165,7 +165,7 @@ You will need to re-download the `kubectl` config file,
 since it contains the certificate info for connecting to the cluster:
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 <div class="p-notification--caution">

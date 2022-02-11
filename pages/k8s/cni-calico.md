@@ -309,7 +309,7 @@ Calico supports advertising Kubernetes service IPs to external routers over BGP.
 You can enable this in the charm by setting the bgp-service-cluster-ips config:
 
 ```
-SERVICE_CIDR="$(juju config kubernetes-master service-cidr)"
+SERVICE_CIDR="$(juju config kubernetes-control-plane service-cidr)"
 juju config calico bgp-service-cluster-ips="$SERVICE_CIDR"
 ```
 

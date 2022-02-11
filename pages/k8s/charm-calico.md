@@ -2,9 +2,9 @@
 charm_name: calico
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Calico Charm reference
   title: Calico charm
-keywords: kubernetes-master, charm, config
+keywords: calico, charm, config
 layout:
 - base
 - ubuntu-com
@@ -39,10 +39,10 @@ that implements the `kubernetes-cni` interface in order to properly deploy.
 ```
 juju deploy cs:~containers/calico
 juju deploy cs:~containers/etcd
-juju deploy cs:~containers/kubernetes-master
+juju deploy cs:~containers/kubernetes-control-plane
 juju deploy cs:~containers/kubernetes-worker
 juju add-relation calico etcd
-juju add-relation calico kubernetes-master
+juju add-relation calico kubernetes-control-plane
 juju add-relation calico kubernetes-worker
 ```
 

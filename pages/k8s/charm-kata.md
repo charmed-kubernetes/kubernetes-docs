@@ -2,9 +2,9 @@
 charm_name: kata
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Kata Charm reference
   title: kata charm
-keywords: kubernetes-master, charm, config
+keywords: kata, charm, config
 layout:
 - base
 - ubuntu-com

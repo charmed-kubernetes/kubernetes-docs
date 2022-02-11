@@ -2,9 +2,9 @@
 charm_name: canal
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Canal Charm reference
   title: Canal charm
-keywords: kubernetes-master, charm, config
+keywords: canal, charm, config
 layout:
 - base
 - ubuntu-com
@@ -40,10 +40,10 @@ that implements the `kubernetes-cni` interface in order to properly deploy.
 ```
 juju deploy cs:~containers/canal
 juju deploy cs:~containers/etcd
-juju deploy cs:~containers/kubernetes-master
+juju deploy cs:~containers/kubernetes-control-plane
 juju deploy cs:~containers/kubernetes-worker
 juju add-relation canal etcd
-juju add-relation canal kubernetes-master
+juju add-relation canal kubernetes-control-plane
 juju add-relation canal kubernetes-worker
 ```
 

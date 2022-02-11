@@ -2,9 +2,9 @@
 charm_name: docker-registry
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Docker registry Charm reference
   title: Docker registry charm
-keywords: kubernetes-master, charm, config
+keywords: docker-registry, charm, config
 layout:
 - base
 - ubuntu-com

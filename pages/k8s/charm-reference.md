@@ -47,7 +47,7 @@ linked below for specific usage and configuration.
 
 [charm-kubeapi-load-balancer](/kubernetes/docs/charm-kubeapi-load-balancer)
 
-[charm-kubernetes-master](/kubernetes/docs/charm-kubernetes-master)
+[charm-kubernetes-control-plane](/kubernetes/docs/charm-kubernetes-control-plane)
 
 [charm-kubernetes-worker](/kubernetes/docs/charm-kubernetes-worker)
 
@@ -63,7 +63,7 @@ linked below for specific usage and configuration.
 [aws-integrator]: /kubernetes/docs/aws-integration
 [gcp-integrator]: /kubernetes/docs/gcp-integration
 [openstack-integrator]: /kubernetes/docs/openstack-integration
-[kubernetes-master]: /kubernetes/docs/charm-kubernetes-master
+[kubernetes-control-plane]: /kubernetes/docs/charm-kubernetes-control-plane
 [kubernetes-worker]: /kubernetes/docs/charm-kubernetes-worker
 [kubernetes-worker-a]: /kubernetes/docs/charm-kubernetes-worker-a
 [kubernetes-worker-b]: /kubernetes/docs/charm-kubernetes-worker-b

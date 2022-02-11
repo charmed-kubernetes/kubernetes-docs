@@ -2,9 +2,9 @@
 charm_name: aws-iam
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: AWS-IAM Charm reference
   title: AWS IAM charm
-keywords: kubernetes-master, charm, config
+keywords: aws-iam, charm, config
 layout:
 - base
 - ubuntu-com
@@ -24,15 +24,15 @@ user or group maps to an RBAC user.
 
 ## Usage
 
-The AWS IAM charm is subordinate to the [`kubernetes-master`]
-(https://jaas.ai/u/containers/kubernetes-master)
+The AWS IAM charm is subordinate to the [`kubernetes-control-plane`]
+(https://jaas.ai/u/containers/kubernetes-control-plane)
 charm and needs to be related to it. It will then set the Kubernetes API server
 to authenticate through the AWS IAM pod deployed inside the cluster.
 
 ```
 juju deploy cs:~containers/aws-iam
 juju deploy charmed-kubernetes
-juju add-relation aws-iam kubernetes-master
+juju add-relation aws-iam kubernetes-control-plane
 ```
 
 

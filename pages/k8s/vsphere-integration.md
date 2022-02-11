@@ -50,7 +50,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['vsphere-integrator', 'kubernetes-master']
+  - ['vsphere-integrator', 'kubernetes-control-plane']
   - ['vsphere-integrator', 'kubernetes-worker']
   ```
 
@@ -64,7 +64,7 @@ juju deploy charmed-kubernetes --overlay vsphere-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 <div class="p-notification--caution">

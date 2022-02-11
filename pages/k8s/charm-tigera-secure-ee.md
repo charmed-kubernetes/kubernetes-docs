@@ -2,9 +2,9 @@
 charm_name: tigera-secure-ee
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Tigera Secure EE Charm reference
   title: Tigera secure EE charm
-keywords: kubernetes-master, charm, config
+keywords: tiger-secure-ee, charm, config
 layout:
 - base
 - ubuntu-com

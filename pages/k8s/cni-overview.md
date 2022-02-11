@@ -20,7 +20,7 @@ simple specification makes it easy for Kubernetes to interact with a wide range
 of CNI-based software solutions.
 
 With **Charmed Kubernetes**, these networking 'plug-ins' are deployed as
-subordinate charms with each  node running as a `kubernetes-master` or
+subordinate charms with each  node running as a `kubernetes-control-plane` or
 `kubernetes-worker`, and ensure the smooth running of the cluster. It is
 possible to choose one of several different CNI providers for **Charmed
 Kubernetes**, which are listed below:

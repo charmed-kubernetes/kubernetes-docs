@@ -77,7 +77,7 @@ names (SANs)][SANs].
 
 **Charmed Kubernetes** will manage the server certificates automatically, including
 generating the certificate with the proper CN and SANs. However, the
-[kubernetes-master][] charm also supports an [`extra_sans`][] option which
+[kubernetes-control-plane][] charm also supports an [`extra_sans`][] option which
 can be used to provide additional names to be added to the SANs list.
 
 ## Client certificates
@@ -142,8 +142,8 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
 [CN]: https://knowledge.digicert.com/solution/SO7239.html
 [SANs]: https://en.wikipedia.org/wiki/Subject_Alternative_Name
 [network primitives]: https://juju.is/docs/olm/quick-reference
-[kubernetes-master]: /kubernetes/docs/charm-kubernetes-master
-[`extra_sans`]:  /kubernetes/docs/charm-kubernetes-master#extra_sans
+[kubernetes-control-plane]: /kubernetes/docs/charm-kubernetes-control-plane
+[`extra_sans`]:  /kubernetes/docs/charm-kubernetes-control-plane#extra_sans
 [HA]: https://en.wikipedia.org/wiki/High_availability
 [vault-cdk]: /kubernetes/docs/using-vault
 

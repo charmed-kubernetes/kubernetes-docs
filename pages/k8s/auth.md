@@ -56,7 +56,7 @@ The following modes are supported:
 Juju can be used to query the current configuration setting:
 
 ```bash
-juju config kubernetes-master authorization-mode
+juju config kubernetes-control-plane authorization-mode
 ```
 
 The default value is:
@@ -67,7 +67,7 @@ Node,RBAC
 For further verification, the runtime arguments for the `kube-apiserver` can be determined:
 
 ```bash
-juju run --unit kubernetes-master/0 "ps -ef | grep apiserver"
+juju run --unit kubernetes-control-plane/0 "ps -ef | grep apiserver"
 ```
 
 ... from which we can see the `--authorization-mode=Node,RBAC` argument:
@@ -82,13 +82,13 @@ The authorisation mode can be set using the same **Juju** command as above, but 
 time specifying a value:
 
 ```bash
-juju config kubernetes-master authorization-mode="Node"
+juju config kubernetes-control-plane authorization-mode="Node"
 ```
 
 It is possible to set more than one mode using a comma-separated list:
 
 ```bash
-juju config kubernetes-master authorization-mode="Node,RBAC"
+juju config kubernetes-control-plane authorization-mode="Node,RBAC"
 ```
 
 <div class="p-notification--positive"><p markdown="1" class="p-notification__response">
@@ -141,12 +141,12 @@ from file-based authentication to a webhook token service.
 **Charmed Kubernetes** manages a webhook authentication service that compares API
 requests to Kubernetes secrets. If needed, any existing entries in previous
 authentication files (`basic_auth.csv` and `known_tokens.csv`) are migrated to secrets
-during the `kubernetes-master` charm upgrade.
+during the `kubernetes-control-plane` charm upgrade.
 
-The webhook authenticator is distributed with the `kubernetes-master` charm and runs
-on port `5000` of each master unit. Source code for the [application][auth-webhook-app]
+The webhook authenticator is distributed with the `kubernetes-control-plane` charm and runs
+on port `5000` of each control-plane unit. Source code for the [application][auth-webhook-app]
 as well as the associated [systemd service][auth-webhook-svc] can be found in the
-`kubernetes-master` source repository.
+`kubernetes-control-plane` source repository.
 
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
@@ -162,7 +162,7 @@ Read about the Kubernetes approach to authentication in this page of the
 
 ### Managing users with charm actions
 
-The recommended method for managing Kubernetes users is with `kubernetes-master`
+The recommended method for managing Kubernetes users is with `kubernetes-control-plane`
 charm actions.
 
 #### user-create
@@ -172,16 +172,16 @@ action also creates a kubeconfig file that can be retrieved and used to
 authenticate with the cluster. For example:
 
 ```bash
-juju run-action --wait kubernetes-master/0 user-create name='alice'
+juju run-action --wait kubernetes-control-plane/0 user-create name='alice'
 ```
 
 Example output:
 ```bash
-unit-kubernetes-master-0:
-  UnitId: kubernetes-master/0
+unit-kubernetes-control-plane-0:
+  UnitId: kubernetes-control-plane/0
   id: "2"
   results:
-    kubeconfig: juju scp kubernetes-master/0:/home/ubuntu/alice-kubeconfig .
+    kubeconfig: juju scp kubernetes-control-plane/0:/home/ubuntu/alice-kubeconfig .
     msg: User "alice" created.
     users: admin, system:kube-controller-manager, system:kube-proxy, system:node:ip-172-31-0-215,
       system:node:ip-172-31-6-184, system:node:ip-172-31-23-177, system:kube-scheduler,
@@ -193,16 +193,16 @@ If specified, the `groups` parameter should be a comma-separated list of Kuberne
 `Groups` that this user should belong to. For example:
 
 ```bash
-juju run-action --wait kubernetes-master/0 user-create name='bob' groups='system:masters,devs'
+juju run-action --wait kubernetes-control-plane/0 user-create name='bob' groups='system:masters,devs'
 ```
 
 Example output:
 ```bash
-unit-kubernetes-master-0:
-  UnitId: kubernetes-master/0
+unit-kubernetes-control-plane-0:
+  UnitId: kubernetes-control-plane/0
   id: "3"
   results:
-    kubeconfig: juju scp kubernetes-master/0:/home/ubuntu/bob-kubeconfig .
+    kubeconfig: juju scp kubernetes-control-plane/0:/home/ubuntu/bob-kubeconfig .
     msg: User "bob" created.
     users: admin, alice, system:kube-controller-manager, system:kube-proxy, system:node:ip-172-31-0-215,
       system:node:ip-172-31-6-184, system:node:ip-172-31-23-177, system:kube-scheduler,
@@ -215,13 +215,13 @@ unit-kubernetes-master-0:
 Lists usernames from all secrets created by **Charmed Kubernetes**. For example:
 
 ```bash
-juju run-action --wait kubernetes-master/0 user-list
+juju run-action --wait kubernetes-control-plane/0 user-list
 ```
 
 Example output:
 ```bash
-unit-kubernetes-master-0:
-  UnitId: kubernetes-master/0
+unit-kubernetes-control-plane-0:
+  UnitId: kubernetes-control-plane/0
   id: "4"
   results:
     users: admin, alice, bob, system:kube-controller-manager, system:kube-proxy, system:node:ip-172-31-0-215,
@@ -235,13 +235,13 @@ unit-kubernetes-master-0:
 Deletes the secret associated with an existing user. For example:
 
 ```bash
-juju run-action --wait kubernetes-master/0 user-delete name=bob
+juju run-action --wait kubernetes-control-plane/0 user-delete name=bob
 ```
 
 Example output:
 ```bash
-unit-kubernetes-master-0:
-  UnitId: kubernetes-master/0
+unit-kubernetes-control-plane-0:
+  UnitId: kubernetes-control-plane/0
   id: "5"
   results:
     msg: User "bob" deleted.
@@ -265,12 +265,12 @@ For further details, see the documentation on
 [LDAP and Keystone with Charmed Kubernetes][docs-ldap].
 
 Additionally, a custom endpoint can be configured to authenticate requests. This
-must be an https url accessible by the `kubernetes-master` units. When a
+must be an https url accessible by the `kubernetes-control-plane` units. When a
 JSON-serialized TokenReview object is POSTed to this endpoint, it must respond with
 appropriate authentication details. Set this option as follows:
 
 ```bash
-juju config kubernetes-master authn-webhook-endpoint='https://your.server:8443/authenticate'
+juju config kubernetes-control-plane authn-webhook-endpoint='https://your.server:8443/authenticate'
 ```
 
 More information about webhook authentication service requirements can be found
@@ -289,8 +289,8 @@ in the [upstream documentation][upstream-webhook].
 [docs-ldap]: /kubernetes/docs/ldap
 [roles]: #rbac
 [aws-iam]: /kubernetes/docs/aws-iam-auth
-[auth-webhook-app]: https://github.com/charmed-kubernetes/charm-kubernetes-master/blob/master/templates/cdk.master.auth-webhook.py
-[auth-webhook-svc]: https://github.com/charmed-kubernetes/charm-kubernetes-master/blob/master/templates/cdk.master.auth-webhook.service
+[auth-webhook-app]: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/blob/master/templates/cdk.master.auth-webhook.py
+[auth-webhook-svc]: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/blob/master/templates/cdk.master.auth-webhook.service
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

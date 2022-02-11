@@ -64,13 +64,13 @@ For more on how Juju makes use of storage, please see the relevant
 Making **Charmed Kubernetes** aware of your **Ceph** cluster just requires a **Juju** relation.
 
 ```bash
-juju add-relation ceph-mon kubernetes-master
+juju add-relation ceph-mon kubernetes-control-plane
 ```
 
 Note that the **Ceph** CSI containers require privileged access:
 
 ```bash
-juju config kubernetes-master allow-privileged=true
+juju config kubernetes-control-plane allow-privileged=true
 ```
 
 And finally, you need the pools that are defined in the storage class:

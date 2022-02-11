@@ -52,10 +52,10 @@ applications:
 relations:
   - [prometheus:grafana-source, grafana:grafana-source]
   - [telegraf:prometheus-client, prometheus:target]
-  - [kubernetes-master:juju-info, telegraf:juju-info]
+  - [kubernetes-control-plane:juju-info, telegraf:juju-info]
   - [kubernetes-worker:juju-info, telegraf:juju-info]
-  - [kubernetes-master:prometheus, prometheus:manual-jobs]
-  - [kubernetes-master:grafana, grafana:dashboards]
+  - [kubernetes-control-plane:prometheus, prometheus:manual-jobs]
+  - [kubernetes-control-plane:grafana, grafana:dashboards]
 ```
 
 To use this overlay with the **Charmed Kubernetes** bundle, specify it
@@ -124,11 +124,11 @@ endpoint for scraping, and then setting up Grafana to use this data.
 Starting with Charmed Kubernetes 1.17,
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 are added, automatically, when `enable-metrics` is set to  `true ` on the
-`kubernetes-master` charm.  This is enabled by default.  Enable
+`kubernetes-control-plane` charm.  This is enabled by default.  Enable
 with the following command.
 
 ```bash
-juju config kubernetes-master enable-metrics=true
+juju config kubernetes-control-plane enable-metrics=true
 ```
 
 #### Viewing kube-state-metrics
@@ -160,11 +160,11 @@ juju add-relation nagios nrpe
 ```
 
 Now add relations to NRPE for all the applications you wish to monitor, for
-example kubernetes-master, kubernetes-worker, etcd, easyrsa, and
+example kubernetes-control-plane, kubernetes-worker, etcd, easyrsa, and
 kubeapi-load-balancer.
 
 ```bash
-juju add-relation nrpe kubernetes-master
+juju add-relation nrpe kubernetes-control-plane
 juju add-relation nrpe kubernetes-worker
 juju add-relation nrpe etcd
 juju add-relation nrpe easyrsa

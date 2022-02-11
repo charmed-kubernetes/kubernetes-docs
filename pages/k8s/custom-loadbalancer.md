@@ -42,10 +42,10 @@ juju config kubeapi-load-balancer loadbalancer-ips="10.0.0.1 10.0.0.2"
 Multiple IP addresses should be given as a space-separated list.
 
 
-# Custom load balancer in front of kubernetes-master charm
+# Custom load balancer in front of kubernetes-control-plane charm
 
 If you have a full load balancer such as an F5 appliance or OpenStack's Neutron,
-use the configuration options on the `kubernetes-master` charm and forgo
+use the configuration options on the `kubernetes-control-plane` charm and forgo
 `kubeapi-load-balancer`  entirely.
 
 Remove the `kubeapi-load-balancer` application if it exists:
@@ -55,10 +55,10 @@ juju remove-application kubeapi-load-balancer
 ```
 
 Then configure the IP addresses provided by the load balancing solution with the
-`kubernetes-master` charm.
+`kubernetes-control-plane` charm.
 
 ```bash
-juju config kubernetes-master loadbalancer-ips="192.168.1.1 192.168.2.1"
+juju config kubernetes-control-plane loadbalancer-ips="192.168.1.1 192.168.2.1"
 ```
 
 Multiple IP addresses should be given as a space-separated list.

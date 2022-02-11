@@ -2,9 +2,9 @@
 charm_name: gcp-integrator
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: GCP Integrator Charm reference
   title: GCP integrator charm
-keywords: kubernetes-master, charm, config
+keywords: gcp-integrator, charm, config
 layout:
 - base
 - ubuntu-com
@@ -36,7 +36,7 @@ applications:
     charm: cs:~containers/gcp-integrator
     num_units: 1
 relations:
-  - ['gcp-integrator', 'kubernetes-master']
+  - ['gcp-integrator', 'kubernetes-control-plane']
   - ['gcp-integrator', 'kubernetes-worker']
 ```
 

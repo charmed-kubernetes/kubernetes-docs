@@ -55,7 +55,7 @@ applications:
   calico:
     options:
       cidr: "192.168.0.0/16,fd00:c00b:1::/112"
-  kubernetes-master:
+  kubernetes-control-plane:
     options:
       service-cidr: "10.152.183.0/24,fd00:c00b:2::/112"
 ```
@@ -125,7 +125,7 @@ The following arise because Juju does not fully support IPv6:
 * By default, connections to the API server will use the IPv4 address even when
   running a cluster in IPv6-preferred or IPv6-only mode. This can be modified
   in the client config by hand or overridden via the `loadbalancer-ips` config
-  on the [kubernetes-master] and / or kubeapi-load-balancer charms.
+  on the [kubernetes-control-plane] and / or [kubeapi-load-balancer] charms.
 
 * IPv6 NodePort listeners won't function on the master, though they will work
   on the worker units.
@@ -177,3 +177,5 @@ No additional issues with IPv6 on MAAS are known at this time.
 [asset-calico-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/calico-overlay.yaml
 [asset-ipv4-ipv6-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/ipv4-ipv6-overlay.yaml
 [asset-nginx-dual-stack]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/specs/nginx-dual-stack.yaml
+[kubernetes-control-plane]: ../charm-kubernetes-control-plane
+[kubeapi-load-balancer]: ../charm-kubeapi-load-balancer

@@ -56,11 +56,11 @@ The output is in the form:
 For example, a typical line of output might read:
 
 ```
-unit-kubernetes-master-0: 18:04:11 INFO juju.cmd running jujud [2.4.2 gc go1.10]
+unit-kubernetes-control-plane-0: 18:04:11 INFO juju.cmd running jujud [2.4.2 gc go1.10]
 ```
 
 The entity is the unit, machine or application the message originates from (in
-this case _kubernetes-master/0_). It can be very useful to filter the output
+this case _kubernetes-control-plane/0_). It can be very useful to filter the output
 based on the entity or log level, and the `debug-log` command has many options.
 
 For a full description, run the command `juju help debug-log` or see the
@@ -213,7 +213,7 @@ relations:
   - ["apache2:reverseproxy", "graylog:website"]
   - ["graylog:elasticsearch", "elasticsearch:client"]
   - ["graylog:mongodb", "mongodb:database"]
-  - ["filebeat:beats-host", "kubernetes-master:juju-info"]
+  - ["filebeat:beats-host", "kubernetes-control-plane:juju-info"]
   - ["filebeat:beats-host", "kubernetes-worker:juju-info"]
   - ["filebeat:logstash", "graylog:beats"]
 ```

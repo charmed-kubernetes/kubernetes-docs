@@ -22,7 +22,7 @@ This charm deploys a container runtime and the Kubernetes
 worker applications: kubelet, and kube-proxy.
 
 In order for this charm to be useful, it should be deployed with its companion
-charm kubernetes-master and linked with an SDN-Plugin and a container runtime
+charm kubernetes-control-plane and linked with an SDN-Plugin and a container runtime
 such as containerd.
 
 This charm is part of the [Charmed Kubernetes bundle](https://jaas.ai/charmed-kubernetes/bundle) bundle which can be deployed with a single command::
@@ -37,7 +37,7 @@ For more information about Charmed Kubernetes see the [overview documentation](/
 
 To add additional compute capacity to your Kubernetes workers, you may
 `juju add-unit kubernetes-worker` to scale the cluster. The new units will
-automatically join any related kubernetes-master, and enlist themselves as
+automatically join any related kubernetes-control-plane, and enlist themselves as
 ready once the deployment is complete.
 
 ## Snap Configuration
@@ -84,7 +84,7 @@ that works in your environment, detailed in the section below.
 
 For some specific Kubernetes service configuration tasks, please also see the
 section on [configuring K8s services](#k8s-services).
-Please also see the [`kubernetes-master` charm configuration][charm-kubernetes-master]
+Please also see the [`kubernetes-control-plane` charm configuration][charm-kubernetes-control-plane]
 for other settings relating to Kubernetes services.
 
 <!-- CONFIG STARTS -->
@@ -374,7 +374,7 @@ the conntrack settings. The proper way to alter them is to
 use the proxy-extra-args config to set them, e.g.:
 
 ```
-  juju config kubernetes-master proxy-extra-args="conntrack-min=1000000 conntrack-max-per-core=250000"
+  juju config kubernetes-control-plane proxy-extra-args="conntrack-min=1000000 conntrack-max-per-core=250000"
   juju config kubernetes-worker proxy-extra-args="conntrack-min=1000000 conntrack-max-per-core=250000"
 ```
 
@@ -392,9 +392,9 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 
 ### IPVS (IP Virtual Server)
 
-This requires configuration of both the `kubernetes-master` and
+This requires configuration of both the `kubernetes-control-plane` and
 `kubernetes-worker` charms. Please see the configuration section on
-the [kubernetes-master page](/kubernetes/docs/charm-kubernetes-master#config-ipvs).
+the [kubernetes-control-plane page](/kubernetes/docs/charm-kubernetes-control-plane#config-ipvs).
 
 ### Configuring kubelet
 
@@ -711,5 +711,5 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
 
 
 <!-- LINKS -->
-[charm-kubernetes-master]: ./charm-kubernetes-master
+[charm-kubernetes-control-plane]: ./charm-kubernetes-control-plane
 [kubelet-docs]: https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/

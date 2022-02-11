@@ -39,7 +39,7 @@ This relates to the installed version of Kubernetes. You can check which
 version your cluster is set to by running:
 
 ```bash
-juju config kubernetes-master channel
+juju config kubernetes-control-plane channel
 ```
 
 The output will be in the form of 'version.number/risk', e.g '1.12/stable'. You should set
@@ -49,14 +49,14 @@ the `kubernetes-e2e` channel to the same value.
 juju config kubernetes-e2e channel=1.12/stable
 ```
 
-Finally we relate the charm to `easyrsa` and `kubernetes-master`:
+Finally we relate the charm to `easyrsa` and `kubernetes-control-plane`:
 
 ```bash
-juju config kubernetes-master allow-privileged=true
+juju config kubernetes-control-plane allow-privileged=true
 juju config kubernetes-worker allow-privileged=true
 juju add-relation kubernetes-e2e easyrsa
-juju add-relation kubernetes-e2e:kubernetes-master kubernetes-master:kube-api-endpoint
-juju add-relation kubernetes-e2e:kube-control kubernetes-master:kube-control
+juju add-relation kubernetes-e2e:kubernetes-control-plane kubernetes-control-plane:kube-api-endpoint
+juju add-relation kubernetes-e2e:kube-control kubernetes-control-plane:kube-control
 ```
 
 It may take some moments for these relations to establish. Once the connections are made, the charm will update its status to "Ready to test."

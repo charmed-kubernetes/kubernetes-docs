@@ -4,7 +4,7 @@ charm_revision: '0'
 context:
   description: Azure Charm reference
   title: Azure integrator charm
-keywords: kubernetes-master, charm, config
+keywords: azure-integrator, charm, config
 layout:
 - base
 - ubuntu-com
@@ -43,7 +43,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['azure-integrator', 'kubernetes-master']
+  - ['azure-integrator', 'kubernetes-control-plane']
   - ['azure-integrator', 'kubernetes-worker']
   ```
 

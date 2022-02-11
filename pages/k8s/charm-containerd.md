@@ -2,9 +2,9 @@
 charm_name: containerd
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Containerd Charm reference
   title: containerd charm
-keywords: kubernetes-master, charm, config
+keywords: containerd, charm, config
 layout:
 - base
 - ubuntu-com

@@ -2,9 +2,9 @@
 charm_name: keepalived
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Keepalived Charm reference
   title: Keepalived charm
-keywords: kubernetes-master, charm, config
+keywords: keepalived, charm, config
 layout:
 - base
 - ubuntu-com
@@ -52,17 +52,17 @@ juju deploy cs:~containers/keepalived
 # add new keepalived relations
 juju relate keepalived:juju-info kubeapi-load-balancer:juju-info
 juju relate keepalived:lb-sink kubeapi-load-balancer:website
-juju relate keepalived:loadbalancer kubernetes-master:loadbalancer
+juju relate keepalived:loadbalancer kubernetes-control-plane:loadbalancer
 juju relate keepalived:website kubernetes-worker:kube-api-endpoint
 
 # remove Charmed Kubernetes relations that are no longer needed
 juju remove-relation kubernetes-worker:kube-api-endpoint kubeapi-load-balancer:website
-juju remove-relation kubernetes-master:loadbalancer kubeapi-load-balancer:loadbalancer
+juju remove-relation kubernetes-control-plane:loadbalancer kubeapi-load-balancer:loadbalancer
 
 
 # NOTE: ensure this relation from Charmed Kubernetes is preserved, so that the
 # load-balancer knows about backend endpoints
-juju relate kubernetes-master:kube-api-endpoint kubeapi-load-balancer:apiserver || true
+juju relate kubernetes-control-plane:kube-api-endpoint kubeapi-load-balancer:apiserver || true
 
 # configure keepalived (values are examples, substitute your own)
 export VIP_HOSTNAME=test.example.com
@@ -71,7 +71,7 @@ juju config keepalived vip_hostname=$VIP_HOSTNAME
 
 # set extra_sans to update api server ssl cert
 juju config kubeapi-load-balancer extra_sans=$VIP_HOSTNAME
-juju config kubernetes-master extra_sans=$VIP_HOSTNAME
+juju config kubernetes-control-plane extra_sans=$VIP_HOSTNAME
 
 # if you only have one kubeapi-load-balancer unit, add another one
 juju add-unit kubeapi-load-balancer

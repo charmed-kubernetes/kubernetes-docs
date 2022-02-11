@@ -2,9 +2,9 @@
 charm_name: openstack-integrator
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Openstack Integrator Charm reference
   title: OpenStack integrator charm
-keywords: kubernetes-master, charm, config
+keywords: Openstack Integrator, charm, config
 layout:
 - base
 - ubuntu-com
@@ -37,7 +37,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['openstack-integrator', 'kubernetes-control-plane:openstack']
   - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 

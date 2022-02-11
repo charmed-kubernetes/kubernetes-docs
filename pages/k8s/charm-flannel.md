@@ -2,9 +2,9 @@
 charm_name: flannel
 charm_revision: '0'
 context:
-  description: Kubernetes-master Charm reference
+  description: Flannel Charm reference
   title: Flannel charm
-keywords: kubernetes-master, charm, config
+keywords: flannel, charm, config
 layout:
 - base
 - ubuntu-com
@@ -36,10 +36,10 @@ interface in order to properly deploy.
 ```
 juju deploy cs:~containers/flannel
 juju deploy cs:~containers/etcd
-juju deploy cs:~containers/kubernetes-master
+juju deploy cs:~containers/kubernetes-control-plane
 juju deploy cs:~containers/kubernetes-worker
 juju add-relation flannel etcd
-juju add-relation flannel kubernetes-master
+juju add-relation flannel kubernetes-control-plane
 juju add-relation flannel kubernetes-worker
 ```
 
