@@ -42,7 +42,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['azure-integrator', 'kubernetes-master:azure']
+  - ['azure-integrator', 'kubernetes-control-plane:azure']
   - ['azure-integrator', 'kubernetes-worker:azure']
   ```
 
@@ -56,7 +56,7 @@ juju deploy charmed-kubernetes --overlay azure-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 <div class="p-notification--information">
@@ -187,10 +187,10 @@ please see the [azure charm page][azure-integrator].
 
 ## Azure load-balancers for the control plane
 
-With revision 1015 and later of the `kubernetes-master` charm, Charmed
+With revision 1015 and later of the `kubernetes-control-plane` charm, Charmed
 Kubernetes can also use Azure native load balancers in front of the control
 plane, replacing the need to deploy the `kubeapi-load-balancer` charm. The
-`kubernetes-master` charm supports two relation endpoints, `loadbalancer-external`
+`kubernetes-control-plane` charm supports two relation endpoints, `loadbalancer-external`
 for a publicly accessible load balancer which can be used by external clients as
 well as the control plane, and `loadbalancer-internal` for a non-public load
 balancer which can only be used by the rest of the control plane but not by

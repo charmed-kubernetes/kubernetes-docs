@@ -33,7 +33,7 @@ applications:
   aws-iam:
     charm: cs:~containers/aws-iam
 relations:
-  - ['aws-iam', 'kubernetes-master']
+  - ['aws-iam', 'kubernetes-control-plane']
   - ['aws-iam', 'vault']
 ```
 
@@ -44,7 +44,7 @@ applications:
   aws-iam:
     charm: cs:~containers/aws-iam
 relations:
-  - ['aws-iam', 'kubernetes-master']
+  - ['aws-iam', 'kubernetes-control-plane']
   - ['aws-iam', 'easyrsa']
 ```
 
@@ -105,12 +105,12 @@ way to get started is to use an empty role as described in the
 
 In order to use the [aws-iam-authenticator][aws-iam-authenticator-github] with
 kubectl, an updated config file is needed. The config file written to the
-kubernetes-master unit will have a user named `aws-iam-user` that uses the
+kubernetes-control-plane unit will have a user named `aws-iam-user` that uses the
 `aws-iam-authenticator` client binary and a context named aws-iam-authenticator.
 First, copy the config:
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 The config file will need to be edited in order to add the desired
@@ -152,7 +152,7 @@ IAMIdentityMapping CRD.
 In order to get authorisation with AWS-IAM, you will need to use RBAC.
 Refer to the Charmed Kubernetes [RBAC documentation][k8s-rbac-docs] for
 complete options, but at a minimum you will need to enable RBAC with
-`juju config kubernetes-master authorization-mode="RBAC,Node"`. At
+`juju config kubernetes-control-plane authorization-mode="RBAC,Node"`. At
 this point, valid AWS credentials will fail unless connected to a default
 account.
 
@@ -275,8 +275,8 @@ between calls.
  * Check verbose output of `kubectl` command by adding `--v=9` such as
 `kubectl get po --v=9`
  * Check the logs of the `aws-iam-authenticator` deployment with
-`juju run --unit kubernetes-master/0 -- /snap/bin/kubectl --kubeconfig /root/.kube/config -n kube-system logs deploy/aws-iam-authenticator`
- * Check the logs of the API server with `juju run --unit kubernetes-master/0 -- journalctl -u snap.kube-apiserver.daemon.service`
+`juju run --unit kubernetes-control-plane/0 -- /snap/bin/kubectl --kubeconfig /root/.kube/config -n kube-system logs deploy/aws-iam-authenticator`
+ * Check the logs of the API server with `juju run --unit kubernetes-control-plane/0 -- journalctl -u snap.kube-apiserver.daemon.service`
 
 <!-- LINKS -->
 
