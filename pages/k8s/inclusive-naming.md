@@ -3,7 +3,7 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Kubernetes inclusive Naming"
+  title: "Kubernetes Inclusive Naming"
   description: Kubernetes commitment to inclusivity 
 keywords: inclusive, requirements, developer 
 tags: [install]
@@ -13,27 +13,27 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis fringilla lectus, ut blandit orci. Pellentesque mi
-orci, finibus at semper a, vulputate sed nisl. Phasellus ac eros sit amet enim egestas mattis sit amet ac dolor. Nulla
-eu urna at quam ultricies consectetur. Cras at nibh purus. Cras ac velit iaculis, sagittis tortor et, faucibus eros.
-Vestibulum tincidunt metus arcu, eu porta leo molestie condimentum. Aenean ante nisl, dapibus nec facilisis ultrices,
-gravida at urna.
+The software industry has used words unintentionally which may stir painful emotions in individuals. In an effort
+to more clearly state technical details, Canonical Kubernetes strives to improve the language used in its products to 
+better reflect its components, relations, status messages, and source code repositories.  We also realize that 
+software is built on a trust that renaming some component doesn't break existing working deployments.  Thusly, we will
+document all inclusive-naming changes, and take care to make non-breaking adjustments. 
 
-## Duis semper erat
+## [Kubernetes Control Plane](kubernetes-control-plane) charm
 
-Duis semper erat id arcu mollis pellentesque. Integer scelerisque diam at ex laoreet, ornare luctus ex interdum. Quisque
-id sollicitudin nisl. Aliquam risus dolor, fringilla pulvinar dignissim nec, porttitor non quam. Nullam et enim sed nisl
-varius tempor quis at justo. Mauris hendrerit, purus vel luctus cursus, nunc mi tincidunt lectus, a auctor ligula dui
-sit amet ligula. Suspendisse potenti.
+Ending with the charms release 1.23, Charmed Kubernetes is replacing the charm `kubernetes-master` with 
+`kubernetes-control-plane`.  This charm has always hosted applications such as the api-server, controller-manager, 
+proxy, and scheduler.  Aside from [`etcd`](etcd), which is provided by a separate charm, these services are considered 
+the central kubernetes control plane services and are better represented under this charm name.
 
-### Maecenas vitae euismod arcu.
+See [Upgrading](upgrading) for more details about how to switch to this charm.
 
-Maecenas vitae euismod arcu. Vestibulum mollis ex a libero convallis, et consectetur orci elementum. Nam blandit, lectus
-ut mollis consectetur, felis lorem tincidunt felis, eu ultrices quam justo fringilla lacus. Praesent et ultrices erat.
-Nam pretium rutrum ultrices. Nunc non odio arcu. In sed justo eu metus vehicula ultricies consectetur sit amet enim.
-Cras suscipit neque a congue rutrum. Ut id dolor consectetur, pulvinar risus eu, blandit lectus. Maecenas vel tortor
-scelerisque, fringilla dolor sed, hendrerit urna.
+## Repository default branch names
 
+Charmed Kubernetes charms have a legacy position of working from a default branch which doesn't accurately reflect
+that it is the `main` branch of code. Many charms build also on charm layers and interfaces which are reusable 
+source components for these charms. As a part of this progress, the project will transition the names of the default
+branches to `main`.
 
 
 <!-- IMAGES -->
@@ -43,6 +43,9 @@ scelerisque, fringilla dolor sed, hendrerit urna.
 <!-- LINKS -->
 
 [LXD-image]: https://linuxcontainers.org/lxd/docs/master/image-handling
+[kubernetes-control-plane]: /kubernetes/docs/charm-kubernetes-control-plane
+[etcd]: /kubernetes/docs/charm-etcd
+[upgrading]: /kubernetes/docs/upgrading
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
