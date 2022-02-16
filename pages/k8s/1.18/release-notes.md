@@ -15,7 +15,7 @@ toc: False
 
 # 1.18+ck2 Bugfix release
 
-### August 12, 2020 - [charmed-kubernetes-485](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-485/archive/bundle.yaml)
+### August 12, 2020 - [charmed-kubernetes-485](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.18/bundle.yaml)
 
 ## Fixes
 

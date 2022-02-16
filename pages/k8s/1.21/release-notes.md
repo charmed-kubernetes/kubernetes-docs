@@ -15,7 +15,7 @@ toc: False
 
 # 1.21+ck3 Bugfix release
 
-### August 02, 2021 - [charmed-kubernetes-733](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-733/archive/bundle.yaml)
+### August 02, 2021 - [charmed-kubernetes-733](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.21/bundle.yaml)
 
 ## Fixes
 

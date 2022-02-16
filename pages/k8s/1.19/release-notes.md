@@ -15,7 +15,7 @@ toc: False
 
 # 1.19+ck2 Bugfix release
 
-### November 27th, 2020 - [charmed-kubernetes-545](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-545/archive/bundle.yaml)
+### November 27th, 2020 - [charmed-kubernetes-545](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.19/bundle.yaml)
 
 ## Fixes
 A list of bug fixes and other minor feature updates in this release can be found at
