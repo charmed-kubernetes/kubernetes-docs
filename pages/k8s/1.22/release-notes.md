@@ -15,7 +15,7 @@ toc: False
 
 # 1.22+ck2 Bugfix release
 
-### October 27, 2021 - [charmed-kubernetes-814](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-814/archive/bundle.yaml)
+### October 27, 2021 - [charmed-kubernetes-814](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.22/bundle.yaml)
 
 ## Fixes
 
