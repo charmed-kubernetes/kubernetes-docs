@@ -28,7 +28,7 @@ varies considerably depending on the underlying cloud, this requires specifying
 a particular instance type.
 
 This can be done with a YAML overlay file. For example, when deploying Charmed
-Kubernetes on AWS, you may decide you wish to use AWS's 'p2.xlarge' instances
+Kubernetes on AWS, you may decide you wish to use AWS's 'p3.2xlarge' instances
 (you can check the AWS instance definitions on the
 [AWS website][aws-instance]). A YAML overlay file can be constructed like this:
 
@@ -36,7 +36,7 @@ Kubernetes on AWS, you may decide you wish to use AWS's 'p2.xlarge' instances
 #gpu-overlay.yaml
 applications:
   kubernetes-worker:
-    constraints: instance-type=p2.xlarge
+    constraints: instance-type=p3.2xlarge
 ```
 
 And then deployed with Charmed Kubernetes like this:
@@ -57,7 +57,7 @@ add GPU-enabled workers to a running cluster. The recommended way to do this is
 to first create a new constraint for the kubernetes-worker:
 
 ```bash
-juju set-constraints kubernetes-worker instance-type=p2.xlarge
+juju set-constraints kubernetes-worker instance-type=p3.2xlarge
 ```
 
 Then you can add as many new worker units as required. For example, to add two
