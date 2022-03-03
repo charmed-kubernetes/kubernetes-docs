@@ -147,16 +147,32 @@ Download the file and run it with:
 kubectl create -f nvidia-test.yaml
 ```
 
-If you then check the Kubernetes dashboard, you can inspect the logs to
-find the hardware report.
+You can inspect the logs to find the hardware report.
 
-![dashboard image][img-log]
+```bash
+kubectl logs job.batch/nvidia-smi
 
-
-<!-- IMAGES -->
-
-[img-log]: https://assets.ubuntu.com/v1/2ba88cee-nvidia.png
-
+Thu Mar  3 14:52:26 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 510.47.03    Driver Version: 510.47.03    CUDA Version: 11.6     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:00:1E.0 Off |                    0 |
+| N/A   39C    P0    24W / 300W |      0MiB / 16384MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
 
 <!-- LINKS -->
 [asset-nvidia]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/nvidia-test.yaml
