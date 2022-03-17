@@ -102,6 +102,8 @@ also be installed.
 
 As GPU instances can be costly, it is useful to test that they can actually be
 used. A simple test job can be created to run NVIDIA's hardware reporting tool.
+Please note that you may need to replace the image tag in the following
+YAML with [the latest supported one][nvidia-supported-tags].
 
 This can also be [downloaded here][asset-nvidia].
 
@@ -117,7 +119,7 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - image: nvidia/cuda
+      - image: nvidia/cuda:11.6.0-base-ubuntu20.04
         name: nvidia-smi
         args:
           - nvidia-smi
@@ -159,7 +161,8 @@ find the hardware report.
 
 
 <!-- LINKS -->
-[asset-nvidia]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/nvidia-test.yaml
+[asset-nvidia]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/main/assets/nvidia-test.yaml
+[nvidia-supported-tags]: https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/README.md#supported-tags
 [quickstart]: /kubernetes/docs/quickstart
 [aws-instance]: https://aws.amazon.com/ec2/instance-types/
 [azure-instance]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu
