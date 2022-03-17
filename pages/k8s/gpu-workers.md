@@ -161,7 +161,7 @@ find the hardware report.
 
 
 <!-- LINKS -->
-[asset-nvidia]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/nvidia-test.yaml
+[asset-nvidia]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/main/assets/nvidia-test.yaml
 [nvidia-supported-tags]: https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/README.md#supported-tags
 [quickstart]: /kubernetes/docs/quickstart
 [aws-instance]: https://aws.amazon.com/ec2/instance-types/
