@@ -215,7 +215,7 @@ juju remove-unit kubernetes-worker/[n]
 juju add-unit kubernetes-worker
 ```
 
-### Kubelet fail to start with errors related to inotify_add_watch
+### Kubelet fails to start with errors related to inotify_add_watch
 
 For example, `systemctl status snap.kubelet.daemon.service` may report the following error:
 
@@ -234,7 +234,7 @@ sysctl -w fs.inotify.max_user_instances=8192
 sysctl -w fs.inotify.max_user_watches=1048576
 ```
 
-Then, you can increase them also inside the worker containers:
+Then the new values should be applied to the worker units:
 
 ```bash
 juju config kubernetes-worker sysctl="{ fs.inotify.max_user_instances=8192 }"
@@ -244,7 +244,7 @@ juju config kubernetes-worker sysctl="{ fs.inotify.max_user_watches=1048576 }"
 <!-- LINKS -->
 
 [lxd-home]: https://linuxcontainers.org/
-[lxd-profile]: https://github.com/charmed-kubernetes/charm-kubernetes-worker/blob/master/lxd-profile.yaml
+[lxd-profile]: https://github.com/charmed-kubernetes/charm-kubernetes-worker/blob/main/lxd-profile.yaml
 [Juju]: https://jaas.ai
 [snap]: https://snapcraft.io/docs/installing-snapd
 [install]: /kubernetes/docs/install-manual
