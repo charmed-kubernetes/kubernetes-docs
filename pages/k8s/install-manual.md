@@ -209,7 +209,7 @@ revision number. For example, to deploy the **Charmed Kubernetes** bundle for th
 release, you could run:
 
 ```bash
-juju deploy cs:~containers/charmed-kubernetes-733
+juju deploy charmed-kubernetes --revision=733
 ```
 
 <div class="p-notification--positive">
