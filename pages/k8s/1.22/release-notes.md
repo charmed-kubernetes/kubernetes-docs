@@ -15,8 +15,7 @@ toc: False
 
 # 1.22+ck2 Bugfix release
 
-### October 27, 2021 - [charmed-kubernetes-814](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.22/bundle.yaml)
-
+### October 27, 2021 - charmed-kubernetes-814
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -24,7 +23,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.22+ck1 Bugfix release
 
-### October 21, 2021 - [charmed-kubernetes-807](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-807/archive/bundle.yaml)
+### October 21, 2021 - charmed-kubernetes-807
 
 ## What's new
 
@@ -57,7 +56,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.22
 
-### September 1, 2021 - [charmed-kubernetes-761](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-761/archive/bundle.yaml)
+### September 1, 2021 - charmed-kubernetes-761
 
 ## What's new
 

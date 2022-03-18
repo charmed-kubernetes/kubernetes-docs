@@ -285,7 +285,6 @@ things you may wish to try:
 
 - [Kubernetes User Guide](https://kubernetes.io/docs/user-guide/)
 - [The Charmed Kubernetes page on Charmhub.io](https://charmhub.io/charmed-kubernetes/)
-- [Bundle source][bundle-source]
 - [Bug tracker](https://bugs.launchpad.net/charmed-kubernetes)
 
 
@@ -298,7 +297,7 @@ things you may wish to try:
 [logging]: /kubernetes/docs/logging
 [decommission]: /kubernetes/docs/decommissioning
 [get-in-touch]:  /kubernetes/docs/get-in-touch
-[bundle-source]: https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-3/archive/bundle.yaml?channel=stable
+
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
