@@ -104,12 +104,11 @@ each category!
 </div>
 </div>
 <br>
-
-<div class="p-notification--positive">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can read more about CNI support <a href="/kubernetes/docs/cni-overview"> here </a>.
-  </p>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can read more about CNI support <a href="/kubernetes/docs/cni-overview"> here </a>.</p>
+  </div>
 </div>
 
 #### Cloud integration
@@ -197,7 +196,7 @@ For more detail on overlays and how they work, see the section [below](#overlay)
 
 ## Deploying a specific Charmed Kubernetes bundle
 
-The **Juju Charm Store** hosts the **Charmed Kubernetes** bundles as well as
+**Charmhub.io** hosts the **Charmed Kubernetes** bundles as well as
 individual charms. To deploy the latest, stable bundle, run the command:
 
 ```bash
@@ -212,14 +211,13 @@ release, you could run:
 juju deploy charmed-kubernetes --revision=733
 ```
 
-<div class="p-notification--positive">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Older Versions:</span>
-Previous versions of <strong>Charmed Kubernetes</strong> used the name
-<code>canonical-kubernetes</code>. These versions are still available under that name
-and links in the charm store. Versions from 1.14 onwards use
-<code>charmed-kubernetes</code>.
-  </p>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Older Versions:</span>
+    <p class="p-notification__message">Previous versions of <strong>Charmed Kubernetes</strong> used the name <code>canonical-kubernetes</code>. These versions are still available under that name
+    and links in the charm store. Versions from 1.14 onwards use
+    <code>charmed-kubernetes</code>.</p>
+  </div>
 </div>
 
 
@@ -436,7 +434,7 @@ Now you have a cluster up and running, check out the
 
 <!-- LINKS -->
 
-[latest-bundle]: https://charmhub.io/charmed-kubernetes
+[latest-bundle-file]: https://charmhub.io/charmed-kubernetes
 [jaas]: https://jaas.ai/
 [juju-docs]: https://juju.is/docs/olm/installing-juju
 [controller-config]: https://juju.is/docs/olm/create-controllers
@@ -456,10 +454,10 @@ Now you have a cluster up and running, check out the
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/install-manual.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>

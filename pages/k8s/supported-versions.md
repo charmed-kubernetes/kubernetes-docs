@@ -22,11 +22,11 @@ Supported releases: **1.23.x,1.22.x, 1.21.x**
 
 ## Charmed Kubernetes bundle versions
 
-The **Juju Charm Store** hosts the **Charmed Kubernetes** bundles as well as
+**Charmhub.io** hosts the **Charmed Kubernetes** bundles as well as
 individual charms. To deploy the latest, stable bundle, run the command:
 
 ```bash
-juju deploy cs:charmed-kubernetes
+juju deploy charmed-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
@@ -37,14 +37,14 @@ release, you could run:
 juju deploy charmed-kubernetes --revision=733
 ```
 
-<div class="p-notification--positive">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Older Versions:</span>
-Previous versions of <strong>Charmed Kubernetes</strong> used the name
-<code>canonical-kubernetes</code>. These versions are still available under that name
-and links in the charm store. Versions from 1.14 onwards will use
-<code>charmed-kubernetes</code>.
-  </p>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Older Versions:</span>
+    <p class="p-notification__message">Previous versions of <strong>Charmed Kubernetes</strong> used the name
+    <code>canonical-kubernetes</code>. These versions are still available under that name
+    and links in the charm store. Versions from 1.14 onwards will use
+    <code>charmed-kubernetes</code>.</p>
+  </div>
 </div>
 
 
@@ -199,17 +199,16 @@ If you are looking for additional support, find out about [Ubuntu Advantage][sup
 
 Canonical can also provide [managed solutions][managed] for Kubernetes.
 
+<!-- LINKS -->
+[support]: /support
+[managed]: /kubernetes/managed
+
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
+  <p class="p-notification__content">
     We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/supported-versions.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>
 </div>
-
-<!-- LINKS -->
-
-[support]: /support
-[managed]: /kubernetes/managed
