@@ -15,7 +15,7 @@ toc: False
 
 # 1.23
 
-### December 15, 2021 - [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/releases/1.23/bundle.yaml)
+### December 15, 2021 - [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.23/bundle.yaml)
 
 ## What's new
 
