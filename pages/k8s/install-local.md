@@ -215,10 +215,36 @@ juju remove-unit kubernetes-worker/[n]
 juju add-unit kubernetes-worker
 ```
 
+### Kubelet fails to start with errors related to inotify_add_watch
+
+For example, `systemctl status snap.kubelet.daemon.service` may report the following error:
+
+```bash
+kubelet.go:1414] "Failed to start cAdvisor" err="inotify_add_watch /sys/fs/cgroup/cpu,cpuacct: no space left on device"
+```
+
+This problem usually is related to the kernel parameters,
+`fs.inotify.max_user_instances` and `fs.inotify.max_user_watches`.
+
+At first, you should increase their values on the machine that is hosting
+the **Charmed Kubernetes** (`v1.23.4`) installation:
+
+```bash
+sysctl -w fs.inotify.max_user_instances=8192
+sysctl -w fs.inotify.max_user_watches=1048576
+```
+
+Then the new values should be applied to the worker units:
+
+```bash
+juju config kubernetes-worker sysctl="{ fs.inotify.max_user_instances=8192 }"
+juju config kubernetes-worker sysctl="{ fs.inotify.max_user_watches=1048576 }"
+```
+
 <!-- LINKS -->
 
 [lxd-home]: https://linuxcontainers.org/
-[lxd-profile]: https://github.com/charmed-kubernetes/charm-kubernetes-worker/blob/master/lxd-profile.yaml
+[lxd-profile]: https://github.com/charmed-kubernetes/charm-kubernetes-worker/blob/main/lxd-profile.yaml
 [Juju]: https://jaas.ai
 [snap]: https://snapcraft.io/docs/installing-snapd
 [install]: /kubernetes/docs/install-manual
