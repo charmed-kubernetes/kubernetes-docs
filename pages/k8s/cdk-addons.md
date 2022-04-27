@@ -130,25 +130,74 @@ to work with LDAP/Keystone for Authentication and Authorisation.
 Please refer to the [LDAP and Keystone page][] for more information on using
 this feature.
 
-## kube-state-metrics
-Sourced from: <https://github.com/kubernetes/kube-state-metrics.git>
+## Kubernetes Metrics Server
 
-Since version 1.17, kube-state-metrics have been enabled by default in
-**Charmed Kubernetes**
+The Kubernetes Metrics server is described by the upstream docs:
+> Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
+> 
+> Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines.
 
-The `kube-state-metrics` plugin can be disabled with:
+**Charmed Kubernetes** provides two means of installing the `metrics-server`.
+
+### In-Tree Addon
+Sourced from: <https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/metrics-server>
+
+Since version 1.17, `metrics-server` have been enabled by default in
+**Charmed Kubernetes** as a kubernetes addon. Each kubernetes release has one
+`metrics-server` addon release associated which is immtuable.
+
+
+The `metrics-server` addon plugin can be disabled with:
 
 ```bash
 juju config kubernetes-master enable-metrics=false
 ```
 
-...and re-enabled with:
+...or re-enabled with:
 ```bash
 juju config kubernetes-master enable-metrics=true
 ```
 
-There is more information on accessing the metrics and integrating them into
-a Prometheus/Grafana/Telegraf stack in the [monitoring docs][].
+### Out of Tree
+Sourced from: <https://github.com/kubernetes-sigs/metrics-server.git>
+
+Since version 1.24, the `metrics-server` can be deployed into the cluster
+as an application just like any other kubernetes application.  
+
+In order to deploy the out-of-tree version, first you must disable the in-tree addon
+```bash
+juju config kubernetes-control-plane enable-metrics=false
+```
+
+#### Juju Deployment
+Once **Charmed Kubernetes** is deployed, one should [add a k8s cloud][] so that juju exposes
+a means of installing charmed kubernetes operators into the kubernetes-cluster.
+
+Deploy the [kubernetes-metrics-server][] charm into this kubernetes model with:
+
+```bash
+juju deploy kubernetes-metrics-server
+```
+
+This charm offers the following options 
+* upgrade the release of the `metrics-server` via config
+  ```bash
+  juju config kubernetes-metrics-server release="v0.6.0"
+  ```
+* adjust the base image registry if the cluster demands a private registry
+  ```bash
+  juju config kubernetes-metrics-server image-registry="my.registry.server:5000"
+  ```
+* adjust the arguments of the running service
+  ```bash
+  juju config kubernetes-metrics-server extra-args="--kubelet-insecure-tls"
+  ```
+
+#### Custom Deployment
+Secondarily, one may follow the upstream deployment instructions from [metrics-server releases][]
+
+
+
 
 <!-- LINKS -->
 [Operations page]: /kubernetes/docs/operations
@@ -159,3 +208,7 @@ a Prometheus/Grafana/Telegraf stack in the [monitoring docs][].
 [monitoring docs]: /kubernetes/docs/monitoring
 [coredns-charm]: https://jaas.ai/u/containers/coredns
 [kubernetes-dashboard-bundle]: https://jaas.ai/u/containers/kubernetes-dashboard-bundle
+[metrics-server releases]: https://github.com/kubernetes-sigs/metrics-server/releases
+[add a k8s cloud]: https://juju.is/docs/olm/get-started-on-kubernetes#heading--register-the-cluster-with-juju
+[kubernetes-metrics-server]: https://charmhub.io/kubernetes-metrics-server
+[docker-registry]: https://charmhub.io/docker-registry
