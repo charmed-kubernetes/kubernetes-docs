@@ -43,7 +43,7 @@ branches to `main`.
 <!-- LINKS -->
 
 [LXD-image]: https://linuxcontainers.org/lxd/docs/master/image-handling
-[kubernetes-control-plane]: /kubernetes/docs/charm-kubernetes-control-plane
+[kubernetes-control-plane]: https://charmhub.io/kubernetes-control-plane/docs
 [etcd]: /kubernetes/docs/charm-etcd
 [upgrading]: /kubernetes/docs/upgrading
 

@@ -152,7 +152,7 @@ a Prometheus/Grafana/Telegraf stack in the [monitoring docs][].
 
 <!-- LINKS -->
 [Operations page]: /kubernetes/docs/operations
-[kubernetes-control-plane configuration]: /kubernetes/docs/charm-kubernetes-control-plane#dns-provider-description
+[kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
 [Storage documentation]: /kubernetes/docs/storage
 [GPU workers page]: /kubernetes/docs/gpu-workers
 [LDAP and Keystone page]: /kubernetes/docs/ldap

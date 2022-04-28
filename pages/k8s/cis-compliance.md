@@ -224,7 +224,7 @@ status: completed
 [kube-bench]: https://github.com/aquasecurity/kube-bench
 [layer-cis-benchmark-config]: https://raw.githubusercontent.com/charmed-kubernetes/layer-cis-benchmark/master/actions.yaml
 [protect-kernel-defaults]: https://github.com/kubernetes/kubernetes/blob/release-1.19/pkg/util/sysctl/sysctl.go#L49-L56
-[kubernetes-control-plane]: /kubernetes/docs/charm-kubernetes-control-plane
+[kubernetes-control-plane]: https://charmhub.io/kubernetes-control-plane/docs
 [k8s-worker]: /kubernetes/docs/charm-kubernetes-worker
 
 <!-- FEEDBACK -->
