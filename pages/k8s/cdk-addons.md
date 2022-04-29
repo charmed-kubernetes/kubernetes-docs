@@ -130,25 +130,91 @@ to work with LDAP/Keystone for Authentication and Authorisation.
 Please refer to the [LDAP and Keystone page][] for more information on using
 this feature.
 
-## kube-state-metrics
-Sourced from: <https://github.com/kubernetes/kube-state-metrics.git>
 
-Since version 1.17, kube-state-metrics have been enabled by default in
-**Charmed Kubernetes**
+## Metrics
+**Charmed Kubernetes** provides multiple means of installing services `kube-state-metrics` and `metrics-server` for monitoring some health aspects of the kubernetes cluster.
 
-The `kube-state-metrics` plugin can be disabled with:
+### Built-in Addons
+For each **Charmed Kubernetes** release, baked into the snap which the charm deploys into the `kubernetes-control-plane` charm, are two metrics services.  
+* `kube-state-metrics` - a fixed commit aligned with the latest-at-the-time release
+* `metrics-server` - a set of kubernetes components defined by kubernetes as an in-tree addon
+
+Both `kube-state-metrics` and `metrics-server` applications can be disabled with:
 
 ```bash
 juju config kubernetes-master enable-metrics=false
 ```
 
-...and re-enabled with:
+...or re-enabled with:
 ```bash
 juju config kubernetes-master enable-metrics=true
 ```
 
-There is more information on accessing the metrics and integrating them into
-a Prometheus/Grafana/Telegraf stack in the [monitoring docs][].
+### Kube-State Metrics
+Sourced from: <https://github.com/kubernetes/kube-state-metrics.git>
+
+Kube-State-Metrics is described by upstream docs: 
+> kube-state-metrics (KSM) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. ... It is not focused on the health of the individual Kubernetes components, but rather on the health of the various objects inside, such as deployments, nodes and pods.
+
+You may follow the installation instructions from [kube-state-metrics example][]
+
+#### Juju Deployment
+`kube-state-metrics` can also be deployed as a juju charm.
+
+One only needs to [add a k8s cloud][] so that juju exposes a means of installing Kubernetes operators into the kubernetes-cluster.
+
+Deploy the [kube-state-metrics-operator][] charm into this kubernetes model with:
+
+```bash
+juju deploy kube-state-metrics --trust
+juju relate kube-state-metrics prometheus  # if a prometheus application is deployed in the same model
+```
+
+### Kubernetes Metrics Server
+The Kubernetes Metrics server is described by the upstream docs:
+> Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
+> 
+> Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines.
+
+* In-Tree addon - <https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/metrics-server>
+* Out-of-Tree - <https://github.com/kubernetes-sigs/metrics-server.git>
+
+Since version 1.24, the `metrics-server` can be deployed into the cluster just like any other kubernetes application.
+
+In order to deploy a different version of the metrics-server, first you must disable the built-in service while ensuring the kubernetes-api service still allows the [aggregation-extentions][].
+
+```bash
+juju config kubernetes-control-plane enable-metrics=false
+juju config kubernetes-control-plane api-aggregation-extension=true
+```
+
+After which, one may follow the upstream deployment instructions from [metrics-server releases][]
+
+#### Juju Deployment
+The `metrics-server` can also be deployed as a juju charm.
+
+One only needs to [add a k8s cloud][] so that juju exposes a means of installing Kubernetes operators into the kubernetes-cluster.
+
+Deploy the [kubernetes-metrics-server][] charm into this kubernetes model with:
+
+```bash
+juju deploy kubernetes-metrics-server
+```
+
+This charm offers the following options 
+* upgrade the release of the `metrics-server` via config
+  ```bash
+  juju config kubernetes-metrics-server release="v0.6.0"
+  ```
+* adjust the base image registry if the cluster demands a private registry
+  ```bash
+  juju config kubernetes-metrics-server image-registry="my.registry.server:5000"
+  ```
+* adjust the arguments of the running service
+  ```bash
+  juju config kubernetes-metrics-server extra-args="--kubelet-insecure-tls"
+  ```
+
 
 <!-- LINKS -->
 [Operations page]: /kubernetes/docs/operations
@@ -159,3 +225,8 @@ a Prometheus/Grafana/Telegraf stack in the [monitoring docs][].
 [monitoring docs]: /kubernetes/docs/monitoring
 [coredns-charm]: https://jaas.ai/u/containers/coredns
 [kubernetes-dashboard-bundle]: https://jaas.ai/u/containers/kubernetes-dashboard-bundle
+[kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard
+[metrics-server releases]: https://github.com/kubernetes-sigs/metrics-server/releases
+[add a k8s cloud]: https://juju.is/docs/olm/get-started-on-kubernetes#heading--register-the-cluster-with-juju
+[kubernetes-metrics-server]: https://charmhub.io/kubernetes-metrics-server
+[aggregation-extentions]: https://kubernetes.io/docs/tasks/extend-kubernetes/configure-aggregation-layer/
