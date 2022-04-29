@@ -157,7 +157,7 @@ juju run --application kubernetes-worker open-port 30003
 
 Then connect to `https://<kubernetes-worker-ip>:30003` in your web browser. Use
 the Kubernetes admin credentials to log in (you can find these in the kubeconfig
-file created on kubernetes-master units at `/home/ubuntu/config`).
+file created on kubernetes-control-plane units at `/home/ubuntu/config`).
 
 ## Accessing kibana
 

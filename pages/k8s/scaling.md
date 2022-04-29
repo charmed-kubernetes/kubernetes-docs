@@ -25,24 +25,33 @@ information about pod autoscaling,  please see the
 <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">
 Kubernetes  autoscaling</a> documentation for details. </p></div>
 
-## kubernetes-master
+## kubernetes-control-plane
 
-The kubernetes-master nodes act as the control plane for the cluster.
-**Charmed Kubernetes** was designed with separate master nodes so that these
+The kubernetes-control-plane nodes act as the control plane for the cluster.
+**Charmed Kubernetes** was designed with separate control-plane nodes so that these
 nodes can be scaled independently of the worker units, to give better
 efficiency and flexibility.
 
 Additional units can be added like so:
 
 ```bash
-juju add-unit kubernetes-master
+juju add-unit kubernetes-control-plane
 ```
 
 To add multiple units, you can also specify a numerical value
 
 ```bash
-juju add-unit kubernetes-master -n 3
+juju add-unit kubernetes-control-plane -n 3
 ```
+
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+    Prior to the 1.24 release of charms, this application and charm was titled `kubernetes-master`.
+    See <a href="/kubernetes/docs/inclusive-naming">inclusive-naming</a> for more information.
+  </p>
+</div>
+
 
 ## kubernetes-worker
 

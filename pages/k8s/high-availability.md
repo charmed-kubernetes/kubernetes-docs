@@ -26,13 +26,13 @@ a better option.
 
  We start with the two basic components of a **Charmed Kubernetes** cluster:
 
- - your control plane, the `kubernetes-master` charm
+ - your control plane, the `kubernetes-control-plane` charm
  - the worker units, the `kubernetes-worker` charm
 
 ## Control Plane
 
 An initial plan to make the control plane more resilient might be to simply add more
-master nodes with  `juju add-unit kubernetes-master`:
+master nodes with  `juju add-unit kubernetes-control-plane`:
 
 ![multi-master worker image][img-multi-master]
 

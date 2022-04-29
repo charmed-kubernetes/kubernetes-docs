@@ -173,11 +173,11 @@ The above procedure should be repeated for all required images.
 ## Using the registry for cluster components
 
 The image registry used by **Charmed Kubernetes** for images used in managing
-or supporting components of the cluster itself is controlled by a `kubernetes-master`
-config option. Configure `kubernetes-master` to use your private registry as follows:
+or supporting components of the cluster itself is controlled by a `kubernetes-control-plane`
+config option. Configure `kubernetes-control-plane` to use your private registry as follows:
 
 ```bash
-juju config kubernetes-master image-registry=$REGISTRY
+juju config kubernetes-control-plane image-registry=$REGISTRY
 ```
 
 <!-- LINKS -->

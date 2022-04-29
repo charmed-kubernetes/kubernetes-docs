@@ -8,6 +8,6 @@ relations:
 - - kata:untrusted
   - containerd:untrusted
 - - kata
-  - kubernetes-master
+  - kubernetes-control-plane
 - - kata
   - kubernetes-worker

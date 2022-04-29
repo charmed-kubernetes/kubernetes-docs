@@ -53,7 +53,7 @@ relations:
 - - kata:untrusted
   - containerd:untrusted
 - - kata
-  - kubernetes-master
+  - kubernetes-control-plane
 - - kata
   - kubernetes-worker
 
@@ -71,7 +71,7 @@ Deploy the Kata charm and add the necessary relations using the following comman
 
 ```bash
 juju deploy cs:~containers/kata
-juju add-relation kata kubernetes-master
+juju add-relation kata kubernetes-control-plane
 juju add-relation kata kubernetes-worker
 juju add-relation kata:untrusted containerd:untrusted
 ```
@@ -94,7 +94,7 @@ relations:
 - - kata:untrusted
   - containerd:untrusted
 - - kata
-  - kubernetes-master
+  - kubernetes-control-plane
 - - kata
   - kubernetes-worker
 ```

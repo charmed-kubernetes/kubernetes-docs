@@ -38,18 +38,18 @@ since 1.14.
 
 For additional control over CoreDNS, you can also deploy it into the cluster
 using the [CoreDNS Kubernetes operator charm][coredns-charm]. To do so, set
-the `dns-provider` [kubernetes-master configuration][] option to `none` and
+the `dns-provider` [kubernetes-control-plane configuration][] option to `none` and
 deploy the charm into a Kubernetes model on your cluster. You'll also need
-to cross-model relate it to kubernetes-master:
+to cross-model relate it to kubernetes-control-plane:
 
 ```bash
-juju config -m cluster-model kubernetes-master dns-provider=none
+juju config -m cluster-model kubernetes-control-plane dns-provider=none
 juju add-k8s k8s-cloud --controller mycontroller
 juju add-model k8s-model k8s-cloud
 juju deploy cs:~containers/coredns
 juju offer coredns:dns-provider
 juju consume -m cluster-model k8s-model.coredns
-juju relate -m cluster-model coredns kubernetes-master
+juju relate -m cluster-model coredns kubernetes-control-plane
 ```
 
 Once everything settles out, new or restarted pods will use the CoreDNS
@@ -58,7 +58,7 @@ the cluster domain, the IP address or config file to forward unhandled
 queries to, add additional DNS servers, or even override the Corefile entirely.
 
 It is also possible to use `kube-dns` as the DNS provider, or turn off DNS
-altogether using the `dns-provider` [kubernetes-master configuration][].
+altogether using the `dns-provider` [kubernetes-control-plane configuration][].
 
 ## Kubernetes Dashboard
 
@@ -75,24 +75,24 @@ For instructions on how to access the dashboard, please see the
 If desired, the dashboard can be disabled:
 
 ```bash
-juju config kubernetes-master enable-dashboard-addons=false
+juju config kubernetes-control-plane enable-dashboard-addons=false
 ```
 
 ...and re-enabled with:
 
 ```
-juju config kubernetes-master enable-dashboard-addons=true
+juju config kubernetes-control-plane enable-dashboard-addons=true
 ```
 
 For additional control over the Kubernetes Dashboard (Different versions,
 authentication methods...) you can also deploy it into the cluster using the
 [Kubernetes Dashboard operator bundle][kubernetes-dashboard-bundle].
 
-To do so, set the `enable-dashboard-addons` [kubernetes-master configuration][]
+To do so, set the `enable-dashboard-addons` [kubernetes-control-plane configuration][]
 option to `false` and deploy the charm into a Kubernetes model on your cluster:
 
 ```bash
-juju config -m cluster-model kubernetes-master enable-dashboard-addons=false
+juju config -m cluster-model kubernetes-control-plane enable-dashboard-addons=false
 juju add-k8s k8s-cloud --controller mycontroller
 juju add-model kubernetes-dashboard k8s-cloud
 juju deploy cs:~containers/kubernetes-dashboard-bundle
@@ -108,10 +108,10 @@ resources. The plugin is set to 'auto' by default, so it only runs when
 the drivers and GPU resources are available on the host system.
 
 If you wish to disable the plugin entirely, it can be turned off by setting the
-`kubernetes-master` configuration:
+`kubernetes-control-plane` configuration:
 
 ```bash
-juju config kubernetes-master enable-nvidia-plugin="false"
+juju config kubernetes-control-plane enable-nvidia-plugin="false"
 ```
 
 The default setting is "auto", and it is also possible to set the configuration
@@ -142,12 +142,12 @@ For each **Charmed Kubernetes** release, baked into the snap which the charm dep
 Both `kube-state-metrics` and `metrics-server` applications can be disabled with:
 
 ```bash
-juju config kubernetes-master enable-metrics=false
+juju config kubernetes-control-plane enable-metrics=false
 ```
 
 ...or re-enabled with:
 ```bash
-juju config kubernetes-master enable-metrics=true
+juju config kubernetes-control-plane enable-metrics=true
 ```
 
 ### Kube-State Metrics
@@ -218,7 +218,7 @@ This charm offers the following options
 
 <!-- LINKS -->
 [Operations page]: /kubernetes/docs/operations
-[kubernetes-master configuration]: /kubernetes/docs/charm-kubernetes-master#dns-provider-description
+[kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
 [Storage documentation]: /kubernetes/docs/storage
 [GPU workers page]: /kubernetes/docs/gpu-workers
 [LDAP and Keystone page]: /kubernetes/docs/ldap

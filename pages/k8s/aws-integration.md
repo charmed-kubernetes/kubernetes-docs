@@ -42,7 +42,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['aws-integrator', 'kubernetes-master']
+  - ['aws-integrator', 'kubernetes-control-plane']
   - ['aws-integrator', 'kubernetes-worker']
   ```
 
@@ -55,7 +55,7 @@ juju deploy charmed-kubernetes  --overlay ~/path/aws-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 For more configuration options and details of the permissions which the integrator uses,
