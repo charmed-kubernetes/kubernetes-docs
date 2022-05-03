@@ -24,6 +24,24 @@ any of the intervening steps.
 There is a known issue ([https://bugs.launchpad.net/juju/+bug/1904619](https://bugs.launchpad.net/juju/+bug/1904619))
 with container profiles not surviving an upgrade in clouds running on LXD. If your container-based applications fail to work properly after an upgrade, please see this [topic on the troubleshooting page](/kubernetes/docs/troubleshooting#charms-deployed-to-lxd-containers-fail-after-upgradereboot)
 
+<a  id="1.24"> </a>
+
+## Upgrading to 1.24
+
+### ceph-storage relation deprecated
+
+The `kubernetes-control-plane:ceph-storage` relation has been deprecated. After
+upgrading the kubernetes-control-plane charm, the charm may enter `blocked`
+status with the message:
+`ceph-storage relation deprecated, use ceph-client instead`.
+
+If you see this message, you can resolve it by removing the ceph-storage
+relation:
+
+```
+juju remove-relation kubernetes-control-plane:ceph-storage ceph-mon
+```
+
 <a  id="1.19"> </a>
 
 ## Upgrading to 1.19

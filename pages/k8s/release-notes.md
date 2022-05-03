@@ -17,6 +17,8 @@ toc: False
 
 ### Month DD, YYYY - charmed-kubernetes-???
 
+Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+
 ## What's new
 
 - Kubelet added to kubernetes-master
