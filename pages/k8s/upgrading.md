@@ -19,9 +19,9 @@ toc: False
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 This page describes the general upgrade process. It is important to follow the specific upgrade pages for each release, as these may include additional steps and workarounds for safely upgrading. <br><br>
+<a class='p-button--brand' href='/kubernetes/docs/1.23/upgrading'>Upgrade to 1.23 </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.22/upgrading'>Upgrade to 1.22 </a>
 <a class='p-button--brand' href='/kubernetes/docs/1.21/upgrading'>Upgrade to 1.21 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.20/upgrading'>Upgrade to 1.20 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.19/upgrading'>Upgrade to 1.19 </a>
   </p>
 </div>
 
@@ -500,7 +500,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/upgrading.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

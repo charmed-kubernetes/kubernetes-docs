@@ -193,7 +193,7 @@ please see the [vSphere integrator charm page][vsphere-integrator].
 
 <!-- LINKS -->
 
-[asset-vsphere-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vsphere-overlay.yaml
+[asset-vsphere-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/vsphere-overlay.yaml
 
 [storage]: /kubernetes/docs/storage
 [vsphere-integrator]: /kubernetes/docs/charm-vsphere-integrator
@@ -205,7 +205,7 @@ please see the [vSphere integrator charm page][vsphere-integrator].
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/vsphere-integration.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/vsphere-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

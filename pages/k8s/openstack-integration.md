@@ -26,7 +26,7 @@ granting permissions to dynamically create, for example, Cinder volumes.
 
 ### Prerequisites
 
-Openstack integration requires [Octavia][octavia] to be available in the
+OpenStack integration requires [Octavia][octavia] to be available in the
 underlying OpenStack cloud, both to support Kubernetes LoadBalancer services
 and to support creation of a load balancer for the Kubernetes API.
 
@@ -280,8 +280,8 @@ juju debug-log --replay --include openstack-integrator/0
 <!-- LINKS -->
 
 [octavia]: https://docs.openstack.org/octavia/latest/reference/introduction.html
-[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-overlay.yaml
-[asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/openstack-lb-overlay.yaml
+[asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-overlay.yaml
+[asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-lb-overlay.yaml
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://charmhub.io/containers-openstack-integrator/
@@ -293,7 +293,7 @@ juju debug-log --replay --include openstack-integrator/0
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/openstack-integration.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/openstack-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

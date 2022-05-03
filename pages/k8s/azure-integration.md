@@ -198,7 +198,7 @@ external clients.
 
 <!-- LINKS -->
 
-[asset-azure-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/azure-overlay.yaml
+[asset-azure-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/azure-overlay.yaml
 
 [storage]: /kubernetes/docs/storage
 [azure-integrator]: /kubernetes/docs/charm-azure-integrator
@@ -209,7 +209,7 @@ external clients.
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/azure-integration.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/azure-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

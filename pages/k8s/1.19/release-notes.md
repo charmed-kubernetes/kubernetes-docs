@@ -15,7 +15,7 @@ toc: False
 
 # 1.19+ck2 Bugfix release
 
-### November 27th, 2020 - [charmed-kubernetes-545](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-545/archive/bundle.yaml)
+### November 27th, 2020 - charmed-kubernetes-545
 
 ## Fixes
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -23,7 +23,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.19+ck1 Bugfix release
 
-### November 20th, 2020 - [charmed-kubernetes-541](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-541/archive/bundle.yaml)
+### November 20th, 2020 - charmed-kubernetes-541
 
 ## Fixes
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -32,7 +32,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.19
 
-### September 30th, 2020 - [charmed-kubernetes-519](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-519/archive/bundle.yaml)
+### September 30th, 2020 - charmed-kubernetes-519
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
 
@@ -147,9 +147,7 @@ Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
-[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [cis-benchmark]: /kubernetes/docs/cis-compliance
-[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [ipv6]: /kubernetes/docs/ipv6
 [cni-sriov]: /kubernetes/docs/cni-sriov
@@ -161,7 +159,7 @@ Please see [this page][historic] for release notes of earlier versions.
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/release-notes.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

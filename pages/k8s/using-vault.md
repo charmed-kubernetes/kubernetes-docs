@@ -224,7 +224,7 @@ and the root token you generated previously.
 
 
 <!-- LINKS -->
-[vault-pki-yaml]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/vault-pki-overlay.yaml
+[vault-pki-yaml]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/vault-pki-overlay.yaml
 [certs-doc]: /kubernetes/docs/certs-and-trust
 [encryption-doc]: /kubernetes/docs/encryption-at-rest
 [vault]: https://www.vaultproject.io
@@ -241,7 +241,7 @@ and the root token you generated previously.
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/using-vault.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/using-vault.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

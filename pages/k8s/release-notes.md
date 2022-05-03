@@ -55,7 +55,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.24].
 
 # 1.23
 
-### December 15, 2021 - [charmed-kubernetes-862](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-862/archive/bundle.yaml)
+### December 15, 2021 - [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.23/bundle.yaml)
 
 ## What's new
 
@@ -114,7 +114,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.23].
 
 # 1.22+ck2 Bugfix release
 
-### October 27, 2021 - [charmed-kubernetes-814](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-814/archive/bundle.yaml)
+### October 27, 2021 - charmed-kubernetes-814
 
 ## Fixes
 
@@ -124,7 +124,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.22+ck1 Bugfix release
 
-### October 21, 2021 - [charmed-kubernetes-807](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-807/archive/bundle.yaml)
+### October 21, 2021 - charmed-kubernetes-807
 
 ## What's new
 
@@ -158,7 +158,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.22
 
-### September 1, 2021 - [charmed-kubernetes-761](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-761/archive/bundle.yaml)
+### September 1, 2021 - charmed-kubernetes-761
 
 ## What's new
 
@@ -228,7 +228,7 @@ Please see [this page][rel] for release notes of earlier versions.
 
 # 1.21+ck3 Bugfix release
 
-### August 02, 2021 - [charmed-kubernetes-733](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-733/archive/bundle.yaml)
+### August 02, 2021 - charmed-kubernetes-733
 
 ## Fixes
 
@@ -238,8 +238,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.21+ck2 Bugfix release
 
-### May 28, 2021 - [charmed-kubernetes-679](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-679/archive/bundle.yaml)
-
+### May 28, 2021 - charmed-kubernetes-679
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -248,7 +247,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.21+ck1 Bugfix release
 
-### May 04, 2021 - [charmed-kubernetes-655](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-655/archive/bundle.yaml)
+### May 04, 2021 - charmed-kubernetes-655
 
 ## Fixes
 
@@ -258,7 +257,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.21
 
-### April 15, 2021 - [charmed-kubernetes-632](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-632/archive/bundle.yaml)
+### April 15, 2021 - charmed-kubernetes-632
 
 ## What's new
 
@@ -322,7 +321,7 @@ Please see [this page][rel] for release notes of earlier versions.
 
 # 1.20+ck1 Bugfix release
 
-### February 23rd, 2021 - [charmed-kubernetes-596](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-596/archive/bundle.yaml)
+### February 23rd, 2021 - [charmed-kubernetes-596](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.20/bundle.yaml)
 
 ## Fixes
 
@@ -351,8 +350,7 @@ Workaround this by disabling FAN configuration for Google cloud models:
 
 # 1.20
 
-### December 16th, 2020 - [charmed-kubernetes-559](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-559/archive/bundle.yaml)
-
+### December 16th, 2020 - charmed-kubernetes-559
 ## What's new
 
 - Calico VXLAN support
@@ -399,7 +397,7 @@ relevant sections of the [upstream release notes](https://github.com/kubernetes/
 
 # 1.19+ck2 Bugfix release
 
-### November 27th, 2020 - [charmed-kubernetes-545](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-545/archive/bundle.yaml)
+### November 27th, 2020 - charmed-kubernetes-545
 
 ## Fixes
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -407,7 +405,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.19+ck1 Bugfix release
 
-### November 20th, 2020 - [charmed-kubernetes-541](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-541/archive/bundle.yaml)
+### November 20th, 2020 - charmed-kubernetes-541
 
 ## Fixes
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -415,7 +413,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.19
 
-### September 30th, 2020 - [charmed-kubernetes-519](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-519/archive/bundle.yaml)
+### September 30th, 2020 - charmed-kubernetes-519
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
 
@@ -529,16 +527,6 @@ relevant sections of the [upstream release notes](https://github.com/kubernetes/
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
-[cis-benchmark]: /kubernetes/docs/cis-compliance
-[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
-[historic]: /kubernetes/docs/release-notes-historic
-[ipv6]: /kubernetes/docs/ipv6
-[cni-sriov]: /kubernetes/docs/cni-sriov
-[authn]: /kubernetes/docs/auth#authn
-[veth-mtu]: https://docs.projectcalico.org/networking/mtu
-[1.19-calico]: /kubernetes/docs/1.19/charm-calico
 
 
 
@@ -547,8 +535,13 @@ Please see [this page][historic] for release notes of earlier versions.
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
+[cis-benchmark]: /kubernetes/docs/cis-compliance
+[ipv6]: /kubernetes/docs/ipv6
+[cni-sriov]: /kubernetes/docs/cni-sriov
+[authn]: /kubernetes/docs/auth#authn
+[veth-mtu]: https://docs.projectcalico.org/networking/mtu
+[1.19-calico]: /kubernetes/docs/1.19/charm-calico
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
-[bundle]: https://api.jujucharms.com/charmstore/v5/canonical-kubernetes-471/archive/bundle.yaml
 [historic]: /kubernetes/docs/release-notes-historic
 [upgrading-docker]: /kubernetes/docs/upgrading#upgrading-docker
 [tigera-home]: https://www.tigera.io/tigera-products/calico-enterprise/
@@ -572,7 +565,7 @@ Please see [this page][historic] for release notes of earlier versions.
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/release-notes.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

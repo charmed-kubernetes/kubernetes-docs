@@ -34,6 +34,8 @@ See the [quickstart guide][quickstart] for more details on installing **Charmed 
 You can install **Charmed Kubernetes** with monitoring using the Juju bundle
 along with the following overlay file ([download it here][monitoring-pgt-overlay]):
 
+NOTE: Make sure the series is the same as the rest of your kubernetes bundle. Eg: all of series focal.
+
 ```yaml
 applications:
   prometheus:
@@ -54,7 +56,18 @@ relations:
   - [kubernetes-worker:juju-info, telegraf:juju-info]
   - [kubernetes-master:prometheus, prometheus:manual-jobs]
   - [kubernetes-master:grafana, grafana:dashboards]
+  - [prometheus:certificates, easyrsa:client]
+  - [etcd:grafana, grafana:dashboards]
+  - [etcd:prometheus, prometheus:manual-jobs]
 ```
+
+<div class="p-notification--information">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+If you are using Vault instead of EasyRSA you will need to change the
+<code>easyrsa:client</code> relation to:<br />
+<code>[prometheus:certificates, vault:certificates]</code></p>
+</div>
 
 To use this overlay with the **Charmed Kubernetes** bundle, specify it
 during deploy like this:
@@ -198,7 +211,7 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 
 <!-- LINKS -->
 
-[monitoring-pgt-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/monitoring-pgt-overlay.yaml
+[monitoring-pgt-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/monitoring-pgt-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [nagios]: https://www.nagios.org/
 [external-nagios]: https://charmhub.io/nrpe/
@@ -207,7 +220,7 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/monitoring.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/monitoring.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>

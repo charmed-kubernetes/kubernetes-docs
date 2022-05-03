@@ -313,7 +313,7 @@ juju debug-log --replay --include gcp-integrator/0
 [quickstart]: /kubernetes/docs/quickstart
 [owner]: https://console.cloud.google.com/iam-admin/iam
 [iam-roles]: https://cloud.google.com/compute/docs/access/iam
-[asset-gcp-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/master/overlays/gcp-overlay.yaml
+[asset-gcp-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/gcp-overlay.yaml
 [operations]: https://console.cloud.google.com/compute/operations
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
@@ -325,7 +325,7 @@ juju debug-log --replay --include gcp-integrator/0
 <div class="p-notification--information">
   <p class="p-notification__response">
     We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/master/pages/k8s/gcp-integration.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/gcp-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
   </p>
