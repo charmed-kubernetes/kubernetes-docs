@@ -37,7 +37,7 @@ as soon as the installation has settled. You should use the following command to
 **.kube** directory if it was not created after kubectl installation):
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 <div class="p-notification--caution">
@@ -133,7 +133,7 @@ If you would like to disable DNS (for example, to deploy your own custom DNS
 solution), you can use:
 
 ```bash
-juju config kubernetes-master dns-provider=none
+juju config kubernetes-control-plane dns-provider=none
 ```
 
 To deploy a customised DNS configuration, first disable the charm-managed DNS

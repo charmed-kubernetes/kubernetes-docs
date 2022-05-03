@@ -114,7 +114,7 @@ and you should instead follow the [instructions above](#upgrading-containerd).
 
 #### Version 1.15 and later
 
-The `kubernetes-master` and `kubernetes-worker` are related to the docker subordinate
+The `kubernetes-control-plane` and `kubernetes-worker` are related to the docker subordinate
 charm where present. Whether you are running Docker on its own, or mixed with Containerd,
 the upgrade process is the same:
 
@@ -123,7 +123,7 @@ juju upgrade-charm docker
 ```
 
 #### Versions prior to 1.15
-Only the `kubernetes-master` and `kubernetes-worker` units require Docker. The charms for each
+Only the `kubernetes-control-plane` and `kubernetes-worker` units require Docker. The charms for each
 include an action to trigger the upgrade.
 
 Before the upgrade, it is useful to list all the units effected:
@@ -132,22 +132,22 @@ Before the upgrade, it is useful to list all the units effected:
 juju status kubernetes-* --format=short
 ```
 
-...will return a list of the current `kubernetes-master` and `kubernetes-worker` units.
+...will return a list of the current `kubernetes-control-plane` and `kubernetes-worker` units.
 
-Start with the `kubernetes-master` units and run the upgrade action on one unit at a time:
+Start with the `kubernetes-control-plane` units and run the upgrade action on one unit at a time:
 
 ```bash
-juju run-action kubernetes-master/0 upgrade-docker --wait
+juju run-action kubernetes-control-plane/0 upgrade-docker --wait
 ```
 
 As Docker is restarted on the unit, pods will be terminated. Wait for them to respawn before
 moving on to the next unit:
 
 ```bash
-juju run-action kubernetes-master/1 upgrade-docker --wait
+juju run-action kubernetes-control-plane/1 upgrade-docker --wait
 ```
 
-Once all the `kubernetes-master` units have been upgraded and the pods have respawned, the
+Once all the `kubernetes-control-plane` units have been upgraded and the pods have respawned, the
 same procedure can then be applied to the `kubernetes-worker` units.
 
 ```bash
@@ -266,7 +266,7 @@ For most use cases, it is strongly recommended to use the 'stable' version of ch
 ### Upgrading the **kube-api-loadbalancer**
 
 A core part of **Charmed Kubernetes** is the kubeapi-load-balancer component. To ensure API service
-continuity this upgrade should precede any upgrades to the **Kubernetes** master and
+continuity this upgrade should precede any upgrades to the **Kubernetes** control-plane and
 worker units.
 
 ```bash
@@ -277,21 +277,39 @@ The load balancer itself is based on NGINX, and the version reported by `juju st
 that of NGINX rather than Kubernetes. Unlike the other Kubernetes components, there
 is no need to set a specific channel or version for this charm.
 
-### Upgrading the **kubernetes-master** units
+### Upgrading the **kubernetes-control-plane** units
 
-To start upgrading the Kubernetes master units, first upgrade the charm:
+To start upgrading the Kubernetes control plane units, first upgrade the charm.  
 
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Note:</span>
+In the event the current deployment was made with a bundle prior to the 1.23 release, 
+the application will be named `kubernetes-master` instead of `kubernetes-control-plane`.
+The same instructions below apply, however instead use the name `kubernetes-master`.
+
+See [inclusive-naming] for more information
+  </p>
+</div>
+
+Switch to the new charm name
 ```bash
-juju upgrade-charm kubernetes-master
+juju upgrade-charm kubernetes-master --switch kubernetes-control-plane --channel=1.24/stable
+```
+
+To upgrade the current application
+```bash
+juju upgrade-charm kubernetes-control-plane --channel=1.24/stable
 ```
 
 Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.19 version of **Kubernetes**, you would enter:
 
 ```bash
-juju config kubernetes-master channel=1.19/stable
+juju config kubernetes-control-plane channel=1.23/stable
 ```
 
-If you wanted to try a release candidate for 1.20, the channel would be `1.20/candidate`.
+If you wanted to try a release candidate for 1.23, the channel would be `1.23/candidate`.
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -302,22 +320,22 @@ currently active version of Kubernetes.
   </p>
 </div>
 
-Once the desired version has been configured, the upgrades should be performed. This is done by running the `upgrade` action on each master unit in the cluster:
+Once the desired version has been configured, the upgrades should be performed. This is done by running the `upgrade` action on each control-plane unit in the cluster:
 
 ```bash
-juju run-action kubernetes-master/0 upgrade
-juju run-action kubernetes-master/1 upgrade
+juju run-action kubernetes-control-plane/0 upgrade
+juju run-action kubernetes-control-plane/1 upgrade
 ```
 
-If you have more master units in your cluster, you should continue and run this process on every one of them.
+If you have more control-plane units in your cluster, you should continue and run this process on every one of them.
 
 You can check the progress of the upgrade by running:
 
 ```bash
-juju status | grep master
+juju status | grep control-plane
 ```
 
-Ensure that all the master units have upgraded and are reporting normal status before continuing to upgrade the worker units.
+Ensure that all the control-plane units have upgraded and are reporting normal status before continuing to upgrade the worker units.
 
 ### Upgrading the **kubernetes-worker** units
 
@@ -343,10 +361,10 @@ To begin, upgrade the kubernetes-worker charm itself:
 juju upgrade-charm kubernetes-worker
 ```
 
-Next, run the command to configure the workers for the version of Kubernetes you wish to run (as you did previously for the master units). For example:
+Next, run the command to configure the workers for the version of Kubernetes you wish to run (as you did previously for the control-plane units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.19/stable
+juju config kubernetes-worker channel=1.23/stable
 ```
 
 Now add additional units of the kubernetes-worker. You should add as many units as you are replacing. For example, to add three additional units:
@@ -395,10 +413,10 @@ To proceed with an in-place upgrade, first upgrade the charm itself:
 juju upgrade-charm kubernetes-worker
 ```
 
-Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the master units). For example:
+Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the control-plane units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.12/stable
+juju config kubernetes-worker channel=1.23/stable
 ```
 
 All the units can now be upgraded by running the `upgrade` action on each one:
@@ -495,6 +513,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
+[inclusive-naming]: /kubernetes/docs/inclusive-naming
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

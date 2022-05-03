@@ -104,9 +104,9 @@ Once the restore action has finished, you should see output confirming that the 
 
 ```bash
 juju add-relation new-etcd flannel
-juju add-relation new-etcd kubernetes-master
+juju add-relation new-etcd kubernetes-control-plane
 juju add-relation kubeapi-load-balancer:certificates new-easyrsa:client
-juju add-relation kubernetes-master:certificates new-easyrsa:client
+juju add-relation kubernetes-control-plane:certificates new-easyrsa:client
 juju add-relation kubernetes-worker:certificates new-easyrsa:client
 ```
 

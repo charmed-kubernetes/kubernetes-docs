@@ -42,4 +42,4 @@ If you have cloned this repo and wish to build it locally to test changes, the e
 
       bundle exec jekyll serve
 
-If you make a PR, the netlify tests will atuomatically generate a demo website (click on 'Details' in the deployments section)
+If you make a PR, the netlify tests will automatically generate a demo website (click on 'Details' in the deployments section)
