@@ -258,13 +258,6 @@ Ensure that all the master units have upgraded and are reporting normal status b
 
 ### Upgrading the **kubernetes-worker** units
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-    A <a href="https://github.com/kubernetes/kubernetes/issues/70044"> current bug in Kubernetes</a> could prevent the upgrade from properly deleting old pods. See the <a href="#known-issues"> Known issues section</a> at the bottom of this page.
-</p>
-</div>
-
 For a running cluster, there are two different ways to proceed:
 
 - [Blue-green][blue-green] upgrade - This requires more resources, but should ensure a safe, zero-downtime transition of workloads to an updated cluster
@@ -277,13 +270,13 @@ Both methods are outlined below. The blue-green method is recommended for produc
 To begin, upgrade the kubernetes-worker charm itself:
 
 ```bash
-juju upgrade-charm kubernetes-worker
+juju upgrade-charm kubernetes-worker  --switch ch:kubernetes-worker --channel 1.24/stable
 ```
 
 Next, run the command to configure the workers for the version of Kubernetes you wish to run (as you did previously for the master units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.19/stable
+juju config kubernetes-worker channel=1.24/stable
 ```
 
 Now add additional units of the kubernetes-worker. You should add as many units as you are replacing. For example, to add three additional units:
@@ -329,13 +322,13 @@ A variation on this method is to add, pause, remove  and recycle units one at a 
 To proceed with an in-place upgrade, first upgrade the charm itself:
 
 ```bash
-juju upgrade-charm kubernetes-worker
+juju upgrade-charm kubernetes-worker --switch ch:kubernetes-worker --channel 1.24/stable
 ```
 
-Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the master units). For example:
+Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the control-plane units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.12/stable
+juju config kubernetes-worker channel=1.24/stable
 ```
 
 All the units can now be upgraded by running the `upgrade` action on each one:
