@@ -170,11 +170,12 @@ juju deploy kube-state-metrics --trust
 juju relate kube-state-metrics prometheus  # if a prometheus application is deployed in the same model
 ```
 
+
 ### Kubernetes Metrics Server
 The Kubernetes Metrics server is described by the upstream docs:
-> Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
-> 
-> Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines.
+
+*** "Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
+ Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines."***
 
 * In-Tree addon - <https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/metrics-server>
 * Out-of-Tree - <https://github.com/kubernetes-sigs/metrics-server.git>
