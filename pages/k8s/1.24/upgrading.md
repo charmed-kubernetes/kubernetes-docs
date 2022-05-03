@@ -223,28 +223,21 @@ is no need to set a specific channel or version for this charm.
 
 ### Upgrading the **kubernetes-master** units
 
+As noted at the beginning of this page, `kubernetes-master` has been renamed `kubernetes-control-plane`. Following the upgrade, the deployed charm will **STILL** be known as `kubernetes-master` to Juju, as it is impossible to change the name of deployed charms. 
+
 To start upgrading the Kubernetes master units, first upgrade the charm:
 
 ```bash
-juju upgrade-charm kubernetes-master
+juju upgrade-charm kubernetes-master  --switch ch:kubernetes-control-plane --channel 1.24/stable
 ```
 
-Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.19 version of **Kubernetes**, you would enter:
+Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.24 version of **Kubernetes**, you would enter:
 
 ```bash
-juju config kubernetes-master channel=1.19/stable
+juju config kubernetes-master channel=1.24/stable
 ```
 
-If you wanted to try a release candidate for 1.20, the channel would be `1.20/candidate`.
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-Once the configuration has been changed, the charms will be put into a `blocked` state.
-You must continue the upgrade process, even if you revert the configuration to the
-currently active version of Kubernetes.
-  </p>
-</div>
+Note that although the `kubernetes-control-plane` charm was used, it is still referred to as `kubernetes-master` by Juju, and you will need to use that name for any config, scaling or relation operations.
 
 Once the desired version has been configured, the upgrades should be performed. This is done by running the `upgrade` action on each master unit in the cluster:
 
