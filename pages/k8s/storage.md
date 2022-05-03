@@ -103,10 +103,9 @@ initContainers:
 
 ### Relate to Charmed Kubernetes
 
-Making **Charmed Kubernetes** aware of your **Ceph** cluster requires 2 **Juju** relations.
+Making **Charmed Kubernetes** aware of your **Ceph** cluster requires a **Juju** relation.
 
 ```bash
-juju add-relation ceph-mon:admin kubernetes-control-plane
 juju add-relation ceph-mon:client kubernetes-control-plane
 ```
 
