@@ -15,7 +15,7 @@ toc: False
 
 # 1.24
 
-### Month DD, YYYY - [charmed-kubernetes-???](https://api.jujucharms.com/charmstore/v5/charmed-kubernetes-???/archive/bundle.yaml)
+### Month DD, YYYY - charmed-kubernetes-???
 
 ## What's new
 
