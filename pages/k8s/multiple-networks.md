@@ -81,7 +81,7 @@ applications:
   kubeapi-load-balancer:
     bindings:
       "": control
-  kubernetes-master:
+  kubernetes-control-plane:
     bindings:
       "": control
   kubernetes-worker:
@@ -112,8 +112,8 @@ The following endpoints are available for use in bindings:
 | flannel | cni | Flannel traffic (pod to pod communication) |
 | canal | cni | Flannel traffic (pod to pod communication) |
 | calico | cni | Calico traffic (pod to pod communication) |
-| kubernetes-master | kube-api-endpoint | Main traffic to kube-apiserver, from kubeapi-load-balancer |
-| kubernetes-master | kube-control | Secondary traffic to kube-apiserver, from pods |
+| kubernetes-control-plane | kube-api-endpoint | Main traffic to kube-apiserver, from kubeapi-load-balancer |
+| kubernetes-control-plane | kube-control | Secondary traffic to kube-apiserver, from pods |
 | kubeapi-load-balancer | website | Traffic to kubeapi-load-balancer, from kubectl, kubelet and kube-proxy |
 | kubernetes-worker | kube-control | Traffic to kubelet, from kube-apiserver (health checks) |
 

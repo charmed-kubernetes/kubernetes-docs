@@ -7,4 +7,4 @@ applications:
     num_units: 1
 relations:
   - ['vault', 'percona-cluster']
-  - ['vault:secrets', 'kubernetes-master:vault-kv']
+  - ['vault:secrets', 'kubernetes-control-plane:vault-kv']

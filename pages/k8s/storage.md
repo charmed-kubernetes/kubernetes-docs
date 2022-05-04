@@ -79,7 +79,7 @@ Train. OpenStack Ussuri or newer is recommended.
 </p></div>
 
 When deploying **Charmed Kubernetes** on Ubuntu 18.04(Bionic), you will need
-to explicitly set the `install_sources` config option on the `kubernetes-master`
+to explicitly set the `install_sources` config option on the `kubernetes-control-plane`
 charm to include `cloud:bionic-ussuri` (or whatever OpenStack release you are
 using).
 
@@ -103,16 +103,15 @@ initContainers:
 
 ### Relate to Charmed Kubernetes
 
-Making **Charmed Kubernetes** aware of your **Ceph** cluster requires 2 **Juju** relations.
+Making **Charmed Kubernetes** aware of your **Ceph** cluster requires a **Juju** relation.
 
 ```bash
-juju add-relation ceph-mon:admin kubernetes-master
-juju add-relation ceph-mon:client kubernetes-master
+juju add-relation ceph-mon:client kubernetes-control-plane
 ```
 
 ### Create storage pools
 
-By default, the `kubernetes-master` charm will create the required pools defined
+By default, the `kubernetes-control-plane` charm will create the required pools defined
 in the storage class.  To view the default options, run:
 
 ```bash
