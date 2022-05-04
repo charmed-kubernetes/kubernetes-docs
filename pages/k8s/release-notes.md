@@ -21,18 +21,49 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 ## What's new
 
+- Transition to Charmhub
+
+Starting with this release, charms and bundles will be published to Charmhub
+instead of the Charm Store.
+
+If you have any processes that rely on pulling Charmed Kubernetes components
+from the Charm Store (for example, references to `cs:charmed-kubernetes` or
+`cs:~containers/...`), make sure you update those processes to pull from
+Charmhub instead.
+
+When upgrading existing clusters, please refer to the
+[upgrade notes](/kubernetes/docs/upgrade-notes) for instructions on how to
+navigate this transition properly.
+
+- kubernetes-master renamed to kubernetes-control-plane
+
+The kubernetes-master charm has been renamed to kubernetes-control-plane. See
+the [Inclusive Naming][inclusive-naming] page for more details about this change.
+
 - Kubelet added to kubernetes-control-plane
 
 The kubernetes-control-plane charm now includes Kubelet, allowing
 kubernetes-control-plane units to participate as fully functioning nodes within
-Kubernetes clusters. By default, the kubernetes-control-plane nodes will be
+Kubernetes clusters.
+
+By default, the kubernetes-control-plane nodes will be
 configured with a taint to prevent pods from being scheduled to them. The new
 `register-with-taints` config option can be used to control this behavior at
 deploy time.
 
+- Calico is now the default CNI
+
+The `charmed-kubernetes` and `kubernetes-core` reference bundles have been
+updated to use Calico for pod networking instead of Flannel. We recommend Calico
+as the default CNI choice for future deployments due to the rich set of
+advanced networking features that it provides.
+
+While we do recommend Calico as the default choice, we will continue to support
+new and existing deployments that use Flannel as well.
+
 ## Component upgrades
 
-- component-name x.x.x
+- calico 3.21.4
 
 ## Fixes
 
@@ -563,6 +594,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [upstream-changelog-1.23]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md#deprecation
 [upstream-changelog-1.24]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#deprecation
 [cephcsi-upgrade]: https://github.com/ceph/ceph-csi/blob/devel/docs/ceph-csi-upgrade.md
+[inclusive-naming]: /kubernetes/docs/inclusive-naming
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
