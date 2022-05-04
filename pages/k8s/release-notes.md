@@ -55,8 +55,8 @@ deploy time.
 
 The `charmed-kubernetes` and `kubernetes-core` reference bundles have been
 updated to use Calico for pod networking instead of Flannel. We recommend Calico
-as the default CNI choice for all deployments due to the rich set of advanced
-networking features that it provides.
+as the default CNI choice for all new deployments due to the rich set of
+advanced networking features that it provides.
 
 While we do recommend Calico as the default choice, we will continue to support
 new and existing deployments that use Flannel as well.
