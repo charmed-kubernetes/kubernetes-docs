@@ -16,9 +16,9 @@ toc: False
 Charmed Kubernetes officially supports the most recent three (3) minor releases
 of Kubernetes.
 
-Current Release: **1.23**
+Current Release: **1.24**
 
-Supported releases: **1.23.x,1.22.x, 1.21.x**
+Supported releases: **1.24.x,1.23.x, 1.21.x**
 
 ## Charmed Kubernetes bundle versions
 
