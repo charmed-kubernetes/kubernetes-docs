@@ -9,7 +9,7 @@ keywords: component, charms, versions, release
 tags:
     - reference
 sidebar: k8smain-sidebar
-permalink: 1.23/components.html
+permalink: 1.24/components.html
 layout:
     - base
     - ubuntu-com
