@@ -21,13 +21,14 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 ## What's new
 
-- Kubelet added to kubernetes-master
+- Kubelet added to kubernetes-control-plane
 
-The kubernetes-master charm now includes Kubelet, allowing kubernetes-master
-units to participate as fully functioning nodes within Kubernetes clusters. By
-default, the kubernetes-master nodes will be configured with a taint to prevent
-pods from being scheduled to them. The new `register-with-taints` config option
-can be used to control this behavior at deploy time.
+The kubernetes-control-plane charm now includes Kubelet, allowing
+kubernetes-control-plane units to participate as fully functioning nodes within
+Kubernetes clusters. By default, the kubernetes-control-plane nodes will be
+configured with a taint to prevent pods from being scheduled to them. The new
+`register-with-taints` config option can be used to control this behavior at
+deploy time.
 
 ## Component upgrades
 
@@ -42,7 +43,7 @@ A list of bug fixes and other feature updates in this release can be found at
 
 - [LP 1907153](https://bugs.launchpad.net/snapd/+bug/1907153) Snap install failure in LXD
 
-Snaps may fail to install when the `kubernetes-master` charm is deployed to a LXD container.
+Snaps may fail to install when the `kubernetes-control-plane` charm is deployed to a LXD container.
 This happens when the version of `snapd` on the host does not match the version inside the
 container. As a workaround, ensure the same version of `snapd` is installed on the host and
 in LXD containers.
