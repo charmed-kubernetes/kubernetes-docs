@@ -32,7 +32,7 @@ configured as follows:
     ```bash
     juju add-relation keepalived:juju-info kubeapi-load-balancer:juju-info
     juju add-relation keepalived:lb-sink kubeapi-load-balancer:website
-    juju add-relation keepalived:loadbalancer kubernetes-master:loadbalancer
+    juju add-relation keepalived:loadbalancer kubernetes-control-plane:loadbalancer
     juju add-relation keepalived:website kubernetes-worker:kube-api-endpoint
     ```
     This redirects both the Kubernetes master and worker units to point at the keepalived
@@ -59,7 +59,7 @@ configured as follows:
     additional [SANs][]:
     ```bash
     juju config kubeapi-load-balancer extra_sans="$VIP $VIP_HOSTNAME"
-    juju config kubernetes-master extra_sans="$VIP $VIP_HOSTNAME"
+    juju config kubernetes-control-plane extra_sans="$VIP $VIP_HOSTNAME"
     ```
 
 1. Wait for the new service to settle. You can check the status of the `keepalived`
@@ -72,7 +72,7 @@ configured as follows:
 1. Remove unneeded relations:
     ```bash
     juju remove-relation kubernetes-worker:kube-api-endpoint kubeapi-load-balancer:website
-    juju remove-relation kubernetes-master:loadbalancer kubeapi-load-balancer:loadbalancer
+    juju remove-relation kubernetes-control-plane:loadbalancer kubeapi-load-balancer:loadbalancer
     ```
 
 1. Scale up the `kubeapi-load-balancer`. You can specify as many units as your situation requires.

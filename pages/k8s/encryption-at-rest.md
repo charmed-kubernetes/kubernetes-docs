@@ -28,7 +28,7 @@ configure the encryption key used by **Kubernetes**.
 ## Using Encryption-at-Rest with Charmed Kubernetes
 
 To enable encryption-at-rest for **Charmed Kubernetes**, simply deploy the [Vault charm][] (as
-well as a database backend for it), and relate it to `kubernetes-master` via
+well as a database backend for it), and relate it to `kubernetes-control-plane` via
 the `vault-kv` relation endpoint.  The easiest way to do this is to deploy **Charmed Kubernetes**
 with the following overlay:
 
@@ -42,7 +42,7 @@ applications:
     num_units: 1
 relations:
   - ['vault', 'percona-cluster']
-  - ['vault:secrets', 'kubernetes-master:vault-kv']
+  - ['vault:secrets', 'kubernetes-control-plane:vault-kv']
 ```
 
 To deploy **Charmed Kubernetes** with this overlay - [download it][cdk-vault-overlay]), save it as, e.g.,

@@ -47,7 +47,7 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['openstack-integrator', 'kubernetes-control-plane:openstack']
   - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 
@@ -60,7 +60,7 @@ juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-master/0:config ~/.kube/config
+juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
 For more configuration options and details of the permissions which the integrator uses,
@@ -173,9 +173,9 @@ applications:
     num_units: 1
     trust: true
 relations:
-  - ['kubernetes-master:kube-api-endpoint', 'kubernetes-worker:kube-api-endpoint']
-  - ['openstack-integrator', 'kubernetes-master:loadbalancer']
-  - ['openstack-integrator', 'kubernetes-master:openstack']
+  - ['kubernetes-control-plane:kube-api-endpoint', 'kubernetes-worker:kube-api-endpoint']
+  - ['openstack-integrator', 'kubernetes-control-plane:loadbalancer']
+  - ['openstack-integrator', 'kubernetes-control-plane:openstack']
   - ['openstack-integrator', 'kubernetes-worker:openstack']
 ```
 

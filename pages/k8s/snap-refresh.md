@@ -76,7 +76,7 @@ sun5
 
 **Charmed Kubernetes** applications that support peering will use **Juju**
 leadership to configure a consistent refresh interval among peers. The lead
-unit for `etcd`, `kubernetes-master`, and `kubernetes-worker` applications
+unit for `etcd`, `kubernetes-control-plane`, and `kubernetes-worker` applications
 will set an initial refresh value. Subsequent units that join as followers
 will use the leader value as their snap refresh interval. This ensures all
 units in a peer group will refresh at approximately the same time.
@@ -92,10 +92,10 @@ juju run --application etcd 'snap refresh'
 ```
 
 As another example, only refresh the `cdk-addons` snap on the
-`kubernetes-master/0` unit with:
+`kubernetes-control-plane/0` unit with:
 
 ```bash
-juju run --unit kubernetes-master/0 'snap refresh cdk-addons'
+juju run --unit kubernetes-control-plane/0 'snap refresh cdk-addons'
 ```
 
 <!-- LINKS -->

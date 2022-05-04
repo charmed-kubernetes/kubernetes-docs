@@ -28,6 +28,16 @@ with container profiles not surviving an upgrade in clouds running on LXD. If yo
 
 ## Upgrading to 1.24
 
+New in 1.24, control-plane units will switch to a new charm named `kubernetes-control-plane`.
+The application in the juju model and all relations to it will remain under the same name `kubernetes-master`,
+only the charm supporting the application will switch.
+
+```bash
+juju upgrade-charm kubernetes-master --switch kubernetes-control-plane --channel=1.24/stable
+```
+
+See [inclusive-naming] for more details on the switch.
+
 ### ceph-storage relation deprecated
 
 The `kubernetes-control-plane:ceph-storage` relation has been deprecated. After
@@ -369,6 +379,7 @@ You can now proceed with the rest of the upgrade.
 [script]: https://raw.githubusercontent.com/juju-solutions/cdk-etcd-2to3/master/migrate
 [dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
 [docker-page]: https://jaas.ai/u/containers/docker#configuration
+[inclusive-naming]: /kubernetes/docs/inclusive-naming
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
