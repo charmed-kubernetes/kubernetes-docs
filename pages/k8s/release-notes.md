@@ -64,6 +64,14 @@ new and existing deployments that use Flannel as well.
 ## Component upgrades
 
 - calico 3.21.4
+- cephcsi 3.5.1
+- cinder-csi-plugin 1.23.0
+- coredns 1.9.0
+- ingress-nginx 1.2.0
+- k8s-keystone-auth 1.23.0
+- kube-state-metrics 2.4.2
+- kubernetes-dashboard 2.5.1
+- openstack-cloud-controller-manager 1.23.0
 
 ## Fixes
 
