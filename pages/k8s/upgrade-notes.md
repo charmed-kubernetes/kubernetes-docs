@@ -27,15 +27,19 @@ with container profiles not surviving an upgrade in clouds running on LXD. If yo
 <a  id="1.24"> </a>
 
 ## Upgrading to 1.24
-New in 1.24, control-plane units will switch to a new charm named `kubernetes-control-plane`.
-The application in the juju model and all relations to it will remain under the same name `kubernetes-master`,
-only the charm supporting the application will switch.
 
-```bash
-juju upgrade-charm kubernetes-master --switch kubernetes-control-plane --channel=1.24/stable
-```
+There are several important changes to 1.24 that will effect all users:
 
-See [inclusive-naming] for more details on the switch.
+ - Charms have migrated to the [Charmhub.io](https://charmhub.io) store.
+ - Control-plane units will switch to a new charm named
+   `kubernetes-control-plane`.The application in the juju model and all
+   relations to it will remain under the same name `kubernetes-master`, only the
+   charm supporting the application will switch. See [inclusive-naming] for an
+   explanation about this.
+
+Due to these and other changes, it is recommended to follow the specific upgrade
+procedure described in the <a class='p-button--brand' href='/kubernetes/docs/1.24/upgrading'>Upgrade to 1.24 </a> docs.
+
 
 <a  id="1.19"> </a>
 
