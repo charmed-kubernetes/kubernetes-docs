@@ -21,7 +21,7 @@ on which type of load balancing solution you wish to configure:
     `kubeapi-load-balancer` charm.
 
  -  If a full load balancing solution is in place such as an F5 appliance, remove the
-     `kubeapi-load-balancer` and use the settings on the `kubernetes-master` charm to
+     `kubeapi-load-balancer` and use the settings on the `kubernetes-control-plane` charm to
       configure the load balancer. This is also the appropriate step if you want to use
       a load balancer integrated with a particular cloud (e.g **OctaviaLB** for
       OpenStack). See the relevant entry in the "Cloud Integration" section of the
