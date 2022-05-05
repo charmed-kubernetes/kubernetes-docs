@@ -8,24 +8,10 @@ context:
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: 1.23/upgrading.html
+permalink: 1.24/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
-
-<!-- UPGRADE VERSIONS -->
-
-<div class="p-notification--warning">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-This page describes the general upgrade process. It is important to follow the specific upgrade pages for each release, as these may include additional steps and workarounds for safely upgrading. See the links below for more specific upgrades<br><br>
-<a class='p-button--brand' href='/kubernetes/docs/1.23/upgrading'>Upgrade to 1.23 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.22/upgrading'>Upgrade to 1.22 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.21/upgrading'>Upgrade to 1.21 </a>
-  </p>
-</div>
-
-<!-- END OF UPGRADE VERSIONS-->
 
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
@@ -36,9 +22,18 @@ This page describes the general upgrade process. It is important to follow the s
 
 Some of the important changes to note for this release:
 
- - The `kubernetes-master` charm has been renamed `kubernetes-control-plane` in line with upstream inclusive naming initiatives. This upgrade will take you through the process of upgrading to the new charm, but because Juju will not rename a deployed unit, it will still appear in your model as `kubernetes-master`.
- - All the charms have relocated from the old Juju Charm Store to the new [Charmhub](https://charmhub.io). This means that upgrading each charm will require the use of `--switch` during the upgrade, as detailed in the following instructions.
- - The default CNI for new installs is now Calico, instead of Flannel. The Flannel charm is still supported and you can upgrade to the lastest version as normal.
+ - The `kubernetes-master` charm has been renamed `kubernetes-control-plane` in
+   line with upstream inclusive naming initiatives. This upgrade will take you
+   through the process of upgrading to the new charm, but because Juju will not
+   rename a deployed unit, it will still appear in your model as
+   `kubernetes-master`.
+ - All the charms have relocated from the old Juju Charm Store to the new
+   [Charmhub](https://charmhub.io). This means that upgrading each charm will
+   require the use of `--switch` during the upgrade, as detailed in the
+   following instructions.
+ - The default CNI for new installs is now Calico, instead of Flannel. The
+   Flannel charm is still supported and you can upgrade to the lastest version
+   as normal.
 
 ## Before you begin
 
@@ -89,18 +84,7 @@ juju upgrade-charm containerd --switch ch:containerd --channel 1.24/stable
 ### Docker deprecation
 
 By default, versions of Charmed Kubernetes since 1.15 use the Containerd
-runtime. You will only need to upgrade the Docker runtime if you have
-explicitly set that to be the container runtime. If this is not the case, you
-should skip this section.
-
-**Charmed Kubernetes** will use the latest stable version of Docker when it is
-deployed. Since upgrading Docker can cause service disruption, there will be no
-automatic upgrades and instead this process must be triggered by the operator.
-
-Note that this upgrade step only applies to deployments which actually use the
-Docker container runtime. Versions 1.15 and later use containerd by default,
-and you should instead follow the [instructions above](#upgrading-containerd).
-
+runtime. The Docker runtime is no longer supported.
 
 ### Upgrading etcd
 

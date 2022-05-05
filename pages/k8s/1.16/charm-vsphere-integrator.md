@@ -134,7 +134,7 @@ The credentials must contain the following keys: vsphere_ip, user,
 password, datacenter, and datastore.
 
 This can be used from bundles with 'include-base64://' (see
-https://docs.jujucharms.com/2.4/en/charms-bundles#setting-charm-configuration-options-in-a-bundle),
+https://old-docs.jujucharms.com/2.4/en/charms-bundles#setting-charm-configuration-options-in-a-bundle),
 or from the command-line with 'juju config vsphere credentials="$(base64 /path/to/file)"'.
 
 It is strongly recommended that you use 'juju trust' instead, if available.

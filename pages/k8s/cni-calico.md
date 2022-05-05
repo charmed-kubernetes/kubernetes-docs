@@ -386,7 +386,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 [calico-learn]: https://www.projectcalico.org/learn/
 [NetworkPolicy]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
-[Creating an AWS VPC]: https://docs.jujucharms.com/2.5/en/charms-fan-aws-vpc
+[Creating an AWS VPC]: https://old-docs.jujucharms.com/2.5/en/charms-fan-aws-vpc
 [Disabling Source/Destination Checks]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck
 [private docker registry]: /kubernetes/docs/docker-registry
 [bgp]: https://docs.projectcalico.org/v3.7/networking/service-advertisement#about-advertising-kubernetes-services-over-bgp
