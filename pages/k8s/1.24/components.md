@@ -191,6 +191,18 @@ release. These charms are maintained by the Charmed Kubernetes team.
 </table>
 
 
+## CNI charms
+(This data is also available in [yaml format](./cni.yaml))
+
+| Name | Summary | source | docs | bugs|
+| coredns | The CoreDNS domain name service provider | [source](https://github.com/charmed-kubernetes/charm-coredns.git) | [docs](https://charmhub.io/coredns/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| canal | A Software Defined Network based on Flannel and Calico | [source](https://github.com/charmed-kubernetes/layer-canal.git) | [docs](https://charmhub.io/canal/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| flannel | A charm that provides a robust Software Defined Network | [source](https://github.com/charmed-kubernetes/charm-flannel.git) | [docs](https://charmhub.io/flannel/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| tigera-secure-ee | Tigera Secure Enterprise Edition | [source](https://github.com/charmed-kubernetes/layer-tigera-secure-ee.git) | [docs](https://charmhub.io/tigera-secure-ee/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| multus | a CNI plugin for attaching multiple network interfaces | [source](https://github.com/charmed-kubernetes/charm-multus.git) | [docs](https://charmhub.io/multus/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| sriov-cni | Attach SR-IOV Virtual Functions (VFs) directly to pods | [source](https://github.com/charmed-kubernetes/charm-sriov-cni.git) | [docs](https://charmhub.io/sriov-cni/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| sriov-network-device-plugin | Enable SR-IOV support | [source](https://github.com/charmed-kubernetes/charm-sriov-network-device-plugin.git) | [docs](https://charmhub.io/sriov-network-device-plugin/docs) | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+
 ## Compatible Charms
 
 These charms are frequently used with Charmed Kubernetes.

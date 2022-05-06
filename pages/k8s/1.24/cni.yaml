@@ -1,0 +1,49 @@
+- canal:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/canal/docs
+    source: https://github.com/charmed-kubernetes/layer-canal.git
+    store: https://charmhub.io/canal
+    summary: A Software Defined Network based on Flannel and Calico
+    tags: [cni]
+- flannel:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/flannel/docs
+    source: https://github.com/charmed-kubernetes/charm-flannel.git
+    store: https://charmhub.io/flannel
+    summary: A charm that provides a robust Software Defined Network
+    tags: [cni]
+- tigera-secure-ee:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/tigera-secure-ee/docs
+    source: https://github.com/charmed-kubernetes/layer-tigera-secure-ee.git
+    store: https://charmhub.io/tigera-secure-ee
+    summary: Tigera Secure Enterprise Edition
+    tags: [cni]
+- multus:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/multus/docs
+    source: https://github.com/charmed-kubernetes/charm-multus.git
+    store: https://charmhub.io/multus
+    summary: a CNI plugin for attaching multiple network interfaces
+    tags: [cni]
+- sriov-cni:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/sriov-cni/docs
+    source: https://github.com/charmed-kubernetes/charm-sriov-cni.git
+    store: https://charmhub.io/sriov-cni
+    summary: Attach SR-IOV Virtual Functions (VFs) directly to pods
+    tags: [cni]
+- sriov-network-device-plugin:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/sriov-network-device-plugin/docs
+    source: https://github.com/charmed-kubernetes/charm-sriov-network-device-plugin.git
+    store: https://charmhub.io/sriov-network-device-plugin
+    summary: Enable SR-IOV support
+    tags: [cni]
+- coredns:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/coredns/docs
+    source: https://github.com/charmed-kubernetes/charm-coredns.git
+    store: https://charmhub.io/coredns
+    summary: The CoreDNS domain name service provider
+    tags: [cni]
