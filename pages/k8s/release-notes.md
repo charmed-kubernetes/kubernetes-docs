@@ -15,9 +15,10 @@ toc: False
 
 # 1.24
 
-### Month DD, YYYY - charmed-kubernetes-???
+### May 6th, 2022 - `charmed-kubernetes --track 1.24/stable`
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Specific instructions for the 1.23 => 1.24 upgrade can be found [here](/kubernetes/docs/1.24/upgrading).
 
 ## What's new
 
@@ -60,6 +61,11 @@ advanced networking features that it provides.
 
 While we do recommend Calico as the default choice, we will continue to support
 new and existing deployments that use Flannel as well.
+
+- Docker support deprecated
+
+The default container runtime in Charmed Kubernetes has been containerd for 
+some time. The Docker container runtime is no longer supported.
 
 ## Component upgrades
 
