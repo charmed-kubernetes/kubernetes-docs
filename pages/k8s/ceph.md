@@ -151,7 +151,6 @@ Now you have a **Ceph** cluster talking to your **Kubernetes** cluster. From
 here you can install any of the things that require storage out of the box.
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

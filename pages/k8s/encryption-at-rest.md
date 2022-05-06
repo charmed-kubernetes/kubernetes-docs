@@ -76,7 +76,6 @@ storage pool, or even full-disk-encryption on the host machine.
 [unseal]: https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/victoria/app-vault.html#initialize-and-unseal-vault
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

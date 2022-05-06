@@ -293,7 +293,6 @@ in the [upstream documentation][upstream-webhook].
 [auth-webhook-svc]: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/blob/master/templates/cdk.master.auth-webhook.service
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

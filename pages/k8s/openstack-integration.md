@@ -290,7 +290,6 @@ juju debug-log --replay --include openstack-integrator/0
 [charm-config]: https://ubuntu.com/kubernetes/docs/charm-openstack-integrator#configuration
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

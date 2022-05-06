@@ -280,7 +280,6 @@ is covered in the [proxy documentation][].
 [local-install]: /kubernetes/docs/install-local
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

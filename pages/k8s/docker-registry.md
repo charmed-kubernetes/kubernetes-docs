@@ -190,7 +190,6 @@ juju config kubernetes-control-plane image-registry=$REGISTRY
 [1.20]: /kubernetes/docs/1.20/components#images
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

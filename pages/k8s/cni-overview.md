@@ -59,7 +59,6 @@ Kubernetes, such a migration should be manageable with no downtime.
 [federation]: https://github.com/kubernetes-sigs/kubefed
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

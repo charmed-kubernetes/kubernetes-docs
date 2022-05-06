@@ -120,7 +120,6 @@ software to enable HA
 [customlb]: /kubernetes/docs/custom-loadbalancer
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

@@ -186,7 +186,6 @@ kubectl delete -f example-microbot-lb.yaml
 [microbot manifest]: https://raw.githubusercontent.com/charmed-kubernetes/metallb-operator/master/docs/example-microbot-lb.yaml
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

@@ -218,7 +218,6 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 [external-nagios]: https://charmhub.io/nrpe/
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

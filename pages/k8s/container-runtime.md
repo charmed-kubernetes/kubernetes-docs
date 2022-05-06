@@ -109,7 +109,6 @@ juju relate docker kubernetes-worker-docker
 [docker2containerd]: /kubernetes/docs/upgrade-notes#1.15
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

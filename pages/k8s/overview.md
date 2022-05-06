@@ -64,7 +64,6 @@ additional configuration or hassle.
 [juju]: https://charmhub.io
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

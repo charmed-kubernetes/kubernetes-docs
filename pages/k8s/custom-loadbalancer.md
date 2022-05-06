@@ -64,7 +64,6 @@ juju config kubernetes-control-plane loadbalancer-ips="192.168.1.1 192.168.2.1"
 Multiple IP addresses should be given as a space-separated list.
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

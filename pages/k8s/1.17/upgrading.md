@@ -434,7 +434,6 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 [validation]: /kubernetes/docs/validation
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can

@@ -184,7 +184,6 @@ Thu Mar  3 14:52:26 2022
 [azure-instance]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu
 
 <!-- FEEDBACK -->
-<!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
