@@ -17,13 +17,11 @@ toc: False
 With the  addition of the `vsphere-integrator`, your cluster will also be able
 to directly use native vSphere features such as storage.
 
-<div class="p-notification--information">
-  <p class="p-notification__response">
-    Note: These instructions for deploying Charmed Kubernetes with the vSphere integrator
-    assume that Juju has been configured appropriately for your vSphere server. For
-    reference, the configuration options may be found in the
-    <a href="https://juju.is/docs/olm/vmware-vsphere" >Juju documentation</a>.
-  </p>
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">These instructions for deploying Charmed Kubernetes with the vSphere integrator assume that Juju has been configured appropriately for your vSphere server. For reference, the configuration options may be found in the <a href="https://juju.is/docs/olm/vmware-vsphere" >Juju documentation</a>.</p>
+  </div>
 </div>
 
 ## vSphere integrator
@@ -67,17 +65,16 @@ juju deploy charmed-kubernetes --overlay vsphere-overlay.yaml --trust
 juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
-<div class="p-notification--caution">
-  <p class="p-notification__response">
-    <span class="p-notification__status">Resource usage:</span>
-    By relating to this charm, other charms can directly allocate resources, such
-    as managed disks and load balancers, which could lead to cloud charges and
+<div class="p-notification--caution is-inline">
+  <div class="p-notification__content">
+    <span class="p-notification__title">Resource usage:</span>
+    <p class="p-notification__message">By relating to this charm, other charms can directly allocate resources, such as managed disks and load balancers, which could lead to cloud charges and
     count against quotas. Because these resources are not managed by Juju, they
     will not be automatically deleted when the models or applications are
     destroyed, nor will they show up in Juju's status or GUI. It is therefore up
     to the operator to manually delete these resources when they are no longer
-    needed.
-  </p>
+    needed.</p>
+  </div>
 </div>
 
 ## Configuration
@@ -112,10 +109,11 @@ juju config vsphere-integrator \
   datacenter='dc0'
 ```
 
-<div class="p-notification--information">
-  <p class="p-notification__response">
-    Note: If any configuration option is set, they must all be set.
-  </p>
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">If any configuration option is set, they must all be set.</p>
+  </div>
 </div>
 
 When all of the credential config options are empty, this charm will fall
@@ -203,10 +201,10 @@ please see the [vSphere integrator charm page][vsphere-integrator].
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/vsphere-integration.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>

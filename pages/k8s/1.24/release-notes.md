@@ -15,7 +15,7 @@ toc: False
 
 # 1.24
 
-### May 6th, 2022 - `charmed-kubernetes --track 1.24/stable`
+### May 6th, 2022 - `charmed-kubernetes --channel 1.24/stable`
 
 Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
 Specific instructions for the 1.23 => 1.24 upgrade can be found [here](/kubernetes/docs/1.24/upgrading).
@@ -39,7 +39,7 @@ navigate this transition properly.
 - kubernetes-master renamed to kubernetes-control-plane
 
 The kubernetes-master charm has been renamed to kubernetes-control-plane. See
-the [inclusive naming][inclusive-naming] page for more details about this change.
+the [inclusive naming](/kubernetes/docs/inclusive-naming) page for more details about this change.
 
 - Kubelet added to kubernetes-control-plane
 

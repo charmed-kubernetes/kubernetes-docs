@@ -40,13 +40,13 @@ as soon as the installation has settled. You should use the following command to
 juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-If you have multiple clusters you will need to manage the config file rather than just
-replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
-Kubernetes documentation</a> for more information on managing multiple clusters.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Caution:</span>
+    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
+    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+    Kubernetes documentation</a> for more information on managing multiple clusters.</p>
+  </div>
 </div>
 
 
@@ -229,11 +229,11 @@ microbot-ingress   microbot.52.87.186.136.nip.io             80      5m36s
 When all the pods are listed as Running, you are ready to visit the address listed in the
 HOSTS column of the ingress listing.
 
-<div class="p-notification--positive">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-It is normal to see a 502/503 error during initial application deployment
-  </p>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">It is normal to see a 502/503 error during initial application deployment</p>
+  </div>
 </div>
 
 As you refresh the page, you will be greeted with a microbot web page, serving
@@ -300,11 +300,13 @@ things you may wish to try:
 
 
 <!-- FEEDBACK -->
+<!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/operations.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
+</div>
 </div>
