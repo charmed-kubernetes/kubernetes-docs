@@ -4,7 +4,7 @@
     bugs: 'https://bugs.launchpad.net/charmed-kubernetes'
     store: https://charmhub.io/calico
     docs: https://charmhub.io/calico/docs
-    tags: ['core']
+    tags: ['core', 'cni']
 - canal:
     summary: "A Software Defined Network based on Flannel and Calico"
     source: "https://github.com/charmed-kubernetes/layer-canal.git"
@@ -78,7 +78,7 @@
 - kubernetes-control-plane:
     summary: "The Kubernetes control plane"
     source: "https://github.com/charmed-kubernetes/charm-kubernetes-control-plane.git"
-    build-resources: "cd {out_path}; bash {src_path}/build-cni-resources.sh"
+    bugs: 'https://bugs.launchpad.net/charmed-kubernetes'
     tags: ['core']
     store: 'https://charmhub.io/kubernetes-control-plane'
     docs: 'https://charmhub.io/kubernetes-control-plane/docs'

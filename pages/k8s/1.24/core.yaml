@@ -4,7 +4,7 @@
     source: https://github.com/charmed-kubernetes/layer-calico.git
     store: https://charmhub.io/calico
     summary: A robust Software Defined Network from Project Calico
-    tags: [core]
+    tags: [core, cni]
 - containerd:
     bugs: https://bugs.launchpad.net/charmed-kubernetes
     docs: https://charmhub.io/containerd/docs
@@ -41,7 +41,7 @@
     summary: Nginx Load Balancer
     tags: [core]
 - kubernetes-control-plane:
-    build-resources: cd {out_path}; bash {src_path}/build-cni-resources.sh
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
     docs: https://charmhub.io/kubernetes-control-plane/docs
     source: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane.git
     store: https://charmhub.io/kubernetes-control-plane

@@ -1,1 +1,64 @@
-[]
+- kube-state-metrics:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kube-state-metrics/docs
+    source: https://github.com/charmed-kubernetes/kube-state-metrics-operator.git
+    store: https://charmhub.io/kube-state-metrics
+    summary: a service that listens to the Kubernetes API and generates metrics
+    tags: [extra]
+- kubernetes-autoscaler:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubernetes-autoscaler/docs
+    source: https://github.com/charmed-kubernetes/charm-kubernetes-autoscaler.git
+    store: https://charmhub.io/kubernetes-autoscaler
+    summary: automatically scales up and down a kubernetes cluster
+    tags: [extra]
+- kubernetes-e2e:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubernetes-e2e/docs
+    source: https://github.com/charmed-kubernetes/charm-kubernetes-e2e.git
+    store: https://charmhub.io/kubernetes-e2e
+    summary: End-to-end (e2e) tests for Kubernetes
+    tags: [extra]
+- kubernetes-metrics-server:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubernetes-metrics-server/docs
+    source: https://github.com/charmed-kubernetes/kubernetes-metrics-server-operator.git
+    store: https://charmhub.io/kubernetes-metrics-server
+    summary: 'Exposes core Kubernetes metrics via metrics API '
+    tags: [extra]
+- keepalived:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/keepalived/docs
+    source: https://github.com/charmed-kubernetes/charm-keepalived.git
+    store: https://charmhub.io/keepalived
+    summary: Failover and monitoring daemon for LVS clusters
+    tags: [extra]
+- docker-registry:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/docker-registry/docs
+    source: https://github.com/CanonicalLtd/docker-registry-charm.git
+    store: https://charmhub.io/docker-registry
+    summary: Registry for docker images
+    tags: [extra]
+- aws-iam:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/aws-iam/docs
+    source: https://github.com/charmed-kubernetes/charm-aws-iam.git
+    store: https://charmhub.io/aws-iam
+    summary: ''
+    tags: [extra]
+- metallb-controller:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/metallb-controller/docs
+    source: https://github.com/charmed-kubernetes/metallb-operator.git
+    store: https://charmhub.io/metallb-controller
+    summary: Controller charm for the metallb loadbalancer
+    tags: [extra]
+- metallb-speaker:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/metallb-speaker/docs
+    source: https://github.com/charmed-kubernetes/metallb-operator.git
+    store: https://charmhub.io/metallb-speaker
+    subdir: charms/metallb-speaker
+    summary: Speaker charm for the metallb loadbalancer
+    tags: [extra]
