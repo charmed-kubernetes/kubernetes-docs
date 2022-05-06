@@ -240,6 +240,20 @@ juju status | grep master
 
 Ensure that all the master units have upgraded and are reporting normal status before continuing to upgrade the worker units.
 
+#### ceph-storage relation deprecated
+
+The `kubernetes-control-plane:ceph-storage` relation has been deprecated. After
+upgrading the kubernetes-control-plane charm, the charm may enter `blocked`
+status with the message:
+`ceph-storage relation deprecated, use ceph-client instead`.
+
+If you see this message, you can resolve it by removing the ceph-storage
+relation:
+
+```
+juju remove-relation kubernetes-control-plane:ceph-storage ceph-mon
+```
+
 ### Upgrading the **kubernetes-worker** units
 
 For a running cluster, there are two different ways to proceed:
