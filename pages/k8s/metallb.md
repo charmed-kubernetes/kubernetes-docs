@@ -195,4 +195,4 @@ kubectl delete -f example-microbot-lb.yaml
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
-</div>
+

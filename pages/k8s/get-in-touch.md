@@ -64,4 +64,4 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
-</div>
+

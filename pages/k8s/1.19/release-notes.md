@@ -165,4 +165,4 @@ Please see [this page][historic] for release notes of earlier versions.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
-</div>
+
