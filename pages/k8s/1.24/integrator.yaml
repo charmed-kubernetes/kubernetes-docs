@@ -1,0 +1,35 @@
+- azure-integrator:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/azure-integrator/docs
+    source: https://github.com/juju-solutions/charm-azure-integrator.git
+    store: https://charmhub.io/azure-integrator
+    summary: ''
+    tags: [integrator]
+- gcp-integrator:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/gcp-integrator/docs
+    source: https://github.com/juju-solutions/charm-gcp-integrator.git
+    store: https://charmhub.io/gcp-integrator
+    summary: Charm which enables Google GCP integrations for Juju
+    tags: [integrator]
+- aws-integrator:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/aws-integrator/docs
+    source: https://github.com/juju-solutions/charm-aws-integrator.git
+    store: https://charmhub.io/aws-integrator
+    summary: Charm to enable AWS integrations via Juju relations.
+    tags: [integrator]
+- openstack-integrator:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/openstack-integrator/docs
+    source: https://github.com/juju-solutions/charm-openstack-integrator.git
+    store: https://charmhub.io/openstack-integrator
+    summary: Charm which enables OpenStack integrations for Juju
+    tags: [integrator]
+- vsphere-integrator:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/vsphere-integrator/docs
+    source: https://github.com/juju-solutions/charm-vsphere-integrator.git
+    store: https://charmhub.io/vsphere-integrator
+    summary: Charm which enables vSphere integrations for Juju
+    tags: [integrator]

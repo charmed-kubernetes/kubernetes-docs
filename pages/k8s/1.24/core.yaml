@@ -1,0 +1,56 @@
+- calico:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/calico/docs
+    source: https://github.com/charmed-kubernetes/layer-calico.git
+    store: https://charmhub.io/calico
+    summary: A robust Software Defined Network from Project Calico
+    tags: [core, cni]
+- containerd:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/containerd/docs
+    source: https://github.com/charmed-kubernetes/charm-containerd.git
+    store: https://charmhub.io/containerd
+    summary: Containerd container runtime subordinate
+    tags: [core]
+- easyrsa:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/easyrsa/docs
+    source: https://github.com/charmed-kubernetes/layer-easyrsa.git
+    store: https://charmhub.io/easyrsa
+    summary: Deploys and manages EasyRSA to create a Certificate Authority (CA)
+    tags: [core]
+- etcd:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/etcd/docs
+    source: https://github.com/charmed-kubernetes/layer-etcd.git
+    store: https://charmhub.io/etcd
+    summary: Deploy a TLS terminated ETCD Cluster
+    tags: [core]
+- kata:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kata/docs
+    source: https://github.com/charmed-kubernetes/charm-kata.git
+    store: https://charmhub.io/kata
+    summary: Kata untrusted container runtime subordinate
+    tags: [core]
+- kubeapi-load-balancer:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubeapi-load-balancer/docs
+    source: https://github.com/charmed-kubernetes/charm-kubeapi-load-balancer.git
+    store: https://charmhub.io/kubeapi-load-balancer
+    summary: Nginx Load Balancer
+    tags: [core]
+- kubernetes-control-plane:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubernetes-control-plane/docs
+    source: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane.git
+    store: https://charmhub.io/kubernetes-control-plane
+    summary: The Kubernetes control plane
+    tags: [core]
+- kubernetes-worker:
+    bugs: https://bugs.launchpad.net/charmed-kubernetes
+    docs: https://charmhub.io/kubernetes-worker/docs
+    source: https://github.com/charmed-kubernetes/charm-kubernetes-worker.git
+    store: https://charmhub.io/kubernetes-worker
+    summary: The workload bearing units of a kubernetes cluster
+    tags: [core]
