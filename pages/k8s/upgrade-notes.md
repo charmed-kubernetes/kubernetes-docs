@@ -40,6 +40,19 @@ There are several important changes to 1.24 that will effect all users:
 Due to these and other changes, it is recommended to follow the specific upgrade
 procedure described in the <a class='p-button--brand' href='/kubernetes/docs/1.24/upgrading'>Upgrade to 1.24 </a> docs.
 
+### ceph-storage relation deprecated
+
+The `kubernetes-control-plane:ceph-storage` relation has been deprecated. After
+upgrading the kubernetes-control-plane charm, the charm may enter `blocked`
+status with the message:
+`ceph-storage relation deprecated, use ceph-client instead`.
+
+If you see this message, you can resolve it by removing the ceph-storage
+relation:
+
+```
+juju remove-relation kubernetes-control-plane:ceph-storage ceph-mon
+```
 
 <a  id="1.19"> </a>
 
