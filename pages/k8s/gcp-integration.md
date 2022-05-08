@@ -200,12 +200,11 @@ To set this type of storage as the default, you can use the command:
 kubectl patch storageclass gcp-standard -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-If you create persistent disks and subsequently tear down the cluster, check
-with the GCP console to make sure all the associated resources have also been released.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">If you create persistent disks and subsequently tear down the cluster, check with the GCP console to make sure all the associated resources have also been released.</p>
+  </div>
 </div>
 
 ### Using GCP Loadbalancers

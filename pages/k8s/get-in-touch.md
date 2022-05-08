@@ -47,7 +47,7 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 
 <!-- LINKS -->
 
-[docs]:  https://github.com/juju-solutions/kubernetes-docs
+[docs]:  https://github.com/charmed-kubernetes/kubernetes-docs
 [lp]: https://bugs.launchpad.net/charmed-kubernetes
 [support]: /support
 [managed]: /kubernetes/managed
