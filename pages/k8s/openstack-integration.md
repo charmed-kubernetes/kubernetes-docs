@@ -66,14 +66,14 @@ juju scp kubernetes-control-plane/0:config ~/.kube/config
 For more configuration options and details of the permissions which the integrator uses,
 please see the [charm docs][openstack-integrator-readme].
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-Resources allocated by Kubernetes or the integrator are usually cleaned up automatically when no
-longer needed. However, it is recommended to periodically, and particularly after tearing down a
-cluster, use the OpenStack administration tools to make sure all unused resources have been
-successfully released.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">Resources allocated by Kubernetes or the integrator are usually cleaned up automatically when no
+    longer needed. However, it is recommended to periodically, and particularly after tearing down a
+    cluster, use the OpenStack administration tools to make sure all unused resources have been
+    successfully released.</p>
+  </div>
 </div>
 
 ### Using Octavia Load Balancers
@@ -86,20 +86,20 @@ API server itself.
 In either case, the load balancers can optionally have floating IPs (FIPs) attached to them to
 allow for external access.
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-For security reasons, the security groups automatically managed by Juju will not by default allow
-traffic into the nodes from external networks which can otherwise reach the FIPs. The easiest way to
-allow this is to add a rule to the model security group (named `juju-<model UUID>`) to allow ingress traffic
-from the FIP network, according to your security and network traffic policy and needs.
-Alternatively, you could create a separate security group to manage the rule(s) across multiple models or
-controllers.<br/>
-<br/>
-Configuring or creating a security group will also be necessary if you wish to have the Amphora instances in a
-different subnet from the node instances, since you will need to allow at least traffic on the
-NodePort range (30000-32767) from the Amphorae into the nodes.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">For security reasons, the security groups automatically managed by Juju will not by default allow
+    traffic into the nodes from external networks which can otherwise reach the FIPs. The easiest way to
+    allow this is to add a rule to the model security group (named `juju-<model UUID>`) to allow ingress traffic
+    from the FIP network, according to your security and network traffic policy and needs.
+    Alternatively, you could create a separate security group to manage the rule(s) across multiple models or
+    controllers.<br/>
+    <br/>
+    Configuring or creating a security group will also be necessary if you wish to have the Amphora instances in a
+    different subnet from the node instances, since you will need to allow at least traffic on the
+    NodePort range (30000-32767) from the Amphorae into the nodes.</p>
+  </div>
 </div>
 
 #### LoadBalancer-type Pod Services
