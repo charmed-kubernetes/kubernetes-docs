@@ -70,7 +70,7 @@ juju deploy charmed-kubernetes --overlay kata.yaml
 Deploy the Kata charm and add the necessary relations using the following commands:
 
 ```bash
-juju deploy cs:~containers/kata
+juju deploy kata
 juju add-relation kata kubernetes-control-plane
 juju add-relation kata kubernetes-worker
 juju add-relation kata:untrusted containerd:untrusted

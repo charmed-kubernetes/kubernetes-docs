@@ -25,20 +25,19 @@ services in a restricted environment you may already have some 'air-gap'
 resources available, and may only need to configure Charmed Kubernetes to
 make use of them.
 
-<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Shrinkwrap</span>
-A simple tool for collecting the bundle and charm files, as well as automating some of 
-the work required to install offline is available. 
-The <a href="https://github.com/charmed-kubernetes/cdk-shrinkwrap"> shrinkwrap repository</a>
-contains the latest version and docs.
-</p></div>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Shrinkwrap</span>
+    <p class="p-notification__message">A simple tool for collecting the bundle and charm files, as well as automating some of the work required to install offline is available. The <a href="https://github.com/charmed-kubernetes/cdk-shrinkwrap"> shrinkwrap repository</a> contains the latest version and docs.</p>
+  </div>
+</div>
 
 
 ## APT package repository
 
 Access to a repository is required for installing software which is not yet available
 as snap packages, as well as receiving updates for the underlying operating system.
-In normal use this requires network access to  `http://archive.ubuntu.com/` or one
+In normal use this requires network access to `http://archive.ubuntu.com/` or one
 of its localised mirrors.
 
 In order to access the APT package repository, it is common to set up a local
@@ -63,14 +62,16 @@ but some additional charms may be based on other series.
 
 ## Snap packages
 
-<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Snap resources</span>
-Many current charms include snaps as bundled resources. The inclusion of
-snaps as charm resources is deprecated, and these will be removed in future
-versions of these charms. Deployments will need to be able to access the
-official Snap Store or use the Snap Store Proxy to gain access to the required
-snaps.
-</p></div>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Snap resources</span>
+    <p class="p-notification__message">Many current charms include snaps as bundled resources. The inclusion of
+    snaps as charm resources is deprecated, and these will be removed in future
+    versions of these charms. Deployments will need to be able to access the
+    official Snap Store or use the Snap Store Proxy to gain access to the required
+    snaps.</p>
+  </div>
+</div>
 
 The majority of charms, including all the core Charmed Kubernetes charms, rely on
 [snap][] packages to deliver applications. Snaps are packages for desktop, cloud and

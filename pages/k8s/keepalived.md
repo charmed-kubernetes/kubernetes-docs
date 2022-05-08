@@ -25,7 +25,7 @@ configured as follows:
 
 1. Deploy the `keepalived` charm:
     ```bash
-    juju deploy cs:~containers/keepalived
+    juju deploy keepalived
     ```
 
 1. Add the required relations:
