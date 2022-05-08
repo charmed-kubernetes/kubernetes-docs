@@ -22,10 +22,12 @@ please refer to their own documentation for details.
 
 ## Creating an **etcd** snapshot
 
- <div class="p-notification--warning"><p markdown="1" class="p-notification__response">
- <span class="p-notification__status">Warning:</span>
- Snapshots can only be restored on the **same version of etcd**.
-  </p></div>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Warning:</span>
+    <p class="p-notification__message">Snapshots can only be restored on the **same version of etcd**.</p>
+  </div>
+</div>
 
 **etcd** is a distributed key/value store. To create a snapshot, all that is required is to run the `snapshot` action on one of the units running **etcd**:
 
@@ -72,10 +74,13 @@ sha256sum etcd-snapshot-2018-09-26-18.04.02.tar.gz
 
 ## Restoring a snapshot
 
-<div class="p-notification--warning"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Warning:</span>
-Restoring a snapshot should not be performed when there is more than one unit of **etcd** running.
- </p></div>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Warning:</span>
+    <p class="p-notification__message">Restoring a snapshot should not be performed when there is more than one unit of **etcd** running.
+  </p>
+ </div>
+</div>
 
 As restoring only works when there is a single unit of **etcd**, it is usual to deploy a new instance of the application first.
 
@@ -149,4 +154,3 @@ unit-new-etcd-0:
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
-

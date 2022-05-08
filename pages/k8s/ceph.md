@@ -51,12 +51,12 @@ default storage class is for the cloud (e.g., on AWS this will be EBS volumes).
 juju add-relation ceph-osd ceph-mon
 ```
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-For more on how Juju makes use of storage, please see the relevant
-<a href="https://juju.is/docs/olm/defining-and-using-persistent-storage"> Juju documentation</a>
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">For more on how Juju makes use of storage, please see the relevant
+<a href="https://juju.is/docs/olm/defining-and-using-persistent-storage"> Juju documentation</a></p>
+  </div>
 </div>
 
 ### Relating to Charmed Kubernetes
