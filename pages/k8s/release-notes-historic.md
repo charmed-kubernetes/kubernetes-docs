@@ -231,7 +231,7 @@ cdk-gce-pd, cdk-cinder, and cdk-azure-disk, respectively.
 - Support for etcd 3.3 and 3.4
 
 Whilst Charmed Kubernetes 1.17 ships with etcd 3.3 by default, it also brings support for
-running etcd 3.4. To do so, you can simply run the followiung Juju command:
+running etcd 3.4. To do so, you can simply run the following Juju command:
 
 ```bash
 juju config etcd channel=3.4/stable
@@ -792,10 +792,11 @@ For operators who currently use the `http-proxy`, `https-proxy` and `no-proxy` J
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes-historic.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>
+

@@ -21,12 +21,11 @@ authorisation  system is given in the [Kubernetes Documentation][upstream-auth].
 This page provides summary information on the available modes and how to configure
 **Charmed Kubernetes** to use them.
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-The default authorisation mode in <strong>Charmed Kubernetes</strong> 1.19 has changed from
-"AlwaysAllow" to "Node,RBAC".
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">The default authorisation mode in <strong>Charmed Kubernetes</strong> 1.19 has changed from "AlwaysAllow" to "Node,RBAC".</p>
+  </div>
 </div>
 
 The following modes are supported:
@@ -91,10 +90,12 @@ It is possible to set more than one mode using a comma-separated list:
 juju config kubernetes-control-plane authorization-mode="Node,RBAC"
 ```
 
-<div class="p-notification--positive"><p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span>
-Using "Node,RBAC" for authorisation is the recommended configuration.
-</p></div>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">Using "Node,RBAC" for authorisation is the recommended configuration.</p>
+  </div>
+</div>
 
 The order matters. Kubernetes will process each API request with each module in
 sequence. If the current authorising module either allows or denies the
@@ -130,12 +131,11 @@ For more detail on roles and bindings, please see the
 
 ## Authentication
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-The default authentication mechanism in <strong>Charmed Kubernetes</strong> 1.19 has changed
-from file-based authentication to a webhook token service.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">The default authentication mechanism in <strong>Charmed Kubernetes</strong> 1.19 has changed from file-based authentication to a webhook token service.</p>
+  </div>
 </div>
 
 **Charmed Kubernetes** manages a webhook authentication service that compares API
@@ -148,13 +148,11 @@ on port `5000` of each control-plane unit. Source code for the [application][aut
 as well as the associated [systemd service][auth-webhook-svc] can be found in the
 `kubernetes-control-plane` source repository.
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-Only one webhook authenticator can be configured on the Kubernetes apiserver. To use
-a custom webhook, see the <strong>Managing users with an external service</strong>
-section below.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">Only one webhook authenticator can be configured on the Kubernetes apiserver. To use a custom webhook, see the <strong>Managing users with an external service</strong> section below.</p>
+  </div>
 </div>
 
 Read about the Kubernetes approach to authentication in this page of the
@@ -294,10 +292,11 @@ in the [upstream documentation][upstream-webhook].
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/auth.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>
+

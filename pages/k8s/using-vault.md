@@ -82,12 +82,9 @@ juju run-action vault/0 authorize-charm token={charm token}
 ```
 
 <div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    It is <strong><em>critical </em></strong> that you save all five unseal keys as well as the root
-    token.  If the <strong>Vault</strong> unit is ever rebooted, you will have to repeat the
-    unseal steps (but not the init step) before the CA can become functional
-    again.
-  </p>
+  <div markdown="1" class="p-notification__content">
+    <p class="p-notification__message">It is <strong><em>critical </em></strong> that you save all five unseal keys as well as the root token.  If the <strong>Vault</strong> unit is ever rebooted, you will have to repeat the unseal steps (but not the init step) before the CA can become functional again.</p>
+  </div>
 </div>
 
 ### Certificate lifespan
@@ -115,14 +112,15 @@ An existing **Charmed Kubernetes** deployment which is using EasyRSA can
 be transitioned to use **Vault** as a CA.
 
 <div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
+  <div markdown="1" class="p-notification__content">
+    <p class="p-notification__message">
     During the transition, any pods that use ServiceAccounts to talk to the
     Kubernetes API may need to be restarted. Addons that are deployed and
     managed by **Charmed Kubernetes** will be restarted automatically. If you
     have deployed anything into Kubernetes that talks to the Kubernetes API, it
     is recommended that you restart them after the transition by using the
-    `kubectl rollout restart` command.
-  </p>
+    `kubectl rollout restart` command.</p>
+  </div>
 </div>
 
 Deploy **Vault** and Percona Cluster:
@@ -168,13 +166,12 @@ since it contains the certificate info for connecting to the cluster:
 juju scp kubernetes-control-plane/0:config ~/.kube/config
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-If you have multiple clusters you will need to manage the config file rather than just
-replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
-Kubernetes documentation</a> for more information on managing multiple clusters.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Caution:</span>
+    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
+    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">Kubernetes documentation</a> for more information on managing multiple clusters.</p>
+  </div>
 </div>
 
 ## Using Vault as an intermediary CA
@@ -239,10 +236,11 @@ and the root token you generated previously.
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/using-vault.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>
+

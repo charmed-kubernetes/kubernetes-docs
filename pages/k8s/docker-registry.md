@@ -68,15 +68,14 @@ multiple `docker-registry` units to be deployed behind a proxy. In this case,
 the network information of the proxy will be shared with the container runtime
 units when the registry is related.
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-SSL pass-thru is supported between 'docker-registry' and 'haproxy', though
-manual configuration is required. The recommended approach for a proxied
-registry is to disable SSL on 'docker-registry' prior to relating it to
-'haproxy'. Consult the 'docker-registry' charm readme if SSL is required in a
-proxied environment.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">SSL pass-thru is supported between 'docker-registry' and 'haproxy', though manual configuration is required. The recommended approach for a proxied
+    registry is to disable SSL on 'docker-registry' prior to relating it to
+    'haproxy'. Consult the 'docker-registry' charm readme if SSL is required in a
+    proxied environment.</p>
+  </div>
 </div>
 
 The environment described in the `Deploy` section above can be adjusted to
@@ -89,14 +88,13 @@ juju remove-relation docker-registry easyrsa:client
 juju add-relation docker-registry haproxy:reverseproxy
 ```
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-With multiple registry units deployed, the proxy relation allows for a
-highly available deployment. Load balancing across multiple registry units is
-not supported.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">With multiple registry units deployed, the proxy relation allows for a highly available deployment. Load balancing across multiple registry units is not supported.</p>
+  </div>
 </div>
+
 
 ## Verify
 
@@ -191,10 +189,11 @@ juju config kubernetes-control-plane image-registry=$REGISTRY
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/docker-registry.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>
+

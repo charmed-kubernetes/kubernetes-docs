@@ -88,14 +88,11 @@ You can override the defaults by using `api-extra-args`. For example:
 juju config kubernetes-control-plane api-extra-args="audit-log-path=/root/cdk/my-audit-location audit-log-maxage=30 audit-log-maxsize=200 audit-log-maxbackup=5"
 ```
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-    The <code>audit-log-path</code> must be a directory that is writeable by the
-     kube-apiserver snap.
-     Any non-hidden folders in <code>/root</code>, <code>/var/snap/kube-apiserver/current</code>, or
-     <code>/var/snap/kube-apiserver/common</code> should work.
-  </p>
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message"The <code>audit-log-path</code> must be a directory that is writeable by the kube-apiserver snap. Any non-hidden folders in <code>/root</code>, <code>/var/snap/kube-apiserver/current</code>, or <code>/var/snap/kube-apiserver/common</code> should work.</p>
+  </div>
 </div>
 
 
@@ -166,10 +163,11 @@ information about the audit webhook config format and related options.
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/audit-logging.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    </p>
+  </div>
 </div>

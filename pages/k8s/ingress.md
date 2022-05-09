@@ -46,12 +46,12 @@ charms which support the `ingress` relation to automatically manage [`VirtualSer
 manually manage [`VirtualServices`][virt-svc] for your applications, or even use
 [`Ingress` resources][istio-ingress].
 
-<div class="p-notification--positive">
-<p markdown="1" class="p-notification__response">
-<span class="p-notification__status">Note:</span>
-The Istio bundle requires a load balancer provider. If you're not using a cloud
-integrator which provides this, [MetalLB][] can be used.
-</p></div>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">The Istio bundle requires a load balancer provider. If you're not using a cloud integrator which provides this, <a href="/kubernetes/docs/metallb">MetalLB</a> can be used.</p>
+  </div>
+</div>
 
 
 ## Multiple Ingress Controllers
@@ -77,11 +77,12 @@ controllers may rely on annotations, such as Istio's
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
-  <p class="p-notification__response">
-    We appreciate your feedback on the documentation. You can
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/ingress.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.
-  </p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
 </div>
+
 
