@@ -4,7 +4,7 @@ markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "News"
-  description: The latest news on the Canonical Distribution of Kubernetes.
+  description: The latest news on Charmed Kubernetes.
 keywords: kubernetes, news, release, notes
 tags: [news]
 sidebar: k8smain-sidebar
