@@ -19,42 +19,42 @@ These are the core charms used by Charmed Kubernetes. See the individual pages
 linked below for specific usage and configuration.
 
 
-[charm-aws-iam](https://charmhub.io/charm-aws-iam)
+[aws-iam](https://charmhub.io/aws-iam)
 
-[charm-aws-integrator](https://charmhub.io/charm-aws-integrator)
+[aws-integrator](https://charmhub.io/aws-integrator)
 
-[charm-calico](https://charmhub.io/charm-calico)
+[calico](https://charmhub.io/calico)
 
-[charm-canal](https://charmhub.io/charm-canal)
+[canal](https://charmhub.io/canal)
 
-[charm-containerd](https://charmhub.io/charm-containerd)
+[containerd](https://charmhub.io/containerd)
 
-[charm-docker](https://charmhub.io/charm-docker)
+[docker](https://charmhub.io/docker)
 
-[charm-docker-registry](https://charmhub.io/charm-docker-registry)
+[docker-registry](https://charmhub.io/docker-registry)
 
-[charm-easyrsa](https://charmhub.io/charm-easyrsa)
+[easyrsa](https://charmhub.io/easyrsa)
 
-[charm-etcd](https://charmhub.io/charm-etcd)
+[etcd](https://charmhub.io/etcd)
 
-[charm-flannel](https://charmhub.io/charm-flannel)
+[flannel](https://charmhub.io/flannel)
 
-[charm-gcp-integrator](https://charmhub.io/charm-gcp-integrator)
+[gcp-integrator](https://charmhub.io/gcp-integrator)
 
-[charm-kata](https://charmhub.io/charm-kata)
+[kata](https://charmhub.io/kata)
 
-[charm-keepalived](https://charmhub.io/charm-keepalived)
+[keepalived](https://charmhub.io/keepalived)
 
-[charm-kubeapi-load-balancer](https://charmhub.io/charm-kubeapi-load-balancer)
+[kubeapi-load-balancer](https://charmhub.io/kubeapi-load-balancer)
 
-[charm-kubernetes-master](https://charmhub.io/charm-kubernetes-master)
+[kubernetes-control-plane](https://charmhub.io/kubernetes-control-plane)
 
-[charm-kubernetes-worker](https://charmhub.io/charm-kubernetes-worker)
+[kubernetes-worker](https://charmhub.io/kubernetes-worker)
 
-[charm-openstack-integrator](https://charmhub.io/charm-openstack-integrator)
+[openstack-integrator](https://charmhub.io/openstack-integrator)
 
-[charm-tigera-secure-ee](https://charmhub.io/charm-tigera-secure-ee)
+[tigera-secure-ee](https://charmhub.io/tigera-secure-ee)
 
-[charm-vsphere-integrator](https://charmhub.io/charm-vsphere-integrator)
+[vsphere-integrator](https://charmhub.io/vsphere-integrator)
 
 
