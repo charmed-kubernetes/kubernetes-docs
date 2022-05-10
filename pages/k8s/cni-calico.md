@@ -54,7 +54,7 @@ documentation for instructions.
 To deploy Charmed Kubernetes with Calico, deploy the kubernetes-calico bundle:
 
 ```bash
-juju deploy cs:~containers/kubernetes-calico
+juju deploy kubernetes-calico
 ```
 
 The Calico bundle is identical to the standard `charmed-kubernetes` bundle with the

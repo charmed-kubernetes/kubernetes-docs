@@ -44,7 +44,7 @@ Before you start, you will need:
 To start, deploy **Charmed Kubernetes** with Tigera Secure EE:
 
 ```bash
-juju deploy cs:~containers/kubernetes-tigera-secure-ee
+juju deploy containers-kubernetes-tigera-secure-ee
 ```
 
 Configure the `tigera-secure-ee` charm with your licence key and registry

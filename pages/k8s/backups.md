@@ -86,7 +86,7 @@ As restoring only works when there is a single unit of **etcd**, it is usual to 
 
 ```bash
 juju deploy etcd new-etcd --series=bionic --config channel=3.2/stable
-juju deploy cs:~containers/easyrsa new-easyrsa --series=bionic
+juju deploy easyrsa new-easyrsa --series=bionic
 juju add-relation new-etcd:certificates new-easyrsa:client
 ```
 

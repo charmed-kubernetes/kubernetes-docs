@@ -271,7 +271,7 @@ example, to replicate the steps to deploy and connect the
 ```yaml
 applications:
   aws-integrator:
-    charm: cs:~containers/aws-integrator
+    charm: aws-integrator
     num_units: 1
     trust: true
 relations:

@@ -46,7 +46,7 @@ to cross-model relate it to kubernetes-control-plane:
 juju config -m cluster-model kubernetes-control-plane dns-provider=none
 juju add-k8s k8s-cloud --controller mycontroller
 juju add-model k8s-model k8s-cloud
-juju deploy cs:~containers/coredns
+juju deploy coredns
 juju offer coredns:dns-provider
 juju consume -m cluster-model k8s-model.coredns
 juju relate -m cluster-model coredns kubernetes-control-plane
@@ -95,7 +95,7 @@ option to `false` and deploy the charm into a Kubernetes model on your cluster:
 juju config -m cluster-model kubernetes-control-plane enable-dashboard-addons=false
 juju add-k8s k8s-cloud --controller mycontroller
 juju add-model kubernetes-dashboard k8s-cloud
-juju deploy cs:~containers/kubernetes-dashboard-bundle
+juju deploy containers-kubernetes-dashboard-bundle
 ```
 
 For accessing the Dashboard use the same instructions in the [Operations page][].
@@ -224,8 +224,8 @@ This charm offers the following options
 [GPU workers page]: /kubernetes/docs/gpu-workers
 [LDAP and Keystone page]: /kubernetes/docs/ldap
 [monitoring docs]: /kubernetes/docs/monitoring
-[coredns-charm]: https://jaas.ai/u/containers/coredns
-[kubernetes-dashboard-bundle]: https://jaas.ai/u/containers/kubernetes-dashboard-bundle
+[coredns-charm]: https://charmhub.io/coredns
+[kubernetes-dashboard-bundle]: https://charmhub.io/containers-kubernetes-dashboard-bundle
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard
 [metrics-server releases]: https://github.com/kubernetes-sigs/metrics-server/releases
 [add a k8s cloud]: https://juju.is/docs/olm/get-started-on-kubernetes#heading--register-the-cluster-with-juju

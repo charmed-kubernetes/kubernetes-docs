@@ -31,7 +31,7 @@ through the charm's actions.
 Add the charm to your cluster:
 
 ```bash
-juju deploy cs:~containers/kubernetes-e2e --constraints mem=4G --channel edge
+juju deploy kubernetes-e2e --constraints mem=4G --channel edge
 ```
 
 We also need to configure the charm to select the appropriate version of tests.
