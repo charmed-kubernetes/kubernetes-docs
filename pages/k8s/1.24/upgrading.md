@@ -67,7 +67,6 @@ This includes:
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
 
-
 <a id='upgrading-containerd'> </a>
 
 ### Upgrading Containerd
@@ -81,10 +80,14 @@ juju upgrade-charm containerd --switch ch:containerd --channel 1.24/stable
 
 <a id='upgrading-docker'> </a>
 
-### Docker deprecation
+### Migrating to Containerd
 
-By default, versions of Charmed Kubernetes since 1.15 use the Containerd
-runtime. The Docker runtime is no longer supported.
+Upstream support for the Docker container runtime was removed in the 1.24 release. Thus, the
+`docker` subordinate charm will no longer function from **Charmed Kubernetes** 1.24 onwards.
+
+If you are upgrading from a version of **Charmed Kubernetes** that uses the `docker`
+subordinate charm for the container runtime, transition to `containerd` by following
+the steps outlined in [this section of the upgrade notes][docker2containerd].
 
 ### Upgrading etcd
 
