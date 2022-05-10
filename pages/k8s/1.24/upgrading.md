@@ -60,19 +60,19 @@ The applications which run alongside the core Kubernetes components can be upgra
 
 This includes:
 
+- containerd
 - easyrsa
 - etcd
-- flannel, calico or other CNI charms
+- calico, flannel or other CNI charms
 
 Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
-
 
 
 <a id='upgrading-containerd'> </a>
 
 ### Upgrading Containerd
 
-By default, Versions 1.15 and later use Containerd as the container
+By default, **Charmed Kubernetes** 1.15 and later use Containerd as the container
 runtime. This subordinate charm can be upgraded with the command:
 
 ```bash
