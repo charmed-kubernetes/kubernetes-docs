@@ -40,11 +40,8 @@ containers to create a cluster), please see the separate
 
 ## Quick custom installs
 
-
-The details of how to edit and customise the **Charmed Kubernetes** bundle are
-outlined [below](#). However, using overlays (also explained in more
-detail below) you can make some common quick customisations for networking and
-cloud integration.
+Bundle overlays facilitate common, quick customisations for components such as
+networking and cloud integration.
 
 Overlay files can be applied when deploying Charmed Kubernetes by specifying them along with the deploy command:
 
@@ -65,15 +62,15 @@ each category!
 <div class="CNI">
  <div class="row">
  <div class="col-2 ">
-   <span>Calico</span>
+   <span>Flannel</span>
  </div>
   <div class="col-4 ">
-   <span>Calico provides out-of-the-box support for the
-   NetworkPolicy feature of Kubernetes, along with different modes of
-   network encapsulation. <a href="/kubernetes/docs/cni-calico"> Read more...</a></span>
+   <span>Flannel is a simple, lightweight layer 3 fabric for Kubernetes.
+   It manages an IPv4 network between multiple nodes in a cluster.
+   <a href="/kubernetes/docs/cni-flannel"> Read more...</a></span>
   </div>
   <div class="col-3 ">
-    <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/calico-overlay.yaml" class="p-button--positive">Download calico-overlay.yaml</a></span>
+    <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/flannel-overlay.yaml" class="p-button--positive">Download flannel-overlay.yaml</a></span>
   </div>
 </div>
 <br>
@@ -107,7 +104,7 @@ each category!
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">By default, Charmed Kubernetes uses <em>Flannel</em> for networking. You can read more about CNI support <a href="/kubernetes/docs/cni-overview"> here </a>.</p>
+    <p class="p-notification__message">By default, Charmed Kubernetes uses <em>Calico</em> for networking. You can read more about CNI support <a href="/kubernetes/docs/cni-overview"> here </a>.</p>
   </div>
 </div>
 
