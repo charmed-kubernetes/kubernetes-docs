@@ -64,6 +64,11 @@ entries:
       output: web, pdf
       type: page
 
+    - title: NVIDIA DGX support
+      url: /nvidia-dgx
+      output: web, pdf
+      type: page
+
   - title: Cloud integration
     output: web, pdf
     type: section
