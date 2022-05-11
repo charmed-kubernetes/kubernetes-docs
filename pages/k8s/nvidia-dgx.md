@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Charmed Kubernetes is a certified [DGX-Ready][dgx] Kubernetes.
+Charmed Kubernetes is a certified [DGX-Ready][] Kubernetes.
 
 There is no special installation step or enablement for running
 Charmed Kubernetes on DGX hardware - it will automatically be
