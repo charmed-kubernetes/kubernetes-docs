@@ -3,7 +3,7 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "NVidia DGX"
+  title: "NVIDIA DGX"
   description: DGX certified Kubernetes.
 keywords: gpu, nvidia, dgx
 tags: [operating]
