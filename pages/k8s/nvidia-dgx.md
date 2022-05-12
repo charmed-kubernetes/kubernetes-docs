@@ -95,6 +95,6 @@ Thu Mar  3 14:52:26 2022
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
-
+[nvidia-supported-tags]: https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md
 [asset-nvidia]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/main/assets/nvidia-test.yaml
 [dgx-ready]: https://www.nvidia.com/en-gb/data-center/dgx-ready-software/
