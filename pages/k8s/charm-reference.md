@@ -29,8 +29,6 @@ linked below for specific usage and configuration.
 
 [containerd](https://charmhub.io/containerd)
 
-[docker](https://charmhub.io/docker)
-
 [docker-registry](https://charmhub.io/docker-registry)
 
 [easyrsa](https://charmhub.io/easyrsa)
