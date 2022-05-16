@@ -40,7 +40,7 @@ Before you start, you will need:
 Deploy the `charmed-kubernetes` bundle with the [tigera overlay][tigera-overlay]:
 
 ```bash
-juju deploy charmed-kubernetes --overlay flannel-overlay.yaml
+juju deploy charmed-kubernetes --overlay tigera-overlay.yaml
 ```
 
 Configure the `tigera-secure-ee` charm with your licence key and registry
