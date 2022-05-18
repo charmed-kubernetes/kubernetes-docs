@@ -15,9 +15,15 @@ toc: False
 
 Charmed Kubernetes is a certified [DGX-Ready][] Kubernetes.
 
-There is no special installation step or enablement for running
-Charmed Kubernetes on DGX hardware - it will automatically be
-detected and the correct drivers loaded when deployed. 
+Charmed Kubernetes will automatically detect DGX hardware and
+install the required drivers from NVIDIA repositories. Prior to Charmed
+Kubernetes 1.24+ck1, ensure `containerd` is configured for the correct
+driver versions with the following:
+
+```bash
+juju config containerd \
+  nvidia_apt_key_urls='https://nvidia.github.io/nvidia-container-runtime/gpgkey https://developer.download.nvidia.com/compute/cuda/repos/{id}{version_id_no_dot}/x86_64/3bf863cc.pub'
+```
 
 ## Verify the installation
 
