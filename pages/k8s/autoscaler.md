@@ -17,7 +17,7 @@ The Kubernetes autoscaler charm is an operator charm designed to be run on top
 of a **Charmed Kubernetes** cluster. The charm automatically adjusts
 the size of the Kubernetes cluster when one of the following conditions is true:
 
- - there are pods that failed to run in the cluster due to insufficient resources
+ - there are pods that failed to be scheduled in the cluster due to insufficient resources
  - there are nodes in the cluster that have been underutilized for an extended
    period of time and their pods can be placed on other existing nodes
 
