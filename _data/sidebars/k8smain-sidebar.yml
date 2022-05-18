@@ -218,7 +218,17 @@ entries:
       url: /scaling
       output: web, pdf
       type: page
+    
+    - title: Kubernetes operators
+      url: /kubernetes-operators
+      output: web, pdf
+      type: page
 
+    - title: Cluster autoscaler
+      url: /autoscaler
+      output: web, pdf
+      type: page
+           
     - title: Validation
       url: /validation
       output: web, pdf
