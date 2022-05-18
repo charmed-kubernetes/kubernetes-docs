@@ -62,7 +62,7 @@ Next, deploy the autoscaler charm. Note that it must be deployed with trust:
 juju deploy kubernetes-autoscaler --trust --constraints "tags=node.juju-application=kubernetes-control-plane"
 ```
 
-The `--trust` switch means that the autoscalar will have access to the Juju credentials required to add new nodes.
+The `--trust` switch means that the autoscaler will have access to the Juju credentials required to add and remove nodes.
 
 Also note that the node constraints do not currently work as intended (see [LP1970991](https://bugs.launchpad.net/juju/+bug/1970991)). The following workaround can be used to patch the autoscaler pods onto control-plane nodes:
 
