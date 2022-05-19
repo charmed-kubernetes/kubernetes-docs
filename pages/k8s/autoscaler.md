@@ -125,7 +125,7 @@ juju config kubernetes-autoscaler autoscaler_extra_args="{v: 5, scale-down-delay
 
 
 <!-- LINKS -->
-[Kubernetes-operators]: /kubernetes/docs/kubernetes-operators
+[Kubernetes-operators]: /kubernetes/docs/operator-charms
 [FAQ]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md
 [Multus]: /kubernetes/docs/cni-multus
 

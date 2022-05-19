@@ -8,7 +8,7 @@ context:
 keywords: charms, operators
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: kubernetes-operators.html
+permalink: operator-charms.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -63,7 +63,7 @@ monitor or manage operators you install on the cluster.
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/kubernetes-operators.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/operator-charms.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
