@@ -223,7 +223,17 @@ entries:
       url: /scaling
       output: web, pdf
       type: page
+    
+    - title: K8s operator charms
+      url: /operator-charms
+      output: web, pdf
+      type: page
 
+    - title: Cluster autoscaler
+      url: /autoscaler
+      output: web, pdf
+      type: page
+           
     - title: Validation
       url: /validation
       output: web, pdf
