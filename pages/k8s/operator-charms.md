@@ -14,16 +14,16 @@ toc: False
 ---
 
 Charmed Kubernetes is built with Juju's Charmed Operators. These operators are
-not limited to being deployed only on 'machines' (cloud instances, local Vms or
+not limited to being deployed only on 'machines' (cloud instances, local VMs or
 metal) but many Charmed Operators are designed to be deployed on Kubernetes too.
-Additional features of Charmed Kubernetes are often supplied as Kubernetes
-Charms (for example, the [Multus][] charm which provides multiple container
+Additional features of Charmed Kubernetes are often supplied as Kubernetes Operator
+charms (for example, the [Multus][] charm which provides multiple container
 network capability). To make full use of these operators, some additional setup
 of the Charmed Kubernetes cluster is required, as explained below.
 
 ## Adding your cluster to the Juju controller
 
-To mange operators within the cluster rather, Juju needs to be made aware of it
+To manage operators within the cluster, Juju needs to be made aware of it
 and given the details of the cluster. If you are currently using `kubectl` with
 your Charmed Kubernetes cluster, you may already have performed the step of
 retrieving the cluster information from Charmed Kubernetes:
@@ -36,7 +36,7 @@ This fetches the cluster information directly from Charmed Kubernetes and stores
 it in the default location (Note: if you run multiple clusters you may wish to
 merge these files rather than simple replace them).
 
-Next, add your Kubernetes as a cloud to your Juju controller:
+Next, add your Kubernetes cluster as a cloud to your Juju controller:
 
 ```bash
 juju add-k8s ck8s --controller $(juju switch | cut -d: -f1)
