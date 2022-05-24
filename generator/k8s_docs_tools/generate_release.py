@@ -1,16 +1,22 @@
 from dataclasses import dataclass, fields, field
-from typing import List
-from pathlib import Path
+import logging
 import os
-import semver
+from pathlib import Path
+from typing import List
 
+import semver
 from github import Github
 from jinja2 import Environment, PackageLoader, select_autoescape
 import yaml
 
 
+log = logging.getLogger(__name__)
+
+
 def gh():
     token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        log.warning("Missing GITHUB_TOKEN. Without a token, github may rate limit.")
     return Github(token)
 
 

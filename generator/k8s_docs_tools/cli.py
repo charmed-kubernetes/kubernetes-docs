@@ -2,7 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import click
+import logging
+
 from k8s_docs_tools.generate_release import generate_component_page
+
+FORMAT = "%(name)s %(levelname)s: %(message)s"
+logging.basicConfig(format=FORMAT)
 
 
 @click.group()

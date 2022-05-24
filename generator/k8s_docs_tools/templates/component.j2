@@ -49,7 +49,6 @@ release. These charms are maintained by the Charmed Kubernetes team.
 {% endfor %}
 
 ## CNI charms
-
 These are the CNI charms also supported by Charmed Kubernetes ( calico is the default CNI and is included in the core charms above)
 
 |charm | summary | source | docs | bugs |
@@ -76,7 +75,6 @@ These charms are also maintained and supported by the Charmed Kubernetes team to
 {% for c in charms if "docs-extra" in c.tags -%}
 | {{c.name}} | {{ c.summary.rstrip() }} | {{ c.docs }} | {{ c.upstream }} | {{ c.bugs }} |
 {% endfor %}
-
 ## Images
 
 These are the container images used by this release:
@@ -94,4 +92,5 @@ These are the container images used by this release:
 [bugs]: /kubernetes/docs/
 [source]: https://github.com/charmed-kubernetes
 [{{release}} milestone]: https://launchpad.net/charmed-kubernetes/+milestone/{{release}}
+
 
