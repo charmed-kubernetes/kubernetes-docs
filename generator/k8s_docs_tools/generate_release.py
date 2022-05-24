@@ -1,4 +1,5 @@
 from dataclasses import dataclass, fields, field
+from io import BufferedIOBase
 import logging
 import os
 from pathlib import Path
@@ -72,7 +73,7 @@ def get_containers(ersion: str):
     ]
 
 
-def generate_component_page(version: str, output):
+def generate_component_page(version: str, output: BufferedIOBase):
     env = Environment(
         loader=PackageLoader("k8s_docs_tools"), autoescape=select_autoescape()
     )
