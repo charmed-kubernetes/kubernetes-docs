@@ -285,13 +285,13 @@ To start upgrading the Kubernetes master units, first upgrade the charm:
 juju upgrade-charm kubernetes-master
 ```
 
-Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.19 version of **Kubernetes**, you would enter:
+Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.22 version of **Kubernetes**, you would enter:
 
 ```bash
-juju config kubernetes-master channel=1.19/stable
+juju config kubernetes-master channel=1.22/stable
 ```
 
-If you wanted to try a release candidate for 1.20, the channel would be `1.20/candidate`.
+If you wanted to try a release candidate for 1.22, the channel would be `1.22/candidate`.
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -346,7 +346,7 @@ juju upgrade-charm kubernetes-worker
 Next, run the command to configure the workers for the version of Kubernetes you wish to run (as you did previously for the master units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.19/stable
+juju config kubernetes-worker channel=1.22/stable
 ```
 
 Now add additional units of the kubernetes-worker. You should add as many units as you are replacing. For example, to add three additional units:
@@ -398,7 +398,7 @@ juju upgrade-charm kubernetes-worker
 Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the master units). For example:
 
 ```bash
-juju config kubernetes-worker channel=1.12/stable
+juju config kubernetes-worker channel=1.22/stable
 ```
 
 All the units can now be upgraded by running the `upgrade` action on each one:
@@ -500,7 +500,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.22/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
