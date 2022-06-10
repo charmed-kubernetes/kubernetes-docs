@@ -6,14 +6,16 @@ This official docs are published at :
 
 This repository is set to live publish at:
 [https://cdk-docs.netlify.com/](https://cdk-docs.netlify.com/)
-This is published from the **current** branch
+This is published from the **current** branch, which is kept in sync with the published docs at ubuntu.com. 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a4e301cd-70c0-4945-bb09-7198cbdd4753/deploy-status)](https://app.netlify.com/sites/cdk-docs/deploys)
 
-The development version (master) of docs is published at
+The development version (main) of docs is published at
 [https://cdk-docs-next.netlify.com/](https://cdk-docs-next.netlify.com/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a4e301cd-70c0-4945-bb09-7198cbdd4753/deploy-status)](https://app.netlify.com/sites/cdk-docs-next/deploys)
+
+Any tweaks or contributions should be targetted at the **main** branch. The current branch is regenerated frequently and largely automated.
 
 ## Licenses
 
