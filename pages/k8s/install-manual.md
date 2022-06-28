@@ -181,10 +181,10 @@ each category!
 
 You can use multiple overlays (of different types) if required.  Note that all
 the 'integrator' charms require the use of the `--trust` option. For example,
-to deploy with Calico networking and AWS integration:
+to deploy with Canal networking and AWS integration:
 
 ```bash
-juju deploy charmed-kubernetes --overlay aws-overlay.yaml --trust --overlay calico-overlay.yaml
+juju deploy charmed-kubernetes --overlay aws-overlay.yaml --trust --overlay canal-overlay.yaml
 ```
 
 For more detail on overlays and how they work, see the section [below](#overlay).
