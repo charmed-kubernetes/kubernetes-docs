@@ -350,7 +350,7 @@ values:
 
 ```bash
 juju config containerd https_proxy=https://proxy.example.com
-juju config kubernetes-worker snap_proxy:=https://snap-proxy.example.com
+juju config kubernetes-worker snap_proxy=https://snap-proxy.example.com
 ```
 ... we can instead use the following YAML fragment as an overlay:
 
