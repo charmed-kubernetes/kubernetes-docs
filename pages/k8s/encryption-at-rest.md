@@ -70,8 +70,9 @@ juju deploy charmed-kubernetes --overlay ./vault-storage-overlay.yaml
 
 Once the deployment settles, you will notice that several applications are in a
 `blocked` state in **Juju**, with **Vault** indicating that it needs to be initialised
-and unsealed. To unseal **Vault**, you can read the [vault charm documentation][vault-charm-unseal] for
-in-depth instructions (you may also need to [expose][] **Vault**), or you can use
+and unsealed. To unseal **Vault**, you can read the
+[vault charm documentation](https://opendev.org/openstack/charm-vault/src/branch/master/src/README.md#post-deployment-tasks)  <!-- wokeignore:rule=master -->
+for in-depth instructions (you may also need to [expose][] **Vault**), or you can use
 the **Vault** client already on the deployed unit with the following steps:
 
 ```bash
@@ -112,7 +113,6 @@ storage pool, or even full-disk-encryption on the host machine.
 [HashiCorp's Vault]: https://www.vaultproject.io/
 [VaultLocker]: https://github.com/openstack-charmers/vaultlocker
 [Vault charm]: https://charmhub.io/vault
-[vault-charm-unseal]: https://opendev.org/openstack/charm-vault/src/branch/master/src/README.md#post-deployment-tasks
 [expose]: https://juju.is/docs/olm/expose-a-deployed-application
 
 <!-- FEEDBACK -->
