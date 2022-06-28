@@ -262,7 +262,8 @@ export VAULT_ADDR='http://localhost:8200'
 exit
 ```
 
-Verify **Vault** is in HA mode with one active unit and one standby unit:
+After unsealing, it may take up to 5 minutes for `vault/0` to return to active status.
+Once it does, verify **Vault** is in HA mode with one active unit and one standby unit:
 
 ```bash
 juju status vault
