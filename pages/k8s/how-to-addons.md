@@ -8,7 +8,7 @@ context:
 keywords: operating, add-ons, addons, config
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: how-to-cdk-addons.html
+permalink: how-to-addons.html
 layout: [base, ubuntu-com]
 toc: False
 ---
