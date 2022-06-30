@@ -141,7 +141,7 @@ into the cluster. For a step-by-step guide to installing the metrics services,
 please refer to the [How to guide][howto].
 
 <!-- LINKS -->
-[how-to]: /kubernetes/docs/how-to-addons
+[howto]: /kubernetes/docs/how-to-addons
 [Operations page]: /kubernetes/docs/operations
 [kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
 [Storage documentation]: /kubernetes/docs/storage

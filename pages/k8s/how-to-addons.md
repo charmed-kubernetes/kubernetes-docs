@@ -19,6 +19,13 @@ of these addons, please see the [addons page][].
 
 ##  Steps for all addons
 
+xxxxxxxxxxxxxx xxxxxxxxxxx
+
+
+1. Get kubeconfig
+1. add-k8s
+1. add a model
+1. Using `juju-switch`
 
 ## CoreDNS
 Sourced from: <https://github.com/coredns/deployment.git>
