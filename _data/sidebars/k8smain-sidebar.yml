@@ -330,6 +330,15 @@ entries:
       output: web, pdf
       type: page
 
+  - title: How To guides
+    output: web, pdf
+    items:
+
+    - title: Addons
+      url: /how-to-addons
+      output: web, pdf
+      type: page
+
   - title: Reference
     output: web, pdf
     items:
