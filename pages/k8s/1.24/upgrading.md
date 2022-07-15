@@ -426,6 +426,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
+[docker2containerd]: /kubernetes/docs/upgrade-notes#1.15
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
