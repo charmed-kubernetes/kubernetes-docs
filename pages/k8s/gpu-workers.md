@@ -30,9 +30,9 @@ a particular instance type.
 This can be done with a YAML overlay file. For example, when deploying Charmed
 Kubernetes on AWS, you may decide you wish to use AWS's 'p3.2xlarge' instances
 (you can check the AWS instance definitions on the
-[AWS website][aws-instance]). NVIDIA also alters support of various GPUs
-supported so be sure to look at [NVIDIA GPU support docs][nvidia-gpu-support] 
-before installing on the AWS instance.
+[AWS website][aws-instance]). NVIDIA also updates its list of supported GPUs
+frequently, so be sure to look at [NVIDIA GPU support docs][nvidia-gpu-support] 
+before installing on a specific AWS instance.
 
 
 A YAML overlay file can be constructed like this:
