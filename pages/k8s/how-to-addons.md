@@ -25,6 +25,7 @@ These steps assume:
  * You have administrative access to the Charmed Kubernetes cluster
 
 
+
 #### 1. Install kubectl 
 
 You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
@@ -58,79 +59,85 @@ Next, add your Kubernetes cluster as a cloud to your current Juju controller:
 juju add-k8s ck8s --controller $(juju switch | cut -d: -f1)
 ```
 
-You may replace `ck8s` with whatever name you want to use to refer to this cluster, but
+You may replace `ck8s` with whatever name you want to use to refer to this cloud, but
 remember to substitute in the correct name in the remaining examples in this page.
 
 
 #### 4. Add a model
 
-To be able to deploy operators you will also need to create a Juju model in the cluster:
+To be able to deploy operators you will also need to create a Juju model in the cloud:
 
 ```
 juju add-model my-k8s-model ck8s
 ```
 
 Again, you should replace `my-k8s-model` with a name you want to use to refer to
-this Kubernetes model. As well as creating a Juju model, this action will also
+this Juju model. As well as creating a Juju model, this action will also
 create a Kubernetes namespace of the same name which you can use to easily
 monitor or manage operators you install on the cluster.
 
+#### 5. Switching between models
 
+Juju will automatically "switch" to the new Kubernetes model you just created. 
 
-
-
-
-<div class="p-notification--caution is-inline">
-  <div markdown="1" class="p-notification__content">
-    <span class="p-notification__title">Caution:</span>
-    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
-    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
-    Kubernetes documentation</a> for more information on managing multiple clusters.</p>
-  </div>
-</div>Install and configure kubectl
-
-You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
-installed, it is easy to add via a snap package:
+Most of the instructions for the add-on components here require commands to be run 
+in the model where Charmed Kubernetes is running and also in the model created on the Kubernetes cloud (which we have called `ck8s` in this page). Use the Juju `switch` command to see the currently available models:
 
 ```bash
-sudo snap install kubectl --classic
+juju switch
 ```
+If you followed the example naming scheme, you should see something like this:
 
-For other platforms and install methods, please see the
-[Kubernetes documentation][kubectl].
-
-The config file for accessing the newly deployed cluster is stored in the cluster itself and will be available
-as soon as the installation has settled. You should use the following command to retrieve it (create a
-**.kube** directory if it was not created after kubectl installation):
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju models
+Controller: vs-bos
+
+Model       Cloud/Region           Type        Status     Machines  Cores  Units  Access  Last connection
+
+ck1         vsphere-boston/Boston  vsphere     available        11     18  21     admin   29 minutes ago
+controller  vsphere-boston/Boston  vsphere     available         1      -  -      admin   just now
+my-k8s-model*   ck8s/default          kubernetes  available         0      -  -      admin   never connected
 ```
 
-<div class="p-notification--caution is-inline">
-  <div markdown="1" class="p-notification__content">
-    <span class="p-notification__title">Caution:</span>
-    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
-    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
-    Kubernetes documentation</a> for more information on managing multiple clusters.</p>
-  </div>
-</div>
+In the above case, there are three models available to the current controller. One is the model created
+by the controller itself ("controller"), one is the model where Charmed Kubernetes is installed 
+(in this case, it was called "ck1") and the final one, which has an asterisk to indicate it is the current
+model, is the one we just created. If you chose poor names or get confused between many different models, it is helpful to note that the "Type" field shows the underlying cloud type, so your kubernetes clouds are easier to spot.
 
-## 2. Add your cluster to Juju 
-1. add a model
-1. Using `juju-switch`
+To switch to the model which contains the CK cluster, we can run:
+
+```bash
+juju switch ck1
+```
+
+...and to switch back to the model in the Kubernetes cloud:
+
+```bash
+juju switch my-k8s-model
+```
+
+
+
 
 ## CoreDNS
 Sourced from: <https://github.com/coredns/deployment.git>
 
-CoreDNS has been the default DNS provider for Charmed Kubernetes clusters
+CoreDNS has been the default DNS provider for **Charmed Kubernetes** clusters
 since 1.14.
 
 For additional control over CoreDNS, you can also deploy it into the cluster
-using the [CoreDNS Kubernetes operator charm][coredns-charm]. To do so, set
-the `dns-provider` [kubernetes-control-plane configuration][] option to `none` and
-deploy the charm into a Kubernetes model on your cluster. You will also need
-to cross-model relate it to kubernetes-control-plane.
+using the [CoreDNS Kubernetes operator charm][coredns-charm]. 
+
+#### 1. Disable in-tree CoreDNS
+
+You will need access to the Juju model running Charmed Kubernetes (NOT the kubernetes cloud) and turn off the built-in DNS provider
+
+```bash
+juju switch ck1
+```
+
+(replace "ck1" with the model contianing Charmed Kubernetes)
 
 With the Charmed Kubernetes model selected from Juju, run:
 
@@ -138,11 +145,27 @@ With the Charmed Kubernetes model selected from Juju, run:
 juju config kubernetes-control-plane dns-provider=none
 ```
 
-Use `juju-switch`to identify and switch to the controller set up for your
-Kubernetes deployment. For example, 
-juju add-k8s k8s-cloud --controller mycontroller
-juju add-model k8s-model k8s-cloud
+#### 2. Deploy the CoreDNS operator 
+
+Switch back to the Kubernetes cloud:
+
+```bash
+juju switch my-kubernetes-cloud
+```
+...and deploy the operator charm:
+
+```bash
 juju deploy coredns --channel=latest/stable --trust
+```
+
+You can check on the status of this deployment using the command:
+
+```
+kubectl get -n 'my-k8s-controller' po
+```
+
+
+```
 juju offer coredns:dns-provider
 juju consume -m cluster-model k8s-model.coredns
 juju relate -m cluster-model coredns kubernetes-control-plane
