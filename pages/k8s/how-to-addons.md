@@ -19,11 +19,104 @@ of these addons, please see the [addons page][].
 
 ##  Steps for all addons
 
-xxxxxxxxxxxxxx xxxxxxxxxxx
+In order for Juju to deploy Kubernetes applications, it will need to fetch
+information and be configured to work with your Kubernetes cluster. 
+These steps assume:
+ * You have administrative access to the Charmed Kubernetes cluster
 
 
-1. Get kubeconfig
-1. add-k8s
+#### 1. Install kubectl 
+
+You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
+installed, it is easy to add via a snap package:
+
+```bash
+sudo snap install kubectl --classic
+```
+
+For other platforms and install methods, please see the
+[Kubernetes documentation][kubectl].
+
+#### 2. Retrieve the required configuration
+
+Juju makes use of the **kubectl** config file to access the Kubernetes cluster.
+For Linux-based systems, this file is usually located at `~/.kube/config`
+
+If you are already using `kubectl` to access other clusters you may wish to merge
+the configurations rather than replacing it. The following command fetches the 
+config file for `kubectl` from the Kubernetes cluster and saves it to the default location:
+
+```bash
+juju scp kubernetes-control-plane/0:config ~/.kube/config
+```
+
+#### 3. Add the Kubernetes cluster to Juju
+
+Next, add your Kubernetes cluster as a cloud to your current Juju controller:
+
+```bash
+juju add-k8s ck8s --controller $(juju switch | cut -d: -f1)
+```
+
+You may replace `ck8s` with whatever name you want to use to refer to this cluster, but
+remember to substitute in the correct name in the remaining examples in this page.
+
+
+#### 4. Add a model
+
+To be able to deploy operators you will also need to create a Juju model in the cluster:
+
+```
+juju add-model my-k8s-model ck8s
+```
+
+Again, you should replace `my-k8s-model` with a name you want to use to refer to
+this Kubernetes model. As well as creating a Juju model, this action will also
+create a Kubernetes namespace of the same name which you can use to easily
+monitor or manage operators you install on the cluster.
+
+
+
+
+
+
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Caution:</span>
+    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
+    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+    Kubernetes documentation</a> for more information on managing multiple clusters.</p>
+  </div>
+</div>Install and configure kubectl
+
+You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
+installed, it is easy to add via a snap package:
+
+```bash
+sudo snap install kubectl --classic
+```
+
+For other platforms and install methods, please see the
+[Kubernetes documentation][kubectl].
+
+The config file for accessing the newly deployed cluster is stored in the cluster itself and will be available
+as soon as the installation has settled. You should use the following command to retrieve it (create a
+**.kube** directory if it was not created after kubectl installation):
+
+```bash
+juju scp kubernetes-control-plane/0:config ~/.kube/config
+```
+
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Caution:</span>
+    <p class="p-notification__message">If you have multiple clusters you will need to manage the config file rather than just
+    replacing it. See the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">
+    Kubernetes documentation</a> for more information on managing multiple clusters.</p>
+  </div>
+</div>
+
+## 2. Add your cluster to Juju 
 1. add a model
 1. Using `juju-switch`
 
