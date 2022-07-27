@@ -13,6 +13,40 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.24+ck1 Bugfix release
+
+### August X, 2022 - `charmed-kubernetes --channel 1.24/stable`
+
+## What's new
+
+- Improved Documentation
+
+CIDR size limitiations are better described in the charm's `cidr` config option.
+
+Documentated how to integrate charmed-kubernetes with vault into a focal environment.
+
+- Containerd
+
+Improved GPU support by referencing all https apt sources, referencings current apt key urls by default, improved NVIDIA driver upgrades, and blocking charm units which encounter connectivity failures in 
+air-gapped or proxied installations.
+
+Also improved upgrade actions for containerd packages as well as NVIDIA packages.
+
+- Docker Registry
+
+Exposes docker registry "proxy" settings to configure it as a pull-through cache.
+
+- Etcd
+
+Limits the set of TLS ciphers to remove weaker ones.
+ 
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[the launchpad milestone page for 1.24+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.24+ck1).
+
+
 # 1.24
 
 ### May 6th, 2022 - `charmed-kubernetes --channel 1.24/stable`
