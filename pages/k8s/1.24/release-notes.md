@@ -19,6 +19,13 @@ toc: False
 
 ## What's new
 
+- Jammy Jellyfish Trials
+
+All Charmed-Kubernetes machine charms will come with capabilities to be run on 
+jammy series machines while dropping support for xenial. While focal remains the
+default series in all bundles and charms, the charms will advertise jammy 
+support and be open for bug testing.
+
 - Improved Documentation
 
 CIDR size limitiations are better described in the charm's `cidr` config option.
@@ -27,8 +34,9 @@ Documentated how to integrate charmed-kubernetes with vault into a focal environ
 
 - Containerd
 
-Improved GPU support by referencing all https apt sources, referencings current apt key urls by default, improved NVIDIA driver upgrades, and blocking charm units which encounter connectivity failures in 
-air-gapped or proxied installations.
+Improved GPU support by referencing all https apt sources, referencings current apt key 
+urls by default, improved NVIDIA driver upgrades, and blocking charm units which 
+encounter connectivity failures in air-gapped or proxied installations.
 
 Also improved upgrade actions for containerd packages as well as NVIDIA packages.
 
