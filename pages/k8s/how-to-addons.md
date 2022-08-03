@@ -22,7 +22,9 @@ of these addons, please see the [addons page][].
 In order for Juju to deploy Kubernetes applications, it will need to fetch
 information and be configured to work with your Kubernetes cluster. 
 These steps assume:
- * You have administrative access to the Charmed Kubernetes cluster
+ * You have administrative access to the Charmed Kubernetes cluster.
+ * Your Charmed Kubernetes is running in a model called 'ck-model'. Replace this term in the commands listed for a different model name.
+ * Your Juju controller is running on version 2.9.30+. See instructions for upgrading a controller below.
 
 #### 1. Confirm your Juju controller is up to date
 
