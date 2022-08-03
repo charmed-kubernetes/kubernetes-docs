@@ -3,7 +3,7 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "How to use CDK add-on Operator Charms"
+  title: "How to use Chsrmed Kubernetes add-on Operator Charms"
   description: Explaining how to install and configure addon operator charms with Charmed Kubernetes.
 keywords: operating, add-ons, addons, config
 tags: [operating]
