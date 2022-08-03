@@ -126,16 +126,14 @@ juju switch k8s-model
 ```
 
 
-
-
 ## CoreDNS
-Sourced from: <https://github.com/coredns/deployment.git>
+CoreDNS is sourced from: <https://github.com/coredns/deployment.git>
 
 CoreDNS has been the default DNS provider for **Charmed Kubernetes** clusters
 since 1.14.
 
 For additional control over CoreDNS, you can also deploy it into the cluster
-using the [CoreDNS Kubernetes operator charm][coredns-charm]. 
+using the [CoreDNS Kubernetes operator charm][coredns-charm], as described below.
 
 #### 1. Disable in-tree CoreDNS
 
@@ -175,19 +173,20 @@ kubectl get -n 'k8s-model' po
 
 #### 3. Configure Charmed Kubernetes to use this DNS
 
-Although our 'k8s-model' is running on top of the components installed in 'ck-model',
+Although the 'k8s-model' is running on top of the components installed in 'ck-model',
 they are considered to be separate entities. To use an application running in one
-model from a different model, Juju supports 'Ccross-model relations'. There are a few 
+model from a different model, Juju supports 'cross-model relations'. There are a few 
 extra commands to enable this.
 
 ```bash
 juju switch k8s-model
 juju offer coredns:dns-provider
 ```
+
 The offer command exposes the Juju relation for use in a different model. In the above, we
 expose the `dns-provider` relation endpoint.  
 
-To connect to that, we need to switch models:
+To connect to that, switch models and use the `consume` command:
 
 ```bash
 juju switch ck-model
@@ -196,7 +195,7 @@ juju consume k8s-model.coredns
 
 The `consume` command is the counterpart to `offer`. It establishes a connection to the specified model and application, and adds that resource to the current model. A running
 application in the model can then be related to it as thought it were a local model 
-resource. In this case we want to connect it to the kubernetes-control-plane:
+resource. In this case you want to connect it to the kubernetes-control-plane:
 
 ```bash
 juju relate -m cluster-model coredns kubernetes-control-plane
@@ -238,69 +237,75 @@ juju deploy kubernetes-dashboard --channel=latest/stable --trust
 
 #### 3. Accessing the Dashboard
 
-Allow the new dashbaord time to settle - it needs to fetch and install various images and could take a few minutes depending on the underlying cloud.
+Allow the new dashboard time to settle - it needs to fetch and install various images and could take a few minutes depending on the underlying cloud.
 
-Access to the Dashboard works as before. Please use the instructions in the [Operations page][].
-
-
+Access to the Kubernetes Dashboard works as before. Please use the instructions in the [Operations page][].
 
 
 ## Metrics
 
+The metrics addon consists of two services, Kube State Metrics and Kubernetes Metrics Server.
+Both of these can be replaced by charm operators as detailed below. 
 
-### Kube-State Metrics
+Before deploying the new charms, you should turn off the built-in metrics features:
+
+```bash
+juju switch ck-model
+juju config kubernetes-control-plane enable-metrics=false
+```
+
+####  1. Kube-State Metrics
+
 Sourced from: <https://github.com/kubernetes/kube-state-metrics.git>
 
-Kube-State-Metrics is described by upstream docs: 
-> kube-state-metrics (KSM) is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects. ... It is not focused on the health of the individual Kubernetes components, but rather on the health of the various objects inside, such as deployments, nodes and pods.
-
-
+Kube-State-Metrics is a service which listens to the Kubernetes API server and generates metrics about the state of the objects. It is focused on the health of the various objects running inside kubernetes, such as deployments, nodes and pods.
 
 Deploy the [kube-state-metrics-operator][] charm into this kubernetes model with:
 
 ```bash
 juju deploy kube-state-metrics --trust
-juju relate kube-state-metrics prometheus  # if a prometheus application is deployed in the same model
+```
+
+If you have a prometheus application running in the same model, it can also be related to this:
+
+```bash
+juju relate kube-state-metrics prometheus 
 ```
 
 
-### Kubernetes Metrics Server
+#### 2. Kubernetes Metrics Server
 The Kubernetes Metrics server is described by the upstream docs:
 
 *** "Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
- Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines."***
+ Metrics Server collects resource metrics from Kubelets and exposes them in the Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines."***
 
 Since version 1.24, the `metrics-server` can be deployed into the cluster just like any other kubernetes application.
 
-#### 1. Disable the built-in metrics service
+Firstly, ensure that the API aggregation is turned on
 
-In order to deploy a different version of the metrics-server, first you must disable the built-in service while ensuring the kubernetes-api service still allows the [aggregation-extentions][].
-
-```bash
-juju config kubernetes-control-plane enable-metrics=false
+```
+juju switch ck-model
 juju config kubernetes-control-plane api-aggregation-extension=true
 ```
 
-#### 2.Deploy 
-
-One only needs to [add a k8s cloud][] so that juju exposes a means of installing Kubernetes operators into the kubernetes-cluster.
-
-Deploy the [kubernetes-metrics-server][] charm into this kubernetes model with:
+Then deploy the Kubernetes Metrics Server charm:
 
 ```bash
+juju switch k8s-model
 juju deploy kubernetes-metrics-server
 ```
 
-This charm offers the following options 
-* upgrade the release of the `metrics-server` via config
+Some of the new configuration options available through this charm are:
+
+- upgrade the release of the `metrics-server` via config
   ```bash
   juju config kubernetes-metrics-server release="v0.6.0"
   ```
-* adjust the base image registry if the cluster demands a private registry
+- adjust the base image registry if the cluster demands a private registry
   ```bash
   juju config kubernetes-metrics-server image-registry="my.registry.server:5000"
   ```
-* adjust the arguments of the running service
+- adjust the arguments of the running service
   ```bash
   juju config kubernetes-metrics-server extra-args="--kubelet-insecure-tls"
   ```
