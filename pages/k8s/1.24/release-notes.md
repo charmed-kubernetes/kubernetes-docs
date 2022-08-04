@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# 1.24+ck1 Bugfix release
+# 1.24+ck1 Bugfix release - [charmed-kubernetes-1154](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml)
 
 ### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable`
 
