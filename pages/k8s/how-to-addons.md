@@ -3,7 +3,7 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "How to use Chsrmed Kubernetes add-on Operator Charms"
+  title: "How to use Charmed Kubernetes add-on Operator Charms"
   description: Explaining how to install and configure addon operator charms with Charmed Kubernetes.
 keywords: operating, add-ons, addons, config
 tags: [operating]
@@ -71,7 +71,13 @@ juju add-k8s ck8s --controller $(juju switch | cut -d: -f1)
 You may replace `ck8s` with whatever name you want to use to refer to this cloud, but
 remember to substitute in the correct name in the remaining examples in this page.
 
-NOTE: <STORAGE>
+<div class="p-notification--positive is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message"> Some operator charms may require access to storage. Please make sure your Kubernetes cluster has access to a storage class accessible to 
+    the deployed applications.</p>
+  </div>
+</div>
 
 #### 5. Add a model
 

@@ -3,7 +3,7 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "CDK add-ons"
+  title: "Charmed Kubernetes addons"
   description: Explaining how to make use of the pre-installed additions to Kubernetes provided by Charmed Kubernetes.
 keywords: operating, add-ons, addons, config
 tags: [operating]
