@@ -28,9 +28,9 @@ now advertise `jammy` support and are considered stable for that series.
 
 - Improved Documentation
 
-CIDR size limitiations are better described in the charm's `cidr` config option.
+CIDR size limitations are better described in the charm's `cidr` config option.
 
-Documentated how to integrate Charmed Kubernetes with vault into a `focal` environment.
+Documented how to integrate Charmed Kubernetes with vault into a `focal` environment.
 
 - Containerd
 
