@@ -15,34 +15,34 @@ toc: False
 
 # 1.24+ck1 Bugfix release
 
-### August X, 2022 - `charmed-kubernetes --channel 1.24/stable`
+### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable`
 
 ## What's new
 
-- Jammy Jellyfish Trials
+- Jammy Jellyfish (22.04) Support
 
-All Charmed-Kubernetes machine charms will come with capabilities to be run on 
-jammy series machines while dropping support for xenial. While focal remains the
-default series in all bundles and charms, the charms will advertise jammy 
-support and be open for bug testing.
+All Charmed Kubernetes charms now come with the ability to run on `jammy`
+series machines. Xenial (16.04) support has been removed. Focal (20.04)
+remains the default series in all bundles and charms, however the charms
+now advertise `jammy` support and are considered stable for that series.
 
 - Improved Documentation
 
 CIDR size limitiations are better described in the charm's `cidr` config option.
 
-Documentated how to integrate charmed-kubernetes with vault into a focal environment.
+Documentated how to integrate Charmed Kubernetes with vault into a `focal` environment.
 
 - Containerd
 
-Improved GPU support by referencing all https apt sources, referencings current apt key 
-urls by default, improved NVIDIA driver upgrades, and blocking charm units which 
-encounter connectivity failures in air-gapped or proxied installations.
+Improved GPU support by referencing apt sources with https and refreshing
+NVIDIA ppa keys. Also improved NVIDIA driver upgrades and debug messages for
+units that encounter connectivity failures in air-gapped or proxied environments.
 
-Also improved upgrade actions for containerd packages as well as NVIDIA packages.
+Improved upgrade actions for containerd packages as well as NVIDIA packages.
 
 - Docker Registry
 
-Exposes docker registry "proxy" settings to configure it as a pull-through cache.
+Exposes docker registry `cache-*` settings to configure it as a pull-through cache.
 
 - Etcd
 
