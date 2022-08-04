@@ -46,7 +46,7 @@ CoreDNS has been the default DNS provider for Charmed Kubernetes clusters
 since 1.14. It will be installed and configured as part of the install
 process of Charmed Kubernetes.
 
-If you use the operator charm to deploy CorDNS to your cluster instead, 
+If you use the operator charm to deploy CoreDNS to your cluster instead, 
 there is additional flexibility for configuring:
 -  the cluster domain
 -  forwarding rules for unhandled addresses
