@@ -282,10 +282,8 @@ juju relate kube-state-metrics prometheus
 
 
 #### 2. Kubernetes Metrics Server
-The Kubernetes Metrics server is described by the upstream docs:
 
-*** "Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
- Metrics Server collects resource metrics from Kubelets and exposes them in the Kubernetes apiserver through Metrics API for use by Horizontal Pod Autoscaler and Vertical Pod Autoscaler. Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines."***
+The Kubernetes Metrics Server collects resource metrics from Kubelets and exposes them in the Kubernetes apiserver through Metrics API for use by the Horizontal Pod Autoscaler and Vertical Pod Autoscaler. The  Metrics API can also be accessed by `kubectl top`, making it easier to debug autoscaling pipelines.
 
 Since version 1.24, the `metrics-server` can be deployed into the cluster just like any other kubernetes application.
 
