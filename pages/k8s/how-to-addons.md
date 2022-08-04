@@ -206,7 +206,7 @@ application in the model can then be related to it as thought it were a local mo
 resource. In this case you want to connect it to the kubernetes-control-plane:
 
 ```bash
-juju relate -m cluster-model coredns kubernetes-control-plane
+juju relate -m ck-model coredns kubernetes-control-plane
 ```
 
 Once everything settles, new or restarted pods will use the CoreDNS
