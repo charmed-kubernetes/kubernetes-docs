@@ -13,9 +13,11 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# 1.24+ck1 Bugfix release - [charmed-kubernetes-1154](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml)
+# 1.24+ck1 Bugfix release 
 
-### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable`
+### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable` 
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml).
 
 ## What's new
 
@@ -28,9 +30,9 @@ now advertise `jammy` support and are considered stable for that series.
 
 - Improved Documentation
 
+Vault documentation updated to cover 20.04 `focal` environment.
+Operator charms and replacements for addons now have dedicated guides.
 CIDR size limitations are better described in the charm's `cidr` config option.
-
-Documented how to integrate Charmed Kubernetes with vault into a `focal` environment.
 
 - Containerd
 
@@ -48,7 +50,6 @@ Exposes docker registry `cache-*` settings to configure it as a pull-through cac
 
 Limits the set of TLS ciphers to remove weaker ones.
  
-
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
