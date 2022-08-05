@@ -35,7 +35,7 @@ Documented how to integrate Charmed Kubernetes with vault into a `focal` environ
 - Containerd
 
 Improved GPU support by referencing apt sources with https and refreshing
-NVIDIA ppa keys. Also improved NVIDIA driver upgrades and debug messages for
+NVIDIA repository keys. Also improved NVIDIA driver upgrades and debug messages for
 units that encounter connectivity failures in air-gapped or proxied environments.
 
 Improved upgrade actions for containerd packages as well as NVIDIA packages.
