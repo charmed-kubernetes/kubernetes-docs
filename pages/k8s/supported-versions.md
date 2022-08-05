@@ -16,9 +16,9 @@ toc: False
 Charmed Kubernetes officially supports the most recent three (3) minor releases
 of Kubernetes.
 
-Current Release: **1.24**
+Current Release: **1.25**
 
-Supported releases: **1.24.x,1.23.x, 1.22.x**
+Supported releases: **1.25.x,1.24.x, 1.23.x**
 
 ## Charmed Kubernetes bundle versions
 
@@ -30,11 +30,11 @@ juju deploy charmed-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.23
+revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.24
 release, you could run:
 
 ```bash
-juju deploy cs:charmed-kubernetes-862
+juju deploy cs:charmed-kubernetes-1154
 ```
 
 The revision numbers for bundles are generated automatically when the bundle is
@@ -46,7 +46,8 @@ versions of the **Charmed Kubernetes** bundle are shown in the table below:
 
 | Kubernetes version | Charmed Kubernetes bundle |
 | --- | --- |
-| 1.24.x    | [charmed-kubernetes-1154]((https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml)) |
+| 1.25.x   | [charmed-kubernetes-XXXX]((https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml)) |
+| 1.24.x   | [charmed-kubernetes-1154]((https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml)) |
 | 1.23.x    | [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.23/bundle.yaml) |
 | 1.22.x    | [charmed-kubernetes-814](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.22/bundle.yaml) |
 | 1.21.x    | [charmed-kubernetes-733](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.21/bundle.yaml) |
@@ -180,8 +181,8 @@ channels:
   1.5/edge:         1.5.5          2017-05-17    (3) 17MB -
 
 
-In the above output, the stable release is identified as 1.24, and so 1.23 and
-1.22 are also currently supported.
+In the above output, the stable release is identified as 1.25, and so 1.24 and
+1.23 are also currently supported.
 
 ## Professional support
 

@@ -1,0 +1,55 @@
+---
+wrapper_template: "templates/docs/markdown.html"
+markdown_includes:
+  nav: "kubernetes/docs/shared/_side-navigation.md"
+context:
+  title: "Release notes"
+  description: Release notes for Charmed Kubernetes
+keywords: kubernetes,  release, notes
+tags: [news]
+sidebar: k8smain-sidebar
+permalink: 1.25/release-notes.html
+layout: [base, ubuntu-com]
+toc: False
+---
+
+# 1.25
+
+### August xx, 2022 - `charmed-kubernetes --channel 1.25/stable` 
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
+
+## What's new
+
+- item 1
+
+Some stuff about this
+
+- item 2
+
+more stuff
+
+## Component upgrades
+
+- thing x.xxx
+- example x.xx.x
+ 
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[the launchpad milestone page for 1.25](https://launchpad.net/charmed-kubernetes/+milestone/1.25).
+
+
+## Notes and Known Issues
+
+
+## Deprecations and API changes
+
+- Upstream
+
+For details of other deprecation notices and API changes for Kubernetes 1.25, please see the
+relevant sections of the [upstream release notes][upstream-changelog-1.25].
+
+<!--LINKS-->
+[rel]: /kubernetes/docs/release-notes
+[upstream-changelog-1.24]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation
