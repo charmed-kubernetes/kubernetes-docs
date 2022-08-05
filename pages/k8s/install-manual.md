@@ -205,7 +205,7 @@ revision number. For example, to deploy the **Charmed Kubernetes** bundle for th
 release, you could run:
 
 ```bash
-juju deploy cs:charmed-kubernetes-862
+juju deploy cs:charmed-kubernetes-1154
 ```
 
 The revision numbers for bundles are generated automatically when the bundle is
