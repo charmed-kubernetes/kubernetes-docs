@@ -52,4 +52,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.25].
 
 <!--LINKS-->
 [rel]: /kubernetes/docs/release-notes
-[upstream-changelog-1.24]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation
+[upstream-changelog-1.25]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation
