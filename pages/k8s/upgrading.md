@@ -78,7 +78,7 @@ deprecated APIs.
 
 We have never recommended skipping a version in an upgrade and no longer provide generic upgrade 
 instructions for any version of Charmed Kubernetes. Please follow the specific upgrade 
-documentation for the version you are upgrading to
+documentation for the version you are upgrading to.
 
 ### Supported versions
 
