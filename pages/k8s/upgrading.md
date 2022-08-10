@@ -89,9 +89,9 @@ documentation for the version you are upgrading to
 ### Older versions
 
 - [Upgrading from 1.20.x to 1.21.x](/kubernetes/docs/1.21/upgrading)
-- [Upgrading from 1.19.x to 1.20.x](/kubernetes/docs/1.19/upgrading)
-- [Upgrading from 1.18.x to 1.19.x](/kubernetes/docs/1.18/upgrading)
-- [Upgrading from 1.17.x to 1.28.x](/kubernetes/docs/1.17/upgrading)
+- [Upgrading from 1.19.x to 1.20.x](/kubernetes/docs/1.20/upgrading)
+- [Upgrading from 1.18.x to 1.19.x](/kubernetes/docs/1.19/upgrading)
+- [Upgrading from 1.17.x to 1.18.x](/kubernetes/docs/1.18/upgrading)
 
 <a id='verify-upgrade'> </a>
 
