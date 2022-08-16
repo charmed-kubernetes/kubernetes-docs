@@ -197,15 +197,16 @@ class PageWriter:
             elif bundle_token in line and bundle_started:
                 lines.append(line)
                 bundle_started = False
-        output_path.write_text("\n".join(lines) + "\n")
+        text = "\n".join(lines) + "\n"
+        output_path.write_text(text)
+        return text
 
     def append_release_notes(self):
         output_path = _with_parent(self.k8s_path / "release-notes.md")
         new_notes = self.generate_release_notes_page(as_str=True).splitlines()
         lines, release_token = [], "AUTOGENERATE RELEASE NOTES HERE"
         for line in output_path.read_text().splitlines():
-            last_lines = lines[-1:]
-            if any(release_token in _last for _last in last_lines):
+            if lines and release_token in lines[-1]:
                 if self.version in line:
                     # found version in release-notes already, skipping
                     pass
@@ -213,7 +214,9 @@ class PageWriter:
                     # previous release found in release-notes, appending
                     lines += new_notes
             lines.append(line)
-        output_path.write_text("\n".join(lines) + "\n")
+        text = "\n".join(lines) + "\n"
+        output_path.write_text(text)
+        return text
 
     def generate_supported_versions(self):
         output_path = _with_parent(self.k8s_path / "supported-versions.md")
