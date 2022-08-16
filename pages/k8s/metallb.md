@@ -64,7 +64,7 @@ Next, create a new Kubernetes model:
 juju add-model metallb-system k8s-cloud
 ```
 
-Then you can deploy the MetalLB bundle:
+Then you can deploy the MetalLB charms:
 
 ```bash
 juju deploy metallb-controller
