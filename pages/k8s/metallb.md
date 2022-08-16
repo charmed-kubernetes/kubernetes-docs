@@ -67,7 +67,8 @@ juju add-model metallb-system k8s-cloud
 Then you can deploy the MetalLB bundle:
 
 ```bash
-juju deploy containers-metallb
+juju deploy metallb-controller
+juju deploy metallb-speaker
 ```
 
 ### Configuration
