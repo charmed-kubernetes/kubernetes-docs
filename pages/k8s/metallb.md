@@ -112,7 +112,7 @@ to use the Kubernetes API to create the necessary resources to make MetalLB
 work. You can apply the manifest using `kubectl`:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/charmed-kubernetes/metallb-operator/master/docs/rbac-permissions-operators.yaml
+kubectl apply -f https://raw.githubusercontent.com/charmed-kubernetes/metallb-operator/main/docs/rbac-permissions-operators.yaml
 ```
 
 Be aware that the manifest has to refer to the namespace in which MetalLB is
