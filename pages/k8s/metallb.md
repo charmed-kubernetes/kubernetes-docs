@@ -48,7 +48,7 @@ anti-affinity to prevent Kubernetes pods from stacking on a single node.
 ## Layer 2 mode
 
 The best way to deploy MetalLB in layer 2 mode on Charmed Kubernetes is with
-the MetalLB bundle, which includes Kubernetes operator charms both the
+the Kubernetes operator charms for both the
 controller and speaker components.  See notes concerning [RBAC](#rbac-note)
 
 To deploy the operators, you will first need a Kubernetes model in Juju.
