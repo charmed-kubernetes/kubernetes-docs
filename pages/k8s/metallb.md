@@ -78,26 +78,7 @@ your environment. The IP addresses can be specified as a range, such as
 "192.168.1.88-192.168.1.89", or as a comma-separated list of pools in CIDR
 notation, such as "192.168.1.240/28, 10.0.0.0/28".
 
-Configuring the IP addresses can be done either at time of deployment via a
-[bundle overlay][], or later by changing the charm config via Juju.
-
-An example bundle overlay might look like:
-
-```yaml
-applications:
-  metallb-controller:
-    options:
-      iprange: "192.168.1.88-192.168.1.89"
-```
-
-You would then specify this when deploying the bundle:
-
-```bash
-juju deploy metallb --overlay ./overlay.yaml
-```
-
-Alternatively, you can change the config directly on the metallb-controller
-charm at any time:
+Configuring the IP addresses can be done at any time by changing the charm config via Juju.
 
 ```bash
 juju config metallb-controller iprange="192.168.1.240/28, 10.0.0.0/28"
@@ -181,7 +162,6 @@ kubectl delete -f example-microbot-lb.yaml
 [metallb]: https://metallb.universe.tf
 [arp]: https://tools.ietf.org/html/rfc826
 [bgp]: https://tools.ietf.org/html/rfc1105
-[bundle overlay]: https://juju.is/docs/charm-bundles#heading--overlay-bundles
 [rbac-manifest]: https://raw.githubusercontent.com/charmed-kubernetes/metallb-operator/master/docs/rbac-permissions-operators.yaml
 [upstream manifests]: https://github.com/metallb/metallb/tree/main/manifests
 [configmap]: https://metallb.universe.tf/configuration/#bgp-configuration
