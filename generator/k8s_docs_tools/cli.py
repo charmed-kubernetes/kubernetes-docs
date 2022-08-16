@@ -3,8 +3,9 @@
 
 import click
 import logging
+from pathlib import Path
 
-from k8s_docs_tools.generate_release import generate_component_page
+from k8s_docs_tools.generate_release import generate_release_docs
 
 FORMAT = "%(name)s %(levelname)s: %(message)s"
 logging.basicConfig(format=FORMAT)
@@ -22,9 +23,11 @@ def cli():
     type=str,
     help="Version identifing the stable charmed-kubernetes release.",
 )
-@click.argument("output", type=click.File("w"))
-def component(release, output):
-    generate_component_page(release, output)
+@click.argument("output", type=Path)
+def generate_release(release, output):
+    destination = Path(output)
+    destination.mkdir(exist_ok=True)
+    generate_release_docs(release, destination)
 
 
 if __name__ == "__main__":
