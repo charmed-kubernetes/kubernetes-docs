@@ -51,7 +51,7 @@ The best way to deploy MetalLB in layer 2 mode on Charmed Kubernetes is with
 the MetalLB bundle, which includes Kubernetes operator charms both the
 controller and speaker components.  See notes concerning [RBAC](#rbac-note)
 
-To deploy the operator, you will first need a Kubernetes model in Juju.
+To deploy the operators, you will first need a Kubernetes model in Juju.
 Add your Kubernetes as a cloud to your Juju controller:
 
 ```
