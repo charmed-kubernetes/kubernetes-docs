@@ -1,6 +1,6 @@
 from dataclasses import dataclass, fields, field
 from datetime import datetime
-from functools import cached_property
+from backports.cached_property import cached_property
 import logging
 import os
 import re
