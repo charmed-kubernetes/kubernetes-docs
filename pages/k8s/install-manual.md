@@ -86,6 +86,20 @@ each category!
  </div>
 </div>
 <br>
+
+<div class="row">
+<div class="col-2">
+  <span>Kube-OVN</span>
+</div>
+ <div class="col-4">
+  <span>Kube-OVN is a CNI implementation based on OVN that provides a rich set of networking features for advanced enterprise applications.<a href="/kubernetes/docs/cni-kube-ovn"> Read more...</a></span>
+ </div>
+ <div class="col-3">
+   <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml" class="p-button--positive">Download kube-ovn-overlay.yaml</a></span>
+ </div>
+</div>
+<br>
+
 <div class="row">
 <div class="col-2">
   <span>Tigera Secure EE</span>
