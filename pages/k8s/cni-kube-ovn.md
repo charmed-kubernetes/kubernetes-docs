@@ -104,8 +104,8 @@ the `ovn0` interface of Kubernetes nodes, enabling them to participate in the
 broader Kube-OVN network and communicate directly with pods. By default, the
 join subnet has CIDR `100.64.0.0/16`.
 
-To configure the default pod subnet with a different CIDR at deploy time, create
-a file named `join-overlay.yaml` that contains the following:
+To configure the join subnet with a different CIDR at deploy time, create a file
+named `join-overlay.yaml` that contains the following:
 
 ```yaml
 applications:
