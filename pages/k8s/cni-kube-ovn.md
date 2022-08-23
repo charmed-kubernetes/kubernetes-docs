@@ -83,12 +83,15 @@ juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay default
 
 ## Changing the default subnet after deployment
 
+Note that during the process of changing the default subnet, workload pods
+belonging to that subnet will experience temporary downtime.
+
 To change the default subnet after deployment, first
 [edit the ovn-default subnet][change-default-subnet-edit] to have the desired config, then
 [rebuild all pods under the ovn-default subnet][change-default-subnet-rebuild] to pick up the
-new config. Note that doing this will result in downtime for workload pods.
+new config.
 
-Next, update the Kube-OVN charm configuration to match the edited subnet:
+Next, update the Kube-OVN charm configuration to match the new config:
 
 ```bash
 juju config kube-ovn default-cidr=10.123.0.0/16 default-gateway=10.123.0.1
@@ -120,6 +123,9 @@ juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay join-ov
 
 ## Changing the join subnet after deployment
 
+Note that during the process of changing the join subnet, Kubernetes nodes may
+be temporarily unable to reach pods.
+
 To change the join subnet after deployment, do the following:
 
 1. [Delete the join subnet][change-join-subnet-delete]
@@ -137,9 +143,6 @@ join          ovn        ovn-cluster   IPv4       10.234.0.0/24    false     fal
 ovn-default   ovn        ovn-cluster   IPv4       192.168.0.0/16   false     true    true      distributed   1        65532         0        0             ["192.168.0.1"]
 ```
 5. [Reconfigure the ovn0 NIC address][change-join-subnet-reconfigure]
-
-Note that during this process, Kubernetes nodes may be temporarily unable to
-reach pods.
 
 ## Configuring kube-ovn-pinger
 
