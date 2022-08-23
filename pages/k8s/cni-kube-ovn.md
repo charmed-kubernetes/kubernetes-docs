@@ -13,8 +13,8 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-[Kube-OVN][kube-ovn] is a CNI implementation based on OVN that provides a rich
-set of networking features for advanced enterprise applications.
+[Kube-OVN][kube-ovn-documentation] is a CNI implementation based on OVN that
+provides a rich set of networking features for advanced enterprise applications.
 
 TODO: what sets it apart from other CNIs?
 
@@ -56,17 +56,18 @@ To set an option, simply run the config command with and additional
 juju config kube-ovn default-cidr=10.123.0.0/16 default-gateway=10.123.0.1
 ```
 
-TODO: better example here because these cannot be changed post-deploy
+TODO: better example here because these cannot easily be changed post-deploy
 
 Config settings which require additional explanation are described below.
 
 ## Configuring the default subnet
 
-When kube-ovn is first deployed, it creates a default subnet that it uses to
-assign IPs to pods. By default, this subnet is `192.168.0.0/24`.
+When Kube-OVN first installs, it creates a default subnet named `ovn-default`
+that is used to assign IPs to pods. By default, this subnet has CIDR
+`192.168.0.0/24`.
 
-To configure the default pod subnet at deploy time, create a file named
-`kube-ovn-config.yaml` that contains the following:
+To configure the default pod subnet with a different CIDR at deploy time, create
+a file named `default-subnet-overlay.yaml` that contains the following:
 
 ```yaml
 applications:
@@ -76,22 +77,75 @@ applications:
       default-gateway: 10.123.0.1
 ```
 
-Then include the overlay when you deploy Charmed Kubernetes:
+Then include it as an overlay when you deploy Charmed Kubernetes:
 
 ```bash
-juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay kube-ovn-config.yaml
+juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay default-subnet-overlay.yaml
 ```
 
 ## Changing the default subnet after deployment
 
+To change the default subnet after deployment, first
+[edit the ovn-default subnet][edit-subnet] to have the desired config, then
+[rebuild all pods under the ovn-default subnet][rebuild-pods] to pick up the
+new config. Note that doing this will result in downtime for workload pods.
+
+Next, update the Kube-OVN charm configuration to match the edited subnet:
+
+```bash
+juju config kube-ovn default-cidr=10.123.0.0/16 default-gateway=10.123.0.1
+```
+
+## Configuring the join subnet
+
+Kube-OVN creates a subnet named `join` that is used to assign IP addresses to
+the `ovn0` interface of Kubernetes nodes, enabling them to participate in the
+broader Kube-OVN network and communicate directly with pods. By default, the
+join subnet has CIDR `100.64.0.0/16`.
+
+To configure the default pod subnet with a different CIDR at deploy time, create
+a file named `join-overlay.yaml` that contains the following:
+
+```yaml
+applications:
+  kube-ovn:
+    options:
+      node-switch-cidr: 10.234.0.0/16
+      node-switch-gateway: 10.234.0.1
+```
+
+Then include it as an overlay when you deploy Charmed Kubernetes:
+
+```bash
+juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay join-overlay.yaml
+```
+
+## Changing the join subnet after deployment
+
+To change the join subnet after deployment, do the following:
+
+1. [Delete the join subnet][change-join-subnet-delete]
+2. [Cleanup allocated config][change-join-subnet-cleanup]
+3. Update the kube-ovn charm configuration:
+```bash
+juju config kube-ovn node-switch-cidr=10.234.0.0/16 node-switch-gateway=10.234.0.1
+```
+4. Wait a minute, then verify that the join subnet has been recreated with the
+expected configuration:
+```bash
+$ kubectl get subnet
+NAME          PROVIDER   VPC           PROTOCOL   CIDR             PRIVATE   NAT     DEFAULT   GATEWAYTYPE   V4USED   V4AVAILABLE   V6USED   V6AVAILABLE   EXCLUDEIPS
+join          ovn        ovn-cluster   IPv4       10.234.0.0/24    false     false   false     distributed   2        251           0        0             ["10.234.0.1"]
+ovn-default   ovn        ovn-cluster   IPv4       192.168.0.0/16   false     true    true      distributed   1        65532         0        0             ["192.168.0.1"]
+```
+5. [Reconfigure the ovn0 NIC address][change-join-subnet-reconfigure]
+
+Note that during this process, Kubernetes nodes may be temporarily unable to
+reach pods.
+
+## Configuring kube-ovn-pinger
+
 TODO
-
-## Creating namespaced subnets
-
-TODO
-
-## TODO: advanced configuration
-
 
 ## Using a private Docker registry
 
@@ -129,17 +183,24 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 ## Useful links
 
-- [Kube-OVN on GitHub][kube-ovn]
-- [Kube-OVN charm on Charmhub][kube-ovn-charm]
+- [Kube-OVN Documentation][kube-ovn-documentation]
+- [Kube-OVN on GitHub][kube-ovn-github]
 - [Kube-OVN Architecture Guide][kube-ovn-architecture]
+- [Kube-OVN Charm on Charmhub][kube-ovn-charm]
 
 <!-- LINKS -->
 
-[kube-ovn]: https://github.com/kubeovn/kube-ovn
-[kube-ovn-architecture]: https://kubeovn.github.io/docs/en/reference/architecture/
+[change-join-subnet-cleanup]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#cleanup-allocated-config
+[change-join-subnet-delete]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#delete-join-subnet
+[change-join-subnet-reconfigure]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#reconfigure-ovn0-nic-address
+[edit-subnet]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#edit-subnet
+[kube-ovn-architecture]: https://kubeovn.github.io/docs/v1.10.x/en/reference/architecture/
 [kube-ovn-charm]: https://charmhub.io/kube-ovn
+[kube-ovn-documentation]: https://kubeovn.github.io/docs/v1.10.x/en/
+[kube-ovn-github]: https://github.com/kubeovn/kube-ovn
 [kube-ovn-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml
 [private docker registry]: /kubernetes/docs/docker-registry
+[rebuild-pods]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#rebuild-all-pods-under-this-subnet
 [troubleshooting]: /kubernetes/docs/troubleshooting
 
 <!-- FEEDBACK -->
