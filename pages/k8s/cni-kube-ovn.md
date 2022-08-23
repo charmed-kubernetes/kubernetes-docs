@@ -137,10 +137,7 @@ juju config kube-ovn node-switch-cidr=10.234.0.0/16 node-switch-gateway=10.234.0
 4. Wait a minute, then verify that the join subnet has been recreated with the
 expected configuration:
 ```bash
-$ kubectl get subnet
-NAME          PROVIDER   VPC           PROTOCOL   CIDR             PRIVATE   NAT     DEFAULT   GATEWAYTYPE   V4USED   V4AVAILABLE   V6USED   V6AVAILABLE   EXCLUDEIPS
-join          ovn        ovn-cluster   IPv4       10.234.0.0/24    false     false   false     distributed   2        251           0        0             ["10.234.0.1"]
-ovn-default   ovn        ovn-cluster   IPv4       192.168.0.0/16   false     true    true      distributed   1        65532         0        0             ["192.168.0.1"]
+kubectl get subnet
 ```
 5. [Reconfigure the ovn0 NIC address][change-join-subnet-reconfigure]
 
