@@ -84,8 +84,8 @@ juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay default
 ## Changing the default subnet after deployment
 
 To change the default subnet after deployment, first
-[edit the ovn-default subnet][edit-subnet] to have the desired config, then
-[rebuild all pods under the ovn-default subnet][rebuild-pods] to pick up the
+[edit the ovn-default subnet][change-default-subnet-edit] to have the desired config, then
+[rebuild all pods under the ovn-default subnet][change-default-subnet-rebuild] to pick up the
 new config. Note that doing this will result in downtime for workload pods.
 
 Next, update the Kube-OVN charm configuration to match the edited subnet:
@@ -202,17 +202,17 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 <!-- LINKS -->
 
+[change-default-subnet-edit]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#edit-subnet
+[change-default-subnet-rebuild]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#rebuild-all-pods-under-this-subnet
 [change-join-subnet-cleanup]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#cleanup-allocated-config
 [change-join-subnet-delete]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#delete-join-subnet
 [change-join-subnet-reconfigure]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#reconfigure-ovn0-nic-address
-[edit-subnet]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#edit-subnet
 [kube-ovn-architecture]: https://kubeovn.github.io/docs/v1.10.x/en/reference/architecture/
 [kube-ovn-charm]: https://charmhub.io/kube-ovn
 [kube-ovn-documentation]: https://kubeovn.github.io/docs/v1.10.x/en/
 [kube-ovn-github]: https://github.com/kubeovn/kube-ovn
 [kube-ovn-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml
 [private docker registry]: /kubernetes/docs/docker-registry
-[rebuild-pods]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-default-subnet/#rebuild-all-pods-under-this-subnet
 [troubleshooting]: /kubernetes/docs/troubleshooting
 
 <!-- FEEDBACK -->
