@@ -50,13 +50,11 @@ juju config kube-ovn
 ### Setting a config option
 
 To set an option, simply run the config command with and additional
-`<key>=<value>` argument. For example, to set the default pod CIDR and gateway:
+`<key>=<value>` argument. For example, to configure the Kube-OVN pinger:
 
 ```bash
-juju config kube-ovn default-cidr=10.123.0.0/16 default-gateway=10.123.0.1
+juju config kube-ovn pinger-external-address=10.123.123.123 pinger-external-dns=example.internal
 ```
-
-TODO: better example here because these cannot easily be changed post-deploy
 
 Config settings which require additional explanation are described below.
 
@@ -144,6 +142,20 @@ Note that during this process, Kubernetes nodes may be temporarily unable to
 reach pods.
 
 ## Configuring kube-ovn-pinger
+
+The kube-ovn-pinger service is a DaemonSet that collects OVS status and a
+variety of metrics about network connectivity from each Kubernetes node. By
+default, it is configured to check external network connectivity by pinging
+`8.8.8.8` and `google.com`.
+
+To change the external addresses used by kube-ovn-pinger, update the
+`pinger-external-address` and `pinger-external-dns` config options:
+
+```bash
+juju config kube-ovn pinger-external-address=10.123.123.123 pinger-external-dns=example.internal
+```
+
+## Monitoring
 
 TODO
 
