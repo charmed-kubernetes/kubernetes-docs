@@ -155,9 +155,34 @@ To change the external addresses used by kube-ovn-pinger, update the
 juju config kube-ovn pinger-external-address=10.123.123.123 pinger-external-dns=example.internal
 ```
 
-## Monitoring
+## Observability configuration
 
-TODO
+The Kube-OVN charm integrates seamlessly with Prometheus and Grafana from the
+Canonical Observability Stack. See the COS observability stack documentation for
+instructions on how to deploy the required observability components.
+(https://charmhub.io/topics/canonical-observability-stack/install/microk8s).
+
+### Prometheus
+
+Kube-OVN exposes metrics for all its components and network quality. See
+Kube-OVN upstream documentation for more information about the metrics
+available.
+(https://github.com/kubeovn/kube-ovn/blob/master/docs/ovn-ovs-monitor.md)
+
+Prometheus and Kube-OVN charm should be related through a cross-model relation;
+for more information about how to create cross-model relations for the COS
+observability stack, see the overlays section in the COS documentation.
+(https://charmhub.io/topics/canonical-observability-stack/install/microk8s).
+
+### Grafana
+
+Kube-OVN charm uses the dashboard from upstream. These use the metrics scraped
+by Prometheus from the various Kube-OVN components. You can find the available
+dashboards in the upstream documentation.
+(https://github.com/kubeovn/kube-ovn/blob/master/docs/prometheus.md)
+
+To fetch the dashboards, the Kube-OVN charm must be related (via a cross-model
+relation) to Grafana from the COS observability stack.
 
 ## Using a private Docker registry
 
