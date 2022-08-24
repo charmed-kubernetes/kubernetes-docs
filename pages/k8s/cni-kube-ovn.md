@@ -15,8 +15,7 @@ toc: False
 
 [Kube-OVN][kube-ovn-documentation] is a CNI implementation based on OVN that
 provides a rich set of networking features for advanced enterprise applications.
-A list of features can be seen in the
-[Kube-OVN GitHub repository][kube-ovn-github].
+For a list of features, see the [Kube-OVN GitHub repository][kube-ovn-github].
 
 ## Deploying Charmed Kubernetes with Kube-OVN
 
