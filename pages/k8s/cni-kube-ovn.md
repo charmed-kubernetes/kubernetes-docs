@@ -44,7 +44,7 @@ juju config kube-ovn
 
 ### Setting a config option
 
-To set an option, simply run the config command with and additional
+To set an option, simply run the config command with an additional
 `<key>=<value>` argument. For example, to configure the Kube-OVN pinger:
 
 ```bash
