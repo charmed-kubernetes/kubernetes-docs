@@ -171,7 +171,7 @@ available: [Kube-OVN Monitor Metrics][kube-ovn-metrics]
 Prometheus and Kube-OVN charm should be related through a cross-model relation;
 for more information about how to create cross-model relations for the COS
 observability stack, see the overlays section in the COS documentation:
-[Deploy the COS Lite bundle with overlays][cos-deploy]
+[Deploy the COS Lite observability stack on MicroK8s][cos-deploy]
 
 ### Grafana
 
