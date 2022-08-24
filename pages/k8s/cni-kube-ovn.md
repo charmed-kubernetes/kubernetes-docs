@@ -159,27 +159,26 @@ juju config kube-ovn pinger-external-address=10.123.123.123 pinger-external-dns=
 
 The Kube-OVN charm integrates seamlessly with Prometheus and Grafana from the
 Canonical Observability Stack. See the COS observability stack documentation for
-instructions on how to deploy the required observability components.
-(https://charmhub.io/topics/canonical-observability-stack/install/microk8s).
+instructions on how to deploy the required observability components:
+[Deploy the COS Lite observability stack on MicroK8s][cos-deploy]
 
 ### Prometheus
 
 Kube-OVN exposes metrics for all its components and network quality. See
 Kube-OVN upstream documentation for more information about the metrics
-available.
-(https://github.com/kubeovn/kube-ovn/blob/master/docs/ovn-ovs-monitor.md)
+available: [Kube-OVN Monitor Metrics][kube-ovn-metrics]
 
 Prometheus and Kube-OVN charm should be related through a cross-model relation;
 for more information about how to create cross-model relations for the COS
-observability stack, see the overlays section in the COS documentation.
-(https://charmhub.io/topics/canonical-observability-stack/install/microk8s).
+observability stack, see the overlays section in the COS documentation:
+[Deploy the COS Lite bundle with overlays][cos-deploy]
 
 ### Grafana
 
 Kube-OVN charm uses the dashboard from upstream. These use the metrics scraped
 by Prometheus from the various Kube-OVN components. You can find the available
-dashboards in the upstream documentation.
-(https://github.com/kubeovn/kube-ovn/blob/master/docs/prometheus.md)
+dashboards in the upstream documentation:
+[Kube-OVN Grafana Dashboards][kube-ovn-grafana-dashboards]
 
 To fetch the dashboards, the Kube-OVN charm must be related (via a cross-model
 relation) to Grafana from the COS observability stack.
@@ -232,10 +231,13 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [change-join-subnet-cleanup]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#cleanup-allocated-config
 [change-join-subnet-delete]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#delete-join-subnet
 [change-join-subnet-reconfigure]: https://kubeovn.github.io/docs/v1.10.x/en/ops/change-join-subnet/#reconfigure-ovn0-nic-address
+[cos-deploy]: https://charmhub.io/topics/canonical-observability-stack/install/microk8s
 [kube-ovn-architecture]: https://kubeovn.github.io/docs/v1.10.x/en/reference/architecture/
 [kube-ovn-charm]: https://charmhub.io/kube-ovn
 [kube-ovn-documentation]: https://kubeovn.github.io/docs/v1.10.x/en/
 [kube-ovn-github]: https://github.com/kubeovn/kube-ovn
+[kube-ovn-grafana-dashboards]: https://github.com/kubeovn/kube-ovn/blob/master/docs/prometheus.md#grafana-dashboard
+[kube-ovn-metrics]: https://github.com/kubeovn/kube-ovn/blob/master/docs/ovn-ovs-monitor.md
 [kube-ovn-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml
 [private docker registry]: /kubernetes/docs/docker-registry
 [troubleshooting]: /kubernetes/docs/troubleshooting
