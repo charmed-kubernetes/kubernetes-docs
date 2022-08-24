@@ -236,8 +236,8 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [kube-ovn-charm]: https://charmhub.io/kube-ovn
 [kube-ovn-documentation]: https://kubeovn.github.io/docs/v1.10.x/en/
 [kube-ovn-github]: https://github.com/kubeovn/kube-ovn
-[kube-ovn-grafana-dashboards]: https://github.com/kubeovn/kube-ovn/blob/master/docs/prometheus.md#grafana-dashboard
-[kube-ovn-metrics]: https://github.com/kubeovn/kube-ovn/blob/master/docs/ovn-ovs-monitor.md
+[kube-ovn-grafana-dashboards]: https://github.com/kubeovn/kube-ovn/blob/release-1.10/docs/prometheus.md#grafana-dashboard
+[kube-ovn-metrics]: https://github.com/kubeovn/kube-ovn/blob/release-1.10/docs/ovn-ovs-monitor.md
 [kube-ovn-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml
 [private docker registry]: /kubernetes/docs/docker-registry
 [troubleshooting]: /kubernetes/docs/troubleshooting
