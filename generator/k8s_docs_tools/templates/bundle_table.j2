@@ -1,0 +1,5 @@
+| Kubernetes version | Charmed Kubernetes bundle |
+| --- | --- |
+{% for rel in all_bundles -%}
+| {{ rel.release }}.x    | [{{ rel.no_cs_bundle }}](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/{{ rel.release }}/bundle.yaml) |
+{% endfor %}

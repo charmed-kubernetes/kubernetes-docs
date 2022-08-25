@@ -73,7 +73,7 @@ These charms are also maintained and supported by the Charmed Kubernetes team to
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
 {% for c in charms if "docs-extra" in c.tags -%}
-| {{c.name}} | {{ c.summary.rstrip() }} | {{ c.docs }} | {{ c.upstream }} | {{ c.bugs }} |
+| [{{c.name}}]({{ c.store }}) | {{ c.summary.rstrip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }})  | [bugs]({{ c.bugs }}) |
 {% endfor %}
 ## Images
 

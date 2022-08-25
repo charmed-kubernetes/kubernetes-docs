@@ -13,6 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+<!-- AUTOGENERATE RELEASE NOTES HERE -->
 # 1.24+ck1 Bugfix release 
 
 ### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable` 
