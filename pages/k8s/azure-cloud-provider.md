@@ -171,7 +171,7 @@ please see the [charm page][azure-cloud-provider].
 
 ## Azure load-balancers for the control plane
 
-With revision `kubernetes-control-plane` charm from channel=1.25/stable or greater, Charmed
+With the `kubernetes-control-plane` charm from channel=1.25/stable or greater, Charmed
 Kubernetes can also use Azure native load balancers in front of the control
 plane, replacing the need to deploy the `kubeapi-load-balancer` charm. The
 `kubernetes-control-plane` charm supports two relation endpoints, `loadbalancer-external`
