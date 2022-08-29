@@ -70,7 +70,8 @@ applications:
       default-gateway: 10.123.0.1
 ```
 
-Then include it as an overlay when you deploy Charmed Kubernetes:
+Then include it as an overlay when you deploy Charmed Kubernetes. Note that the order of the
+overlays is important:
 
 ```bash
 juju deploy charmed-kubernetes --overlay kube-ovn-overlay.yaml --overlay default-subnet-overlay.yaml
