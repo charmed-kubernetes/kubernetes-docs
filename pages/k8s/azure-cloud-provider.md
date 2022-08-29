@@ -154,10 +154,10 @@ information see the [storage documentation][storage].
 The following commands start the 'hello-world' pod behind an Azure-backed
 load-balancer.
 
-Here are the commands for Kubernetes 1.25+ and above as the kubectl run command was deprecated:
+Here are the commands for **Kubernetes 1.25 and above** as the kubectl run command 
+has been deprecated:
 
 ```bash
-# Kubernetes 1.25+
 kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0  --port=8080
 kubectl expose deployment hello-world --type=LoadBalancer --name=hello
 watch kubectl get svc -o wide --selector=app=hello-world
