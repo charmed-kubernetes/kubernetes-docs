@@ -51,13 +51,26 @@ This provides a range of benefits, from individual build processes to versioning
 
 All the components of Charmed Kubernetes can now run on the newest Ubuntu release for the very latest kernel features and security enhancements.
 
-## Component upgrades
+## Component Versions
 
-- kube-ovn: v1.10.4
-- cloud-provider-vsphere: 1.24
-- vsphere-csi-driver: v2.6.0
-- cloud-provider-azure: v1.24.0
-- azuredisk-csi-driver: v1.21.0
+### Charm/Addons pinned versions
+- kube-ovn 1.10.4
+- calico 3.21.4
+- cephcsi 3.5.1
+- cinder-csi-plugin 1.23.0
+- coredns 1.9.0
+- ingress-nginx 1.2.0
+- k8s-keystone-auth 1.23.0
+- kube-state-metrics 2.4.2
+- kubernetes-dashboard 2.5.1
+- openstack-cloud-controller-manager 1.23.0
+
+### Charm default versions
+- cloud-provider-vsphere 1.24
+- vsphere-csi-driver v2.6.0
+- cloud-provider-azure v1.24.0
+- azuredisk-csi-driver v1.21.0
+
  
 ## Fixes
 
@@ -66,6 +79,16 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 
 ## Notes and Known Issues
+
+* [LP1988186](https://bugs.launchpad.net/bugs/1988186)
+  Storage Components on AWS and Google Cloud
+
+  Beginning in 1.25 `CSIMigrationAWS` and `CSIMigrationGCE` have been locked to `true` resulting this release being unable to support storage volume mounting in AWS or Google Cloud without the use of those providers' out-of-tree csi-drivers. No charms yet exist for these two cloud platforms but will soon be addressed.
+  
+  :warning: do not set `channel=1.25` on charm config `kubernetes-control-plane` and `kubernetes-worker` unless your cluster has taken steps to mitigate the lack of built-in storage such as:
+  * Not using storage
+  * Using alternative storage like `ceph-csi`
+  * Manually configuring the out-of-tree storage provisioner
 
 
 ## Deprecations and API changes
