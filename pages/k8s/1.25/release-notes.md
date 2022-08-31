@@ -21,13 +21,34 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-- item 1
+- Telco-ready CNI
 
-Some stuff about this
+Identifying a need for increasingly sophisticated SDN within Kubernetes, Charmed Kubernetes now has a Kube-OVN charm. 
+This enables a set of new networking capabilities such as VXLAN, QoS, IP Dualstack and more. 
 
-- item 2
+- High availability secret management
 
-more stuff
+Furthering our commitment to resilience, we have now extended the Hashicorp Vault charm to provide HA capabilities, 
+ensuring your secrets are always available.
+
+- Cloud provider integration
+
+OpenStack, vSphere and Azure become the latest Cloud integrations to benefit from updated Charmed Kubernetes charms. With these integrations, 
+we enable you to deploy our Kubernetes and make it your own as you leverage native features within those clouds.
+
+- Lightweight observability
+
+Canonical Observability Stack (COS Lite) now integrates with our flagship networking charm Kube-OVN. 
+This marks a commitment to providing high quality relations that enable zero-ops observability.
+
+- CDK-addons uplifted to operators
+
+As an effort to keep our charms evergreen and ready for production use, we have uplifted CDK-addons to individual operators. 
+This provides a range of benefits, from individual build processes to versioning and releasing. 
+
+- Ubuntu 22.04 LTS support
+
+All the components of Charmed Kubernetes can now run on the newest Ubuntu release for the very latest kernel features and security enhancements.
 
 ## Component upgrades
 
