@@ -16,7 +16,7 @@ toc: False
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 # 1.25
 
-### August 31, 2022 - `charmed-kubernetes --channel 1.25/stable` 
+### September 1, 2022 - `charmed-kubernetes --channel 1.25/stable` 
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
 
@@ -74,8 +74,20 @@ All the components of Charmed Kubernetes can now run on the newest Ubuntu releas
  
 ## Fixes
 
-A list of bug fixes and other minor feature updates in this release can be found at
-[the launchpad milestone page for 1.25](https://launchpad.net/charmed-kubernetes/+milestone/1.25).
+Notable fixes in this release include:
+
+- [configurable tls ciphers](https://bugs.launchpad.net/charm-etcd/+bug/1970993)
+- NVIDIA updates
+  - [updated ppa key](https://bugs.launchpad.net/bugs/1971831)
+  - [updated containerd config](https://bugs.launchpad.net/charm-containerd/+bug/1982034)
+  - [ensure cuda-drivers on upgrade](https://bugs.launchpad.net/charm-containerd/+bug/1982197)
+- [updated vault recommendations](https://bugs.launchpad.net/charmed-kubernetes-bundles/+bug/1946290)
+- [pod security policy removal](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1986856)
+- [csi migration flag always enabled](https://bugs.launchpad.net/charm-kubernetes-master/+bug/1988186)
+
+A full list of bug fixes and updates since Charmed Kubernetes 1.24 can be found at:
+- [1.24+ck1 milestone](https://launchpad.net/charmed-kubernetes/+milestone/1.24+ck1)
+- [1.25 milestone](https://launchpad.net/charmed-kubernetes/+milestone/1.25)
 
 
 ## Notes and Known Issues
