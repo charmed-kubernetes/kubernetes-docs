@@ -90,6 +90,9 @@ A list of bug fixes and other minor feature updates in this release can be found
   * Using alternative storage like `ceph-csi`
   * Manually configuring the out-of-tree storage provisioner
 
+* PodSecurityPolicy Removed
+  PodSecurityPolicy has been removed in 1.25. Please see the [PodSecurityPolicy Migration Guide](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) if you have deployed pod security policies in your cluster. 
+  :warning: do not set `channel=1.25` on charm config `kubernetes-control-plane` and `kubernetes-worker` until your policies have been migrated. 
 
 ## Deprecations and API changes
 
