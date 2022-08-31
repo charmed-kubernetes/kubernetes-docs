@@ -27,7 +27,10 @@ setup(
     url="https://github.com/charmed-kubernetes/kubernetes-docs",
     version="0.0.1",
     zip_safe=True,
-    install_requires=["click", "jinja2", "pygithub", "pyyaml", "semver"],
+    install_requires=[
+        "click", "jinja2", "pygithub", "pyyaml", "semver",
+        "backports.cached-property"
+    ],
     entry_points=dict(
         console_scripts=[
             'k8s_docs_tools = k8s_docs_tools.cli:cli'

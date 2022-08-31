@@ -46,8 +46,7 @@ versions of the **Charmed Kubernetes** bundle are shown in the table below:
 
 | Kubernetes version | Charmed Kubernetes bundle |
 | --- | --- |
-| 1.25.x   | [charmed-kubernetes-XXXX]((https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml)) |
-| 1.24.x   | [charmed-kubernetes-1154]((https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml)) |
+| 1.24.x    | [charmed-kubernetes-1154](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml) |
 | 1.23.x    | [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.23/bundle.yaml) |
 | 1.22.x    | [charmed-kubernetes-814](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.22/bundle.yaml) |
 | 1.21.x    | [charmed-kubernetes-733](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.21/bundle.yaml) |
@@ -179,7 +178,7 @@ channels:
   1.5/candidate:    1.5.5          2017-05-17    (3) 17MB -
   1.5/beta:         1.5.5          2017-05-17    (3) 17MB -
   1.5/edge:         1.5.5          2017-05-17    (3) 17MB -
-
+```
 
 In the above output, the stable release is identified as 1.25, and so 1.24 and
 1.23 are also currently supported.
