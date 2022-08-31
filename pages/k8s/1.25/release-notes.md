@@ -52,9 +52,13 @@ All the components of Charmed Kubernetes can now run on the newest Ubuntu releas
 
 ## Component upgrades
 
-- thing x.xxx
-- example x.xx.x
- 
+- kube-ovn: v1.10.4
+- cloud-provider-vsphere: 1.24
+- vsphere-csi-driver: v2.6.0
+- cloud-provider-azure: v1.24.0
+- azuredisk-csi-driver: v1.21.0
+
+
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
