@@ -106,6 +106,10 @@ These are the container images used by this release:
 
 <!-- GENERATED CONTAINER IMAGES -->
 
+-  addon-resizer-amd64:1.8.9
+-  addon-resizer-arm64:1.8.9
+-  addon-resizer-ppc64le:1.8.9
+-  addon-resizer-s390x:1.8.9
 -  calico/cni:v3.21.4
 -  calico/kube-controllers:v3.21.4
 -  calico/node:v3.21.4
@@ -113,6 +117,7 @@ These are the container images used by this release:
 -  cdkbot/microbot-amd64:latest
 -  cdkbot/microbot-arm64:latest
 -  cdkbot/microbot-s390x:latest
+-  cephcsi/cephcsi:v3.5.1
 -  cloud-provider-vsphere/cpi/release/manager:v1.18.0
 -  cloud-provider-vsphere/cpi/release/manager:v1.19.0
 -  cloud-provider-vsphere/cpi/release/manager:v1.2.1
@@ -121,19 +126,38 @@ These are the container images used by this release:
 -  cloud-provider-vsphere/cpi/release/manager:v1.22.3
 -  cloud-provider-vsphere/csi/release/driver:v2.5.1
 -  cloud-provider-vsphere/csi/release/syncer:v2.5.1
+-  coredns/coredns:1.9.0
 -  defaultbackend-amd64:1.5
 -  defaultbackend-arm64:1.5
 -  defaultbackend-ppc64le:1.5
 -  defaultbackend-s390x:1.4
+-  dns/k8s-dns-dnsmasq-nanny:1.22.8
+-  dns/k8s-dns-kube-dns:1.22.8
+-  dns/k8s-dns-sidecar:1.22.8
 -  external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
 -  k8s-artifacts-prod/ingress-nginx/controller:v1.2.0
+-  k8scloudprovider/cinder-csi-plugin:v1.23.0
+-  k8scloudprovider/k8s-keystone-auth:v1.23.0
+-  k8scloudprovider/openstack-cloud-controller-manager:v1.23.0
+-  kube-state-metrics/kube-state-metrics:v2.4.2
 -  kubernetes-ingress-controller/nginx-ingress-controller-ppc64le:0.20.0
+-  kubernetesui/dashboard:v2.5.1
+-  kubernetesui/metrics-scraper:v1.0.7
+-  metrics-server/metrics-server:v0.5.2
+-  nvidia/k8s-device-plugin:v0.12.2
 -  pause:3.6
+-  sig-storage/csi-attacher:v3.3.0
 -  sig-storage/csi-attacher:v3.4.0
+-  sig-storage/csi-node-driver-registrar:v2.4.0
 -  sig-storage/csi-node-driver-registrar:v2.5.0
+-  sig-storage/csi-provisioner:v3.0.0
 -  sig-storage/csi-provisioner:v3.1.0
+-  sig-storage/csi-resizer:v1.3.0
 -  sig-storage/csi-resizer:v1.4.0
+-  sig-storage/csi-snapshotter:v4.2.0
+-  sig-storage/csi-snapshotter:v4.2.1
 -  sig-storage/csi-snapshotter:v5.0.1
+-  sig-storage/livenessprobe:v2.5.0
 -  sig-storage/livenessprobe:v2.6.0
 
 <!-- CONTAINER IMAGES END -->
