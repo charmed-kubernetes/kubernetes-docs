@@ -93,7 +93,14 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Deprecations and API changes
 
-- Upstream
+- CSIMigration
+The CSIMigration feature is generally available, and its feature flag was locked to enable.
+- PodSecurityPolicy
+The beta `PodSecurityPolicy` admission plugin, deprecated since 1.21, is removed. See the above section for instructions to migrate to the built-in PodSecurity admission plugin.
+- PodDisruptionBudget
+The `policy/v1beta1` API version of PodDisruptionBudget is deprecated. Migrate manifests and API clients to use the `policy/v1` API version, available since 1.21.
+- vSphere
+vSphere releases less than `7.0u2` are not supported for in-tree vSphere volumes as of Kubernetes 1.25. Upgrading vSphere (ESXi and vCenter) to `7.0u2` or above is advised.
 
 For details of other deprecation notices and API changes for Kubernetes 1.25, please see the
 relevant sections of the [upstream release notes][upstream-changelog-1.25].
