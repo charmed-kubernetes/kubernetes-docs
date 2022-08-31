@@ -45,7 +45,7 @@ You should also make sure:
 -   Your Juju client and controller/models are running the latest versions (see the [Juju docs][juju-controller-upgrade])
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
--   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.24 which may impact your workloads.
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.25 which may impact your workloads.
 
 It is also important to understand that **Charmed Kubernetes** will only upgrade
 and if necessary migrate, components relating specifically to elements of
@@ -57,7 +57,9 @@ deprecated APIs.
 
 ## Infrastructure updates
 
-The applications which run alongside the core Kubernetes components can be upgraded at any time. These applications are widely used and may frequently receive upgrades outside of the cycle of new releases of Kubernetes.
+The applications which run alongside the core Kubernetes components can be upgraded
+at any time. These applications are widely used and may frequently receive upgrades
+outside of the cycle of new releases of Kubernetes.
 
 This includes:
 
@@ -66,7 +68,8 @@ This includes:
 - etcd
 - flannel, calico or other CNI
 
-Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
+Note that this may include other applications which you may have installed, such as
+Elasticsearch, Prometheus, Nagios, Helm, etc.
 
 
 <a id='upgrading-containerd'> </a>
@@ -91,8 +94,8 @@ this data before running an upgrade. This is covered in more detail in the
 ```bash
 juju run-action etcd/0 snapshot --wait
 ```
-You should see confirmation of the snapshot being created, and the command needed to download the snapshot
-_from the **etcd** unit_. See the following truncated, example output:
+You should see confirmation of the snapshot being created, and the command needed to
+download the snapshot _from the **etcd** unit_. See the following truncated, example output:
 
 ```
 ...
