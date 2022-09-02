@@ -1,16 +1,35 @@
-[OPA gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/) is an open source, general-purpose policy engine that enables unified, context-aware policy enforcement.
+---
+wrapper_template: "templates/docs/markdown.html"
+markdown_includes:
+  nav: "kubernetes/docs/shared/_side-navigation.md"
+context:
+  title: "OPA gatekeeper"
+  description: Configure and deploy the OPA gatekeeper policy engine
+keywords: opa, gatekeeper, policy,
+tags: [operating, security]
+sidebar: k8smain-sidebar
+permalink: gatekeeper.html
+layout: [base, ubuntu-com]
+toc: False
+---
 
-Gatekeeper is a validating webhook that enforces CRD-based policies executed by [Open Policy Agent](https://www.openpolicyagent.org/). [Policies](https://open-policy-agent.github.io/gatekeeper/website/docs/howto#constraint-templates) are defined in a language called [rego](https://www.openpolicyagent.org/docs/latest/policy-language/). Incoming requests that try to create or alter a resource that violates any of these policies will be rejected.
 
-In addition to admission, Gatekeeper offers audit functionality, which allows administrators to see which resources are currently violating any given policy.
+[OPA gatekeeper][gatekeeper-docs] is an open source, general-purpose policy engine that enables unified,
+context-aware policy enforcement.
+
+Gatekeeper is a validating webhook that enforces CRD-based policies executed by [Open Policy Agent][opa].
+[Policies][constraint-templates] are defined in a language called [rego][rego]. Incoming requests that try
+to create or alter a resource that violates any of these policies will be rejected.
+
+In addition to admission, Gatekeeper offers audit functionality, which allows administrators to see
+which resources are currently violating any given policy.
 
 ##  Deployment
 
-The gatekeeper webhook and audit services exist in separate charms, you should deploy both of them. To deploy the operators you will first need a Kubernetes model in Juju. Add your Kubernetes as a cloud to your Juju controller:
-
-```console
-juju add-k8s k8s-cloud --controller $(juju switch | cut -d: -f1)
-```
+The gatekeeper webhook and audit services exist in separate charms, you should deploy both of them.
+First you need to make sure that you have a **Charmed Kubernetes** environment set up and running.
+See the [quickstart][quickstart] if you haven't. The `gatekeeper-audit` charm requires storage so
+make sure your juju model has a registered [storage-pool][storage-pools].
 
 Next, create a new Kubernetes model:
 
@@ -25,18 +44,26 @@ juju deploy ch:gatekeeper-controller-manager
 juju deploy ch:gatekeeper-audit
 ```
 
-### Note: Using RBAC
+### Troubleshooting
 
-If using RBAC, you must deploy the charms using the `--trust` flag as the charm needs permissions in order to create the necessary resources:
+#### Using RBAC
+
+If using RBAC, you must deploy the charms using the `--trust` flag as the charm needs permissions
+in order to create the necessary resources:
 
 ```console
 juju deploy --trust ch:gatekeeper-controller-manager
 juju deploy --trust ch:gatekeeper-audit
 ```
 
+#### Storage Pool
+
+
 ## Policies
 
-[Policies](https://open-policy-agent.github.io/gatekeeper/website/docs/howto#constraint-templates) are defined as `ConstraintTemplate` CRDs in a language called [rego](https://www.openpolicyagent.org/docs/latest/policy-language/). Constraints are then used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
+[Policies][constraint-templates] are defined as `ConstraintTemplate` CRDs in a language called
+[rego][rego]. Constraints are then used to inform Gatekeeper that the admin wants a ConstraintTemplate
+to be enforced, and how.
 
 To get a list of the constraints run:
 
@@ -75,7 +102,7 @@ constraint-violations-limit:
 ```
 
 # Metrics
-Both charms provide out of the box integration with the [prometheus-k8s](https://charmhub.io/prometheus-k8s) and the [grafana-agent-k8s](https://charmhub.io/grafana-agent-k8s) charms.
+Both charms provide out of the box integration with the [prometheus-k8s][prometheus-k8s] and the [grafana-agent-k8s][grafana-agent-k8s] charms.
 
 If you have those two charms deployed, you can integrate them with gatekeeper simply by running:
 
@@ -84,18 +111,22 @@ juju relate grafana-agent-k8s gatekeeper-controller-manager
 juju relate grafana-agent-k8s:send-remote-write prometheus-k8s:receive-remote-write
 ```
 
-This will provide you with metrics like how many requests were denied, how many were processed, how many violations exist in the cluster, etc.
+This will provide you with metrics like how many requests were denied, how many were processed,
+how many violations exist in the cluster, etc.
 
 ## Reconciliation
 
-The gatekeeper charms manage the same Kubernetes resources(roles, crds, etc.). If for some reason you wish to delete one of the two charms while keeping the other you should be very careful, as it will cause all of the resources to be deleted.
+The gatekeeper charms manage the same Kubernetes resources(roles, crds, etc.). If for some reason
+you wish to delete one of the two charms while keeping the other you should be very careful, as
+it will cause all of the resources to be deleted.
 
 In that scenario you will need to reconcile (recreate) the resources by running:
 
 ```console
 juju run-action {unit_name} -m {model_name} reconcile-resources --wait
 ```
-> :warning:  This will cause all the policies to be deleted as well, which means you will have to reapply them.
+> Warning: This will cause all the policies to be deleted as well, which means you will have to
+reapply them.
 
 ## Test the Gatekeeper charm
 
@@ -106,7 +137,8 @@ kubectl apply -f https://raw.githubusercontent.com/charmed-kubernetes/opa-gateke
 kubectl apply -f https://raw.githubusercontent.com/charmed-kubernetes/opa-gatekeeper-operators/main/docs/policy-spec-example.yaml
 ```
 
-This policy will require all namespaces to have the label `gatekeeper=True`, creating a new ns without that should fail:
+This policy will require all namespaces to have the label `gatekeeper=True`, creating a new ns
+without that should fail:
 
 ```console
 kubectl create ns test
@@ -129,3 +161,32 @@ kubectl get constraints
 NAME              ENFORCEMENT-ACTION   TOTAL-VIOLATIONS
 ns-must-have-gk                                6
 ```
+
+## Useful links
+- [Gatekeeper Documentation][gatekeeper-docs]
+- [OPA Documentation][opa]
+- [Rego Documentation][rego]
+- [Gatekeeper Audit Charm][gatekeeper-audit]
+- [Gatekeeper Webhook Charm][gatekeeper-controller-manager]
+
+<!-- LINKS -->
+[gatekeeper-docs]: https://open-policy-agent.github.io/gatekeeper/website/docs/
+[constraint-templates]: https://open-policy-agent.github.io/gatekeeper/website/docs/howto#constraint-templates
+[opa]: https://www.openpolicyagent.org/docs/latest/
+[rego]: https://www.openpolicyagent.org/docs/latest/policy-language/
+[gatekeeper-audit]: https://charmhub.io/gatekeeper-audit
+[gatekeeper-controller-manager]: https://charmhub.io/gatekeeper-controller-manager
+[prometheus-k8s]: https://charmhub.io/prometheus-k8s
+[grafana-agent-k8s]: https://charmhub.io/grafana-agent-k8s
+[storage-pools]: https://www.google.com/search?channel=fs&client=ubuntu&q=juju+storage-pool
+[quickstart]: https://ubuntu.com/kubernetes/docs/quickstart
+
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/gatekeeper.md" >edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
+</div>
