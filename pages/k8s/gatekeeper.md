@@ -178,7 +178,7 @@ ns-must-have-gk                                6
 [gatekeeper-controller-manager]: https://charmhub.io/gatekeeper-controller-manager
 [prometheus-k8s]: https://charmhub.io/prometheus-k8s
 [grafana-agent-k8s]: https://charmhub.io/grafana-agent-k8s
-[storage-pools]: https://www.google.com/search?channel=fs&client=ubuntu&q=juju+storage-pool
+[storage-pools]: https://juju.is/docs/olm/defining-and-using-persistent-storage
 [quickstart]: https://ubuntu.com/kubernetes/docs/quickstart
 
 <!-- FEEDBACK -->
