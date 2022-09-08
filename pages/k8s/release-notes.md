@@ -14,6 +14,37 @@ toc: False
 ---
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
+# 1.25+ck1 Bugfix release 
+
+### September ??, 2022 - `charmed-kubernetes --channel 1.25/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[the launchpad milestone page for 1.25+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.25+ck1).
+
+- Metallb-Operators [LP#1988410](https://bugs.launchpad.net/bugs/1988410)
+
+With the [deprecation of PodSecurityPolicy](https://kubernetes.io/docs/concepts/security/pod-security-policy/) in Kubernetes 1.25 release
+the metallb operators (speaker and controller) both have had their PodSecurityPolicy attributes removed if the api endpoint does not
+support podsecuritypolicy. The same PSP resources are installed in a cluster pre 1.25, whereas they are removed 1.25+.
+
+- Kubernetes-Control-Plane / Vault relation [LP#1988448](https://bugs.launchpad.net/bugs/1988448)
+
+Fixes a race condition which can occur when a Vault unit couldn't reach it database backend and presents an unexpected error.
+The appropriate policy in this instance is to retry the vault connection until its database connection is available.
+
+- Kubernetes-Control-Plane / Google Cloud Platform [LP#1988867](https://bugs.launchpad.net/bugs/1988867)
+
+Fixes a race condition which can occur when applying a workaround in Google Cloud Platform installations where 
+a node's status condition regarding `type=NetworkUnavailable` isn't found.
+
+- Google Cloud Platform Integrator [LP#1988865](https://bugs.launchpad.net/bugs/1988865)
+
+Swap out the snap used by the charm from `google-cloud-sdk` to `google-cloud-cli`
+
 # 1.25
 
 ### September 1, 2022 - `charmed-kubernetes --channel 1.25/stable` 
