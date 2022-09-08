@@ -44,9 +44,7 @@ juju deploy ch:gatekeeper-controller-manager
 juju deploy ch:gatekeeper-audit
 ```
 
-### Troubleshooting
-
-#### Using RBAC
+### Using RBAC
 
 If using RBAC, you must deploy the charms using the `--trust` flag as the charm needs permissions
 in order to create the necessary resources:
@@ -55,9 +53,6 @@ in order to create the necessary resources:
 juju deploy --trust ch:gatekeeper-controller-manager
 juju deploy --trust ch:gatekeeper-audit
 ```
-
-#### Storage Pool
-
 
 ## Policies
 
