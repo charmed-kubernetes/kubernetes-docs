@@ -29,7 +29,7 @@ which resources are currently violating any given policy.
 The gatekeeper webhook and audit services exist in separate charms, you should deploy both of them.
 First you need to make sure that you have a **Charmed Kubernetes** environment set up and running.
 See the [quickstart][quickstart] if you haven't. The `gatekeeper-audit` charm requires storage so
-make sure your juju model has a registered [storage-pool][storage-pools].
+make sure your Juju model has a registered [storage-pool][storage-pools].
 
 Next, create a new Kubernetes model:
 
@@ -83,7 +83,7 @@ juju run-action {unit_name} -m {model_name} --wait get-violation constraint-temp
 
 ## Configuration
 
-Not much needs to be configured when running OPA gatekeeper. All configurations available are related to optimizing the auditting:
+Not much needs to be configured when running OPA gatekeeper. All configurations available are related to optimising the auditting:
 ```yaml
 audit-chunk-size:
   default: 500
@@ -102,7 +102,8 @@ constraint-violations-limit:
 ```
 
 # Metrics
-Both charms provide out of the box integration with the [prometheus-k8s][prometheus-k8s] and the [grafana-agent-k8s][grafana-agent-k8s] charms.
+Both charms provide out of the box integration with the [prometheus-k8s][prometheus-k8s] and
+the [grafana-agent-k8s][grafana-agent-k8s] charms.
 
 If you have those two charms deployed, you can integrate them with gatekeeper simply by running:
 
@@ -111,7 +112,7 @@ juju relate grafana-agent-k8s gatekeeper-controller-manager
 juju relate grafana-agent-k8s:send-remote-write prometheus-k8s:receive-remote-write
 ```
 
-This will provide you with metrics like how many requests were denied, how many were processed,
+This will provide you with metrics such as how many requests were denied, how many were processed,
 how many violations exist in the cluster, etc.
 
 ## Reconciliation
@@ -125,12 +126,19 @@ In that scenario you will need to reconcile (recreate) the resources by running:
 ```console
 juju run-action {unit_name} -m {model_name} reconcile-resources --wait
 ```
-> Warning: This will cause all the policies to be deleted as well, which means you will have to
+
+<div class="p-notification--caution">
+  <p markdown="1" class="p-notification__response">
+    <span class="p-notification__status">Warning:</span>
+This will cause all the policies to be deleted as well, which means you will have to
 reapply them.
+  </p>
+</div>
+
 
 ## Test the Gatekeeper charm
 
-To test the gatekeeper charms you can try applying the test policy available on the charms' repo:
+To test the gatekeeper charms you can try applying the test policy available on the charms' repository:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/charmed-kubernetes/opa-gatekeeper-operators/main/docs/policy-example.yaml
