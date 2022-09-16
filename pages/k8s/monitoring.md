@@ -57,9 +57,9 @@ relations:
   - [kubernetes-control-plane:grafana, grafana:dashboards]
   - [prometheus:certificates, easyrsa:client]
   - [kubernetes-worker:juju-info, telegraf:juju-info]
-  - [kubernetes-worker:scrape, prometheus:juju-info]
+  - [kubernetes-worker:scrape, prometheus:scrape]
   - [etcd:grafana, grafana:dashboards]
-  - [etcd:prometheus, prometheus:scrape]
+  - [etcd:prometheus, prometheus:manual-jobs]
 ```
 
 <div class="p-notification--information">
