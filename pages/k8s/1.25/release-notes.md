@@ -27,7 +27,7 @@ Notable fixes in this release include:
 
     With the [removal of PodSecurityPolicy](https://kubernetes.io/docs/concepts/security/pod-security-policy/)
     in Kubernetes 1.25, the metallb operators (speaker and controller) no longer include PSP-related podspec
-    rules if the api endpoint does not support PSP. Existing PSP rules from deployments < 1.25 will be removed
+    rules if the API endpoint does not support PSP. Existing PSP rules from deployments < 1.25 will be removed
     upon upgrade to 1.25+.
 
 - Kubernetes-Control-Plane / Vault relation [LP#1988448](https://bugs.launchpad.net/bugs/1988448)
