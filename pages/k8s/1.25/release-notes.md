@@ -12,6 +12,38 @@ permalink: 1.25/release-notes.html
 layout: [base, ubuntu-com]
 toc: False
 ---
+
+# 1.25+ck1 Bugfix release 
+
+### September 19, 2022 - `charmed-kubernetes --channel 1.25/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
+
+## Fixes
+
+Notable fixes in this release include:
+
+- Metallb-Operators [LP#1988410](https://bugs.launchpad.net/bugs/1988410)
+
+    With the [removal of PodSecurityPolicy](https://kubernetes.io/docs/concepts/security/pod-security-policy/)
+    in Kubernetes 1.25, the metallb operators (speaker and controller) no longer include PSP-related podspec
+    rules if the API endpoint does not support PSP. Existing PSP rules from deployments < 1.25 will be removed
+    upon upgrade to 1.25+.
+
+- Kubernetes-Control-Plane / Vault relation [LP#1988448](https://bugs.launchpad.net/bugs/1988448)
+
+    Fixes a race condition which can occur when a Vault unit loses connectivity with a related database.
+    Vault will now retry the connection until the database becomes available again.
+
+- Kubernetes-Control-Plane / Google Cloud Platform [LP#1988867](https://bugs.launchpad.net/bugs/1988867)
+
+    Fixes a race condition which can occur when applying configuration changes in Google Cloud Platform
+    deployments when the `NetworkUnavailable` index cannot be found in a node's status conditions.
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[the launchpad milestone page for 1.25+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.25+ck1).
+
+
 # 1.25
 
 ### September 1, 2022 - `charmed-kubernetes --channel 1.25/stable` 
