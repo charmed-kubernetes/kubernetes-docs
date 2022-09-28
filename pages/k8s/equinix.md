@@ -46,9 +46,10 @@ your auth token).
 
 
 ## Bootstrapping
-First one must bootstrap a juju controller within one of the equinix regions.
 
-For example, one could choose Dallas 'da' from the list of [equinix-facilities][]
+Bootstrap a Juju controller within one of the equinix regions.
+
+For example, to select  Dallas 'da' from the list of [equinix-facilities][]
 
 ```bash
 juju bootstrap equinix/da equinix-da \
