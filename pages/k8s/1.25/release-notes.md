@@ -37,7 +37,7 @@ Notable fixes in this release include:
 
 - GCP snap in GCP-Integrator [LP#1988865](https://bugs.launchpad.net/bugs/1988865)
 
-  The snap installed by the gcp-integrator charm to manage gcp resources collided with the sanp
+  The snap installed by the gcp-integrator charm to manage gcp resources collided with the snap
   automatically installed on new installations. The gcp-integrator charm will automatically
   remove the old snap (`google-cloud-sdk`) and install the correct one (`google-cloud-cli`) on upgrades.
 
