@@ -16,7 +16,7 @@ toc: False
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 # 1.25+ck2 Bugfix release 
 
-### September ??, 2022 - `charmed-kubernetes --channel 1.25/stable`
+### September 30, 2022 - `charmed-kubernetes --channel 1.25/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
 
