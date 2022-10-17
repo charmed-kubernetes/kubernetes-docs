@@ -27,7 +27,7 @@ Notable additions in this release include:
   Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
   provided by AWS is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/).
 
-  [aws-k8s-storage](https://charmhub.io/aws-k8s-storage) provides the out-of-tree deployment in charm.
+  [aws-k8s-storage](https://charmhub.io/aws-k8s-storage) provides the out-of-tree deployment as a charm.
 
 - GCE in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
 
