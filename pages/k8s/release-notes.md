@@ -33,22 +33,22 @@ more stuff
 ## Component Versions
 
 ### Charm/Addons pinned versions
-- kube-ovn ?????
-- calico ?????
-- cephcsi 3.5.1
-- cinder-csi-plugin 1.23.0
-- coredns 1.9.0
+- kube-ovn 1.10.4
+- calico 3.21.4
+- cephcsi 3.7.2
+- cinder-csi-plugin 1.25.3
+- coredns 1.9.4
 - ingress-nginx 1.2.0
-- k8s-keystone-auth 1.23.0
-- kube-state-metrics 2.4.2
-- kubernetes-dashboard 2.5.1
-- openstack-cloud-controller-manager 1.23.0
+- k8s-keystone-auth 1.25.3
+- kube-state-metrics 2.6.0
+- kubernetes-dashboard 2.7.0
+- openstack-cloud-controller-manager 1.25.3
 
 ### Charm default versions
-- cloud-provider-vsphere ?????
-- vsphere-csi-driver ?????
-- cloud-provider-azure ?????
-- azuredisk-csi-driver ?????
+- cloud-provider-vsphere 1.24
+- vsphere-csi-driver 2.6.0
+- cloud-provider-azure 1.25.0
+- azuredisk-csi-driver 1.23.0
  
 ## Fixes
 
