@@ -36,13 +36,20 @@ The 'App' section of the output lists each application and its version number. N
 
 ## Before you begin
 
+<div class="p-notification--warning is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Warning!:</span>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  - currently, only the latest <strong>2.9/stable</strong> version of Juju is recommended for use with Charmed Kubernetes. The later 3.0 versions of Juju introduce breaking changes and are not supported until a tested upgrade path is in place. If you have already installed a later version of the Juju client, you can revert to the supported channel by running <code> sudo snap refresh juju --channel=2.9/stable</code></p>
+  </div>
+</div>
+
 As with all upgrades, there is a possibility that there may be unforeseen difficulties. It is **highly recommended that you make a backup** of any important data, including any running workloads. For more details on creating backups, see the separate [documentation on backups][backups].
 
 You should also make sure:
 
 -   The machine from which you will perform the backup has sufficient internet access to retrieve updated software
 -   Your cluster is running normally
--   Your Juju client and controller/models are running the latest versions (see the [Juju docs][juju-controller-upgrade])
+-   Your Juju client and controller/models are running the 2.9/stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
 -   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.25 which may impact your workloads.
