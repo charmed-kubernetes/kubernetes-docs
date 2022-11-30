@@ -36,6 +36,11 @@ possible to configure traffic mirroring for Kube-OVN. When configured, Kube-OVN
 will mirror pod network traffic to a network interface on each Kubernetes node,
 making it easier to observe network traffic with tools such as tcpdump.
 
+- MetalLB architecture support
+
+The metallb-controller and metallb-speaker charms can now be deployed to amd64,
+arm, arm64, ppc64le, and s390x machines.
+
 ## Component Versions
 
 ### Charm/Addons pinned versions
