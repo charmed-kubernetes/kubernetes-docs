@@ -29,26 +29,28 @@ Kubernetes.
 
 Ubuntu 20.04 remains fully supported, but is no longer the default series.
 
-Ubuntu 18.04 is no longer supported.
+Ubuntu 18.04 is no longer supported. For existing clusters still running Ubuntu
+18.04, it is recommended to perform a series upgrade to Ubuntu 20.04 before
+upgrading to Charmed Kubernetes 1.26.
 
 - Kube-OVN BGP support
 
 The Kube-OVN charm's new `bgp-speakers` config option makes it possible to peer
 Kubernetes nodes with external BGP routers and exchange routing information for
 Kube-OVN subnets. This makes it possible to access pod IPs directly from
-external networks without the use of NAT.
+external networks.
 
 - Kube-OVN traffic mirroring
 
 The new `enable-global-mirror` and `mirror-iface` config options make it
 possible to configure traffic mirroring for Kube-OVN. When configured, Kube-OVN
 will mirror pod network traffic to a network interface on each Kubernetes node,
-making it easier to observe network traffic with tools such as tcpdump.
+making it easier to observe pod network traffic with tools such as tcpdump.
 
 - MetalLB architecture support
 
-The metallb-controller and metallb-speaker charms can now be deployed to amd64,
-arm, arm64, ppc64le, and s390x machines.
+The metallb-controller and metallb-speaker charms can now run on amd64, arm,
+arm64, ppc64le, and s390x hosts.
 
 ## Component Versions
 
