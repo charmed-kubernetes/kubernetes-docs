@@ -22,6 +22,15 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
+- Ubuntu 22.04 default series
+
+Ubuntu 22.04 is now the default series for new deployments of Charmed
+Kubernetes.
+
+Ubuntu 20.04 remains fully supported, but is no longer the default series.
+
+Ubuntu 18.04 is no longer supported.
+
 - Kube-OVN BGP support
 
 The Kube-OVN charm's new `bgp-speakers` config option makes it possible to peer
