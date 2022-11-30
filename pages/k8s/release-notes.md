@@ -22,13 +22,19 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-- item 1
+- Kube-OVN BGP support
 
-Some stuff about this
+The Kube-OVN charm's new `bgp-speakers` config option makes it possible to peer
+Kubernetes nodes with external BGP routers and exchange routing information for
+Kube-OVN subnets. This makes it possible to access pod IPs directly from
+external networks without the use of NAT.
 
-- item 2
+- Kube-OVN traffic mirroring
 
-more stuff
+The new `enable-global-mirror` and `mirror-iface` config options make it
+possible to configure traffic mirroring for Kube-OVN. When configured, Kube-OVN
+will mirror pod network traffic to a network interface on each Kubernetes node,
+making it easier to observe network traffic with tools such as tcpdump.
 
 ## Component Versions
 
