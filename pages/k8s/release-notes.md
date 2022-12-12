@@ -80,6 +80,8 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes and Known Issues
 
+A list of issues to be fixed in the first 1.26 maintenance release can be found at
+[the launchpad milestone page for 1.26+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.26+ck1).
 
 ## Deprecations and API changes
 
