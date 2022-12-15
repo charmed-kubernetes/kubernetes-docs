@@ -23,16 +23,16 @@ entries:
     items:
 
       
+    - title: '1.26'
+      url: /1.26/components
+      output: web, pdf
+
     - title: '1.25'
       url: /1.25/components
       output: web, pdf
 
     - title: '1.24'
       url: /1.24/components
-      output: web, pdf
-
-    - title: '1.23'
-      url: /1.23/components
       output: web, pdf
 
     - title: Version info

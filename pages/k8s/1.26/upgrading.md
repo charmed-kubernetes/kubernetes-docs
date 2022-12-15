@@ -3,53 +3,25 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Upgrading"
+  title: "Upgrading to 1.26"
   description: How to upgrade your version of Charmed Kubernetes.
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: 1.20/upgrading.html
+permalink: 1.26/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
 
-<!-- UPGRADE VERSIONS -->
-
-<div class="p-notification--warning">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-This page describes the general upgrade process. It is important to follow the specific upgrade pages for each release, as these may include additional steps and workarounds for safely upgrading. <br><br>
-<a class='p-button--brand' href='/kubernetes/docs/1.20/upgrading'>Upgrade to 1.20 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.19/upgrading'>Upgrade to 1.19 </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.18/upgrading'>Upgrade to 1.18 </a>
-  </p>
-</div>
-
-<!-- END OF UPGRADE VERSIONS-->
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-There is a known issue 
-<a href="https://bugs.launchpad.net/juju/+bug/1904619"> (https://bugs.launchpad.net/juju/+bug/1904619)</a>
-with container profiles not surviving an upgrade when deploying applications to LXD. If your 
-container-based applications fail to work properly after an upgrade, or you use the Juju `localhost` cloud,
- please see this 
-<a href="/kubernetes/docs/troubleshooting#lxd"> topic on the troubleshooting page</a>
-  </p>
-</div>
-
-
-
 It is recommended that you keep your **Kubernetes** deployment updated to the latest available stable version. You should also update the other applications which make up the **Charmed Kubernetes**. Keeping up to date ensures you have the latest bug-fixes and security patches for smooth operation of your cluster.
 
-New minor versions of **Kubernetes** are set to release once per quarter. You can check the latest release version on the [Kubernetes release page on GitHub][k8s-release]. **Charmed Kubernetes** is kept in close sync with upstream Kubernetes: updated versions will usually be released within a week of a new upstream version of **Kubernetes**.
+You can check the latest release version on the [Kubernetes release page on GitHub][k8s-release]. **Charmed Kubernetes** is kept in close sync with upstream Kubernetes: updated versions will be released within a week of a new upstream version of **Kubernetes**.
 
-<div class="p-notification--information">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Note:</span>
-<strong>Kubernetes</strong> will automatically handle patch releases. This means that the cluster will perform an unattended automatic upgrade between patch versions, e.g. 1.19.1 to 1.19.2. Attended upgrades are only required when you wish to upgrade a minor version, e.g. 1.18.x to 1.19.x.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message"><strong>Kubernetes</strong> will automatically handle patch releases. This means that the cluster will perform an unattended automatic upgrade between patch versions, e.g. 1.24.1 to 1.24.2. Attended upgrades are only required when you wish to upgrade a minor version, e.g. 1.22.x to 1.23.x.</p>
+  </div>
 </div>
 
 You can see which version of each application is currently deployed by running
@@ -64,19 +36,53 @@ The 'App' section of the output lists each application and its version number. N
 
 ## Before you begin
 
+<div class="p-notification--warning is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Warning!:</span>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  - currently, only the latest <strong>2.9/stable</strong> version of Juju is recommended for use with Charmed Kubernetes. The later 3.0 versions of Juju introduce breaking changes and are not supported until a tested upgrade path is in place. If you have already installed a later version of the Juju client, you can revert to the supported channel by running <code> sudo snap refresh juju --channel=2.9/stable</code></p>
+  </div>
+</div>
+
 As with all upgrades, there is a possibility that there may be unforeseen difficulties. It is **highly recommended that you make a backup** of any important data, including any running workloads. For more details on creating backups, see the separate [documentation on backups][backups].
 
 You should also make sure:
 
 -   The machine from which you will perform the backup has sufficient internet access to retrieve updated software
 -   Your cluster is running normally
--   Your Juju client and controller/models are running the latest versions (see the [Juju docs][juju-controller-upgrade])
+-   Your Juju client and controller/models are running the 2.9/stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.25 which may impact your workloads.
+
+It is also important to understand that **Charmed Kubernetes** will only upgrade
+and if necessary migrate, components relating specifically to elements of
+Kubernetes installed and configured as part of Charmed Kubernetes.
+This may not include any customised configuration of Kubernetes, or user
+generated objects (e.g. storage classes) or deployments which rely on
+deprecated APIs.
+
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message"><strong>The 'bionic' series (Ubuntu 18.04) is no longer supported:</strong> Support for bionic series charms in relation to Charmed Kubernetes has expired. If you are running charms on 'bionic', you will need to series upgrade the charms before completing the rest of the upgrade procedure.</p>
+  </div>
+</div>
+
+
+## Upgrading the Machine's Series (required for machines currently running 18.04(Bionic))
+
+All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/olm/manage-machines#heading--upgrade-the-ubuntu-series-of-a-machine).
+As each machine is upgraded, the applications on that machine will be stopped and the unit will
+go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
+from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
+from the pool until the upgrade is complete.
+
 
 ## Infrastructure updates
 
-The applications which run alongside the core Kubernetes components can be upgraded at any time. These applications are widely used and may frequently receive upgrades outside of the cycle of new releases of Kubernetes.
+The applications which run alongside the core Kubernetes components can be upgraded
+at any time. These applications are widely used and may frequently receive upgrades
+outside of the cycle of new releases of Kubernetes.
 
 This includes:
 
@@ -85,8 +91,8 @@ This includes:
 - etcd
 - flannel, calico or other CNI
 
-Note that this may include other applications which you may have installed, such as Elasticsearch, Prometheus, Nagios, Helm, etc.
-
+Note that this may include other applications which you may have installed, such as
+Elasticsearch, Prometheus, Nagios, Helm, etc.
 
 
 <a id='upgrading-containerd'> </a>
@@ -100,70 +106,6 @@ runtime. This subordinate charm can be upgraded with the command:
 juju upgrade-charm containerd
 ```
 
-<a id='upgrading-docker'> </a>
-
-### Upgrading Docker (if used)
-
-By default, versions of Charmed Kubernetes since 1.15 use the Containerd
-runtime. You will only need to upgrade the Docker runtime if you have
-explicitly set that to be the container runtime. If this is not the case, you
-should skip this section.
-
-**Charmed Kubernetes** will use the latest stable version of Docker when it is
-deployed. Since upgrading Docker can cause service disruption, there will be no
-automatic upgrades and instead this process must be triggered by the operator.
-
-Note that this upgrade step only applies to deployments which actually use the
-Docker container runtime. Versions 1.15 and later use containerd by default,
-and you should instead follow the [instructions above](#upgrading-containerd).
-
-#### Version 1.15 and later
-
-The `kubernetes-master` and `kubernetes-worker` are related to the docker subordinate
-charm where present. Whether you are running Docker on its own, or mixed with Containerd,
-the upgrade process is the same:
-
-```bash
-juju upgrade-charm docker
-```
-
-#### Versions prior to 1.15
-Only the `kubernetes-master` and `kubernetes-worker` units require Docker. The charms for each
-include an action to trigger the upgrade.
-
-Before the upgrade, it is useful to list all the units effected:
-
-```bash
-juju status kubernetes-* --format=short
-```
-
-...will return a list of the current `kubernetes-master` and `kubernetes-worker` units.
-
-Start with the `kubernetes-master` units and run the upgrade action on one unit at a time:
-
-```bash
-juju run-action kubernetes-master/0 upgrade-docker --wait
-```
-
-As Docker is restarted on the unit, pods will be terminated. Wait for them to respawn before
-moving on to the next unit:
-
-```bash
-juju run-action kubernetes-master/1 upgrade-docker --wait
-```
-
-Once all the `kubernetes-master` units have been upgraded and the pods have respawned, the
-same procedure can then be applied to the `kubernetes-worker` units.
-
-```bash
-juju run-action kubernetes-worker/0 upgrade-docker --wait
-```
-
-As previously, wait between running the action on sucessive units to allow pods to migrate.
-
-
-
-
 ### Upgrading etcd
 
 As **etcd** manages critical data for the cluster, it is advisable to create a snapshot of
@@ -175,8 +117,8 @@ this data before running an upgrade. This is covered in more detail in the
 ```bash
 juju run-action etcd/0 snapshot --wait
 ```
-You should see confirmation of the snapshot being created, and the command needed to download the snapshot  
-_from the **etcd** unit_. See the following truncated, example output:
+You should see confirmation of the snapshot being created, and the command needed to
+download the snapshot _from the **etcd** unit_. See the following truncated, example output:
 
 ```
 ...
@@ -195,7 +137,7 @@ juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.t
 ```
 
 Substitute in your own etcd unit number and filename, or copy and paste the command from the previous
-output. Remember to add the ` .` at the end to copy to your local directory! 
+output. Remember to add the ` .` at the end to copy to your local directory!
 
 
 #### 3. Upgrade the charm
@@ -282,21 +224,26 @@ The load balancer itself is based on NGINX, and the version reported by `juju st
 that of NGINX rather than Kubernetes. Unlike the other Kubernetes components, there
 is no need to set a specific channel or version for this charm.
 
-### Upgrading the **kubernetes-master** units
+### Upgrading the **kubernetes-control-plane** units
+
+**Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This has been updated
+to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
+originally installed version 1.23 or before, your units will follow the old naming scheme and you should
+substitute `kubernetes-control-plane`for `kubernetes-master`in the following commands.
 
 To start upgrading the Kubernetes master units, first upgrade the charm:
 
 ```bash
-juju upgrade-charm kubernetes-master
+juju upgrade-charm kubernetes-control-plane 
 ```
 
-Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.19 version of **Kubernetes**, you would enter:
+Once the charm has been upgraded, it can be configured to select the desired **Kubernetes** channel, which takes the form `Major.Minor/risk-level`. This is then passed as a configuration option to the charm. So, for example, to select the stable 1.25 version of **Kubernetes**, you would enter:
 
 ```bash
-juju config kubernetes-master channel=1.20/stable
+juju config kubernetes-control-plane channel=1.25/stable
 ```
 
-If you wanted to try a release candidate for 1.21, the channel would be `1.21/candidate`.
+If you wanted to try a release candidate for 1.26, the channel would be `1.26/candidate`.
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -310,28 +257,21 @@ currently active version of Kubernetes.
 Once the desired version has been configured, the upgrades should be performed. This is done by running the `upgrade` action on each master unit in the cluster:
 
 ```bash
-juju run-action kubernetes-master/0 upgrade
-juju run-action kubernetes-master/1 upgrade
+juju run-action kubernetes-control-plane/0 upgrade
+juju run-action kubernetes-control-plane/1 upgrade
 ```
 
-If you have more master units in your cluster, you should continue and run this process on every one of them.
+If you have more `kubernetes-control-plane` units in your cluster, you should continue and run this process on every one of them.
 
 You can check the progress of the upgrade by running:
 
 ```bash
-juju status | grep master
+juju status | grep kubernetes-control-plane
 ```
 
-Ensure that all the master units have upgraded and are reporting normal status before continuing to upgrade the worker units.
+Ensure that all the control plane units have upgraded and are reporting normal status before continuing to upgrade the worker units.
 
 ### Upgrading the **kubernetes-worker** units
-
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-    A <a href="https://github.com/kubernetes/kubernetes/issues/70044"> current bug in Kubernetes</a> could prevent the upgrade from properly deleting old pods. See the <a href="#known-issues"> Known issues section</a> at the bottom of this page.
-</p>
-</div>
 
 For a running cluster, there are two different ways to proceed:
 
@@ -414,16 +354,6 @@ juju run-action kubernetes-worker/1 upgrade
 ...
 ```
 
-<a id='upgrading-series'> </a>
-
-## Upgrading the Machine's Series
-
-All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/olm/manage-machines#heading--upgrade-the-ubuntu-series-of-a-machine).
-As each machine is upgraded, the applications on that machine will be stopped and the unit will
-go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
-from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
-from the pool until the upgrade is complete.
-
 <a id='verify-upgrade'> </a>
 
 ## Verify an Upgrade
@@ -438,59 +368,7 @@ juju status
 
 It is recommended that you run a [cluster validation][validation] to ensure that the cluster is fully functional.
 
-
-## Known Issues
-
-A [current bug](https://github.com/kubernetes/kubernetes/issues/70044) in Kubernetes could prevent the upgrade from properly deleting old pods. You can see such an issue here:
-
-```bash
-kubectl get po --all-namespaces
-```
-
-```
-NAMESPACE                         NAME                                                          READY   STATUS        RESTARTS   AGE
-default                           nginx-ingress-kubernetes-worker-controller-r8d2v              0/1     Terminating   0          17m
-ingress-nginx-kubernetes-worker   default-http-backend-kubernetes-worker-5d9bb77bc5-76c8w       1/1     Running       0          10m
-ingress-nginx-kubernetes-worker   nginx-ingress-controller-kubernetes-worker-5dcf47fc4c-q9mh6   1/1     Running       0          10m
-kube-system                       heapster-v1.6.0-beta.1-6db4b87d-phjvb                         4/4     Running       0          16m
-kube-system                       kube-dns-596fbb8fbd-bp8lz                                     3/3     Running       0          18m
-kube-system                       kubernetes-dashboard-67d4c89764-nwxss                         1/1     Running       0          18m
-kube-system                       metrics-server-v0.3.1-67bb5c8d7-x9nzx                         2/2     Running       0          17m
-kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvcm               2/2     Running       0          17m
-```
-
-In this case the  `nginx-ingress-kubernetes-worker-controller-r8d2v` has been stuck in the `Terminating` state for roughly 10 minutes. The workaround for such a problem is to force a deletion:
-
-```bash
-kubectl delete po/nginx-ingress-kubernetes-worker-controller-r8d2v --force --grace-period=0
-```
-
-This will result in output similar to the following:
-
-```
-warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
-pod "nginx-ingress-kubernetes-worker-controller-r8d2v" force deleted
-```
-
-You should verify that the pod has been sucessfully removed:
-
-```bash
-kubectl get po --all-namespaces
-```
-
-```
-NAMESPACE                         NAME                                                          READY   STATUS    RESTARTS   AGE
-ingress-nginx-kubernetes-worker   default-http-backend-kubernetes-worker-5d9bb77bc5-76c8w       1/1     Running   0          11m
-ingress-nginx-kubernetes-worker   nginx-ingress-controller-kubernetes-worker-5dcf47fc4c-q9mh6   1/1     Running   0          11m
-kube-system                       heapster-v1.6.0-beta.1-6db4b87d-phjvb                         4/4     Running   0          17m
-kube-system                       kube-dns-596fbb8fbd-bp8lz                                     3/3     Running   0          19m
-kube-system                       kubernetes-dashboard-67d4c89764-nwxss                         1/1     Running   0          19m
-kube-system                       metrics-server-v0.3.1-67bb5c8d7-x9nzx                         2/2     Running   0          18m
-kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvcm               2/2     Running   0          18m
-```
-
-
- <!--LINKS-->
+<!-- LINKS -->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
 [backups]: /kubernetes/docs/backups
@@ -501,15 +379,14 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
 [juju-controller-upgrade]: https://juju.is/docs/olm/upgrade-models
-
+[inclusive-naming]: /kubernetes/docs/inclusive-naming
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.25/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
-
