@@ -12,5 +12,4 @@ jobs:
     uses: charmed-kubernetes/workflows/.github/workflows/lint-unit.yaml@main
     name: "Generator: Unit Test"
     with:
-      python: "['3.7', '3.8', '3.9', '3.10']"
       working-directory: ./generator
