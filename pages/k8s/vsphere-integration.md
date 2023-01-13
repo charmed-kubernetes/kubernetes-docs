@@ -24,6 +24,57 @@ to directly use native vSphere features such as storage.
   </div>
 </div>
 
+## Upgrading from 1.25 to 1.26
+
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">vSphere CSI Migration requires vSphere 7.0u2. If you have in-tree vSphere volumes you should update to this version. On the other hand, if you do not need to migrate in-tree vSphere volumes you can use vSphere 67u3 and above. More information about the requirements may be found in the <a href="https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-D4AAD99E-9128-40CE-B89C-AD451DA8379D.html#GUID-E59B13F5-6F49-4619-9877-DF710C365A1E" >vSphere documentation</a>.</p>
+  </div>
+</div>
+
+vSphere has migrated to the out-of-tree provider and the legacy in-tree provider is marked for
+deprecation. Nevertheless, it is possible to migrate the workload volumes provisioned with the
+in-tree provider to the new out-of-tree provider. Follow the instructions below to prepare to
+migrate the volumes:
+
+
+### 1. Enable privileged containers support
+
+The new out-of-tree provider requires privileged containers. Please ensure that your Kubernetes
+cluster supports this. You can enable this feature using:
+
+```bash
+juju config kubernetes-control-plane allow-privileged=true
+```
+
+### 2. Install vSphere Cloud Provider
+Install the vSphere Cloud Provider charm and relate it to the required components. Follow the
+instructions in the [vsphere-cloud-provider][] charm documentation.
+
+### 3. Prepare kube-controller and kubelet
+
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">In case you have other flags enabled on these components, remember to add the following flags to the existing configuration.</p>
+  </div>
+</div>
+
+
+To enable volume migration you must add the CSIMigration and CSIMigrationvSphere flags in
+kube-controller and kubelet options of the Kubernetes Control Plane. You can do this via
+Juju using:
+
+```bash
+juju config kubernetes-control-plane controller-manager-extra-args="feature-gates=CSIMigration=true,CSIMigrationvSphere=true"
+juju config kubernetes-control-plane kubelet-extra-config="{featureGates: {CSIMigration: true,CSIMigrationvSphere: true}}"
+```
+
+### 4. vSphere in-tree volume migrations
+
+Now you can follow the instructions in the vSphere documentation about [Migrating In-Tree vSphere volumes][].
+
 ## vSphere Cloud Provider
 
 The `vsphere-cloud-provider` charm allows **Charmed Kubernetes** to connect to the vSphere API 
@@ -212,7 +263,7 @@ please see the [vSphere Cloud Provider charm page][vsphere-cloud-provider].
 <!-- LINKS -->
 
 [asset-vsphere-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/vsphere-overlay.yaml
-
+[Migrating In-Tree vSphere volumes]: https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-968D421F-D464-4E22-8127-6CB9FF54423F.html
 [storage]: /kubernetes/docs/storage
 [vsphere-cloud-provider]: https://charmhub.io/vsphere-cloud-provider/docs
 [vsphere-juju]: https://juju.is/docs/olm/vmware-vsphere
