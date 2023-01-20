@@ -250,13 +250,6 @@ Ensure that all the control plane units have upgraded and are reporting normal s
 
 ### Upgrading the **kubernetes-worker** units
 
-<div class="p-notification--caution">
-  <p markdown="1" class="p-notification__response">
-    <span class="p-notification__status">Caution:</span>
-    A <a href="https://github.com/kubernetes/kubernetes/issues/70044"> current bug in Kubernetes</a> could prevent the upgrade from properly deleting old pods. See the <a href="#known-issues"> Known issues section</a> at the bottom of this page.
-</p>
-</div>
-
 For a running cluster, there are two different ways to proceed:
 
 - [Blue-green][blue-green] upgrade - This requires more resources, but should ensure a safe, zero-downtime transition of workloads to an updated cluster
