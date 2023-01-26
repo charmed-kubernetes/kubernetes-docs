@@ -14,7 +14,7 @@ toc: False
 ---
 
 This page provides an overview of various aspects of security to be considered
-when operation a **Charmed Kubernetes** cluster. To consider security properly,
+when operating a **Charmed Kubernetes** cluster. To consider security properly,
 this means not just aspects of Kubernetes itself, but also how and where
 it is installed and operated.
 
