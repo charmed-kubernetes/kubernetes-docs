@@ -294,7 +294,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: Using the OPA Gatekeeper charm
+    - title: OPA Gatekeeper
       url: /gatekeeper
       output: web, pdf
       type: page
