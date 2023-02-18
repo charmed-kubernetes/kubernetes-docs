@@ -978,7 +978,7 @@ Please see [this page][historic] for release notes of earlier versions.
 [ipv6]: /kubernetes/docs/ipv6
 [cni-sriov]: /kubernetes/docs/cni-sriov
 [authn]: /kubernetes/docs/auth#authn
-[veth-mtu]: https://docs.projectcalico.org/networking/mtu
+[veth-mtu]: https://docs.tigera.io/calico/3.25/networking/configuring/mtu
 [1.19-calico]: /kubernetes/docs/1.19/charm-calico
 [upgrade-notes]: /kubernetes/docs/upgrade-notes
 [historic]: /kubernetes/docs/release-notes-historic
