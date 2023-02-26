@@ -14,13 +14,13 @@ toc: False
 ---
 
 
-# 1.25+ck2 Bugfix release
+# 1.25+ck3 Bugfix release
 
-### December 1, 2022
+### December 1, 2022 - `charmed-kubernetes --channel 1.25/stable`
 
-## Additions
+## Fixes
 
-Notable additions in this release include:
+Notable fixes in this release include:
 
 - Kubernetes Control Plane [LP#1991957](https://bugs.launchpad.net/bugs/1991957)
 
@@ -31,31 +31,6 @@ Notable additions in this release include:
 
   Resolves an issue deploying the charm into a jammy lxd container, where a missing
   path definition to `/etc/fstab` interrupted the configure kubelet hook.
-
-
-# 1.25 Point Release
-
-### October ??, 2022
-
-## Additions
-
-Notable additions in this release include:
-
-- AwsEbs in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
-
-  With the pinning of [CSIMigrationAWS=True](https://github.com/kubernetes/kubernetes/pull/111479) in 
-  Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
-  provided by AWS is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/).
-
-  [aws-k8s-storage](https://charmhub.io/aws-k8s-storage) provides the out-of-tree deployment as a charm.
-
-- GCE in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
-
-  With the pinning of [CSIMigrationGCE=True](https://github.com/kubernetes/kubernetes/pull/111301) in 
-  Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
-  provided by GCE is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver).
-
-  [gcp-k8s-storage](https://charmhub.io/gcp-k8s-storage) provides the out-of-tree deployment as a charm.
 
 
 # 1.25+ck2 Bugfix release 
@@ -88,6 +63,21 @@ Notable fixes in this release include:
 
   Bug is marked resolved in 1.25+ck2, but was available in the gcp-integrator charm at time of 1.25+ck1 release.
 
+- AwsEbs in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
+
+  With the pinning of [CSIMigrationAWS=True](https://github.com/kubernetes/kubernetes/pull/111479) in 
+  Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
+  provided by AWS is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/).
+
+  [aws-k8s-storage](https://charmhub.io/aws-k8s-storage) provides the out-of-tree deployment as a charm.
+
+- GCE in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
+
+  With the pinning of [CSIMigrationGCE=True](https://github.com/kubernetes/kubernetes/pull/111301) in 
+  Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
+  provided by GCE is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver).
+
+  [gcp-k8s-storage](https://charmhub.io/gcp-k8s-storage) provides the out-of-tree deployment as a charm.
 
 A list of bug fixes and other minor feature updates in this release can be found at
 [the launchpad milestone page for 1.25+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.25+ck2).
