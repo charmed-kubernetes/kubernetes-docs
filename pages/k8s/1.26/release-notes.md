@@ -1,4 +1,3 @@
-
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
