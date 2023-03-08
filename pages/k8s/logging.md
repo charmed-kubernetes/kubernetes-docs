@@ -213,7 +213,7 @@ To use this overlay with the **Charmed Kubernetes** bundle, specify it
 during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes logging-egf-overlay.yaml
+juju deploy charmed-kubernetes --overlay logging-egf-overlay.yaml
 ```
 
 If you wish to add Graylog logging to an existing deployment, you can export a
