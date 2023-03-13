@@ -260,7 +260,7 @@ The openstack-integrator is not specifically tied to the version of Charmed Kube
 generally be upgraded at any time with the following command:
 
 ```bash
-juju upgrade-charm openstack-integrator
+juju refresh openstack-integrator
 ```
 
 ### Troubleshooting

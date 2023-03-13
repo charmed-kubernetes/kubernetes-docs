@@ -153,11 +153,10 @@ pushed. As an example, push the `defaultbackend-amd64` image to
 `docker-registry`:
 
 ```bash
-juju run-action docker-registry/0 \
+juju run docker-registry/0 \
   push \
   image=k8s.gcr.io/defaultbackend-amd64:1.5 \
   tag=$REGISTRY/defaultbackend-amd64:1.5 \
-  --wait
 ...
   results:
     outcome: success

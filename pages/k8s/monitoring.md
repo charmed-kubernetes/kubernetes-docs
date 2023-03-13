@@ -92,7 +92,7 @@ To open the dashboard in your browser you will need to know the URL and login
 credentials for Grafana. These can be retrieved with the following command:
 
 ```bash
-juju run-action --wait grafana/0 get-login-info
+juju run grafana/0 get-login-info
 ```
 
 This will return the connection and login information, like the following:

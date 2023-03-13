@@ -164,7 +164,7 @@ To deploy 3 replicas of the microbot web application inside the Kubernetes
 cluster run the following command:
 
 ```bash
-juju run-action kubernetes-worker/0 microbot replicas=3 --wait
+juju run kubernetes-worker/0 microbot replicas=3
 ```
 
 This should result, after a few moments, in output similar to the following (Your FQDN
@@ -248,7 +248,7 @@ done using the microbot application you can delete them from the pods with
 one Juju action:
 
 ```bash
-juju run-action kubernetes-worker/0 microbot delete=true
+juju run kubernetes-worker/0 microbot delete=true
 ```
 
 If you no longer need Internet access to your workers, remember to unexpose the

@@ -249,7 +249,7 @@ The aws-integrator is not specifically tied to the version of Charmed Kubernetes
 generally be upgraded at any time with the following command:
 
 ```bash
-juju upgrade-charm aws-integrator
+juju refresh aws-integrator
 ```
 
 ### Troubleshooting

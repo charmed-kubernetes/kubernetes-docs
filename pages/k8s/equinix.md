@@ -365,7 +365,7 @@ EOY
 Note: in some Equinix Metal facilities it is required to define a static route on each Kubernetes Worker node to allow the traffic to the workloads exposed via the Load Balancer to go via proper gateway:
 
 ```bash
-juju run --application kubernetes-worker,kubernetes-control-plane '
+juju exec --application kubernetes-worker,kubernetes-control-plane '
   apt install jq -y
   GATEWAY_IP=$(curl https://metadata.platformequinix.com/metadata | jq -r ".network.addresses[] | select(.public == false) | .gateway")
   PEERS=$(curl https://metadata.platformequinix.com/metadata | jq -r ".bgp_neighbors[0].peer_ips[]")

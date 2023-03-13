@@ -287,7 +287,7 @@ The gcp-integrator is not specifically tied to the version of **Charmed Kubernet
 generally be upgraded at any time with the following command:
 
 ```bash
-juju upgrade-charm gcp-integrator
+juju refresh gcp-integrator
 ```
 
 ### Troubleshooting

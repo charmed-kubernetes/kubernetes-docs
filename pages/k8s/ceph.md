@@ -76,7 +76,7 @@ juju config kubernetes-control-plane allow-privileged=true
 And finally, you need the pools that are defined in the storage class:
 
 ```bash
-juju run-action ceph-mon/0 create-pool name=xfs-pool --wait
+juju run ceph-mon/0 create-pool name=xfs-pool
 ```
 
 ```yaml
@@ -91,7 +91,7 @@ unit-ceph-mon-0:
 ```
 
 ```bash
-juju run-action ceph-mon/0 create-pool name=ext4-pool --wait
+juju run ceph-mon/0 create-pool name=ext4-pool
 ```
 
 ```yaml
