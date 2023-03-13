@@ -143,8 +143,8 @@ juju deploy -n 3 mysql-innodb-cluster
 juju deploy mysql-router vault-mysql-router
 juju deploy vault
 juju config vault auto-generate-root-ca-cert=true
-juju add-relation mysql-innodb-cluster:db-router vault-mysql-router:db-router
-juju add-relation vault-mysql-router:shared-db vault:shared-db
+juju integrate mysql-innodb-cluster:db-router vault-mysql-router:db-router
+juju integrate vault-mysql-router:shared-db vault:shared-db
 ```
 
 Unseal **Vault** as described earlier in this document.
@@ -152,16 +152,16 @@ Unseal **Vault** as described earlier in this document.
 Relate **Vault** to etcd:
 
 ```bash
-juju add-relation vault:certificates etcd:certificates
+juju integrate vault:certificates etcd:certificates
 ```
 
 Wait a few minutes for the cluster to settle, with all units showing as active
 and idle. Then relate **Vault** to Kubernetes:
 
 ```bash
-juju add-relation vault:certificates kubeapi-load-balancer:certificates
-juju add-relation vault:certificates kubernetes-control-plane:certificates
-juju add-relation vault:certificates kubernetes-worker:certificates
+juju integrate vault:certificates kubeapi-load-balancer:certificates
+juju integrate vault:certificates kubernetes-control-plane:certificates
+juju integrate vault:certificates kubernetes-worker:certificates
 ```
 
 Wait a few minutes for the cluster to settle, and ensure that all services and
@@ -226,7 +226,7 @@ with **Vault** unsealed and everything functioning, you can then transition
 **Vault** to HA mode with the following commands:
 
 ```bash
-juju add-relation vault:etcd etcd:db
+juju integrate vault:etcd etcd:db
 juju add-unit vault
 ```
 

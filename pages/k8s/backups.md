@@ -106,8 +106,8 @@ juju run new-etcd/0 restore
 Once the restore action has finished, you should see output confirming that the operation is `completed`. The new etcd application will need to be connected to the rest of the deployment:
 
 ```bash
-juju add-relation new-etcd [calico|flannel|$cni]
-juju add-relation new-etcd kubernetes-control-plane
+juju integrate new-etcd [calico|flannel|$cni]
+juju integrate new-etcd kubernetes-control-plane
 ```
 
 To restore the cluster capabilities of etcd, you can now add more units:

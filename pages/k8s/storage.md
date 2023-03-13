@@ -60,7 +60,7 @@ Note that actually deploying these charms with storage may take some time, but y
 The `ceph-osd` and `ceph-mon` deployments should then be connected:
 
 ```bash
-juju add-relation ceph-osd ceph-mon
+juju integrate ceph-osd ceph-mon
 ```
 
 If you wish to include CephFS support, which allows for ReadWriteMany volumes,
@@ -68,7 +68,7 @@ you can also deploy and relate `ceph-fs`:
 
 ```bash
 juju deploy -n1 ceph-fs
-juju add-relation ceph-fs ceph-mon
+juju integrate ceph-fs ceph-mon
 ```
 
 **Charmed Kubernetes** will then deploy the CephFS provisioner pod
@@ -109,7 +109,7 @@ initContainers:
 Making **Charmed Kubernetes** aware of your **Ceph** cluster requires a **Juju** relation.
 
 ```bash
-juju add-relation ceph-mon:client kubernetes-control-plane
+juju integrate ceph-mon:client kubernetes-control-plane
 ```
 
 ### Create storage pools
