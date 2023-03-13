@@ -5,7 +5,7 @@ Generate charmed-kubernetes documentation pages
 
 ```bash
 pushd generator
-RELEASE=1.24 tox -e run
+RELEASE=1.26 tox -e generate
 popd
 ```
 
