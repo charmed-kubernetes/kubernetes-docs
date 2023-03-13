@@ -65,10 +65,16 @@ It may take some moments for these relations to establish. Once the connections 
 The tests are configured as a **Juju** _action_. To run the default tests:
 
 ```bash
-juju run kubernetes-e2e/0 test
+juju run kubernetes-e2e/0 test --background
 ```
 
 The command will return with a number for that specific action operation. 
+```console
+Scheduled operation 25 with task 26
+Check operation status with 'juju show-operation 25'
+Check task status with 'juju show-task 26'
+```
+
 See the section on _Test output_ below for details.
 
 ## Running specific tests
@@ -82,7 +88,7 @@ By default, the standard tests marked `[Flaky]` or `[Serial]` are skipped. To
 also omit the tests marked as `[Slow]`, you could run:
 
 ```bash
-juju run kubernetes-e2e/0 test skip='\[(Flaky|Slow|Serial)\]'
+juju run kubernetes-e2e/0 test skip='\[(Flaky|Slow|Serial)\]'  --background
 ```
 
 Note that the brackets for the regex need to be escaped as shown.
