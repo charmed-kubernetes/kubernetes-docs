@@ -110,7 +110,7 @@ kubernetes-control-plane unit will have a user named `aws-iam-user` that uses th
 First, copy the config:
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 The config file will need to be edited in order to add the desired

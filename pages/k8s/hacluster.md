@@ -60,7 +60,7 @@ kubeconfig file will be created containing the virtual IP addresses. You will
 need to replace your kubeconfig with the new one:
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 <!-- LINKS -->

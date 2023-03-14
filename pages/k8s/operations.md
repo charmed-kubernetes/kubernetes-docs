@@ -37,7 +37,7 @@ as soon as the installation has settled. You should use the following command to
 **.kube** directory if it was not created after kubectl installation):
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 <div class="p-notification--caution is-inline">

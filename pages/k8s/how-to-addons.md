@@ -57,7 +57,7 @@ the configurations rather than replacing it. The following command fetches the
 config file for `kubectl` from the Kubernetes cluster and saves it to the default location:
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 #### 4. Add the Kubernetes cluster to Juju

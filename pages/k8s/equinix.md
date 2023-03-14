@@ -235,7 +235,7 @@ juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml
 When the deployment has settled, remember to fetch the configuration file!
 
 ```bash
-juju scp --proxy kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 You can check the status by running:

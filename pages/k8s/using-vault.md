@@ -178,7 +178,7 @@ You will need to re-download the `kubectl` config file,
 since it contains the certificate info for connecting to the cluster:
 
 ```bash
-juju scp kubernetes-control-plane/leader:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 <div class="p-notification--caution is-inline">
