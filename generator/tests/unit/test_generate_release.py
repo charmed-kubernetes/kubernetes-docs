@@ -5,6 +5,7 @@ import pytest
 import unittest.mock as mock
 import k8s_docs_tools.generate_release as generator
 from types import SimpleNamespace
+from typing import Mapping
 
 
 @pytest.fixture(autouse=True)
@@ -20,6 +21,33 @@ def test_gh(github_client):
 
 def test_ver_to_tuple():
     assert generator._ver_to_tuple("1.2.3.4") == (1, 2, 3, 4)
+
+
+@pytest.mark.parametrize(
+    "ranges,expected",
+    [
+        ({"min": "0.12", "max": "0.15"}, True),
+        ({"min": "0.14", "max": "0.15"}, False),
+        ({"min": "0.12"}, True),
+        ({"min": "0.14"}, False),
+        ({"max": "0.15"}, True),
+        ({"max": "0.12"}, False),
+        ({"foo": "bar"}, True),
+        (None, True),
+    ],
+    ids=[
+        "within_min_and_max",
+        "outside_min_and_max",
+        "after_min",
+        "before_min",
+        "before_max",
+        "after_max",
+        "neither_ranges",
+        "missing_ranges",
+    ],
+)
+def test_within_channel_range(ranges: Mapping, expected: bool):
+    assert generator.within_channel_range("0.13", ranges) is expected
 
 
 def test_ReleaseBundle():
@@ -56,7 +84,7 @@ def test_get_charms(github_client, contents, expected):
     get_contents = get_repo.return_value.get_contents
     charm_matrix_file = get_contents.return_value
     charm_matrix_file.decoded_content = contents
-    assert generator.get_charms() == expected
+    assert generator.get_charms("0.13") == expected
     get_repo.assert_called_once_with("charmed-kubernetes/jenkins")
     get_contents.assert_called_once_with(
         "jobs/includes/charm-support-matrix.inc", ref="main"
@@ -92,7 +120,7 @@ def test_get_containers_match_release(github_client):
 def test_generate_component_page(mock_get_containers, mock_get_charms, tmpdir):
     pw = generator.PageWriter("0.13", Path(tmpdir))
     pw.generate_component_page()
-    mock_get_charms.assert_called_with()
+    mock_get_charms.assert_called_with("0.13")
     mock_get_containers.assert_called_with("0.13")
 
 

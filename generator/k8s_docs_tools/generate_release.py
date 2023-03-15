@@ -6,7 +6,7 @@ import os
 import re
 from pathlib import Path
 from subprocess import check_output
-from typing import List
+from typing import List, Mapping
 from urllib.request import urlopen
 
 import semver
@@ -27,6 +27,21 @@ def gh():
 
 def _ver_to_tuple(ver):
     return tuple(int(i) for i in ver.split("."))
+
+
+def within_channel_range(ersion: str, ranges: Mapping[str, str]):
+    if ranges is None:
+        return True
+    rel = _ver_to_tuple(ersion)
+    _min = ranges.get("min")
+    _max = ranges.get("max")
+    if _min and _max:
+        return _ver_to_tuple(_min) <= rel <= _ver_to_tuple(_max)
+    elif _min:
+        return _ver_to_tuple(_min) <= rel
+    elif _max:
+        return rel <= _ver_to_tuple(_max)
+    return True
 
 
 @dataclass
@@ -57,7 +72,7 @@ class Charm:
         return self.name < other.name
 
 
-def get_charms():
+def get_charms(ersion: str):
     jenkins = gh().get_repo("charmed-kubernetes/jenkins")
     charm_matrix_file = jenkins.get_contents(
         "jobs/includes/charm-support-matrix.inc", ref="main"
@@ -70,6 +85,7 @@ def get_charms():
             for matrix in charm_matrix
             for name, c in matrix.items()
             if all(field in c for field in charm_fields)
+            and within_channel_range(ersion, c.get("channel-range"))
         ]
     )
 
@@ -143,7 +159,7 @@ class PageWriter:
         component_tmp = self.env.get_template("component.j2")
         context = dict(
             release=self.version,
-            charms=get_charms(),
+            charms=get_charms(self.version),
             containers=get_containers(self.version),
         )
         output.write(component_tmp.render(**context))
