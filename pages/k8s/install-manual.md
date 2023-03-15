@@ -215,12 +215,20 @@ juju deploy charmed-kubernetes
 ```
 
 It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.24
+revision number. This makes use of the `channel` argument to select the desired version and risk level. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.25
 release, you could run:
 
 ```bash
-juju deploy cs:charmed-kubernetes-1154
+juju deploy --channel=1.25/stable
 ```
+
+This also applies to channels which have not yet had a stable release, for example:
+
+```bash
+juju deploy --channel=1.27/beta
+```
+
+
 
 The revision numbers for bundles are generated automatically when the bundle is
 updated, including for testing and beta versions, so it isn't always the case
@@ -249,7 +257,7 @@ versions of the **Charmed Kubernetes** bundle are shown in the table below:
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-Only the latest three versions of Charmed Kubernetes are supported at any time.
+Only the latest three stable versions of Charmed Kubernetes are supported at any time.
   </p>
 </div>
 
