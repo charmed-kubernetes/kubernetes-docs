@@ -13,6 +13,39 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.26+ck3 Bugfix release
+
+### March 20, 2023 - `charmed-kubernetes --channel 1.26/stable`
+
+## Fixes
+
+Notable fixes in this release include:
+
+- Kubernetes Control Plane [LP#1989362](https://bugs.launchpad.net/bugs/1989362)
+
+  Resolves a hook error when related to vault but the vault api endpoint is not ready
+
+- Kubernetes Control Plane [LP#1999542](https://bugs.launchpad.net/bugs/1999542)
+
+  Resolves an issue where the charm incorrectly presumes a one-time vault token has
+  been used successfully to create a secret.
+
+- ETCD [LP#2008267](https://bugs.launchpad.net/bugs/2008267)
+
+  Resolves a race-condition which occurs when etcd sends cluster information
+  before its api endpoint is available, causing both it and calico to stall
+  during deployment.
+
+- Vsphere Cloud Provider [LP#2010233](https://bugs.launchpad.net/bugs/2010233)
+
+  Resolves an issue where the sync-manifest action could result in pods described
+  with the wrong image.
+
+- Vsphere Cloud Provider [LP#2009965](https://bugs.launchpad.net/bugs/2009965)
+
+  Resolves an issue where the charm is stuck in Maintenance state after running
+  a sync-manifest action.
+
 # 1.26+ck2 Bugfix release
 
 ### February 27, 2023 - `charmed-kubernetes --channel 1.26/stable`

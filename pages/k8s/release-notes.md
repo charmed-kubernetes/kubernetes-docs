@@ -14,6 +14,65 @@ toc: False
 ---
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
+# 1.26+ck3 Bugfix release
+
+### March 20, 2023 - `charmed-kubernetes --channel 1.26/stable`
+
+## Fixes
+
+Notable fixes in this release include:
+
+- Kubernetes Control Plane [LP#1989362](https://bugs.launchpad.net/bugs/1989362)
+
+  Resolves a hook error when related to vault but the vault api endpoint is not ready
+
+- Kubernetes Control Plane [LP#1999542](https://bugs.launchpad.net/bugs/1999542)
+
+  Resolves an issue where the charm incorrectly presumes a one-time vault token has
+  been used successfully to create a secret.
+
+- ETCD [LP#2008267](https://bugs.launchpad.net/bugs/2008267)
+
+  Resolves a race-condition which occurs when etcd sends cluster information
+  before its api endpoint is available, causing both it and calico to stall
+  during deployment.
+
+- Vsphere Cloud Provider [LP#2010233](https://bugs.launchpad.net/bugs/2010233)
+
+  Resolves an issue where the sync-manifest action could result in pods described
+  with the wrong image.
+
+- Vsphere Cloud Provider [LP#2009965](https://bugs.launchpad.net/bugs/2009965)
+
+  Resolves an issue where the charm is stuck in Maintenance state after running
+  a sync-manifest action.
+
+
+# 1.26+ck2 Bugfix release
+
+### February 27, 2023 - `charmed-kubernetes --channel 1.26/stable`
+
+## Fixes
+
+Notable fixes in this release include:
+
+- Kubernetes Autoscaler [LP#2007182](https://bugs.launchpad.net/charm-kubernetes-autoscaler/+bug/2007182)
+
+  Update the autoscaler image for use with newer Juju controllers.
+
+- Etcd [LP#1997531](https://bugs.launchpad.net/charm-etcd/+bug/1997531)
+
+  Restrict non-root access to etcd snap data directory.
+
+- Kubernetes Control Plane [LP#2007174](https://bugs.launchpad.net/bugs/2007174)
+
+  Restrict non-root access to the script responsible for synchronizing control-plane leader files to followers.
+
+- Bundles [LP#](https://bugs.launchpad.net/charmed-kubernetes-bundles/+bug/2008582)
+
+  Add missing bundle overlays for AWS/GCE cloud storage providers.
+
+
 # 1.26+ck1 Bugfix release
 
 ### January 16, 2022 - `charmed-kubernetes --channel 1.26/stable` 
