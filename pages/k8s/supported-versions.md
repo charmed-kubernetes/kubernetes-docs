@@ -35,35 +35,14 @@ individual charms. To deploy the latest, stable bundle, run the command:
 juju deploy charmed-kubernetes
 ```
 
-It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.23
+It is also possible to deploy a specific version of the bundle by including the `--channel` argument. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.25
 release, you could run:
 
 ```bash
-juju deploy cs:charmed-kubernetes-862
+juju deploy charmed-kubernetes --channel=1.25
 ```
 
-The revision numbers for bundles are generated automatically when the bundle is
-updated, including for testing and beta versions, so it isn't always the case
-that a higher revision number is 'better'. The revision numbers for the release
-versions of the **Charmed Kubernetes** bundle are shown in the table below:
-
-<a  id="table"></a>
-
-| Kubernetes version | Charmed Kubernetes bundle |
-| --- | --- |
-| 1.25.x    | [charmed-kubernetes-1185](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml) |
-| 1.24.x    | [charmed-kubernetes-1154](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml) |
-| 1.23.x    | [charmed-kubernetes-862](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.23/bundle.yaml) |
-| 1.22.x    | [charmed-kubernetes-814](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.22/bundle.yaml) |
-| 1.21.x    | [charmed-kubernetes-733](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.21/bundle.yaml) |
-| 1.20.x    | [charmed-kubernetes-596](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.20/bundle.yaml) |
-| 1.19.x    | [charmed-kubernetes-545](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.19/bundle.yaml) |
-| 1.18.x    | [charmed-kubernetes-485](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.18/bundle.yaml) |
-| 1.17.x    | [charmed-kubernetes-410](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.17/bundle.yaml) |
-| 1.16.x    | [charmed-kubernetes-316](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.16/bundle.yaml) |
-| 1.15.x    | [charmed-kubernetes-209](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.15/bundle.yaml) |
-| 1.14.x    | [charmed-kubernetes-124](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.14/bundle.yaml) |
+It is still possible to deploy older, unsupported versions of Charmed Kubernetes. Older bundle files are available for download in the [releases][] directory of the Charmed Kubernetes repository. These can be downloaded and deployed with Juju as with any local bundle file. 
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -87,7 +66,7 @@ the latest three stable versions are officially supported:
 ```no-highlight
 name:      kube-apiserver
 summary:   Kubernetes control plane component that exposes the Kubernetes API.
-publisher: Canonical[32m✓[0m
+publisher: Canonical
 store-url: https://snapcraft.io/kube-apiserver
 contact:   https://www.ubuntu.com/kubernetes
 license:   Apache-2.0
@@ -212,6 +191,7 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 <!-- LINKS -->
 [support]: /support
 [managed]: /kubernetes/managed
+[releases]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
