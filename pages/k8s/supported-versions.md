@@ -35,14 +35,18 @@ individual charms. To deploy the latest, stable bundle, run the command:
 juju deploy charmed-kubernetes
 ```
 
-It is also possible to deploy a specific version of the bundle by including the `--channel` argument. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.25
-release, you could run:
+It is also possible to deploy a specific version of the bundle by including
+the `--channel` argument. For example, to deploy the **Charmed Kubernetes**
+bundle for the Kubernetes 1.25 release, you could run:
 
 ```bash
 juju deploy charmed-kubernetes --channel=1.25
 ```
 
-It is still possible to deploy older, unsupported versions of Charmed Kubernetes. Older bundle files are available for download in the [releases][] directory of the Charmed Kubernetes repository. These can be downloaded and deployed with Juju as with any local bundle file. 
+It is still possible to deploy older, unsupported versions of Charmed Kubernetes.
+Older bundle files are available for download in the [releases][] directory of
+the Charmed Kubernetes repository. These can be downloaded and deployed with
+Juju as with any local bundle file.
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
@@ -50,7 +54,6 @@ It is still possible to deploy older, unsupported versions of Charmed Kubernetes
 Only the latest three versions of Charmed Kubernetes are supported at any time.
   </p>
 </div>
-
 
 ## Finding version info
 
