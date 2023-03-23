@@ -209,13 +209,18 @@ from an internet connected machine:
 1. Download the installable bundles, charms, snaps, and containers using [Shrinkwrap][cdk-shrinkwrap]
 1. Pull the archive for the deployment
 
-```bash
-git clone https://github.com/charmed-kubernetes/cdk-shrinkwrap.git /tmp/.shrinkwrap
-cd /tmp/.shrinkwrap
-BUNDLE='charmed-kubernetes --channel=1.26/stable'       # Choose a deployment bundle (example is 1.26.x)
-./shrinkwrap-lxc.sh $BUNDLE 
-ls /tmp/.shrinkwrap/build/
-```
+   ```bash
+   git clone https://github.com/charmed-kubernetes/cdk-shrinkwrap.git /tmp/.shrinkwrap
+   cd /tmp/.shrinkwrap
+   BUNDLE='charmed-kubernetes --channel=1.26/stable'       # Choose a deployment bundle (example is 1.26.x)
+   ./shrinkwrap-lxc.sh $BUNDLE 
+   ls /tmp/.shrinkwrap/build/
+   ```
+
+   The shrinkwrap script will create a tar archive named after the channel and
+   the date, and stored in a directory named after the bundle and version (e.g
+   in this case 'kcharmed-kubernetes-1.26).
+
 
 In the air-gapped environment with access to the Juju controller:
 1. Extract the tar.gz file
@@ -228,10 +233,11 @@ In the air-gapped environment with access to the Juju controller:
 1. Finally, deploy the Juju charms and resources from the provided local bundle:
 
    ```bash
-   tar -xvf charmed-kubernetes-*.tar.gz --force-local
+   tar -xvf charmed-kubernetes-*/*.tar.gz --force-local
    cd charmed-kubernetes-*/
    ./deploy.sh
    ```
+   
    Examine the provided instructions and ensure necessary modifications are considered and made. Then...
 
    ```
