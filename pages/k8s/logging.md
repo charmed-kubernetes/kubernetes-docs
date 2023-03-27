@@ -250,7 +250,7 @@ address and Graylog admin password so you can login:
 ```bash
 juju status --format yaml apache2/0 | grep public-address
     public-address: <your-apache2-ip>
-juju run-action --wait graylog/0 show-admin-password
+juju run graylog/0 show-admin-password
     admin-password: <your-graylog-password>
 ```
 

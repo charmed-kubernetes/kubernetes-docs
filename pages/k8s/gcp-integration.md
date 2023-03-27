@@ -76,7 +76,7 @@ juju deploy charmed-kubernetes --overlay ~/path/gcp-overlay.yaml --trust
 ... and remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 For more configuration options and details of the permissions which the
@@ -287,7 +287,7 @@ The gcp-integrator is not specifically tied to the version of **Charmed Kubernet
 generally be upgraded at any time with the following command:
 
 ```bash
-juju upgrade-charm gcp-integrator
+juju refresh gcp-integrator
 ```
 
 ### Troubleshooting

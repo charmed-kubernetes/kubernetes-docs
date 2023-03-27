@@ -101,7 +101,7 @@ juju deploy charmed-kubernetes --overlay azure-overlay.yaml --trust
 After installation, remember to fetch the configuration file!
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 <div class="p-notification--information">

@@ -37,7 +37,7 @@ as soon as the installation has settled. You should use the following command to
 **.kube** directory if it was not created after kubectl installation):
 
 ```bash
-juju scp kubernetes-control-plane/0:config ~/.kube/config
+juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 ```
 
 <div class="p-notification--caution is-inline">
@@ -164,7 +164,7 @@ To deploy 3 replicas of the microbot web application inside the Kubernetes
 cluster run the following command:
 
 ```bash
-juju run-action kubernetes-worker/0 microbot replicas=3 --wait
+juju run kubernetes-worker/0 microbot replicas=3
 ```
 
 This should result, after a few moments, in output similar to the following (Your FQDN
@@ -248,7 +248,7 @@ done using the microbot application you can delete them from the pods with
 one Juju action:
 
 ```bash
-juju run-action kubernetes-worker/0 microbot delete=true
+juju run kubernetes-worker/0 microbot delete=true
 ```
 
 If you no longer need Internet access to your workers, remember to unexpose the

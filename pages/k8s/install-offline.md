@@ -155,7 +155,7 @@ exit
 You can confirm the images are present by running the action:
 
 ```bash
-juju run-action --wait docker-registry/0 images
+juju run docker-registry/0 images
 ```
 
 ## OS images
