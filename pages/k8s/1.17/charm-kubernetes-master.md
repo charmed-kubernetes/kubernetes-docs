@@ -574,7 +574,7 @@ The DNS add-on allows pods to have DNS names in addition to IP addresses.
 The Kubernetes cluster DNS server (based off the SkyDNS library) supports
 forward lookups (A records), service lookups (SRV records) and reverse IP
 address lookups (PTR records). More information about the DNS can be obtained
-from the [Kubernetes DNS admin guide](http://kubernetes.io/docs/admin/dns/).
+from the [Kubernetes DNS admin guide](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
 
 # Actions
 

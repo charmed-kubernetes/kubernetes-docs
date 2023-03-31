@@ -114,7 +114,7 @@ juju expose kubernetes-worker
 
 In Kubernetes, workloads are declared using pod, service, and ingress
 definitions. An ingress controller is provided to you by default and deployed into
-the [default namespace](https://kubernetes.io/docs/user-guide/namespaces/) of the
+the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) of the
 cluster. If one is not available, you may deploy it with:
 
 ```
@@ -122,7 +122,7 @@ juju config kubernetes-worker ingress=true
 ```
 
 Ingress resources are DNS mappings to your containers, routed through
-[endpoints](https://kubernetes.io/docs/user-guide/services/).
+[endpoints](https://kubernetes.io/docs/concepts/services-networking/).
 
 ## Configuring DNS
 
@@ -283,7 +283,7 @@ things you may wish to try:
 
 ## Additional Resources
 
-- [Kubernetes User Guide](https://kubernetes.io/docs/user-guide/)
+- [Kubernetes User Guide](https://kubernetes.io/docs/home/)
 - [The Charmed Kubernetes page on Charmhub.io](https://charmhub.io/charmed-kubernetes/)
 - [Bug tracker](https://bugs.launchpad.net/charmed-kubernetes)
 
