@@ -26,7 +26,7 @@ customise the install:
 
 ## What you will need
 
-The rest of this page assumes you already have Juju installed and  have added
+The rest of this page assumes you already have Juju installed and have added
 [credentials][] for a cloud and bootstrapped a controller.
 
 If you still need to do this, please take a look at the [quickstart
@@ -50,8 +50,9 @@ juju deploy charmed-kubernetes --overlay your-overlay.yaml
 ```
 
 Sample overlay files are available to download directly from
-the links shown here. Be advised that you should use only **one** overlay from
-each category!
+the links here which function with the latest stable charm release.
+Be advised that you should use only **one** overlay from each category!
+
 
 #### Networking
 
@@ -127,7 +128,7 @@ each category!
 <div class="integration">
  <div class="row">
  <div class="col-2 ">
-   <span>AWS integrator</span>
+   <span>AWS integration</span>
  </div>
   <div class="col-4 ">
    <span>Enables support for EBS storage and ELB load balancers. <a href="/kubernetes/docs/aws-integration"> Read more...</a></span>
@@ -139,7 +140,7 @@ each category!
 <br>
 <div class="row">
 <div class="col-2 u-vertically-center">
-  <span>Azure integrator</span>
+  <span>Azure integration</span>
 </div>
  <div class="col-4 u-vertically-center">
   <span>Enables support for Azure's native Disk Storage and load balancers.</span>
@@ -151,7 +152,7 @@ each category!
 <br>
 <div class="row">
 <div class="col-2">
-  <span>GCP integrator</span>
+  <span>GCP integration</span>
 </div>
  <div class="col-4">
   <span>Integrates with GCP for storage and loadbalancing. <a href="/kubernetes/docs/gcp-integration"> Read more...</a></span>
@@ -175,7 +176,7 @@ each category!
 <br>
  <div class="row">
   <div class="col-2">
-   <span>vSphere integrator</span>
+   <span>vSphere integration</span>
  </div>
   <div class="col-4">
    <span>Provides support for native storage in vSphere. </span>
@@ -185,10 +186,6 @@ each category!
   </div>
 </div>
 </div>
-
-
-
-
 
 
 You can use multiple overlays (of different types) if required.  Note that all
@@ -206,7 +203,7 @@ For more detail on overlays and how they work, see the section [below](#overlay)
 ## Deploying a specific Charmed Kubernetes bundle
 
 **Charmhub.io** hosts the **Charmed Kubernetes** bundles as well as
-individual charms. To deploy the latest, stable bundle, run the command:
+individual charms. To deploy the latest stable bundle, run the command:
 
 ```bash
 juju deploy charmed-kubernetes
@@ -215,13 +212,39 @@ juju deploy charmed-kubernetes
 It is also possible to deploy a specific version of the bundle by including the `channel` argument to select the desired version and risk level. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.25 release, you could run:
 
 ```bash
-juju deploy --channel=1.25/stable
+juju deploy charmed-kubernetes --channel=1.25/stable
 ```
 
 This also applies to channels which have not yet had a stable release, for example:
 
 ```bash
-juju deploy --channel=1.27/beta
+juju deploy charmed-kubernetes --channel=1.27/beta
+```
+
+## Deploying an older Kubernetes version with newer charms
+
+Each Charmed Kubernetes release supports N-2 kubernetes releases.
+For example, Charmed Kubernetes 1.26 supports 1.26, 1.25, and 1.24 binary
+versions. Therefore, if you wish to install an older version of Kubernetes
+you may still be able to do so with the latest stable charms. 
+
+Let's say, your project requires Kubernetes 1.24. Build an overlay which adjusts
+the charm configuration for that revision
+
+```yaml
+applications:
+  kubernetes-control-plane:
+    options:
+      channel: 1.24/stable
+  kubernetes-worker:
+    options:
+      channel: 1.24/stable
+```
+
+and deploy with the 1.26/stable charm bundle
+
+```bash
+juju deploy charmed-kubernetes --channel=1.26/stable --overlay=1.24_overlay.yaml
 ```
 
 It is still possible to deploy older, unsupported versions of Charmed Kubernetes.
@@ -262,7 +285,7 @@ Both methods are described below.
 A _bundle overlay_ is a fragment of valid YAML which is dynamically merged on
 top of a bundle before deployment, rather like a patch file. The fragment can
 contain any additional or alternative YAML which is intelligible to **Juju**. For
-example, to replicate the steps to deploy and connect the
+example, to replicate the steps to deploy and connect only the
 `aws-integrator` charm, the following fragment could be used:
 
 ```yaml
@@ -275,8 +298,6 @@ relations:
   - ['aws-integrator', 'kubernetes-control-plane']
   - ['aws-integrator', 'kubernetes-worker']
   ```
-
-You can also [download the fragment here][asset-aws-overlay].
 
 **Juju**'s bundle format, and valid YAML are discussed more fully in the
 [Juju documentation][juju-bundle]. In this example it merely adds a new application,
