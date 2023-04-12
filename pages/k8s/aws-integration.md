@@ -27,7 +27,7 @@ dynamically create, for example, EBS volumes.
 
 ## AWS K8S Storage
 
-The `aws-k8s-storage` moves the AWS specific functions of the EBS csi-driver
+The `aws-k8s-storage` charm moves the AWS specific functions of the EBS csi-driver
 out-of-tree. Using this charm, the drivers are installed as workloads in the kubernetes
 cluster instead of as natural code paths of the kubernetes binaries.
 
@@ -88,7 +88,8 @@ relations:
 # - ['aws-integrator', 'kubernetes-worker']
 ```
 
-To use this overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
+To use these overlays with the **Charmed Kubernetes** bundle, it is specified
+during deploy like this:
 
 ```bash
 juju deploy charmed-kubernetes --overlay ~/path/aws-overlay.yaml --overlay ~/path/aws-storage-overlay.yaml --trust
@@ -362,6 +363,7 @@ If you are an AWS user, you may also be interested in how to
 <!-- LINKS -->
 
 [asset-aws-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/aws-overlay.yaml
+[asset-aws-storage-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/aws-stroage-overlay.yaml
 [quickstart]: /kubernetes/docs/quickstart
 [storage]: /kubernetes/docs/storage
 [ebs-info]: https://aws.amazon.com/ebs/features/
