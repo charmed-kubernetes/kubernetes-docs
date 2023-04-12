@@ -9,7 +9,7 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-      - image: nvidia/cuda
+      - image: nvidia/cuda:12.1.0-base-ubuntu22.04
         name: nvidia-smi
         args:
           - nvidia-smi
