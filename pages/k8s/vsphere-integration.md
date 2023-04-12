@@ -196,17 +196,19 @@ back to the credential data it received via `juju trust`.
 
 The vSphere charms can make use of vSphere-backed storage for Kubernetes.
 The steps below create a busybox pod with a persistent volume claim backed by
-vSphere's PersistentDisk as an example.
+vSphere's PersistentDisk as an example. If juju has `vsphere-cloud-provdider`
+installed, skip step 1 since it creates the StorageClass `csi-vsphere-default`.
 
 
 ### 1. Create a storage class using the `csi.vsphere.vmware.com` provisioner:
 
 ```bash
+SC_NAME=mystorage
 kubectl create -f - <<EOY
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: mystorage
+  name: ${SC_NAME}
 provisioner: csi.vsphere.vmware.com
 EOY
 ```
@@ -225,7 +227,7 @@ spec:
   resources:
     requests:
       storage: 100Mi
-  storageClassName: mystorage
+  storageClassName: ${SC_NAME}
 EOY
 ```
 
