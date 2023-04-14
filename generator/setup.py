@@ -28,8 +28,7 @@ setup(
     version="0.0.1",
     zip_safe=True,
     install_requires=[
-        "click", "jinja2", "pygithub", "pyyaml", "semver",
-        "backports.cached-property"
+        "click", "jinja2", "pygithub", "pyyaml", "semver"
     ],
     entry_points=dict(
         console_scripts=[
