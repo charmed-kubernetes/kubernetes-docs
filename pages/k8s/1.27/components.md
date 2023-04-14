@@ -110,6 +110,9 @@ enables Charmed Kubernetes to use ceph as a storage backend. | [source](https://
 | [kubevirt](https://charmhub.io/kubevirt) | Deploys KubeVirt into a Charmed-Kubernetes cluster | [source](https://github.com/charmed-kubernetes/charm-kube-virt.git) | [docs](https://charmhub.io/kubevirt/docs)  | [bugs](https://bugs.launchpad.net/charm-kubevirt) |
 | [metallb-controller](https://charmhub.io/metallb-controller) | Controller charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-controller/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
 | [metallb-speaker](https://charmhub.io/metallb-speaker) | Speaker charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-speaker/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb') |
+| [volcano-admission](https://charmhub.io/volcano-admission) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
+| [volcano-controllers](https://charmhub.io/volcano-controllers) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
+| [volcano-scheduler](https://charmhub.io/volcano-scheduler) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 
 ## Images
 
