@@ -14,7 +14,7 @@ toc: False
 ---
 
 [Cilium CNI][cilium-documentation] is a powerful networking plugin for Kubernetes
-that provides enhanced security and networking capabilities for containerized
+which provides enhanced security and networking capabilities for containerised
 applications. It leverages the power of eBPF (extended Berkeley Packet Filter),
 a highly efficient and programmable kernel-level technology, to deliver
 transparent network security and traffic monitoring features.
@@ -28,13 +28,13 @@ the [Cilium overlay][cilium-overlay]:
 juju deploy charmed-kubernetes --overlay cilium-overlay.yaml
 ```
 
-You can apply any additional customisation overlays that would apply to
-`charmed-kubernetes` to this deployment as well.
+You can apply any additional customisation overlays to this deployment as
+well.
 
 ## Cilium configuration options
 
 A full list of Cilium configuration options and their descriptions can be found
-in the [Cilium charm][cilium-charm] page.
+in the [Cilium charm][cilium-charm] page on Charmhub.
 
 ### Checking the current configuration
 
@@ -59,7 +59,7 @@ provided below.
 
 ## Configuring the default Cluster Pool CIDR
 
-The Cilium charm utilizes the Cluster Scope IPAM mode as its default 
+The Cilium charm uses the Cluster Scope IPAM mode as its default 
 method for IP allocation. To define the IP address range that can be 
 assigned to Kubernetes Pods within the cluster, two configuration 
 settings can be adjusted: `cluster-pool-ipv4-cidr` and 
@@ -127,8 +127,8 @@ features.
 
 ## CLI Tools
 
-The Cilium charm includes the `cilium-cli` and `hubble` CLI tools that enable 
-you to manage, troubleshoot, and visualize insights about your Kubernetes 
+The Cilium charm includes the `cilium-cli` and `hubble` CLI tools which enable 
+you to manage, troubleshoot, and visualise insights about your Kubernetes 
 cluster running Cilium. These CLI tools are accessible in each Kubernetes
 Control Plane and Worker units. The [upstream documentation][cilium-documentation]
 provides guidance on how to use these CLI tools. Please refer to it for further details.
@@ -147,7 +147,11 @@ Once you have done this, you should be able to reach Hubble from your units.
 Run the following command to verify the connection and check the status:
 
 ```bash
-$ hubble status
+hubble status
+```
+...which will return the current stats, for example:
+
+```no-highlight
 Healthcheck (via localhost:4245): Ok
 Current/Max Flows: 20,475/20,475 (100.00%)
 Flows/s: 17.18
@@ -192,7 +196,7 @@ Here is an example:
 juju config cilium enable-hubble-metrics="dns icmp"
 ```
 
-This command will enable the `dns` and `icmp` metrics. For 
+This command will enable both the `dns` and `icmp` metrics. For 
 additional information about the available metrics that 
 can be enabled, refer to the [Hubble metrics][hubble-metrics] 
 section in the upstream documentation.
@@ -207,7 +211,7 @@ required components:
 
 ### Prometheus
 
-Prometheus from the COS Lite stack can automatically scrape metrics 
+Prometheus, from the COS Lite stack, can automatically scrape metrics 
 from the Cilium and Hubble components. To set this up, you can integrate 
 both Prometheus and Cilium via a Cross-Model Integration (CMI). 
 The [COS Lite documentation][cos-deploy] provides detailed instructions 
@@ -217,9 +221,9 @@ to set up and manage cross-model integrations.
 
 ### Grafana
 
-The Cilium charm includes the necessary dashboards to visualize the metrics 
+The Cilium charm includes the necessary dashboards to visualise the metrics 
 exported by the different Cilium components. For more information about the 
-dashboards bundled in Cilium charm, please refer to the 
+dashboards bundled in the Cilium charm, please refer to the 
 [Cilium repository][cilium-dashboards].
 
 To retrieve the dashboards, the Cilium charm needs to be related via a 
