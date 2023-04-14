@@ -27,7 +27,7 @@ This work is based on the upstream project [kubevirt.io][upstream].
 ## Deploying the kubevirt charms
 
 ### Prerequisites 
-* The volcano charms must be deployed in the Charmed Kubernetes model on your cluster
+* The [kubevirt charm][charmhub] is deployed as a subordinate to the Kubernetes Worker
 * These instructions assume you have a cluster created with Juju and named `charmed-kubernetes`. 
     - Please adjust the commands given appropriately if you have used a different name.
 * kubevirt requires that the control-plane allows for privileged containers:
@@ -80,6 +80,7 @@ juju integrate kubevirt:kube-control kubernetes-control-plane
 <!-- LINKS -->
 [Kubernetes-operators]: /kubernetes/docs/operator-charms
 [upstream]: https://kubevirt.io/
+[charmhub]: https://charmhub.io/kubevirt
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
