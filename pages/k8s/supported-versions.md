@@ -69,7 +69,7 @@ the latest three stable versions are officially supported:
 ```no-highlight
 name:      kube-apiserver
 summary:   Kubernetes control plane component that exposes the Kubernetes API.
-publisher: Canonical[32m✓[0m
+publisher: Canonical
 store-url: https://snapcraft.io/kube-apiserver
 contact:   https://www.ubuntu.com/kubernetes
 license:   Apache-2.0
