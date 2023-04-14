@@ -21,33 +21,61 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-- item 1
+### Cilium CNI
+We are excited to announce the inclusion of Cilium in our portfolio of Container Network Interface solutions for Charmed Kubernetes. Cilium is a powerful CNI, network security and observability solution which provides enhanced performance and improved security for containerised applications. The current version of Cilium shipped within the charm is 1.12.5. It also comes bundled with Hubble: a networking and security observability solution that offers real time insights of the network and the security state of the cluster with little performance impact.
 
-Some stuff about this
+### Cloud Providers and Cloud Storage
+Operator charms for external cloud providers have been expanded and now include AWS, Azure, GCP, and vSphere. Previously, cloud-specific features such as load balancing and storage were managed by Kubernetes in-tree solutions.  Today, cloud provider charms offer flexible management of these features decoupled from any specific Kubernetes release.
 
-- item 2
+### NVIDIA Network Operator
+The NVIDIA network operator charm is a new addition to the Charmed Kubernetes ecosystem. It leverages components such as SR-IOV and the Multus CNI to simplify the deployment, operation, and management of NVIDIA networking for Kubernetes.
 
-more stuff
+### Support for Juju 3.1
+
+With this release, Charmed Kubernetes can be deployed with a
+juju 2.9, 3.0 or 3.1 controller. This release is intended to serve
+as a migration point away from juju 2.9 deployments which is why we 
+offer a tested strategy of our charms on both 2.9 and 3.1 releases.
+
+## Technical Previews
+
+### KubeVirt
+Offered as a technical preview, the KubeVirt charm offers an opinionated deployment of KubeVirt on Charmed Kubernetes such that virtual machines can be launched within your Kubernetes cluster.  Charmed Kubernetes on metal will deploy KubeVirt in such a way to use faster, native hardware virtualization, but KubeVirt also supports software emulation for cases where accelerated hardware support is not available. 
+
+### Volcano Scheduler
+Offered as a technical preview, the suite of Volcano charms deploys on either MicroK8s or Charmed Kubernetes, and can be used to more effectively schedule ML/AI workloads which need to ensure effective queuing of jobs requiring GPU resources. The charm ships with v1.7.0 of Volcano and will follow future upstream releases.
+
+### Cluster API Providers
+Cluster API providers for deploying Charmed Kubernetes are nearing completion and available as technical previews. These providers consist of the Juju Infrastructure Provider, the CharmedK8s Control Plane Provider, and the CharmedK8s Bootstrap Provider. 
+
+The infrastructure provider is responsible for Juju model management and machine deployment. The control plane provider handles control plane management, kubeconfig management, and control plane status reporting. The bootstrap provider controls what charms are deployed to the machines provisioned by the infrastructure provider. 
+
+While the user experience surrounding certain Juju-related interactions is still being improved, Charmed Kubernetes can be deployed using the familiar Cluster API workflow using the providers in their current state.
+
 
 ## Component Versions
 
 ### Charm/Addons pinned versions
-- kube-ovn ?????
-- calico ?????
-- cephcsi 3.5.1
-- cinder-csi-plugin 1.23.0
-- coredns 1.9.0
-- ingress-nginx 1.2.0
-- k8s-keystone-auth 1.23.0
-- kube-state-metrics 2.4.2
-- kubernetes-dashboard 2.5.1
-- openstack-cloud-controller-manager 1.23.0
+- kube-ovn 1.10.4
+- calico 3.21.4
+- cephcsi 3.7.2
+- cinder-csi-plugin 1.26.2
+- coredns 1.9.4
+- ingress-nginx 1.6.4
+- k8s-keystone-auth 1.26.2
+- kube-state-metrics 2.8.2
+- kubernetes-dashboard 2.7.0
+- openstack-cloud-controller-manager 1.26.2
 
 ### Charm default versions
-- cloud-provider-vsphere ?????
-- vsphere-csi-driver ?????
-- cloud-provider-azure ?????
-- azuredisk-csi-driver ?????
+- cloud-provider-vsphere 1.26
+- vsphere-csi-driver 3.0.0
+- cloud-provider-azure 1.25.0
+- azuredisk-csi-driver 1.23.0
+- cloud-provider-aws 1.26.1
+- aws-ebs-csi-driver 1.12.0
+- gcp-compute-persistent-disk-csi-driver 1.8.0
+
  
 ## Fixes
 
