@@ -88,6 +88,19 @@ Be advised that you should use only **one** overlay from each category!
 
 <div class="row">
 <div class="col-2">
+  <span>Cilium</span>
+</div>
+ <div class="col-4">
+  <span>Cilium is a CNI that leverages eBPF to provide advanced networking, security, and observability.<a href="/kubernetes/docs/cni-cilium"> Read more...</a></span>
+ </div>
+ <div class="col-3">
+   <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/cilium-overlay.yaml" class="p-button--positive">Download cilium-overlay.yaml</a></span>
+ </div>
+</div>
+<br>
+
+<div class="row">
+<div class="col-2">
   <span>Kube-OVN</span>
 </div>
  <div class="col-4">

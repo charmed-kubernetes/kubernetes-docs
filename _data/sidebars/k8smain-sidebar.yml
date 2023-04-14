@@ -133,6 +133,11 @@ entries:
       url: /cni-canal
       output: web, pdf
       type: page
+    
+    - title: Cilium
+      url: /cni-cilium
+      output: web, pdf
+      type: page
 
     - title: Kube-OVN
       url: /cni-kube-ovn
