@@ -28,8 +28,8 @@ dynamically create, for example, EBS volumes.
 ## AWS K8S Storage
 
 The `aws-k8s-storage` charm moves the AWS specific functions of the EBS csi-driver
-out-of-tree. Using this charm, the drivers are installed as workloads in the kubernetes
-cluster instead of as natural code paths of the kubernetes binaries.
+out-of-tree. Using this charm, the drivers are installed as workloads in the Kubernetes
+cluster instead of as natural code paths of the Kubernetes binaries.
 
 ## AWS Cloud Provider
 
