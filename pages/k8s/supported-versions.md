@@ -40,7 +40,7 @@ the `--channel` argument. For example, to deploy the **Charmed Kubernetes**
 bundle for the Kubernetes 1.26 release, you could run:
 
 ```bash
-juju deploy charmed-kubernetes --channel=1.26
+juju deploy charmed-kubernetes --channel=1.26/stable
 ```
 
 It is still possible to deploy older, unsupported versions of Charmed Kubernetes.
