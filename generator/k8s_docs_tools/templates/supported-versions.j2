@@ -35,29 +35,25 @@ individual charms. To deploy the latest, stable bundle, run the command:
 juju deploy charmed-kubernetes
 ```
 
-It is also possible to deploy a specific version of the bundle by including the
-revision number. For example, to deploy the **Charmed Kubernetes** bundle for the Kubernetes 1.23
-release, you could run:
+It is also possible to deploy a specific version of the bundle by including
+the `--channel` argument. For example, to deploy the **Charmed Kubernetes**
+bundle for the Kubernetes {{ release_n1 }} release, you could run:
 
 ```bash
-juju deploy cs:charmed-kubernetes-862
+juju deploy charmed-kubernetes --channel={{ release_n1 }}
 ```
 
-The revision numbers for bundles are generated automatically when the bundle is
-updated, including for testing and beta versions, so it isn't always the case
-that a higher revision number is 'better'. The revision numbers for the release
-versions of the **Charmed Kubernetes** bundle are shown in the table below:
+It is still possible to deploy older, unsupported versions of Charmed Kubernetes.
+Older bundle files are available for download in the [releases][] directory of
+the Charmed Kubernetes repository. These can be downloaded and deployed with
+Juju as with any local bundle file.
 
-<a  id="table"></a>
-
-{{ bundle_table }}
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 Only the latest three versions of Charmed Kubernetes are supported at any time.
   </p>
 </div>
-
 
 ## Finding version info
 
@@ -86,6 +82,7 @@ Canonical can also provide [managed solutions][managed] for Kubernetes.
 <!-- LINKS -->
 [support]: /support
 [managed]: /kubernetes/managed
+[releases]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

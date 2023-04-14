@@ -22,9 +22,9 @@ rather than editing the text -->
 Charmed Kubernetes officially supports the most recent three (3) minor releases
 of Kubernetes.
 
-Current Release: **1.26**
+Current Release: **1.27**
 
-Supported releases: **1.26.x, 1.25.x, 1.24.x**
+Supported releases: **1.27.x, 1.26.x, 1.25.x**
 
 ## Charmed Kubernetes bundle versions
 
@@ -37,10 +37,10 @@ juju deploy charmed-kubernetes
 
 It is also possible to deploy a specific version of the bundle by including
 the `--channel` argument. For example, to deploy the **Charmed Kubernetes**
-bundle for the Kubernetes 1.25 release, you could run:
+bundle for the Kubernetes 1.26 release, you could run:
 
 ```bash
-juju deploy charmed-kubernetes --channel=1.25
+juju deploy charmed-kubernetes --channel=1.26
 ```
 
 It is still possible to deploy older, unsupported versions of Charmed Kubernetes.
@@ -69,7 +69,7 @@ the latest three stable versions are officially supported:
 ```no-highlight
 name:      kube-apiserver
 summary:   Kubernetes control plane component that exposes the Kubernetes API.
-publisher: Canonical
+publisher: Canonical[32m✓[0m
 store-url: https://snapcraft.io/kube-apiserver
 contact:   https://www.ubuntu.com/kubernetes
 license:   Apache-2.0
@@ -83,26 +83,26 @@ description: |
   documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/).
 snap-id: KMZLusdClmUyLXAjjcI4sVnpjk1kM653
 channels:
-  latest/stable:    1.26.2         2023-03-02 (3273) 25MB -
-  latest/candidate: 1.26.2         2023-03-02 (3273) 25MB -
-  latest/beta:      1.26.2         2023-03-02 (3273) 25MB -
-  latest/edge:      1.26.2         2023-03-02 (3273) 25MB -
-  1.27/stable:      –                                     
-  1.27/candidate:   –                                     
-  1.27/beta:        –                                     
-  1.27/edge:        1.27.0-alpha.3 2023-03-04 (3287) 26MB -
-  1.26/stable:      1.26.2         2023-03-01 (3273) 25MB -
-  1.26/candidate:   1.26.2         2023-03-01 (3273) 25MB -
-  1.26/beta:        1.26.2         2023-03-01 (3273) 25MB -
-  1.26/edge:        1.26.2         2023-03-01 (3273) 25MB -
-  1.25/stable:      1.25.7         2023-03-01 (3274) 24MB -
-  1.25/candidate:   1.25.7         2023-03-01 (3274) 24MB -
-  1.25/beta:        1.25.7         2023-03-01 (3274) 24MB -
-  1.25/edge:        1.25.7         2023-03-01 (3274) 24MB -
-  1.24/stable:      1.24.11        2023-03-01 (3272) 24MB -
-  1.24/candidate:   1.24.11        2023-03-01 (3272) 24MB -
-  1.24/beta:        1.24.11        2023-03-01 (3272) 24MB -
-  1.24/edge:        1.24.11        2023-03-01 (3272) 24MB -
+  latest/stable:    1.26.3         2023-03-19 (3295) 25MB -
+  latest/candidate: 1.26.3         2023-03-19 (3295) 25MB -
+  latest/beta:      1.26.3         2023-03-19 (3295) 25MB -
+  latest/edge:      1.26.3         2023-03-19 (3295) 25MB -
+  1.27/stable:      1.27.0         2023-04-11 (3315) 24MB -
+  1.27/candidate:   1.27.0         2023-04-11 (3315) 24MB -
+  1.27/beta:        1.27.0         2023-04-11 (3315) 24MB -
+  1.27/edge:        1.27.0         2023-04-11 (3315) 24MB -
+  1.26/stable:      1.26.4         2023-04-14 (3319) 25MB -
+  1.26/candidate:   1.26.4         2023-04-14 (3319) 25MB -
+  1.26/beta:        1.26.4         2023-04-14 (3319) 25MB -
+  1.26/edge:        1.26.4         2023-04-14 (3319) 25MB -
+  1.25/stable:      1.25.9         2023-04-14 (3321) 24MB -
+  1.25/candidate:   1.25.9         2023-04-14 (3321) 24MB -
+  1.25/beta:        1.25.9         2023-04-14 (3321) 24MB -
+  1.25/edge:        1.25.9         2023-04-14 (3321) 24MB -
+  1.24/stable:      1.24.13        2023-04-14 (3320) 24MB -
+  1.24/candidate:   1.24.13        2023-04-14 (3320) 24MB -
+  1.24/beta:        1.24.13        2023-04-14 (3320) 24MB -
+  1.24/edge:        1.24.13        2023-04-14 (3320) 24MB -
   1.23/stable:      1.23.17        2023-03-01 (3271) 24MB -
   1.23/candidate:   1.23.17        2023-03-01 (3271) 24MB -
   1.23/beta:        1.23.17        2023-03-01 (3271) 24MB -
@@ -182,8 +182,8 @@ channels:
 
 ```
 
-In the above output, the stable release is identified as 1.26, and so 1.25 and
-1.24 are also currently supported.
+In the above output, the stable release is identified as 1.27, and so 1.26 and
+1.25 are also currently supported.
 
 ## Professional support
 
