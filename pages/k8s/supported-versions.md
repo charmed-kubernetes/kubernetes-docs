@@ -69,7 +69,7 @@ the latest three stable versions are officially supported:
 ```no-highlight
 name:      kube-apiserver
 summary:   Kubernetes control plane component that exposes the Kubernetes API.
-publisher: Canonical
+publisher: Canonical[32m✓[0m
 store-url: https://snapcraft.io/kube-apiserver
 contact:   https://www.ubuntu.com/kubernetes
 license:   Apache-2.0
@@ -83,14 +83,14 @@ description: |
   documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/).
 snap-id: KMZLusdClmUyLXAjjcI4sVnpjk1kM653
 channels:
-  latest/stable:    1.26.3         2023-03-19 (3295) 25MB -
-  latest/candidate: 1.26.3         2023-03-19 (3295) 25MB -
-  latest/beta:      1.26.3         2023-03-19 (3295) 25MB -
-  latest/edge:      1.26.3         2023-03-19 (3295) 25MB -
-  1.27/stable:      1.27.0         2023-04-11 (3315) 24MB -
-  1.27/candidate:   1.27.0         2023-04-11 (3315) 24MB -
-  1.27/beta:        1.27.0         2023-04-11 (3315) 24MB -
-  1.27/edge:        1.27.0         2023-04-11 (3315) 24MB -
+  latest/stable:    1.26.4         2023-04-15 (3319) 25MB -
+  latest/candidate: 1.26.4         2023-04-15 (3319) 25MB -
+  latest/beta:      1.26.4         2023-04-15 (3319) 25MB -
+  latest/edge:      1.26.4         2023-04-15 (3319) 25MB -
+  1.27/stable:      1.27.1         2023-04-15 (3331) 24MB -
+  1.27/candidate:   1.27.1         2023-04-15 (3331) 24MB -
+  1.27/beta:        1.27.1         2023-04-15 (3331) 24MB -
+  1.27/edge:        1.27.1         2023-04-15 (3331) 24MB -
   1.26/stable:      1.26.4         2023-04-14 (3319) 25MB -
   1.26/candidate:   1.26.4         2023-04-14 (3319) 25MB -
   1.26/beta:        1.26.4         2023-04-14 (3319) 25MB -
