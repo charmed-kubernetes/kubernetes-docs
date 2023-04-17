@@ -56,7 +56,7 @@ These are the CNI charms also supported by Charmed Kubernetes ( calico is the de
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
 {% for c in charms if "cni" in c.tags -%}
-| [{{ c.name }}]({{ c.store }}) | {{ c.summary.rstrip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }}) | [bugs]({{ c.bugs }}) |
+| [{{ c.name }}]({{ c.store }}) | {{ c.summary.replace("\n", " ").strip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }}) | [bugs]({{ c.bugs }}) |
 {% endfor %}
 
 ## Integrator charms
@@ -66,7 +66,7 @@ These charms provide cloud integration for Charmed Kubernetes (e.g. for running 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
 {% for c in charms if "integrator" in c.tags -%}
-| [{{ c.name }}]({{ c.store }}) | {{ c.summary.rstrip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }}) | [bugs]({{ c.bugs }}) |
+| [{{ c.name }}]({{ c.store }}) | {{ c.summary.replace("\n", " ").strip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }}) | [bugs]({{ c.bugs }}) |
 {% endfor %}
 ## Additional charms
 
@@ -75,7 +75,7 @@ These charms are also maintained and supported by the Charmed Kubernetes team to
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
 {% for c in charms if "docs-extra" in c.tags -%}
-| [{{c.name}}]({{ c.store }}) | {{ c.summary.rstrip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }})  | [bugs]({{ c.bugs }}) |
+| [{{c.name}}]({{ c.store }}) | {{ c.summary.replace("\n", " ").strip() }} | [source]({{ c.upstream }}) | [docs]({{ c.docs }})  | [bugs]({{ c.bugs }}) |
 {% endfor %}
 ## Images
 
