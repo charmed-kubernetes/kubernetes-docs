@@ -38,6 +38,21 @@ out-of-tree. The AWS cloud provider provides the interface between a Kubernetes 
 and AWS service APIs. This project allows a Kubernetes cluster to provision,
 monitor and remove AWS resources necessary for operation of the cluster.
 
+### Version support
+
+#### From Kubernetes 1.27
+
+The in-tree cloud-provider is no longer available, and must be deployed 
+as container workloads in the cluster.  Charmed Kubernetes recommends
+using the `aws-cloud-provider` charm to access AWS Service APIs.
+
+#### Prior to Kubernetes 1.27
+
+The in-tree cloud-provider is natively available in Kubernetes until the 1.27
+release, and it is not necessary to deploy the `aws-cloud-provider` charm as in the
+above overlay.
+
+
 ### Installing
 
 If you install **Charmed Kubernetes** [using the Juju bundle][install], you can add the
@@ -103,19 +118,6 @@ juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
 
 For more configuration options and details of the permissions which the integrator uses,
 please see the [charm readme][aws-integrator-readme].
-
-#### Beginning in Kubernetes 1.27
-
-The in-tree cloud-provider is no longer available, and must be deployed 
-as container workloads in the cluster.  Charmed Kubernetes recommends
-using the `aws-cloud-provider` charm to have access to AWS Service APIs.
-
-
-#### Prior to Kubernetes 1.27
-
-The in-tree cloud-provider is natively available in Kubernetes until the 1.27
-release, and it is not necessary to deploy the `aws-cloud-provider` charm as in the above
-overlay.
 
 ### Using EBS volumes
 
