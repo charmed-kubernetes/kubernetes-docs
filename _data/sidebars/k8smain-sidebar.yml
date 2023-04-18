@@ -264,7 +264,7 @@ entries:
       output: web,pdf
       type: page
 
-    - title: Virtualized Workloads
+    - title: Virtualised Workloads
       url: /kubevirt
       output: web,pdf
       type: page
