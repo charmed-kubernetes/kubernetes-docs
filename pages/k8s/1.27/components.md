@@ -175,6 +175,7 @@ These are the container images used by this release:
 <!-- CONTAINER IMAGES END -->
 
 <!-- LINKS -->
+
 [release notes]: /kubernetes/docs/release-notes#1.27
 [upgrade notes]: /kubernetes/docs/upgrade-notes
 [bugs]: /kubernetes/docs/

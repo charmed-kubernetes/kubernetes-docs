@@ -192,6 +192,7 @@ If you are looking for additional support, find out about [Ubuntu Advantage][sup
 Canonical can also provide [managed solutions][managed] for Kubernetes.
 
 <!-- LINKS -->
+
 [support]: /support
 [managed]: /kubernetes/managed
 [releases]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
