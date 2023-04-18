@@ -17,7 +17,7 @@ KubeVirt is a a vm-based workload system built on Kubernetes.
 
 KubeVirt technology addresses the needs of development teams that have adopted
 or want to adopt Kubernetes but possess existing Virtual Machine-based workloads
-that cannot be easily containerized. More specifically, the technology provides
+that cannot be easily containerised. More specifically, the technology provides
 a unified development platform where developers can build, modify, and deploy
 applications residing in both Application Containers as well as Virtual Machines
 in a common, shared environment.
@@ -35,8 +35,8 @@ This work is based on the upstream project [kubevirt.io][upstream].
 juju config kubernetes-control-plane allow-privileged=true
 ```
 * **Optional** If the worker machines are themselves VMs, you will be creating VMs
- in VMs or (nested virtualization).
-    - The charm will enable software-emulation for virtualization if `/dev/kvm` is not
+ in VMs or (nested virtualisation).
+    - The charm will enable software-emulation for virtualisation if `/dev/kvm` is not
     detected on any one worker node.
 
 ### Deploying
@@ -55,7 +55,7 @@ juju integrate kubevirt:kube-control kubernetes-control-plane
 
 **operator-release**
 - defaults: auto
-- Specifies the version of kubevirt as defined by the release
+- Specifies the version of KubeVirt as defined by the release
   tags of https://github.com/kubevirt/kubevirt/releases/tags
 
   The charm has a fixed set of supported versions which can be queried with:
