@@ -86,6 +86,13 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes and Known Issues
 
+* [LP2016905](https://bugs.launchpad.net/charm-cilium/+bug/2016905)
+  Cilium on AWS and OpenStack
+
+  Deploying Cilium on AWS or Openstack can cause inter-node communication to break, due to Juju enabling fan networking by default in the instances, which affects some of the interfaces that Cilium uses.
+
+  To resolve this issue, please set the model configs `cluster-networking-mode` to `local`.
+
 
 ## Deprecations and API changes
 
