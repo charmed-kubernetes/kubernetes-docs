@@ -173,18 +173,12 @@ def test_generate_upgrading_page(tmpdir):
     assert text.endswith("\n")
 
 
-@mock.patch.object(
-    generator,
-    "check_output",
-    mock.MagicMock(return_value="mock_snăp_info".encode("utf-8")),
-)
 def test_generate_supported_versions_page(tmpdir):
     pw = generator.PageWriter("0.13", Path(tmpdir))
     text = pw.generate_supported_versions().decode("utf-8")
     expected = tmpdir / "pages" / "k8s" / "supported-versions.md"
     assert expected.read_text("utf-8") == text
     assert text.endswith("\n")
-    assert "mock_snăp_info" in text
 
 
 def test_update_index(tmpdir):

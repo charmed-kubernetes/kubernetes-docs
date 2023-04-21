@@ -4,7 +4,6 @@ import logging
 import os
 import re
 from pathlib import Path
-from subprocess import check_output
 from typing import List, Mapping
 
 import semver
@@ -205,13 +204,10 @@ class PageWriter:
         output_path = _with_parent(self.k8s_path / "supported-versions.md")
         output = output_path.open("wb")
         template = self.env.get_template("supported-versions.j2")
-        cmd = ["snap", "info", "kube-apiserver", "--unicode=always", "--color=always"]
-        snap_info = check_output(cmd, env={"COLUMNS": "120"}).decode()
 
         context = dict(
             release=self.version,
             supported_releases_x=", ".join([f"{r}.x" for r in self.supported]),
-            snap_info_kubeapiserver=snap_info,
             release_n1=self.supported[1],
             release_n2=self.supported[2],
         )
