@@ -4,8 +4,8 @@ markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
-  description: Release notes for CDK
-keywords: kubernetes,  release, notes
+  description: Release notes for Charmed Kubernetes
+keywords: kubernetes, release, notes
 tags: [news]
 sidebar: k8smain-sidebar
 permalink: release-notes.html
@@ -16,7 +16,7 @@ toc: False
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 # 1.27
 
-### April 8, 2023 - `charmed-kubernetes --channel 1.27/stable` 
+### April 21, 2023 - `charmed-kubernetes --channel 1.27/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.27/bundle.yaml).
 
@@ -29,10 +29,9 @@ We are excited to announce the inclusion of Cilium in our portfolio of Container
 Operator charms for external cloud providers have been expanded and now include AWS, Azure, GCP, and vSphere. Previously, cloud-specific features such as load balancing and storage were managed by Kubernetes in-tree solutions.  Today, cloud provider charms offer flexible management of these features decoupled from any specific Kubernetes release.
 
 ### NVIDIA Network Operator
-The NVIDIA network operator charm is a new addition to the Charmed Kubernetes ecosystem. It leverages components such as SR-IOV and the Multus CNI to simplify the deployment, operation, and management of NVIDIA networking for Kubernetes.
+The NVIDIA network operator charm is a new addition to the Charmed Kubernetes ecosystem. It simplifies the deployment, operation, and management of NVIDIA networking resources for Kubernetes.
 
 ### Support for Juju 3.1
-
 With this release, Charmed Kubernetes can be deployed with a
 juju 2.9, 3.0 or 3.1 controller. This release is intended to serve
 as a migration point away from juju 2.9 deployments which is why we 
@@ -47,12 +46,11 @@ Offered as a technical preview, the KubeVirt charm offers an opinionated deploym
 Offered as a technical preview, the suite of Volcano charms deploys on either MicroK8s or Charmed Kubernetes, and can be used to more effectively schedule ML/AI workloads which need to ensure effective queuing of jobs requiring GPU resources. The charm ships with v1.7.0 of Volcano and will follow future upstream releases.
 
 ### Cluster API Providers
-Cluster API providers for deploying Charmed Kubernetes are nearing completion and available as technical previews. These providers consist of the Juju Infrastructure Provider, the CharmedK8s Control Plane Provider, and the CharmedK8s Bootstrap Provider. 
+Cluster API providers for deploying Charmed Kubernetes are available as technical previews. These providers consist of the Juju Infrastructure Provider, the CharmedK8s Control Plane Provider, and the CharmedK8s Bootstrap Provider.
 
-The infrastructure provider is responsible for Juju model management and machine deployment. The control plane provider handles control plane management, kubeconfig management, and control plane status reporting. The bootstrap provider controls what charms are deployed to the machines provisioned by the infrastructure provider. 
+The infrastructure provider is responsible for Juju model management and machine deployment. The control plane provider handles control plane management, kubeconfig management, and control plane status reporting. The bootstrap provider controls what charms are deployed to the machines provisioned by the infrastructure provider.
 
 While the user experience surrounding certain Juju-related interactions is still being improved, Charmed Kubernetes can be deployed using the familiar Cluster API workflow using the providers in their current state.
-
 
 ## Component Versions
 
@@ -61,7 +59,7 @@ While the user experience surrounding certain Juju-related interactions is still
 - calico 3.21.4
 - cephcsi 3.7.2
 - cinder-csi-plugin 1.26.2
-- coredns 1.9.4
+- coredns 1.9.4 / 1.10.0
 - ingress-nginx 1.6.4
 - k8s-keystone-auth 1.26.2
 - kube-state-metrics 2.8.2
@@ -77,7 +75,7 @@ While the user experience surrounding certain Juju-related interactions is still
 - aws-ebs-csi-driver 1.12.0
 - gcp-compute-persistent-disk-csi-driver 1.8.0
 
- 
+
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -86,12 +84,13 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes and Known Issues
 
-* [LP2016905](https://bugs.launchpad.net/charm-cilium/+bug/2016905)
-  Cilium on AWS and OpenStack
+* Cilium on AWS and OpenStack [LP#2016905](https://bugs.launchpad.net/charm-cilium/+bug/2016905)
 
-  Deploying Cilium on AWS or Openstack can cause inter-node communication to break, due to Juju enabling fan networking by default in the instances, which affects some of the interfaces that Cilium uses.
+  Deploying Cilium on AWS or Openstack can cause inter-node communication failures due to the Fan networking that Juju enables by default in those environments. To work around this issue, set model configuration prior to deployment:
 
-  To resolve this issue, please set the model configs `cluster-networking-mode` to `local`.
+  `juju model-config cluster-networking-mode=local`
+
+* Known issues scheduled to be resolved in the first 1.27 maintenance release can be found at [the launchpad milestone page for 1.27+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.27+ck1).
 
 
 ## Deprecations and API changes
@@ -102,6 +101,7 @@ For details of other deprecation notices and API changes for Kubernetes 1.27, pl
 relevant sections of the [upstream release notes][upstream-changelog-1.27].
 
 [upstream-changelog-1.27]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.27.md#deprecation
+
 <!-- AUTOGENERATED RELEASE 1.27 ABOVE -->
 
 # 1.26+ck3 Bugfix release
