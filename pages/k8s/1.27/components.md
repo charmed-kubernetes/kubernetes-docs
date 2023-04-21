@@ -23,7 +23,7 @@ source of the information - please file a bug at
 https://github.com/charmed-kubernetes/kubernetes-docs/issues 
 rather than editing the text -->
 
-This page details the charms, snaps, images and other components
+This page details the charms and container images
 which comprise the 1.27 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
@@ -41,8 +41,7 @@ release, please see the [Release notes](release-notes).
 
 ## Core charms
 
-These charms are the core components or official optional components of the
-release. These charms are maintained by the Charmed Kubernetes team.
+These charms are the core components of the Charmed Kubernetes release.
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
@@ -56,7 +55,9 @@ release. These charms are maintained by the Charmed Kubernetes team.
 
 
 ## CNI charms
-These are the CNI charms also supported by Charmed Kubernetes ( calico is the default CNI and is included in the core charms above)
+
+These are the Container Network Interface (CNI) charms supported by Charmed Kubernetes
+(calico is the default CNI and is also included in the core charms table above).
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
@@ -71,9 +72,10 @@ These are the CNI charms also supported by Charmed Kubernetes ( calico is the de
 | [tigera-secure-ee](https://charmhub.io/tigera-secure-ee) | Tigera Secure Enterprise Edition | [source](https://github.com/charmed-kubernetes/layer-tigera-secure-ee.git) | [docs](https://charmhub.io/tigera-secure-ee/docs) | [bugs](https://bugs.launchpad.net/charm-tigera-secure-ee) |
 
 
-## Integrator charms
+## Cloud provider charms
 
-These charms provide cloud integration for Charmed Kubernetes (e.g. for running native loadbalancers and storage).
+These charms provide cloud integrations to Charmed Kubernetes to enable features
+such as cloud-native load balancing and storage.
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
@@ -88,9 +90,11 @@ These charms provide cloud integration for Charmed Kubernetes (e.g. for running 
 | [vsphere-cloud-provider](https://charmhub.io/vsphere-cloud-provider) | Charm which enables vSphere out of tree provider for Juju | [source](https://github.com/charmed-kubernetes/vsphere-cloud-provider.git) | [docs](https://charmhub.io/vsphere-cloud-provider/docs) | [bugs](https://bugs.launchpad.net/charm-vsphere-cloud-provider) |
 | [vsphere-integrator](https://charmhub.io/vsphere-integrator) | Charm which enables vSphere integrations for Juju | [source](https://github.com/juju-solutions/charm-vsphere-integrator.git) | [docs](https://charmhub.io/vsphere-integrator/docs) | [bugs](https://bugs.launchpad.net/charm-vsphere-integrator) |
 
+
 ## Additional charms
 
-These charms are also maintained and supported by the Charmed Kubernetes team to provide extra features for your K8s cluster.
+These charms are also maintained and supported by the Charmed Kubernetes team
+to extend the capabilities of your Kubernetes cluster.
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
@@ -112,6 +116,7 @@ These charms are also maintained and supported by the Charmed Kubernetes team to
 | [volcano-admission](https://charmhub.io/volcano-admission) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 | [volcano-controllers](https://charmhub.io/volcano-controllers) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 | [volcano-scheduler](https://charmhub.io/volcano-scheduler) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
+
 
 ## Images
 
@@ -172,6 +177,7 @@ These are the container images used by this release:
 -  sig-storage/livenessprobe:v2.8.0
 -  sig-storage/livenessprobe:v2.9.0
 
+
 <!-- CONTAINER IMAGES END -->
 
 <!-- LINKS -->
@@ -182,3 +188,12 @@ These are the container images used by this release:
 [source]: https://github.com/charmed-kubernetes
 [1.27 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.27
 
+<!-- FEEDBACK -->
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <p class="p-notification__message">We appreciate your feedback on the documentation. You can
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.27/components.md" >edit this page</a>
+    or
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
+  </div>
+</div>

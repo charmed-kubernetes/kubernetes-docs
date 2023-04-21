@@ -13,10 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-
-
-
- <!--LINKS-->
+<!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
 [backups]: /kubernetes/docs/backups
@@ -26,7 +23,6 @@ toc: False
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
-
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
