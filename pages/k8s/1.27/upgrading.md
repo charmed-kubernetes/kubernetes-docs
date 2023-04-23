@@ -3,15 +3,16 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Upgrading to 1.26"
+  title: "Upgrading to 1.27"
   description: How to upgrade your version of Charmed Kubernetes.
 keywords: juju, upgrading, track, version
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: 1.26/upgrading.html
+permalink: 1.27/upgrading.html
 layout: [base, ubuntu-com]
 toc: False
 ---
+
 
 It is recommended that you keep your **Kubernetes** deployment updated to the latest available stable version. You should also update the other applications which make up the **Charmed Kubernetes**. Keeping up to date ensures you have the latest bug-fixes and security patches for smooth operation of your cluster.
 
@@ -39,20 +40,22 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>  - currently, only the latest <strong>2.9/stable</strong> version of Juju is recommended for use with Charmed Kubernetes. The later 3.0 versions of Juju introduce breaking changes and are not supported until a tested upgrade path is in place. If you have already installed a later version of the Juju client, you can revert to the supported channel by running <code> sudo snap refresh juju --channel=2.9/stable</code></p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.27 release) is <strong>3.1</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://juju.is/docs/olm/upgrade-your-juju-deployment-from-2-9-to-3-x"> Juju documentation</a> for more information.</p>
   </div>
 </div>
+
+
 
 As with all upgrades, there is a possibility that there may be unforeseen difficulties. It is **highly recommended that you make a backup** of any important data, including any running workloads. For more details on creating backups, see the separate [documentation on backups][backups].
 
 You should also make sure:
 
--   The machine from which you will perform the backup has sufficient internet access to retrieve updated software
--   Your cluster is running normally
--   Your Juju client and controller/models are running the 2.9/stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
--   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from
--   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster
--   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.26.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.26 which may impact your workloads.
+-   The machine from which you will perform the backup has sufficient internet access to retrieve updated software.
+-   Your cluster is running normally.
+-   Your Juju client and controller/models are running the same, stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
+-   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from.
+-   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster.
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.27.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.27 which may impact your workloads.
 
 It is also important to understand that **Charmed Kubernetes** will only upgrade
 and if necessary migrate, components relating specifically to elements of
@@ -86,7 +89,6 @@ outside of the cycle of new releases of Kubernetes.
 
 This includes:
 
-- Docker
 - easyrsa
 - etcd
 - flannel, calico or other CNI
@@ -368,8 +370,10 @@ juju status
 
 It is recommended that you run a [cluster validation][validation] to ensure that the cluster is fully functional.
 
-<!-- LINKS -->
+<!--LINKS-->
 
+[juju-controller-upgrade]: https://juju.is/docs/olm/manage-controllers#heading--upgrade-a-controller
+[juju-3-upgrade]: https://juju.is/docs/olm/upgrade-your-juju-deployment-from-2-9-to-3-x
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
 [backups]: /kubernetes/docs/backups
 [release-notes]: /kubernetes/docs/release-notes
@@ -378,14 +382,12 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
-[juju-controller-upgrade]: https://juju.is/docs/olm/upgrade-models
-[inclusive-naming]: /kubernetes/docs/inclusive-naming
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.25/upgrading.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.27/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>

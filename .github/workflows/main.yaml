@@ -4,9 +4,10 @@ on: [pull_request]
 jobs:
   call-inclusive-naming-check:
     name: Inclusive naming
-    uses: canonical-web-and-design/Inclusive-naming/.github/workflows/woke.yaml@main
+    uses: canonical/Inclusive-naming/.github/workflows/woke.yaml@main
     with:
       fail-on-error: "true"
+      woke-args: ". -c .woke.yaml"
 
   call-generator-unit-checks:
     uses: charmed-kubernetes/workflows/.github/workflows/lint-unit.yaml@main
