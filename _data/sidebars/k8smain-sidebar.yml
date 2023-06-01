@@ -22,7 +22,6 @@ entries:
     type: section
     items:
 
-      
     - title: '1.27'
       url: /1.27/components
       output: web, pdf
