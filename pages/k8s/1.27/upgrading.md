@@ -112,51 +112,20 @@ juju upgrade-charm containerd
 
 As **etcd** manages critical data for the cluster, it is advisable to create a snapshot of
 this data before running an upgrade. This is covered in more detail in the
-[documentation on backups][backups], but the basic steps are:
+[documentation on backups][backups] (including how to restore snapshots in case of
+problems).
 
-#### 1. Run the snapshot action on the charm
-
-```bash
-juju run-action etcd/0 snapshot --wait
-```
-You should see confirmation of the snapshot being created, and the command needed to
-download the snapshot _from the **etcd** unit_. See the following truncated, example output:
-
-```
-...
-copy:
-      cmd: juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.tar.gz
-        .
-...
-```
-
-#### 2. Fetch a local copy of the snapshot
-
-You can use the `juju scp` command from the output above to download a local copy. For example:
-
-```
-juju scp etcd/40:/home/ubuntu/etcd-snapshots/etcd-snapshot-2020-11-18-21.37.11.tar.gz .
-```
-
-Substitute in your own etcd unit number and filename, or copy and paste the command from the previous
-output. Remember to add the ` .` at the end to copy to your local directory!
-
-
-#### 3. Upgrade the charm
-
-You can now upgrade the **etcd** charm:
+Upgrade the charm with the command:
 
 ```bash
 juju upgrade-charm etcd
 ```
 
-#### 4. Upgrade etcd
-
 To upgrade **etcd** itself, you will need to set the **etcd** charm's channel
 config.
 
 To determine the correct channel, go to the
-[Supported Versions][supported-versions] page and check the relevant
+[releases section of the bundle repository][bundle-repo] page and check the relevant
 **Charmed Kubernetes** bundle. Within the bundle, you should see which channel
 the **etcd** charm is configured to use.
 
@@ -382,6 +351,7 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
+[bundle-repo]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
