@@ -22,17 +22,16 @@ entries:
     type: section
     items:
 
-      
+    - title: '1.27'
+      url: /1.27/components
+      output: web, pdf
+
     - title: '1.26'
       url: /1.26/components
       output: web, pdf
 
     - title: '1.25'
       url: /1.25/components
-      output: web, pdf
-
-    - title: '1.24'
-      url: /1.24/components
       output: web, pdf
 
     - title: Version info
