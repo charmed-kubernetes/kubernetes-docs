@@ -13,6 +13,23 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+# 1.26+ck4 Bugfix release
+
+### June 19, 2023 - `charmed-kubernetes --channel 1.26/stable`
+
+## Fixes
+
+Two bug fixes related to the `kubeapi-load-balancer` charm have been backported
+from Charmed Kubernetes 1.27:
+
+- Kubernetes API Load Balancer [LP#2017814](https://bugs.launchpad.net/charm-kubeapi-load-balancer/+bug/2017814)
+
+  nginx configuration is missing on non-leader units when VIP is set.
+
+- Kubernetes API Load Balancer [LP#2017812](https://bugs.launchpad.net/charm-kubeapi-load-balancer/+bug/2017812)
+
+  ha-cluster-vip not correctly written to kubeconfig.
+
 # 1.26+ck3 Bugfix release
 
 ### March 20, 2023 - `charmed-kubernetes --channel 1.26/stable`
