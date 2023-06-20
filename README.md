@@ -45,3 +45,7 @@ If you have cloned this repo and wish to build it locally to test changes, the e
       bundle exec jekyll serve
 
 If you make a PR, the netlify tests will automatically generate a demo website (click on 'Details' in the deployments section)
+
+## Code of conduct
+
+Charmed Kubernetes has adopted the [Ubuntu Code of Conduct v2.0](https://ubuntu.com/community/ethos/code-of-conduct).
