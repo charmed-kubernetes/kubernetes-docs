@@ -147,10 +147,10 @@ class PageWriter:
         major, minor = _ver_to_tuple(self.version)
         return [f"{major}.{min}" for min in range(minor, minor - 3, -1)]
 
-    def generate_whats_new(self):
+    def generate_whats_new(self) -> Mapping[str, Changelog]:
         # cache results
         _whats_new = getattr(self, "_whats_new", None)
-        if _whats_new:
+        if _whats_new is not None:
             return _whats_new
 
         context: Mapping[str, Changelog] = {}
@@ -166,13 +166,15 @@ class PageWriter:
                 )
             except UnknownObjectException:
                 continue
+            all_commit_messages = []
             for commit in comparison.commits:
-                report.commit_log += (
+                all_commit_messages.append(
                     commit.commit.message.strip()
                     .replace("\r\n", "\n")
                     .replace("\n\n", "\n")
                 )
-                report.commit_log += "\n"
+
+            report.commit_log = "\n".join(all_commit_messages).strip()
 
         self._whats_new = context
         return context
