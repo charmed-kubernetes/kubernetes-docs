@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import List, Mapping
 
 import semver
-from github import Github
+from github import Github, UnknownObjectException
 from jinja2 import Environment, PackageLoader, select_autoescape
 import yaml
 
@@ -24,6 +24,11 @@ def gh():
 
 def _ver_to_tuple(ver):
     return tuple(int(i) for i in ver.split("."))
+
+
+def _prior_version(ver):
+    as_tuple = _ver_to_tuple(ver)
+    return ".".join(map(str, (as_tuple[0], as_tuple[1] - 1)))
 
 
 def within_channel_range(ersion: str, ranges: Mapping[str, str]):
@@ -60,6 +65,7 @@ class Charm:
     summary: str = ""
     store: str = "charmhub.io"
     docs: str = "charmhub.io"
+    downstream: str = ""
     upstream: str = "github.com/charmed-kubernetes/"
     bugs: str = "https://bugs.launchpad.net/charmed-kubernetes"
     tags: List[str] = field(default_factory=list)
@@ -69,7 +75,13 @@ class Charm:
         return self.name < other.name
 
 
-def get_charms(ersion: str):
+@dataclass
+class Changelog:
+    name: str
+    commit_log: str = ""
+
+
+def get_charms(ersion: str) -> List[Charm]:
     jenkins = gh().get_repo("charmed-kubernetes/jenkins")
     charm_matrix_file = jenkins.get_contents(
         "jobs/includes/charm-support-matrix.inc", ref="main"
@@ -135,6 +147,36 @@ class PageWriter:
         major, minor = _ver_to_tuple(self.version)
         return [f"{major}.{min}" for min in range(minor, minor - 3, -1)]
 
+    def generate_whats_new(self):
+        # cache results
+        _whats_new = getattr(self, "_whats_new", None)
+        if _whats_new:
+            return _whats_new
+
+        context: Mapping[str, Changelog] = {}
+        _from = _prior_version(self.version)
+        _to = self.version
+        for each in get_charms(self.version):
+            report = context.setdefault(each.name, Changelog(each.name))
+            try:
+                comparison = (
+                    gh()
+                    .get_repo(each.downstream.strip(".git"))
+                    .compare(f"release_{_from}", f"release_{_to}")
+                )
+            except UnknownObjectException:
+                continue
+            for commit in comparison.commits:
+                report.commit_log += (
+                    commit.commit.message.strip()
+                    .replace("\r\n", "\n")
+                    .replace("\n\n", "\n")
+                )
+                report.commit_log += "\n"
+
+        self._whats_new = context
+        return context
+
     def generate_component_page(self):
         output_path = _with_parent(self.release_path / "components.md")
         output = output_path.open("w")
@@ -155,6 +197,7 @@ class PageWriter:
         context = dict(
             date=datetime.now().strftime("%B %d, %Y"),
             release=self.version,
+            whats_new=self.generate_whats_new(),
             header=header,
             footer=footer,
         )
