@@ -77,42 +77,43 @@ Create a bundle for volcano scheduler
 A list of other bug fixes and minor feature updates in this release can be found at
 [the launchpad milestone page for 1.28](https://launchpad.net/charmed-kubernetes/+milestone/1.28).
 
-### azure-cloud-provider
+- **azure-cloud-provider**
 Apply `topologySpreadConstraints` to control-plane Deployments [LP#2016053](https://launchpad.net/bugs/2016053) 
 
-### ceph-csi
+- **ceph-csi**
 Support CephFS [LP#1940922](https://launchpad.net/bugs/1940922) and [LP#1940921](https://launchpad.net/bugs/1940921)
 
-### cilium
+- **cilium**
 Resolves Error state when relating to cos-lite [LP#2025162](https://launchpad.net/bugs/2025162)
 
-### coredns
+- **coredns**
 Resolves multiple architecture deployment [LP#1998607](https://launchpad.net/bugs/1998607)
 
-### etcd
+- **etcd**
 Redirect nagios cron output through tee [LP#2021950](https://launchpad.net/bugs/2021950)
 Provide etcd certs to prometheus reation [LP#2004612](https://launchpad.net/bugs/2004612)
 
-### kubernetes-control-plane
+- **kubernetes-control-plane**
 Restart kube-proxy if proxy-extra-config changes [LP#2020059](https://launchpad.net/bugs/2020059)
 Add cinder-availability-zone config [LP#1972861](https://launchpad.net/bugs/1972861)
 Update renamed metrics to fix grafana dashboard [LP#1956611](https://launchpad.net/bugs/1956611)
 Update to CNI 1.2.0
 
-### kubernetes-worker
+- **kubernetes-worker**
 update clusterrole for ingress-nginx to support 1.6.4 release [LP#2015761](https://launchpad.net/bugs/2015761)
 Restart kube-proxy if proxy-extra-config changes [LP#2020059](https://launchpad.net/bugs/2020059)
 
-### metallb
+- **metallb**
 Update charm icon [LP#1926982](https://launchpad.net/bugs/1926982)
 Add L2 Advertisements deployed via the charm [LP#2030108](https://launchpad.net/bugs/2030108)
 
-### openstack-integrator
+- **openstack-integrator**
 Fix endpoint url regex to parse trailing slash [LP#1964544](https://launchpad.net/bugs/1964544)
 
 
 ## Notes and Known Issues
 
+None
 
 ## Deprecations and API changes
 
