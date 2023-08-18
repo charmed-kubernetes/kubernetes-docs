@@ -15,7 +15,7 @@ toc: False
 ---
 # 1.28
 
-### August 14, 2023 - `charmed-kubernetes --channel 1.28/stable`
+### August 18, 2023 - `charmed-kubernetes --channel 1.28/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.28/bundle.yaml).
 
@@ -35,7 +35,7 @@ Update charm to apply manifests with `ops.manifest``
 Add flannel cni-plugin 1.2.0, update to flanneld 0.22.1 (#89)
 
 ### kube-ovn
-Update to kube-ovn 1.11.8
+Update to kube-ovn 1.11.10
 Resolves Error state when relating to cos-lite 
 
 ### kubernetes-worker
@@ -73,7 +73,7 @@ Create a bundle for volcano scheduler
 
 ## Fixes
 
-A list of other bug fixes and minor feature updates in this release can be found at
+A list of all bug fixes and feature updates in this release can be found at
 [the launchpad milestone page for 1.28](https://launchpad.net/charmed-kubernetes/+milestone/1.28).
 
 ### azure-cloud-provider
@@ -117,7 +117,7 @@ Fix endpoint url regex to parse trailing slash [LP#1964544](https://launchpad.ne
 
 - Upstream
 
-For details of other deprecation notices and API changes for Kubernetes 1.28, please see the
+For deprecation notices and API changes in Kubernetes 1.28, please see the
 relevant sections of the [upstream release notes][upstream-changelog-1.28].
 
 [upstream-changelog-1.28]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.28.md#deprecation

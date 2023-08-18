@@ -16,7 +16,7 @@ toc: False
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 # 1.28
 
-### August 16, 2023 - `charmed-kubernetes --channel 1.28/stable`
+### August 18, 2023 - `charmed-kubernetes --channel 1.28/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.28/bundle.yaml).
 
@@ -36,7 +36,7 @@ Update charm to apply manifests with `ops.manifest``
 Add flannel cni-plugin 1.2.0, update to flanneld 0.22.1 (#89)
 
 ### kube-ovn
-Update to kube-ovn 1.11.8
+Update to kube-ovn 1.11.10
 Resolves Error state when relating to cos-lite 
 
 ### kubernetes-worker
