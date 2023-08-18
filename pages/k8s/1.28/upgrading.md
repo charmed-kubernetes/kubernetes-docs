@@ -135,7 +135,38 @@ juju config etcd channel=3.4/stable
 ```
 ### Upgrading MetalLB (if used)
 
-xxxx xxxx xxx
+Previous versions of the Charmed Kubernetes bundle adopted a two charm approach, deployed in a K8s model with the suggested name `metallb-system`.
+The 1.28 release includes the charms for MetallLB have been updated into a single charm (`metallb`). Updating is simply a matter of removing the old
+charms and model, creating a new Kubernetes Model and deploying the new charm.
+
+#### Upgrade steps
+
+First create a new model (call it whatever is preferred) so long as it is not named `metallb-system`, and deploy the charm into that model.
+
+```shell
+juju add-model juju-metallb
+juju deploy metallb --channel 1.28/stable --trust --config namespace=metallb-system-2
+```
+
+Next, wait until the metallb charm is active/idle
+
+```shell
+juju status -m juju-metallb --watch=1s
+```
+
+Once stable, the new MetalLB installation will take over managing existing LoadBalancer services, and the model containing the old charms may be deleted.
+
+```shell
+juju switch metallb-system
+juju remove-application metallb-speaker
+juju remove-application metallb-controller
+```
+
+Once the model is empty, it should be safe to remove the model
+
+```shell
+juju destroy-model metallb-system --no-prompt
+```
 
 
 ### Upgrading additional components
