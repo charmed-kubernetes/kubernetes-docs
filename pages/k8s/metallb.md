@@ -151,29 +151,6 @@ Once deployed, MetalLB will automatically assign IPs from its pools to any
 service of type `LoadBalancer`. When the services are deleted, the IPs are
 available again.
 
-## Testing MetalLB
-
-To test your deployment of MetalLB, you can use the [microbot manifest][] to
-deploy a simple webapp with a service type of `LoadBalancer`:
-
-```bash
-wget https://raw.githubusercontent.com/charmed-kubernetes/metallb-operator/release_1.27/docs/example-microbot-lb.yaml
-kubectl apply -f example-microbot-lb.yaml
-kubectl get service microbot-lb
-```
-
-The EXTERNAL-IP is the IP assigned to the microbot service by the MetalLB controller.
-If you reach this IP with a browser, you should see the image of a microbot. If you
-cannot, most probably the IP range is not correctly chosen; the IP range needs to
-be a pool reserved solely for MetalLB to avoid IP conflicts.
-
-To remove the test webapp and service, simply delete the manifest with kubectl:
-
-```bash
-kubectl delete -f example-microbot-lb.yaml
-```
-
-
 <!-- LINKS -->
 
 [Juju]: https://juju.is
