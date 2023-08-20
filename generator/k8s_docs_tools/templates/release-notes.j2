@@ -10,13 +10,12 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-- item 1
-
-Some stuff about this
-
-- item 2
-
-more stuff
+{%- for charm in whats_new.values() %}
+    {%- if charm.commit_log %}
+### {{ charm.name }}
+{{ charm.commit_log }}
+    {%- endif %}
+{%- endfor %}
 
 ## Component Versions
 
