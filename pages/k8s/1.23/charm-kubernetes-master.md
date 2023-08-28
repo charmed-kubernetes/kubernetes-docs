@@ -564,7 +564,7 @@ as possible. You may also set a custom string as described in the
 
 
 DEPRECATED in 1.19: Manage installed snap versions with the snap-store-proxy model config.
-See: https://snapcraft.io/snap-store-proxy and https://juju.is/docs/offline-mode-strategies#heading--snap-specific-proxy
+See: https://snapcraft.io/snap-store-proxy and https://juju.is/docs/juju/working-offline
 
 [Back to table](#table-snapd_refresh)
 

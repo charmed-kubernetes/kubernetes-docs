@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 import unittest.mock as mock
 import k8s_docs_tools.generate_release as generator
+from k8s_docs_tools.generate_release import Changelog
 from types import SimpleNamespace
 from typing import Mapping
 
@@ -73,6 +74,7 @@ def test_charm_cmp():
         (
             """[{charm: {summary: '', store: charmhub.io, docs: charmhub.io, """
             """upstream: github.com/charmed-kubernetes/, """
+            """downstream: '', """
             """bugs: https://bugs.launchpad.net/charmed-kubernetes, tags: []}}]""",
             [generator.Charm("charm")],
         ),
@@ -124,6 +126,10 @@ def test_generate_component_page(mock_get_containers, mock_get_charms, tmpdir):
     mock_get_containers.assert_called_with("0.13")
 
 
+@mock.patch(
+    "k8s_docs_tools.generate_release.PageWriter.generate_whats_new",
+    mock.MagicMock(return_value={}),
+)
 def test_generate_release_notes_page(tmpdir):
     pw = generator.PageWriter("0.13", Path(tmpdir))
     text = pw.generate_release_notes_page()
@@ -135,6 +141,30 @@ def test_generate_release_notes_page(tmpdir):
     assert text != expected.read_text("utf-8") and text in expected.read_text(
         "utf-8"
     ), "text should be a subset, not equal"
+
+
+@mock.patch("k8s_docs_tools.generate_release.get_charms")
+def test_generate_whats_new(mock_get_charms, github_client, tmpdir):
+    git_commit = mock.MagicMock()
+    get_repo = github_client.return_value.get_repo
+    compare_repo = get_repo.return_value.compare
+    compare_repo.return_value.commits = [git_commit]
+    git_commit.commit.message = "something\r\ninteresting\n\n"
+
+    mock_charm = mock.MagicMock()
+    mock_charm.name = "test-me"
+    mock_charm.downstream = "charmed-kubernetes/charm-test-me.git"
+    mock_get_charms.return_value = [mock_charm]
+    pw = generator.PageWriter("0.13", Path(tmpdir))
+    whats_new = pw.generate_whats_new()
+
+    assert whats_new == {"test-me": Changelog("test-me", "something\ninteresting")}
+    whats_new = pw.generate_whats_new()
+    assert whats_new == {"test-me": Changelog("test-me", "something\ninteresting")}
+
+    mock_get_charms.assert_called_once_with("0.13")
+    get_repo.assert_called_once_with("charmed-kubernetes/charm-test-me")
+    compare_repo.assert_called_once_with("release_0.12", "release_0.13")
 
 
 @mock.patch.object(

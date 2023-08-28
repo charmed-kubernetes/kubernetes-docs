@@ -3,13 +3,13 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: kubernetes/docs/shared/_side-navigation.md
 context:
-  title: Components of Charmed Kubernetes 1.27
+  title: Components of Charmed Kubernetes 1.28
   description: Detailed description of Charmed Kubernetes release
 keywords: component, charms, versions, release
 tags:
     - reference
 sidebar: k8smain-sidebar
-permalink: 1.27/components.html
+permalink: 1.28/components.html
 layout:
     - base
     - ubuntu-com
@@ -24,15 +24,15 @@ https://github.com/charmed-kubernetes/kubernetes-docs/issues
 rather than editing the text -->
 
 This page details the charms and container images
-which comprise the 1.27 release of Charmed Kubernetes.
+which comprise the 1.28 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs/1.27/release-notes'>Release notes </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.27/upgrading'>Upgrading </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.28/release-notes'>Release notes </a>
+<a class='p-button--brand' href='/kubernetes/docs/1.28/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
 <a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
-<a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.27'>Milestone </a>
+<a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.28'>Milestone </a>
 
 ## What's new
 
@@ -45,7 +45,7 @@ These charms are the core components of the Charmed Kubernetes release.
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
-| [calico](https://charmhub.io/calico) | A robust Software Defined Network from Project Calico | [source](https://github.com/charmed-kubernetes/layer-calico.git) | [docs](https://charmhub.io/calico/docs) | [bugs](https://bugs.launchpad.net/charm-calico) |
+| [calico](https://charmhub.io/calico) | A robust Software Defined Network from Project Calico | [source](https://github.com/charmed-kubernetes/charm-calico.git) | [docs](https://charmhub.io/calico/docs) | [bugs](https://bugs.launchpad.net/charm-calico) |
 | [containerd](https://charmhub.io/containerd) | Containerd container runtime subordinate | [source](https://github.com/charmed-kubernetes/charm-containerd.git) | [docs](https://charmhub.io/containerd/docs) | [bugs](https://bugs.launchpad.net/charm-containerd) |
 | [easyrsa](https://charmhub.io/easyrsa) | Deploys and manages EasyRSA to create a Certificate Authority (CA) | [source](https://github.com/charmed-kubernetes/layer-easyrsa.git) | [docs](https://charmhub.io/easyrsa/docs) | [bugs](https://bugs.launchpad.net/charm-easyrsa) |
 | [etcd](https://charmhub.io/etcd) | Deploy a TLS terminated ETCD Cluster | [source](https://github.com/charmed-kubernetes/layer-etcd.git) | [docs](https://charmhub.io/etcd/docs) | [bugs](https://bugs.launchpad.net/charm-etcd) |
@@ -61,7 +61,7 @@ These are the Container Network Interface (CNI) charms supported by Charmed Kube
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
-| [calico](https://charmhub.io/calico) | A robust Software Defined Network from Project Calico | [source](https://github.com/charmed-kubernetes/layer-calico.git) | [docs](https://charmhub.io/calico/docs) | [bugs](https://bugs.launchpad.net/charm-calico) |
+| [calico](https://charmhub.io/calico) | A robust Software Defined Network from Project Calico | [source](https://github.com/charmed-kubernetes/charm-calico.git) | [docs](https://charmhub.io/calico/docs) | [bugs](https://bugs.launchpad.net/charm-calico) |
 | [canal](https://charmhub.io/canal) | A Software Defined Network based on Flannel and Calico | [source](https://github.com/charmed-kubernetes/layer-canal.git) | [docs](https://charmhub.io/canal/docs) | [bugs](https://bugs.launchpad.net/charm-canal) |
 | [cilium](https://charmhub.io/cilium) | eBPF-based Networking, Observability, Security | [source](https://github.com/charmed-kubernetes/charm-cilium.git) | [docs](https://charmhub.io/cilium/docs) | [bugs](https://bugs.launchpad.net/charm-cilium) |
 | [flannel](https://charmhub.io/flannel) | A charm that provides a robust Software Defined Network | [source](https://github.com/charmed-kubernetes/charm-flannel.git) | [docs](https://charmhub.io/flannel/docs) | [bugs](https://bugs.launchpad.net/charm-flannel) |
@@ -99,7 +99,7 @@ to extend the capabilities of your Kubernetes cluster.
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
 | [aws-iam](https://charmhub.io/aws-iam) |  | [source](https://github.com/charmed-kubernetes/charm-aws-iam.git) | [docs](https://charmhub.io/aws-iam/docs)  | [bugs](https://bugs.launchpad.net/charm-aws-iam) |
-| [ceph-csi](https://charmhub.io/ceph-csi) | Deploys Container Storage Interface (CSI) plugin that enables Charmed Kubernetes to use ceph as a storage backend. | [source](https://github.com/charmed-kubernetes/ceph-csi-operator.git) | [docs](https://charmhub.io/ceph-csi/) | [bugs](https://bugs.launchpad.net/charm-ceph-csi) |
+| [ceph-csi](https://charmhub.io/ceph-csi) | Deploys Container Storage Interface (CSI) plugin that enables Charmed Kubernetes to use ceph as a storage backend. | [source](https://github.com/charmed-kubernetes/ceph-csi-operator.git) | [docs](https://charmhub.io/ceph-csi/README.md)  | [bugs](https://bugs.launchpad.net/charm-ceph-csi) |
 | [coredns](https://charmhub.io/coredns) | The CoreDNS domain name service provider | [source](https://github.com/charmed-kubernetes/charm-coredns.git) | [docs](https://charmhub.io/coredns/docs)  | [bugs](https://bugs.launchpad.net/charm-coredns) |
 | [docker-registry](https://charmhub.io/docker-registry) | Registry for docker images | [source](https://github.com/CanonicalLtd/docker-registry-charm.git) | [docs](https://charmhub.io/docker-registry/docs)  | [bugs](https://bugs.launchpad.net/layer-docker-registry) |
 | [gatekeeper-audit](https://charmhub.io/gatekeeper-audit) | Audit charm for Gatekeeper audit | [source](https://github.com/charmed-kubernetes/opa-gatekeeper-operators.git) | [docs](https://charmhub.io/gatekeeper-audit/docs)  | [bugs](https://bugs.launchpad.net/opa-gatekeeper-operator) |
@@ -108,11 +108,11 @@ to extend the capabilities of your Kubernetes cluster.
 | [keepalived](https://charmhub.io/keepalived) | Failover and monitoring daemon for LVS clusters | [source](https://github.com/charmed-kubernetes/charm-keepalived.git) | [docs](https://charmhub.io/keepalived/docs)  | [bugs](https://bugs.launchpad.net/charm-keepalived) |
 | [kube-state-metrics](https://charmhub.io/kube-state-metrics) | a service that listens to the Kubernetes API and generates metrics | [source](https://github.com/charmed-kubernetes/kube-state-metrics-operator.git) | [docs](https://charmhub.io/kube-state-metrics/docs)  | [bugs](https://bugs.launchpad.net/kube-state-metrics-operator) |
 | [kubernetes-autoscaler](https://charmhub.io/kubernetes-autoscaler) | automatically scales up and down a kubernetes cluster | [source](https://github.com/charmed-kubernetes/charm-kubernetes-autoscaler.git) | [docs](https://charmhub.io/kubernetes-autoscaler/docs)  | [bugs](https://bugs.launchpad.net/charm-kubernetes-autoscaler) |
+| [kubernetes-dashboard](https://charmhub.io/kubernetes-dashboard) | A web-based Kubernetes user interface | [source](https://github.com/charmed-kubernetes/kubernetes-dashboard-operator) | [docs](https://charmhub.io/kubernetes-dashboard/docs)  | [bugs](https://bugs.launchpad.net/kubernetes-dashboard-operator) |
 | [kubernetes-e2e](https://charmhub.io/kubernetes-e2e) | End-to-end (e2e) tests for Kubernetes | [source](https://github.com/charmed-kubernetes/charm-kubernetes-e2e.git) | [docs](https://charmhub.io/kubernetes-e2e/docs)  | [bugs](https://bugs.launchpad.net/charm-kubernetes-e2e) |
-| [kubernetes-metrics-server](https://charmhub.io/kubernetes-metrics-server) | Exposes core Kubernetes metrics via metrics API | [source](https://github.com/charmed-kubernetes/kubernetes-metrics-server-operator.git) | [docs](https://charmhub.io/kubernetes-metrics-server/docs)  | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
+| [kubernetes-metrics-server](https://charmhub.io/kubernetes-metrics-server) | Exposes core Kubernetes metrics via metrics API | [source](https://github.com/charmed-kubernetes/kubernetes-metrics-server-operator.git) | [docs](https://charmhub.io/kubernetes-metrics-server/docs)  | [bugs](https://bugs.launchpad.net/charm-kubernetes-metrics-server) |
 | [kubevirt](https://charmhub.io/kubevirt) | Deploys KubeVirt into a Charmed-Kubernetes cluster | [source](https://github.com/charmed-kubernetes/charm-kube-virt.git) | [docs](https://charmhub.io/kubevirt/docs)  | [bugs](https://bugs.launchpad.net/charm-kubevirt) |
-| [metallb-controller](https://charmhub.io/metallb-controller) | Controller charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-controller/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
-| [metallb-speaker](https://charmhub.io/metallb-speaker) | Speaker charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-speaker/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
+| [metallb](https://charmhub.io/metallb) | Metallb loadbalancer charm | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
 | [volcano-admission](https://charmhub.io/volcano-admission) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 | [volcano-controllers](https://charmhub.io/volcano-controllers) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 | [volcano-scheduler](https://charmhub.io/volcano-scheduler) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
@@ -128,10 +128,10 @@ These are the container images used by this release:
 -  addon-resizer-arm64:1.8.9
 -  addon-resizer-ppc64le:1.8.9
 -  addon-resizer-s390x:1.8.9
--  calico/cni:v3.21.4
--  calico/kube-controllers:v3.21.4
--  calico/node:v3.21.4
--  calico/pod2daemon-flexvol:v3.21.4
+-  calico/cni:v3.25.1
+-  calico/kube-controllers:v3.25.1
+-  calico/node:v3.25.1
+-  calico/pod2daemon-flexvol:v3.25.1
 -  cdkbot/microbot-amd64:latest
 -  cdkbot/microbot-arm64:latest
 -  cdkbot/microbot-s390x:latest
@@ -144,16 +144,16 @@ These are the container images used by this release:
 -  defaultbackend-arm64:1.5
 -  defaultbackend-ppc64le:1.5
 -  defaultbackend-s390x:1.4
--  dns/k8s-dns-dnsmasq-nanny:1.22.20
--  dns/k8s-dns-kube-dns:1.22.20
--  dns/k8s-dns-sidecar:1.22.20
+-  dns/k8s-dns-dnsmasq-nanny:1.22.23
+-  dns/k8s-dns-kube-dns:1.22.23
+-  dns/k8s-dns-sidecar:1.22.23
 -  external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
 -  ingress-nginx/controller:v1.6.4
 -  kube-state-metrics/kube-state-metrics:v2.8.2
 -  kubernetes-ingress-controller/nginx-ingress-controller-ppc64le:0.20.0
 -  kubernetesui/dashboard:v2.7.0
 -  kubernetesui/metrics-scraper:v1.0.8
--  metrics-server/metrics-server:v0.5.2
+-  metrics-server/metrics-server:v0.6.3
 -  nvidia/k8s-device-plugin:v0.14.0
 -  pause:3.9
 -  provider-os/cinder-csi-plugin:v1.26.2
@@ -182,17 +182,17 @@ These are the container images used by this release:
 
 <!-- LINKS -->
 
-[release notes]: /kubernetes/docs/release-notes#1.27
+[release notes]: /kubernetes/docs/release-notes#1.28
 [upgrade notes]: /kubernetes/docs/upgrade-notes
 [bugs]: /kubernetes/docs/
 [source]: https://github.com/charmed-kubernetes
-[1.27 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.27
+[1.28 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.28
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.27/components.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.28/components.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
