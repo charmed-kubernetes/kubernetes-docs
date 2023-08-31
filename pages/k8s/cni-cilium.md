@@ -21,6 +21,14 @@ transparent network security and traffic monitoring features.
 
 ## Deploying Charmed Kubernetes with Cilium
 
+<div class="p-notification--information is-inline">
+  <div class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message">If you are deploying Charmed Kubernetes + Cilium on AWS or OpenStack, please set the following model configurations to disable FAN networking, as this conflicts with the network interfaces created by Cilium: `juju model-config container-networking-method=local fan-config=`
+    </p>
+  </div>
+</div>
+
 To deploy a cluster with Cilium, deploy the `charmed-kubernetes` bundle with
 the [Cilium overlay][cilium-overlay]:
 
