@@ -143,19 +143,6 @@ the default components and configuration. If you wish to customise this install
 (which may be helpful if you are close to the system requirements), please see
 the [main install page][install].
 
-<div class="p-notification--caution is-inline">
-  <div markdown="1" class="p-notification__content">
-    <span class="p-notification__title">Bug Warning:</span>
-    <p class="p-notification__message">There is currently a bug, <a href="https://bugs.launchpad.net/charm-kubernetes-worker/+bug/1903566"> LP#1903566</a>,
-    which prevents <code>Kubelet</code> from running properly on LXD. 
-    Until this is fixed, a workaround is to configure kubelet to override kernel defaults:
-    <br>
-    <code>
-    juju config kubernetes-worker kubelet-extra-config='{protectKernelDefaults: false}'
-    </code></p>
-  </div>
-</div>
-
 ## Next Steps
 
 Now you have a cluster up and running, check out the
