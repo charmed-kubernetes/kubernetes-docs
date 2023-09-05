@@ -562,4 +562,3 @@ return 503 errors like the following:
 Per https://github.com/docker/distribution/issues/2292, upload an empty file
 called "files" at the root of the container to workaround the issue.
 
-For more details on the swift driver configuration see [here for more details.](https://github.com/docker/docker.github.io/blob/master/registry/storage-drivers/swift.md)
