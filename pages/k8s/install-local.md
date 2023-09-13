@@ -232,6 +232,19 @@ juju config kubernetes-worker sysctl="{ fs.inotify.max_user_instances=8192 }"
 juju config kubernetes-worker sysctl="{ fs.inotify.max_user_watches=1048576 }"
 ```
 
+### Calico is blocked with warning about ignore-loose-rpf
+
+Calico may be blocked with status: `ignore-loose-rpf config is in conflict with rp_filter value`.
+
+If the kernel `net.ipv4.conf.all.rp_filter` value is set to 2, Calico will complain,
+because it expects the kernel to have strict reverse path forwarding set (ie. value be 0 or 1) for security.
+In LXD containers, it's not possible to manipulate the value; it's dependent on the host.
+In this situation we can set the charm config `ignore-loose-rpf=true`.
+
+```
+juju config calico ignore-loose-rpf=true
+```
+
 <!-- LINKS -->
 
 [lxd-home]: https://linuxcontainers.org/
