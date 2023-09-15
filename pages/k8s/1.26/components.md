@@ -56,7 +56,8 @@ release. These charms are maintained by the Charmed Kubernetes team.
 
 
 ## CNI charms
-These are the CNI charms also supported by Charmed Kubernetes ( calico is the default CNI and is included in the core charms above)
+These are the CNI charms also supported by Charmed Kubernetes (Calico
+ is the default CNI and is included in the core charms above)
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
@@ -106,7 +107,7 @@ enables Charmed Kubernetes to use ceph as a storage backend. | [source](https://
 | [kubernetes-e2e](https://charmhub.io/kubernetes-e2e) | End-to-end (e2e) tests for Kubernetes | [source](https://github.com/charmed-kubernetes/charm-kubernetes-e2e.git) | [docs](https://charmhub.io/kubernetes-e2e/docs)  | [bugs](https://bugs.launchpad.net/charm-kubernetes-e2e) |
 | [kubernetes-metrics-server](https://charmhub.io/kubernetes-metrics-server) | Exposes core Kubernetes metrics via metrics API | [source](https://github.com/charmed-kubernetes/kubernetes-metrics-server-operator.git) | [docs](https://charmhub.io/kubernetes-metrics-server/docs)  | [bugs](https://bugs.launchpad.net/charmed-kubernetes) |
 | [metallb-controller](https://charmhub.io/metallb-controller) | Controller charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-controller/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
-| [metallb-speaker](https://charmhub.io/metallb-speaker) | Speaker charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-speaker/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb') |
+| [metallb-speaker](https://charmhub.io/metallb-speaker) | Speaker charm for the metallb loadbalancer | [source](https://github.com/charmed-kubernetes/metallb-operator.git) | [docs](https://charmhub.io/metallb-speaker/docs)  | [bugs](https://bugs.launchpad.net/operator-metallb) |
 
 ## Images
 
