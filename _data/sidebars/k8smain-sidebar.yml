@@ -22,13 +22,10 @@ entries:
     type: section
     items:
 
-<<<<<<< HEAD
     - title: '1.28'
       url: /1.28/components
       output: web, pdf
 
-=======
->>>>>>> 2684dda (remove \n)
     - title: '1.27'
       url: /1.27/components
       output: web, pdf
