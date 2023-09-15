@@ -112,7 +112,7 @@ storage pool, or even full-disk-encryption on the host machine.
 [HashiCorp's Vault]: https://www.vaultproject.io/
 [VaultLocker]: https://github.com/openstack-charmers/vaultlocker
 [Vault charm]: https://charmhub.io/vault
-[expose]: https://juju.is/docs/olm/expose-a-deployed-application
+[expose]: https://juju.is/docs/juju/expose-a-deployed-application
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

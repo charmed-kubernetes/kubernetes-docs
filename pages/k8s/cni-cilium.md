@@ -271,7 +271,7 @@ For additional troubleshooting pointers, please see the
 [hubble-introduction]: https://docs.cilium.io/en/stable/gettingstarted/hubble_intro/
 [hubble-client]: https://docs.cilium.io/en/stable/gettingstarted/hubble_cli/#hubble-cli
 [hubble-metrics]: https://docs.cilium.io/en/stable/observability/metrics/#hubble-metrics
-[juju-cmi]: https://juju.is/docs/olm/cross-model-integration
+[juju-cmi]: https://juju.is/docs/juju/cross-model-integration
 [troubleshooting]: /kubernetes/docs/troubleshooting
 
 <!-- FEEDBACK -->

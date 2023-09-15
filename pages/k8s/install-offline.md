@@ -261,19 +261,19 @@ is covered in the [proxy documentation][].
 [LXD]: https://ubuntu.com/lxd
 [LXD-image]: https://documentation.ubuntu.com/lxd/en/latest/images/
 [maas-images]: https://maas.io/docs/how-to-use-standard-images
-[simplestreams]: https://juju.is/docs/olm/cloud-image-metadata
+[simplestreams]: https://juju.is/docs/juju/cloud-image-metadata
 [bundles]: /kubernetes/docs/supported-versions
 [1.23-components]: /kubernetes/docs/1.23/components#snaps
 [cdk-shrinkwrap]: https://github.com/charmed-kubernetes/cdk-shrinkwrap
-[controller-config]: https://juju.is/docs/olm/controllers
-[credentials]: https://juju.is/docs/olm/credentials
+[controller-config]: https://juju.is/docs/juju/controllers
+[credentials]: https://juju.is/docs/juju/credentials
 [customize-bundle]: /kubernetes/docs/install-manual#customising-the-bundle-install
 [container images]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
 [juju-bundle]: https://juju.is/docs/sdk/bundles
-[juju-constraints]: https://juju.is/docs/olm/constraints
-[juju-docs]: https://juju.is/docs/olm/installing-juju
-[juju-gui]: https://juju.is/docs/olm/accessing-the-dashboard
-[offline-mode]: https://juju.is/docs/olm/configure-juju-for-offline-usage
+[juju-constraints]: https://juju.is/docs/juju/constraints
+[juju-docs]: https://juju.is/docs/juju/installing-juju
+[juju-gui]: https://juju.is/docs/juju/accessing-the-dashboard
+[offline-mode]: https://juju.is/docs/juju/configure-juju-for-offline-usage
 [on-prem-livepatch]: https://ubuntu.com/security/livepatch/docs/on_prem
 [overlays]: /kubernetes/docs/install-manual#overlay
 [quickstart]: /kubernetes/docs/quickstart
