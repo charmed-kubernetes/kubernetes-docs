@@ -214,14 +214,14 @@ the <code>active/idle</code> state but all new pods will hang in the
   </p>
 </div>
 
-<div class="p-notification--information">
-  <p class="p-notification__response">
-  <span class="p-notification__status">Note:</span>
-  The Easy-RSA charm notifies all the related units that the CA
-  and issued certificates have changed. It's up to the implementation of each
-  related charm to react to this change properly. It may take up to several
-  minutes for model to settle back into the <code>active/idle</code> state.
-  </p>
+<div class="p-notification--information is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Note:</span>
+    <p class="p-notification__message"> The Easy-RSA charm notifies all the related units that the CA
+    and issued certificates have changed. It's up to the implementation of each
+    related charm to react to this change properly. It may take up to several
+    minutes for model to settle back into the <code>active/idle</code> state.</p>
+  </div>
 </div>
 
 ## Actions
