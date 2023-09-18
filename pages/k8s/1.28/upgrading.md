@@ -342,7 +342,7 @@ A variation on this method is to add, pause, remove  and recycle units one at a 
 To proceed with an in-place upgrade, first upgrade the charm itself:
 
 ```bash
-juju refresh kubernetes-worker
+juju refresh kubernetes-worker --channel=1.28/stable
 ```
 
 Next, run the command to configure the workers for the version of **Kubernetes** you wish to run (as you did previously for the master units). For example:
