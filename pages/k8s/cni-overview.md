@@ -64,9 +64,9 @@ app is `ubuntu-control-plane-nodes` with the `ubuntu` charm.
 
 Both CNIs require access to the host `/sys/fs/bpf` and this can be exposed through the following profile adjustment
 ```bash
-    machine_app=ubuntu-control-plane-nodes
-    # Mount the host /sys/fs/bpf into the lxd containers of these machines
-    juju exec -a $machine_app -- 'sudo lxc profile edit default << EOF
+machine_app=ubuntu-control-plane-nodes
+# Mount the host /sys/fs/bpf into the lxd containers of these machines
+juju exec -a $machine_app -- 'sudo lxc profile edit default << EOF
 devices:
   sysfsbpf:
     path: /sys/fs/bpf
@@ -74,14 +74,14 @@ devices:
     type: disk
 EOF'
 
-    # Restart every container in the machine to update it's profile
-    readarray units < <(juju status $machine_app --format yaml | yq ".applications.$machine_app.units | keys" )
-    for unit in "${units[@]}"; do
-        juju exec -u $(echo $unit | yq .[0]) -- 'sudo lxc restart --all'
-    done
+# Restart every container in the machine to update it's profile
+readarray units < <(juju status $machine_app --format yaml | yq ".applications.$machine_app.units | keys" )
+for unit in "${units[@]}"; do
+    juju exec -u $(echo $unit | yq .[0]) -- 'sudo lxc restart --all'
+done
 
-    # wait for the cluster to settle
-    juju-wait
+# wait for the cluster to settle
+juju-wait
 ```
 
 <!-- LINKS -->
