@@ -63,7 +63,7 @@ as a subordinate unit of `kubernetes-control-plane` on a LXD. Those LXDs exist s
 app is `ubuntu-control-plane-nodes` with the `ubuntu` charm.
 
 Both CNIs require access to the host `/sys/fs/bpf` and this can be exposed through the following profile adjustment
-```shell
+```bash
     machine_app=ubuntu-control-plane-nodes
     # Mount the host /sys/fs/bpf into the lxd containers of these machines
     juju exec -a $machine_app -- 'sudo lxc profile edit default << EOF
@@ -73,12 +73,15 @@ devices:
     source: /sys/fs/bpf
     type: disk
 EOF'
-    units=$(juju status $machine_app --format yaml | yq ".applications.$machine_app.units | keys" )
+
     # Restart every container in the machine to update it's profile
-    for unit in $units; do
-        juju exec -u $unit -- 'sudo lxc restart --all'
+    readarray units < <(juju status $machine_app --format yaml | yq ".applications.$machine_app.units | keys" )
+    for unit in "${units[@]}"; do
+        juju exec -u $(echo $unit | yq .[0]) -- 'sudo lxc restart --all'
     done
-    juju-wait  # wait for the cluster to settle
+
+    # wait for the cluster to settle
+    juju-wait
 ```
 
 <!-- LINKS -->
