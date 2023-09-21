@@ -49,6 +49,38 @@ is not straightforward. Currently it is recommended to create a new cluster with
 using the desired option. When [federation][] becomes part of a future release of
 Kubernetes, such a migration should be manageable with no downtime.
 
+
+## CNI Requirements in a LXD
+
+More often, CNIs such as [cilium][] and [calico][] are requiring kernel features which make them more difficult to operate
+from within an LXD confinement. Charmed Kubernetes makes a best effort to operate CNIs, but admins should consider
+avoiding LXD as a choice to operate kubernetes-worker or kubernetes-control-plane since the CNIs require deeper
+access on the host machine's kernel.
+
+If the choice is made to continue using LXD for nodes where a CNI is deployed, the LXD profile must be opened
+up for those lxd units to adjust the host machine's kernel space. Consider a deployment where [calico][] is deployed
+as a subordinate unit of `kubernetes-control-plane` on a LXD. Those LXDs exist solely on machines where the primary 
+app is `ubuntu-control-plane-nodes` with the `ubuntu` charm.
+
+Both CNIs require access to the host `/sys/fs/bpf` and this can be exposed through the following profile adjustment
+```shell
+    machine_app=ubuntu-control-plane-nodes
+    # Mount the host /sys/fs/bpf into the lxd containers of these machines
+    juju exec -a $machine_app -- 'sudo lxc profile edit default << EOF
+devices:
+  sysfsbpf:
+    path: /sys/fs/bpf
+    source: /sys/fs/bpf
+    type: disk
+EOF'
+    units=$(juju status $machine_app --format yaml | yq ".applications.$machine_app.units | keys" )
+    # Restart every container in the machine to update it's profile
+    for unit in $units; do
+        juju exec -u $unit -- 'sudo lxc restart --all'
+    done
+    juju-wait  # wait for the cluster to settle
+```
+
 <!-- LINKS -->
 
 [calico]: /kubernetes/docs/cni-calico
