@@ -36,7 +36,7 @@ The currently supported base CNI solutions for **Charmed Kubernetes** are:
  -   [Kube-OVN][kube-ovn]
  -   [Tigera Secure EE][tigera]
 
-By default, **Charmed Kubernetes** will deploy the cluster using Calico. To chose
+By default, **Charmed Kubernetes** will deploy the cluster using Calico. To choose
 a different CNI provider, see the individual links above.
 
 The following CNI addons are also available:
