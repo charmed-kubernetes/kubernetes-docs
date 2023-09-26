@@ -379,15 +379,15 @@ entries:
       type: section
       items:
 
-      - title: Overview
+    - title: Overview
         url: /security
         output: web, pdf
         type: page
 
-      - title: Certificates and trust
-        url: /certs-and-trust
-        output: web, pdf
-        type: page
+    - title: Certificates and trust
+      url: /certs-and-trust
+      output: web, pdf
+      type: page
 
   - title: Reference
     output: web, pdf
