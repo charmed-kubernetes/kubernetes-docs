@@ -45,7 +45,32 @@ entries:
       type: page
 
     - title: ...integrate with clouds
-      url: /how-to-install
+      url: /how-to-clouds
+      output: web, pdf
+      type: page
+
+    - title: ...configure CNI
+      url: /how-to-cni
+      output: web, pdf
+      type: page
+
+    - title: ...use container runtimes
+      url: /how-to-containers
+      output: web, pdf
+      type: page
+
+    - title: ...operate Kubernetes
+      url: /how-to-operate
+      output: web, pdf
+      type: page
+
+    - title: ...achieve High Availability
+      url: /how-to-ha
+      output: web, pdf
+      type: page
+
+    - title: ...secure your cluster
+      url: /how-to-security
       output: web, pdf
       type: page
 
