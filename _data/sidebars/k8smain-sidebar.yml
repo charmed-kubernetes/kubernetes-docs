@@ -10,17 +10,17 @@ entries:
     items:
 
     - title: Home
-      url: /kubernetes/docs
+      url: 
       output: web, pdf
       type: page
 
     - title: Overview
-      url: /kubernetes/docs/overview
+      url: /overview
       output: web, pdf
       type: page
 
     - title: Supported versions
-      url: /kubernetes/docs/supported-versions
+      url: /supported-versions
       output: web, pdf
       type: page
 
@@ -30,7 +30,7 @@ entries:
     items:
 
     - title: Get started
-      url: /kubernetes/docs/quickstart
+      url: /quickstart
       output: web, pdf
       type: page
 
@@ -40,22 +40,22 @@ entries:
     items:
 
     - title: ...install
-      url: /kubernetes/docs/how-to-install
+      url: /how-to-install
       output: web, pdf
       type: page
 
     - title: ...integrate with clouds
-      url: /kubernetes/docs/how-to-install
+      url: /how-to-install
       output: web, pdf
       type: page
 
     - title: ...use K8s Operator Charms
-      url: /kubernetes/docs/operator-charms
+      url: /operator-charms
       output: web, pdf
       type: page
 
     - title: ...schedule with Volcano
-      url: /kubernetes/docs/volcano
+      url: /volcano
       output: web, pdf
       type: page
 
@@ -65,22 +65,22 @@ entries:
     items:
 
     - title: Cloud integration
-      url: /kubernetes/docs/explain-cloud
+      url: /explain-cloud
       output: web, pdf
       type: page
 
     - title: Networking
-      url: /kubernetes/docs/cni-overview
+      url: /cni-overview
       output: web, pdf
       type: page
 
     - title: High Availability
-      url: /kubernetes/docs/high-availability
+      url: /high-availability
       output: web, pdf
       type: page
 
     - title: Security
-      url: /kubernetes/docs/high-availability
+      url: /high-availability
       output: web, pdf
       type: page
 
@@ -90,36 +90,36 @@ entries:
     items:
 
     - title: Version info
-      url: /kubernetes/docs/supported-versions
+      url: /supported-versions
       output: web, pdf
       type: page
 
     - title: Release notes
-      url: /kubernetes/docs/release-notes
+      url: /release-notes
       output: web, pdf
       type: page
 
     - title: Snap refresh settings
-      url: /kubernetes/docs/snap-refresh
+      url: /snap-refresh
       output: web, pdf
       type: page
 
     - title: Kubernetes Packages
-      url: /kubernetes/docs/packages
+      url: /packages
       output: web, pdf
       type: page
 
     - title: Inclusive naming
-      url: /kubernetes/docs/inclusive-naming
+      url: /inclusive-naming
       output: web, pdf
       type: page
 
     - title: CIS compliance
-      url: /kubernetes/docs/cis-compliance
+      url: /cis-compliance
       output: web, pdf
       type: page
 
     - title: Get in touch
-      url: /kubernetes/docs/get-in-touch
+      url: /get-in-touch
       output: web, pdf
       type: page
