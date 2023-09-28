@@ -15,32 +15,12 @@ entries:
       type: page
 
     - title: Overview
-      url: /overview
+      url: /kubernetes/docs/overview
       output: web, pdf
       type: page
 
-  - title: Supported versions
-    output: web, pdf
-    type: section
-    items:
-
-    - title: 1.28
-      url: /1.28/components
-      output: web, pdf
-      type: page
-
-    - title: 1.27
-      url: /1.27/components
-      output: web, pdf
-      type: page
-
-    - title: 1.26
-      url: /1.26/components
-      output: web, pdf
-      type: page
-
-    - title: Version info
-      url: /supported-versions
+    - title: Supported versions
+      url: /kubernetes/docs/supported-versions
       output: web, pdf
       type: page
 
@@ -50,7 +30,7 @@ entries:
     items:
 
     - title: Get started
-      url: /quickstart
+      url: /kubernetes/docs/quickstart
       output: web, pdf
       type: page
 
@@ -60,297 +40,22 @@ entries:
     items:
 
     - title: ...install
+      url: /kubernetes/docs/how-to-install
       output: web, pdf
-      type: section
-      items:
-
-      - title: Cloud
-        url: /install-manual
-        output: web, pdf
-        type: page
-
-      - title: Local/LXD
-        url: /install-local
-        output: web, pdf
-        type: page
-
-      - title: Offline
-        url: /install-offline
-        output: web, pdf
-        type: page
-
-      - title: for NVIDIA DGX
-        url: /nvidia-dgx
-        output: web, pdf
-        type: page
+      type: page
 
     - title: ...integrate with clouds
+      url: /kubernetes/docs/how-to-install
       output: web, pdf
-      type: section
-      items:
-
-      - title: AWS
-        url: /aws-integration
-        output: web, pdf
-        type: page
-
-      - title: Azure
-        url: /azure-integration
-        output: web, pdf
-        type: page
-
-      - title: GCP
-        url: /gcp-integration
-        output: web, pdf
-        type: page
-
-      - title: OpenStack
-        url: /openstack-integration
-        output: web, pdf
-        type: page
-
-      - title: vSphere
-        url: /vsphere-integration
-        output: web, pdf
-        type: page
-
-      - title: LXD
-        url: /install-local
-        output: web, pdf
-        type: page
-
-      - title: Equinix Metal
-        url: /equinix
-        output: web, pdf
-        type: page
-
-    - title: ...configure CNI
-      output: web, pdf
-      type: section
-      items:
-
-      - title: Flannel
-        url: /cni-flannel
-        output: web, pdf
-        type: page
-
-      - title: Calico
-        url: /cni-calico
-        output: web, pdf
-        type: page
-
-      - title: Canal
-        url: /cni-canal
-        output: web, pdf
-        type: page
-
-      - title: Cilium
-        url: /cni-cilium
-        output: web, pdf
-        type: page
-
-      - title: Kube OVN
-        url: /cni-kube-ovn
-        output: web, pdf
-        type: page
-
-      - title: Tigera Secure EE
-        url: /tigera-secure-ee
-        output: web, pdf
-        type: page
-
-      - title: Multus
-        url: /cni-multus
-        output: web, pdf
-        type: page
-
-      - title: SR-IOV
-        url: /cni-sriov
-        output: web, pdf
-        type: page
-
-      - title: Using multiple networks
-        url: /multiple-networks
-        output: web, pdf
-        type: page
-
-      - title: IPv6
-        url: /ipv6
-        output: web, pdf
-        type: page
-
-      - title: Ingress
-        url: /ingress
-        output: web, pdf
-        type: page
-
-    - title: ...use container runtimes
-      output: web, pdf
-      type: section
-      items:
-
-      - title: Containerd & Docker
-        url: /container-runtime
-        output: web, pdf
-        type: page
-
-      - title: Kata
-        url: /kata
-        output: web, pdf
-        type: page
-
-      - title: VM workloads (KubeVirt)
-        url: /kubevirt
-        output: web, pdf
-        type: page
-
-      - title: GPU workers
-        url: /gpu-workers
-        output: web, pdf
-        type: page
-
-    - title: ...operate Kubernetes
-      output: web, pdf
-      type: section
-      items:
-
-      - title: Basic operations
-        url: /operations
-        output: web, pdf
-        type: page
-
-      - title: Addons
-        url: /cdk-addons
-        output: web, pdf
-        type: page
-
-      - title: Logging
-        url: /logging
-        output: web, pdf
-        type: page
-
-      - title: Monitoring
-        url: /monitoring
-        output: web, pdf
-        type: page
-
-      - title: Backups
-        url: /backups
-        output: web, pdf
-        type: page
-
-      - title: Upgrading
-        url: /upgrading
-        output: web, pdf
-        type: page
-
-      - title: Storage
-        url: /storage
-        output: web, pdf
-        type: page
-
-      - title: Scaling
-        url: /scaling
-        output: web, pdf
-        type: page
-
-      - title: Cluster autoscaler
-        url: /autoscaler
-        output: web, pdf
-        type: page
-
-      - title: Validation
-        url: /validation
-        output: web, pdf
-        type: page
-
-      - title: Decommissioning
-        url: /decommissioning
-        output: web, pdf
-        type: page
-
-      - title: Private Docker Registry
-        url: /docker-registry
-        output: web, pdf
-        type: page
-
-      - title: Configuring proxies
-        url: /proxies
-        output: web, pdf
-        type: page
-
-      - title: Audit Logging
-        url: /audit-logging
-        output: web, pdf
-        type: page
-
-      - title: Troubleshooting
-        url: /troubleshooting
-        output: web, pdf
-        type: page
-
-    - title: ...achieve High Availability
-      output: web, pdf
-      type: section
-      items:
-
-      - title: keepalived
-        url: /keepalived
-        output: web, pdf
-        type: page
-
-      - title: HAcluster
-        url: /hacluster
-        output: web, pdf
-        type: page
-
-      - title: MetalLB
-        url: /metallb
-        output: web, pdf
-        type: page
-
-      - title: Custom load balancer
-        url: /custom-loadbalancer
-        output: web, pdf
-        type: page
-
-    - title: ...secure your cluster
-      output: web, pdf
-      type: section
-      items:
-
-      - title: Authorisation and authentication
-        url: /auth
-        output: web, pdf
-        type: page
-
-      - title: Using Vault as a CA
-        url: /using-vault
-        output: web, pdf
-        type: page
-
-      - title: authenticate with LDAP
-        url: /ldap
-        output: web, pdf
-        type: page
-
-      - title: OPA Gatekeeper
-        url: /gatekeeper
-        output: web, pdf
-        type: page
-
-      - title: Encryption at rest
-        url: /encryption-at-rest
-        output: web, pdf
-        type: page
+      type: page
 
     - title: ...use K8s Operator Charms
-      url: /operator-charms
+      url: /kubernetes/docs/operator-charms
       output: web, pdf
       type: page
 
     - title: ...schedule with Volcano
-      url: /volcano
+      url: /kubernetes/docs/volcano
       output: web, pdf
       type: page
 
@@ -360,32 +65,22 @@ entries:
     items:
 
     - title: Cloud integration
-      url: /explain-cloud
+      url: /kubernetes/docs/explain-cloud
       output: web, pdf
       type: page
 
     - title: Networking
-      url: /cni-overview
+      url: /kubernetes/docs/cni-overview
       output: web, pdf
       type: page
 
     - title: High Availability
-      url: /high-availability
+      url: /kubernetes/docs/high-availability
       output: web, pdf
       type: page
 
     - title: Security
-      output: web, pdf
-      type: section
-      items:
-
-    - title: Overview
-        url: /security
-        output: web, pdf
-        type: page
-
-    - title: Certificates and trust
-      url: /certs-and-trust
+      url: /kubernetes/docs/high-availability
       output: web, pdf
       type: page
 
@@ -395,36 +90,36 @@ entries:
     items:
 
     - title: Version info
-      url: /supported-versions
+      url: /kubernetes/docs/supported-versions
       output: web, pdf
       type: page
 
     - title: Release notes
-      url: /release-notes
+      url: /kubernetes/docs/release-notes
       output: web, pdf
       type: page
 
     - title: Snap refresh settings
-      url: /snap-refresh
+      url: /kubernetes/docs/snap-refresh
       output: web, pdf
       type: page
 
     - title: Kubernetes Packages
-      url: /packages
+      url: /kubernetes/docs/packages
       output: web, pdf
       type: page
 
     - title: Inclusive naming
-      url: /inclusive-naming
+      url: /kubernetes/docs/inclusive-naming
       output: web, pdf
       type: page
 
     - title: CIS compliance
-      url: /cis-compliance
+      url: /kubernetes/docs/cis-compliance
       output: web, pdf
       type: page
 
     - title: Get in touch
-      url: /get-in-touch
+      url: /kubernetes/docs/get-in-touch
       output: web, pdf
       type: page
