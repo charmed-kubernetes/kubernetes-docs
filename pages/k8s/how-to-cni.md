@@ -13,7 +13,8 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-Charmed Kubernetes supports a wide variety of network options for your cluster, provided by additional charms. Their use is described in the pages linked below:
+Charmed Kubernetes supports a wide variety of network options for your cluster,
+provided by additional charms. Their use is described in the pages linked below:
 
 - [Flannel](/kubernetes/docs/cni-flannel)
 - [Calico](/kubernetes/docs/cni-calico)

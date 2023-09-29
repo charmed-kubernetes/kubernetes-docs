@@ -15,8 +15,6 @@
 - [...operate Kubernetes](/kubernetes/docs/how-to-operate)
 - [...achieve High Availability](/kubernetes/docs/how-to-ha)
 - [...secure your cluster](/kubernetes/docs/how-to-security)
-- [...use K8s Operator Charms](/kubernetes/docs/operator-charms)
-- [...schedule with Volcano](/kubernetes/docs/volcano)
 
 ## Explanation
  - [Cloud integration](/kubernetes/docs/explain-cloud)

@@ -12,4 +12,6 @@
 - [Private Docker Registry](/kubernetes/docs/docker-registry)
 - [Configuring proxies](/kubernetes/docs/proxies)
 - [Audit Logging](/kubernetes/docs/audit-logging)
+- [...use K8s Operator Charms](/kubernetes/docs/operator-charms)
+- [...schedule with Volcano](/kubernetes/docs/volcano)
 - [Troubleshooting](/kubernetes/docs/troubleshooting)
