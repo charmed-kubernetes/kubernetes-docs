@@ -15,13 +15,13 @@ toc: False
 
 Charmed Kubernetes is designed to be cloud-agnostic. It can be deployed on any cloud or substrate supported by Juju. However, there are specific features of clouds (e.g. storage and load-balancers) which can more effectively be integrated for Charmed Kubernetes. This integration is provided by a series of substrate specific charms. Their use is described in the pages linked below
 
-    - [AWS](/kubernetes/docs/aws-integration)
-    - [Azure](/kubernetes/docs/azure-integration)
-    - [GCP](/kubernetes/docs/gcp-integration)
-    - [OpenStack](/kubernetes/docs/openstack-integration)
-    - [vSphere](/kubernetes/docs/vsphere-integration)
-    - [LXD](/kubernetes/docs/install-local)
-    - [Equinix Metal](/kubernetes/docs/equinix)
+- [AWS](/kubernetes/docs/aws-integration)
+- [Azure](/kubernetes/docs/azure-integration)
+- [GCP](/kubernetes/docs/gcp-integration)
+- [OpenStack](/kubernetes/docs/openstack-integration)
+- [vSphere](/kubernetes/docs/vsphere-integration)
+- [LXD](/kubernetes/docs/install-local)
+- [Equinix Metal](/kubernetes/docs/equinix)
 
 
 <!-- FEEDBACK -->

@@ -15,17 +15,17 @@ toc: False
 
 Charmed Kubernetes supports a wide variety of network options for your cluster, provided by additional charms. Their use is described in the pages linked below:
 
-    - [Flannel](/kubernetes/docs/cni-flannel)
-    - [Calico](/kubernetes/docs/cni-calico)
-    - [Canal](/kubernetes/docs/cni-canal)
-    - [Cilium](/kubernetes/docs/cni-cilium)
-    - [Kube OVN](/kubernetes/docs/cni-kube-ovn)
-    - [Tigera Secure EE](/kubernetes/docs/tigera-secure-ee)
-    - [Multus](/kubernetes/docs/cni-multus)
-    - [SR-IOV](/kubernetes/docs/cni-sriov)
-    - [Using multiple networks](/kubernetes/docs/multiple-networks)
-    - [IPv6](/kubernetes/docs/ipv6)
-    - [Ingress](/kubernetes/docs/ingress)
+- [Flannel](/kubernetes/docs/cni-flannel)
+- [Calico](/kubernetes/docs/cni-calico)
+- [Canal](/kubernetes/docs/cni-canal)
+- [Cilium](/kubernetes/docs/cni-cilium)
+- [Kube OVN](/kubernetes/docs/cni-kube-ovn)
+- [Tigera Secure EE](/kubernetes/docs/tigera-secure-ee)
+- [Multus](/kubernetes/docs/cni-multus)
+- [SR-IOV](/kubernetes/docs/cni-sriov)
+- [Using multiple networks](/kubernetes/docs/multiple-networks)
+- [IPv6](/kubernetes/docs/ipv6)
+- [Ingress](/kubernetes/docs/ingress)
 
 
 <!-- FEEDBACK -->
