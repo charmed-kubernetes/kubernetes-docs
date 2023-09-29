@@ -1,0 +1,4 @@
+    - [Cloud](/kubernetes/docs/install-manual)
+    - [Local/LXD](/kubernetes/docs/install-local)
+    - [Offline](/kubernetes/docs/install-offline)
+    - [for NVIDIA DGX](/kubernetes/docs/nvidia-dgx)
