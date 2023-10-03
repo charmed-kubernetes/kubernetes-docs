@@ -21,13 +21,14 @@ cluster.
 These guides demonstrate the common tasks any user is likely to need:
 
 - [Basic operations](/kubernetes/docs/operations)
-- [Logging](/kubernetes/docs/logging)
-- [Make an etcd backup](/kubernetes/docs/backups)
-- [Upgrade to a new version](/kubernetes/docs/upgrading)
+- [Configure ingress](/kubernetes/docs/ingress)
 - [Add storage](/kubernetes/docs/storage)
 - [Scale your cluster](/kubernetes/docs/scaling)
+- [Make an etcd backup](/kubernetes/docs/backups)
+- [Upgrade to a new version](/kubernetes/docs/upgrading)
 - [Decommission a cluster](/kubernetes/docs/decommissioning)
-- [Audit Logging](/kubernetes/docs/audit-logging)
+- [Logging](/kubernetes/docs/logging)
+- [Perform audit Logging](/kubernetes/docs/audit-logging)
 
 There are additional services supported by the Charmed Kubernetes team, which
 can be added to your cluster, or further configuration made to the default
@@ -41,6 +42,7 @@ setup which are covered in these guides:
 - [Validate your cluster with e2e](/kubernetes/docs/validation)
 - [Use a private Docker Registry](/kubernetes/docs/docker-registry)
 - [Configuring proxies](/kubernetes/docs/proxies)
+
 
 If you run into trouble, please see the troubleshooting guide:
 
