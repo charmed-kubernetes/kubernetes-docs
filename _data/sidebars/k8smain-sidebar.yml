@@ -1,4 +1,4 @@
-# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+ # This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
 
 entries:
 - title: sidebar
@@ -74,16 +74,6 @@ entries:
       output: web, pdf
       type: page
 
-    - title: ...use K8s Operator Charms
-      url: /operator-charms
-      output: web, pdf
-      type: page
-
-    - title: ...schedule with Volcano
-      url: /volcano
-      output: web, pdf
-      type: page
-
   - title: Explanation
     output: web, pdf
     type: section
@@ -147,4 +137,4 @@ entries:
     - title: Get in touch
       url: /get-in-touch
       output: web, pdf
-      type: page
+      type: page     
