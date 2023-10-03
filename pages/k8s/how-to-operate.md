@@ -13,26 +13,37 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-We don't desert our users on day zero - while this documentation can never be a complete guide to the general operation of a Kubernetes cluster, we can provide guides for many of the common activities and functions of a Charmed Kubernetes cluster. 
+We don't desert our users on day zero - while this documentation can never be a
+complete guide to the general operation of a Kubernetes cluster, we can provide
+guides for many of the common activities and functions of a Charmed Kubernetes
+cluster. 
 
-Below is a list of guides currently maintained as part of this documentation:
+These guides demonstrate the common tasks any user is likely to need:
 
 - [Basic operations](/kubernetes/docs/operations)
-- [Addons](/kubernetes/docs/cdk-addons)
 - [Logging](/kubernetes/docs/logging)
-- [Monitoring](/kubernetes/docs/monitoring)
-- [Backups](/kubernetes/docs/backups)
-- [Upgrading](/kubernetes/docs/upgrading)
-- [Storage](/kubernetes/docs/storage)
-- [Scaling](/kubernetes/docs/scaling)
-- [Cluster autoscaler](/kubernetes/docs/autoscaler)
-- [Validation](/kubernetes/docs/validation)
-- [Decommissioning](/kubernetes/docs/decommissioning)
-- [Private Docker Registry](/kubernetes/docs/docker-registry)
-- [Configuring proxies](/kubernetes/docs/proxies)
+- [Make an etcd backup](/kubernetes/docs/backups)
+- [Upgrade to a new version](/kubernetes/docs/upgrading)
+- [Add storage](/kubernetes/docs/storage)
+- [Scale your cluster](/kubernetes/docs/scaling)
+- [Decommission a cluster](/kubernetes/docs/decommissioning)
 - [Audit Logging](/kubernetes/docs/audit-logging)
-- [use K8s Operator Charms](/kubernetes/docs/operator-charms)
-- [schedule with Volcano](/kubernetes/docs/volcano)
+
+There are additional services supported by the Charmed Kubernetes team, which
+can be added to your cluster, or further configuration made to the default
+setup which are covered in these guides:
+
+- [Configure and use CDK addons](/kubernetes/docs/cdk-addons)
+- [Monitor with Grafana/Prometheus](/kubernetes/docs/monitoring)
+- [Use K8s Operator Charms](/kubernetes/docs/operator-charms)
+- [Schedule containers with Volcano](/kubernetes/docs/volcano)
+- [Use the cluster autoscaler](/kubernetes/docs/autoscaler)
+- [Validate your cluster with e2e](/kubernetes/docs/validation)
+- [Use a private Docker Registry](/kubernetes/docs/docker-registry)
+- [Configuring proxies](/kubernetes/docs/proxies)
+
+If you run into trouble, please see the troubleshooting guide:
+
 - [Troubleshooting](/kubernetes/docs/troubleshooting)
 
 <!-- FEEDBACK -->

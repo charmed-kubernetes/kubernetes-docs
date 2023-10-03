@@ -13,13 +13,19 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-In addition to the easy to follow [tutorial](/kubernetes/docs/quickstart) for Charmed Kubernetes, additional guides are available to take you through the installation steps for a number of different substrates. The 'Cloud' install page covers many different scenarios with Juju-supported clouds.
+In addition to the easy to follow [tutorial](/kubernetes/docs/quickstart) for
+Charmed Kubernetes, additional guides are available to take you through the
+installation steps for a number of different substrates. The 'Cloud' install
+page covers many different scenarios with Juju-supported clouds.
 
-- [Cloud](/kubernetes/docs/install-manual)
-- [Equinix](/kubernetes/docs/equinix)
-- [Local/LXD](/kubernetes/docs/install-local)
-- [Offline](/kubernetes/docs/install-offline)
-- [for NVIDIA DGX](/kubernetes/docs/nvidia-dgx)
+- [Install on a cloud](/kubernetes/docs/install-manual)
+- [Install locally with LXD](/kubernetes/docs/install-local)
+- [Install on Equinix](/kubernetes/docs/equinix)
+
+There are also two 'special case' scenarios we provide guidance for:
+
+- [Installing offline, or in a restricted environment ](/kubernetes/docs/install-offline)
+- [Installing for NVIDIA DGX](/kubernetes/docs/nvidia-dgx)
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
