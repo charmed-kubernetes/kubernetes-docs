@@ -1,2 +1,11 @@
 _site/*
 .sass-cache/*
+*.gem
+.bundle
+Gemfile.lock
+.idea/
+.env
+.vscode 
+
+# Ignore the Node Modules folder
+node_modules/
