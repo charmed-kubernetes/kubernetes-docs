@@ -58,7 +58,7 @@ will balance the load to the control plane units, but we have just moved the sin
 point of failure to the load balancer. Floating a virtual IP address in front
 of the control plane units works in a similar manner but without any load balancing.
 If your cluster won't generate enough traffic to saturate a single control plane, but
-you want high availability on the control plane, multiple control planes floating a
+you want high availability on the control plane, multiple control plane units floating a
 virtual IP address is a solid choice.
 
 The next thought is to add multiple load balancers to add resiliency there:
