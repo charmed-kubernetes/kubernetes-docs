@@ -43,7 +43,7 @@ doesn't remove it from **Juju**, those workers are simply unable to communicate
 with the control plane. If workers arbitrarily pick the same control plane unit, they can
 also overload the unit with traffic, making the additional units redundant.
 
-Load balancing the control planes is the next logical step:
+Load balancing the control plane is the next logical step:
 
 ![single load balancer image][img-single-load-balancer]
 
