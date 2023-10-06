@@ -40,8 +40,8 @@ While this will add more machines, it doesn't work as may be expected. What
 happens is that the workers will randomly pick a control plane unit to communicate with and
 always use that unit. This means if that control plane unit fails in a way that
 doesn't remove it from **Juju**, those workers are simply unable to communicate
-with the control plane. If workers arbitrarily pick the same control plane, they can
-also overload the control plane with traffic, making the additional units redundant.
+with the control plane. If workers arbitrarily pick the same control plane unit, they can
+also overload the unit with traffic, making the additional units redundant.
 
 Load balancing the control planes is the next logical step:
 
