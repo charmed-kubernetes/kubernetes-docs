@@ -51,7 +51,7 @@ Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because 
 Charmed Kubernetes is a member of the Ubuntu family. It's an open source project that welcomes community involvement, contributions, suggestions, fixes and constructive feedback.
 
 * [Our Code of Conduct](https://ubuntu.com/community/code-of-conduct)
-* [Visit us on Slack at #canonical-kubernetes](https://communityinviter.com/apps/kubernetes/community)
+* [Visit us on Slack at #canonical-kubernetes](https://slack.k8s.io/)
 * [Join the Discourse forum](https://discuss.kubernetes.io/)
 * [Contribute to our documentation](https://github.com/charmed-kubernetes/kubernetes-docs)
 * [Source code and project management](https://github.com/charmed-kubernetes)
