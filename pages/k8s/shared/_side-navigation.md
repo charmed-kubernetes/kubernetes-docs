@@ -1,6 +1,4 @@
-## About
-- [Home](/kubernetes/docs)
-- [Overview](/kubernetes/docs/overview)
+- [Home](/kubernetes/docs/)
 - [Supported versions](/kubernetes/docs/supported-versions)
 
 ## Tutorials
@@ -17,10 +15,11 @@
 - [...secure your cluster](/kubernetes/docs/how-to-security)
 
 ## Explanation
+ - [Charmed Kubernetes](/kubernetes/docs/overview)
  - [Cloud integration](/kubernetes/docs/explain-cloud)
  - [Networking](/kubernetes/docs/cni-overview)
  - [High Availability](/kubernetes/docs/high-availability)
- - [Security](/kubernetes/docs/high-availability)
+ - [Security](/kubernetes/docs/security)
 
 
 ## Reference
