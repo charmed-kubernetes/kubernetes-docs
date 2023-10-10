@@ -16,7 +16,7 @@ toc: False
 Charmed Kubernetes supports enhancement for High Availability through a variety of approaches. Follow the links below for more information:
 
 - [Using keepalived](/kubernetes/docs/keepalived)
-- [UsingHAcluster](/kubernetes/docs/hacluster)
+- [Using HAcluster](/kubernetes/docs/hacluster)
 - [Using MetalLB](/kubernetes/docs/metallb)
 - [Adding a custom load balancer](/kubernetes/docs/custom-loadbalancer)
 
