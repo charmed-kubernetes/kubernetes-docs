@@ -49,7 +49,7 @@ entries:
       output: web, pdf
       type: page
 
-    - title: ...configure CNI
+    - title: ...configure networking
       url: /how-to-cni
       output: web, pdf
       type: page

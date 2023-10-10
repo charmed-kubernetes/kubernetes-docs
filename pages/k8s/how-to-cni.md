@@ -3,8 +3,8 @@ wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
   nav: "kubernetes/docs/shared/_side-navigation.md"
 context:
-  title: "Using a CNI"
-  description: How to deploy and use CNI charms
+  title: "Configure networking and CNI"
+  description: How to deploy and use networking charms
 keywords: CNI, networking, sr-iov, sriov
 tags: [operating]
 sidebar: k8smain-sidebar
