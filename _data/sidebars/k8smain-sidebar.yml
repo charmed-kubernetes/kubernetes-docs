@@ -4,16 +4,6 @@ entries:
 - title: sidebar
   items:
 
-    - title: Home
-      url: /
-      output: web, pdf
-      type: page
-
-    - title: Supported versions
-      url: /supported-versions
-      output: web, pdf
-      type: page
-
   - title: Tutorials
     output: web, pdf
     type: section
@@ -99,7 +89,7 @@ entries:
     type: section
     items:
 
-    - title: Supported versions
+    - title: Version info
       url: /supported-versions
       output: web, pdf
       type: page

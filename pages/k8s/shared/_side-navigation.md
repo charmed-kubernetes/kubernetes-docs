@@ -1,6 +1,3 @@
-- [Home](/kubernetes/docs/)
-- [Supported versions](/kubernetes/docs/supported-versions)
-
 ## Tutorials
 - [Get started](/kubernetes/docs/quickstart)
 
