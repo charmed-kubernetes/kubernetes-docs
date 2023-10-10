@@ -15,7 +15,7 @@ toc: False
 
 In addition to the standard runtime, Charmed Kubernetes supports a variety of container runtime options. For more specific information, please choose from the topics below:
 
-- [Containerd & Docker](/kubernetes/docs/container-runtime)
+- [Containerd](/kubernetes/docs/container-runtime)
 - [Kata](/kubernetes/docs/kata)
 - [VM workloads (KubeVirt)](/kubernetes/docs/kubevirt)
 - [GPU workers](/kubernetes/docs/gpu-workers)
