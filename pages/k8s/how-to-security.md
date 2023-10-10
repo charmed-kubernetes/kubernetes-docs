@@ -13,7 +13,7 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The term 'security' covers a great many subtopics related to running a Kubernetes cluster, ranging from aspects of the workloads to the underlying OS. Please see the [overview of security] page for a better understanding of the approach to securing your cluster.
+The term 'security' covers a great many subtopics related to running a Kubernetes cluster, ranging from aspects of the workloads to the underlying OS. Please see the [overview of security](/kubernetes/docs/security) page for a better understanding of the approach to securing your cluster.
 
 The guides in this section contain How tos for pursuing specific security goals: 
 
