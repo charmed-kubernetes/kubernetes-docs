@@ -95,7 +95,7 @@ entries:
       type: page
 
     - title: Security
-      url: /high-availability
+      url: /security
       output: web, pdf
       type: page
 
