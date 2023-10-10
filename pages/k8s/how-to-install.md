@@ -24,7 +24,7 @@ page covers many different scenarios with Juju-supported clouds.
 
 There are also two 'special case' scenarios we provide guidance for:
 
-- [Installing offline, or in a restricted environment ](/kubernetes/docs/install-offline)
+- [Installing offline, or in a restricted environment](/kubernetes/docs/install-offline)
 - [Installing for NVIDIA DGX](/kubernetes/docs/nvidia-dgx)
 
 <!-- FEEDBACK -->
