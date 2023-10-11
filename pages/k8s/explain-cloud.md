@@ -13,12 +13,13 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The vanilla installation of Kubernetes as provided by Charmed Kubernetes intentionally doesn't presume which cloud infrastructure the charms may be running on, in an effort to provide the same kubernetes experience regardless of the underlying cloud. But there are many cases a cloud operator would like to take advantage of specific cloud features from the cloud provider.  
+The vanilla installation of Kubernetes as provided by Charmed Kubernetes doesn't presume which cloud infrastructure the charms may be running on, providing the same Kubernetes experience regardless of the underlying cloud. But there are many cases a cloud operator would like to take advantage of specific features from the cloud provider.  
 
-Many features like Storage Drivers (CSIs), Network Drivers (CNIs), authentication integration, (et al.) require the kubernetes control plane to have authorization to contact the cloud-provider APIs and request access to these features. 
+Many features like Storage Drivers (CSIs), Network Drivers (CNIs), authentication integration and others, require the Kubernetes control plane to have authorisation to contact the cloud-provider APIs and request access to these features. The specifics of these are handled by the respective charm for that cloud. 
 
-### As an example
-If the Charmed Kubernetes installation is on Azure compute nodes, one may wish to employ using AzureDisk for volumes mapped into their Deployments. Charmed Kubernetes provides a means of installing the [azure-cloud-provide charm](https://charmhub.io/azure-cloud-provider) which will apply the appropriate manifests for AzureDisk integration based the release and relations in the cluster.
+### For example
+
+If the Charmed Kubernetes installation is on Azure compute nodes, one may wish to use AzureDisk for volumes mapped into their deployments. Charmed Kubernetes provides a means of installing the [azure-cloud-provider charm](https://charmhub.io/azure-cloud-provider) which will apply the appropriate manifests for AzureDisk integration based on the release and relations in the cluster.
 
 ### Further Reading
 For more details, see the various cloud integration pages.
