@@ -8,7 +8,7 @@ context:
 keywords: Cloud, cluster, storage
 tags: [operating]
 sidebar: k8smain-sidebar
-permalink: explain-index.html
+permalink: explaination-index.html
 layout: [base, ubuntu-com]
 toc: False
 ---
