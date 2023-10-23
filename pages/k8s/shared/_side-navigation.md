@@ -17,6 +17,7 @@
  - [Networking](/kubernetes/docs/cni-overview)
  - [High Availability](/kubernetes/docs/high-availability)
  - [Security](/kubernetes/docs/security)
+ - [Backups](/kubernetes/docs/explain-backups)
 
 
 ## Reference
