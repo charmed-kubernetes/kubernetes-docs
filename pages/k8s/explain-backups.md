@@ -25,8 +25,8 @@ Etcd itself includes the ability to save and restore snapshots of the stored dat
 
 ## Persistent storage
 
-Depending on your use case for Kubernetes, a significant amount of important data may reside in persistent storage attached to the cluster. The importance of this data depends on the nature of what it is storing and how difficult it would be to recreate, but starting from the point of view that it is important enough to be persistent, it is likely that it is also important enough to back up.
-The most effective way to back up storage depends mainly on where the storage is. E.g. a public cloud will have its own snapshot/restore methods, though these may need to be triggered by the operator. Alternatively, many of the third party solutions below handle 
+Depending on your use case for Kubernetes, a significant amount of important data may reside in persistent storage attached to the cluster. The importance of this data depends on the nature of what it is storing and how difficult it would be to recreate, but starting from the point of view that it is important enough to be persistent, it is likely that it is also important enough to back up. 
+The most effective way to back up storage depends mainly on where the storage is. E.g. a public cloud will have its own snapshot/restore methods, though these may need to be triggered by the operator. Alternatively, many of the third party solutions below handle backups across a variety of cluster environments.
 
 ## Backup solutions
 
