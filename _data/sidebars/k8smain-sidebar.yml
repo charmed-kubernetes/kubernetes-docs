@@ -19,42 +19,42 @@ entries:
     type: section
     items:
 
-    - title: &hellip;install
+    - title: ...install
       url: /how-to-install
       output: web, pdf
       type: page
 
-    - title: &hellip;integrate with clouds
+    - title: ...integrate with clouds
       url: /how-to-clouds
       output: web, pdf
       type: page
 
-    - title: &hellip;configure CNI
+    - title: ...configure CNI
       url: /how-to-cni
       output: web, pdf
       type: page
 
-    - title: &hellip;use container runtimes
+    - title: ...use container runtimes
       url: /how-to-containers
       output: web, pdf
       type: page
 
-    - title: &hellip;operate Kubernetes
+    - title: ...operate Kubernetes
       url: /how-to-operate
       output: web, pdf
       type: page
 
-    - title: &hellip;achieve High Availability
+    - title: ...achieve High Availability
       url: /how-to-ha
       output: web, pdf
       type: page
 
-    - title: &hellip;secure your cluster
+    - title: ...secure your cluster
       url: /how-to-security
       output: web, pdf
       type: page
 
-    - title: &hellip;contribute to this project
+    - title: ...contribute to this project
       url: /how-to-contribute
       output: web, pdf
       type: page
