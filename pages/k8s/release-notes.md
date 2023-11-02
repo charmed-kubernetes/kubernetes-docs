@@ -14,6 +14,7 @@ toc: False
 ---
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
+
 ## 1.28+ck2 Bugfix release
 
 ### November 2, 2023 - `charmed-kubernetes --channel 1.28/stable`
