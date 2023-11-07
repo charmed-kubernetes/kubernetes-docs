@@ -252,7 +252,7 @@ class PageWriter:
 
         context = dict(
             release=self.version,
-            supported_releases_x=", ".join([f"{r}.x" for r in self.supported]),
+            supported_releases=self.supported,
             release_n1=self.supported[1],
             release_n2=self.supported[2],
         )
