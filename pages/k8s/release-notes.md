@@ -17,7 +17,7 @@ toc: False
 
 ## 1.28+ck2 Bugfix release
 
-### November 2, 2023 - `charmed-kubernetes --channel 1.28/stable`
+### November 7, 2023 - `charmed-kubernetes --channel 1.28/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.28/bundle.yaml).
 
