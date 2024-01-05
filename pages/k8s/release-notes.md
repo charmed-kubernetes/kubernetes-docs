@@ -15,6 +15,7 @@ toc: False
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 
+
 ## 1.28+ck2 Bugfix release
 
 ### November 7, 2023 - `charmed-kubernetes --channel 1.28/stable`
@@ -22,6 +23,7 @@ toc: False
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.28/bundle.yaml).
 
 ## What's new
+
 ### Containerd
 * [LP#2034080](https://bugs.launchpad.net/bugs/2034080)
   Updated source repository for nvidia debs.
@@ -46,13 +48,14 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
   - openstack-cloud-controller charm
   - cdk-addons
 
-# 1.28+ck1 Bugfix release
+## 1.28+ck1 Bugfix release
 
 ### September 25, 2023 - `charmed-kubernetes --channel 1.28/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.28/bundle.yaml).
 
 ## What's new
+
 ### Cloud Integrator Charms
 * [LP#2033082](https://bugs.launchpad.net/bugs/2033082) 
   Replaces deprecated yaml library method to `yaml.safe_load` over `yaml.load`
@@ -100,8 +103,8 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 ### MetalLB
 * [LP#2031937](https://bugs.launchpad.net/bugs/2031937)
   Updates Charmhub Documentation to a Diataxis version
-  
-# 1.28
+
+## 1.28
 
 ### August 18, 2023 - `charmed-kubernetes --channel 1.28/stable`
 
@@ -1483,8 +1486,7 @@ Please see [this page][historic] for release notes of earlier versions.
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
   </div>
 </div>
 
