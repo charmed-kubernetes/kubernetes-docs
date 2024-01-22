@@ -492,7 +492,6 @@ the `storage-delete` config option to `true`:
 juju config docker-registry storage-delete=true
 ```
 
-[storage-delete]: https://docs.docker.com/registry/configuration/#delete
 
 ### Read-Only Mode
 
