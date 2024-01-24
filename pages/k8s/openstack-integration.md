@@ -172,7 +172,7 @@ Hello Kubernetes!
 If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native
 OpenStack load balancer for the Kubernetes API server, which simplifies the model and is properly
 HA, which kubeapi-load-balancer on its own is not. To enable this, use the appropriate overlay
-([>= 1.29/stable][asset-openstack-lb-overlay], [<= 1.28/stable][asset-openstack-lb-overlay-1.28]):
+([ Versions >= 1.29][asset-openstack-lb-overlay], [Versions <= 1.28][asset-openstack-lb-overlay-1.28]):
 
 ```yaml
 applications:
@@ -291,11 +291,24 @@ The 1.29/stable release of `openstack-integrator` replaces the relation for usin
 The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi`` and the `openstack-controller-manager`
 In order to upgrade the control-plane and worker charms, follow this process:
 
-1. Upgrade the openstack-integrator charm with `juju refresh openstack-integrator --switch --channel=1.29/stable`
-2. Relate to the control-plane application with `juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external`
-3. Deploy and migrate to the `openstack-cloud-controller` charm (See its [charm docs][openstack-cloud-controller-readme] for details)
-4. Deploy and migrate to the `cinder-csi` charm (See its [charm docs][cinder-csi-readme] for details)
-5. Remove the loadbalancer relation to the control-plane with `juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer`
+**1. Upgrade the openstack-integrator charm**:
+   
+```
+juju refresh openstack-integrator --switch --channel=1.29/stable
+```
+
+**2. Relate to the control-plane application:** 
+
+```
+juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external
+```
+**3. Deploy and migrate to the `openstack-cloud-controller` charm** (See its [charm docs][openstack-cloud-controller-readme] for details).
+
+**4. Deploy and migrate to the `cinder-csi` charm** (See its [charm docs][cinder-csi-readme] for details).
+
+**5. Remove the loadbalancer relation to the control-plane:**
+
+```juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer```
 
 
 ### Troubleshooting
