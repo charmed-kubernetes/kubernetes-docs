@@ -28,13 +28,13 @@ granting permissions to dynamically create, for example, Cinder volumes.
 
 OpenStack integration requires [Octavia][octavia] to be available in the
 underlying OpenStack cloud, both to support Kubernetes LoadBalancer services
-and to support creation of a load balancer for the Kubernetes API.
+and to support the creation of a load balancer for the Kubernetes API.
 
 ### Installing
 
 When installing **Charmed Kubernetes** [using the Juju bundle][install], you can add the openstack-integrator at
 the same time by using the appropriate overlay file
-([ Versions >= 1.29][asset-openstack-overlay], [ Versions <= 1.28][asset-openstack-overlay-1.28]):
+([Versions >= 1.29][asset-openstack-overlay], [Versions <= 1.28][asset-openstack-overlay-1.28]):
 
 ```yaml
 description: Charmed Kubernetes overlay to add native OpenStack support.
