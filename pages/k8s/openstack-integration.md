@@ -34,7 +34,7 @@ and to support creation of a load balancer for the Kubernetes API.
 
 When installing **Charmed Kubernetes** [using the Juju bundle][install], you can add the openstack-integrator at
 the same time by using the appropriate overlay file
-([>= 1.29/stable][asset-openstack-overlay], [<= 1.28/stable][asset-openstack-overlay-1.28]):
+([ Versions >= 1.29][asset-openstack-overlay], [ Versions <= 1.28][asset-openstack-overlay-1.28]):
 
 ```yaml
 description: Charmed Kubernetes overlay to add native OpenStack support.
