@@ -28,27 +28,37 @@ granting permissions to dynamically create, for example, Cinder volumes.
 
 OpenStack integration requires [Octavia][octavia] to be available in the
 underlying OpenStack cloud, both to support Kubernetes LoadBalancer services
-and to support creation of a load balancer for the Kubernetes API.
+and to support the creation of a load balancer for the Kubernetes API.
 
 ### Installing
 
 When installing **Charmed Kubernetes** [using the Juju bundle][install], you can add the openstack-integrator at
-the same time by using the following overlay file
-([download it here][asset-openstack-overlay]):
+the same time by using the appropriate overlay file
+([Versions >= 1.29][asset-openstack-overlay], [Versions <= 1.28][asset-openstack-overlay-1.28]):
 
 ```yaml
 description: Charmed Kubernetes overlay to add native OpenStack support.
 applications:
+  kubernetes-control-plane:
+    options:
+      allow-privileged: "true"
   openstack-integrator:
     annotations:
-      gui-x: "600"
-      gui-y: "300"
     charm: openstack-integrator
     num_units: 1
     trust: true
+  openstack-cloud-controller:
+    charm: openstack-integrator
+  cinder-csi:
+    charm: cinder-csi
 relations:
-  - ['openstack-integrator', 'kubernetes-control-plane:openstack']
-  - ['openstack-integrator', 'kubernetes-worker:openstack']
+  - [openstack-cloud-controller:certificates,            easyrsa:client]
+  - [openstack-cloud-controller:kube-control,            kubernetes-control-plane:kube-control]
+  - [openstack-cloud-controller:external-cloud-provider, kubernetes-control-plane:external-cloud-provider]
+  - [openstack-cloud-controller:openstack,               openstack-integrator:clients]
+  - [easyrsa:client,                                     cinder-csi:certificates]
+  - [kubernetes-control-plane:kube-control,              cinder-csi:kube-control]
+  - [openstack-integrator:clients,                       cinder-csi:openstack, ]
 ```
 
 To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
@@ -159,23 +169,33 @@ Hello Kubernetes!
 
 If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native
 OpenStack load balancer for the Kubernetes API server, which simplifies the model and is properly
-HA, which kubeapi-load-balancer on its own is not. To enable this, use this overlay instead
-([download it here][asset-openstack-lb-overlay]):
+HA, which kubeapi-load-balancer on its own is not. To enable this, use the appropriate overlay
+([ Versions >= 1.29][asset-openstack-lb-overlay], [Versions <= 1.28][asset-openstack-lb-overlay-1.28]):
 
 ```yaml
 applications:
-  kubeapi-load-balancer: null
+  kubeapi-load-balancer: null                            # excludes the kubeapi-load-balancer
+  kubernetes-control-plane:
+    options:
+      allow-privileged: "true"
   openstack-integrator:
     annotations:
-      gui-x: "600"
-      gui-y: "300"
     charm: openstack-integrator
     num_units: 1
     trust: true
+  openstack-cloud-controller:
+    charm: openstack-integrator
+  cinder-csi:
+    charm: cinder-csi
 relations:
-  - ['openstack-integrator', 'kubernetes-control-plane:loadbalancer']
-  - ['openstack-integrator', 'kubernetes-control-plane:openstack']
-  - ['openstack-integrator', 'kubernetes-worker:openstack']
+  - [openstack-cloud-controller:certificates,            easyrsa:client]
+  - [openstack-cloud-controller:kube-control,            kubernetes-control-plane:kube-control]
+  - [openstack-cloud-controller:external-cloud-provider, kubernetes-control-plane:external-cloud-provider]
+  - [openstack-cloud-controller:openstack,               openstack-integrator:clients]
+  - [easyrsa:client,                                     cinder-csi:certificates]
+  - [kubernetes-control-plane:kube-control,              cinder-csi:kube-control]
+  - [openstack-integrator:clients,                       cinder-csi:openstack, ]
+  - [kubernetes-control-plane:loadbalancer-external,     openstack-integrator:lb-consumer]
 ```
 
 You will also need to set the `lb-subnet` config to the appropriate tenant subnet where your nodes
@@ -188,8 +208,8 @@ Many  pods you may wish to deploy will require storage. Although you can use any
 of storage supported by Kubernetes (see the [storage documentation][storage]), you
 also have the option to use Cinder storage volumes, if supported by your OpenStack.
 
-A `cdk-cinder` storage class will be automatically created when the integrator is
-used.  This storage class can then be used when creating a Persistent Volume Claim:
+A `csi-cinder-default` storage class will be automatically created when the `cinder-csi` charm
+is used.  This storage class can then be used when creating a Persistent Volume Claim:
 
 ```bash
 kubectl create -f - <<EOY
@@ -203,7 +223,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: cdk-cinder
+  storageClassName: csi-cinder-default
 EOY
 ```
 
@@ -256,12 +276,36 @@ Keystone. This is covered in detail in the [Keystone and LDAP documentation][lda
 
 ### Upgrading the integrator charm
 
-The openstack-integrator is not specifically tied to the version of Charmed Kubernetes installed and may
+The openstack-integrator has not specifically been tied to the version of Charmed Kubernetes installed and may
 generally be upgraded at any time with the following command:
 
 ```bash
 juju refresh openstack-integrator
 ```
+
+The 1.29/stable release of `openstack-integrator` replaces the relation for using Octavia as a loadbalancer for the API Service. 
+The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi` and the `openstack-controller-manager`
+In order to upgrade the control-plane and worker charms, follow this process:
+
+**1. Upgrade the openstack-integrator charm**:
+   
+```
+juju refresh openstack-integrator --switch --channel=1.29/stable
+```
+
+**2. Relate to the control-plane application:** 
+
+```
+juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external
+```
+**3. Deploy and migrate to the `openstack-cloud-controller` charm** (See its [charm docs][openstack-cloud-controller-readme] for details).
+
+**4. Deploy and migrate to the `cinder-csi` charm** (See its [charm docs][cinder-csi-readme] for details).
+
+**5. Remove the loadbalancer relation to the control-plane:**
+
+```juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer```
+
 
 ### Troubleshooting
 
@@ -280,10 +324,14 @@ juju debug-log --replay --include openstack-integrator/0
 
 [octavia]: https://docs.openstack.org/octavia/latest/reference/introduction.html
 [asset-openstack-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-overlay.yaml
+[asset-openstack-overlay-1.28]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/release_1.28/overlays/openstack-overlay.yaml
 [asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-lb-overlay.yaml
+[asset-openstack-lb-overlay-1.28]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/release_1.28/overlays/openstack-lb-overlay.yaml
 [storage]: /kubernetes/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
-[openstack-integrator-readme]: https://charmhub.io/containers-openstack-integrator/
+[openstack-integrator-readme]: https://charmhub.io/openstack-integrator/
+[openstack-cloud-controller-readme]: https://charmhub.io/openstack-cloud-controller/
+[cinder-csi-readme]: https://charmhub.io/cinder-csi/
 [install]: /kubernetes/docs/install-manual
 [ldap]: /kubernetes/docs/ldap
 [charm-config]: https://ubuntu.com/kubernetes/docs/charm-openstack-integrator#configuration
