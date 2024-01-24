@@ -291,11 +291,11 @@ The 1.29/stable release of `openstack-integrator` replaces the relation for usin
 The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi`` and the `openstack-controller-manager`
 In order to upgrade the control-plane and worker charms, follow this process:
 
-* 1) Upgrade the openstack-integrator charm with `juju refresh openstack-integrator --switch --channel=1.29/stable`
-* 2) Relate to the control-plane application with `juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external`
-* 3) Deploy and migrate to the `openstack-cloud-controller` charm (See its [charm docs][openstack-cloud-controller-readme] for details)
-* 4) Deploy and migrate to the `cinder-csi` charm (See its [charm docs][cinder-csi-readme] for details)
-* 5) Remove the loadbalancer relation to the control-plane with `juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer`
+1. Upgrade the openstack-integrator charm with `juju refresh openstack-integrator --switch --channel=1.29/stable`
+2. Relate to the control-plane application with `juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external`
+3. Deploy and migrate to the `openstack-cloud-controller` charm (See its [charm docs][openstack-cloud-controller-readme] for details)
+4. Deploy and migrate to the `cinder-csi` charm (See its [charm docs][cinder-csi-readme] for details)
+5. Remove the loadbalancer relation to the control-plane with `juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer`
 
 
 ### Troubleshooting
