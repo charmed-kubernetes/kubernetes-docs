@@ -288,7 +288,7 @@ juju refresh openstack-integrator
 ```
 
 The 1.29/stable release of `openstack-integrator` replaces the relation for using Octavia as a loadbalancer for the API Service. 
-The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi`` and the `openstack-controller-manager`
+The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi` and the `openstack-controller-manager`
 In order to upgrade the control-plane and worker charms, follow this process:
 
 **1. Upgrade the openstack-integrator charm**:
