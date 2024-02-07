@@ -73,6 +73,9 @@ Only the latest three versions of Charmed Kubernetes are supported at any time.
 For additional support, learn more about [Ubuntu Pro][support] as well as
 [managed Kubernetes solutions][managed] from Canonical.
 
+Please visit the Canonical [Support page][support] for more details of our 
+professional support programmes. 
+
 <!-- LINKS -->
 
 [support]: /support
