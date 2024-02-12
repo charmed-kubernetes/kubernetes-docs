@@ -70,7 +70,7 @@ Only the latest three versions of Charmed Kubernetes are supported at any time.
 
 ## Professional support
 
-For additional support, learn more about [Ubuntu Pro][support] as well as
+For additional support, learn more about [Ubuntu Pro][pro] as well as
 [managed Kubernetes solutions][managed] from Canonical.
 
 Please visit the Canonical [Support page][support] for more details of our 
@@ -78,6 +78,7 @@ professional support programmes.
 
 <!-- LINKS -->
 
+[pro]: /pro
 [support]: /support
 [managed]: /kubernetes/managed
 [releases]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
