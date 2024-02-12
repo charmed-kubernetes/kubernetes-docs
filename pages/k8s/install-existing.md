@@ -16,7 +16,7 @@ toc: False
 Machines that are provisioned without Juju can still be used for Juju deployments.
 This is known as a *manual cloud* and is described in the following Juju documentation:
 
-https://juju.is/docs/juju/manual
+[https://juju.is/docs/juju/manual][juju-manual]
 
 In this guide, we will create a manual cloud with 3 existing machines. We will then
 deploy a minimal installation of **Charmed Kubernetes** to this cloud using the
@@ -25,15 +25,15 @@ deploy a minimal installation of **Charmed Kubernetes** to this cloud using the
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">The default <a href="https://charmhub.io/charmed-kubernetes">Charmed Kubernetes</a> bundle is also supported on manual clouds. However, it has significantly higher resource requirements due to the focus on highly available components.</p>
+    <p class="p-notification__message">The default <a href="https://charmhub.io/charmed-kubernetes">Charmed Kubernetes</a> bundle is supported on manual clouds. However, it has significantly higher resource requirements (10+ machines) due to the focus on highly available components.</p>
   </div>
 </div>
 
 ## What you will need
 
 Ensure you have Juju 3.1 or greater installed on your management client. You will also
-need SSH access between your management client and an administrative user on the
-existing machines.
+need 3 existing machines installed with Ubuntu 22.04 (or equivalent). Your management
+client will need to be able to SSH to an administrative user on these machines.
 
 ## Bootstrap the environment
 
@@ -102,6 +102,7 @@ Now that you have a **Charmed Kubernetes** cluster up and running, check out the
 
 <!-- LINKS -->
 
+[juju-manual]: https://juju.is/docs/juju/manual
 [kubernetes-core]: https://charmhub.io/kubernetes-core
 [operations]: /kubernetes/docs/operations
 
