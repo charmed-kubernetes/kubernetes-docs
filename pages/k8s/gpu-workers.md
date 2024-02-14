@@ -15,7 +15,7 @@ toc: False
 
 **Charmed Kubernetes** can automatically detect GPU-enabled hardware and install
 required drivers from NVIDIA repositories. With the release of Charmed Kubernetes 1.29,
-the [NVIDIA GPU Operator charm][nvidia-gpu-operator] is available to simplify gpu
+the [NVIDIA GPU Operator charm][nvidia-gpu-operator] is available to simplify GPU
 software management and configuration.
 
 This page describes recommended deployment and verification steps for using GPU workers
