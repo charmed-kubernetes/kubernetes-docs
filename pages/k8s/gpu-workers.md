@@ -36,7 +36,7 @@ GPU included in a specific cloud instance against the
 [Supported NVIDIA GPUs and Systems][nvidia-gpu-support] documentation.
 
 When deploying the Charmed Kubernetes bundle, you can use a YAML overlay file to ensure
-application instance types and configuration are optimized for use in a GPU-enabled
+application instance types and configuration are optimised for use in a GPU-enabled
 environemnt. Broadly, the following should be noted when constructing an overlay file:
 
 - The GPU operator charm manages software packages and drivers on a host. Therefore,
