@@ -147,7 +147,7 @@ juju deploy nvidia-gpu-operator --channel 1.29/stable --trust
 ```
 
 Deployment of this charm will typically take 15-30 minutes. Once complete, Kubernetes
-will be ready to run GPU optimized workloads.
+will be ready to run GPU optimised workloads.
 
 <a  id="test"> </a>
 ## Testing
