@@ -31,7 +31,7 @@ the available [AWS GPU-enabled instance types][aws-instance].
 Similarly, you could choose an Azure `Standard_NC6s_v3` instance from the available
 [Azure GPU-enabled instance types][azure-instance].
 
-NVIDIA updates its list of supported GPUs frequently, so be sure to cross reference the
+NVIDIA updates its list of supported GPUs frequently, so be sure to cross-reference the
 GPU included in a specific cloud instance against the
 [Supported NVIDIA GPUs and Systems][nvidia-gpu-support] documentation.
 
