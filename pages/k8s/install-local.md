@@ -80,13 +80,13 @@ the unused Debian packages, which may take a few minutes.
 
 <a id="profile"></a>
 
-#### Initialize LXD
+#### Initialise LXD
 
 For new LXD installations or cases where LXD was installed, but never used,
 there will be no data in the default profile. You should now initialise LXD:
 
 ```bash
-sudo lxd init
+lxd init
 ```
 
 The init script itself may vary depending on the version of LXD. The important
@@ -119,9 +119,11 @@ lxc profile set default limits.kernel.nofile=100000
 
 ## Install **Juju**
 
-[Juju][] should be installed from a snap:
+[Juju][] should be installed from a snap. Because it is strictly confined, you will
+need to manually create a Juju data directory prior to installing:
 
 ```bash
+mkdir -p ~/.local/share/juju
 sudo snap install juju
 ```
 
@@ -156,13 +158,21 @@ juju config calico ignore-loose-rpf=true
 ```
 
 The latest stable version of **Charmed Kubernetes** will now be installed with
-the default components. If you wish to customise this install
+the default components. It may take a while for the deployment to complete. You can
+watch the progress from the command line:
+
+```bash
+watch --color juju status --color
+```
+
+When all applications report `active` status, the deployment is complete.
+If you wish to customise this install
 (which may be helpful if you are close to the system requirements), please see
 the [main install page][install].
 
 ## Next Steps
 
-Now you have a cluster up and running, check out the
+Now that you have a **Charmed Kubernetes** cluster up and running, check out the
 [Operations guide][operations] for how to use it!
 
 ## Troubleshooting
