@@ -18,69 +18,55 @@ purposes of testing and development.
 
 However, be aware that the full deployment of **Charmed Kubernetes** has system
 requirements which may exceed a standard laptop or desktop machine. It is only
-recommended for a machine with 32GB RAM and 128GB of SSD storage.
+recommended for a machine with at least 32GB RAM and 128GB of SSD storage.
 
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">If you don't meet these requirements or want a lightweight way to develop on pure Kubernetes, we recommend  <a href="https://microk8s.io/">MicroK8s</a></p>
+    <p class="p-notification__message">If you don't meet these requirements or want a lightweight way to develop on pure Kubernetes, we recommend  <a href="https://microk8s.io/">MicroK8s</a>.</p>
   </div>
 </div>
 
-In order to run locally, you will need a local cloud. This can be achieved by
-using lightweight containers managed by [LXD][lxd-home]. **LXD** version 5.0
-or better is required.
+## Configure the host environment
+
+Some default kernel settings are not suitable for running numerous containers.
+Adjust these on the host machine by running:
+
+```bash
+sudo sysctl fs.inotify.max_queued_events=1048576 | sudo tee -a /etc/sysctl.conf
+sudo sysctl fs.inotify.max_user_instances=1048576 | sudo tee -a /etc/sysctl.conf
+sudo sysctl fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.conf
+```
 
 ## Set up LXD
 
-### If LXD has not previously been installed
+In order to run **Charmed Kubernetes** locally, you will need a local cloud. This can
+be achieved by using lightweight containers managed by [LXD][lxd-home]. **LXD** version
+5.0 or better is required.
 
-Install LXD from a [snap][] and enable access for your user:
+### Install LXD
+
+If `lxd` is not present, install the [snap][] package as follows:
 
 ```bash
-sudo snap install lxd
+sudo snap install lxd --channel 5.0/stable
+```
+
+If the `lxd` snap is already installed, ensure it is at version 5.0 or better:
+
+```bash
+sudo snap refresh lxd --channel 5.0/stable
+```
+
+Add your user to the `lxd` group if needed:
+
+```bash
 sudo usermod -a -G lxd $USER
 ```
 
 You may need to logout and login again for the new group membership to take effect.
 
-### If **LXD** is already installed
-
-If you installed LXD from a snap, you can skip this step (but if necessary, you
-may need to alter the [default profile](#profile)). If your system
-had LXD pre-installed, or you have installed it from the archive (i.e. with
-`apt install`), you will need to migrate to the snap version.
-
-If you aren't sure whether LXD is installed, you can check
-installed snaps with:
-
-```bash
-snap list | grep lxd
-```
-
-and installed deb packages with:
-
-```bash
-dpkg -s lxd |  grep Status
-```
-
-If you do have the deb version of LXD installed, you should migrate to the
-snap version after it has been installed. The snap includes a script to do this
-for you:
-
-```bash
-sudo snap install lxd
-sudo /snap/bin/lxd.migrate
-```
-
-This will move all container specific data to the snap version and clean up
-the unused Debian packages, which may take a few minutes.
-
-### Configure the LXD environment
-
-<a id="profile"></a>
-
-#### Initialise LXD
+### Initialise LXD
 
 For new LXD installations or cases where LXD was installed, but never used,
 there will be no data in the default profile. You should now initialise LXD:
@@ -95,29 +81,11 @@ configuration options are:
 - Storage backend: `dir`
 - IPv6 address: `none`
 
-Currently, **Charmed Kubernetes** only supports `dir` as a storage type and
+Currently, **Charmed Kubernetes** only supports `dir` as a storage backend and
 does not support IPv6 on the LXD bridge interface. Additional profiles will be
 added automatically to LXD to support the requirements of **Charmed Kubernetes**.
 
-#### Set host parameters
-
-Some default kernel settings are not suitable for running numerous containers.
-Adjust these by running:
-
-```bash
-sudo sysctl -w fs.inotify.max_user_instances=1048576
-sudo sysctl -w fs.inotify.max_user_watches=1048576
-```
-
-The `containerd` application requires an `RLIMIT_NOFILE` hard limit that cannot
-be set within a container. Set this in the default LXD profile so that all containers
-inherit this parameter:
-
-```bash
-lxc profile set default limits.kernel.nofile=100000
-```
-
-## Install **Juju**
+## Install Juju
 
 [Juju][] should be installed from a snap. Because it is strictly confined, you will
 need to manually create a Juju data directory prior to installing:
@@ -135,13 +103,13 @@ need to create a Juju controller for this cloud:
 juju bootstrap localhost
 ```
 
-Create a new model for **Charmed Kubernetes**:
+Once complete, create a new model for **Charmed Kubernetes**:
 
 ```bash
 juju add-model ck8s
 ```
 
-## Deploy **Charmed Kubernetes**
+## Deploy Charmed Kubernetes
 
 Deploy **Charmed Kubernetes** with the following command:
 
@@ -149,17 +117,30 @@ Deploy **Charmed Kubernetes** with the following command:
 juju deploy charmed-kubernetes
 ```
 
-Calico, the default CNI, may complain about an `rp_filter` parameter that cannot be set
-within a container (see the [troubleshooting section](#rp_filter) for details). Instruct
-`calico` to ignore this paramater with the following:
+The latest stable version of **Charmed Kubernetes** will now be installed with default
+components. Note that additional configuration of some of these components is required
+for a local deployment. This can be performed before the deployment is complete or
+any time after:
 
-```bash
-juju config calico ignore-loose-rpf=true
-```
+- Calico, the default CNI, may complain about an `rp_filter` parameter that cannot be
+set within a container (see the [troubleshooting section](#rp_filter) for details).
+Configure `calico` to ignore this paramater with the following:
 
-The latest stable version of **Charmed Kubernetes** will now be installed with
-the default components. It may take a while for the deployment to complete. You can
-watch the progress from the command line:
+  ```bash
+  juju config calico ignore-loose-rpf=true
+  ```
+
+- Containerd, the default CRI, includes a binary resource in the charm that will not
+work within a container. Attach an empty resource to the `containerd` application to
+instruct the charm to use default system binaries instead:
+
+  ```bash
+  touch $HOME/empty.tgz
+  juju attach-resource containerd containerd=$HOME/empty.tgz
+  ```
+
+It may take a while for the deployment to complete. You can watch the progress from the
+command line:
 
 ```bash
 watch --color juju status --color
@@ -201,13 +182,13 @@ You may need to start a new shell (or logout and login) for this to take effect:
 newgrp lxd
 ```
 
-### Confirm CNIs do not need specific kernel parameters unsupported by the lxd-profile
+### My CNI needs kernel parameters that are not supported in the charm lxd-profile
 
 If the CNI pods fail to start, see notes on the specific CNI page.
 
 CNIs like [Cilium][cilium] and [Calico][calico] need access to `/sys/fs/bpf`, but that
-mountpoint is not supported by the juju's [validation check][juju-validation-check] 
-for the charm specific `lxd-profile.yaml`. See [CNI Overview][cni-overview] for more
+mountpoint is not supported by the Juju [validation check][juju-validation-check]
+for the charm-specific `lxd-profile.yaml`. See [CNI Overview][cni-overview] for more
 details.
 
 ### Services fail to start with errors related to missing files in the /proc filesystem
@@ -218,7 +199,7 @@ For example, `systemctl status snap.kube-proxy.daemon` may report the following:
 Error: open /proc/sys/net/netfilter/nf_conntrack_max: no such file or directory
 ```
 
-This is most commonly caused when [lxd-profile.yaml][lxd-profile] is not applied.
+This is most commonly caused when the [lxd-profile.yaml][lxd-profile] is not applied.
 Verify the profile in use by the `kubernetes-worker` charm:
 
 ```bash
@@ -250,15 +231,15 @@ following error:
 kubelet.go:1414] "Failed to start cAdvisor" err="inotify_add_watch /sys/fs/cgroup/cpu,cpuacct: no space left on device"
 ```
 
-This problem usually is related to the kernel parameters,
+This problem is usually related to the kernel parameters,
 `fs.inotify.max_user_instances` and `fs.inotify.max_user_watches`.
 
 Increase their values on the machine that is hosting
 the **Charmed Kubernetes** installation:
 
 ```bash
-sudo sysctl -w fs.inotify.max_user_instances=1048576
-sudo sysctl -w fs.inotify.max_user_watches=1048576
+sudo sysctl fs.inotify.max_user_instances=1048576
+sudo sysctl fs.inotify.max_user_watches=1048576
 ```
 
 ### Calico is blocked with warning about ignore-loose-rpf
