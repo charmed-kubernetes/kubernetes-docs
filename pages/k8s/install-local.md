@@ -18,7 +18,8 @@ purposes of testing and development.
 
 However, be aware that the full deployment of **Charmed Kubernetes** has system
 requirements which may exceed a standard laptop or desktop machine. It is only
-recommended for a machine with at least 32GB RAM and 128GB of SSD storage.
+recommended on a machine running at least Ubuntu 20.04 with 32GB RAM and 128GB of
+SSD storage.
 
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
@@ -106,7 +107,53 @@ juju bootstrap localhost
 Once complete, create a new model for **Charmed Kubernetes**:
 
 ```bash
-juju add-model ck8s
+export MODEL=ck8s
+juju add-model $MODEL
+```
+
+In addition to creating a Juju model, this will also create a LXD profile that will
+be applied to all future units deployed to the model. **Charmed Kubernetes** requires
+privileged access to resources on the host machine. Create a profile that allows the
+necessary access to these resources:
+
+```bash
+cat <<EOF > $HOME/profile.yaml
+name: juju-$MODEL
+config:
+  boot.autostart: "true"
+  linux.kernel_modules: ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,br_netfilter
+  raw.lxc: |
+    lxc.apparmor.profile=unconfined
+    lxc.mount.auto=proc:rw sys:rw cgroup:rw
+    lxc.cgroup.devices.allow=a
+    lxc.cap.drop=
+  security.nesting: "true"
+  security.privileged: "true"
+description: "Juju profile modified for Charmed Kubernetes"
+devices:
+  aadisable:
+    path: /sys/module/nf_conntrack/parameters/hashsize
+    source: /sys/module/nf_conntrack/parameters/hashsize
+    type: disk
+  aadisable2:
+    path: /dev/kmsg
+    source: /dev/kmsg
+    type: unix-char
+  aadisable3:
+    path: /sys/fs/bpf
+    source: /sys/fs/bpf
+    type: disk
+  aadisable4:
+    path: /proc/sys/net/netfilter/nf_conntrack_max
+    source: /proc/sys/net/netfilter/nf_conntrack_max
+    type: disk
+EOF
+```
+
+Update the Juju model profile with this new configuration:
+
+```bash
+cat $HOME/profile.yaml | lxc profile edit juju-$MODEL
 ```
 
 ## Deploy Charmed Kubernetes
@@ -118,9 +165,9 @@ juju deploy charmed-kubernetes
 ```
 
 The latest stable version of **Charmed Kubernetes** will now be installed with default
-components. Note that additional configuration of some of these components is required
-for a local deployment. This can be performed before the deployment is complete or
-any time after:
+components. Note that additional configuration for some of these components is required
+for local deployment. This can be performed before the deployment is complete or any
+time after:
 
 - Calico, the default CNI, may complain about an `rp_filter` parameter that cannot be
 set within a container (see the [troubleshooting section](#rp_filter) for details).
