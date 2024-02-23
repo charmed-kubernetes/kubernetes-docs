@@ -3,7 +3,7 @@ wrapper_template: "base-docs.html"
 markdown_includes:
   nav: "shared/_side-navigation.md"
 context:
-  title: "Kubernetes documentation"
+  title: "Charmed Kubernetes documentation"
   description: Documentation for the Canonical Distribution of Kubernetes.
 keywords: homepage
 tags: [getting_started]
