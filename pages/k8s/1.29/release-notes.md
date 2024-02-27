@@ -45,6 +45,13 @@ charm. All new deployments should leverage the [ceph-csi][] charm for Ceph stora
 provisioning, including support for CephFS. See the [updated documentation][ceph] for
 details on deploying Charmed Kubernetes with Ceph support.
 
+### OpenStack integration
+
+OpenStack capabilities (including cinder storage and cloud provider) have been decoupled
+from the `kubernetes-control-plane` charm. All new deployments should leverage the new
+`openstack-integrator`, `openstack-controller-manager`, and `cinder-csi` charms. See the
+[updated documentation][openstack] for more details.
+
 ### NVIDIA GPU Operator
 
 The new [nvidia-gpu-operator][] charm simplifies the management of NVIDIA GPU resources
@@ -80,7 +87,7 @@ support and is offered as an alternative to the default Calico CNI.
 All bug fixes and other feature updates in this release can be found at
 [the launchpad milestone page for 1.29](https://launchpad.net/charmed-kubernetes/+milestone/1.29).
 
-## Known Issues
+## Notes and Known Issues
 
 ### Integration gaps
 
@@ -92,6 +99,13 @@ If your deployment depends on the following, we recommend remaining on Charmed K
 - AWS IAM authentication: [aws-iam](https://charmhub.io/aws-iam)
 - Keystone authentication: [keystone](https://charmhub.io/keystone)
 - Vault storage: [vault](https://charmhub.io/vault)
+
+### Cloud integrators
+
+Direct integration between `[aws|azure|gcp|openstack]-integrator` charms and
+`kubernetes-control-plane` has been removed in this release. The recommended method for
+enabling native cloud features is to use the respective out-of-tree cloud provider
+charms. See the cloud-specific documentation for details.
 
 ### Bugs
 
@@ -115,6 +129,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.29].
 [rel]: /kubernetes/docs/release-notes
 [ceph-csi]: https://charmhub.io/ceph-csi?channel=1.29/stable
 [ceph]: /kubernetes/docs/ceph
+[openstack]: /kubernetes/openstack-integration
 [nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator?channel=1.29/stable
 [gpu-workers]: /kubernetes/docs/gpu-workers
 [install-local]: /kubernetes/docs/install-local
