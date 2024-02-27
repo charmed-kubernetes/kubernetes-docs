@@ -15,7 +15,7 @@ toc: False
 ---
 # 1.29
 
-### February 23, 2024 - `charmed-kubernetes --channel 1.29/stable`
+### February 29, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
 
@@ -24,7 +24,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 ### Charmed Operator Framework (Ops)
 
 We're pleased to announce the completion of the Charmed Kubernetes refactor that began
-last year. Charms have moved from the `reactive` and `pod-spec` styles to the `ops`
+last year. Core charms have moved from the `reactive` and `pod-spec` styles to the `ops`
 framework in order to enable access to common charm libraries, gain better Juju support,
 and provide a more consistent charming experience for community engagement.
 
@@ -37,6 +37,13 @@ observability tools.
 
 This release expands our COS integration so that it includes rich monitoring for the
 control plane and worker node components of Charmed Kubernetes.
+
+### Ceph CSI
+
+Ceph CSI resource management has been decoupled from the `kubernetes-control-plane`
+charm. All new deployments should leverage the [ceph-csi][] charm for Ceph storage
+provisioning, including support for CephFS. See the [updated documentation][ceph] for
+details on deploying Charmed Kubernetes with Ceph support.
 
 ### NVIDIA GPU Operator
 
@@ -75,6 +82,19 @@ All bug fixes and other feature updates in this release can be found at
 
 ## Known Issues
 
+### Integration gaps
+
+While Charmed Kubernetes core charms have been rewritten in the `ops` framework, some
+integrations with other charms in the Juju ecosystem are not available in this release.
+If your deployment depends on the following, we recommend remaining on Charmed Kubernetes
+1.28 until compatible support is provided in a subsequent release:
+
+- AWS IAM authentication: [aws-iam](https://charmhub.io/aws-iam)
+- Keystone authentication: [keystone](https://charmhub.io/keystone)
+- Vault storage: [vault](https://charmhub.io/vault)
+
+### Bugs
+
 A list of known bugs scheduled to be fixed in the first maintenance release can be found
 on the [1.29+ck1 milestone page](https://launchpad.net/charmed-kubernetes/+milestone/1.29+ck1).
 
@@ -93,6 +113,8 @@ relevant sections of the [upstream release notes][upstream-changelog-1.29].
 <!--LINKS-->
 
 [rel]: /kubernetes/docs/release-notes
+[ceph-csi]: https://charmhub.io/ceph-csi?channel=1.29/stable
+[ceph]: /kubernetes/docs/ceph
 [nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator?channel=1.29/stable
 [gpu-workers]: /kubernetes/docs/gpu-workers
 [install-local]: /kubernetes/docs/install-local
