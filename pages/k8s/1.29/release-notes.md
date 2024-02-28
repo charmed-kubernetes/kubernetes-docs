@@ -25,7 +25,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 We're pleased to announce the completion of the Charmed Kubernetes refactor that began
 last year. Core charms have moved from the `reactive` and `pod-spec` styles to the `ops`
-framework in order to enable access to common charm libraries, gain better Juju support,
+framework. This shift aims to enable access to common charm libraries, gain better Juju support,
 and provide a more consistent charming experience for community engagement.
 
 ### Out of the box monitoring enhancements
