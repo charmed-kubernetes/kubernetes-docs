@@ -13,9 +13,18 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Caution:</span>
+    <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the *What's new* section of the <a href="/kubernetes/docs/1.29/release-notes">1.29 release notes</a> prior to upgrading your cluster.<br/>
+    <br/>
+    Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/docs/1.29/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.29 at this time.</p>
+  </div>
+</div>
+
 It is recommended that you keep your **Kubernetes** deployment updated to the latest available stable version. You should also update the other applications which make up **Charmed Kubernetes**. Keeping up to date ensures you have the latest bug-fixes and security patches for smooth operation of your cluster.
 
-You can check the latest release version on the [Kubernetes release page on GitHub][k8s-release].
+New minor versions of **Kubernetes** are set to release three times per year. You can check the latest release version on the [Kubernetes release page on GitHub][k8s-release].
 
 <div class="p-notification--information is-inline">
   <div markdown="1" class="p-notification__content">
@@ -52,7 +61,7 @@ You should also make sure:
 -   Your Juju client and controller/models are running the same, stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from.
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster.
--   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.29 which may impact your workloads.
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.29.md#deprecation) for details of Kubernetes deprecation notices and API changes that may impact your workloads.
 
 It is also important to understand that **Charmed Kubernetes** will only upgrade,
 and migrate if necessary, components relating specifically to elements of
@@ -68,7 +77,7 @@ deprecated APIs.
   </div>
 </div>
 
-## Upgrading the Machine's Series (required for machines currently running 18.04(Bionic))
+## Upgrading the series (required for machines currently running Ubuntu 18.04)
 
 All of the charms support [upgrading machine series via Juju](https://juju.is/docs/juju/manage-machines#heading--upgrade-a-machine).
 As each machine is upgraded, the applications on that machine will be stopped and the unit will
@@ -84,12 +93,13 @@ outside of the cycle of new releases of Kubernetes.
 
 This includes:
 
+- calico or other CNI
+- coredns
 - easyrsa
 - etcd
-- flannel, calico or other CNI
 
 Note that this may include other applications which you may have installed, such as
-Elasticsearch, Prometheus, Nagios, Helm, etc.
+Ceph, Docker Registry, MetalLB, Volcano, etc.
 
 <a id='upgrading-containerd'> </a>
 
@@ -117,15 +127,16 @@ juju refresh etcd --channel=1.29/stable
 To upgrade **etcd** itself, you will need to set the **etcd** charm channel config.
 
 To determine the correct channel, go to the
-[releases section of the bundle repository][bundle-repo] page and check the relevant
-**Charmed Kubernetes** bundle. Within the bundle, you should see which channel
-the **etcd** charm is configured to use.
+[releases section of the bundle repository](https://github.com/charmed-kubernetes/bundle/tree/main/releases)
+and check the relevant **Charmed Kubernetes** bundle. Within the bundle, you will see
+which channel the **etcd** charm is configured to use.
 
 Once you know the correct channel, set the **etcd** charm's channel config:
 
 ```bash
 juju config etcd channel=3.4/stable
 ```
+
 ### Upgrading MetalLB (if used)
 
 Previous versions of Charmed Kubernetes adopted a two charm approach for MetalLB. These were deployed in a K8s model with the suggested name `metallb-system`.
@@ -171,18 +182,18 @@ juju refresh easyrsa --channel=1.29/stable
 ```
 
 Any other infrastructure charms should be upgraded in a similar way. For
-example, if you are using the flannel CNI:
+example, if you are using the calico CNI:
 
 ```bash
-juju refresh flannel --channel=1.29/stable
+juju refresh calico --channel=1.29/stable
 ```
 
 <div class="p-notification--caution">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
 Some services may be briefly interrupted during the upgrade process. Upgrading
-your CNI (e.g. flannel) will cause a small amount of network downtime. Upgrading
-<strong>easyrsa</strong> will not cause any downtime. The behaviour of other
+your CNI (e.g. calico) will cause a small amount of network downtime. Upgrading
+easyrsa will not cause any downtime. The behaviour of other
 components you have added to your cluster may vary - check individual documentation
 for these charms for more information on upgrades.
   </p>
@@ -193,8 +204,8 @@ for these charms for more information on upgrades.
 Before you upgrade the **Kubernetes** components, you should be aware of the exact
 release you wish to upgrade to.
 
-The **Kubernetes** charms use **snap** _channels_ to manage the version of
-**Kubernetes** to use. Channels are explained in more detail in the
+The **Kubernetes** charms use snap _channels_ to manage the version of
+**Kubernetes** they use. Channels are explained in more detail in the
 [official snap documentation][snap-channels], but in terms of **Kubernetes** all you
 need to know are the major and minor version numbers and the 'risk-level':
 
@@ -205,7 +216,7 @@ need to know are the major and minor version numbers and the 'risk-level':
 | beta       | Latest alpha/beta of Kubernetes for the specified release |
 | edge       | Nightly builds of the specified release of Kubernetes     |
 
-For most use cases, it is strongly recommended to use the 'stable' version of charms.
+For most use cases, it is strongly recommended to use the _stable_ charm versions.
 
 ### Upgrading the **kube-api-loadbalancer**
 
@@ -221,11 +232,6 @@ The load balancer itself is based on NGINX, and the version reported by `juju st
 that of NGINX rather than Kubernetes.
 
 ### Upgrading the **kubernetes-control-plane** units
-
-**Note**: Older versions of Charmed Kubernetes used `kubernetes-master` as the charm name. This has been updated
-to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
-originally installed version 1.23 or before, your units will follow the old naming scheme and you should
-substitute `kubernetes-control-plane` for `kubernetes-master` in the following commands.
 
 To start upgrading the Kubernetes control plane units, first upgrade the charm:
 

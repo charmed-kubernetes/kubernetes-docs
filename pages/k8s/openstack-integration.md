@@ -43,12 +43,11 @@ applications:
     options:
       allow-privileged: "true"
   openstack-integrator:
-    annotations:
     charm: openstack-integrator
     num_units: 1
     trust: true
   openstack-cloud-controller:
-    charm: openstack-integrator
+    charm: openstack-cloud-controller
   cinder-csi:
     charm: cinder-csi
 relations:
@@ -58,7 +57,7 @@ relations:
   - [openstack-cloud-controller:openstack,               openstack-integrator:clients]
   - [easyrsa:client,                                     cinder-csi:certificates]
   - [kubernetes-control-plane:kube-control,              cinder-csi:kube-control]
-  - [openstack-integrator:clients,                       cinder-csi:openstack, ]
+  - [openstack-integrator:clients,                       cinder-csi:openstack]
 ```
 
 To use the overlay with the **Charmed Kubernetes** bundle, specify it during deploy like this:
@@ -67,7 +66,7 @@ To use the overlay with the **Charmed Kubernetes** bundle, specify it during dep
 juju deploy charmed-kubernetes --overlay ~/path/openstack-overlay.yaml --trust
 ```
 
-... and remember to fetch the configuration file!
+...and remember to fetch the configuration file!
 
 ```bash
 juju ssh kubernetes-control-plane/leader -- cat config > ~/.kube/config
@@ -114,7 +113,7 @@ allow for external access.
 
 #### LoadBalancer-type Pod Services
 
-To use Octavia for `LoadBalancer` type services in the cluster, you will also need to set the
+To use Octavia for `LoadBalancer`-type services in the cluster, you will need to set the
 `subnet-id` config to the appropriate tenant subnet where your nodes reside, and if desired, the
 `floating-network-id` config to whatever network you want FIPs created in.  See the 
 [Charm config docs][charm-config] for more details.
@@ -134,7 +133,7 @@ You can verify that the application and replicas have been created with:
 kubectl get deployments hello-world
 ```
 
-Which should return output similar to:
+...which should return output similar to:
 
 ```bash
 NAME              READY   UP-TO-DATE   AVAILABLE   AGE
@@ -164,12 +163,11 @@ curl  http://202.49.242.3:8080
 Hello Kubernetes!
 ```
 
-
 #### API Server Load Balancer
 
-If desired, the openstack-integrator can also replace kubeapi-load-balancer and create a native
+If desired, the `openstack-integrator` can also replace `kubeapi-load-balancer` and create a native
 OpenStack load balancer for the Kubernetes API server, which simplifies the model and is properly
-HA, which kubeapi-load-balancer on its own is not. To enable this, use the appropriate overlay
+HA, which `kubeapi-load-balancer` on its own is not. To enable this, use the appropriate overlay
 ([ Versions >= 1.29][asset-openstack-lb-overlay], [Versions <= 1.28][asset-openstack-lb-overlay-1.28]):
 
 ```yaml
@@ -179,12 +177,11 @@ applications:
     options:
       allow-privileged: "true"
   openstack-integrator:
-    annotations:
     charm: openstack-integrator
     num_units: 1
     trust: true
   openstack-cloud-controller:
-    charm: openstack-integrator
+    charm: openstack-cloud-controller
   cinder-csi:
     charm: cinder-csi
 relations:
@@ -194,7 +191,7 @@ relations:
   - [openstack-cloud-controller:openstack,               openstack-integrator:clients]
   - [easyrsa:client,                                     cinder-csi:certificates]
   - [kubernetes-control-plane:kube-control,              cinder-csi:kube-control]
-  - [openstack-integrator:clients,                       cinder-csi:openstack, ]
+  - [openstack-integrator:clients,                       cinder-csi:openstack]
   - [kubernetes-control-plane:loadbalancer-external,     openstack-integrator:lb-consumer]
 ```
 
@@ -204,7 +201,7 @@ in.  See the [Charm config docs][charm-config] for more details.
 
 ### Using Cinder Volumes
 
-Many  pods you may wish to deploy will require storage. Although you can use any type
+Many pods you may wish to deploy will require storage. Although you can use any type
 of storage supported by Kubernetes (see the [storage documentation][storage]), you
 also have the option to use Cinder storage volumes, if supported by your OpenStack.
 
@@ -276,7 +273,7 @@ Keystone. This is covered in detail in the [Keystone and LDAP documentation][lda
 
 ### Upgrading the integrator charm
 
-The openstack-integrator has not specifically been tied to the version of Charmed Kubernetes installed and may
+The `openstack-integrator` has not specifically been tied to the version of Charmed Kubernetes installed and may
 generally be upgraded at any time with the following command:
 
 ```bash
@@ -284,28 +281,30 @@ juju refresh openstack-integrator
 ```
 
 The 1.29/stable release of `openstack-integrator` replaces the relation for using Octavia as a loadbalancer for the API Service. 
-The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi` and the `openstack-controller-manager`
+The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi` and the `openstack-controller-manager`.
 In order to upgrade the control-plane and worker charms, follow this process:
 
 **1. Upgrade the openstack-integrator charm**:
    
-```
+```bash
 juju refresh openstack-integrator --switch --channel=1.29/stable
 ```
 
-**2. Relate to the control-plane application:** 
+**2. Integrate the kubernetes-control-plane application:**
 
+```bash
+juju integrate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external
 ```
-juju relate openstack-integrator:lb-consumer kubernetes-control-plane:loadbalancer-external
-```
+
 **3. Deploy and migrate to the `openstack-cloud-controller` charm** (See its [charm docs][openstack-cloud-controller-readme] for details).
 
 **4. Deploy and migrate to the `cinder-csi` charm** (See its [charm docs][cinder-csi-readme] for details).
 
 **5. Remove the loadbalancer relation to the control-plane:**
 
-```juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer```
-
+```bash
+juju remove-relation openstack-integrator:loadbalancer kubernetes-control-plane:loadbalancer
+```
 
 ### Troubleshooting
 
@@ -318,7 +317,6 @@ the log history for that specific unit:
 ```bash
 juju debug-log --replay --include openstack-integrator/0
 ```
-
 
 <!-- LINKS -->
 
@@ -334,7 +332,7 @@ juju debug-log --replay --include openstack-integrator/0
 [cinder-csi-readme]: https://charmhub.io/cinder-csi/
 [install]: /kubernetes/docs/install-manual
 [ldap]: /kubernetes/docs/ldap
-[charm-config]: https://ubuntu.com/kubernetes/docs/charm-openstack-integrator#configuration
+[charm-config]: https://charmhub.io/openstack-integrator/configure
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
