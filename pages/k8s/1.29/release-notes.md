@@ -15,7 +15,7 @@ toc: False
 ---
 # 1.29
 
-### February 29, 2024 - `charmed-kubernetes --channel 1.29/stable`
+### February 12, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
 
@@ -86,6 +86,8 @@ support and is offered as an alternative to the default Calico CNI.
 
 All bug fixes and other feature updates in this release can be found at
 [the launchpad milestone page for 1.29](https://launchpad.net/charmed-kubernetes/+milestone/1.29).
+
+<a id='notes-issues'> </a>
 
 ## Notes and Known Issues
 
