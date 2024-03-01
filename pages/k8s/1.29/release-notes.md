@@ -1,18 +1,22 @@
-
 ---
-wrapper_template: "templates/docs/markdown.html"
+wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: kubernetes/docs/shared/_side-navigation.md
 context:
-  title: "1.29 Release notes"
+  title: 1.29 Release notes
   description: Release notes for Charmed Kubernetes
 keywords: kubernetes, release, notes
-tags: [news]
+tags:
+  - news
 sidebar: k8smain-sidebar
 permalink: 1.29/release-notes.html
-layout: [base, ubuntu-com]
-toc: False
+layout:
+  - base
+  - ubuntu-com
+toc: false
+
 ---
+
 # 1.29
 
 ### February 12, 2024 - `charmed-kubernetes --channel 1.29/stable`
