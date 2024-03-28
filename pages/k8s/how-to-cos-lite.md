@@ -8,7 +8,7 @@ context:
 keywords: Cloud, cluster, observability
 tags: [observability, operating]
 sidebar: k8smain-sidebar
-permalink: explain-cos-lite.html
+permalink: how-to-cos-lite.html
 layout: [base, ubuntu-com]
 toc: False
 ---
