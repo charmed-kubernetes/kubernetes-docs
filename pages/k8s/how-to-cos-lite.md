@@ -75,8 +75,7 @@ both grafana and prometheus listed.
 This process bootstrapped a controller, created two models (one for Ubuntu
 with microk8s deployed, and another for cos-lite), and set up cos-lite's
 endpoints for cross-model integration.
-Next, proceed to deploy charmed Kubernetes and link it with cos-lite
-for a comprehensive cloud-native environment.
+Next, proceed to deploy charmed Kubernetes and link it with cos-lite.
 
 Create a model for charmed kubernetes:
 
