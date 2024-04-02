@@ -24,27 +24,26 @@ will help you integrate a COS Lite deployment with a charmed-kubernetes deployme
 
 This document assumes you have a controller with an installation of
 charmed-kubernetes. If this is not your case, refer to
-["how-to-install"].(<https://ubuntu.com/kubernetes/docs/how-to-install>)
+["how-to-install"](<https://ubuntu.com/kubernetes/docs/how-to-install>).
 
 ## Preparing a platform for COS Lite
 
-First, create a microk8s model to act as a deployment cloud for cos-lite:
+First, create a microk8s model to act as a deployment cloud for COS Lite:
 
 ```
 juju add-model --config logging-config='<root>=DEBUG' \
   microk8s-ubuntu aws
 ```
 
-Deploy Ubuntu on the microk8s-ubuntu model with the following specifications:
+Deploy the Ubuntu charm as an application called microk8s:
 
 ```
 juju deploy ubuntu microk8s --series=focal --constraints="mem=16G cores=8 root-disk=50G"
 ```
 
-The above command deploys the ubuntu charm as an application called microk8s.
-
-To deploy microk8s on ubuntu, access the unit ubuntu using `juju ssh microk8s/0`
-and follow the configuration steps available at: <https://charmhub.io/topics/canonical-observability-stack/tutorials/install-microk8s#heading--configure-microk8s>
+To actually deploy microk8s on Ubuntu, access the unit ubuntu using `juju ssh
+microk8s/0` and follow the configuration steps available at: [Install
+Microk8s](<https://charmhub.io/topics/canonical-observability-stack/tutorials/install-microk8s#heading--configure-microk8s>)
 
 After configuring microk8s, export its kubeconfig file to your current directory:
 
@@ -84,7 +83,7 @@ model as a Kubernetes cloud to Juju. We then used this cloud as a substrate
 for the COS Lite deployment. We therefore have 2 models on the same controller.
 
 This process created two models (one for Ubuntu with microk8s deployed, and
-another for cos-lite), and set up cos-lite's endpoints for cross-model
+another for COS Lite), and set up COS Lite's endpoints for cross-model
 integration. Next, proceed to integrate charmed-kubernetes with COS Lite.
 
 ## Integrating COS Lite with Charmed Kubernetes
