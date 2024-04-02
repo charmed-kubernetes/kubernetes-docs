@@ -83,7 +83,6 @@ So far, we've created a model that runs microk8s on Ubuntu, and added that
 model as a Kubernetes cloud to Juju. We then used this cloud as a substrate
 for the COS Lite deployment. We therefore have 2 models on the same controller.
 
-
 This process created two models (one for Ubuntu with microk8s deployed, and
 another for cos-lite), and set up cos-lite's endpoints for cross-model
 integration. Next, proceed to integrate charmed-kubernetes with COS Lite.
@@ -92,7 +91,7 @@ Switch to your charmed-kubernetes model:
 
 `juju switch <charmed-kubernetes-model>`
 
-Consume cos-lite endpoints:
+Consume COS Lite endpoints:
 
 ```
 juju consume cos-lite.grafana
