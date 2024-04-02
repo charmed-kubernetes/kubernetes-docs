@@ -54,11 +54,6 @@ entries:
       output: web, pdf
       type: page
 
-    - title: ...observe your cluster
-      url: /how-to-cos-lite
-      output: web, pdf
-      type: page
-
     - title: ...contribute to this project
       url: /how-to-contribute
       output: web, pdf

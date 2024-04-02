@@ -13,22 +13,22 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-First, initialize a controller on your preferred cloud platform (vSphere, AWS,
-Azure) using Juju. Run the following command, ensuring to replace placeholder
-values with your specifics:
+**Charmed Kubernetes** includes the standard Kubernetes dashboard for
+monitoring your cluster. However, it is often advisable to have a monitoring
+solution which will run whether the cluster itself is running or not. It may
+also be useful to integrate monitoring into existing setups.
 
-```
-juju bootstrap --credential $XYZ \
-  --debug \
-  --model-default automatically-retry-hooks=false \
-  --model-default 'logging-config=<root>=DEBUG' \
-  --bootstrap-image="juju-ci-root/templates/jammy-test-template" \
-  --bootstrap-series=jammy \
-  --bootstrap-constraints "arch=amd64" \
-  aws tutorial-controller
-```
+To make monitoring your cluster a delightful experience, Canonical provides
+first-class integration between charmed-kubernetes and COS Lite. This guide
+will help you integrate a COS Lite deployment with a charmed-kubernetes deployment.
 
-Next, create a microk8s model to act as a deployment cloud for cos-lite:
+This document assumes you have a controller with an installation of
+charmed-kubernetes. If this is not your case, refer to
+["how-to-install"].(<https://ubuntu.com/kubernetes/docs/how-to-install>)
+
+## Preparing a platform for COS Lite
+
+First, create a microk8s model to act as a deployment cloud for cos-lite:
 
 ```
 juju add-model --config logging-config='<root>=DEBUG' \
@@ -38,25 +38,29 @@ juju add-model --config logging-config='<root>=DEBUG' \
 Deploy Ubuntu on the microk8s-ubuntu model with the following specifications:
 
 ```
-juju deploy ubuntu --series=focal --constraints="mem=16G cores=8 root-disk=50G"
+juju deploy ubuntu microk8s --series=focal --constraints="mem=16G cores=8 root-disk=50G"
 ```
 
-To deploy microk8s on ubuntu, access the unit ubuntu using `juju ssh ubuntu/0`
+The above command deploys the ubuntu charm as an application called microk8s.
+
+To deploy microk8s on ubuntu, access the unit ubuntu using `juju ssh microk8s/0`
 and follow the configuration steps available at: <https://charmhub.io/topics/canonical-observability-stack/tutorials/install-microk8s#heading--configure-microk8s>
 
 After configuring microk8s, export its kubeconfig file to your current directory:
 
 ```
-juju ssh ubuntu/0 -- microk8s config > microk8s-config.yaml
+juju ssh microk8s/0 -- microk8s config > microk8s-config.yaml
 ```
 
-Now, register microk8s as a Juju cloud:
+Now, register microk8s as a Juju cloud (see "[juju
+add-k8s"](https://juju.is/docs/juju/juju-add-k8s) for details on the add-k8s
+command):
 
 ```
 KUBECONFIG=microk8s-config.yaml juju add-k8s microk8s
 ```
 
-Create a new model for cos-lite on this cloud and deploy cos-lite:
+Create a new model for cos-lite on the microk8s cloud and deploy the cos-lite charm:
 
 ```
 juju add-model cos-lite microk8s
@@ -72,22 +76,19 @@ juju offer prometheus:receive-remote-write
 
 Check the status of these offerings with juju status --relations to see
 both grafana and prometheus listed.
-This process bootstrapped a controller, created two models (one for Ubuntu
-with microk8s deployed, and another for cos-lite), and set up cos-lite's
-endpoints for cross-model integration.
-Next, proceed to deploy charmed Kubernetes and link it with cos-lite.
 
-Create a model for charmed kubernetes:
+So far, we've created a model that runs microk8s on Ubuntu, and added that
+model as a Kubernetes cloud to Juju. We then used this cloud as a substrate
+for the cos-lite deployment. We therefore have 2 models on the same controller.
 
-```
-juju add-model --config logging-config='<root>=DEBUG' charmed-k8s aws
-```
 
-Deploy charmed kubernetes:
+This process created two models (one for Ubuntu with microk8s deployed, and
+another for cos-lite), and set up cos-lite's endpoints for cross-model
+integration. Next, proceed to integrate charmed-kubernetes with COS Lite.
 
-```
-juju deploy charmed-kubernetes
-```
+Switch to your charmed-kubernetes model:
+
+`juju switch <charmed-kubernetes-model>`
 
 Consume cos-lite endpoints:
 
@@ -102,7 +103,7 @@ Deploy the grafana-agent:
 Juju deploy grafana-agent
 ```
 
-Relate grafana-agent to k8s and kubernetes-control-plane and kubernetes-worker:
+Relate grafana-agent to k8s, kubernetes-control-plane and kubernetes-worker:
 
 ```
 juju integrate grafana-agent:cos-agent k8s:cos-agent
