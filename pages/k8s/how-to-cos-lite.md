@@ -60,6 +60,8 @@ command):
 KUBECONFIG=microk8s-config.yaml juju add-k8s microk8s
 ```
 
+## Deploying COS Lite on the microk8s cloud
+
 Create a new model for cos-lite on the microk8s cloud and deploy the cos-lite charm:
 
 ```
@@ -74,12 +76,12 @@ juju offer grafana:grafana-dashboard
 juju offer prometheus:receive-remote-write
 ```
 
-Check the status of these offerings with juju status --relations to see
+Check the status of these offerings with `juju status --relations` to see
 both grafana and prometheus listed.
 
 So far, we've created a model that runs microk8s on Ubuntu, and added that
 model as a Kubernetes cloud to Juju. We then used this cloud as a substrate
-for the cos-lite deployment. We therefore have 2 models on the same controller.
+for the COS Lite deployment. We therefore have 2 models on the same controller.
 
 
 This process created two models (one for Ubuntu with microk8s deployed, and
