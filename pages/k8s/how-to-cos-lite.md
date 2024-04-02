@@ -87,11 +87,13 @@ This process created two models (one for Ubuntu with microk8s deployed, and
 another for cos-lite), and set up cos-lite's endpoints for cross-model
 integration. Next, proceed to integrate charmed-kubernetes with COS Lite.
 
+## Integrating COS Lite with Charmed Kubernetes
+
 Switch to your charmed-kubernetes model:
 
 `juju switch <charmed-kubernetes-model>`
 
-Consume COS Lite endpoints:
+Consume the COS Lite endpoints:
 
 ```
 juju consume cos-lite.grafana
@@ -127,6 +129,14 @@ juju run grafana/0 get-admin-password -m cos-lite
 admin-password: b9OhxF5ndUDO
 url: http://10.246.154.87/cos-lite-grafana
 ```
+
+The username for this credential is `admin`.
+
+Congratulations! You now have access to a complete observability stack when you
+visit the url and enter the credentials.
+
+Once you feel ready to dive deeper into your shiny new observability platform,
+you can head over to the [COS Lite documentation](https://charmhub.io/topics/canonical-observability-stack).
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
