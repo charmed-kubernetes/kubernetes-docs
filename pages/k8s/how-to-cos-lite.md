@@ -19,8 +19,9 @@ solution which will run whether the cluster itself is running or not. It may
 also be useful to integrate monitoring into existing setups.
 
 To make monitoring your cluster a delightful experience, Canonical provides
-first-class integration between Charmed Kubernetes and COS Lite. This guide
-will help you integrate a COS Lite deployment with a Charmed Kubernetes deployment.
+first-class integration between Charmed Kubernetes and COS Lite (Canonical
+Observability Stack). This guide will help you integrate a COS Lite
+deployment with a Charmed Kubernetes deployment.
 
 This document assumes you have a controller with an installation of
 Charmed Kubernetes. If this is not your case, refer to
@@ -34,6 +35,11 @@ First, create a Microk8s model to act as a deployment cloud for COS Lite:
 juju add-model --config logging-config='<root>=DEBUG' \
   microk8s-ubuntu aws
 ```
+
+We also set the logging level to DEBUG so that helpful debug information is
+shown when you use `juju debug-log` (see [juju debug-log][juju-debug-log]).
+
+Note: If you are unfamiliar with Juju models, the documentation can be found [here][juju-models].
 
 Use the Ubuntu charm to deploy an application named “microk8s”:
 
@@ -144,6 +150,8 @@ you can head over to the [COS Lite documentation][cos-lite-docs].
 [how-to-install]: /kubernetes/docs/how-to-install
 [add-k8s]: https://juju.is/docs/juju/juju-add-k8s
 [cos-lite-docs]: https://charmhub.io/topics/canonical-observability-stack
+[juju-models]: https://juju.is/docs/juju/model
+[juju-debug-log]: https://juju.is/docs/juju/juju-debug-log
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
