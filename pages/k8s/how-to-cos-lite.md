@@ -25,15 +25,14 @@ deployment with a Charmed Kubernetes deployment.
 
 This document assumes you have a controller with an installation of
 Charmed Kubernetes. If this is not your case, refer to
-["how-to-install"][how-to-install].
+["Installing Charmed Kubernetes"][how-to-install].
 
 ## Preparing a platform for COS Lite
 
 First, create a Microk8s model to act as a deployment cloud for COS Lite:
 
 ```
-juju add-model --config logging-config='<root>=DEBUG' \
-  microk8s-ubuntu aws
+juju add-model --config logging-config='<root>=DEBUG' microk8s-ubuntu aws
 ```
 
 We also set the logging level to DEBUG so that helpful debug information is
@@ -48,10 +47,10 @@ juju deploy ubuntu microk8s --series=focal --constraints="mem=8G cores=4 root-di
 ```
 
 Deploy Microk8s on Ubuntu by accessing the unit you created at the last step
-with `juju ssh microk8s/0`, then follow the [Install Microk8s][how-to-install]
+with `juju ssh microk8s/0` and following the [Install Microk8s][how-to-install]
 guide for configuration.
 
-Export the Microk8s kubeconfig file to your directory after configuration:
+Export the Microk8s kubeconfig file to your current directory after configuration:
 
 ```
 juju ssh microk8s/0 -- microk8s config > microk8s-config.yaml
