@@ -74,7 +74,7 @@ juju add-model cos-lite microk8s
 juju deploy cos-lite
 ```
 
-Make cos-lite’s endpoints available for cross-model integration:
+Make cos-lite’s endpoints available for [cross-model integration][cross-model-integration]:
 
 ```
 juju offer grafana:grafana-dashboard
@@ -90,7 +90,8 @@ the COS Lite deployment. You therefore have 2 models on the same controller.
 
 ## Integrating COS Lite with Charmed Kubernetes
 
-Switch to your charmed-kubernetes model:
+Switch to your charmed-kubernetes model (if you forgot the name of your model,
+you can run `juju models` to see a list of available models):
 
 ```
 juju switch <charmed-kubernetes-model>
@@ -152,6 +153,7 @@ you can head over to the [COS Lite documentation][cos-lite-docs].
 [cos-lite-docs]: https://charmhub.io/topics/canonical-observability-stack
 [juju-models]: https://juju.is/docs/juju/model
 [juju-debug-log]: https://juju.is/docs/juju/juju-debug-log
+[cross-model-integration]: https://juju.is/docs/juju/relation#heading--cross-model
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
