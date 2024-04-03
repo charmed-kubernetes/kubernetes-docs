@@ -35,23 +35,23 @@ juju add-model --config logging-config='<root>=DEBUG' \
   microk8s-ubuntu aws
 ```
 
-Deploy the Ubuntu charm as an application called "microk8s":
+Use the Ubuntu charm to deploy an application named “microk8s”:
 
 ```
-juju deploy ubuntu microk8s --series=focal --constraints="mem=16G cores=8 root-disk=50G"
+juju deploy ubuntu microk8s --series=focal --constraints="mem=8G cores=4 root-disk=30G"
 ```
 
-To actually deploy Microk8s on Ubuntu, access the Microk8s unit using `juju ssh
-microk8s/0` and follow the configuration steps available at: [Install
-Microk8s][how-to-install].
+Deploy Microk8s on Ubuntu by accessing the unit you created at the last step
+with `juju ssh microk8s/0`, then follow the [Install Microk8s][how-to-install]
+guide for configuration.
 
-After configuring Microk8s, export its kubeconfig file to your current directory:
+Export the Microk8s kubeconfig file to your directory after configuration:
 
 ```
 juju ssh microk8s/0 -- microk8s config > microk8s-config.yaml
 ```
 
-Now, register Microk8s as a Juju cloud (see ["juju
+Register Microk8s as a Juju cloud using add-k8s (see ["juju
 add-k8s"][add-k8s] for details on the add-k8s
 command):
 
@@ -61,36 +61,34 @@ KUBECONFIG=microk8s-config.yaml juju add-k8s microk8s
 
 ## Deploying COS Lite on the Microk8s cloud
 
-Create a new model for cos-lite on the Microk8s cloud and deploy the cos-lite charm:
+On the Microk8s cloud, create a new model and deploy the cos-lite charm:
 
 ```
 juju add-model cos-lite microk8s
 juju deploy cos-lite
 ```
 
-Offer cos-lite's endpoints for integration across models:
+Make cos-lite’s endpoints available for cross-model integration:
 
 ```
 juju offer grafana:grafana-dashboard
 juju offer prometheus:receive-remote-write
 ```
 
-Check the status of these offerings with `juju status --relations` to see
-both grafana and prometheus listed.
+Use juju status --relations to verify that both grafana and prometheus
+offerings are listed.
 
-So far, we've created a model that runs Microk8s on Ubuntu, and added that
-model as a Kubernetes cloud to Juju. We then used this cloud as a substrate
-for the COS Lite deployment. We therefore have 2 models on the same controller.
-
-This process created two models (one for Ubuntu with Microk8s deployed, and
-another for COS Lite), and set up COS Lite's endpoints for cross-model
-integration. Next, proceed to integrate charmed-kubernetes with COS Lite.
+At this point, you’ve established a Microk8s model on Ubuntu and incorporated
+it into Juju as a Kubernetes cloud. You then used this cloud as a substrate for
+the COS Lite deployment. You therefore have 2 models on the same controller.
 
 ## Integrating COS Lite with Charmed Kubernetes
 
 Switch to your charmed-kubernetes model:
 
-`juju switch <charmed-kubernetes-model>`
+```
+juju switch <charmed-kubernetes-model>
+```
 
 Consume the COS Lite endpoints:
 
@@ -135,8 +133,8 @@ url: http://10.246.154.87/cos-lite-grafana
 
 The username for this credential is `admin`.
 
-Congratulations! You now have access to a complete observability stack when you
-visit the URL and enter the credentials.
+You’ve successfully gained access to a comprehensive observability stack. Visit
+the URL and use the credentials to log in.
 
 Once you feel ready to dive deeper into your shiny new observability platform,
 you can head over to the [COS Lite documentation][cos-lite-docs].
