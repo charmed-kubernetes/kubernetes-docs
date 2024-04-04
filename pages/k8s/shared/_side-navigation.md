@@ -10,6 +10,7 @@
 - [&hellip;operate Kubernetes](/kubernetes/docs/how-to-operate)
 - [&hellip;achieve High Availability](/kubernetes/docs/how-to-ha)
 - [&hellip;secure your cluster](/kubernetes/docs/how-to-security)
+- [&hellip;observe your cluster](/kubernetes/docs/how-to-cos-lite)
 - [&hellip;contribute to this project](/kubernetes/docs/how-to-contribute)
 
 ## Explanation
