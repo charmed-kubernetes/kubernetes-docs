@@ -47,7 +47,7 @@ juju deploy ubuntu microk8s --series=focal --constraints="mem=8G cores=4 root-di
 ```
 
 Deploy Microk8s on Ubuntu by accessing the unit you created at the last step
-with `juju ssh microk8s/0` and following the [Install Microk8s][how-to-install]
+with `juju ssh microk8s/0` and following the [Install Microk8s][how-to-install-microk8s]
 guide for configuration.
 
 Export the Microk8s kubeconfig file to your current directory after configuration:
@@ -148,6 +148,7 @@ you can head over to the [COS Lite documentation][cos-lite-docs].
 <!-- LINKS -->
 
 [how-to-install]: /kubernetes/docs/how-to-install
+[how-to-install-microk8s]: https://microk8s.io/docs/getting-started
 [add-k8s]: https://juju.is/docs/juju/juju-add-k8s
 [cos-lite-docs]: https://charmhub.io/topics/canonical-observability-stack
 [juju-models]: https://juju.is/docs/juju/model
