@@ -17,7 +17,32 @@ toc: false
 
 ---
 
-# 1.29
+# 1.29+ck2
+
+### May 30, 2024 - `charmed-kubernetes --channel 1.29/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
+
+## What's new
+
+### Integration gaps
+- Vault storage: [vault](https://charmhub.io/vault)
+  - The charm returns support for encryption-at-rest of the secrets in etcd
+    which were created using a relation to `vault-kv`. The cluster secrets
+    stored in etcd are encrypted and can only be unlocked by a key which is
+    stored in vault.
+- Kubernetes-Worker:
+  - LP#2066049: The charm returns support for the `ingress-proxy` relation.
+
+## Bug Fixes
+
+### Kubernetes-Control-Plane
+LP#2058269: Stray "\n" characters after an upgrade to 1.29
+LP#2067427: Improved build reliability via pinning python dependencies
+
+### Kubernetes-Worker
+LP#2065251: The charm waits appropriately for tokens when related with cos-agent
+
 
 ### February 12, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
