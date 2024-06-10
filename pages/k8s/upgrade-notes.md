@@ -24,6 +24,164 @@ any of the intervening steps.
 There is a known issue ([https://bugs.launchpad.net/juju/+bug/1904619](https://bugs.launchpad.net/juju/+bug/1904619))
 with container profiles not surviving an upgrade in clouds running on LXD. If your container-based applications fail to work properly after an upgrade, please see this [topic on the troubleshooting page](/kubernetes/docs/troubleshooting#charms-deployed-to-lxd-containers-fail-after-upgradereboot)
 
+<a  id="1.29"> </a>
+
+## Upgrading to 1.29
+
+There are several important changes starting in 1.29 that will effect all users:
+
+ - `kubeapi-load-balancer`, `kubernetes-control-plane`, and `kubernetes-worker` charms 
+    can be observed using the COS rather than LMA.
+ - Dropped specific relations and features which are outsourced to other charms
+
+### Observability Relations
+
+These represent relations which were slated to be removed in favour of observability with the COS.
+
+LMA Relations:
+* `nrpe-external-master` (provides: `nrpe-external-master` on KCP and KW)
+* `prometheus` (provides: `prometheus-manual` on KCP)
+* `scrape` (provides: `prometheus` on KW)
+* `grafana` (provides: `grafana-dashboard` )
+
+In order to prepare for observability, see the [Integration with COS Lite docs][cos] which can be
+performed following an upgrade of the charms but prior to upgrade of the kubernetes cluster.
+
+### kube-api-endpoint relation dropped
+
+The `kubernetes-control-plane:kube-api-endpoint` and `kubernetes-worker:kube-api-endpoint` relations 
+have been removed since these apis are are provided by the kube-control relation. Ensure these two
+apps are linked by `kube-control` relation before removing this relation.
+
+```
+juju integrate kubernetes-control-plane:kube-control kubernetes-worker:kube-control
+juju remove-relation kubernetes-control-plane:kube-api-endpoint kubernetes-worker:kube-api-endpoint
+```
+
+### loadbalancer relation dropped
+
+The `kubernetes-control-plane:loadbalancer` relation has been removed in favour of using
+the `loadbalancer-internal` and `loadbalancer-external` relations.
+
+```
+juju integrate kubernetes-control-plane:loadbalancer-internal kubeapi-loadbalancer
+juju integrate kubernetes-control-plane:loadbalancer-external kubeapi-loadbalancer
+juju remove-relation kubernetes-control-plane:loadbalancer kubeapi-loadbalancer
+```
+
+### ceph-client relation deprecated
+
+The `kubernetes-control-plane:ceph-client` relation is being deprecated.
+
+Investment in ceph integration continues, but in the `ceph-csi` charm
+which integrates ceph with kubernetes.
+
+After upgrading the kubernetes-control-plane charm, the charm 
+may enter `blocked` status with the message:
+`ceph-client relation deprecated, use ceph-csi charm instead`.
+
+If you see this message, you can resolve it by removing the ceph-client
+relation:
+
+```
+juju deploy ceph-csi
+juju integrate ceph-csi kubernetes-control-plane
+juju integrate ceph-csi ceph-mon
+juju remove-relation kubernetes-control-plane:ceph-client ceph-mon
+```
+
+### Keystone/K8s Authentication management
+
+Charmed Kubernetes was installing and managing an older version of 
+keystone auth which attempts to manage authentication and authorization
+through keystone.
+
+This service is better suited to be managed externally from the
+kubernetes-control-plane charm. However, the charm will provides this
+upgrade method to maintain the deployment of this service beyond 1.28.
+
+One can determine if keystone managements is applicable with
+```
+juju status --relations | grep kubernetes-control-plane:keystone-credentials
+```
+If this is empty, nothing regarding keystone management is required.
+
+If this states:
+```
+juju status --relations | grep kubernetes-control-plane:keystone-credentials
+keystone:identity-credentials  kubernetes-control-plane:keystone-credentials   keystone-credentials    regular
+```
+then you'll need to prepare a bit before the upgrade.
+
+#### Resources
+
+One should familiarize themself with k8s-keystone auth via the [upstream docs][keystone-auth]
+
+Keystone has two "Auth" options:
+1) Authentication of users only called [keystone-authentication][]
+2) Authentication and Authorization of users called [keystone-authorization][]
+
+Either option requires the deployment and management of the [k8s-keystone-auth webhook service][keystone-auth-webhook], 
+A deployment and service to act as an agent between keystone and the kubernetes-api-server. This deployment
+provides a service endpoint for the kubernetes-api-server to use to interact with an external keystone service.
+
+#### Preparation
+Starting in 1.29 the kubernetes-control-plane charm will drop the following:
+
+* `kubernetes-control-plane:keystone-credentials` relation
+* `keystone-policy` config
+* `enable-keystone-authorization` config
+* `keystone-ssl-ca` config
+
+Before upgrading, it is important to capture the state of these config options
+
+```
+mkdir keystone-upgrade
+juju config kubernetes-control-plane keystone-policy > keystone-upgrade/keystone-policy.yaml
+juju config kubernetes-control-plane enable-keystone-authorization > keystone-upgrade/keystone-authorization
+juju config kubernetes-control-plane keystone-ssl-ca | base64 -d > keystone-upgrade/keystone-webhook-ca.crt
+juju exec kubernetes-control-plane/leader -- 'cat /root/cdk/keystone/webhook.yaml' > keystone-upgrade/webhook.yaml
+```
+
+After upgrading, the charm will enter a`blocked` state with the status message:
+`Keystone credential relation is no longer managed`.
+which will indicate that `k8s-keystone-auth` webhook service is still running, but is no longer managed. 
+
+```
+# Add the keystone authorization webhook config and the `Webhook` authorization mode
+juju config kubernetes-control-plane \
+    authorization-webhook-config-file="$(cat keystone-upgrade/webhook.yaml)" \
+    authorization-mode="Node,RBAC,Webhook"
+# Acknowledge the charm no longer manages keystone
+juju remove-relation kubernetes-control-plane:keystone-credentials keystone
+```
+
+### Administrative Actions missing
+The `kubernetes-control-plane` and `kubernetes-worker` actions list was substantially reduced
+during development of 1.29.  The following are no longer present, but are slated to be reintroduced.
+* `restart`
+* `namespace-list`
+* `namespace-create`
+* `namespace-delete`
+* `user-create`
+* `user-delete`
+* `user-list`
+* `apply-manifest`
+
+### CIS-Benchmark Action missing
+
+The `kubernetes-control-plane` and `kubernetes-worker` action for cis-benchmark were
+removed during the development of the 1.29 charms and an engineering decision to reintroduce
+these actions are on-going, but development and testing incomplete.  Details in [LP#2044219][]
+
+### Automatic labelling of GPU nodes
+
+While current worker nodes would remain unaffected as they would already be labeled, the worker
+charm in 1.29 no longer labels the nodes with `gpu=true` and `cuda=true`.
+
+Parity with this feature has been attained by using the [nvidia-gpu-operator][]
+
+
 <a  id="1.24"> </a>
 
 ## Upgrading to 1.24
@@ -382,6 +540,13 @@ You can now proceed with the rest of the upgrade.
 [dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
 [docker-page]: https://jaas.ai/u/containers/docker#configuration
 [inclusive-naming]: /kubernetes/docs/inclusive-naming
+[LP#2044219]: https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219
+[cos]: kubernetes/docs/how-to-cos-lite
+[nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator
+[keystone-auth]: https://github.com/kubernetes/cloud-provider-openstack/tree/master/docs/keystone-auth
+[keystone-auth-webhook]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#k8s-keystone-auth
+[keystone-authentication]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-auth-data-synchronization.md#full-example-using-keystone-for-authentication-and-kubernetes-rbac-for-authorization
+[keystone-authorization]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#authorization-policy-definitionversion-2
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

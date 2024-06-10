@@ -24,13 +24,17 @@ or both authentication and authorisation.
 
 ## Requirements
 
-* This document assumes you have already [installed][install] **Charmed Kubernetes**.
+* This document assumes you have already [installed][install] **Charmed Kubernetes**
+  * Support for direct LDAP integration via keystone is dropped beginning in
+    **Charmed Kubernetes** 1.29, while, upgrades from 1.28 are partially supported.
+    See [upgrading to 1.29][upgrading] for more detail.
 * For LDAP authentication, this documentation assumes you already have a suitable LDAP
    server running.
 * You will need to install the Keystone client. This can be done by running:
    ```bash
-   sudo snap install client-keystone-auth --edge
+   sudo snap install client-keystone-auth
    ```
+
 
 ## Install Keystone
 
@@ -317,6 +321,7 @@ configuring Keystone/LDAP.
 [keystone-bundle]: https://raw.githubusercontent.com/juju-solutions/kubernetes-docs/master/assets/keystone.yaml
 [docs-ldap-keystone]: https://charmhub.io/keystone-ldap
 [trouble]: /kubernetes/docs/troubleshooting/#troubleshooting-keystoneldap-issues
+[upgrading]: /kubernetes/docs/upgrade-notes
 [openstack-integrator]: /kubernetes/docs/openstack-integration
 
 
