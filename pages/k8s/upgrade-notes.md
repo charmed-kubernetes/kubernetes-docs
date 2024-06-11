@@ -93,14 +93,14 @@ juju remove-relation kubernetes-control-plane:ceph-client ceph-mon
 ### Keystone/K8s Authentication management
 
 Charmed Kubernetes was installing and managing an older version of 
-keystone auth which attempts to manage authentication and authorization
+keystone-auth which manages authentication and authorization
 through keystone.
 
 This service is better suited to be managed externally from the
-kubernetes-control-plane charm. However, the charm will provides this
+kubernetes-control-plane charm. However, the charm provides the following
 upgrade method to maintain the deployment of this service beyond 1.28.
 
-One can determine if keystone managements is applicable with
+One can determine if keystone management is applicable with
 ```
 juju status --relations | grep kubernetes-control-plane:keystone-credentials
 ```
@@ -121,9 +121,9 @@ Keystone has two "Auth" options:
 1) Authentication of users only called [keystone-authentication][]
 2) Authentication and Authorization of users called [keystone-authorization][]
 
-Either option requires the deployment and management of the [k8s-keystone-auth webhook service][keystone-auth-webhook], 
-A deployment and service to act as an agent between keystone and the kubernetes-api-server. This deployment
-provides a service endpoint for the kubernetes-api-server to use to interact with an external keystone service.
+Both options require the deployment and management of the [k8s-keystone-auth webhook service][keystone-auth-webhook], 
+a deployment which provides a service endpoint for the kubernetes-api-server to use
+as an intermediate to interact with an external keystone service.
 
 #### Preparation
 Starting in 1.29 the kubernetes-control-plane charm will drop the following:
@@ -140,21 +140,43 @@ mkdir keystone-upgrade
 juju config kubernetes-control-plane keystone-policy > keystone-upgrade/keystone-policy.yaml
 juju config kubernetes-control-plane enable-keystone-authorization > keystone-upgrade/keystone-authorization
 juju config kubernetes-control-plane keystone-ssl-ca | base64 -d > keystone-upgrade/keystone-webhook-ca.crt
-juju exec kubernetes-control-plane/leader -- 'cat /root/cdk/keystone/webhook.yaml' > keystone-upgrade/webhook.yaml
+juju exec -u kubernetes-control-plane/leader -- 'cat /root/cdk/keystone/webhook.yaml' > keystone-upgrade/webhook.yaml
 ```
 
-After upgrading, the charm will enter a`blocked` state with the status message:
-`Keystone credential relation is no longer managed`.
-which will indicate that `k8s-keystone-auth` webhook service is still running, but is no longer managed. 
+#### Migration
 
+After upgrading, the charm will enter a `blocked` state with the status message:
+`Keystone credential relation is no longer managed`.
+which indicates that the `k8s-keystone-auth` webhook service is still running, but is no longer managed.
+
+if `keystone-upgrade/keystone-authorization` contains `true`, then after the upgrade one should
+enable the webhook. as part of Keystone-Auth option 2.
 ```
 # Add the keystone authorization webhook config and the `Webhook` authorization mode
 juju config kubernetes-control-plane \
     authorization-webhook-config-file="$(cat keystone-upgrade/webhook.yaml)" \
     authorization-mode="Node,RBAC,Webhook"
-# Acknowledge the charm no longer manages keystone
+```
+
+Finally, acknowledge the charm no longer manages keystone.
+```
 juju remove-relation kubernetes-control-plane:keystone-credentials keystone
 ```
+
+#### Day 2 Operations
+
+After migration, the deployment, service, secrets, and policies associated with
+keystone-auth are no longer handled by the `kubernetes-control-plane` charm.
+
+The following components remain in the cluster unmanaged by the charm, and
+should be considered managed by the cluster administrators.
+
+* `Deployment/kube-system/k8s-keystone-auth`
+* `Service/kube-system/k8s-keystone-auth-service`
+* `Secret/kube-system/keystone-auth-certs`
+* `ConfigMap/kube-system/k8s-auth-policy`
+* `ClusterRole/k8s-keystone-auth`
+
 
 ### Administrative Actions missing
 The `kubernetes-control-plane` and `kubernetes-worker` actions list was substantially reduced
