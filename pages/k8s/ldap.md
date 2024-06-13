@@ -78,7 +78,7 @@ juju unexpose openstack-dashboard
 If you have an existing Keystone application deployed as part of OpenStack in a separate Juju model,
 it is possible to re-use it for authenticating and authorising users in Kubernetes.
 
-No extra steps are needed, other than the credentials to access that openstack deployment
+No extra steps are needed, other than the credentials to access that OpenStack deployment
 
 ## Access the OpenStack dashboard
 
