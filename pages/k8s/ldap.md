@@ -39,7 +39,7 @@ or both authentication and authorisation.
 ## Install Keystone
 
 Note: These instructions assume you are working with the `Yoga` release of
-**OpenStack**, the default supported version for Ubuntu 22.04 (Jammy)
+**OpenStack**, the default supported version for Ubuntu 22.04 LTS (Jammy)
 
 Keystone should be deployed using **Juju**. This is easily achieved by using a bundle,
 which will deploy and relate, Keystone, the OpenStack dashboard and a suitable
