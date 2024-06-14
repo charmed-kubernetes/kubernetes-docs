@@ -25,7 +25,7 @@ or both authentication and authorisation.
 ## Requirements
 
 * This document assumes you have already [installed][install] **Charmed Kubernetes**
-  * Support for direct LDAP integration via keystone is dropped beginning in
+  * Support for direct LDAP integration via Keystone is dropped beginning in
     **Charmed Kubernetes** 1.29, while, upgrades from 1.28 are partially supported.
     See [upgrading to 1.29][upgrading] for more detail.
 * For LDAP authentication, this documentation assumes you already have a suitable LDAP
