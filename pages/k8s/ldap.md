@@ -162,7 +162,7 @@ The follow components are key for authentication and authorization.
 
 ### Setting up the Resources
 
-The follow adjustments are required to deploy the service
+The following adjustments are required to deploy the service:
 
 * `Secret/keystone-auth-certs`
   * requires the admin to generate a server cert/key pair for the service
