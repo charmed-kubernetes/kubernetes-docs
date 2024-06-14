@@ -144,7 +144,7 @@ Following the upstream docs for [keystone-auth][], the admin should deploy `keys
 The follow components are key for authentication and authorization.
 
 * `Secret/keystone-auth-certs`
-  * provides the TLS cert/key pair for serving the keystone-auth webhook service
+  * provides the TLS cert/key pair for serving the `keystone-auth` webhook service
   * provides the TLS ca cert for contacting keystone (if necessary)
 * `ConfigMap/k8s-auth-policy` or `ConfigMap/keystone-sync-policy`
   * Configuration for the deployment which translates keystone users/roles into kubernetes users/roles
