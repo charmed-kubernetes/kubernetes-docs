@@ -141,20 +141,20 @@ Now ensure the user is added to the project created above.
 ### Understanding the Resources
 
 Following the upstream docs for [keystone-auth][], the admin should deploy `keystone-auth`.
-The follow components are key for authentication and authorization.
+The following components are key for authentication and authorisation.
 
 * `Secret/keystone-auth-certs`
   * provides the TLS cert/key pair for serving the `keystone-auth` webhook service
   * provides the TLS ca cert for contacting keystone (if necessary)
 * `ConfigMap/k8s-auth-policy` or `ConfigMap/keystone-sync-policy`
-  * Configuration for the deployment which translates keystone users/roles into kubernetes users/roles
+  * Configuration for the deployment which translates Keystone users/roles into Kubernetes users/roles
 * `Deployment/k8s-keystone-auth`
   * defines the PODs backing this service
   * defines the image used in the service
   * defines the secrets for the service
   * defines the configuration for the service
-    * the `sync-configmap-name` for keystone auth, and kubernetes-rbac for authorization
-    * the `policy-configmap-name` for keystone auth and keystone roles
+    * the `sync-configmap-name` for `keystone-auth`, and `kubernetes-rbac` for authorisation
+    * the `policy-configmap-name` for `keystone-auth` and Keystone roles
 * `ServiceAccount/k8s-keystone`, `ClusterRole/k8s-keystone-auth` and `ClusterRoleBinding/k8s-keystone-auth`
   * RBAC rules applied to the deployment to access the cluster `ConfigMap`
 * `Service/k8s-keystone-auth-service`
@@ -168,41 +168,43 @@ The following adjustments are required to deploy the service:
   * requires the admin to generate a server cert/key pair for the service
   * requires the admin to provide the ca cert for the Keystone TLS endpoint (if required)
 * `ConfigMap/k8s-auth-policy` (Optional)
-  * Definitions for mapping keystone user/project/domain/roles to kubernetes endpoints
+  * Definitions for mapping keystone user/project/domain/roles to Kubernetes endpoints
   * See [keystone-authz-policy][] for details
 * `ConfigMap/keystone-sync-policy` (Optional)
-  * Definitions for mapping keystone user/project/domain/roles to kubernetes endpoints
+  * Definitions for mapping keystone user/project/domain/roles to Kubernetes endpoints
   * See [keystone-authn-policy][] for details
 * `Deployment/k8s-keystone-auth` 
   * Requires arg `keystone-ca-file` if `keystone-url` is `https`
   * Requires arg `policy-configmap-name` or `sync-configmap-name`
   * Requires secret volume mapping for the `tls.crt` and `tls.key`
 
-The following adjustments are required to prepare the api server
-to use the authn endpoint (for authn and authz) and the authz webhook endpoint (for authz).
+The following adjustments are required to prepare the API server to use the
+authentication endpoint (for both authentication and authorisation) and the
+authorisation webhook endpoint.
 
 * `authn-webhook-endpoint`
-  **Required** for Authentication and Authorization
+  **Required** for Authentication and Authorisation
 
-  The api server requires the service endpoint to use as a custom authn endpoint. Once
-  applied to the cluster, the `Service/k8s-keystone-auth-service` should have a `ClusterIP`
-  which will be used as the `authn-webhook-endpoint`.
+  The API server requires the service endpoint to use as a custom
+  authentication endpoint. Once applied to the cluster, the
+  `Service/k8s-keystone-auth-service` should have a `ClusterIP` which will be
+  used as the `authn-webhook-endpoint`.
 
   ```
   SVC_IP=$(kubectl get svc -n kube-system k8s-keystone-auth-service -o json | jq -r '.spec.clusterIP')
   juju config kubernetes-control-plane authn-webhook-endpoint="https://${SVC_IP}:8443/webhook"
   ```
 * `authz-webhook-endpoint`
-  **Required** only for Authorization
+  **Required** only for Authorisation
   
-  The api server requires the service endpoint in the `authorization-webhook-config-file`.
+  The API server requires the service endpoint in the `authorization-webhook-config-file`.
   Also, to use this config, the `authorization-mode` must add the `Webhook` mode.
 
-  The crafting of this `webhook-config.yaml` is defined at in the [keystone examples][keystone-webhook-config]
-  based on the format defined in the [kubernetes reference docs][webhook-config]
+  The crafting of this `webhook-config.yaml` is defined at in the [Keystone examples][keystone-webhook-config]
+  based on the format defined in the [Kubernetes reference docs][webhook-config]
 
+  First prepare `webhook-config.yaml` using the SVC_IP from above. Then:
   ```
-  # prepare webhook-config.yaml using the SVC_IP from above
   juju config kubernetes-control-plane authorization-webhook-config-file=$(cat webhook-config.yaml)
   juju config kubernetes-control-plane authorization-mode="Node,RBAC,Webhook"
   ```
@@ -210,7 +212,7 @@ to use the authn endpoint (for authn and authz) and the authz webhook endpoint (
 ## Using kubectl with Keystone
 
 At this point, Keystone is set up and we have a domain, project, and user
-created in Keystone. 
+created in Keystone.
 
 The authenticating user will need an updated kubeconfig in order to
 authenticate with the cluster. One can use `kubectl` to authenticate
@@ -218,7 +220,7 @@ with the api server via a token from Keystone. The `client-keystone-auth`
 snap automates retrieving a token.
 
 See the [Client configuration][keystone-client-config] to in order to create
-the kubeconfig to use against the keystone server.
+the kubeconfig to use against the Keystone server.
 
 The client will require the `client-keystone-auth` binary to use this config,
 which can be installed using
@@ -227,13 +229,14 @@ which can be installed using
 snap install client-keystone-auth
 ```
 
-One will require the following variables
-* `OS_USERNAME`
-* `OS_PASSWORD`
-* `OS_PROJECT_NAME`
-* `OS_DOMAIN_NAME`
-* `keystone-url`
-* `keystone-ca-file` if `keystone-url` is `https`
+The following variables will need to be set:
+
+- `OS_USERNAME`
+- `OS_PASSWORD`
+- `OS_PROJECT_NAME`
+- `OS_DOMAIN_NAME`
+- `keystone-url`
+- `keystone-ca-file` if `keystone-url` is `https`
 
 ## LDAP via Keystone
 
@@ -277,7 +280,7 @@ other methods such as RBAC for authorisation but using Keystone for authenticati
 usernames will come from Keystone, but what they can do in the cluster
 is controlled by another system.
 
-In order to enable authorization feature in **Charmed Kubernetes** one should change the default config
+In order to enable authorisation feature in **Charmed Kubernetes** , change the default config
 of the charm and switch to **RBAC** authorization mode as follows:
 
 ```bash
