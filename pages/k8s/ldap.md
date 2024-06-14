@@ -140,7 +140,7 @@ Now ensure the user is added to the project created above.
 
 ### Understanding the Resources
 
-Following the upstream docs for [keystone-auth][], the admin should deploy the keystone-auth.
+Following the upstream docs for [keystone-auth][], the admin should deploy `keystone-auth`.
 The follow components are key for authentication and authorization.
 
 * `Secret/keystone-auth-certs`
