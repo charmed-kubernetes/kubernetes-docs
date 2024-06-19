@@ -47,13 +47,13 @@ LMA Relations:
 
 In order to prepare for observability, see the [Integration with COS Lite
 docs][cos] which can be performed following an upgrade of the charms but prior
-to upgrade of the kubernetes cluster.
+to an upgrade of the Kubernetes cluster.
 
 ### kube-api-endpoint relation dropped
 
 The `kubernetes-control-plane:kube-api-endpoint` and
 `kubernetes-worker:kube-api-endpoint` relations have been removed since these
-APIs are are provided by the kube-control relation. Ensure these two apps are
+APIs are are provided by the `kube-control` relation. Ensure these two apps are
 linked by `kube-control` relation before removing this relation.
 
 ```
@@ -83,7 +83,7 @@ After upgrading the `kubernetes-control-plane` charm, the charm
 may enter `blocked` status with the message:
 `ceph-client relation deprecated, use ceph-csi charm instead`.
 
-If you see this message, you can resolve it by removing the ceph-client
+If you see this message, you can resolve it by removing the `ceph-client`
 relation:
 
 ```
@@ -97,13 +97,13 @@ juju remove-relation kubernetes-control-plane:ceph-client ceph-mon
 
 Charmed Kubernetes was installing and managing an older version of 
 keystone-auth which manages authentication and authorisation
-through keystone.
+through Keystone.
 
 This service is better suited to be managed externally from the
 `kubernetes-control-plane` charm. However, the charm provides the following
 upgrade method to maintain the deployment of this service beyond 1.28.
 
-One can determine if Keystone management is applicable with
+One can determine if Keystone management is applicable with:
 
 ```
 juju status --relations | grep kubernetes-control-plane:keystone-credentials
@@ -167,7 +167,7 @@ juju config kubernetes-control-plane \
     authorization-mode="Node,RBAC,Webhook"
 ```
 
-Finally, acknowledge the charm no longer manages keystone by removing the relation:
+Finally, acknowledge the charm no longer manages Keystone by removing the relation:
 
 ```
 juju remove-relation kubernetes-control-plane:keystone-credentials keystone
