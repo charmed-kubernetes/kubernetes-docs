@@ -76,7 +76,7 @@ juju remove-relation kubernetes-control-plane:loadbalancer kubeapi-loadbalancer
 
 The `kubernetes-control-plane:ceph-client` relation is being deprecated.
 
-Investment in Ceph integration continues, but in the `ceph-csi` charm
+Ceph integration is still a priority, but continues with the `ceph-csi` charm
 which integrates Ceph with Kubernetes.
 
 After upgrading the `kubernetes-control-plane` charm, the charm
