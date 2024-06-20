@@ -121,7 +121,7 @@ keystone:identity-credentials  kubernetes-control-plane:keystone-credentials   k
 
 #### Resources
 
-One should familiarise themself with k8s-keystone auth via the [upstream docs][keystone-auth]
+The [upstream Keystone docs][keystone-auth] cover keystone-auth in detail and should be the main reference for implementation details.
 
 Keystone has two "Auth" options:
 1) Authentication of users only called [keystone-authentication][]
