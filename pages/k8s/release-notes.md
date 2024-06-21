@@ -32,14 +32,56 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 - Kubernetes-Worker:
   - LP#2066049: The charm returns support for the `ingress-proxy` relation.
 
-## Bug Fixes
+## Notable Fixes
 
 ### Kubernetes-Control-Plane
-LP#2058269: Stray "\n" characters after an upgrade to 1.29
-LP#2067427: Improved build reliability via pinning python dependencies
+* [LP#2058269](https://bugs.launchpad.net/bugs/2058269)
+  Stray "\n" characters after an upgrade to 1.29
+
+* [LP#2067427](https://bugs.launchpad.net/bugs/2067427)
+  Improved build reliability via pinning python dependencies
 
 ### Kubernetes-Worker
-LP#2065251: The charm waits appropriately for tokens when related with cos-agent
+* [LP#2065251](https://bugs.launchpad.net/bugs/2065251)
+  The charm waits appropriately for tokens when related with cos-agent
+
+A list of all bug fixes and minor updates in this release can be found at
+[the launchpad milestone page for 1.29+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.29+ck2).
+
+# 1.29+ck1 Bugfix release
+
+### April 20, 2024 - `charmed-kubernetes --channel 1.29/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
+
+## Notable Fixes
+
+### Etcd and EasyRSA
+* [LP#2061581](https://bugs.launchpad.net/bugs/2061581)
+  Could not find a version that satisfies the requirement setuptools>=64
+
+### Docker-Registry
+* [LP#2049360](https://bugs.launchpad.net/bugs/2049360)
+  image corruption with docker-registry charm
+
+### Kubernetes-Control-Plane
+* [LP#2052140](https://bugs.launchpad.net/bugs/2052140)
+  grafana agent config not rendered completely
+
+### Calico-Enterprise
+* [LP#2053143](https://bugs.launchpad.net/bugs/2053143)
+  Tigera units do not become active after the first installation of the bundle
+
+### Ceph-CSI
+* [LP#2054486](https://bugs.launchpad.net/bugs/2054486)
+  ceph-csi charm does not handle ceph-fs correctly
+
+### Kubernetes-Worker
+* [LP#2054819](https://bugs.launchpad.net/bugs/2054819)
+  New alert rules shipped from k8s worker
+
+A list of all bug fixes and minor updates in this release can be found at
+[the launchpad milestone page for 1.29+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.29+ck1).
 
 # 1.29
 

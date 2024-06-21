@@ -46,7 +46,6 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 A list of all bug fixes and minor updates in this release can be found at
 [the launchpad milestone page for 1.29+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.29+ck2).
 
-
 # 1.29+ck1 Bugfix release
 
 ### April 20, 2024 - `charmed-kubernetes --channel 1.29/stable`
@@ -81,7 +80,6 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 A list of all bug fixes and minor updates in this release can be found at
 [the launchpad milestone page for 1.29+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.29+ck1).
-
 
 # 1.29
 
