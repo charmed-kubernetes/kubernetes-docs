@@ -106,15 +106,18 @@ initContainers:
 
 ### Relate to Charmed Kubernetes
 
-Making **Charmed Kubernetes** aware of your **Ceph** cluster requires a **Juju** relation.
+Making **Charmed Kubernetes** aware of your **Ceph** cluster requires some **Juju** configuration and the `ceph-csi` charm.
 
 ```bash
-juju integrate ceph-mon:client kubernetes-control-plane
+juju config kubernetes-control-plane allow-privileged=true
+juju deploy ceph-csi
+juju integrate ceph-csi:kubernetes kubernetes-control-plane:juju-info
+juju integrate ceph-csi:ceph-client ceph-mon:client
 ```
 
 ### Create storage pools
 
-By default, the `kubernetes-control-plane` charm will create the required pools defined
+By default, the `ceph-csi` charm will create the required pools defined
 in the storage class.  To view the default options, run:
 
 ```bash
