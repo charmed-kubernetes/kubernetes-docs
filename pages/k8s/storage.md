@@ -106,7 +106,7 @@ initContainers:
 
 ### Relate to Charmed Kubernetes
 
-Making **Charmed Kubernetes** aware of your **Ceph** cluster requires some **Juju** relations and the `ceph-csi` charm.
+Making **Charmed Kubernetes** aware of your **Ceph** cluster requires some **Juju** configuration and the `ceph-csi` charm.
 
 ```bash
 juju config kubernetes-control-plane allow-privileged=true
