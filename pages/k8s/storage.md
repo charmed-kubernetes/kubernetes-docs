@@ -109,7 +109,7 @@ initContainers:
 Making **Charmed Kubernetes** aware of your **Ceph** cluster requires some **Juju** relations and the `ceph-csi` charm.
 
 ```bash
-juju integrate ceph-mon:client kubernetes-control-plane
+juju config kubernetes-control-plane allow-privileged=true
 juju deploy ceph-csi
 juju integrate ceph-csi:kubernetes kubernetes-control-plane:juju-info
 juju integrate ceph-csi:ceph-client ceph-mon:client
