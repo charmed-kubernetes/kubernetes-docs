@@ -15,6 +15,20 @@ toc: False
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
 
+# 1.29+ck3
+
+### Jun 14, 2024 - `charmed-kubernetes --channel 1.29/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
+
+## Notable Fixes
+
+### Kubernetes-Control-Plane
+* [LP#2068770](https://bugs.launchpad.net/bugs/2068770)
+  Upgrade `keystone-credentials` relation with a warning and docs change to [ldap][]
+* [LP#2070053](https://bugs.launchpad.net/bugs/2070053)
+  Upgrade `ceph-client` relation with a warning and docs change to [ceph][]
+
 # 1.29+ck2
 
 ### May 30, 2024 - `charmed-kubernetes --channel 1.29/stable`
