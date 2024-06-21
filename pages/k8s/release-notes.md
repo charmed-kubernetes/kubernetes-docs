@@ -43,6 +43,10 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
   - `user-delete`
   - `user-list`
 
+- Cilium Charm
+  - The charm now provide manifest deployment versions `1.13` and `1.14` which
+    helps address sig-network tests failing in CIS compliance.
+
 ## Fixes
 
 All bug fixes and other feature updates in this release can be found at
