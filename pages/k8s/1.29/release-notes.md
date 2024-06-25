@@ -237,3 +237,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.29].
 [gpu-workers]: /kubernetes/docs/gpu-workers
 [install-local]: /kubernetes/docs/install-local
 [install-existing]: /kubernetes/docs/install-existing
+[ldap]: /kuberntes/docs/ldap
