@@ -73,6 +73,61 @@ juju integrate kubernetes-control-plane:loadbalancer-external kubeapi-loadbalanc
 juju remove-relation kubernetes-control-plane:loadbalancer kubeapi-loadbalancer
 ```
 
+### openstack relation deprecated
+
+The `kubernetes-control-plane:openstack` relation is being deprecated.
+
+Integration with openstack is still important with Charmed Kubernetes, but
+continues that integration through the charms `openstack-cloud-controller` and
+`cinder-csi`. These two charms better manage versions of those deployment
+integrations with Kubernetes. See [openstack-integration][] for more details
+on using these charms.
+
+After upgrading the `kubernetes-control-plane` charm, the unit
+may enter `blocked` status with the message:
+`openstack relation is no longer managed`. 
+
+If you see this message, you can resolve it by removing the `openstack` 
+relation:
+
+```
+juju deploy openstack-cloud-controller --channel=1.29/stable
+juju deploy cinder-csi --channel=1.29/stable
+juju integrate openstack-cloud-controller openstack-integrator
+juju integrate cinder-csi openstack-integrator
+juju integrate openstack-cloud-controller:kube-control             kubernetes-control-plane:kube-control
+juju integrate openstack-cloud-controller:external-cloud-provider  kubernetes-control-plane:external-cloud-provider
+juju integrate openstack-cloud-controller:openstack                openstack-integrator:clients
+juju integrate kubernetes-control-plane:kube-control               cinder-csi:kube-control
+juju integrate openstack-integrator:clients                        cinder-csi:openstack
+#   The following could be vault:certificates instead of easyrsa:client
+#   Check what supplies the certificates for the kubernetes-control-plane
+juju status kubernetes-control-plane --relations | grep ':certificates'
+juju integrate openstack-cloud-controller:certificates             easyrsa:client   
+juju integrate cinder-csi:certificates                             easyrsa:client
+
+# Wait for the units to be active/idle, then
+juju remove-relation kubernetes-control-plane:openstack            openstack:clients
+```
+
+### nvidia gpu operator deprecated
+
+The `kubernetes-control-plane` has allowed the configuration of `enable-nvidia-plugin=auto`
+where it would automatically detect a worker node ready for GPU workloads and deploy the 
+nvidia-plugin operator into the cluster.
+
+After upgrading the `kubernetes-control-plane` charm, the unit
+may enter `blocked` status with the message: 
+`nvidia-plugin is no longer managed`.
+
+If you see this message, you can resolve it by following the [nvidia-gpu-operator][] 
+docs to deploy a new charm. Once deployed, correcting the config `enable-nvidia-plugin`
+
+```
+juju config kubernetes-control-plane enable-nvidia-plugin=false
+```
+
+
 ### ceph-client relation deprecated
 
 The `kubernetes-control-plane:ceph-client` relation is being deprecated.
@@ -80,7 +135,7 @@ The `kubernetes-control-plane:ceph-client` relation is being deprecated.
 Ceph integration is still a priority, but continues with the `ceph-csi` charm
 which integrates Ceph with Kubernetes.
 
-After upgrading the `kubernetes-control-plane` charm, the charm
+After upgrading the `kubernetes-control-plane` charm, the unit
 may enter `blocked` status with the message:
 `ceph-client relation deprecated, use ceph-csi charm instead`.
 
@@ -580,7 +635,8 @@ You can now proceed with the rest of the upgrade.
 [inclusive-naming]: /kubernetes/docs/inclusive-naming
 [LP#2044219]: https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219
 [cos]: kubernetes/docs/how-to-cos-lite
-[nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator
+[nvidia-gpu-operator]: kubernetes/docs/gpu-workers
+[openstack-integration]: /kubernetes/docs/openstack-integration
 [keystone-auth]: https://github.com/kubernetes/cloud-provider-openstack/tree/master/docs/keystone-auth
 [keystone-auth-webhook]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#k8s-keystone-auth
 [keystone-authentication]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-auth-data-synchronization.md#full-example-using-keystone-for-authentication-and-kubernetes-rbac-for-authorization
