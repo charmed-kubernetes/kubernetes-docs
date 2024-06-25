@@ -30,24 +30,25 @@ with container profiles not surviving an upgrade in clouds running on LXD. If yo
 
 There are several important changes starting in 1.29 that will effect all users:
 
- - `kubeapi-load-balancer`, `kubernetes-control-plane`, and `kubernetes-worker` charms 
+- `kubeapi-load-balancer`, `kubernetes-control-plane`, and `kubernetes-worker` charms 
     can be observed using the COS rather than LMA.
- - Dropped specific relations and features which are outsourced to other charms
+- Dropped specific relations and features which are outsourced to other charms
 
 ### Observability Relations
 
-These represent relations which were slated to be removed in favour of observability with the COS.
+These represent relations which were removed in favour of observability with
+the Canonical Observability Stack(COS).
 
 LMA Relations:
 
-* `nrpe-external-master` (provides: `nrpe-external-master` on KCP and KW)
-* `prometheus` (provides: `prometheus-manual` on KCP)
-* `scrape` (provides: `prometheus` on KW)
-* `grafana` (provides: `grafana-dashboard` )
+- `nrpe-external-master` (provides: `nrpe-external-master` on KCP and KW)
+- `prometheus` (provides: `prometheus-manual` on KCP)
+- `scrape` (provides: `prometheus` on KW)
+- `grafana` (provides: `grafana-dashboard` )
 
-In order to prepare for observability, see the [Integration with COS Lite
-docs][cos] which can be performed following an upgrade of the charms but prior
-to an upgrade of the Kubernetes cluster.
+In order to prepare for observability, see the
+[Integration with COS Lite docs][cos] which can be performed following an
+upgrade of the charms but prior to an upgrade of the Kubernetes cluster.
 
 ### kube-api-endpoint relation dropped
 

@@ -18,7 +18,12 @@ toc: False
     <span class="p-notification__title">Caution:</span>
     <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the *What's new* section of the <a href="/kubernetes/docs/1.29/release-notes">1.29 release notes</a> prior to upgrading your cluster.<br/>
     <br/>
-    Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/docs/1.29/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.29 at this time.</p>
+    Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/docs/1.29/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.29 at this time.<br/>
+    <br/>
+    Some specific scenarios for thoese using particular configurations are also covered in the 
+    <a href="/kubernetes/docs/upgrade-notes"> Upgrade notes document</a>, particularly concerning those using 
+    observability, LDAP/Keystone integration and Ceph.<br/>
+    </p>
   </div>
 </div>
 
