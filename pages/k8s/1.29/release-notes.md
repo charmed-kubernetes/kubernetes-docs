@@ -46,7 +46,8 @@ The release bundle can also be
     stored in etcd are encrypted and can only be unlocked by a key which is
     stored in Vault.
 - Kubernetes-Worker:
-  - LP#2066049: The charm returns support for the `ingress-proxy` relation.
+  - [LP#2066049](https://bugs.launchpad.net/bugs/2066049): The charm returns
+    support for the `ingress-proxy` relation.
 
 ## Notable Fixes
 
@@ -237,4 +238,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.29].
 [gpu-workers]: /kubernetes/docs/gpu-workers
 [install-local]: /kubernetes/docs/install-local
 [install-existing]: /kubernetes/docs/install-existing
-[ldap]: /kuberntes/docs/ldap
+[ldap]: /kubernetes/docs/ldap
