@@ -229,7 +229,7 @@ Finally, acknowledge the charm no longer manages Keystone by removing the relati
 juju remove-relation kubernetes-control-plane:keystone-credentials keystone
 ```
 
-#### Day 2 Operations
+#### Day 2 Operations Manually
 
 After migration, the deployment, service, secrets, and policies associated with
 `keystone-auth` are no longer handled by the `kubernetes-control-plane` charm.
@@ -242,6 +242,13 @@ should be considered managed by the cluster administrators.
 - `Secret/kube-system/keystone-auth-certs`
 - `ConfigMap/kube-system/k8s-auth-policy`
 - `ClusterRole/k8s-keystone-auth`
+
+#### Day 2 Operations via Charm
+
+The `keystone-k8s-auth` charm also provides management of these above resources.
+The charm can be installed after the 1.29 upgrade, and used to manage these resource.
+
+See [keystone-k8s-auth][] for more details
 
 
 ### Administrative Actions missing
@@ -641,6 +648,7 @@ You can now proceed with the rest of the upgrade.
 [keystone-auth-webhook]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#k8s-keystone-auth
 [keystone-authentication]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-auth-data-synchronization.md#full-example-using-keystone-for-authentication-and-kubernetes-rbac-for-authorization
 [keystone-authorization]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#authorization-policy-definitionversion-2
+[keystone-k8s-auth]: https://charmhub.io/keystone-k8s-auth
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
