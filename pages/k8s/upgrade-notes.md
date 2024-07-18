@@ -59,7 +59,7 @@ upgrade of the charms but prior to an upgrade of the Kubernetes cluster.
 
 The `kubernetes-control-plane:kube-api-endpoint` and
 `kubernetes-worker:kube-api-endpoint` relations have been removed since these
-APIs are are provided by the `kube-control` relation. Ensure these two apps are
+APIs are provided by the `kube-control` relation. Ensure these two apps are
 linked by `kube-control` relation before removing this relation.
 
 ```
@@ -185,8 +185,9 @@ The [upstream Keystone docs][keystone-auth] cover keystone-auth in detail and
 should be the main reference for implementation details.
 
 Keystone has two "Auth" options:
-1) Authentication of users only called [keystone-authentication][]
-2) Authentication and authorisation of users, called [keystone-authorization][]
+
+1. Authentication of users only called [keystone-authentication][]
+2. Authentication and authorisation of users, called [keystone-authorization][]
 
 Both options require the deployment and management of the
 [k8s-keystone-auth webhook service][keystone-auth-webhook], a deployment which
@@ -278,7 +279,7 @@ present, but are slated to be reintroduced:
 The `kubernetes-control-plane` and `kubernetes-worker` action for cis-benchmark
 were removed during the development of the 1.29 charms and an engineering
 decision to reintroduce these actions are on-going, but development and testing
-incomplete.  Details in [LP#2044219][]
+incomplete. Details in [LP#2044219][]
 
 ### Automatic labelling of GPU nodes
 
