@@ -38,7 +38,7 @@ toc: false
 ### Keepalived
 
 * [LP#2074016](https://bugs.launchpad.net/bugs/2074016)
-  Adds support for keepalived charm
+  Adds noble support for keepalived charm
 
 ### Cinder CSI
 
