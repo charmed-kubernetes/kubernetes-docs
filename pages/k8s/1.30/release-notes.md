@@ -44,6 +44,8 @@ toc: false
 
 * [LP#2071824](https://bugs.launchpad.net/bugs/2071824)
   Exposes charm config to set the reclaim policy on the default storage class
+* [LP#2075336](https://bugs.launchpad.net/bugs/2075336)
+  Expose a charm config to enable/disable cinder-csi as the cluster default-storage-class
 
 ### Docker-Registry
 
