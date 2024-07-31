@@ -15,7 +15,7 @@ toc: false
 
 # 1.29+ck4
 
-### Jul 25, 2024 - `charmed-kubernetes --channel 1.29/stable`
+### Jul 31, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
 ## Notable Fixes
 
