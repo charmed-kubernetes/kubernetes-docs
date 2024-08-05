@@ -17,9 +17,45 @@ toc: false
 
 ---
 
+# 1.30+ck1
+
+### Jul 31, 2024 - `charmed-kubernetes --channel 1.30/stable`
+
+## Notable Fixes
+
+### Ceph-CSI Charm
+
+* [LP#2073297](https://bugs.launchpad.net/bugs/2073297)
+  Provides charm configuration options for each of the storage-class parameters
+  * `cephfs-storage-class-parameters`
+  * `ceph-xfs-storage-class-parameters`
+  * `ceph-ext4-storage-class-parameters`
+  
+  Provides a charm action which aids in remove storage-classes if they prevent
+    the charm from creating with the existing storage-class parameters.
+  * `delete-storage-class`
+
+### Keepalived
+
+* [LP#2074016](https://bugs.launchpad.net/bugs/2074016)
+  Adds noble support for keepalived charm
+
+### Cinder CSI
+
+* [LP#2071824](https://bugs.launchpad.net/bugs/2071824)
+  Exposes charm config to set the reclaim policy on the default storage class
+* [LP#2075336](https://bugs.launchpad.net/bugs/2075336)
+  Expose a charm config to enable/disable cinder-csi as the cluster default-storage-class
+
+### Docker-Registry
+
+* [LP#2072783](https://bugs.launchpad.net/bugs/2072783)
+ 	Add s3 storage backend configuration
+
+
 # 1.30
 
-### Jun ??, 2024 - `charmed-kubernetes --channel 1.30/stable`
+### Jul 11, 2024 - `charmed-kubernetes --channel 1.30/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.30/bundle.yaml).
 
