@@ -30,6 +30,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 * Increases charm debug logs to better isolate failures in [LP#2064145](https://bugs.launchpad.net/bugs/2064145)
 ### kubernetes-control-plane
 * Improvements to logging when failing to create a cloud-based load-balancer
+* Improvements to the upgrade action so it doesn't clear charm status warnings
 ### openstack-cloud-controller
 * Update manifests to include up to v1.30.0
 ### openstack-integrator
