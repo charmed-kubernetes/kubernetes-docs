@@ -359,6 +359,24 @@ juju run-action kubernetes-worker/1 upgrade
 ...
 ```
 
+#### Security Updates
+
+##### CVEs
+Determine if you are affected by [CVE-2024-7646][]
+
+```bash
+juju config kubernetes-worker ingress
+juju config kubernetes-worker nginx-image
+```
+
+If `ingress=true` and `nginx-image` is any of the following `auto`, **empty**, or any version prior to `v1.11.2` the deployment is affected.
+
+Rectify by adjusting the config:
+
+```bash
+juju config kubernetes-worker nginx-image=rocks.canonical.com/cdk/ingress-nginx/controller:v1.11.2
+```
+
 <a id='verify-upgrade'> </a>
 
 ## Verify an Upgrade
@@ -383,6 +401,8 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
+[CVE-2024-7646]: https://github.com/kubernetes/kubernetes/issues/126744
+
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
