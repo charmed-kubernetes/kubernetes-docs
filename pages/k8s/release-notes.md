@@ -22,17 +22,17 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 ### aws-k8s-storage
-* Update aws-storage manifests to include versions 1.12.1 -> 1.32.0
+* Updates aws-storage manifests to include versions 1.12.1 -> 1.32.0
 ### azure-cloud-provider
-* Update azure resources to include azure-disk versions 1.28.9 -> 1.30.2
-* Update azure resources to include cloud-provider versions 1.27.14 -> 1.30.0
+* Updates azure resources to include azure-disk versions 1.28.9 -> 1.30.2
+* Updates azure resources to include cloud-provider versions 1.27.14 -> 1.30.0
 ### calico
 * Increases charm debug logs to better isolate failures in [LP#2064145](https://bugs.launchpad.net/bugs/2064145)
 ### kubernetes-control-plane
 * Improvements to logging when failing to create a cloud-based load-balancer
-* Improvements to the upgrade action so it doesn't clear charm status warnings
+* Enhances the upgrade action to avoid clearing charm status warnings
 ### openstack-cloud-controller
-* Update manifests to include up to v1.30.0
+* Updates manifests to include up to v1.30.0
 ### openstack-integrator
 * Adds project-id to the openstack credentials handed out by this relation
 
