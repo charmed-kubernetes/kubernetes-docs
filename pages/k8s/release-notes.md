@@ -71,6 +71,9 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ## Notes and Known Issues
 
+A list of known issues remaining unfixed in this release can be found at
+[the launchpad milestone page for 1.31+ck1](https://launchpad.net/charmed-kubernetes/+milestone/1.31+ck1).
+
 
 ## Deprecations and API changes
 
