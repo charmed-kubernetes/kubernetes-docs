@@ -19,7 +19,7 @@ toc: False
 
 # 1.31
 
-### August xx, 2024 - `charmed-kubernetes --channel 1.31/stable`
+### September 04, 2024 - `charmed-kubernetes --channel 1.31/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.31/bundle.yaml).
 
