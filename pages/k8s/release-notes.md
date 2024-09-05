@@ -14,6 +14,7 @@ toc: False
 ---
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
+
 # 1.31
 
 ### September 04, 2024 - `charmed-kubernetes --channel 1.31/stable`
