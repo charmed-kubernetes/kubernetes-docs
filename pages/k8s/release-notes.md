@@ -43,9 +43,9 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 - kube-ovn 1.12.6
 - calico 3.27.4
 - coredns 1.9.4
-- ingress-nginx 1.6.4
+- ingress-nginx 1.11.2
 - kube-state-metrics 2.10.1
-- kubernetes-dashboard 2.7.8
+- kubernetes-dashboard 2.7.0
 
 ### Charm default versions
 - ceph-csi (rbd) 3.9.0
