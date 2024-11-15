@@ -4,6 +4,6 @@ gem 'jekyll'
 gem 'kramdown-parser-gfm'
 #gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-redirect-from'
-gem "webrick", "~> 1.7"
+gem "webrick", "~> 1.8"
 gem "kramdown", "~> 2.4"
 
