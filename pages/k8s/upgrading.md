@@ -22,9 +22,9 @@ toc: False
   </div>
   <div class="p-notification__meta">
     <div class="p-notification__actions">
+      <a class='p-notification__action' href='/kubernetes/docs/1.31/upgrading'>Upgrade to 1.31</a>
+      <a class='p-notification__action' href='/kubernetes/docs/1.30/upgrading'>Upgrade to 1.30</a>
       <a class='p-notification__action' href='/kubernetes/docs/1.29/upgrading'>Upgrade to 1.29</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.28/upgrading'>Upgrade to 1.28</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.27/upgrading'>Upgrade to 1.27</a>
     </div>
   </div>
 </div>
