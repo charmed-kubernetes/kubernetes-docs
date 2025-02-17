@@ -56,26 +56,10 @@ You can verify that kubectl is configured correctly and can see the cluster by r
 kubectl cluster-info
 ```
 
-You can create pod using below example.yaml file:
-
-```bash
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-  namespace: test
-spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2
-    ports:
-    - containerPort: 80
-```
-
 Now you can run pods inside the Kubernetes cluster:
 
 ```bash
-kubectl create -f example.yaml
+kubectl create deployment nginx --image=nginx:latest
 ```
 
 List all pods in the cluster:
@@ -93,18 +77,7 @@ kubectl get pods -n test
 To create a sample service in the cluster:
 
 ```bash
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-  namespace: test
-spec:
-  selector:
-    app.kubernetes.io/name: nginx
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
+kubectl expose deployment nginx --port=80 --target-port=8000
 ```
 
 List all services in the cluster:
