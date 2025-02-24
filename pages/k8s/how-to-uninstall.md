@@ -22,7 +22,6 @@ If you have other resources inside the model where Charmed Kubernetes resides ot
 Alternatively, you can destroy the model and the resources residing in it including the Charmed Kubernetes resources. 
 ```bash
 juju destroy-model charmed-kubernetes --destroy-storage
-
 ```
 If your model has a different name other than `charmed-kubernetes`, substitute it in the command above. By default the removal will not proceed if there are errors throughout the removal process. If you are willing to force the removal you can use the following command:
 ```bash
