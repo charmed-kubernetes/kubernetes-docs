@@ -15,11 +15,11 @@ toc: False
 
 This guide describes how to uninstall **Charmed Kubernetes**.
 
-## Uninstall the Charmed Kubernetes applications on by one 
-If you have other resources inside the model where Charmed Kubernetes resides other than the Charmed Kubernetes itself, you can proceed with removing the applications one by one. For a detailed information you can see how to [Remove an Application][remove-an-application].
+## Uninstall the Charmed Kubernetes applications one by one
+If you have other resources inside the model other than Charmed Kubernetes that you would like to preserve, you can proceed with removing the Charmed Kubernetes applications one by one. For detailed information you can see how to [Remove an Application][remove-an-application].
 
 ## Remove the model
-Alternatively, you can destroy the model and the resources residing in it including the Charmed Kubernetes resources. 
+Alternatively, you can destroy the model and the resources residing in it, including Charmed Kubernetes. 
 ```bash
 juju destroy-model charmed-kubernetes --destroy-storage
 ```
