@@ -24,83 +24,81 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-### aws-cloud-provider
+<!-- ### aws-cloud-provider
 
 * Support kube-control v2 schema
 
 ### aws-k8s-storage
 
-* Support kube-control v2 schema
+* Support kube-control v2 schema -->
 
 ### ceph-csi
 
 * [LP#2068524](https://bugs.launchpad.net/bugs/2068524)Reimagine ceph-csi charm with the reconciler pattern
-the various prometheus-liveness metrics are exposed
 * Map ceph-csi to juju terraform syntax
 * Add `image-registry` configuration option
 * Create charm tolerations for ceph-rbd and cephfs deployments and daemonsets
 * Support alternate names for ceph-fs charm and associated storage class
-* Upgrade ceph upstream versions including 3.12 and 3.13
-* [LP#2098004](https://bugs.launchpad.net/charm-ceph-csi/+bug/2098004)purge any cephfs storage classes installed by ops.manifest
+<!-- * Upgrade ceph upstream versions including 3.12 and 3.13 -->
+<!-- * [LP#2098004](https://bugs.launchpad.net/charm-ceph-csi/+bug/2098004)purge any cephfs storage classes installed by ops.manifest -->
 
-### cinder-csi
+<!-- ### cinder-csi
 
-* Support kube-control v2 schema
+* Support kube-control v2 schema -->
 
 ### etcd
 
 * Adding support from focal to noble
-* [LP#2096820](https://bugs.launchpad.net/charm-etcd/+bug/2096820) Don't push stderr through stdout when running etcdctl
-*[LP2053031](https://bugs.launchpad.net/charm-etcd/+bug/2053031) Adding tuning parameters
+<!-- * [LP#2096820](https://bugs.launchpad.net/charm-etcd/+bug/2096820) Don't push stderr through stdout when running etcdctl -->
+*[LP#2053031](https://bugs.launchpad.net/charm-etcd/+bug/2053031) Adding tuning parameters
 
-### kube-ovn
+<!-- ### kube-ovn
 
-* [LP#2071494](https://bugs.launchpad.net/charm-kube-ovn/+bug/2071494) Run configure hook only on leader (#56)
+* [LP#2071494](https://bugs.launchpad.net/charm-kube-ovn/+bug/2071494) Run configure hook only on leader  -->
 
 ### kubernetes-control-plane
 
-* [LP#2077189](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2077189)Carefully use a status context on actions
-* [LP#2044219](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219)
-Untested port of cis-benchmark action to the kubernetes-control-plane (#349)
-* [LP#2087936](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2087936)
-Address failing grafana-agent relation at CK boot
-* Address failing grafana-agent relation at CK boot
-* Pin dependencies for 1.32 release
+<!-- * [LP#2044219](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219)
+Untested port of cis-benchmark action to the kubernetes-control-plane  -->
+<!-- * [LP#2087936](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2087936)
+Address failing grafana-agent relation at CK boot -->
+<!-- * Pin dependencies for 1.32 release -->
 
-### kubernetes-e2e
+<!-- ### kubernetes-e2e
 
-* Pin config to 1.32/stable snaps and tests to 1.32/stable charms
+* Pin config to 1.32/stable snaps and tests to 1.32/stable charms -->
 
 ### kubernetes-worker
 
-* [LP#2077189](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2077189)
-Don't use a status context on actions
-* Bump ingress-nginx supported version
+<!-- * [LP#2077189](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2077189)
+Don't use a status context on actions -->
+<!-- * Bump ingress-nginx supported version -->
 * [LP#2083925](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2083925)
 Add rules to access leases for nginx ingress
-* Pin dependencies for 1.32 release
+<!-- * Pin dependencies for 1.32 release -->
 
 ### openstack-cloud-controller
 
-* [LP#2077468](https://bugs.launchpad.net/charm-openstack-cloud-controller/+bug/2077468)
-Update out of date links
-* Support kube-control v2 schema
-Authorize the CCM to have CRD permissions
+<!-- * [LP#2077468](https://bugs.launchpad.net/charm-openstack-cloud-controller/+bug/2077468)
+Update out of date links -->
+<!-- * Support kube-control v2 schema -->
+* Authorize the CCM to have CRD permissions
 * Map openstack-cloud-controller to juju terraform syntax
 
 
 ### openstack-integrator
 
 * Map openstack-integrator to juju terraform syntax
-* [LP#2095043](https://launchpad.net/bugs/2095043) Address mishandled config of
- manage-security-group
+<!-- * [LP#2095043](https://launchpad.net/bugs/2095043) Address mishandled config of
+ manage-security-group -->
 * lb-consumers now ignores default config lb-port if port mapping was provided
-* [LP#2098017](https://bugs.launchpad.net/charm-openstack-integrator/+bug/2098017)
-Pin pbr version so it continues to use setuptools
+<!-- * [LP#2098017](https://bugs.launchpad.net/charm-openstack-integrator/+bug/2098017)
+Pin pbr version so it continues to use setuptools -->
 
 ## Component Versions
 
 ### Charm/Addons pinned versions
+
 - kube-ovn ?????
 - calico ?????
 - cephcsi ?????
@@ -113,6 +111,7 @@ Pin pbr version so it continues to use setuptools
 - openstack-cloud-controller-manager ?????
 
 ### Charm default versions
+
 - cloud-provider-vsphere ?????
 - vsphere-csi-driver ?????
 - cloud-provider-azure ?????
@@ -121,16 +120,25 @@ Pin pbr version so it continues to use setuptools
 - aws-ebs-csi-driver ?????
 - gcp-compute-persistent-disk-csi-driver ?????
 
-
 ## Fixes
 
-A list of bug fixes and other minor feature updates in this release can be found
+- **ceph-csi** - [LP#2098004](https://bugs.launchpad.net/charm-ceph-csi/+bug/2098004)purge any cephfs storage classes installed by ops.manifest
+- **etcd** - [LP#2096820](https://bugs.launchpad.net/charm-etcd/+bug/2096820) Don't push stderr through stdout when running etcdctl
+- **kube-ovn** - [LP#2071494](https://bugs.launchpad.net/charm-kube-ovn/+bug/2071494) Run configure hook only on leader
+- **kubernetes-control-plane** - [LP#2044219](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219)
+Untested port of cis-benchmark action to the kubernetes-control-plane  -->
+- **kubernetes-control-plane** - [LP#2087936](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2087936) Address failing grafana-agent relation at CK boot
+- **kubernetes-worker** - [LP#2077189](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2077189) Don't use a status context on actions
+- **openstack-cloud-controller** - [LP#2077468](https://bugs.launchpad.net/charm-openstack-cloud-controller/+bug/2077468)
+Update out of date links
+- **openstack-integrator** - [LP#2095043](https://launchpad.net/bugs/2095043) Address mishandled config of manage-security-group
+- **openstack-integrator** - [LP#2098017](https://bugs.launchpad.net/charm-openstack-integrator/+bug/2098017) Pin pbr version so it continues to use setuptools
+
+A full list of bug fixes and other minor feature updates in this release can be found
 at
 [the launchpad milestone page for 1.32](https://launchpad.net/charmed-kubernetes/+milestone/1.32).
 
-
 ## Notes and Known Issues
-
 
 ## Deprecations and API changes
 
