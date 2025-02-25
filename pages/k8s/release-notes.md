@@ -14,6 +14,188 @@ toc: False
 ---
 
 <!-- AUTOGENERATE RELEASE NOTES HERE -->
+# 1.32
+
+### February 24, 2025 - `charmed-kubernetes --channel 1.32/stable`
+
+The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.32/bundle.yaml).
+
+## What's new
+### aws-cloud-provider
+Support kube-control v2 schema (#5)
+* Support kube-control v2 schema
+* Fetch kubeconfig via action for integration tests
+* Update requirements.txt
+### aws-k8s-storage
+Support kube-control v2 schema (#13)
+* Support kube-control v2 schema
+* Fetch kubeconfig via action for integration tests
+* Update requirements.txt
+### ceph-csi
+Alter the home of ceph conf to not interfere with other applications (#23)
+* Alter the home of ceph.conf to not interfere with other applications
+* Log to /var/log/ceph/<unit-name>.log
+Reimagine ceph-csi charm with the reconciler pattern (#19)
+* Reimagine ceph-csi charm with the reconciler pattern
+* upgrade integration testing
+* purge all manifests should only fail via exception
+* Don't reconcile if the charm is still waiting
+* use model fast_forward to check ceph-csi more rapidly
+* provide tests just a bit longer to pull images
+* use 2.x/stable charmcraft channel
+[LP#2035399] Metrics Port configuration (#24)
+* Introduce config to disable or change the container port where the various prometheus-liveness metrics are exposed
+* Minor refactor of port validation
+* Fix lint
+* Test metrics port config
+---------
+Co-authored-by: Homayoon (Hue) Alimohammadi <homayoon.alimohammadi@canonical.com>
+Map ceph-csi to juju terraform syntax (#28)
+* Map ceph-csi to juju terraform syntax
+* Update terraform/versions.tf
+Co-authored-by: Louise K. Schmidtgen <louise.schmidtgen@canonical.com>
+---------
+Co-authored-by: Louise K. Schmidtgen <louise.schmidtgen@canonical.com>
+Add `image-registry` configuration option (#31)
+Create charm tolerations for ceph-rbd and cephfs deployments and daemonsets (#34)
+Support alternate names for ceph-fs charm and associated storage class (#33)
+* Support alternate names for ceph-fs charm and associated storage class
+* Pythonic error handling
+Upgrade ceph upstream versions including 3.12 and 3.13 (#32)
+fix: purge any cephfs storage classes installed by ops.manifest (#38)
+### cinder-csi
+Support kube-control v2 schema (#9)
+### etcd
+Adding support from focal to noble (#214)
+* Adding support from focal to noble
+---------
+Co-authored-by: Mateo Florido <mateo.florido@canonical.com>
+[LP#2096820] Don't push stderr through stdout when running etcdctl (#215)
+* don't push stderr through stdout when running etcdctl
+* call run(...,text=True) to eliminate decode(...)
+* log warnings when stderr has text
+LP2053031: Adding tuning params (#213)
+* Adding tuning params
+* snapshot_count now accepts a string that can be an integer or auto
+---------
+Co-authored-by: Homayoon Alimohammadi <homayoonalimohammadi@gmail.com>
+### kube-ovn
+[LP#2071494] Run configure hook only on leader (#56)
+* Run configure hook only on leader
+* use add-k8s from pytest-operator
+* Wait for bird unit's LXD container to have an ipv4 address
+* Track pod status for kube-ovn pods
+### kubernetes-control-plane
+Carefully use a status context on actions (#362)
+* Don't use a status context on actions
+* Giant batch of ruff reformatting
+* Upgrade-action must use a context then reconcile if successful
+Mark the unit as waiting when kube-system pods aren't ready (#363)
+* Mark the unit as waiting when kube-system pods aren't ready
+* Don't be cute with variable names
+Updates gunicorn to 23.0.0 to remove dependency on pkg_resources (#364)
+Untested port of cis-benchmark action to the kubernetes-control-plane (#349)
+* Untested port of cis-benchmark action to the kubernetes-control-plane
+* Resolve review comments
+Update actions.yaml (#365)
+Return the correct internal lb response (#366)
+Address failing grafana-agent relation at CK boot (#367)
+* Address failing grafana-agent relation at CK boot
+* Test deployment with grafana-agent related
+Pin config to 1.32/stable snaps and tests to 1.32/stable charms (#368)
+Pin deps for 1.32 release (#372)
+* Pin deps for 1.32 release
+* Properly mock out device calls
+### kubernetes-e2e
+Pin config to 1.32/stable snaps and tests to 1.32/stable charms (#36)
+### kubernetes-worker
+Don't use a status context on actions (#177)
+* Don't use a status context on actions
+* Upgrade-action must use a context then reconcile if successful
+Bump ingress-nginx for 1.31 (#178)
+Improve reconciler handlers to prevent early reconcilation (#176)
+* Improve reconciler handlers to prevent early reconcilation
+* Build with charmcraft 2.x
+* Remove assert
+* Add integration tests for setting labels
+---------
+Co-authored-by: Homayoon (Hue) Alimohammadi <homayoon.alimohammadi@canonical.com>
+Add rules to access leases for nginx ingress (#180)
+* Add rules to access leases for nginx ingress
+* Lint and format
+Pin config to 1.32/stable snaps and tests to 1.32/stable charms (#181)
+Pin deps for 1.32 release (#183)
+* Pin deps for 1.32 release
+* update upload-artifact
+### openstack-cloud-controller
+Updating out of date links
+Apply suggestions from code review
+Co-authored-by: Mateo Florido <32885896+mateoflorido@users.noreply.github.com>
+Merge pull request #3 from charmed-kubernetes/bug/lp2077468/readme-contributing-links
+[LP#2077468] Updating out of date links
+Add schema 1 support to the kube-control (#4)
+* Add schema 1 support to the kube-control
+* Allow gathering endpoint certs from the kube_control relation
+---------
+Co-authored-by: Adam Dyess <adam.dyess@canonical.com>
+Authorize the CCM to have CRD permissions
+Merge pull request #7 from charmed-kubernetes/KU-2416/o7k-ccm-needs-CRD-permissions
+Authorize the CCM to have CRD permissions
+### openstack-integrator
+Map openstack-integrator to juju terraform syntax (#9)
+* Map openstack-integrator to juju terraform syntax
+* Always deploy with 'trust'
+* Remove requires relations since there are none
+* Review comments
+Address mishandled config of manage-security-group (#11)
+lb-consumers: Ignore config lb-port if port mapping was provided (#10)
+lb-consumers: Ignore config lb-port if port mapping was provided
+Pinning pbr<6.1.1 so it continues to use setuptools (#12)
+
+## Component Versions
+
+### Charm/Addons pinned versions
+- kube-ovn ?????
+- calico ?????
+- cephcsi ?????
+- cinder-csi-plugin ?????
+- coredns ?????
+- ingress-nginx ?????
+- k8s-keystone-auth ?????
+- kube-state-metrics ?????
+- kubernetes-dashboard ?????
+- openstack-cloud-controller-manager ?????
+
+### Charm default versions
+- cloud-provider-vsphere ?????
+- vsphere-csi-driver ?????
+- cloud-provider-azure ?????
+- azuredisk-csi-driver ?????
+- cloud-provider-aws ?????
+- aws-ebs-csi-driver ?????
+- gcp-compute-persistent-disk-csi-driver ?????
+
+
+## Fixes
+
+A list of bug fixes and other minor feature updates in this release can be found at
+[the launchpad milestone page for 1.32](https://launchpad.net/charmed-kubernetes/+milestone/1.32).
+
+
+## Notes and Known Issues
+
+
+## Deprecations and API changes
+
+- Upstream
+
+For details of other deprecation notices and API changes for Kubernetes 1.32, please see the
+relevant sections of the [upstream release notes][upstream-changelog-1.32].
+
+[upstream-changelog-1.32]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#deprecation
+
+<!-- AUTOGENERATED RELEASE 1.32 ABOVE -->
+
 
 # 1.31+ck1
 
