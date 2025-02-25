@@ -41,7 +41,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 * Support alternate names for ceph-fs charm and associated storage class
 * Upgrade ceph upstream versions including 3.12 and 3.13
 
- ### cinder-csi
+### cinder-csi
 
 * Support kube-control v2 schema
 
