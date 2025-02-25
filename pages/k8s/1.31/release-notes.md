@@ -6,7 +6,7 @@ context:
   title: 1.31 Release notes
   description: Release notes for Charmed Kubernetes
 keywords: kubernetes, release, notes
-tags: 
+tags:
   - news
 sidebar: k8smain-sidebar
 permalink: 1.31/release-notes.html
@@ -36,7 +36,7 @@ toc: False
 ### Kubernetes API Load Balancer
 * [LP#2091120](https://bugs.launchpad.net/charm-kubeapi-load-balancer/+bug/2091120) Charm events should reconcile lb_addresses to requirers
 
-### Docker Registry Charm 
+### Docker Registry Charm
 * [LP#2080349](https://bugs.launchpad.net/layer-docker-registry/+bug/2080349) Added explicit configuration option `storage-redirect-disable`
 
 ### Cilium Charm
@@ -64,19 +64,31 @@ toc: False
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.31/bundle.yaml).
 
 ## What's new
+
 ### aws-k8s-storage
+
 * Updates aws-storage manifests to include versions 1.12.1 -> 1.32.0
+
 ### azure-cloud-provider
+
 * Updates azure resources to include azure-disk versions 1.28.9 -> 1.30.2
 * Updates azure resources to include cloud-provider versions 1.27.14 -> 1.30.0
+
 ### calico
+
 * Increases charm debug logs to better isolate failures in [LP#2064145](https://bugs.launchpad.net/bugs/2064145)
+
 ### kubernetes-control-plane
+
 * Improvements to logging when failing to create a cloud-based load-balancer
 * Enhances the upgrade action to avoid clearing charm status warnings
+
 ### openstack-cloud-controller
+
 * Updates manifests to include up to v1.30.0
+
 ### openstack-integrator
+
 * Adds project-id to the openstack credentials handed out by this relation
 
 ## Component Versions
