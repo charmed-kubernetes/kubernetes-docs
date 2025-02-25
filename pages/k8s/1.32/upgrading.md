@@ -39,7 +39,7 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.32 release) is <strong>3.1</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://juju.is/docs/juju/upgrade-your-juju-deployment-from-2-9-to-3-x"> Juju documentation</a> for more information.</p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.32 release) is <strong>3.5</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://canonical-juju.readthedocs-hosted.com/en/latest/user/tutorial/#upgrade"> Juju documentation</a> for more information.</p>
   </div>
 </div>
 
@@ -62,23 +62,6 @@ Kubernetes installed and configured as part of Charmed Kubernetes.
 This may not include any customised configuration of Kubernetes, or user
 generated objects (e.g. storage classes) or deployments which rely on
 deprecated APIs.
-
-<div class="p-notification--information is-inline">
-  <div markdown="1" class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message"><strong>The 'bionic' series (Ubuntu 18.04) is no longer supported:</strong> Support for bionic series charms in relation to Charmed Kubernetes has expired. If you are running charms on 'bionic', you will need to series upgrade the charms before completing the rest of the upgrade procedure.</p>
-  </div>
-</div>
-
-
-## Upgrading the Machine's Series (required for machines currently running 18.04(Bionic))
-
-All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/juju/manage-machines#heading--upgrade-a-machine).
-As each machine is upgraded, the applications on that machine will be stopped and the unit will
-go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
-from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
-from the pool until the upgrade is complete.
-
 
 ## Infrastructure updates
 
@@ -232,7 +215,7 @@ is no need to set a specific channel or version for this charm.
 ### Upgrading the **kubernetes-control-plane** units
 
 **Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This has been updated
-to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
+to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you
 originally installed version 1.23 or before, your units will follow the old naming scheme and you should
 substitute `kubernetes-control-plane`for `kubernetes-master`in the following commands.
 
