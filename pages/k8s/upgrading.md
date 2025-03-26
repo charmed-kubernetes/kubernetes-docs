@@ -86,6 +86,7 @@ documentation for the version you are upgrading to.
 
 ### Older versions
 
+- [Upgrading from 1.28.x to 1.29.x](/kubernetes/docs/1.29/upgrading)
 - [Upgrading from 1.27.x to 1.28.x](/kubernetes/docs/1.28/upgrading)
 - [Upgrading from 1.26.x to 1.27.x](/kubernetes/docs/1.27/upgrading)
 - [Upgrading from 1.25.x to 1.26.x](/kubernetes/docs/1.26/upgrading)
