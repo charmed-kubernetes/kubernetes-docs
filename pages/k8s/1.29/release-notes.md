@@ -13,6 +13,15 @@ layout: [base, ubuntu-com]
 toc: false
 ---
 
+# 1.29+ck5
+
+### Mar 31, 2025 - `charmed-kubernetes --channel 1.29/stable`
+
+## Notable Fixes
+
+### Kubernetes Worker Charm
+* [LP#2104056](https://bugs.launchpad.net/bugs/2104056) Update ingress-nginx to 1.11.5 resolving CVE-2025-1974
+
 # 1.29+ck4
 
 ### Jul 31, 2024 - `charmed-kubernetes --channel 1.29/stable`
