@@ -39,7 +39,7 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes {{release}} release) is <strong>3.1</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://juju.is/docs/juju/upgrade-your-juju-deployment-from-2-9-to-3-x"> Juju documentation</a> for more information.</p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes {{release}} release) is <strong>3.1</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller"> Juju documentation</a> for more information.</p>
   </div>
 </div>
 
@@ -73,7 +73,7 @@ deprecated APIs.
 
 ## Upgrading the Machine's Series (required for machines currently running 18.04(Bionic))
 
-All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/juju/manage-machines#heading--upgrade-a-machine).
+All of the charms support [upgrading the machine's series via Juju](https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/upgrade-machine/).
 As each machine is upgraded, the applications on that machine will be stopped and the unit will
 go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
 from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
@@ -232,7 +232,7 @@ is no need to set a specific channel or version for this charm.
 ### Upgrading the **kubernetes-control-plane** units
 
 **Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This has been updated
-to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
+to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you
 originally installed version 1.23 or before, your units will follow the old naming scheme and you should
 substitute `kubernetes-control-plane`for `kubernetes-master`in the following commands.
 
@@ -394,4 +394,3 @@ It is recommended that you run a [cluster validation][validation] to ensure that
     <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
-

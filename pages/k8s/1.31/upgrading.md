@@ -47,10 +47,10 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.31 release) is <strong>3.5</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://juju.is/docs/juju/upgrade-your-juju-deployment-from-2-9-to-3-x"> Juju documentation</a> for more information.</p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.31 release) is <strong>3.5</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-co
+ntroller"> Juju documentation</a> for more information.</p>
   </div>
 </div>
-
 
 
 As with all upgrades, there is a possibility that there may be unforeseen difficulties. It is **highly recommended that you make a backup** of any important data, including any running workloads. For more details on creating backups, see the separate [documentation on backups][backups].
@@ -62,7 +62,7 @@ You should also make sure:
 -   Your Juju client and controller/models are running the same, stable version of Juju (see the [Juju docs][juju-controller-upgrade]).
 -   You read the [Upgrade notes][notes] to see if any caveats apply to the versions you are upgrading to/from.
 -   You read the [Release notes][release-notes] for the version you are upgrading to, which will alert you to any important changes to the operation of your cluster.
--   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.27 which may impact your workloads.
+-   You read the [Upstream release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#deprecation) for details of deprecation notices and API changes for Kubernetes 1.31 which may impact your workloads.
 
 It is also important to understand that **Charmed Kubernetes** will only upgrade
 and if necessary migrate, components relating specifically to elements of
@@ -81,7 +81,7 @@ deprecated APIs.
 
 ## Upgrading the Machine's Series (required for machines currently running 18.04(Bionic))
 
-All of the charms support [upgrading the machine's series via Juju](https://juju.is/docs/juju/manage-machines#heading--upgrade-a-machine).
+All of the charms support [upgrading the machine's series via Juju](https://documentation.ubuntu.com/juju/3.6/howto/manage-machines).
 As each machine is upgraded, the applications on that machine will be stopped and the unit will
 go into a `blocked` status until the upgrade is complete. For the worker units, pods will be drained
 from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
@@ -241,7 +241,7 @@ is no need to set a specific channel or version for this charm.
 ### Upgrading the **kubernetes-control-plane** units
 
 **Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This has been updated
-to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
+to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you
 originally installed version 1.23 or before, your units will follow the old naming scheme and you should
 substitute `kubernetes-control-plane`for `kubernetes-master`in the following commands.
 
@@ -392,6 +392,7 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
+[juju-controller-upgrade]:https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

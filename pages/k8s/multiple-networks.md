@@ -118,7 +118,7 @@ The following endpoints are available for use in bindings:
 | kubernetes-worker | kube-control | Traffic to kubelet, from kube-apiserver (health checks) |
 
 You can read more about bindings in the Juju documentation here:
-[Binding endpoints within a bundle](https://juju.is/docs/sdk/bind-endpoints-within-a-bundle)
+[Binding endpoints within a bundle](https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/bind/)
 
 
 <!-- FEEDBACK -->
@@ -131,4 +131,3 @@ You can read more about bindings in the Juju documentation here:
     <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
-
