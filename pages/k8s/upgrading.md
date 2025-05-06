@@ -125,7 +125,7 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
 [inclusive-naming]: /kubernetes/docs/inclusive-naming
-[juju-controller-upgrade]: https://juju.is/docs/juju/upgrade-models
+[juju-controller-upgrade]: https://documentation.ubuntu.com/juju/3.6/howto/manage-models/#upgrade-a-model
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">

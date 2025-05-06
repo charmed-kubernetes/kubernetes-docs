@@ -92,7 +92,7 @@ balancer.
 [keepalived-home]: http://www.keepalived.org/
 [SANs]: https://www.openssl.org/docs/manmaster/man5/x509v3_config.html#Subject-Alternative-Name
 [logging-doc]: /kubernetes/docs/logging
-[subordinate-charm]: https://juju.is/docs/sdk#heading--subordinate-charms
+[subordinate-charm]: https://documentation.ubuntu.com/juju/3.6/howto/manage-charms
 [openstack-vip]: https://medium.com/jexia/virtual-ip-with-openstack-neutron-dd9378a48bdf
 
 <!-- FEEDBACK -->
@@ -105,4 +105,3 @@ balancer.
     <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
-

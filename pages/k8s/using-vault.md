@@ -276,7 +276,7 @@ juju status vault
 [certs-doc]: /kubernetes/docs/certs-and-trust
 [encryption-doc]: /kubernetes/docs/encryption-at-rest
 [vault]: https://www.vaultproject.io
-[expose]: https://juju.is/docs/juju/expose-a-deployed-application
+[expose]: https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/expose/
 [hacluster]: https://charmhub.io/hacluster/
 [vault-guide-csr]: https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/latest/app-certificate-management.html
 [vault-charm-unseal]: https://opendev.org/openstack/charm-vault/src/branch/master/src/README.md#post-deployment-tasks
@@ -295,4 +295,3 @@ juju status vault
     <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
-

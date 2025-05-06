@@ -16,7 +16,7 @@ toc: False
 <div class="p-notification--caution is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Caution:</span>
-    <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the *What's new* section of the <a href="/kubernetes/docs/1.30/release-notes">1.30 release notes</a> prior to upgrading your cluster.<br/>
+    <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the What's new section of the <a href="/kubernetes/docs/1.30/release-notes">1.30 release notes</a> prior to upgrading your cluster.<br/>
     <br/>
     Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/docs/1.30/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.30 at this time.</p>
   </div>
@@ -48,7 +48,7 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>: Juju version 3.1 or better is required to deploy Charmed Kubernetes 1.30. See the <a href="https://juju.is/docs/juju/upgrade-your-juju-deployment-from-2-9-to-3-x">Juju documentation</a> for information on upgrading controllers and models to Juju 3.x.</p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>: Juju version 3.1 or better is required to deploy Charmed Kubernetes 1.30. See the <a href="https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller">Juju documentation</a> for information on upgrading controllers and models to Juju 3.x.</p>
   </div>
 </div>
 
@@ -79,7 +79,7 @@ deprecated APIs.
 
 ## Upgrading the series (required for machines currently running Ubuntu 18.04)
 
-All of the charms support [upgrading machine series via Juju](https://juju.is/docs/juju/manage-machines#heading--upgrade-a-machine).
+All of the charms support [upgrading machine series via Juju](https://documentation.ubuntu.com/juju/3.6/howto/manage-machines).
 As each machine is upgraded, the applications on that machine will be stopped and the unit will
 go into a `blocked` state until the upgrade is complete. For the worker units, pods will be drained
 from the node and onto one of the other nodes at the start of the upgrade, and the node will be removed
@@ -399,6 +399,7 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 [validation]: /kubernetes/docs/validation
 [supported-versions]: /kubernetes/docs/supported-versions
 [CVE-2024-7646]: https://github.com/kubernetes/kubernetes/issues/126744
+[juju-controller-upgrade]: https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
