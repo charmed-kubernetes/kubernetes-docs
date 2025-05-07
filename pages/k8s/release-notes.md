@@ -147,6 +147,24 @@ please see the relevant sections of the
 
 [rel]: /kubernetes/docs/release-notes
 
+# 1.31+ck3
+
+### May 7, 2025 - `charmed-kubernetes --channel 1.31/stable`
+
+## Notable Fixes
+
+### Kubernetes Control Plane Charm
+* [LP#2108934](https://bugs.launchpad.net/bugs/2108934) The CPU usage Prometheus rule now correctly applies to pods running on any node in the cluster.
+
+# 1.31+ck2
+
+### Mar 31, 2025 - `charmed-kubernetes --channel 1.31/stable`
+
+## Notable Fixes
+
+### Kubernetes Worker Charm
+* [LP#2104056](https://bugs.launchpad.net/bugs/2104056) Update ingress-nginx to 1.11.5 resolving CVE-2025-1974
+
 # 1.31+ck1
 
 ### Dec 16, 2024 - `charmed-kubernetes --channel 1.31/stable`
