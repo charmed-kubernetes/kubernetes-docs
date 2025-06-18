@@ -80,7 +80,7 @@ hubble-versions: |-
   1.12.5
 ```
 
-Cilium recommends upgrading through each minor release sequentially. Suppose you currently have version `1.n.x` of Cilium installed and want to upgrade to version `1.m.z`, where `m > n`, and `x` and `z` are patch versions. In this case, you must first upgrade to the next minor version in the list, `1.n+1.y`, before proceeding further. Follow these steps for the upgrade:
+Cilium instructs upgrading through each minor release sequentially. The only tested upgrade and rollback path supported by Cilium is between consecutive minor versions. Suppose you currently have version `1.n.x` of Cilium installed and want to upgrade to version `1.m.z`, where `m > n`, and `x` and `z` are patch versions. In this case, you must first upgrade to the next minor version in the list, `1.n+1.y`, before proceeding further. Follow these steps for the upgrade:
 
 ```sh
 juju config cilium release=1.n+1.y
