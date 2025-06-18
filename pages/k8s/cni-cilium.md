@@ -62,20 +62,17 @@ App                       Version Status  Scale  Charm                     Chann
 cilium                    1.12.5  active      5  cilium                    latest/stable   29  no       Ready
 ```
 
-Upgrading will require changing the `release` config of the charm with `juju config cilium release=<version>`, but choosing
-which version requires seeing what the charm currently supports.
+Upgrading will require changing the `release` config of the charm with `juju config cilium release=<version>`, but choosing which version requires seeing what the charm currently supports.
 
 ```sh
 juju run cilium/leader list-versions
 cilium-versions: |-
-  1.17.1
   1.16.10
   1.15.17
   1.14.11
   1.13.16
   1.12.5
 hubble-versions: |-
-  1.17.1
   1.16.10
   1.15.17
   1.14.11
@@ -83,10 +80,10 @@ hubble-versions: |-
   1.12.5
 ```
 
-If the units are all at `1.12.5`, The next available step would be to `1.13.16`.  Cilium recommends the cni be upgrading through each minor release. To get to the latest current supported charm, follow the following steps.
+Cilium recommends upgrading through each minor release sequentially. Suppose you currently have version `1.n.x` of Cilium installed and want to upgrade to version `1.m.z`, where `m > n`, and `x` and `z` are patch versions. In this case, you must first upgrade to the next minor version in the list, `1.n+1.y`, before proceeding further. Follow these steps for the upgrade:
 
 ```sh
-juju config cilium release=1.13.16
+juju config cilium release=1.n+1.y
 juju-wait
 kubectl get pods -A
 # ensuring that all cilium pods restart on the new image versions
@@ -94,7 +91,7 @@ juju exec cilium/leader -- cilium status
 # ensure that cilium reflects a successful deployment
 ```
 
-Then repeat the steps with `1.14.11` and any subsequent versions.
+Repeat these steps incrementally from `1.n+1` to `1.n+2` and so on until you reach your target version.
 
 ## Cilium configuration options
 
