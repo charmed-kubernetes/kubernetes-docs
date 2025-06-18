@@ -119,7 +119,7 @@ juju config cilium port-forward-hubble=true
 The configuration settings that require further explanation are 
 provided below.
 
-## Configuring Encapsulation protocol and port
+## Configuring encapsulation protocol and port
 
 Cilium supports both `VXLAN` and `Geneve` tunnel encapsulation protocol. While the charm uses 
 `VXLAN` by default, you can change it to `Geneve` via the following command:
