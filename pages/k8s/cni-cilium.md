@@ -29,7 +29,7 @@ transparent network security and traffic monitoring features.
     juju model-config container-networking-method=local fan-config=
     </code></pre>
     </p>
-    Alternatively, you can set another VXLAN destination port for cilium to avoid possible 
+    Alternatively, you can set another VXLAN destination port for Cilium to avoid possible 
     collisions with other tools that make use of VXLAN.
   </div>
 </div>
