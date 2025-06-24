@@ -96,6 +96,13 @@ you can run `juju models` to see a list of available models):
 juju switch <charmed-kubernetes-model>
 ```
 
+Ensure `tokens` is related to all worker applications
+
+```
+juju integrate kubernetes-control-plane:tokens kubernetes-worker
+... repeat for other worker applications
+```
+
 Consume the COS Lite endpoints:
 
 ```
