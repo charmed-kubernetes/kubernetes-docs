@@ -21,41 +21,39 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 
-* Most charms now support only jammy and noble (dropping support for focal)
+* Most charms now support only Jammy and Noble (dropping support for Focal)
 * Support for Terraform deployment of many charms for interoperability with Canonical Kubernetes
 
 ### calico
 
-* Updates calico version to v3.29.3
+* Updates Calico version to v3.29.3
 
 ### ceph-csi
 
-* Detect and block on kubernetes resource collisions
+* Detect and block on Kubernetes resource collisions
 * Support formatters for cluster role and cluster role binding names
 * Support for N Ceph clusters to ensure both are read/writable
 
 ### cilium
-* Update cilium version to 1.16.10
-* feat: add an option to support geneve tunneling protocol
-* fix: set non-default vxlan destination port when cilium uses vxlan as tunnel protocol
-* Add enable-session-affinity config to config-map (#25)
+* Update Cilium version to 1.16.10
+* Adds an option to support geneve tunneling protocol
+* Sets non-default VXLAN destination port when Cilium uses VXLAN as tunnel protocol
 * Add enable-session-affinity config to config-map
-* session-affinity must be stringly typed
 
 ### easyrsa
-* test with EasyRSA v3.0.9
+* Test with EasyRSA v3.0.9
 
 ### kube-ovn
 * Update kubeovn version to v1.12.30
 
 ### kubernetes-control-plane
-* Update cpu usage Prometheus rule
-* [LP#2097158] user create action ensures groups is a list of groups
+* Update CPU usage Prometheus rule
+* [LP#2097158](https://launchpad.net/bugs/2097158) user create action ensures groups is a list of groups
 * Add charm config to ignore missing CNI, and block when CNI is missing
 * Validate allow-privileged configuration
 
 ### kubernetes-worker
-* [LP#2059912] config: Add proxy-real-ip-cidr charm config
+* [LP#2059912](https://launchpad.net/bugs/2059912) config: Add proxy-real-ip-cidr charm config
 * Add charm config to ignore missing CNI, and block when CNI is missing
 * Setup the None CNI if ignore-missing-cni is true
 * Port the cis-benchmark to the ops worker charm
@@ -93,17 +91,13 @@ A list of bug fixes and other minor feature updates in this release can be found
 [the launchpad milestone page for 1.33](https://launchpad.net/charmed-kubernetes/+milestone/1.33).
 
 
-## Notes and Known Issues
-
-
 ## Deprecations and API changes
-
-- Upstream
 
 For details of other deprecation notices and API changes for Kubernetes 1.33, please see the
 relevant sections of the [upstream release notes][upstream-changelog-1.33].
 
 [upstream-changelog-1.33]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#deprecation
+
 
 
 # 1.32+ck2
