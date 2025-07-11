@@ -23,9 +23,7 @@ toc: False
 
 ## Notable Fixes
 
-### What's new
-
-The following charms can now control whether or not they ignore juju's model
+The following charms can now control whether or not they ignore Juju's model
 config `juju-*-proxy` based on the charm config `web-proxy-enable` on each charm.
 * `openstack-integrator`
 * `openstack-cloud-controller`
