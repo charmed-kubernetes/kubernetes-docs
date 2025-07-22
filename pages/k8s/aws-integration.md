@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on AWS"
   description: Running Charmed Kubernetes on AWS using the aws-integrator.
@@ -42,7 +42,7 @@ monitor and remove AWS resources necessary for operation of the cluster.
 
 #### From Kubernetes 1.27
 
-The in-tree cloud-provider is no longer available, and must be deployed 
+The in-tree cloud-provider is no longer available, and must be deployed
 as container workloads in the cluster.  Charmed Kubernetes recommends
 using the `aws-cloud-provider` charm to access AWS Service APIs.
 
@@ -330,7 +330,7 @@ Hello Kubernetes!
 ### Upgrading the charms
 
 The charm `aws-integrator`, `aws-cloud-provider` and `aws-k8s-storage`
-can be refreshed within the current charm channel without concern and 
+can be refreshed within the current charm channel without concern and
 can be upgraded at any time with the following command,
 
 ```bash
@@ -366,14 +366,14 @@ If you are an AWS user, you may also be interested in how to
 
 [asset-aws-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/aws-overlay.yaml
 [asset-aws-storage-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/aws-storage-overlay.yaml
-[quickstart]: /kubernetes/docs/quickstart
-[storage]: /kubernetes/docs/storage
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [ebs-info]: https://aws.amazon.com/ebs/features/
 [cloudtrail]: https://console.aws.amazon.com/cloudtrail/
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [aws-integrator-readme]: https://charmhub.io/containers-aws-integrator
-[aws-iam]: /kubernetes/docs/aws-iam-auth
-[install]: /kubernetes/docs/install-manual
+[aws-iam]: /kubernetes/charmed-k8s/docs/aws-iam-auth
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -382,6 +382,6 @@ If you are an AWS user, you may also be interested in how to
       <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/aws-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

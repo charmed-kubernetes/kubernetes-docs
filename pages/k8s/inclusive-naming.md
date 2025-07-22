@@ -1,14 +1,14 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Kubernetes Inclusive Naming"
-  description: Kubernetes commitment to inclusivity 
-keywords: inclusive, requirements, developer 
+  description: Kubernetes commitment to inclusivity
+keywords: inclusive, requirements, developer
 tags: [install]
-sidebar: k8smain-sidebar 
-permalink: inclusive-naming.html 
+sidebar: k8smain-sidebar
+permalink: inclusive-naming.html
 layout: [base, ubuntu-com]
 toc: False
 ---
@@ -64,8 +64,8 @@ transition the names of the default branches to `main`.
 
 [LXD-image]: https://documentation.ubuntu.com/lxd/en/latest/images/
 [kubernetes-control-plane]: https://charmhub.io/kubernetes-control-plane/docs
-[etcd]: /kubernetes/docs/charm-etcd
-[upgrading]: /kubernetes/docs/upgrading
+[etcd]: /kubernetes/charmed-k8s/docs/charm-etcd
+[upgrading]: /kubernetes/charmed-k8s/docs/upgrading
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -75,6 +75,6 @@ transition the names of the default branches to `main`.
       <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/inclusive-naming.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

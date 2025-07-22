@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on Equinix Metal"
   description: Running Charmed Kubernetes on Equinix.
@@ -434,10 +434,10 @@ Hello Kubernetes!
 [asset-equinix-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/equinix-overlay.yaml
 [equinix-facilities]: https://metal.equinix.com/developers/docs/locations/facilities/
 [equinix-configuration]: https://github.com/equinix/cloud-provider-equinix-metal#configuration
-[quickstart]: /kubernetes/docs/quickstart
-[storage]: /kubernetes/docs/storage
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
-[install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
 [Juju documentation]: https://documentation.ubuntu.com/juju/3.6/tutorial/
 [Equinix Metal]: https://metal.equinix.com/
@@ -449,6 +449,6 @@ Hello Kubernetes!
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/equinix.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

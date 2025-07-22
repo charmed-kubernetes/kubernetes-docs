@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Ceph storage"
   description: How to include Ceph CSI for Ceph storage support.
@@ -16,7 +16,7 @@ toc: False
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">This guide uses the ceph-csi and cephfs operator charms available with Charmed Kubernetes 1.29 and above. For previous versions, see the <a href="/kubernetes/docs/storage">generic storage guide</a> to integrate Ceph without these charms.</p>
+    <p class="p-notification__message">This guide uses the ceph-csi and cephfs operator charms available with Charmed Kubernetes 1.29 and above. For previous versions, see the <a href="/kubernetes/charmed-k8s/docs/storage">generic storage guide</a> to integrate Ceph without these charms.</p>
   </div>
 </div>
 
@@ -153,6 +153,6 @@ here you can install any of the things that require storage out of the box.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/ceph.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

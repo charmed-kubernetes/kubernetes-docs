@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Kubernetes-worker charm '
   description: The workload bearing units of a kubernetes cluster
@@ -31,7 +31,7 @@ This charm is part of the [Charmed Kubernetes bundle](https://jaas.ai/charmed-ku
 juju deploy charmed-kubernetes
 ```
 
-For more information about Charmed Kubernetes see the [overview documentation](/kubernetes/docs/overview)
+For more information about Charmed Kubernetes see the [overview documentation](/kubernetes/charmed-k8s/docs/overview)
 
 ## Scale out
 
@@ -75,7 +75,7 @@ juju config kubernetes-worker snapd_refresh=""
 ```
 
 
-For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
+For more information, see the [snap documentation](/kubernetes/charmed-k8s/docs/snap-refresh).
 
 ## Configuration
 

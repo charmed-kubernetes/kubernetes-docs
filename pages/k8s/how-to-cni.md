@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Configure networking and CNI"
   description: How to deploy and use networking charms
@@ -16,17 +16,17 @@ toc: False
 Charmed Kubernetes supports a wide variety of network options for your cluster,
 provided by additional charms. Their use is described in the pages linked below:
 
-- [Flannel](/kubernetes/docs/cni-flannel)
-- [Calico](/kubernetes/docs/cni-calico)
-- [Canal](/kubernetes/docs/cni-canal)
-- [Cilium](/kubernetes/docs/cni-cilium)
-- [Kube OVN](/kubernetes/docs/cni-kube-ovn)
-- [Tigera Secure EE](/kubernetes/docs/tigera-secure-ee)
-- [Multus](/kubernetes/docs/cni-multus)
-- [SR-IOV](/kubernetes/docs/cni-sriov)
-- [Using multiple networks](/kubernetes/docs/multiple-networks)
-- [IPv6](/kubernetes/docs/ipv6)
-- [Ingress](/kubernetes/docs/ingress)
+- [Flannel](/kubernetes/charmed-k8s/docs/cni-flannel)
+- [Calico](/kubernetes/charmed-k8s/docs/cni-calico)
+- [Canal](/kubernetes/charmed-k8s/docs/cni-canal)
+- [Cilium](/kubernetes/charmed-k8s/docs/cni-cilium)
+- [Kube OVN](/kubernetes/charmed-k8s/docs/cni-kube-ovn)
+- [Tigera Secure EE](/kubernetes/charmed-k8s/docs/tigera-secure-ee)
+- [Multus](/kubernetes/charmed-k8s/docs/cni-multus)
+- [SR-IOV](/kubernetes/charmed-k8s/docs/cni-sriov)
+- [Using multiple networks](/kubernetes/charmed-k8s/docs/multiple-networks)
+- [IPv6](/kubernetes/charmed-k8s/docs/ipv6)
+- [Ingress](/kubernetes/charmed-k8s/docs/ingress)
 
 
 <!-- FEEDBACK -->
@@ -36,6 +36,6 @@ provided by additional charms. Their use is described in the pages linked below:
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/how-to-cni.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

@@ -2,7 +2,7 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 1.32 Release notes
   description: Release notes for Charmed Kubernetes
@@ -143,4 +143,4 @@ please see the relevant sections of the
 
 <!--LINKS-->
 
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes

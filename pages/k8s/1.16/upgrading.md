@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading to 1.16"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -109,7 +109,7 @@ upgrading, remove any reference of the registry in the custom_registries
 containerd charm configuration.
 
 After upgrading, see the
-[docker registry instructions](/kubernetes/docs/docker-registry) for details
+[docker registry instructions](/kubernetes/charmed-k8s/docs/docker-registry) for details
 of how to configure a registry.
 
 
@@ -420,12 +420,12 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
+[validation]: /kubernetes/charmed-k8s/docs/validation
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -434,7 +434,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Kubernetes-worker charm '
   description: The workload bearing units of a kubernetes cluster
@@ -32,7 +32,7 @@ This charm is part of the [Charmed Kubernetes bundle](https://jaas.ai/charmed-ku
 juju deploy charmed-kubernetes
 ```
 
-For more information about Charmed Kubernetes see the [overview documentation](/kubernetes/docs/overview)
+For more information about Charmed Kubernetes see the [overview documentation](/kubernetes/charmed-k8s/docs/overview)
 
 ## Scale out
 
@@ -76,7 +76,7 @@ juju config kubernetes-worker snapd_refresh=""
 ```
 
 
-For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
+For more information, see the [snap documentation](/kubernetes/charmed-k8s/docs/snap-refresh).
 
 ## Configuration
 
@@ -281,7 +281,7 @@ the setting of conntrack-max-per-core vs nf_conntrack_max.
 
 This requires configuration of both the `kubernetes-master` and
 `kubernetes-worker` charms. Please see the configuration section on
-the [kubernetes-master page](/kubernetes/docs/charm-kubernetes-master#config-ipvs).
+the [kubernetes-master page](/kubernetes/charmed-k8s/docs/charm-kubernetes-master#config-ipvs).
 
 ### Configuring kubelet
 
@@ -503,7 +503,7 @@ juju run-action kubernetes-worker ACTION [parameters] [--wait]
   </div>
   <div class="col-5">
     <p>
-      Create a private Docker registry. DEPRECATED: See https://ubuntu.com/kubernetes/docs/docker-registry
+      Create a private Docker registry. DEPRECATED: See https://ubuntu.com/kubernetes/charmed-k8s/docs/docker-registry
     </p>
   </div>
 </div>

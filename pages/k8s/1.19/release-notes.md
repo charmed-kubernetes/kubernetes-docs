@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK 1.19
@@ -34,7 +34,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ### September 30th, 2020 - charmed-kubernetes-519
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -92,7 +92,7 @@ LoadBalancing services in Kubernetes. This bundle has been made available
 in the Charm Store to be deployed along Charmed Kubernetes, MicroK8s, or any Kubernetes
 supported by Juju. This operator deploys upstream MetalLB in layer 2 mode. The BGP mode
 of upstream MetalLB is not supported yet. For more information about deploying and
-operating MetalLB, please see the [MetalLB documentation](https://ubuntu.com/kubernetes/docs/metallb).
+operating MetalLB, please see the [MetalLB documentation](https://ubuntu.com/kubernetes/charmed-k8s/docs/metallb).
 
 - SR-IOV CNI
 
@@ -146,14 +146,14 @@ relevant sections of the [upstream release notes](https://github.com/kubernetes/
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[cis-benchmark]: /kubernetes/docs/cis-compliance
-[historic]: /kubernetes/docs/release-notes-historic
-[ipv6]: /kubernetes/docs/ipv6
-[cni-sriov]: /kubernetes/docs/cni-sriov
-[authn]: /kubernetes/docs/auth#authn
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[cis-benchmark]: /kubernetes/charmed-k8s/docs/cis-compliance
+[historic]: /kubernetes/charmed-k8s/docs/release-notes-historic
+[ipv6]: /kubernetes/charmed-k8s/docs/ipv6
+[cni-sriov]: /kubernetes/charmed-k8s/docs/cni-sriov
+[authn]: /kubernetes/charmed-k8s/docs/auth#authn
 [veth-mtu]: https://docs.projectcalico.org/networking/mtu
-[1.19-calico]: /kubernetes/docs/1.19/charm-calico
+[1.19-calico]: /kubernetes/charmed-k8s/docs/1.19/charm-calico
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -162,7 +162,7 @@ Please see [this page][historic] for release notes of earlier versions.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

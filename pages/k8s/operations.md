@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Basic operations"
   description: How to operate your Charmed Kubernetes cluster.
@@ -307,13 +307,13 @@ things you may wish to try:
 
 <!--LINKS-->
 [next]: #next
-[addons]: /kubernetes/docs/cdk-addons
+[addons]: /kubernetes/charmed-k8s/docs/cdk-addons
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[storage]: /kubernetes/docs/storage
-[scaling]: /kubernetes/docs/scaling
-[logging]: /kubernetes/docs/logging
-[decommission]: /kubernetes/docs/decommissioning
-[get-in-touch]:  /kubernetes/docs/get-in-touch
+[storage]: /kubernetes/charmed-k8s/docs/storage
+[scaling]: /kubernetes/charmed-k8s/docs/scaling
+[logging]: /kubernetes/charmed-k8s/docs/logging
+[decommission]: /kubernetes/charmed-k8s/docs/decommissioning
+[get-in-touch]:  /kubernetes/charmed-k8s/docs/get-in-touch
 
 
 <!-- FEEDBACK -->
@@ -323,7 +323,7 @@ things you may wish to try:
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/operations.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

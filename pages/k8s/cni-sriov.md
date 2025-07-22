@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with SR-IOV"
   description: How to deploy and use SR-IOV CNI in Charmed Kubernetes
@@ -219,11 +219,11 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 <!-- LINKS -->
 
-[cni-overview]: /kubernetes/docs/cni-overview
-[storage]: /kubernetes/docs/storage
-[cni-multus]: /kubernetes/docs/cni-multus
+[cni-overview]: /kubernetes/charmed-k8s/docs/cni-overview
+[storage]: /kubernetes/charmed-k8s/docs/storage
+[cni-multus]: /kubernetes/charmed-k8s/docs/cni-multus
 [sriov-resourcelist]: https://github.com/intel/sriov-network-device-plugin/tree/db98d96cc0d6ad3fff917ba238bd1cc5cc3f7e82#config-parameters
-[troubleshooting]: /kubernetes/docs/troubleshooting
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -232,7 +232,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-sriov.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with Kube-OVN"
   description: How to manage and deploy Kubernetes with Kube-OVN
@@ -235,8 +235,8 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [kube-ovn-grafana-dashboards]: https://github.com/kubeovn/kube-ovn/blob/release-1.10/docs/prometheus.md#grafana-dashboard
 [kube-ovn-metrics]: https://github.com/kubeovn/kube-ovn/blob/release-1.10/docs/ovn-ovs-monitor.md
 [kube-ovn-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml
-[private docker registry]: /kubernetes/docs/docker-registry
-[troubleshooting]: /kubernetes/docs/troubleshooting
+[private docker registry]: /kubernetes/charmed-k8s/docs/docker-registry
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -245,6 +245,6 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-kube-ovn.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

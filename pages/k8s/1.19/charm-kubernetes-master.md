@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Kubernetes-master charm '
   description: The Kubernetes control plane.
@@ -78,7 +78,7 @@ juju config kubernetes-master snapd_refresh="max"
 juju config kubernetes-master snapd_refresh=""
 ```
 
-For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
+For more information, see the [snap documentation](/kubernetes/charmed-k8s/docs/snap-refresh).
 
 ## Configuration
 
@@ -953,5 +953,5 @@ juju run-action kubernetes-master ACTION [parameters] [--wait]
 <!-- LINKS -->
 [IPVS deep dive]: https://kubernetes.io/blog/2018/07/09/ipvs-based-in-cluster-load-balancing-deep-dive/
 [blog-admission]: https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/
-[Addons page]: /kubernetes/docs/cdk-addons
-[certs-and-trust]: /kubernetes/docs/certs-and-trust
+[Addons page]: /kubernetes/charmed-k8s/docs/cdk-addons
+[certs-and-trust]: /kubernetes/charmed-k8s/docs/certs-and-trust

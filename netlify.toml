@@ -1,16 +1,16 @@
 [[redirects]]
-  from = "/kubernetes/docs/*"
+  from = "/kubernetes/charmed-k8s/docs/*"
   to = "/:splat"
   status = 200
   force = false
-  
+
 # COMMENT: This a rule for managed kubernetes
 [[redirects]]
   from = "/kubernetes/managed"
   to = "https://www.ubuntu.com/kubernetes/managed"
   status = 200
   force = false
-  
+
  # COMMENT: This a rule for support
 [[redirects]]
   from = "/support"

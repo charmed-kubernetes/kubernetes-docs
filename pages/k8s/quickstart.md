@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Quick start"
   description: With this quick start guide and some tools from Canonical, you'll have a Kubernetes cluster running on the cloud of your choice in minutes!
@@ -36,7 +36,7 @@ Kubernetes cluster running on the cloud of your choice in minutes!
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">If you don't meet these requirements, there are additional ways of installing <emphasis>Charmed Kubernetes<sup>&reg;</sup></emphasis>, including additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for details. </p>
+    <p class="p-notification__message">If you don't meet these requirements, there are additional ways of installing <emphasis>Charmed Kubernetes<sup>&reg;</sup></emphasis>, including additional OS support and an entirely local deploy. Please see the more general <a href="/kubernetes/charmed-k8s/docs/install-manual">Installing Charmed Kubernetes</a> page for details. </p>
   </div>
 </div>
 
@@ -133,7 +133,7 @@ Google. You can see which ones are ready to use by running this command:
         <div class="p-stepped-list__content">
           <p>Congratulations! You have a Kubernetes cluster up and running - now let's use it! The link below takes you to the operations guide, detailing some of the common things you'll want to do next: </p>
           <p>
-          <a href="/kubernetes/docs/operations">Get started with your new cluster&nbsp;›</a>
+          <a href="/kubernetes/charmed-k8s/docs/operations">Get started with your new cluster&nbsp;›</a>
           </p>
         </div>
       </li>
@@ -148,7 +148,7 @@ Google. You can see which ones are ready to use by running this command:
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/docs/install-manual">Installing Charmed Kubernetes</a> page for a more detailed guide. </p>
+    <p class="p-notification__message">This guide gets you up and running with Charmed Kubernetes quickly. If you want to explore how to customise your install, please see the <a href="/kubernetes/charmed-k8s/docs/install-manual">Installing Charmed Kubernetes</a> page for a more detailed guide. </p>
   </div>
 </div>
 
@@ -156,8 +156,8 @@ Google. You can see which ones are ready to use by running this command:
 <!-- LINKS -->
 
 [jujucharms-com]: https://charmhub.io
-[install]: /kubernetes/docs/install-manual
-[overview]: /kubernetes/docs/overview
+[install]: /kubernetes/charmed-k8s/docs/install-manual
+[overview]: /kubernetes/charmed-k8s/docs/overview
 [snapd-docs]: https://docs.snapcraft.io/core/install
 [cloud-aws]: https://aws.amazon.com
 [cloud-cloudsigma]: https://www.cloudsigma.com
@@ -174,6 +174,6 @@ Google. You can see which ones are ready to use by running this command:
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/quickstart.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

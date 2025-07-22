@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Integrating COS Lite with Charmed Kubernetes"
   description: Integrating COS Lite with Charmed Kubernetes
@@ -156,7 +156,7 @@ you can head over to the [COS Lite documentation][cos-lite-docs].
 
 <!-- LINKS -->
 
-[how-to-install]: /kubernetes/docs/how-to-install
+[how-to-install]: /kubernetes/charmed-k8s/docs/how-to-install
 [how-to-install-microk8s]: https://microk8s.io/docs/getting-started
 [add-k8s]: https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/add-k8s/
 [cos-lite-docs]: https://charmhub.io/topics/canonical-observability-stack
@@ -171,6 +171,6 @@ you can head over to the [COS Lite documentation][cos-lite-docs].
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/how-to-cos-lite.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

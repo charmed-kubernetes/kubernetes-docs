@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Installing Charmed Kubernetes"
   description: How to install and customise Charmed Kubernetes using Juju bundles.
@@ -66,7 +66,7 @@ Be advised that you should use only **one** overlay from each category!
   <div class="col-4 ">
    <span>Flannel is a simple, lightweight layer 3 fabric for Kubernetes.
    It manages an IPv4 network between multiple nodes in a cluster.
-   <a href="/kubernetes/docs/cni-flannel"> Read more...</a></span>
+   <a href="/kubernetes/charmed-k8s/docs/cni-flannel"> Read more...</a></span>
   </div>
   <div class="col-3 ">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/flannel-overlay.yaml" class="p-button--positive">Download flannel-overlay.yaml</a></span>
@@ -78,7 +78,7 @@ Be advised that you should use only **one** overlay from each category!
   <span>Canal</span>
 </div>
  <div class="col-4">
-  <span>Shorthand for "Calico and Flannel", this combination brings in Calico's support for the NetworkPolicy feature of Kubernetes, while utilizing Flannel's UDP-based network traffic.<a href="/kubernetes/docs/cni-canal"> Read more...</a></span>
+  <span>Shorthand for "Calico and Flannel", this combination brings in Calico's support for the NetworkPolicy feature of Kubernetes, while utilizing Flannel's UDP-based network traffic.<a href="/kubernetes/charmed-k8s/docs/cni-canal"> Read more...</a></span>
  </div>
  <div class="col-3">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/canal-overlay.yaml" class="p-button--positive">Download canal-overlay.yaml</a></span>
@@ -91,7 +91,7 @@ Be advised that you should use only **one** overlay from each category!
   <span>Cilium</span>
 </div>
  <div class="col-4">
-  <span>Cilium is a CNI that leverages eBPF to provide advanced networking, security, and observability.<a href="/kubernetes/docs/cni-cilium"> Read more...</a></span>
+  <span>Cilium is a CNI that leverages eBPF to provide advanced networking, security, and observability.<a href="/kubernetes/charmed-k8s/docs/cni-cilium"> Read more...</a></span>
  </div>
  <div class="col-3">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/cilium-overlay.yaml" class="p-button--positive">Download cilium-overlay.yaml</a></span>
@@ -104,7 +104,7 @@ Be advised that you should use only **one** overlay from each category!
   <span>Kube-OVN</span>
 </div>
  <div class="col-4">
-  <span>Kube-OVN is a CNI implementation based on OVN that provides a rich set of networking features for advanced enterprise applications.<a href="/kubernetes/docs/cni-kube-ovn"> Read more...</a></span>
+  <span>Kube-OVN is a CNI implementation based on OVN that provides a rich set of networking features for advanced enterprise applications.<a href="/kubernetes/charmed-k8s/docs/cni-kube-ovn"> Read more...</a></span>
  </div>
  <div class="col-3">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/kube-ovn-overlay.yaml" class="p-button--positive">Download kube-ovn-overlay.yaml</a></span>
@@ -119,7 +119,7 @@ Be advised that you should use only **one** overlay from each category!
  <div class="col-4">
   <span>Tigera Secure EE is a commercial version of
   Calico with additional enterprise features. As well as deploying the software, you will need to configure
-  it with the relevant licence. <a href="/kubernetes/docs/tigera-secure-ee"> Read more...</a></span>
+  it with the relevant licence. <a href="/kubernetes/charmed-k8s/docs/tigera-secure-ee"> Read more...</a></span>
  </div>
  <div class="col-3">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/tigera-overlay.yaml" class="p-button--positive">Download tigera-overlay.yaml</a></span>
@@ -130,7 +130,7 @@ Be advised that you should use only **one** overlay from each category!
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">By default, Charmed Kubernetes uses <em>Calico</em> for networking. You can read more about CNI support <a href="/kubernetes/docs/cni-overview"> here </a>.</p>
+    <p class="p-notification__message">By default, Charmed Kubernetes uses <em>Calico</em> for networking. You can read more about CNI support <a href="/kubernetes/charmed-k8s/docs/cni-overview"> here </a>.</p>
   </div>
 </div>
 
@@ -144,7 +144,7 @@ Be advised that you should use only **one** overlay from each category!
    <span>AWS integration</span>
  </div>
   <div class="col-4 ">
-   <span>Enables support for EBS storage and ELB load balancers. <a href="/kubernetes/docs/aws-integration"> Read more...</a></span>
+   <span>Enables support for EBS storage and ELB load balancers. <a href="/kubernetes/charmed-k8s/docs/aws-integration"> Read more...</a></span>
   </div>
   <div class="col-3 ">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/aws-overlay.yaml" class="p-button--positive">Download aws-overlay.yaml</a></span>
@@ -168,7 +168,7 @@ Be advised that you should use only **one** overlay from each category!
   <span>GCP integration</span>
 </div>
  <div class="col-4">
-  <span>Integrates with GCP for storage and loadbalancing. <a href="/kubernetes/docs/gcp-integration"> Read more...</a></span>
+  <span>Integrates with GCP for storage and loadbalancing. <a href="/kubernetes/charmed-k8s/docs/gcp-integration"> Read more...</a></span>
  </div>
  <div class="col-3">
    <span class="u-vertically-center"><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/gcp-overlay.yaml" class="p-button--positive">Download gcp-overlay.yaml</a></span>
@@ -180,7 +180,7 @@ Be advised that you should use only **one** overlay from each category!
    <span>OpenStack integrator</span>
  </div>
   <div class="col-4">
-   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="/kubernetes/docs/openstack-integration"> Read more...</a></span>
+   <span>Provides support for OpenStack native features such as Cinder volumes and LBaaS. <a href="/kubernetes/charmed-k8s/docs/openstack-integration"> Read more...</a></span>
   </div>
   <div class="col-3">
     <span><a href="https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-overlay.yaml" class="p-button--positive u-no-margin--right">Download openstack-overlay.yaml</a></span>
@@ -211,7 +211,7 @@ juju deploy charmed-kubernetes --overlay aws-overlay.yaml --trust --overlay cana
 
 For more detail on overlays and how they work, see the section [below](#overlay).
 
-<a href="/kubernetes/docs/operations">Get started with your new cluster&nbsp;›</a>
+<a href="/kubernetes/charmed-k8s/docs/operations">Get started with your new cluster&nbsp;›</a>
 
 ## Deploying a specific Charmed Kubernetes bundle
 
@@ -459,7 +459,7 @@ Now you have a cluster up and running, check out the
 [jaas]: https://jaas.ai/
 [juju-docs]: https://documentation.ubuntu.com/juju/3.6/tutorial/
 [credentials]: https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/credentials/
-[quickstart]: /kubernetes/docs/quickstart
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [juju-bundle]: https://documentation.ubuntu.com/juju/3.6/reference/bundle/
 [juju-gui]: https://juju.is/docs/juju/manage-the-juju-dashboard
 [juju-constraints]: https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/constraints/
@@ -467,10 +467,10 @@ Now you have a cluster up and running, check out the
 [charm-kworker]: https://charmhub.io/containers-kubernetes-worker
 [snaps]: https://docs.snapcraft.io/snap-documentation
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws-docs]: /kubernetes/docs/aws-integration
-[gcp-docs]: /kubernetes/docs/gcp-integration
-[operations]: /kubernetes/docs/operations
-[localhost]: /kubernetes/docs/install-local
+[aws-docs]: /kubernetes/charmed-k8s/docs/aws-integration
+[gcp-docs]: /kubernetes/charmed-k8s/docs/gcp-integration
+[operations]: /kubernetes/charmed-k8s/docs/operations
+[localhost]: /kubernetes/charmed-k8s/docs/install-local
 [releases]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
 <!-- FEEDBACK -->
@@ -480,6 +480,6 @@ Now you have a cluster up and running, check out the
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/install-manual.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

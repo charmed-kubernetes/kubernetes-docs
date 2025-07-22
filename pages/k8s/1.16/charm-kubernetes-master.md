@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Kubernetes-master charm '
   description: The Kubernetes control plane.
@@ -77,7 +77,7 @@ juju config kubernetes-master snapd_refresh="max"
 juju config kubernetes-master snapd_refresh=""
 ```
 
-For more information, see the [snap documentation](/kubernetes/docs/snap-refresh).
+For more information, see the [snap documentation](/kubernetes/charmed-k8s/docs/snap-refresh).
 
 ## Configuration
 

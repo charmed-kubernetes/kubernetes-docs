@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Supported versions"
   description: The Charmed Kubernetes release cycle and current supported versions.
@@ -29,13 +29,13 @@ Supported releases (click buttons for more information):
 
 <div class="row">
  <div class="col-2">
-  <span class="u-vertically-center"><a href="/kubernetes/docs/1.33/components" class="p-button--positive">1.33.x</a></span>
+  <span class="u-vertically-center"><a href="/kubernetes/charmed-k8s/docs/1.33/components" class="p-button--positive">1.33.x</a></span>
  </div>
  <div class="col-2">
-  <span class="u-vertically-center"><a href="/kubernetes/docs/1.32/components" class="p-button--positive">1.32.x</a></span>
+  <span class="u-vertically-center"><a href="/kubernetes/charmed-k8s/docs/1.32/components" class="p-button--positive">1.32.x</a></span>
  </div>
  <div class="col-2">
-  <span class="u-vertically-center"><a href="/kubernetes/docs/1.31/components" class="p-button--positive">1.31.x</a></span>
+  <span class="u-vertically-center"><a href="/kubernetes/charmed-k8s/docs/1.31/components" class="p-button--positive">1.31.x</a></span>
  </div>
 </div>
 
@@ -90,6 +90,6 @@ professional support programmes.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/supported-versions.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

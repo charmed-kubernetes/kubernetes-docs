@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: Components of Charmed Kubernetes 1.32
   description: Detailed description of Charmed Kubernetes release
@@ -28,8 +28,8 @@ which comprise the 1.32 release of Charmed Kubernetes.
 
 Other information about this release can be found on the following pages:
 
-<a class='p-button--brand' href='/kubernetes/docs/1.32/release-notes'>Release notes </a>
-<a class='p-button--brand' href='/kubernetes/docs/1.32/upgrading'>Upgrading </a>
+<a class='p-button--brand' href='/kubernetes/charmed-k8s/docs/1.32/release-notes'>Release notes </a>
+<a class='p-button--brand' href='/kubernetes/charmed-k8s/docs/1.32/upgrading'>Upgrading </a>
 <a class='p-button--brand' href='https://bugs.launchpad.net/charmed-kubernetes'>Bugs </a>
 <a class='p-button--brand' href='https://github.com/charmed-kubernetes/bundle'>Source </a>
 <a class='p-button--brand' href='https://launchpad.net/charmed-kubernetes/+milestone/1.32'>Milestone </a>
@@ -121,9 +121,9 @@ to extend the capabilities of your Kubernetes cluster.
 
 <!-- LINKS -->
 
-[release notes]: /kubernetes/docs/release-notes#1.32
-[upgrade notes]: /kubernetes/docs/upgrade-notes
-[bugs]: /kubernetes/docs/
+[release notes]: /kubernetes/charmed-k8s/docs/release-notes#1.32
+[upgrade notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[bugs]: /kubernetes/charmed-k8s/docs/
 [source]: https://github.com/charmed-kubernetes
 [1.32 milestone]: https://launchpad.net/charmed-kubernetes/+milestone/1.32
 
@@ -134,6 +134,6 @@ to extend the capabilities of your Kubernetes cluster.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.32/components.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

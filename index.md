@@ -1,7 +1,7 @@
 ---
 wrapper_template: "base-docs.html"
 markdown_includes:
-  nav: "shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes documentation"
   description: Documentation for the Canonical Distribution of Kubernetes.
@@ -33,12 +33,12 @@ Google, Microsoft, and many other institutions run Kubernetes on Ubuntu because 
 </thead>
 <tbody>
 <tr>
-<td><a href="/kubernetes/docs/tutorials-index">Tutorials</a><br>  Get started with this introduction to Charmed Kubernetes <br></td>
-<td><a href="/kubernetes/docs/how-to-index">How-to guides</a> <br> Step-by-step guides covering key operations and common tasks</td>
+<td><a href="/kubernetes/charmed-k8s/docs/tutorials-index">Tutorials</a><br>  Get started with this introduction to Charmed Kubernetes <br></td>
+<td><a href="/kubernetes/charmed-k8s/docs/how-to-index">How-to guides</a> <br> Step-by-step guides covering key operations and common tasks</td>
 </tr>
 <tr>
-<td><a href="/kubernetes/docs/explanation-index">Explanation</a> <br> Concepts - discussion and clarification of key topics</td>
-<td><a href="/kubernetes/docs/reference-index">Reference</a> <br> Technical information - specifications, commands, architecture</td>
+<td><a href="/kubernetes/charmed-k8s/docs/explanation-index">Explanation</a> <br> Concepts - discussion and clarification of key topics</td>
+<td><a href="/kubernetes/charmed-k8s/docs/reference-index">Reference</a> <br> Technical information - specifications, commands, architecture</td>
 </tr>
 </tbody>
 </table>

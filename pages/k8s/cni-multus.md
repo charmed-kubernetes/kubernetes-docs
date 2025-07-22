@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with Multus"
   description: How to deploy and use Multus in Charmed Kubernetes
@@ -199,10 +199,10 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 <!-- LINKS -->
 
 [multus]: https://github.com/intel/multus-cni
-[cni-overview]: /kubernetes/docs/cni-overview
-[storage]: /kubernetes/docs/storage
+[cni-overview]: /kubernetes/charmed-k8s/docs/cni-overview
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [multus-examples]: https://github.com/intel/multus-cni/blob/master/docs/how-to-use.md#create-network-attachment-definition
-[troubleshooting]: /kubernetes/docs/troubleshooting
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -211,7 +211,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-multus.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

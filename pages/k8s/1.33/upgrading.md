@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading to 1.33"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -376,13 +376,13 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -391,6 +391,6 @@ It is recommended that you run a [cluster validation][validation] to ensure that
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.33/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

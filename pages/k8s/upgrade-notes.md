@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrade notes"
   description: How to deal with specific, special circumstances you may encounter when upgrading between versions of Kubernetes.
@@ -26,7 +26,7 @@ There is a known issue
 with container profiles not surviving an upgrade in clouds running on LXD. If
 your container-based applications fail to work properly after an upgrade,
 please see this [topic on the troubleshooting
-page](/kubernetes/docs/troubleshooting#charms-deployed-to-lxd-containers-fail-after-upgradereboot)
+page](/kubernetes/charmed-k8s/docs/troubleshooting#charms-deployed-to-lxd-containers-fail-after-upgradereboot)
 
 <a  id="1.29"> </a>
 
@@ -89,7 +89,7 @@ integrations with Kubernetes. See [openstack-integration][] for more details on
 using these charms.
 
 After upgrading the `kubernetes-control-plane` charm, the unit may enter
-`blocked` status with the message: `openstack relation is no longer managed`. 
+`blocked` status with the message: `openstack relation is no longer managed`.
 
 If you see this message, you can resolve it by removing the `openstack`
 relation:
@@ -107,7 +107,7 @@ juju integrate openstack-integrator:clients                        cinder-csi:op
 #   The following could be vault:certificates instead of easyrsa:client
 #   Check what supplies the certificates for the kubernetes-control-plane
 juju status kubernetes-control-plane --relations | grep ':certificates'
-juju integrate openstack-cloud-controller:certificates             easyrsa:client   
+juju integrate openstack-cloud-controller:certificates             easyrsa:client
 juju integrate cinder-csi:certificates                             easyrsa:client
 
 # Wait for the units to be active/idle, then
@@ -225,7 +225,7 @@ If `keystone-upgrade/keystone-authorization` contains `true`, then the webhook
 should be enabled. This command adds the Keystone authorisation webhook config
 and the `Webhook` authorisation mode:
 
-``` 
+```
 juju config kubernetes-control-plane \
     authorization-webhook-config-file="$(cat keystone-upgrade/webhook.yaml)" \
     authorization-mode="Node,RBAC,Webhook"
@@ -304,7 +304,7 @@ There are several important changes to 1.24 that will affect all users:
    explanation about this.
 
 Due to these and other changes, it is recommended to follow the specific upgrade
-procedure described in the [upgrading to 1.24 docs](/kubernetes/docs/1.24/upgrading).
+procedure described in the [upgrading to 1.24 docs](/kubernetes/charmed-k8s/docs/1.24/upgrading).
 
 ### ceph-storage relation deprecated
 
@@ -345,7 +345,7 @@ juju config kubernetes-worker proxy-extra-args
 If you see `proxy-mode=userspace` in the charm configs, remove it, then proceed
 with the upgrade.
 
-Please follow the [upgrade instructions for 1.19](/kubernetes/docs/1.19/upgrading).
+Please follow the [upgrade instructions for 1.19](/kubernetes/charmed-k8s/docs/1.19/upgrading).
 
 
 <a  id="1.18"> </a>
@@ -360,7 +360,7 @@ have been removed from the Kubernetes source tree and therefore removed from the
 Customers relying on these addons should migrate to a `metrics-server` solution prior to upgrading.
 
 **Note:** these removals do not affect the Kubernetes Dashboard nor the methods described in
-[Monitoring Charmed Kubernetes](/kubernetes/docs/monitoring).
+[Monitoring Charmed Kubernetes](/kubernetes/charmed-k8s/docs/monitoring).
 
 <a  id="1.16"> </a>
 
@@ -373,9 +373,9 @@ Docker Registry charm with Containerd.
 
 This charm, if used, is now supported through standard relations. Before upgrading,
 remove any reference of the registry in the `custom_registries`
-[containerd charm configuration](/kubernetes/docs/container-runtime).
+[containerd charm configuration](/kubernetes/charmed-k8s/docs/container-runtime).
 
-After upgrading, see the [docker registry](/kubernetes/docs/docker-registry)
+After upgrading, see the [docker registry](/kubernetes/charmed-k8s/docs/docker-registry)
 instructions for details of how to configure a registry.
 
 ### Admission control plugins
@@ -647,11 +647,11 @@ You can now proceed with the rest of the upgrade.
 [script]: https://raw.githubusercontent.com/juju-solutions/cdk-etcd-2to3/master/migrate
 [dns-provider-config]: https://github.com/juju-solutions/kubernetes/blob/5f4868af82705a0636680a38d7f3ea760d35dadb/cluster/juju/layers/kubernetes-master/config.yaml#L58-L67
 [docker-page]: https://jaas.ai/u/containers/docker#configuration
-[inclusive-naming]: /kubernetes/docs/inclusive-naming
+[inclusive-naming]: /kubernetes/charmed-k8s/docs/inclusive-naming
 [LP#2044219]: https://bugs.launchpad.net/charm-kubernetes-master/+bug/2044219
-[cos]: kubernetes/docs/how-to-cos-lite
-[nvidia-gpu-operator]: kubernetes/docs/gpu-workers
-[openstack-integration]: /kubernetes/docs/openstack-integration
+[cos]: kubernetes/charmed-k8s/docs/how-to-cos-lite
+[nvidia-gpu-operator]: kubernetes/charmed-k8s/docs/gpu-workers
+[openstack-integration]: /kubernetes/charmed-k8s/docs/openstack-integration
 [keystone-auth]: https://github.com/kubernetes/cloud-provider-openstack/tree/master/docs/keystone-auth
 [keystone-auth-webhook]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-keystone-webhook-authenticator-and-authorizer.md#k8s-keystone-auth
 [keystone-authentication]: https://github.com/kubernetes/cloud-provider-openstack/blob/master/docs/keystone-auth/using-auth-data-synchronization.md#full-example-using-keystone-for-authentication-and-kubernetes-rbac-for-authorization
@@ -665,6 +665,6 @@ You can now proceed with the rest of the upgrade.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrade-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

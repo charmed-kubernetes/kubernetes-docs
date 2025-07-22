@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for Charmed Kubernetes
@@ -76,5 +76,5 @@ relevant sections of the [upstream release notes][upstream-changelog].
 Please see [this page][rel] for release notes of earlier versions.
 
 <!--LINKS-->
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes
 [upstream-changelog]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md#deprecation

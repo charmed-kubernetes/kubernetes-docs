@@ -1,7 +1,7 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Canal charm '
   description: A Software Defined Network based on Flannel and Calico

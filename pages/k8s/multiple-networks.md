@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Using Multiple Host Networks"
   description: Using multiple host networks with Charmed Kubernetes.
@@ -15,7 +15,7 @@ toc: False
 
 This page is about using multiple host networks with Charmed Kubernetes. For
 information on using multiple container networks, please refer to the
-[Multus](/kubernetes/docs/cni-multus) page instead.
+[Multus](/kubernetes/charmed-k8s/docs/cni-multus) page instead.
 
 Using network spaces and bindings in Juju, it's possible to deploy Charmed
 Kubernetes in an environment with multiple networks and assign traffic to
@@ -128,6 +128,6 @@ You can read more about bindings in the Juju documentation here:
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/multiple-networks.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

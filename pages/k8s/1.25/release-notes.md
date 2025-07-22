@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "1.25 Release notes"
   description: Release notes for Charmed Kubernetes
@@ -49,7 +49,7 @@ Notable fixes in this release include:
   path definition to `/etc/fstab` interrupted the configure kubelet hook.
 
 
-# 1.25+ck2 Bugfix release 
+# 1.25+ck2 Bugfix release
 
 ### September 30, 2022 - `charmed-kubernetes --channel 1.25/stable`
 
@@ -61,7 +61,7 @@ Notable fixes in this release include:
 
 - AzureDisk in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1990687](https://bugs.launchpad.net/bugs/1990687)
 
-  With the pinning of [CSIMigrationAzureDisk=True](https://github.com/kubernetes/kubernetes/pull/110491) in 
+  With the pinning of [CSIMigrationAzureDisk=True](https://github.com/kubernetes/kubernetes/pull/110491) in
   Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
   provided by AzureDisk is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/azuredisk-csi-driver).
 
@@ -81,7 +81,7 @@ Notable fixes in this release include:
 
 - AwsEbs in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
 
-  With the pinning of [CSIMigrationAWS=True](https://github.com/kubernetes/kubernetes/pull/111479) in 
+  With the pinning of [CSIMigrationAWS=True](https://github.com/kubernetes/kubernetes/pull/111479) in
   Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
   provided by AWS is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/aws-ebs-csi-driver/).
 
@@ -89,7 +89,7 @@ Notable fixes in this release include:
 
 - GCE in Kubernetes-Control-Plane / Kubernetes-Worker [LP#1988186](https://bugs.launchpad.net/bugs/1988186)
 
-  With the pinning of [CSIMigrationGCE=True](https://github.com/kubernetes/kubernetes/pull/111301) in 
+  With the pinning of [CSIMigrationGCE=True](https://github.com/kubernetes/kubernetes/pull/111301) in
   Kubernetes 1.25, the charm must not allow these to be set `False`.  This means that in-tree storage
   provided by GCE is only supported in 1.25 and beyond with an [out-of-tree deployment](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver).
 
@@ -99,7 +99,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 [the launchpad milestone page for 1.25+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.25+ck2).
 
 
-# 1.25+ck1 Bugfix release 
+# 1.25+ck1 Bugfix release
 
 ### September 19, 2022 - `charmed-kubernetes --channel 1.25/stable`
 
@@ -132,7 +132,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 # 1.25
 
-### September 1, 2022 - `charmed-kubernetes --channel 1.25/stable` 
+### September 1, 2022 - `charmed-kubernetes --channel 1.25/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.25/bundle.yaml).
 
@@ -140,28 +140,28 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 - Telco-ready CNI
 
-Identifying a need for increasingly sophisticated SDN within Kubernetes, Charmed Kubernetes now has a Kube-OVN charm. 
-This enables a set of new networking capabilities such as VXLAN, QoS, IP Dualstack and more. 
+Identifying a need for increasingly sophisticated SDN within Kubernetes, Charmed Kubernetes now has a Kube-OVN charm.
+This enables a set of new networking capabilities such as VXLAN, QoS, IP Dualstack and more.
 
 - High availability secret management
 
-Furthering our commitment to resilience, we have now extended the Hashicorp Vault charm to provide HA capabilities, 
+Furthering our commitment to resilience, we have now extended the Hashicorp Vault charm to provide HA capabilities,
 ensuring your secrets are always available.
 
 - Cloud provider integration
 
-OpenStack, vSphere and Azure become the latest Cloud integrations to benefit from updated Charmed Kubernetes charms. With these integrations, 
+OpenStack, vSphere and Azure become the latest Cloud integrations to benefit from updated Charmed Kubernetes charms. With these integrations,
 we enable you to deploy our Kubernetes and make it your own as you leverage native features within those clouds.
 
 - Lightweight observability
 
-Canonical Observability Stack (COS Lite) now integrates with our flagship networking charm Kube-OVN. 
+Canonical Observability Stack (COS Lite) now integrates with our flagship networking charm Kube-OVN.
 This marks a commitment to providing high quality relations that enable zero-ops observability.
 
 - CDK-addons uplifted to operators
 
-As an effort to keep our charms evergreen and ready for production use, we have uplifted CDK-addons to individual operators. 
-This provides a range of benefits, from individual build processes to versioning and releasing. 
+As an effort to keep our charms evergreen and ready for production use, we have uplifted CDK-addons to individual operators.
+This provides a range of benefits, from individual build processes to versioning and releasing.
 
 - Ubuntu 22.04 LTS support
 
@@ -212,15 +212,15 @@ A full list of bug fixes and updates since Charmed Kubernetes 1.24 can be found 
   Storage Components on AWS and Google Cloud
 
   Beginning in 1.25 `CSIMigrationAWS` and `CSIMigrationGCE` have been locked to `true` resulting this release being unable to support storage volume mounting in AWS or Google Cloud without the use of those providers' out-of-tree csi-drivers. No charms yet exist for these two cloud platforms but will soon be addressed.
-  
+
   Do not set `channel=1.25` on charm config `kubernetes-control-plane` and `kubernetes-worker` unless your cluster has taken steps to mitigate the lack of built-in storage such as:
   * Not using storage
   * Using alternative storage like `ceph-csi`
   * Manually configuring the out-of-tree storage provisioner
 
 * PodSecurityPolicy Removed
-  PodSecurityPolicy has been removed in 1.25. Please see the [PodSecurityPolicy Migration Guide](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) if you have deployed pod security policies in your cluster. 
-  Do not set `channel=1.25` on charm config `kubernetes-control-plane` and `kubernetes-worker` until your policies have been migrated. 
+  PodSecurityPolicy has been removed in 1.25. Please see the [PodSecurityPolicy Migration Guide](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp/) if you have deployed pod security policies in your cluster.
+  Do not set `channel=1.25` on charm config `kubernetes-control-plane` and `kubernetes-worker` until your policies have been migrated.
 
 ## Deprecations and API changes
 
@@ -240,4 +240,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.25].
 <!-- AUTOGENERATED RELEASE 1.25 ABOVE -->
 
 <!--LINKS-->
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes

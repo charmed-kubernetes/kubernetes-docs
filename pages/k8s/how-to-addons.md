@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "How to use Charmed Kubernetes addon Operator Charms"
   description: Explaining how to install and configure addon operator charms with Charmed Kubernetes.
@@ -20,7 +20,7 @@ of these addons, please see the [addons page][].
 ##  Steps for all addons
 
 In order for Juju to deploy Kubernetes applications, it will need to fetch
-information and be configured to work with your Kubernetes cluster. 
+information and be configured to work with your Kubernetes cluster.
 These steps assume:
  * You have administrative access to the Charmed Kubernetes cluster.
  * Your Charmed Kubernetes is running in a model called 'ck-model'. Replace this term in the commands listed for a different model name.
@@ -28,14 +28,14 @@ These steps assume:
 
 #### 1. Confirm your Juju controller is up to date
 
-Before creating and using a Kubernetes model, it is recommended to upgrade the 
+Before creating and using a Kubernetes model, it is recommended to upgrade the
 controller model to the lastest version:
 
 ```bash
 juju upgrade-model -m controller
 ```
 
-#### 2. Install kubectl 
+#### 2. Install kubectl
 
 You will need **kubectl** to be able to use your Kubernetes cluster. If it is not already
 installed, it is easy to add via a snap package:
@@ -53,7 +53,7 @@ Juju makes use of the **kubectl** config file to access the Kubernetes cluster.
 For Linux-based systems, this file is usually located at `~/.kube/config`
 
 If you are already using `kubectl` to access other clusters you may wish to merge
-the configurations rather than replacing it. The following command fetches the 
+the configurations rather than replacing it. The following command fetches the
 config file for `kubectl` from the Kubernetes cluster and saves it to the default location:
 
 ```bash
@@ -74,7 +74,7 @@ remember to substitute in the correct name in the remaining examples in this pag
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message"> Some operator charms may require access to storage. Please make sure your Kubernetes cluster has access to a storage class accessible to 
+    <p class="p-notification__message"> Some operator charms may require access to storage. Please make sure your Kubernetes cluster has access to a storage class accessible to
     the deployed applications.</p>
   </div>
 </div>
@@ -94,9 +94,9 @@ monitor or manage operators you install on the cluster.
 
 #### 6. Switching between models
 
-Juju will automatically "switch" to the new Kubernetes model you just created. 
+Juju will automatically "switch" to the new Kubernetes model you just created.
 
-Most of the instructions for the add-on components here require commands to be run 
+Most of the instructions for the add-on components here require commands to be run
 in the model where Charmed Kubernetes is running and also in the model created on the Kubernetes cloud (which we have called `ck8s` in this page). Use the Juju `switch` command to see the currently available models:
 
 ```bash
@@ -117,7 +117,7 @@ k8s-model*   ck8s/default          kubernetes  available         0      -  -    
 ```
 
 In the above case, there are three models available to the current controller. One is the model created
-by the controller itself ("controller"), one is the model where Charmed Kubernetes is installed 
+by the controller itself ("controller"), one is the model where Charmed Kubernetes is installed
 (in this case, it was called "ck-model") and the final one, which has an asterisk to indicate it is the current
 model, is the one we just created. If you chose poor names or get confused between many different models, it is helpful to note that the "Type" field shows the underlying cloud type, so your kubernetes clouds are easier to spot.
 
@@ -159,7 +159,7 @@ With the Charmed Kubernetes model selected from Juju, run:
 juju config kubernetes-control-plane dns-provider=none
 ```
 
-#### 2. Deploy the CoreDNS operator 
+#### 2. Deploy the CoreDNS operator
 
 Switch back to the Kubernetes cloud:
 
@@ -183,7 +183,7 @@ kubectl get -n 'k8s-model' po
 
 Although the 'k8s-model' is running on top of the components installed in 'ck-model',
 they are considered to be separate entities. To use an application running in one
-model from a different model, Juju supports 'cross-model relations'. There are a few 
+model from a different model, Juju supports 'cross-model relations'. There are a few
 extra commands to enable this.
 
 ```bash
@@ -192,7 +192,7 @@ juju offer coredns:dns-provider
 ```
 
 The offer command exposes the Juju relation for use in a different model. In the above, we
-expose the `dns-provider` relation endpoint.  
+expose the `dns-provider` relation endpoint.
 
 To connect to that, switch models and use the `consume` command:
 
@@ -202,7 +202,7 @@ juju consume k8s-model.coredns
 ```
 
 The `consume` command is the counterpart to `offer`. It establishes a connection to the specified model and application, and adds that resource to the current model. A running
-application in the model can then be related to it as thought it were a local model 
+application in the model can then be related to it as thought it were a local model
 resource. In this case you want to connect it to the kubernetes-control-plane:
 
 ```bash
@@ -221,7 +221,7 @@ For more details, see the [CoreDNS charm documentation][coredns-docs]
 Sourced from: <https://github.com/kubernetes/dashboard.git>
 
 The Kubernetes Dashboard is a standard and easy way to inspect and
-interact with your Kubernetes cluster. The dashboard operator charm 
+interact with your Kubernetes cluster. The dashboard operator charm
 
 #### 1. Disable the in-tree dashboard
 
@@ -253,7 +253,7 @@ Access to the Kubernetes Dashboard works as before. Please use the instructions 
 ## Metrics
 
 The metrics addon consists of two services, Kube State Metrics and Kubernetes Metrics Server.
-Both of these can be replaced by charm operators as detailed below. 
+Both of these can be replaced by charm operators as detailed below.
 
 Before deploying the new charms, you should turn off the built-in metrics features:
 
@@ -277,7 +277,7 @@ juju deploy kube-state-metrics --trust
 If you have a prometheus application running in the same model, it can also be related to this:
 
 ```bash
-juju integrate kube-state-metrics prometheus 
+juju integrate kube-state-metrics prometheus
 ```
 
 
@@ -318,13 +318,13 @@ Some of the new configuration options available through this charm are:
 
 
 <!-- LINKS -->
-[addons page]: /kubernetes/docs/cdk-addons
-[Operations page]: /kubernetes/docs/operations
+[addons page]: /kubernetes/charmed-k8s/docs/cdk-addons
+[Operations page]: /kubernetes/charmed-k8s/docs/operations
 [kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
-[Storage documentation]: /kubernetes/docs/storage
-[GPU workers page]: /kubernetes/docs/gpu-workers
-[LDAP and Keystone page]: /kubernetes/docs/ldap
-[monitoring docs]: /kubernetes/docs/monitoring
+[Storage documentation]: /kubernetes/charmed-k8s/docs/storage
+[GPU workers page]: /kubernetes/charmed-k8s/docs/gpu-workers
+[LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
+[monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
 [kubernetes-dashboard-charm]: https://charmhub.io/kubernetes-dashboard
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard

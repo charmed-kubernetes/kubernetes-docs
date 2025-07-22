@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with Cilium"
   description: How to manage and deploy Kubernetes with Cilium
@@ -24,12 +24,12 @@ transparent network security and traffic monitoring features.
 <div class="p-notification--information is-inline">
   <div class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">If you are deploying Charmed Kubernetes + Cilium on AWS or OpenStack, please set the following model configurations to disable FAN networking, as this conflicts with the network interfaces created by Cilium: 
+    <p class="p-notification__message">If you are deploying Charmed Kubernetes + Cilium on AWS or OpenStack, please set the following model configurations to disable FAN networking, as this conflicts with the network interfaces created by Cilium:
     <pre><code>
     juju model-config container-networking-method=local fan-config=
     </code></pre>
     </p>
-    Alternatively, you can set another VXLAN destination port for Cilium to avoid possible 
+    Alternatively, you can set another VXLAN destination port for Cilium to avoid possible
     collisions with other tools that make use of VXLAN.
   </div>
 </div>
@@ -121,7 +121,7 @@ provided below.
 
 ## Configuring encapsulation protocol and port
 
-Cilium supports both `VXLAN` and `Geneve` tunnel encapsulation protocol. While the charm uses 
+Cilium supports both `VXLAN` and `Geneve` tunnel encapsulation protocol. While the charm uses
 `VXLAN` by default, you can change it to `Geneve` via the following command:
 
 ```bash
@@ -342,7 +342,7 @@ For additional troubleshooting pointers, please see the
 [hubble-client]: https://docs.cilium.io/en/stable/gettingstarted/hubble_cli/#hubble-cli
 [hubble-metrics]: https://docs.cilium.io/en/stable/observability/metrics/#hubble-metrics
 [juju-cmi]: https://documentation.ubuntu.com/juju/3.6/howto/manage-relations/#add-a-cross-model-relation
-[troubleshooting]: /kubernetes/docs/troubleshooting
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -351,6 +351,6 @@ For additional troubleshooting pointers, please see the
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-cilium.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

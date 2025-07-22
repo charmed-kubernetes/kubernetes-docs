@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK
@@ -85,7 +85,7 @@ speaker pod logs error with "selfLink was empty, can't make reference".
 
 The `registry` action of the `kubernetes-worker` charm is deprecated and will
 be removed in a future release. See the
-[Private Docker Registry](https://ubuntu.com/kubernetes/docs/docker-registry)
+[Private Docker Registry](https://ubuntu.com/kubernetes/charmed-k8s/docs/docker-registry)
 documentation for using a custom registry with Charmed Kubernetes.
 
 - Upstream
@@ -98,7 +98,7 @@ relevant sections of the [upstream release notes](https://github.com/kubernetes/
 Please see [this page][rel] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[rel]: /kubernetes/docs/release-notes
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes
 [images-per-release]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
 [arc-docs]: https://github.com/Azure/azure-arc-validation/blob/main/README.md

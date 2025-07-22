@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK
@@ -92,13 +92,13 @@ relevant sections of the [upstream release notes](https://github.com/kubernetes/
 Please see [this page][rel] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[cis-benchmark]: /kubernetes/docs/cis-compliance
-[rel]: /kubernetes/docs/release-notes
-[ipv6]: /kubernetes/docs/ipv6
-[cni-sriov]: /kubernetes/docs/cni-sriov
-[authn]: /kubernetes/docs/auth#authn
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[cis-benchmark]: /kubernetes/charmed-k8s/docs/cis-compliance
+[rel]: /kubernetes/charmed-k8s/docs/release-notes
+[ipv6]: /kubernetes/charmed-k8s/docs/ipv6
+[cni-sriov]: /kubernetes/charmed-k8s/docs/cni-sriov
+[authn]: /kubernetes/charmed-k8s/docs/auth#authn
 [veth-mtu]: https://docs.projectcalico.org/networking/mtu
-[1.19-calico]: /kubernetes/docs/1.19/charm-calico
-[coredns]: /kubernetes/docs/cdk-addons#coredns
-[dashboard]: /kubernetes/docs/cdk-addons#kubernetes-dashboard
+[1.19-calico]: /kubernetes/charmed-k8s/docs/1.19/charm-calico
+[coredns]: /kubernetes/charmed-k8s/docs/cdk-addons#coredns
+[dashboard]: /kubernetes/charmed-k8s/docs/cdk-addons#kubernetes-dashboard

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with flannel"
   description: How to manage and deploy Kubernetes with flannel
@@ -75,11 +75,11 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 
 [Flannel]: https://github.com/coreos/flannel
 [flannel-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/flannel-overlay.yaml
-[troubleshooting]: /kubernetes/docs/troubleshooting
-[quickstart]:  /kubernetes/docs/quickstart
-[install-manual]:  /kubernetes/docs/install-manual
-[Calico]: /kubernetes/docs/cni-calico
-[Canal]: /kubernetes/docs/cni-canal
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
+[quickstart]:  /kubernetes/charmed-k8s/docs/quickstart
+[install-manual]:  /kubernetes/charmed-k8s/docs/install-manual
+[Calico]: /kubernetes/charmed-k8s/docs/cni-calico
+[Canal]: /kubernetes/charmed-k8s/docs/cni-canal
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -88,7 +88,7 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-flannel.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -22,9 +22,9 @@ toc: False
   </div>
   <div class="p-notification__meta">
     <div class="p-notification__actions">
-      <a class='p-notification__action' href='/kubernetes/docs/1.23/upgrading'>Upgrade to 1.23</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.22/upgrading'>Upgrade to 1.22</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.21/upgrading'>Upgrade to 1.21</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.23/upgrading'>Upgrade to 1.23</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.22/upgrading'>Upgrade to 1.22</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.21/upgrading'>Upgrade to 1.21</a>
     </div>
   </div>
 </div>
@@ -454,13 +454,13 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
 [juju-controller-upgrade]: https://juju.is/docs/juju/upgrade-models
 [bundle-repo]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
@@ -471,6 +471,6 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.23/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

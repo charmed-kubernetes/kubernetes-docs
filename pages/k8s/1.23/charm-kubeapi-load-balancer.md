@@ -1,7 +1,7 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Kubeapi-load-balancer charm '
   description: Nginx Load Balancer
@@ -138,5 +138,5 @@ juju run-action kubeapi-load-balancer ACTION [parameters] [--wait]
 
 <!-- LINKS -->
 
-[kubernetes-master]: /kubernetes/docs/charm-kubernetes-master#extra_sans
-[certs-and-trust]: /kubernetes/docs/certs-and-trust
+[kubernetes-master]: /kubernetes/charmed-k8s/docs/charm-kubernetes-master#extra_sans
+[certs-and-trust]: /kubernetes/charmed-k8s/docs/certs-and-trust

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Security in Charmed Kubernetes"
   description: Using LDAP authentication via Keystone
@@ -98,10 +98,10 @@ To test your cluster, please see the
 [Machine auth]: https://documentation.ubuntu.com/juju/3.6/howto/manage-ssh-keys/
 [juju-users]: https://documentation.ubuntu.com/juju/3.6/howto/manage-users/
 [juju-user-types]: https://documentation.ubuntu.com/juju/3.6/reference/user/
-[CIS compliance]: /kubernetes/docs/cis-compliance
-[k8s-auth]: /kubernetes/docs/auth
-[k8s-aws-iam]: /kubernetes/docs/aws-iam-auth
-[k8s-ldap]: /kubernetes/docs/ldap
-[k8s-trust]: /kubernetes/docs/certs-and-trust
-[k8s-vault]: /kubernetes/docs/using-vault
-[k8s-gatekeeper]: /kubernetes/docs/gatekeeper
+[CIS compliance]: /kubernetes/charmed-k8s/docs/cis-compliance
+[k8s-auth]: /kubernetes/charmed-k8s/docs/auth
+[k8s-aws-iam]: /kubernetes/charmed-k8s/docs/aws-iam-auth
+[k8s-ldap]: /kubernetes/charmed-k8s/docs/ldap
+[k8s-trust]: /kubernetes/charmed-k8s/docs/certs-and-trust
+[k8s-vault]: /kubernetes/charmed-k8s/docs/using-vault
+[k8s-gatekeeper]: /kubernetes/charmed-k8s/docs/gatekeeper

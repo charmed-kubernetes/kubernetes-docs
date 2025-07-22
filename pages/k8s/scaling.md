@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Scaling"
   description: Learn how various components of Charmed Kubernetes can be horizontally scaled to meet demand or increase reliability.
@@ -51,7 +51,7 @@ juju add-unit kubernetes-control-plane -n 3
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
     <p class="p-notification__message"> Prior to the 1.24 release of charms, this application and charm was titled `kubernetes-master`.
-    See <a href="/kubernetes/docs/inclusive-naming">inclusive-naming</a> for more information. </p>
+    See <a href="/kubernetes/charmed-k8s/docs/inclusive-naming">inclusive-naming</a> for more information. </p>
   </div>
 </div>
 
@@ -192,6 +192,6 @@ For a more detailed guide, please refer to the [Juju high availability documenta
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/scaling.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

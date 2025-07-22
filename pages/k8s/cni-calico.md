@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with Calico"
   description: How to manage and deploy Kubernetes with Calico
@@ -382,16 +382,16 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
 [NetworkPolicy]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [Creating an AWS VPC]: https://old-docs.jujucharms.com/2.5/en/charms-fan-aws-vpc
 [Disabling Source/Destination Checks]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html#EIP_Disable_SrcDestCheck
-[private docker registry]: /kubernetes/docs/docker-registry
+[private docker registry]: /kubernetes/charmed-k8s/docs/docker-registry
 [bgp]: https://docs.tigera.io/calico/3.25/networking/configuring/bgp
 [Calico]: https://www.projectcalico.org/
-[troubleshooting]: /kubernetes/docs/troubleshooting
-[quickstart]:  /kubernetes/docs/quickstart
-[install-manual]:  /kubernetes/docs/install-manual
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
+[quickstart]:  /kubernetes/charmed-k8s/docs/quickstart
+[install-manual]:  /kubernetes/charmed-k8s/docs/install-manual
 [bgp-multiple-subnets-bird-example]: https://gist.github.com/Cynerva/46712dd1e9b75d42cb38fb966abfa932
 [route reflection]: https://tools.ietf.org/html/rfc4456
 [AS Per Rack model]: https://docs.projectcalico.org/reference/architecture/design/l3-interconnect-fabric
-[Calico charm]: /kubernetes/docs/charm-calico
+[Calico charm]: /kubernetes/charmed-k8s/docs/charm-calico
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -400,6 +400,6 @@ For additional troubleshooting pointers, please see the [dedicated troubleshooti
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-calico.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

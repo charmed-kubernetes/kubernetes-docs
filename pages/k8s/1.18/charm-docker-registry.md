@@ -10,7 +10,7 @@ layout:
 - base
 - ubuntu-com
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 permalink: 1.18/charm-docker-registry.html
 sidebar: k8smain-sidebar
 tags:
@@ -127,7 +127,7 @@ juju relate docker-registry nrpe
 See the [Private Docker Registry][k8s-docs] documentation for details on
 integrating this charm with Kubernetes.
 
-[k8s-docs]: https://www.ubuntu.com/kubernetes/docs/docker-registry
+[k8s-docs]: https://www.ubuntu.com/kubernetes/charmed-k8s/docs/docker-registry
 
 ## Actions
 

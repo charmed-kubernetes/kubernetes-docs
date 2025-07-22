@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Certificates and Trust Management"
   description: How Charmed Kubernetes manages PKI certificates and trust
@@ -141,7 +141,7 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
 [kubernetes-control-plane]: https://charmhub.io/kubernetes-control-plane
 [`extra_sans`]:  https://charmhub.io/kubernetes-control-plane/configure
 [HA]: https://en.wikipedia.org/wiki/High_availability
-[vault-cdk]: /kubernetes/docs/using-vault
+[vault-cdk]: /kubernetes/charmed-k8s/docs/using-vault
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -150,6 +150,6 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/certs-and-trust.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new" >file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Explanation topics"
   description: an index of topics in this category
@@ -16,11 +16,11 @@ Our explanatory and conceptual guides are written to provide a better understand
 
 | **Explanation guides** | Notes |
 |--|--|
-| [Charmed Kubernetes overview](/kubernetes/docs/overview) | |
-| [Cloud integration](/kubernetes/docs/explain-cloud)| Storage, loadbalancers...|
-| [Networking](/kubernetes/docs/cni-overview)| CNIs and networking topics|
-| [High Availability](/kubernetes/docs/high-availability)| HA strategies|
-| [Security](/kubernetes/docs/security)| Security overview |
+| [Charmed Kubernetes overview](/kubernetes/charmed-k8s/docs/overview) | |
+| [Cloud integration](/kubernetes/charmed-k8s/docs/explain-cloud)| Storage, loadbalancers...|
+| [Networking](/kubernetes/charmed-k8s/docs/cni-overview)| CNIs and networking topics|
+| [High Availability](/kubernetes/charmed-k8s/docs/high-availability)| HA strategies|
+| [Security](/kubernetes/charmed-k8s/docs/security)| Security overview |
 
 For a quick start to your Kubernetes journey, our tutorials section contains a step-by-step tutorial to help you through your first time experience.
 
@@ -35,6 +35,6 @@ Take a look at our  _Reference section_ when  you need to know more about versio
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/explanation-index.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

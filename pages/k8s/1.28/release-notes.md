@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "1.28 Release notes"
   description: Release notes for Charmed Kubernetes
@@ -63,7 +63,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ## What's new
 ### Cloud Integrator Charms
-* [LP#2033082](https://bugs.launchpad.net/bugs/2033082) 
+* [LP#2033082](https://bugs.launchpad.net/bugs/2033082)
   Replaces deprecated yaml library method to `yaml.safe_load` over `yaml.load`
   - aws-integrator
   - gcp-integrator
@@ -138,7 +138,7 @@ Add flannel cni-plugin 1.2.0, update to flanneld 0.22.1 (#89)
 ### kube-ovn
 
 Update to kube-ovn 1.11.10
-Resolves Error state when relating to cos-lite 
+Resolves Error state when relating to cos-lite
 
 ### kubernetes-worker
 
@@ -159,13 +159,13 @@ Create a bundle for volcano scheduler
 - kube-ovn 1.11.10
 - calico 3.25.1
 - ceph-csi 3.7.2 / 3.7.2
-- cinder-csi 1.27.1 / 1.26.2 
+- cinder-csi 1.27.1 / 1.26.2
 - coredns 1.10.1 / 1.9.4
 - ingress-nginx 1.6.4
 - k8s-keystone-auth 1.26.2
 - kube-state-metrics 2.0.0 / 2.8.2
 - kubernetes-dashboard 2.7.0 / 2.7.0
-- openstack-cloud-controller-manager 1.27.1 / 1.26.2 
+- openstack-cloud-controller-manager 1.27.1 / 1.26.2
 
 ### Charm default versions
 
@@ -183,7 +183,7 @@ A list of other bug fixes and minor feature updates in this release can be found
 [the launchpad milestone page for 1.28](https://launchpad.net/charmed-kubernetes/+milestone/1.28).
 
 - **azure-cloud-provider**
-Apply `topologySpreadConstraints` to control-plane Deployments [LP#2016053](https://launchpad.net/bugs/2016053) 
+Apply `topologySpreadConstraints` to control-plane Deployments [LP#2016053](https://launchpad.net/bugs/2016053)
 - **ceph-csi**
 Support CephFS [LP#1940922](https://launchpad.net/bugs/1940922) and [LP#1940921](https://launchpad.net/bugs/1940921)
 - **cilium**
@@ -225,4 +225,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.28].
 
 <!--LINKS-->
 
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes

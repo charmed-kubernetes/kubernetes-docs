@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -179,7 +179,7 @@ is no need to set a specific channel or version for this charm.
 
 ### Upgrading the **kubernetes-master** units
 
-As noted at the beginning of this page, `kubernetes-master` has been renamed `kubernetes-control-plane`. Following the upgrade, the deployed charm will **STILL** be known as `kubernetes-master` to Juju, as it is impossible to change the name of deployed charms. 
+As noted at the beginning of this page, `kubernetes-master` has been renamed `kubernetes-control-plane`. Following the upgrade, the deployed charm will **STILL** be known as `kubernetes-master` to Juju, as it is impossible to change the name of deployed charms.
 
 To start upgrading the Kubernetes master units, first upgrade the charm:
 
@@ -388,14 +388,14 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
-[docker2containerd]: /kubernetes/docs/upgrade-notes#1.15
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
+[docker2containerd]: /kubernetes/charmed-k8s/docs/upgrade-notes#1.15
 [juju-controller-upgrade]: https://juju.is/docs/juju/upgrade-models
 [bundle-repo]: https://github.com/charmed-kubernetes/bundle/tree/main/releases
 
@@ -406,7 +406,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.24/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

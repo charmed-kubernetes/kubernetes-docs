@@ -2,7 +2,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "1.27 Release notes"
   description: Release notes for Charmed Kubernetes
@@ -110,7 +110,7 @@ Offered as a technical preview, the suite of Volcano charms deploys on either
 MicroK8s or Charmed Kubernetes, and can be used to more effectively schedule
 ML/AI workloads which need to ensure effective queuing of jobs requiring GPU
 resources. The charm ships with v1.7.0 of Volcano and will follow future
-upstream releases. See the [Volcano documentation](/kubernetes/docs/volcano) for more information.
+upstream releases. See the [Volcano documentation](/kubernetes/charmed-k8s/docs/volcano) for more information.
 
 ### Cluster API Providers
 
@@ -127,7 +127,7 @@ infrastructure provider.
 
 While the user experience surrounding certain Juju-related interactions is still
 being improved, Charmed Kubernetes can be deployed using the familiar Cluster
-API workflow using the providers in their current state. For the current 
+API workflow using the providers in their current state. For the current
 instructions, see the [Juju cluster API provider repository](https://github.com/charmed-kubernetes/cluster-api-provider-juju).
 
 ## Component Versions

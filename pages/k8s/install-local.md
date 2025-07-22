@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Installing to a local machine"
   description: How to install Charmed Kubernetes on a single machine for easy testing and development.
@@ -327,13 +327,13 @@ juju config calico ignore-loose-rpf=true
 
 [lxd-home]: https://ubuntu.com/lxd
 [lxd-profile]: https://canonical-charmcraft.readthedocs-hosted.com/en/stable/reference/files/lxd-profile-yaml-file
-[calico]: /kubernetes/docs/cni-calico
-[cilium]: /kubernetes/docs/cni-cilium
-[cni-overview]: /kubernetes/docs/cni-overview
+[calico]: /kubernetes/charmed-k8s/docs/cni-calico
+[cilium]: /kubernetes/charmed-k8s/docs/cni-cilium
+[cni-overview]: /kubernetes/charmed-k8s/docs/cni-overview
 [Juju]: https://jaas.ai
 [snap]: https://snapcraft.io/docs/installing-snapd
-[install]: /kubernetes/docs/install-manual
-[operations]: /kubernetes/docs/operations
+[install]: /kubernetes/charmed-k8s/docs/install-manual
+[operations]: /kubernetes/charmed-k8s/docs/operations
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -342,6 +342,6 @@ juju config calico ignore-loose-rpf=true
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/install-local.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

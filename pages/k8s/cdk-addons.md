@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes addons"
   description: Explaining how to make use of the pre-installed additions to Kubernetes provided by Charmed Kubernetes.
@@ -15,16 +15,16 @@ toc: False
 
 In addition to the components strictly required to create a Kubernetes cluster,
 **Charmed Kubernetes** installs and configures some components for convenience
-and/or to add support for specific features. These 'addons' have historically 
+and/or to add support for specific features. These 'addons' have historically
 been 'baked in' with the default install of Charmed Kubernetes, but as these
-components are no longer going to be updated upstream, these are being replaced by 
+components are no longer going to be updated upstream, these are being replaced by
 specific **Operator Charms**. Such charms are deployed by Juju into Kubernetes
-itself and require some additional steps. 
+itself and require some additional steps.
 
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">Please see the <a href="/kubernetes/docs/operator-charms"> Operator Charms</a> page for 
+    <p class="p-notification__message">Please see the <a href="/kubernetes/charmed-k8s/docs/operator-charms"> Operator Charms</a> page for
     information on how to set-up Juju prior to deploying the addon charms into Charmed Kubernetes.</p>
   </div>
 </div>
@@ -46,13 +46,13 @@ CoreDNS has been the default DNS provider for Charmed Kubernetes clusters
 since 1.14. It will be installed and configured as part of the install
 process of Charmed Kubernetes.
 
-If you use the operator charm to deploy CoreDNS to your cluster instead, 
+If you use the operator charm to deploy CoreDNS to your cluster instead,
 there is additional flexibility for configuring:
 -  the cluster domain
 -  forwarding rules for unhandled addresses
 -  additional DNS servers
 
-For a step-by-step guide to installing the Operator Charm version of CoreDNS, 
+For a step-by-step guide to installing the Operator Charm version of CoreDNS,
 please refer to the [How to guide][howto].
 
 
@@ -81,7 +81,7 @@ juju config kubernetes-control-plane enable-dashboard-addons=true
 
 For additional control over the Kubernetes Dashboard, you can also deploy it into
 the cluster using the [Kubernetes Dashboard operator charm][kubernetes-dashboard-charm].
-For a step-by-step guide to installing the Operator Charm version of the dashboard, 
+For a step-by-step guide to installing the Operator Charm version of the dashboard,
 please refer to the [How to guide][howto].
 
 ## Nvidia plugin
@@ -116,11 +116,11 @@ this feature.
 
 
 ## Metrics
-**Charmed Kubernetes** provides the `kube-state-metrics` and `metrics-server` 
+**Charmed Kubernetes** provides the `kube-state-metrics` and `metrics-server`
 services for monitoring some health aspects of the cluster.
 
 For each **Charmed Kubernetes** release, the `kubernetes-control-plane` charm
-includes two metrics services.  
+includes two metrics services.
 
 * `kube-state-metrics` - a fixed commit aligned with the latest-at-the-time release
 * `metrics-server` - a set of kubernetes components defined by kubernetes as an in-tree addon
@@ -137,17 +137,17 @@ juju config kubernetes-control-plane enable-metrics=true
 ```
 
 Both of these services are also available as Operator Charms, to be deployed by Juju
-into the cluster. For a step-by-step guide to installing the metrics services, 
+into the cluster. For a step-by-step guide to installing the metrics services,
 please refer to the [How to guide][howto].
 
 <!-- LINKS -->
-[howto]: /kubernetes/docs/how-to-addons
-[Operations page]: /kubernetes/docs/operations
+[howto]: /kubernetes/charmed-k8s/docs/how-to-addons
+[Operations page]: /kubernetes/charmed-k8s/docs/operations
 [kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
-[Storage documentation]: /kubernetes/docs/storage
-[GPU workers page]: /kubernetes/docs/gpu-workers
-[LDAP and Keystone page]: /kubernetes/docs/ldap
-[monitoring docs]: /kubernetes/docs/monitoring
+[Storage documentation]: /kubernetes/charmed-k8s/docs/storage
+[GPU workers page]: /kubernetes/charmed-k8s/docs/gpu-workers
+[LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
+[monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
 [kubernetes-dashboard-charm]: https://charmhub.io/kubernetes-dashboard
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard

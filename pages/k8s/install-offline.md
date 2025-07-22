@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Installing Charmed Kubernetes offline"
   description: How to install Charmed Kubernetes in a restricted network
@@ -262,14 +262,14 @@ is covered in the [proxy documentation][].
 [LXD-image]: https://documentation.ubuntu.com/lxd/en/latest/images/
 [maas-images]: https://maas.io/docs/how-to-use-standard-images
 [simplestreams]: https://documentation.ubuntu.com/juju/3.6/howto/manage-metadata/
-[bundles]: /kubernetes/docs/supported-versions
-[1.23-components]: /kubernetes/docs/1.23/components#snaps
+[bundles]: /kubernetes/charmed-k8s/docs/supported-versions
+[1.23-components]: /kubernetes/charmed-k8s/docs/1.23/components#snaps
 [cdk-shrinkwrap]: https://github.com/charmed-kubernetes/cdk-shrinkwrap
 [container images]: https://github.com/charmed-kubernetes/bundle/tree/master/container-images
 [offline-mode]: https://documentation.ubuntu.com/juju/3.6/howto/manage-your-deployment/take-your-deployment-offline/
 [on-prem-livepatch]: https://ubuntu.com/security/livepatch/docs/on_prem
-[overlays]: /kubernetes/docs/install-manual#overlay
-[quickstart]: /kubernetes/docs/quickstart
+[overlays]: /kubernetes/charmed-k8s/docs/install-manual#overlay
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [snap]: https://snapcraft.io
 [snaps]: https://docs.snapcraft.io/snap-documentation
 [Snap Store Proxy]: https://docs.ubuntu.com/snap-store-proxy
@@ -277,9 +277,9 @@ is covered in the [proxy documentation][].
 [apt-mirror]: https://www.howtoforge.com/local_debian_ubuntu_mirror
 [aptly]: https://www.aptly.info/doc/overview/
 [sideload]: https://docs.ubuntu.com/snap-store-proxy/en/airgap#usage
-[proxy documentation]: /kubernetes/docs/proxies
-[registry]: /kubernetes/docs/docker-registry
-[local-install]: /kubernetes/docs/install-local
+[proxy documentation]: /kubernetes/charmed-k8s/docs/proxies
+[registry]: /kubernetes/charmed-k8s/docs/docker-registry
+[local-install]: /kubernetes/charmed-k8s/docs/install-local
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -288,6 +288,6 @@ is covered in the [proxy documentation][].
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/install-offline.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Monitoring"
   description: How to create monitoring solution that runs whether the cluster itself is running or not. It may also be useful to integrate monitoring into existing setups.
@@ -16,7 +16,7 @@ toc: False
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">This page describes enabling an external monitoring stack for Charmed Kubernetes 1.28 and below. For 1.29 and above, we recommend integrating Charmed Kubernetes with the Canonical Observability Stack (COS). See the <a href="/kubernetes/docs/how-to-cos-lite">How-to COS guide</a> for more information.</p>
+    <p class="p-notification__message">This page describes enabling an external monitoring stack for Charmed Kubernetes 1.28 and below. For 1.29 and above, we recommend integrating Charmed Kubernetes with the Canonical Observability Stack (COS). See the <a href="/kubernetes/charmed-k8s/docs/how-to-cos-lite">How-to COS guide</a> for more information.</p>
   </div>
 </div>
 
@@ -221,7 +221,7 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
 <!-- LINKS -->
 
 [monitoring-pgt-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/monitoring-pgt-overlay.yaml
-[quickstart]: /kubernetes/docs/quickstart
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [nagios]: https://www.nagios.org/
 [external-nagios]: https://charmhub.io/nrpe/
 
@@ -232,7 +232,7 @@ See the [External Nagios][external-nagios] section of the NRPE charm readme for 
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/monitoring.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

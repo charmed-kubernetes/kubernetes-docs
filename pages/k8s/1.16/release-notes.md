@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK
@@ -35,7 +35,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ### September 27, 2019 -  charmed-kubernetes-252
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -44,12 +44,12 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 Beginning with Charmed Kubernetes 1.16, the [Kata Containers](https://katacontainers.io) runtime can be used
 with containerd to safely run insecure or untrusted pods. When enabled, Kata provides hypervisor isolation
 for pods that request it, while trusted pods can continue to run on a shared kernel via runc.
-For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/docs/kata).
+For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/charmed-k8s/docs/kata).
 
 ### AWS IAM support
 
 Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
-[AWS-IAM documentation](/kubernetes/docs/aws-iam-auth) for details on how to use AWS credentials
+[AWS-IAM documentation](/kubernetes/charmed-k8s/docs/aws-iam-auth) for details on how to use AWS credentials
 to log in to your Charmed Kubernetes cluster.
 
 ### SSL passthrough support
@@ -64,26 +64,26 @@ for more information.
 LXD containers used for hosting Kubernetes components require some specific profile settings. These
 profiles are now embedded in the charms themselves and applied when deployed, dramatically
 simplifying the process of installing Charmed Kubernetes on a single machine. See the
-[Local install documentation](/kubernetes/docs/install-local) for the updated instructions.
+[Local install documentation](/kubernetes/charmed-k8s/docs/install-local) for the updated instructions.
 
 ### Improved Prometheus/Grafana integration
 
 The setup and configuration of Prometheus and Grafana has been significantly streamlined with
 new relations to allow the charms to manage the scraper job and dashboards. This means that
 monitoring can now be added by specifying a single overlay when deploying Charmed Kubernetes.
-Refer to the [updated documentation](/kubernetes/docs/monitoring) for more information.
+Refer to the [updated documentation](/kubernetes/charmed-k8s/docs/monitoring) for more information.
 
 ### Improved OpenStack integration
 
 The OpenStack Integrator charm can now replace the Kube API Load Balancer by providing a
 native OpenStack load balancer (Octavia or Neutron) to provide HA load balancing for the
-Kubernetes control plane. Refer to the [updated documentation](/kubernetes/docs/openstack-integration)
+Kubernetes control plane. Refer to the [updated documentation](/kubernetes/charmed-k8s/docs/openstack-integration)
 for more information.
 
 ### Docker Registry with Containerd
 
 The Docker registry charm can now be related directly to the Containerd runtime charm.
-Refer to the [documentation](/kubernetes/docs/docker-registry) for instructions on how to deploy the charm.
+Refer to the [documentation](/kubernetes/charmed-k8s/docs/docker-registry) for instructions on how to deploy the charm.
 
 ### Renamed default container registry
 
@@ -111,15 +111,15 @@ not work with Kubernetes 1.16.
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[historic]: /kubernetes/docs/release-notes-historic
-[upgrading-docker]: /kubernetes/docs/upgrading#upgrading-docker
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[historic]: /kubernetes/charmed-k8s/docs/release-notes-historic
+[upgrading-docker]: /kubernetes/charmed-k8s/docs/upgrading#upgrading-docker
 [tigera-home]: https://www.tigera.io/tigera-products/calico-enterprise/
-[tigera-docs]: /kubernetes/docs/tigera-secure-ee
-[haoverview]: /kubernetes/docs/high-availability
-[metallb-docs]: /kubernetes/docs/metallb
-[hacluster-docs]: /kubernetes/docs/hacluster
-[cni-calico]: /kubernetes/docs/cni-calico
-[containerd]: /kubernetes/docs/containerd
-[container-runtime]: /kubernetes/docs/container-runtime
+[tigera-docs]: /kubernetes/charmed-k8s/docs/tigera-secure-ee
+[haoverview]: /kubernetes/charmed-k8s/docs/high-availability
+[metallb-docs]: /kubernetes/charmed-k8s/docs/metallb
+[hacluster-docs]: /kubernetes/charmed-k8s/docs/hacluster
+[cni-calico]: /kubernetes/charmed-k8s/docs/cni-calico
+[containerd]: /kubernetes/charmed-k8s/docs/containerd
+[container-runtime]: /kubernetes/charmed-k8s/docs/container-runtime
 [cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/

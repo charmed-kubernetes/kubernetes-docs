@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "HA for kubeapi-load-balancer"
   description: Using keepalived to provide failover for the kube-api-loadbalancer .
@@ -91,7 +91,7 @@ balancer.
 <!--LINKS-->
 [keepalived-home]: http://www.keepalived.org/
 [SANs]: https://www.openssl.org/docs/manmaster/man5/x509v3_config.html#Subject-Alternative-Name
-[logging-doc]: /kubernetes/docs/logging
+[logging-doc]: /kubernetes/charmed-k8s/docs/logging
 [subordinate-charm]: https://documentation.ubuntu.com/juju/3.6/howto/manage-charms
 [openstack-vip]: https://medium.com/jexia/virtual-ip-with-openstack-neutron-dd9378a48bdf
 
@@ -102,6 +102,6 @@ balancer.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/keepalived.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

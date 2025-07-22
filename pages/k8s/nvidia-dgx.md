@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "NVIDIA DGX"
   description: DGX certified Kubernetes.
@@ -80,7 +80,7 @@ You can inspect the logs to find the hardware report.
 ```bash
 kubectl logs job.batch/nvidia-smi
 
-Tue May 17 21:57:41 2022       
+Tue May 17 21:57:41 2022
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 515.43.04    Driver Version: 515.43.04    CUDA Version: 11.7     |
 |-------------------------------+----------------------+----------------------+
@@ -120,7 +120,7 @@ Tue May 17 21:57:41 2022
 | N/A   28C    P0    52W / 400W |      0MiB / 81920MiB |      0%      Default |
 |                               |                      |             Disabled |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
