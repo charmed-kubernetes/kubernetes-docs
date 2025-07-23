@@ -131,3 +131,4 @@ You can read more about bindings in the Juju documentation here:
     <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
+

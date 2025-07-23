@@ -16,7 +16,7 @@ toc: False
 We don't desert our users on day zero - while this documentation can never be a
 complete guide to the general operation of a Kubernetes cluster, we can provide
 guides for many of the common activities and functions of a Charmed Kubernetes
-cluster.
+cluster. 
 
 These guides demonstrate the common tasks any user is likely to need:
 

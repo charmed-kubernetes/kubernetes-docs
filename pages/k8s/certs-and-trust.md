@@ -120,7 +120,7 @@ See the [operations documentation][vault-cdk] for details on how to deploy Vault
 [PKI]: https://github.com/OpenVPN/easy-rsa/blob/master/doc/Intro-To-PKI.md
 [chain of trust]: https://en.wikipedia.org/wiki/Chain_of_trust
 [CA]: https://en.wikipedia.org/wiki/Certificate_authority
-[Juju units]:https://documentation.ubuntu.com/juju/3.6/reference/unit/
+[Juju units]: https://documentation.ubuntu.com/juju/3.6/reference/unit/
 [Juju controller]: https://documentation.ubuntu.com/juju/3.6/reference/controller/
 [tls-certificates]: https://github.com/juju-solutions/interface-tls-certificates
 [websockets]: https://en.wikipedia.org/wiki/WebSocket

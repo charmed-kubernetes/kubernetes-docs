@@ -26,10 +26,10 @@ This work is based on the upstream autoscaler code - see the [FAQ][] for more de
 ## Deploying the autoscaler
 
 The autoscaler charm must be deployed in a Kubernetes model on your cluster, not
-a machine model (i.e., it runs on Kubernetes). These instructions assume you
-have read and followed the instructions for
-[adding your Charmed Kubernetes cluster to your Juju controller][kubernetes-operators].
-These instructions assume you have a cluster registered with Juju and named `ck8s`. Please
+a machine model (i.e., it runs on Kubernetes). These instructions assume you 
+have read and followed the instructions for 
+[adding your Charmed Kubernetes cluster to your Juju controller][kubernetes-operators]. 
+These instructions assume you have a cluster registered with Juju and named `ck8s`. Please 
 adjust the commands given appropriately if you have used a different name.
 
 It is also recommended to schedule the autoscaler charm pods on

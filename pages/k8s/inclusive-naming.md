@@ -4,11 +4,11 @@ markdown_includes:
   nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Kubernetes Inclusive Naming"
-  description: Kubernetes commitment to inclusivity
-keywords: inclusive, requirements, developer
+  description: Kubernetes commitment to inclusivity 
+keywords: inclusive, requirements, developer 
 tags: [install]
-sidebar: k8smain-sidebar
-permalink: inclusive-naming.html
+sidebar: k8smain-sidebar 
+permalink: inclusive-naming.html 
 layout: [base, ubuntu-com]
 toc: False
 ---

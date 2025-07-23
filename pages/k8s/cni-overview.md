@@ -56,12 +56,12 @@ Kubernetes, such a migration should be manageable with no downtime.
 As they develop and mature, CNIs such as [cilium][] and [calico][] more frequently require
 specific kernel features which make them more difficult to operate from within the
 confinement of LXD. **Charmed Kubernetes** makes a best effort to operate CNIs, but admins
-should consider avoiding LXD as a choice to operate `kubernetes-worker` or
+should consider avoiding LXD as a choice to operate `kubernetes-worker` or 
 `kubernetes-control-plane` since the CNIs require deeper access on the host machine's kernel.
 
 If the choice is made to continue using LXD for nodes where a CNI is deployed, the LXD profile must be opened
 up for those units to adjust the host machine's kernel space. Consider a deployment where [calico][] is deployed
-as a subordinate unit of `kubernetes-control-plane` on LXD. Those LXDs exist solely on machines where the primary
+as a subordinate unit of `kubernetes-control-plane` on LXD. Those LXDs exist solely on machines where the primary 
 app is `ubuntu-control-plane-nodes` with the `ubuntu` charm.
 
 Both CNIs require access to the host `/sys/fs/bpf` and this can be exposed through the following profile adjustment

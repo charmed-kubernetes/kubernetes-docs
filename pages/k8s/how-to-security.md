@@ -15,7 +15,7 @@ toc: False
 
 The term 'security' covers a great many subtopics related to running a Kubernetes cluster, ranging from aspects of the workloads to the underlying OS. Please see the [overview of security](/kubernetes/charmed-k8s/docs/security) page for a better understanding of the approach to securing your cluster.
 
-The guides in this section contain How tos for pursuing specific security goals:
+The guides in this section contain How tos for pursuing specific security goals: 
 
 - [Authorisation and authentication](/kubernetes/charmed-k8s/docs/auth)
 - [Use Vault as a CA](/kubernetes/charmed-k8s/docs/using-vault)

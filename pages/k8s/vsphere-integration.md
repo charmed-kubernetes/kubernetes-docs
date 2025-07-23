@@ -77,15 +77,15 @@ Now you can follow the instructions in the vSphere documentation about [Migratin
 
 ## vSphere Cloud Provider
 
-The `vsphere-cloud-provider` charm allows **Charmed Kubernetes** to connect to the vSphere API
-via the out-of-tree cloud provider. This allow your cluster to manage parts of the vSphere infrastructure,
+The `vsphere-cloud-provider` charm allows **Charmed Kubernetes** to connect to the vSphere API 
+via the out-of-tree cloud provider. This allow your cluster to manage parts of the vSphere infrastructure, 
 such as virtual disks.
 
 ## vSphere integrator
 
 The `vsphere-integrator` charm simplifies working with **Charmed Kubernetes** on
 vSphere servers. Using the credentials provided to **Juju**, it acts as a proxy between
-Charmed Kubernetes and the underlying cloud. This charm integrates with the `vsphere-cloud-provider`
+Charmed Kubernetes and the underlying cloud. This charm integrates with the `vsphere-cloud-provider` 
 charm to share the credentials required for its operation.
 
 ### Model configuration
@@ -170,8 +170,8 @@ Details about these options can be found in the [vmware documentation][]:
 juju config vsphere-integrator folder='juju-kubernetes' respool_path='foo'
 ```
 
-The credentials used to interact with vSphere are obtained from Juju
-(via '--trust' during deployment). These may be overriden by specifying
+The credentials used to interact with vSphere are obtained from Juju 
+(via '--trust' during deployment). These may be overriden by specifying 
 credentials directly in the charm configuration:
 
 ```bash

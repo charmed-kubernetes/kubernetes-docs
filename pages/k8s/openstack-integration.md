@@ -115,7 +115,7 @@ allow for external access.
 
 To use Octavia for `LoadBalancer`-type services in the cluster, you will need to set the
 `subnet-id` config to the appropriate tenant subnet where your nodes reside, and if desired, the
-`floating-network-id` config to whatever network you want FIPs created in.  See the
+`floating-network-id` config to whatever network you want FIPs created in.  See the 
 [Charm config docs][charm-config] for more details.
 
 As an example of this usage, this will create a simple application, scale it to five pods,
@@ -280,12 +280,12 @@ generally be upgraded at any time with the following command:
 juju refresh openstack-integrator
 ```
 
-The 1.29/stable release of `openstack-integrator` replaces the relation for using Octavia as a loadbalancer for the API Service.
+The 1.29/stable release of `openstack-integrator` replaces the relation for using Octavia as a loadbalancer for the API Service. 
 The 1.29/stable release of `kubernetes-control-plane` drops the responsibility of deploying `cinder-csi` and the `openstack-controller-manager`.
 In order to upgrade the control-plane and worker charms, follow this process:
 
 **1. Upgrade the openstack-integrator charm**:
-
+   
 ```bash
 juju refresh openstack-integrator --switch --channel=1.29/stable
 ```

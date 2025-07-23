@@ -47,10 +47,10 @@ The 'App' section of the output lists each application and its version number. N
 <div class="p-notification--warning is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Warning!:</span>
-    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.31 release) is <strong>3.5</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-co
-ntroller"> Juju documentation</a> for more information.</p>
+    <p class="p-notification__message"><strong>Juju compatibility</strong>  The latest current version of Juju (as of the time of the Charmed Kubernetes 1.31 release) is <strong>3.5</strong>. This new major release introduces some breaking changes with previous versions. It is recommended that you upgrade to this new version of Juju, but also be aware of the changes. See the <a href="https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller"> Juju documentation</a> for more information.</p>
   </div>
 </div>
+
 
 
 As with all upgrades, there is a possibility that there may be unforeseen difficulties. It is **highly recommended that you make a backup** of any important data, including any running workloads. For more details on creating backups, see the separate [documentation on backups][backups].
@@ -241,7 +241,7 @@ is no need to set a specific channel or version for this charm.
 ### Upgrading the **kubernetes-control-plane** units
 
 **Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This has been updated
-to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you
+to `kubernetes-control-plane`. However, it is not possible to rename a deployed application. If you 
 originally installed version 1.23 or before, your units will follow the old naming scheme and you should
 substitute `kubernetes-control-plane`for `kubernetes-master`in the following commands.
 

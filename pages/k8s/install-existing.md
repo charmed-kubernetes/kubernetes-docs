@@ -16,7 +16,7 @@ toc: False
 Machines that are provisioned without Juju can still be used for Juju deployments.
 This is known as a *manual cloud* and is described in the following Juju documentation:
 
-[The manual cloud and juju][juju-manual]
+[The manual cloud and Juju][juju-manual]
 
 In this guide, we will create a manual cloud with 3 existing machines. We will then
 deploy a minimal installation of **Charmed Kubernetes** to this cloud using the

@@ -18,7 +18,7 @@ toc: False
 ## Contributing to the code
 
 All the code which makes up Charmed Kubernetes is located in repositories on GitHub. Each charm has its own repository where you can find more specifics about that project.
-For an overview of the Charmed Kubernetes project, visit the respective [organisation on GitHub](https://github.com/charmed-kubernetes).
+For an overview of the Charmed Kubernetes project, visit the respective [organisation on GitHub](https://github.com/charmed-kubernetes). 
 
 A charmed operator (‘charm’) is software which wraps an application and contains all of the instructions necessary for deploying, configuring, scaling, integrating, etc., the application on any cloud using Juju.
 

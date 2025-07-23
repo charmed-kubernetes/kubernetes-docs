@@ -13,9 +13,9 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-The vanilla installation of Kubernetes as provided by Charmed Kubernetes doesn't presume which cloud infrastructure the charms may be running on, providing the same Kubernetes experience regardless of the underlying cloud. But there are many cases a cloud operator would like to take advantage of specific features from the cloud provider.
+The vanilla installation of Kubernetes as provided by Charmed Kubernetes doesn't presume which cloud infrastructure the charms may be running on, providing the same Kubernetes experience regardless of the underlying cloud. But there are many cases a cloud operator would like to take advantage of specific features from the cloud provider.  
 
-Many features like Storage Drivers (CSIs), Network Drivers (CNIs), authentication integration and others, require the Kubernetes control plane to have authorisation to contact the cloud-provider APIs and request access to these features. The specifics of these are handled by the respective charm for that cloud.
+Many features like Storage Drivers (CSIs), Network Drivers (CNIs), authentication integration and others, require the Kubernetes control plane to have authorisation to contact the cloud-provider APIs and request access to these features. The specifics of these are handled by the respective charm for that cloud. 
 
 ### For example
 

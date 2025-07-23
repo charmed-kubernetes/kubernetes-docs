@@ -42,7 +42,7 @@ monitor and remove AWS resources necessary for operation of the cluster.
 
 #### From Kubernetes 1.27
 
-The in-tree cloud-provider is no longer available, and must be deployed
+The in-tree cloud-provider is no longer available, and must be deployed 
 as container workloads in the cluster.  Charmed Kubernetes recommends
 using the `aws-cloud-provider` charm to access AWS Service APIs.
 
@@ -330,7 +330,7 @@ Hello Kubernetes!
 ### Upgrading the charms
 
 The charm `aws-integrator`, `aws-cloud-provider` and `aws-k8s-storage`
-can be refreshed within the current charm channel without concern and
+can be refreshed within the current charm channel without concern and 
 can be upgraded at any time with the following command,
 
 ```bash

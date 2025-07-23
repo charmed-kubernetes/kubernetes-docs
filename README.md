@@ -2,7 +2,7 @@
 
 This is a repository for iterating on new versions of the Charmed Kubernetes docs.
 This official docs are published at :
-[https://www.ubuntu.com/kubernetes/docs](https://www.ubuntu.com/kubernetes/docs)
+[https://www.ubuntu.com/kubernetes/charmed-k8s/docs](https://www.ubuntu.com/kubernetes/charmed-k8s/docs)
 
 This repository is set to live publish at:
 [https://cdk-docs.netlify.app/](https://cdk-docs.netlify.app/)

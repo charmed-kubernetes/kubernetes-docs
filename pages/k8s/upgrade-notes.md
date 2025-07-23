@@ -89,7 +89,7 @@ integrations with Kubernetes. See [openstack-integration][] for more details on
 using these charms.
 
 After upgrading the `kubernetes-control-plane` charm, the unit may enter
-`blocked` status with the message: `openstack relation is no longer managed`.
+`blocked` status with the message: `openstack relation is no longer managed`. 
 
 If you see this message, you can resolve it by removing the `openstack`
 relation:
@@ -107,7 +107,7 @@ juju integrate openstack-integrator:clients                        cinder-csi:op
 #   The following could be vault:certificates instead of easyrsa:client
 #   Check what supplies the certificates for the kubernetes-control-plane
 juju status kubernetes-control-plane --relations | grep ':certificates'
-juju integrate openstack-cloud-controller:certificates             easyrsa:client
+juju integrate openstack-cloud-controller:certificates             easyrsa:client   
 juju integrate cinder-csi:certificates                             easyrsa:client
 
 # Wait for the units to be active/idle, then
@@ -225,7 +225,7 @@ If `keystone-upgrade/keystone-authorization` contains `true`, then the webhook
 should be enabled. This command adds the Keystone authorisation webhook config
 and the `Webhook` authorisation mode:
 
-```
+``` 
 juju config kubernetes-control-plane \
     authorization-webhook-config-file="$(cat keystone-upgrade/webhook.yaml)" \
     authorization-mode="Node,RBAC,Webhook"
