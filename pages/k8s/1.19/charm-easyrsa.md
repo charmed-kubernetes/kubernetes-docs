@@ -210,7 +210,7 @@ units.
     <span class="p-notification__status">Warning:</span>
 There is a known issue thatthe `kubernetes-master` units
 need to be restarted after the certificate change. These units may settle in
-the <code>active/idle</code> state but all new pods will hang in the
+the <code>active/idle</code> state but all new pods will stall in the
 <code>pending</code> state. . <br><br>
   </p>
 </div>
