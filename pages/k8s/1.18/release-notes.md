@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK
@@ -27,7 +27,7 @@ Bug fixes included in this release can be found at
 ### June 11, 2020 - charmed-kubernetes-464
 
 Before upgrading from 1.17 or earlier, please read the
-[upgrade notes](/kubernetes/docs/upgrade-notes).
+[upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -75,7 +75,7 @@ Bug fixes included in this release can be found at
 
 ### April 13th, 2020 - charmed-kubernetes-430
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -94,12 +94,12 @@ Please note that while we are making Multus support available today, it is
 dependent on functionality in Juju that is not yet considered stable. For more
 details on the current state of Multus support in Charmed Kubernetes and how to
 get started, please refer to the
-[Multus documentation page](/kubernetes/docs/cni-multus).
+[Multus documentation page](/kubernetes/charmed-k8s/docs/cni-multus).
 
 - CIS Benchmark 1.5.0
 
 The `cis-benchmark` action now supports version 1.5.0 of the CIS Kubernetes Benchmark.
-See the [CIS compliance](/kubernetes/docs/cis-compliance) page for information on
+See the [CIS compliance](/kubernetes/charmed-k8s/docs/cis-compliance) page for information on
 running this action on Charmed Kubernetes components.
 
 - Containerd version hold
@@ -139,7 +139,7 @@ have been removed from the Kubernetes source tree and therefore removed from
 the `cdk-addons` snap as well. Customers relying on these addons should
 migrate to a `metrics-server` solution prior to upgrading. Note: these
 removals do not affect the Kubernetes Dashboard nor the methods described in
-[Monitoring Charmed Kubernetes](/kubernetes/docs/monitoring).
+[Monitoring Charmed Kubernetes](/kubernetes/charmed-k8s/docs/monitoring).
 
 - Containerd cannot pull images from a registry with TLS mutual authentication
 
@@ -164,17 +164,17 @@ PVCs using those storage classes will hang until the storage class is updated.
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
-[historic]: /kubernetes/docs/release-notes-historic
-[upgrading-docker]: /kubernetes/docs/upgrading#upgrading-docker
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
+[historic]: /kubernetes/charmed-k8s/docs/release-notes-historic
+[upgrading-docker]: /kubernetes/charmed-k8s/docs/upgrading#upgrading-docker
 [tigera-home]: https://www.tigera.io/tigera-products/calico-enterprise/
-[tigera-docs]: /kubernetes/docs/tigera-secure-ee
-[haoverview]: /kubernetes/docs/high-availability
-[metallb-docs]: /kubernetes/docs/metallb
-[hacluster-docs]: /kubernetes/docs/hacluster
-[cni-calico]: /kubernetes/docs/cni-calico
-[containerd]: /kubernetes/docs/containerd
-[container-runtime]: /kubernetes/docs/container-runtime
+[tigera-docs]: /kubernetes/charmed-k8s/docs/tigera-secure-ee
+[haoverview]: /kubernetes/charmed-k8s/docs/high-availability
+[metallb-docs]: /kubernetes/charmed-k8s/docs/metallb
+[hacluster-docs]: /kubernetes/charmed-k8s/docs/hacluster
+[cni-calico]: /kubernetes/charmed-k8s/docs/cni-calico
+[containerd]: /kubernetes/charmed-k8s/docs/containerd
+[container-runtime]: /kubernetes/charmed-k8s/docs/container-runtime
 [cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
 
 <!-- FEEDBACK -->
@@ -184,7 +184,7 @@ Please see [this page][historic] for release notes of earlier versions.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

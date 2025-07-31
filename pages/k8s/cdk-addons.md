@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes addons"
   description: Explaining how to make use of the pre-installed additions to Kubernetes provided by Charmed Kubernetes.
@@ -24,7 +24,7 @@ itself and require some additional steps.
 <div class="p-notification--positive is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">Please see the <a href="/kubernetes/docs/operator-charms"> Operator Charms</a> page for 
+    <p class="p-notification__message">Please see the <a href="/kubernetes/charmed-k8s/docs/operator-charms"> Operator Charms</a> page for 
     information on how to set-up Juju prior to deploying the addon charms into Charmed Kubernetes.</p>
   </div>
 </div>
@@ -141,13 +141,13 @@ into the cluster. For a step-by-step guide to installing the metrics services,
 please refer to the [How to guide][howto].
 
 <!-- LINKS -->
-[howto]: /kubernetes/docs/how-to-addons
-[Operations page]: /kubernetes/docs/operations
+[howto]: /kubernetes/charmed-k8s/docs/how-to-addons
+[Operations page]: /kubernetes/charmed-k8s/docs/operations
 [kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
-[Storage documentation]: /kubernetes/docs/storage
-[GPU workers page]: /kubernetes/docs/gpu-workers
-[LDAP and Keystone page]: /kubernetes/docs/ldap
-[monitoring docs]: /kubernetes/docs/monitoring
+[Storage documentation]: /kubernetes/charmed-k8s/docs/storage
+[GPU workers page]: /kubernetes/charmed-k8s/docs/gpu-workers
+[LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
+[monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
 [kubernetes-dashboard-charm]: https://charmhub.io/kubernetes-dashboard
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard

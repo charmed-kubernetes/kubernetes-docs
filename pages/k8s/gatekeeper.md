@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "OPA gatekeeper"
   description: Configure and deploy the OPA gatekeeper policy engine
@@ -182,7 +182,7 @@ ns-must-have-gk                                6
 [prometheus-k8s]: https://charmhub.io/prometheus-k8s
 [grafana-agent-k8s]: https://charmhub.io/grafana-agent-k8s
 [storage-pools]: https://documentation.ubuntu.com/juju/3.6/howto/manage-storage/
-[quickstart]: https://ubuntu.com/kubernetes/docs/quickstart
+[quickstart]: https://ubuntu.com/kubernetes/charmed-k8s/docs/quickstart
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -191,6 +191,7 @@ ns-must-have-gk                                6
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/gatekeeper.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
+

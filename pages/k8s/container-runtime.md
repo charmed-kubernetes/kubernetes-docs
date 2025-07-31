@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Container runtimes"
   description: Configure and use containerd as the container runtime
@@ -94,7 +94,7 @@ the steps outlined in [this section of the upgrade notes][docker2containerd].
 
 <!-- LINKS -->
 
-[docker2containerd]: /kubernetes/docs/upgrade-notes#1.15
+[docker2containerd]: /kubernetes/charmed-k8s/docs/upgrade-notes#1.15
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -103,7 +103,7 @@ the steps outlined in [this section of the upgrade notes][docker2containerd].
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/container-runtime.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Using Vault as a CA"
   description: How to replace EasyRSA with Vault for increased security
@@ -273,8 +273,8 @@ juju status vault
 
 <!-- LINKS -->
 [vault-pki-yaml]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/vault-pki-overlay.yaml
-[certs-doc]: /kubernetes/docs/certs-and-trust
-[encryption-doc]: /kubernetes/docs/encryption-at-rest
+[certs-doc]: /kubernetes/charmed-k8s/docs/certs-and-trust
+[encryption-doc]: /kubernetes/charmed-k8s/docs/encryption-at-rest
 [vault]: https://www.vaultproject.io
 [expose]: https://documentation.ubuntu.com/juju/3.6/reference/juju-cli/list-of-juju-cli-commands/expose/
 [hacluster]: https://charmhub.io/hacluster/
@@ -292,6 +292,7 @@ juju status vault
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/using-vault.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
+

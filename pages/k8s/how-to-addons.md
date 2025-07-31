@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "How to use Charmed Kubernetes addon Operator Charms"
   description: Explaining how to install and configure addon operator charms with Charmed Kubernetes.
@@ -318,13 +318,13 @@ Some of the new configuration options available through this charm are:
 
 
 <!-- LINKS -->
-[addons page]: /kubernetes/docs/cdk-addons
-[Operations page]: /kubernetes/docs/operations
+[addons page]: /kubernetes/charmed-k8s/docs/cdk-addons
+[Operations page]: /kubernetes/charmed-k8s/docs/operations
 [kubernetes-control-plane configuration]: https://charmhub.io/kubernetes-control-plane/configure
-[Storage documentation]: /kubernetes/docs/storage
-[GPU workers page]: /kubernetes/docs/gpu-workers
-[LDAP and Keystone page]: /kubernetes/docs/ldap
-[monitoring docs]: /kubernetes/docs/monitoring
+[Storage documentation]: /kubernetes/charmed-k8s/docs/storage
+[GPU workers page]: /kubernetes/charmed-k8s/docs/gpu-workers
+[LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
+[monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
 [kubernetes-dashboard-charm]: https://charmhub.io/kubernetes-dashboard
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard

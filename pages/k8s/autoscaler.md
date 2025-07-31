@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Kubernetes autoscaler charm"
   description: Deploy, configure and manage the cluster autoscaler
@@ -125,9 +125,9 @@ juju config kubernetes-autoscaler autoscaler_extra_args="{v: 5, scale-down-delay
 
 
 <!-- LINKS -->
-[Kubernetes-operators]: /kubernetes/docs/operator-charms
+[Kubernetes-operators]: /kubernetes/charmed-k8s/docs/operator-charms
 [FAQ]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md
-[Multus]: /kubernetes/docs/cni-multus
+[Multus]: /kubernetes/charmed-k8s/docs/cni-multus
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -136,6 +136,6 @@ juju config kubernetes-autoscaler autoscaler_extra_args="{v: 5, scale-down-delay
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/autoscaler.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

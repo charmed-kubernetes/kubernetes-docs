@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Installing Charmed Kubernetes on Existing Machines"
   description: How to install and customise Charmed Kubernetes on existing machines.
@@ -16,7 +16,7 @@ toc: False
 Machines that are provisioned without Juju can still be used for Juju deployments.
 This is known as a *manual cloud* and is described in the following Juju documentation:
 
-[The manual cloud and juju][juju-manual]
+[The manual cloud and Juju][juju-manual]
 
 In this guide, we will create a manual cloud with 3 existing machines. We will then
 deploy a minimal installation of **Charmed Kubernetes** to this cloud using the
@@ -104,7 +104,7 @@ Now that you have a **Charmed Kubernetes** cluster up and running, check out the
 
 [juju-manual]: https://documentation.ubuntu.com/juju/3.6/reference/cloud/list-of-supported-clouds/the-manual-cloud-and-juju/
 [kubernetes-core]: https://charmhub.io/kubernetes-core
-[operations]: /kubernetes/docs/operations
+[operations]: /kubernetes/charmed-k8s/docs/operations
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -113,6 +113,6 @@ Now that you have a **Charmed Kubernetes** cluster up and running, check out the
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/install-manual.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Get in Touch"
   description: How to contact the Charmed Kubernetes team
@@ -47,7 +47,7 @@ We'd be delighted if you wanted to contribute to any aspect of this open source 
 <!-- LINKS -->
 
 [docs]:  https://github.com/charmed-kubernetes/kubernetes-docs
-[docs on contributing]: /kubernetes/docs/how-to-contribute
+[docs on contributing]: /kubernetes/charmed-k8s/docs/how-to-contribute
 [lp]: https://bugs.launchpad.net/charmed-kubernetes
 [support]: /support
 [managed]: /kubernetes/managed
@@ -61,7 +61,7 @@ We'd be delighted if you wanted to contribute to any aspect of this open source 
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/get-in-touch.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

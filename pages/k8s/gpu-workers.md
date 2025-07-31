@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Using GPU workers"
   description: How to run workloads with GPU support.
@@ -232,7 +232,7 @@ Tue Apr 11 22:46:04 2023
 [nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator?channel=1.29/stable
 [asset-nvidia]: https://raw.githubusercontent.com/charmed-kubernetes/kubernetes-docs/main/assets/nvidia-test.yaml
 [nvidia-supported-tags]: https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/README.md#supported-tags
-[quickstart]: /kubernetes/docs/quickstart
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [aws-instance]: https://aws.amazon.com/ec2/instance-types/#Accelerated_Computing
 [azure-instance]: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-gpu
 [nvidia-gpu-support]: https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/platform-support.html#supported-nvidia-gpus-and-systems
@@ -244,7 +244,7 @@ Tue Apr 11 22:46:04 2023
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/gpu-workers.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -12,7 +12,7 @@ layout:
 - base
 - ubuntu-com
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 permalink: 1.18/charm-aws-integrator.html
 sidebar: k8smain-sidebar
 tags:
@@ -216,7 +216,7 @@ The following script starts the hello-world pod behind an AWS Elastic Load Balan
 kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
 kubectl scale deployment hello-world --replicas=5
 kubectl expose deployment hello-world --type=LoadBalancer --name=hello --port=8080
-watch kubectl get svc hello -o wide 
+watch kubectl get svc hello -o wide
 ```
 
 ## Configuration

@@ -12,7 +12,7 @@ layout:
 - base
 - ubuntu-com
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 permalink: 1.18/charm-vsphere-integrator.html
 sidebar: k8smain-sidebar
 tags:

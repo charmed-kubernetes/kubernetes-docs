@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Reference topics"
   description: an index of topics in this category
@@ -16,13 +16,13 @@ Our reference pages contain more specific details about **Charmed Kubernetes** y
 
 | **Reference pages** | Notes |
 |--|--|
-| [Version info](/kubernetes/docs/supported-versions) | Supported versions and components |
-| [Release notes](/kubernetes/docs/release-notes) | |
-| [Snap refresh settings](/kubernetes/docs/snap-refresh) | Determining update frequency|
-| [Kubernetes Packages](/kubernetes/docs/packages) | Package specifics |
-| [Inclusive naming](/kubernetes/docs/inclusive-naming) | Our policy on inclusive language|
-| [CIS compliance](/kubernetes/docs/cis-compliance) | CIS test details|
-| [Get in touch](/kubernetes/docs/get-in-touch) | |
+| [Version info](/kubernetes/charmed-k8s/docs/supported-versions) | Supported versions and components |
+| [Release notes](/kubernetes/charmed-k8s/docs/release-notes) | |
+| [Snap refresh settings](/kubernetes/charmed-k8s/docs/snap-refresh) | Determining update frequency|
+| [Kubernetes Packages](/kubernetes/charmed-k8s/docs/packages) | Package specifics |
+| [Inclusive naming](/kubernetes/charmed-k8s/docs/inclusive-naming) | Our policy on inclusive language|
+| [CIS compliance](/kubernetes/charmed-k8s/docs/cis-compliance) | CIS test details|
+| [Get in touch](/kubernetes/charmed-k8s/docs/get-in-touch) | |
 
 For a quick start to your Kubernetes journey, our _Tutorials_ section contains a step-by-step tutorial to help you through your first time experience.
 
@@ -37,6 +37,6 @@ For a better understanding of how Charmed Kubernetes works, and how it can be us
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/reference-index.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 'Azure-integrator charm '
   description: "Proxy charm to enable Azure integrations via Juju relations.\n"
@@ -200,7 +200,7 @@ relations:
 **Description:**
 
 The base64-encoded JSON credentials data, which must include the 'application-id',
-'application-password', and the 'subscription-id'. Optionally can include managed-identity (default true) 
+'application-password', and the 'subscription-id'. Optionally can include managed-identity (default true)
 and tenant-id (default '').
 These values can be retrieved from Juju using the 'credentials' command and extracting the value of the 'details'
 key for the appropriate credential. For example, using 'jq', replace '<credential-name>'

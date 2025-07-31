@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading to 1.30"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -16,9 +16,9 @@ toc: False
 <div class="p-notification--caution is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Caution:</span>
-    <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the What's new section of the <a href="/kubernetes/docs/1.30/release-notes">1.30 release notes</a> prior to upgrading your cluster.<br/>
+    <p class="p-notification__message">This release includes topology changes and new best practices for integrating <strong>Charmed Kubernetes</strong> with other Juju ecosystem solutions. Be sure to read and understand the What's new section of the <a href="/kubernetes/charmed-k8s/docs/1.30/release-notes">1.30 release notes</a> prior to upgrading your cluster.<br/>
     <br/>
-    Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/docs/1.30/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.30 at this time.</p>
+    Additionally, some features from previous <strong>Charmed Kubernetes</strong> releases are not yet available in this release. If you rely on a component identified as an *Integration gap* in the <a href="/kubernetes/charmed-k8s/docs/1.30/release-notes#notes-issues">Notes and Known Issues</a> section of the release notes, remain on release 1.28 (or earlier) and do not upgrade to 1.30 at this time.</p>
   </div>
 </div>
 
@@ -391,13 +391,13 @@ It is recommended that you run a [cluster validation][validation] to ensure that
 <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
 [CVE-2024-7646]: https://github.com/kubernetes/kubernetes/issues/126744
 [juju-controller-upgrade]: https://documentation.ubuntu.com/juju/3.6/howto/manage-controllers/#upgrade-a-controller
 
@@ -408,6 +408,6 @@ It is recommended that you run a [cluster validation][validation] to ensure that
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/1.30/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

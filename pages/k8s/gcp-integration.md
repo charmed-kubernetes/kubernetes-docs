@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on GCP"
   description: Running Charmed Kubernetes on Google Cloud Platform using the gcp-integrator.
@@ -369,17 +369,17 @@ juju debug-log --replay --include gcp-integrator/0
 
 <!-- LINKS -->
 
-[quickstart]: /kubernetes/docs/quickstart
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [owner]: https://console.cloud.google.com/iam-admin/iam
 [iam-roles]: https://cloud.google.com/compute/docs/access/iam
 [asset-gcp-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/gcp-overlay.yaml
 [asset-gcp-storage-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/gcp-storage-overlay.yaml
 [operations]: https://console.cloud.google.com/compute/operations
-[storage]: /kubernetes/docs/storage
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [gcp-integrator-readme]: https://charmhub.io/gcp-integrator/
 [target-pool]: https://cloud.google.com/load-balancing/docs/target-pools
-[install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -388,7 +388,7 @@ juju debug-log --replay --include gcp-integrator/0
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/gcp-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

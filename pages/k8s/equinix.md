@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on Equinix Metal"
   description: Running Charmed Kubernetes on Equinix.
@@ -28,7 +28,7 @@ run the command:
 juju list-clouds --all
 ```
 
-If `equinix` does not appear in the list, your local Juju install probably just needs to
+If `equinix` does not appear in the list, your local Juju install probably just needs to 
 refresh its list of clouds. Run:
 
 ```bash
@@ -41,7 +41,7 @@ You should also add your credentials for this cloud. Use the interactive command
 juju add-credential equinix
 ```
 
-...and follow the prompts to enter the information required (including the project id, and
+...and follow the prompts to enter the information required (including the project id, and 
 your auth token).
 
 
@@ -78,7 +78,7 @@ juju deploy charmed-kubernetes --overlay ./ceph-radosgw.yaml --overlay ./equinix
 ```
 
 <!-- COMMENTED OUT UNTIL OVERLAYS WORK
-It adjusts the default bundle to use Calico networking, deploys Ceph for storage and
+It adjusts the default bundle to use Calico networking, deploys Ceph for storage and 
 co-locates some services to make more efficient use of the available instances.
 
 You can copy this example or ([download it here][asset-equinix-overlay]):
@@ -192,7 +192,7 @@ applications:
     to:
     - 0
     - 1
-    - 2
+    - 2  
   kubeapi-load-balancer:
     num_units: 3
     expose: true
@@ -227,7 +227,7 @@ relations:
 To use this overlay with the **Charmed Kubernetes** bundle, it is specified during deploy like this:
 
 ```bash
-juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml
+juju deploy charmed-kubernetes  --overlay ./equinix-overlay.yaml 
 ```
 -->
 
@@ -251,15 +251,15 @@ the Cloud Controller Manager has been run.
 
 To use Kubernetes on Equinix Metal, you should now set up the [Equinix Cloud Controller Manager][].
 
-While the deployment is in progress no pods will be able to spun up on the Kubernetes due to
-taints being set on each node. The taints will be removed once the Cloud Controller Manager (CCM)
+While the deployment is in progress no pods will be able to spun up on the Kubernetes due to 
+taints being set on each node. The taints will be removed once the Cloud Controller Manager (CCM) 
 is enabled and the nodes are registered with the cloud control plane.
 
 First, a Kubernetes secret has to be created, defining the variables for the CCM:
 Configuration of the CCM can be applied via the secret, See [equinix-configuration][] for detalis.
 
 ```bash
-cat <<EOY > secret.yaml
+cat <<EOY > secret.yaml 
 apiVersion: v1
 kind: Secret
 metadata:
@@ -386,7 +386,7 @@ simple application. Here we will create a simple application and scale it to fiv
 kubectl create deployment hello-world --image=gcr.io/google-samples/node-hello:1.0
 kubectl scale deployment hello-world --replicas=5
 ```
-
+ 
 You can verify that the application and replicas have been created with:
 
 ```bash
@@ -423,7 +423,7 @@ You can see that the External IP is now in front of the five endpoints of the ex
 ```bash
 curl  http://202.49.242.3:8080
 ```
-```text
+```text 
 Hello Kubernetes!
 ```
 
@@ -434,10 +434,10 @@ Hello Kubernetes!
 [asset-equinix-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/equinix-overlay.yaml
 [equinix-facilities]: https://metal.equinix.com/developers/docs/locations/facilities/
 [equinix-configuration]: https://github.com/equinix/cloud-provider-equinix-metal#configuration
-[quickstart]: /kubernetes/docs/quickstart
-[storage]: /kubernetes/docs/storage
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
-[install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 [Equinix Cloud Controller Manager]: https://github.com/equinix/cloud-provider-equinix-metal/
 [Juju documentation]: https://documentation.ubuntu.com/juju/3.6/tutorial/
 [Equinix Metal]: https://metal.equinix.com/
@@ -449,6 +449,7 @@ Hello Kubernetes!
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/equinix.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
+

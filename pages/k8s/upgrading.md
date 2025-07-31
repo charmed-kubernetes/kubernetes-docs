@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -22,9 +22,9 @@ toc: False
   </div>
   <div class="p-notification__meta">
     <div class="p-notification__actions">
-      <a class='p-notification__action' href='/kubernetes/docs/1.32/upgrading'>Upgrade to 1.32</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.31/upgrading'>Upgrade to 1.31</a>
-      <a class='p-notification__action' href='/kubernetes/docs/1.30/upgrading'>Upgrade to 1.30</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.33/upgrading'>Upgrade to 1.33</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.32/upgrading'>Upgrade to 1.32</a>
+      <a class='p-notification__action' href='/kubernetes/charmed-k8s/docs/1.31/upgrading'>Upgrade to 1.31</a>
     </div>
   </div>
 </div>
@@ -80,24 +80,25 @@ documentation for the version you are upgrading to.
 
 ### Supported versions
 
-- [Upgrading from 1.31.x to 1.32.x](/kubernetes/docs/1.32/upgrading)
-- [Upgrading from 1.30.x to 1.31.x](/kubernetes/docs/1.31/upgrading)
-- [Upgrading from 1.29.x to 1.30.x](/kubernetes/docs/1.30/upgrading)
+- [Upgrading from 1.32.x to 1.33.x](/kubernetes/charmed-k8s/docs/1.33/upgrading)
+- [Upgrading from 1.31.x to 1.32.x](/kubernetes/charmed-k8s/docs/1.32/upgrading)
+- [Upgrading from 1.30.x to 1.31.x](/kubernetes/charmed-k8s/docs/1.31/upgrading)
 
 ### Older versions
 
-- [Upgrading from 1.28.x to 1.29.x](/kubernetes/docs/1.29/upgrading)
-- [Upgrading from 1.27.x to 1.28.x](/kubernetes/docs/1.28/upgrading)
-- [Upgrading from 1.26.x to 1.27.x](/kubernetes/docs/1.27/upgrading)
-- [Upgrading from 1.25.x to 1.26.x](/kubernetes/docs/1.26/upgrading)
-- [Upgrading from 1.24.x to 1.25.x](/kubernetes/docs/1.25/upgrading)
-- [Upgrading from 1.23.x to 1.24.x](/kubernetes/docs/1.24/upgrading)
-- [Upgrading from 1.22.x to 1.23.x](/kubernetes/docs/1.23/upgrading)
-- [Upgrading from 1.21.x to 1.22.x](/kubernetes/docs/1.22/upgrading)
-- [Upgrading from 1.20.x to 1.21.x](/kubernetes/docs/1.21/upgrading)
-- [Upgrading from 1.19.x to 1.20.x](/kubernetes/docs/1.20/upgrading)
-- [Upgrading from 1.18.x to 1.19.x](/kubernetes/docs/1.19/upgrading)
-- [Upgrading from 1.17.x to 1.18.x](/kubernetes/docs/1.18/upgrading)
+- [Upgrading from 1.29.x to 1.30.x](/kubernetes/charmed-k8s/docs/1.30/upgrading)
+- [Upgrading from 1.28.x to 1.29.x](/kubernetes/charmed-k8s/docs/1.29/upgrading)
+- [Upgrading from 1.27.x to 1.28.x](/kubernetes/charmed-k8s/docs/1.28/upgrading)
+- [Upgrading from 1.26.x to 1.27.x](/kubernetes/charmed-k8s/docs/1.27/upgrading)
+- [Upgrading from 1.25.x to 1.26.x](/kubernetes/charmed-k8s/docs/1.26/upgrading)
+- [Upgrading from 1.24.x to 1.25.x](/kubernetes/charmed-k8s/docs/1.25/upgrading)
+- [Upgrading from 1.23.x to 1.24.x](/kubernetes/charmed-k8s/docs/1.24/upgrading)
+- [Upgrading from 1.22.x to 1.23.x](/kubernetes/charmed-k8s/docs/1.23/upgrading)
+- [Upgrading from 1.21.x to 1.22.x](/kubernetes/charmed-k8s/docs/1.22/upgrading)
+- [Upgrading from 1.20.x to 1.21.x](/kubernetes/charmed-k8s/docs/1.21/upgrading)
+- [Upgrading from 1.19.x to 1.20.x](/kubernetes/charmed-k8s/docs/1.20/upgrading)
+- [Upgrading from 1.18.x to 1.19.x](/kubernetes/charmed-k8s/docs/1.19/upgrading)
+- [Upgrading from 1.17.x to 1.18.x](/kubernetes/charmed-k8s/docs/1.18/upgrading)
 
 <a id='verify-upgrade'> </a>
 
@@ -117,14 +118,14 @@ It is recommended that you run a [cluster validation][validation] to ensure that
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
-[inclusive-naming]: /kubernetes/docs/inclusive-naming
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
+[inclusive-naming]: /kubernetes/charmed-k8s/docs/inclusive-naming
 [juju-controller-upgrade]: https://documentation.ubuntu.com/juju/3.6/howto/manage-models/#upgrade-a-model
 
 <!-- FEEDBACK -->
@@ -134,6 +135,6 @@ It is recommended that you run a [cluster validation][validation] to ensure that
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

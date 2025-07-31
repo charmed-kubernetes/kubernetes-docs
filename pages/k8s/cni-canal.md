@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CNI with Canal"
   description: How to manage and deploy Kubernetes with Canal
@@ -77,7 +77,7 @@ For additional troubleshooting pointers, please see the
 
 [canal]: https://docs.projectcalico.org/v3.7/getting-started/kubernetes/installation/flannel
 [canal-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/canal-overlay.yaml
-[troubleshooting]: /kubernetes/docs/troubleshooting
+[troubleshooting]: /kubernetes/charmed-k8s/docs/troubleshooting
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -86,7 +86,7 @@ For additional troubleshooting pointers, please see the
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cni-canal.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

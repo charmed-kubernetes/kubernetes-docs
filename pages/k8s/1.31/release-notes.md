@@ -1,12 +1,12 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 1.31 Release notes
   description: Release notes for Charmed Kubernetes
 keywords: kubernetes, release, notes
-tags:
+tags: 
   - news
 sidebar: k8smain-sidebar
 permalink: 1.31/release-notes.html
@@ -54,7 +54,7 @@ toc: False
 ### Kubernetes API Load Balancer
 * [LP#2091120](https://bugs.launchpad.net/charm-kubeapi-load-balancer/+bug/2091120) Charm events should reconcile lb_addresses to requirers
 
-### Docker Registry Charm
+### Docker Registry Charm 
 * [LP#2080349](https://bugs.launchpad.net/layer-docker-registry/+bug/2080349) Added explicit configuration option `storage-redirect-disable`
 
 ### Cilium Charm
@@ -72,8 +72,7 @@ toc: False
 
 ### Ceph CSI Charm
 * [LP#2078646](https://bugs.launchpad.net/charm-ceph-csi/+bug/2078646) Alter the home of Ceph conf to not interfere with other applications
-* [LP#2035399](https://bugs.launchpad.net/charm-ceph-csi/+bug/2035399) Provides charm config to adjust or disable the default metrics-ports used to expose metrics from the CSI provisioners.
-
+* [LP#2035399](https://bugs.launchpad.net/charm-ceph-csi/+bug/2035399) Provides charm config to adjust or disable the default metrics-ports used to expose metrics from the CSI provisioners
 
 # 1.31
 
@@ -163,4 +162,4 @@ relevant sections of the [upstream release notes][upstream-changelog-1.31].
 <!--LINKS-->
 
 
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on vSphere"
   description: Running Charmed Kubernetes on vSphere using the out-of-tree provider.
@@ -77,15 +77,15 @@ Now you can follow the instructions in the vSphere documentation about [Migratin
 
 ## vSphere Cloud Provider
 
-The `vsphere-cloud-provider` charm allows **Charmed Kubernetes** to connect to the vSphere API
-via the out-of-tree cloud provider. This allow your cluster to manage parts of the vSphere infrastructure,
+The `vsphere-cloud-provider` charm allows **Charmed Kubernetes** to connect to the vSphere API 
+via the out-of-tree cloud provider. This allow your cluster to manage parts of the vSphere infrastructure, 
 such as virtual disks.
 
 ## vSphere integrator
 
 The `vsphere-integrator` charm simplifies working with **Charmed Kubernetes** on
 vSphere servers. Using the credentials provided to **Juju**, it acts as a proxy between
-Charmed Kubernetes and the underlying cloud. This charm integrates with the `vsphere-cloud-provider`
+Charmed Kubernetes and the underlying cloud. This charm integrates with the `vsphere-cloud-provider` 
 charm to share the credentials required for its operation.
 
 ### Model configuration
@@ -170,8 +170,8 @@ Details about these options can be found in the [vmware documentation][]:
 juju config vsphere-integrator folder='juju-kubernetes' respool_path='foo'
 ```
 
-The credentials used to interact with vSphere are obtained from Juju
-(via '--trust' during deployment). These may be overriden by specifying
+The credentials used to interact with vSphere are obtained from Juju 
+(via '--trust' during deployment). These may be overriden by specifying 
 credentials directly in the charm configuration:
 
 ```bash
@@ -280,10 +280,10 @@ please see the [vSphere Cloud Provider charm page][vsphere-cloud-provider].
 
 [asset-vsphere-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/vsphere-overlay.yaml
 [Migrating In-Tree vSphere volumes]: https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/2.0/vmware-vsphere-csp-getting-started/GUID-968D421F-D464-4E22-8127-6CB9FF54423F.html
-[storage]: /kubernetes/docs/storage
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [vsphere-cloud-provider]: https://charmhub.io/vsphere-cloud-provider/docs
 [vsphere-juju]: https://juju.is/docs/juju/vmware-vsphere
-[install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 [vmware documentation]: https://docs.vmware.com/en/VMware-vSphere-Container-Storage-Plug-in/index.html
 
 <!-- FEEDBACK -->
@@ -293,6 +293,6 @@ please see the [vSphere Cloud Provider charm page][vsphere-cloud-provider].
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/vsphere-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

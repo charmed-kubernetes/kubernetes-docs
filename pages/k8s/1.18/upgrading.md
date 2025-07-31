@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Upgrading to 1.18"
   description: How to upgrade your version of Charmed Kubernetes.
@@ -53,7 +53,7 @@ You should also make sure:
     have been removed from the Kubernetes source tree and therefore removed from the `cdk-addons` snap as well.<br>
     Customers relying on these addons should migrate to a `metrics-server` solution prior to upgrading.<br>
     <strong>Note:</strong> these removals do not affect the Kubernetes Dashboard nor the methods described in
-    <a href="/kubernetes/docs/monitoring"> Monitoring Charmed Kubernetes</a>.
+    <a href="/kubernetes/charmed-k8s/docs/monitoring"> Monitoring Charmed Kubernetes</a>.
   </p>
 </div>
 
@@ -449,13 +449,13 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
  <!--LINKS-->
 
 [k8s-release]: https://github.com/kubernetes/kubernetes/releases
-[backups]: /kubernetes/docs/backups
-[release-notes]: /kubernetes/docs/release-notes
-[notes]: /kubernetes/docs/upgrade-notes
+[backups]: /kubernetes/charmed-k8s/docs/backups
+[release-notes]: /kubernetes/charmed-k8s/docs/release-notes
+[notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 [snap-channels]: https://docs.snapcraft.io/reference/channels
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
-[validation]: /kubernetes/docs/validation
-[supported-versions]: /kubernetes/docs/supported-versions
+[validation]: /kubernetes/charmed-k8s/docs/validation
+[supported-versions]: /kubernetes/charmed-k8s/docs/supported-versions
 [juju-controller-upgrade]: https://juju.is/docs/juju/upgrade-models
 
 <!-- FEEDBACK -->
@@ -465,7 +465,7 @@ kube-system                       monitoring-influxdb-grafana-v4-65cc9bb8c8-mwvc
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/upgrading.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

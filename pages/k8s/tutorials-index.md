@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Tutorial topics"
   description: an index of topics in this category
@@ -18,7 +18,7 @@ Our tutorials have been written to make as few assumptions as possible, and to b
 
 | Tutorial |  |
 |--|--|
-| [Quickstart](/kubernetes/docs/quickstart/) | Installation instructions and a quickstart guide |
+| [Quickstart](/kubernetes/charmed-k8s/docs/quickstart/) | Installation instructions and a quickstart guide |
 
 If you have a specific goal, but are already familiar with Kubernetes, our _How-to_ guides have more practical application. They'll help you achieve an end-result but may require you to understand and adapt the steps to fit your specific requirements.
 
@@ -33,6 +33,6 @@ Take a look at our _Reference section_ when  you need to know more about version
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/tutorials-index.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

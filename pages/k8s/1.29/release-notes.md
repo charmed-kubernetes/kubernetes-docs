@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "1.29 Release notes"
   description: Release notes for Charmed Kubernetes
@@ -35,7 +35,7 @@ toc: false
   * `cephfs-storage-class-parameters`
   * `ceph-xfs-storage-class-parameters`
   * `ceph-ext4-storage-class-parameters`
-  
+
   Provides a charm action which aids in remove storage-classes if they prevent
     the charm from creating with the existing storage-class parameters.
   * `delete-storage-class`
@@ -45,7 +45,7 @@ toc: false
 
 ### Jun 14, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
-The release bundle can also be 
+The release bundle can also be
 [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
 
 ## Notable Fixes
@@ -61,7 +61,7 @@ The release bundle can also be
 
 ### May 30, 2024 - `charmed-kubernetes --channel 1.29/stable`
 
-The release bundle can also be 
+The release bundle can also be
 [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.29/bundle.yaml).
 
 ## What's new
@@ -213,7 +213,7 @@ default Calico CNI.
 
 ## Fixes
 
-All bug fixes and other feature updates in this release can be found at 
+All bug fixes and other feature updates in this release can be found at
 [the launchpad milestone page for 1.29](https://launchpad.net/charmed-kubernetes/+milestone/1.29).
 
 <a id='notes-issues'> </a>
@@ -257,13 +257,13 @@ relevant sections of the [upstream release notes][upstream-changelog-1.29].
 
 <!--LINKS-->
 
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes
 [ceph-csi]: https://charmhub.io/ceph-csi?channel=1.29/stable
-[ceph]: /kubernetes/docs/ceph
-[ldap]: /kubernetes/docs/ldap
+[ceph]: /kubernetes/charmed-k8s/docs/ceph
+[ldap]: /kubernetes/charmed-k8s/docs/ldap
 [openstack]: /kubernetes/openstack-integration
 [nvidia-gpu-operator]: https://charmhub.io/nvidia-gpu-operator?channel=1.29/stable
-[gpu-workers]: /kubernetes/docs/gpu-workers
-[install-local]: /kubernetes/docs/install-local
-[install-existing]: /kubernetes/docs/install-existing
-[ldap]: /kubernetes/docs/ldap
+[gpu-workers]: /kubernetes/charmed-k8s/docs/gpu-workers
+[install-local]: /kubernetes/charmed-k8s/docs/install-local
+[install-existing]: /kubernetes/charmed-k8s/docs/install-existing
+[ldap]: /kubernetes/charmed-k8s/docs/ldap

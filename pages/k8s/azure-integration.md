@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Charmed Kubernetes on Azure"
   description: Running Charmed Kubernetes on Azure using the azure-integrator.
@@ -250,11 +250,11 @@ external clients.
 [asset-azure-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/azure-overlay.yaml
 [asset-azure-cloud-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/azure-cloud-overlay.yaml
 
-[storage]: /kubernetes/docs/storage
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [azure-cloud-provider]: https://charmhub.io/azure-cloud-provider/docs
 [azure-integrator]: https://charmhub.io/azure-integrator/docs
 
-[install]: /kubernetes/docs/install-manual
+[install]: /kubernetes/charmed-k8s/docs/install-manual
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -263,7 +263,7 @@ external clients.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/azure-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

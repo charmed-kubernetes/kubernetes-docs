@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for Charmed Kubernetes
@@ -26,7 +26,7 @@ Bug fixes included in this release can be found at
 ### June 11, 2020 - charmed-kubernetes-464
 
 Before upgrading from 1.17 or earlier, please read the
-[upgrade notes](/kubernetes/docs/upgrade-notes).
+[upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -73,7 +73,7 @@ Bug fixes included in this release can be found at
 
 ### April 13, 2020 - charmed-kubernetes-430
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -94,12 +94,12 @@ Along the way, we've also updated existing charms to make it possible for
 multiple CNI providers to be deployed together in the same cluster.
 
 For more details on Multus support in Charmed Kubernetes and how to get started,
-please refer to the [Multus documentation page](/kubernetes/docs/cni-multus).
+please refer to the [Multus documentation page](/kubernetes/charmed-k8s/docs/cni-multus).
 
 - CIS Benchmark 1.5.0
 
 The `cis-benchmark` action now supports version 1.5.0 of the CIS Kubernetes Benchmark.
-See the [CIS compliance](/kubernetes/docs/cis-compliance) page for information on
+See the [CIS compliance](/kubernetes/charmed-k8s/docs/cis-compliance) page for information on
 running this action on Charmed Kubernetes components.
 
 - Containerd version hold
@@ -144,7 +144,7 @@ have been removed from the Kubernetes source tree and therefore removed from
 the `cdk-addons` snap as well. Customers relying on these addons should
 migrate to a `metrics-server` solution prior to upgrading. Note: these
 removals do not affect the Kubernetes Dashboard nor the methods described in
-[Monitoring Charmed Kubernetes](/kubernetes/docs/monitoring).
+[Monitoring Charmed Kubernetes](/kubernetes/charmed-k8s/docs/monitoring).
 
 - Containerd cannot pull images from a registry with TLS mutual authentication
 
@@ -172,7 +172,7 @@ PVCs using those storage classes will hang until the storage class is updated.
 
 CephFS is now supported in Charmed Kubernetes. This allows for ReadWriteMany volumes
 which can be attached to multiple pods. More information can be found in the
-[storage documentation](/kubernetes/docs/storage).
+[storage documentation](/kubernetes/charmed-k8s/docs/storage).
 
 Additional bug fixes included in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2).
@@ -191,7 +191,7 @@ masqueraded when using Flannel or Canal. More details can be found at
 
 ### December 17, 2019 - charmed-kubernetes-335
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -199,7 +199,7 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 The **Center for Internet Security (CIS)** maintains a [Kubernetes benchmark][cis-benchmark]
 that is helpful to ensure clusters are deployed in accordance with security best practices.
-See the [CIS Compliance](/kubernetes/docs/cis-compliance) documentation for instructions on
+See the [CIS Compliance](/kubernetes/charmed-k8s/docs/cis-compliance) documentation for instructions on
 how to run this compliance benchmark.
 
 - Snap Coherence
@@ -209,7 +209,7 @@ Beginning with Charmed Kubernetes 1.17, updates to Kubernetes snap packages used
 as **Snap Coherence**, this feature ensures snap updates are first applied to individual master
 units, followed by workers. If an update fails, the process is aborted before affecting the entire
 cluster. This feature also allows snap revisions to be controlled by a snap store proxy. See
-[snap coherence](/kubernetes/docs/snap-coherence) documentation for details.
+[snap coherence](/kubernetes/charmed-k8s/docs/snap-coherence) documentation for details.
 
 - Nagios checks
 
@@ -257,7 +257,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 - The `registry` action for the `kubernetes-worker` charm has been deprecated and will be removed
 in a future release. To enable a custom container registry, please see the
-[registry](/kubernetes/docs/docker-registry) documentation.
+[registry](/kubernetes/charmed-k8s/docs/docker-registry) documentation.
 
 # 1.16+ck2 Bugfix release
 
@@ -281,7 +281,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ### September 27, 2019 - charmed-kubernetes-252
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -290,12 +290,12 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 Beginning with Charmed Kubernetes 1.16, the [Kata Containers](https://katacontainers.io) runtime can be used
 with containerd to safely run insecure or untrusted pods. When enabled, Kata provides hypervisor isolation
 for pods that request it, while trusted pods can continue to run on a shared kernel via runc.
-For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/docs/kata).
+For details on using Kata Containers with Charmed Kubernetes, consult the [documentation](/kubernetes/charmed-k8s/docs/kata).
 
 - AWS IAM support
 
 Amazon AWS IAM authentication and authorisation is now supported via a subordinate charm. See
-[AWS-IAM documentation](/kubernetes/docs/aws-iam-auth) for details on how to use AWS credentials
+[AWS-IAM documentation](/kubernetes/charmed-k8s/docs/aws-iam-auth) for details on how to use AWS credentials
 to log in to your Charmed Kubernetes cluster.
 
 - SSL passthrough support
@@ -310,26 +310,26 @@ for more information.
 LXD containers used for hosting Kubernetes components require some specific profile settings. These
 profiles are now embedded in the charms themselves and applied when deployed, dramatically
 simplifying the process of installing Charmed Kubernetes on a single machine. See the
-[Local install documentation](/kubernetes/docs/install-local) for the updated instructions.
+[Local install documentation](/kubernetes/charmed-k8s/docs/install-local) for the updated instructions.
 
 - Improved Prometheus/Grafana integration
 
 The setup and configuration of Prometheus and Grafana has been significantly streamlined with
 new relations to allow the charms to manage the scraper job and dashboards. This means that
 monitoring can now be added by specifying a single overlay when deploying Charmed Kubernetes.
-Refer to the [updated documentation](/kubernetes/docs/monitoring) for more information.
+Refer to the [updated documentation](/kubernetes/charmed-k8s/docs/monitoring) for more information.
 
 - Improved OpenStack integration
 
 The OpenStack Integrator charm can now replace the Kube API Load Balancer by providing a
 native OpenStack load balancer (Octavia or Neutron) to provide HA load balancing for the
-Kubernetes control plane. Refer to the [updated documentation](/kubernetes/docs/openstack-integration)
+Kubernetes control plane. Refer to the [updated documentation](/kubernetes/charmed-k8s/docs/openstack-integration)
 for more information.
 
 - Docker Registry with Containerd
 
 The Docker registry charm can now be related directly to the Containerd runtime charm.
-Refer to the [documentation](/kubernetes/docs/docker-registry) for instructions on how to deploy the charm.
+Refer to the [documentation](/kubernetes/charmed-k8s/docs/docker-registry) for instructions on how to deploy the charm.
 
 - Renamed default container registry
 
@@ -379,7 +379,7 @@ into subordinate charms (one for Docker and one for containerd). This allows
 the operator to swap the container runtime as desired, and even mix
 container runtimes within a cluster. It also allows for additional container
 runtimes to be supported in the future. Because this is a significant change, you
-are advised to read the [upgrade notes](/kubernetes/docs/upgrade-notes) before
+are advised to read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes) before
 upgrading from a previous version.
 
 - Calico 3.x support
@@ -413,7 +413,7 @@ Support has been added to specify the IP address of an external load balancer.
 This support is in the kubeapi-load-balancer and the kubernetes-master charms.
 This allows a virtual IP address on the kubeapi-load-balancer charm or the
 IP address of an external load balancer. See the
-[custom load balancer page](https://www.ubuntu.com/kubernetes/docs/custom-loadbalancer)
+[custom load balancer page](https://www.ubuntu.com/kubernetes/charmed-k8s/docs/custom-loadbalancer)
 for more information.
 
 - Container image registry
@@ -444,7 +444,7 @@ authenticate with the connected registry. This will not work in a containerd env
 as there is no `daemon.json` file nor `docker` command available to invoke.
 
 Users relying on `docker-registry` to serve container images to Kubernetes deployments should
-continue to use the Docker subordinate runtime as outlined in the [upgrade notes](/kubernetes/docs/upgrade-notes#1.15),
+continue to use the Docker subordinate runtime as outlined in the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes#1.15),
 under the heading "To keep Docker as the container runtime".
 
 - Containerd charm does not work on LXD ([bug 1834524](https://bugs.launchpad.net/charm-containerd/+bug/1834524))
@@ -783,11 +783,11 @@ For operators who currently use the `http-proxy`, `https-proxy` and `no-proxy` J
 - Fixed unable to deploy on NVidia hardware 
 <!--LINKS-->
 
-[docs-ldap]: /kubernetes/docs/ldap
-[docs-vault]: /kubernetes/docs/using-vault
-[docs-ear]: /kubernetes/docs/encryption-at-rest
-[docs-keepalived]: /kubernetes/docs/keepalived
-[docs-registry]: /kubernetes/docs/docker-registry
+[docs-ldap]: /kubernetes/charmed-k8s/docs/ldap
+[docs-vault]: /kubernetes/charmed-k8s/docs/using-vault
+[docs-ear]: /kubernetes/charmed-k8s/docs/encryption-at-rest
+[docs-keepalived]: /kubernetes/charmed-k8s/docs/keepalived
+[docs-registry]: /kubernetes/charmed-k8s/docs/docker-registry
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -796,7 +796,7 @@ For operators who currently use the `http-proxy`, `https-proxy` and `no-proxy` J
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes-historic.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

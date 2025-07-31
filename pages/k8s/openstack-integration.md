@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md" # Fix syntax highlighting: _.
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md" # Fix syntax highlighting: _.
 context:
   title: "Charmed Kubernetes on OpenStack"
   description: Running Charmed Kubernetes on OpenStack using the openstack-integrator.
@@ -325,13 +325,13 @@ juju debug-log --replay --include openstack-integrator/0
 [asset-openstack-overlay-1.28]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/release_1.28/overlays/openstack-overlay.yaml
 [asset-openstack-lb-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/openstack-lb-overlay.yaml
 [asset-openstack-lb-overlay-1.28]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/release_1.28/overlays/openstack-lb-overlay.yaml
-[storage]: /kubernetes/docs/storage
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [bugs]: https://bugs.launchpad.net/charmed-kubernetes
 [openstack-integrator-readme]: https://charmhub.io/openstack-integrator/
 [openstack-cloud-controller-readme]: https://charmhub.io/openstack-cloud-controller/
 [cinder-csi-readme]: https://charmhub.io/cinder-csi/
-[install]: /kubernetes/docs/install-manual
-[ldap]: /kubernetes/docs/ldap
+[install]: /kubernetes/charmed-k8s/docs/install-manual
+[ldap]: /kubernetes/charmed-k8s/docs/ldap
 [charm-config]: https://charmhub.io/openstack-integrator/configure
 
 <!-- FEEDBACK -->
@@ -341,7 +341,7 @@ juju debug-log --replay --include openstack-integrator/0
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/openstack-integration.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

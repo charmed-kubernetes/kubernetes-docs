@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "CIS compliance"
   description: Running the CIS benchmark on a Charmed Kubernetes cluster
@@ -224,7 +224,7 @@ status: completed
 [layer-cis-benchmark-config]: https://raw.githubusercontent.com/charmed-kubernetes/layer-cis-benchmark/master/actions.yaml
 [protect-kernel-defaults]: https://github.com/kubernetes/kubernetes/blob/release-1.19/pkg/util/sysctl/sysctl.go#L49-L56
 [kubernetes-control-plane]: https://charmhub.io/kubernetes-control-plane/docs
-[k8s-worker]: /kubernetes/docs/charm-kubernetes-worker
+[k8s-worker]: /kubernetes/charmed-k8s/docs/charm-kubernetes-worker
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -233,7 +233,7 @@ status: completed
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/cis-compliance.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

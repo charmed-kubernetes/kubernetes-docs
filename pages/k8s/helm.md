@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Using Helm with CDK"
   description: Use Helm to deploy pods on your cluster
@@ -55,9 +55,9 @@ helm repo list
 ...which by default should list:
 
 ```
-NAME  	URL                                             
+NAME  	URL
 stable	https://kubernetes-charts.storage.googleapis.com
-local 	http://127.0.0.1:8879/charts                    
+local 	http://127.0.0.1:8879/charts
 ```
 
 You can search these repositories for suitable charts. For example:
@@ -69,7 +69,7 @@ You can search these repositories for suitable charts. For example:
 would return:
 
 ```no-highlight
-NAME          	CHART VERSION	APP VERSION	DESCRIPTION                                       
+NAME          	CHART VERSION	APP VERSION	DESCRIPTION
 stable/jenkins	0.19.1       	2.121.3    	Open source continuous integration server. It s...
 ```
 
@@ -116,7 +116,7 @@ helm list
 
 ```no-highlight
 NAME                        REVISION     	UPDATED                                  	STATUS  	        CHART               NAMESPACE
-hipster-orangutan	1       	              Thu Nov  8 14:41:33 2018   	DEPLOYED    	jenkins-0.19.1	default  
+hipster-orangutan	1       	              Thu Nov  8 14:41:33 2018   	DEPLOYED    	jenkins-0.19.1	default
 ```
 
 ## Accessing
@@ -161,7 +161,7 @@ Congratulations - you have now deployed **Jenkins** with **Helm**
 
 <!-- LINKS -->
 
-[storage]: /kubernetes/docs/storage
+[storage]: /kubernetes/charmed-k8s/docs/storage
 [helm-home]: https://helm.sh/
 [jenkins]: https://jenkins.io/
 
@@ -171,10 +171,10 @@ Congratulations - you have now deployed **Jenkins** with **Helm**
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/
   </div>
-</div>helm.md" >edit this page</a> 
-    or 
+</div>helm.md" >edit this page</a>
+    or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

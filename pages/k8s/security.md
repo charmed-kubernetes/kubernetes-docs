@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Security in Charmed Kubernetes"
   description: Using LDAP authentication via Keystone
@@ -21,6 +21,7 @@ it is installed and operated.
 A lot of important aspects of security therefore lie outside the direct scope
 of **Charmed Kubernetes**, but links for further reading
 are provided.
+
 
 ## Juju
 
@@ -43,11 +44,12 @@ can perform many of the actions required to operate and maintain a cluster.
 For more information on creating users, assigning access levels and what access
 these levels bestow, please check the following pages of Juju documentation:
 
-- [Juju user types][juju-user-types] - describes the different types of users
+-   [Juju user types][juju-user-types] - describes the different types of users
     supported by Juju and their abilities.
-- [Working with multiple users][juju-users] - An explanation of how to share control of
+-   [Working with multiple users][juju-users] - An explanation of how to share control of
     a cluster with multiple Juju users.
-- [Machine auth][] - describes how SSH keys are stored and used by Juju.
+-   [Machine auth][] - describes how SSH keys are stored and used by Juju.
+
 
 ## Cloud security
 
@@ -56,11 +58,11 @@ Charmed Kubernetes is deployed may also have access to your cluster. Describing
 the security mechanisms of these clouds is out of the scope of this
 documentation, but you may find the following links useful.
 
-- Amazon Web Services - <https://aws.amazon.com/security/>
-- Google Cloud Platform - <https://cloud.google.com/security/>
-- Metal As A Service (MAAS) -  <https://maas.io/docs/how-to-enhance-maas-security>
-- Microsoft Azure - <https://docs.microsoft.com/en-us/azure/security/azure-security>
-- VMWare VSphere - <https://www.vmware.com/security/hardening-guides.html>
+-   Amazon Web Services -	<https://aws.amazon.com/security/>
+-   Google Cloud Platform	- <https://cloud.google.com/security/>
+-   Metal As A Service(MAAS) -  <https://maas.io/docs/how-to-enhance-maas-security>
+-   Microsoft Azure	- <https://docs.microsoft.com/en-us/azure/security/azure-security>
+-   VMWare VSphere	- <https://www.vmware.com/security/hardening-guides.html>
 
 ## Kubernetes Security
 
@@ -68,17 +70,19 @@ The Kubernetes cluster deployed by **Charmed Kubernetes** can be secured using
 any of the methods and options described by the upstream
 [Kubernetes Security Documentation][].
 
+
 ### Common tasks
 
-- [Setting up vault as a CA][k8s-vault]
+-   [Setting up vault as a CA][k8s-vault]
+
 
 ### Additional security-related documentation
 
-- [Configuring authorisation and authentication][k8s-auth]
-- [Using AWS IAM for auth][k8s-aws-iam]
-- [Authentication with LDAP and Keystone][k8s-ldap]
-- [Overview of certificates and trust in Charmed Kubernetes][k8s-trust]
-- [Using the OPA Gatekeeper charm][k8s-gatekeeper]
+-   [Configuring authorisation and authentication][k8s-auth]
+-   [Using AWS IAM for auth][k8s-aws-iam]
+-   [Authentication with LDAP and Keystone][k8s-ldap]
+-   [Overview of certificates and trust in Charmed Kubernetes][k8s-trust]
+-   [Using the OPA Gatekeeper charm][k8s-gatekeeper]
 
 ## CIS Benchmark
 
@@ -91,6 +95,7 @@ with a benchmark.
 To test your cluster, please see the
 [CIS compliance][] section of the Charmed Kubernetes docs.
 
+
 <!-- LINKS -->
 
 [cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
@@ -98,10 +103,10 @@ To test your cluster, please see the
 [Machine auth]: https://documentation.ubuntu.com/juju/3.6/howto/manage-ssh-keys/
 [juju-users]: https://documentation.ubuntu.com/juju/3.6/howto/manage-users/
 [juju-user-types]: https://documentation.ubuntu.com/juju/3.6/reference/user/
-[CIS compliance]: /kubernetes/docs/cis-compliance
-[k8s-auth]: /kubernetes/docs/auth
-[k8s-aws-iam]: /kubernetes/docs/aws-iam-auth
-[k8s-ldap]: /kubernetes/docs/ldap
-[k8s-trust]: /kubernetes/docs/certs-and-trust
-[k8s-vault]: /kubernetes/docs/using-vault
-[k8s-gatekeeper]: /kubernetes/docs/gatekeeper
+[CIS compliance]: /kubernetes/charmed-k8s/docs/cis-compliance
+[k8s-auth]: /kubernetes/charmed-k8s/docs/auth
+[k8s-aws-iam]: /kubernetes/charmed-k8s/docs/aws-iam-auth
+[k8s-ldap]: /kubernetes/charmed-k8s/docs/ldap
+[k8s-trust]: /kubernetes/charmed-k8s/docs/certs-and-trust
+[k8s-vault]: /kubernetes/charmed-k8s/docs/using-vault
+[k8s-gatekeeper]: /kubernetes/charmed-k8s/docs/gatekeeper

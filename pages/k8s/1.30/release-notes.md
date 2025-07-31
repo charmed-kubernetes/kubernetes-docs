@@ -1,7 +1,7 @@
 ---
 wrapper_template: templates/docs/markdown.html
 markdown_includes:
-  nav: kubernetes/docs/shared/_side-navigation.md
+  nav: kubernetes/charmed-k8s/docs/shared/_side-navigation.md
 context:
   title: 1.30 Release notes
   description: Release notes for Charmed Kubernetes
@@ -39,7 +39,7 @@ toc: false
   * `cephfs-storage-class-parameters`
   * `ceph-xfs-storage-class-parameters`
   * `ceph-ext4-storage-class-parameters`
-  
+
   Provides a charm action which aids in remove storage-classes if they prevent
     the charm from creating with the existing storage-class parameters.
   * `delete-storage-class`
@@ -122,6 +122,6 @@ relevant sections of the [upstream release notes][upstream-changelog-1.30].
 <!--LINKS-->
 
 
-[install-local]: /kubernetes/docs/install-local
-[install-existing]: /kubernetes/docs/install-existing
+[install-local]: /kubernetes/charmed-k8s/docs/install-local
+[install-existing]: /kubernetes/charmed-k8s/docs/install-existing
 [upstream-changelog-1.30]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.30.md#deprecation

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Configuring authorisation and authentication"
   description: Controlling access with RBAC and other authorisation modes.
@@ -284,9 +284,9 @@ in the [upstream documentation][upstream-webhook].
 [abac]: https://kubernetes.io/docs/reference/access-authn-authz/abac/
 [rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [webhook]: https://kubernetes.io/docs/reference/access-authn-authz/webhook/
-[docs-ldap]: /kubernetes/docs/ldap
+[docs-ldap]: /kubernetes/charmed-k8s/docs/ldap
 [roles]: #rbac
-[aws-iam]: /kubernetes/docs/aws-iam-auth
+[aws-iam]: /kubernetes/charmed-k8s/docs/aws-iam-auth
 [auth-webhook-app]: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/blob/main/templates/auth-webhook.py
 [auth-webhook-svc]: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/blob/main/templates/auth-webhook.service
 
@@ -297,7 +297,7 @@ in the [upstream documentation][upstream-webhook].
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/auth.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

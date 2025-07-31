@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for CDK
@@ -21,7 +21,7 @@ toc: False
 
 CephFS is now supported in Charmed Kubernetes. This allows for ReadWriteMany volumes
 which can be attached to multiple pods. More information can be found in the
-[storage documentation](/kubernetes/docs/storage).
+[storage documentation](/kubernetes/charmed-k8s/docs/storage).
 
 Additional bug fixes included in this release can be found at
 [https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2](https://launchpad.net/charmed-kubernetes/+milestone/1.17+ck2).
@@ -40,7 +40,7 @@ masqueraded when using Flannel or Canal. More details can be found at
 
 ### December 17, 2019 - charmed-kubernetes-335
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
 
 ## What's new
 
@@ -48,7 +48,7 @@ Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes
 
 The **Center for Internet Security (CIS)** maintains a [Kubernetes benchmark][cis-benchmark]
 that is helpful to ensure clusters are deployed in accordance with security best practices.
-See the [CIS Compliance](/kubernetes/docs/cis-compliance) documentation for instructions on
+See the [CIS Compliance](/kubernetes/charmed-k8s/docs/cis-compliance) documentation for instructions on
 how to run this compliance benchmark.
 
 ### Snap Coherence
@@ -58,7 +58,7 @@ Beginning with Charmed Kubernetes 1.17, updates to Kubernetes snap packages used
 as **Snap Coherence**, this feature ensures snap updates are first applied to individual master
 units, followed by workers. If an update fails, the process is aborted before affecting the entire
 cluster. This feature also allows snap revisions to be controlled by a snap store proxy. See
-[snap coherence](/kubernetes/docs/snap-coherence) documentation for details.
+[snap coherence](/kubernetes/charmed-k8s/docs/snap-coherence) documentation for details.
 
 ### Nagios checks
 
@@ -106,25 +106,25 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 - The `registry` action for the `kubernetes-worker` charm has been deprecated and will be removed
 in a future release. To enable a custom container registry, please see the
-[registry](/kubernetes/docs/docker-registry) documentation.
+[registry](/kubernetes/charmed-k8s/docs/docker-registry) documentation.
 
 ## Previous releases
 
 Please see [this page][historic] for release notes of earlier versions.
 
 <!--LINKS-->
-[upgrade-notes]: /kubernetes/docs/upgrade-notes
+[upgrade-notes]: /kubernetes/charmed-k8s/docs/upgrade-notes
 
-[historic]: /kubernetes/docs/release-notes-historic
-[upgrading-docker]: /kubernetes/docs/upgrading#upgrading-docker
+[historic]: /kubernetes/charmed-k8s/docs/release-notes-historic
+[upgrading-docker]: /kubernetes/charmed-k8s/docs/upgrading#upgrading-docker
 [tigera-home]: https://www.tigera.io/tigera-products/calico-enterprise/
-[tigera-docs]: /kubernetes/docs/tigera-secure-ee
-[haoverview]: /kubernetes/docs/high-availability
-[metallb-docs]: /kubernetes/docs/metallb
-[hacluster-docs]: /kubernetes/docs/hacluster
-[cni-calico]: /kubernetes/docs/cni-calico
-[containerd]: /kubernetes/docs/containerd
-[container-runtime]: /kubernetes/docs/container-runtime
+[tigera-docs]: /kubernetes/charmed-k8s/docs/tigera-secure-ee
+[haoverview]: /kubernetes/charmed-k8s/docs/high-availability
+[metallb-docs]: /kubernetes/charmed-k8s/docs/metallb
+[hacluster-docs]: /kubernetes/charmed-k8s/docs/hacluster
+[cni-calico]: /kubernetes/charmed-k8s/docs/cni-calico
+[containerd]: /kubernetes/charmed-k8s/docs/containerd
+[container-runtime]: /kubernetes/charmed-k8s/docs/container-runtime
 [cis-benchmark]: https://www.cisecurity.org/benchmark/kubernetes/
 
 <!-- FEEDBACK -->
@@ -134,7 +134,7 @@ Please see [this page][historic] for release notes of earlier versions.
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/release-notes.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Private Docker Registry"
   description: How to use a private Docker registry to serve Docker images to your Kubernetes cluster components.
@@ -181,10 +181,10 @@ juju config kubernetes-control-plane image-registry=$REGISTRY
 
 [registry-charm]: https://charmhub.io/docker-registry
 [upstream-registry]: https://docs.docker.com/registry/
-[quickstart]: /kubernetes/docs/quickstart
-[container-runtime]: /kubernetes/docs/container-runtime
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
+[container-runtime]: /kubernetes/charmed-k8s/docs/container-runtime
 [container-images-txt]: https://github.com/charmed-kubernetes/bundle/blob/master/container-images.txt
-[1.24]: /kubernetes/docs/1.24/components#images
+[1.24]: /kubernetes/charmed-k8s/docs/1.24/components#images
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -193,7 +193,7 @@ juju config kubernetes-control-plane image-registry=$REGISTRY
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/docker-registry.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
 

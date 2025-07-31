@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Release notes"
   description: Release notes for Charmed Kubernetes
@@ -30,9 +30,9 @@ from Charmed Kubernetes 1.27:
 
   ha-cluster-vip not correctly written to kubeconfig.
 
-# 1.24+ck1 Bugfix release 
+# 1.24+ck1 Bugfix release
 
-### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable` 
+### August 5, 2022 - `charmed-kubernetes --channel 1.24/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.24/bundle.yaml).
 
@@ -66,7 +66,7 @@ Exposes docker registry `cache-*` settings to configure it as a pull-through cac
 - Etcd
 
 Limits the set of TLS ciphers to remove weaker ones.
- 
+
 ## Fixes
 
 A list of bug fixes and other minor feature updates in this release can be found at
@@ -77,8 +77,8 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 ### May 6th, 2022 - `charmed-kubernetes --channel 1.24/stable`
 
-Before upgrading, please read the [upgrade notes](/kubernetes/docs/upgrade-notes).
-Specific instructions for the 1.23 => 1.24 upgrade can be found [here](/kubernetes/docs/1.24/upgrading).
+Before upgrading, please read the [upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes).
+Specific instructions for the 1.23 => 1.24 upgrade can be found [here](/kubernetes/charmed-k8s/docs/1.24/upgrading).
 
 ## What's new
 
@@ -93,13 +93,13 @@ from the Charm Store (for example, references to `cs:charmed-kubernetes` or
 Charmhub instead.
 
 When upgrading existing clusters, please refer to the
-[upgrade notes](/kubernetes/docs/upgrade-notes) for instructions on how to
+[upgrade notes](/kubernetes/charmed-k8s/docs/upgrade-notes) for instructions on how to
 navigate this transition properly.
 
 - kubernetes-master renamed to kubernetes-control-plane
 
 The kubernetes-master charm has been renamed to kubernetes-control-plane. See
-the [inclusive naming](/kubernetes/docs/inclusive-naming) page for more details about this change.
+the [inclusive naming](/kubernetes/charmed-k8s/docs/inclusive-naming) page for more details about this change.
 
 - Kubelet added to kubernetes-control-plane
 
@@ -124,7 +124,7 @@ new and existing deployments that use Flannel as well.
 
 - Docker support deprecated
 
-The default container runtime in Charmed Kubernetes has been containerd for 
+The default container runtime in Charmed Kubernetes has been containerd for
 some time. The Docker container runtime is no longer supported.
 
 ## Component upgrades
@@ -161,5 +161,5 @@ For details of other deprecation notices and API changes for Kubernetes 1.24, pl
 relevant sections of the [upstream release notes][upstream-changelog-1.24].
 
 <!--LINKS-->
-[rel]: /kubernetes/docs/release-notes
+[rel]: /kubernetes/charmed-k8s/docs/release-notes
 [upstream-changelog-1.24]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#deprecation

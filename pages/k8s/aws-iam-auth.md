@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "AWS-IAM on Charmed Kubernetes"
   description: Using AWS credentials to authenticate and authorise on Charmed Kubernetes
@@ -286,7 +286,7 @@ between calls.
 [k8s-crd-docs]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [k8s-rbac-docs]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [cloudtrail]: https://console.aws.amazon.com/cloudtrail/
-[quickstart]: /kubernetes/docs/quickstart
+[quickstart]: /kubernetes/charmed-k8s/docs/quickstart
 [bugs]: https://bugs.launchpad.net/charm-aws-iam
 [aws-iam-authenticator-config]: https://github.com/kubernetes-sigs/aws-iam-authenticator#4-set-up-kubectl-to-use-authentication-tokens-provided-by-aws-iam-authenticator-for-kubernetes
 [aws-iam-creds]: https://github.com/kubernetes-sigs/aws-iam-authenticator#specifying-credentials--using-aws-profiles
@@ -302,6 +302,6 @@ between calls.
       <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/aws-iam-auth.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>

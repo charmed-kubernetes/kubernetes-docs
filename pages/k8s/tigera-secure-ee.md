@@ -1,7 +1,7 @@
 ---
 wrapper_template: "templates/docs/markdown.html"
 markdown_includes:
-  nav: "kubernetes/docs/shared/_side-navigation.md"
+  nav: "kubernetes/charmed-k8s/docs/shared/_side-navigation.md"
 context:
   title: "Using Tigera Secure EE"
   description: Using Tigera Secure EE with Charmed Kubernetes
@@ -223,8 +223,8 @@ juju config tigera-secure-ee registry=$REGISTRY
 
 [tigera-overlay]: https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/overlays/tigera-overlay.yaml
 [elasticsearch-operator]: https://github.com/upmc-enterprises/elasticsearch-operator
-[storage]: /kubernetes/docs/storage
-[private docker registry]: /kubernetes/docs/docker-registry
+[storage]: /kubernetes/charmed-k8s/docs/storage
+[private docker registry]: /kubernetes/charmed-k8s/docs/docker-registry
 
 <!-- FEEDBACK -->
 <div class="p-notification--information">
@@ -233,6 +233,6 @@ juju config tigera-secure-ee registry=$REGISTRY
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/tigera-secure-ee.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
-    <p>See the guide to <a href="/kubernetes/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
+    <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
