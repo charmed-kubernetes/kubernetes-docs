@@ -19,7 +19,7 @@ toc: False
 
 # 1.32+ck3
 
-### August 6, 2025 - `charmed-kubernetes --channel 1.33/stable`
+### August 6, 2025 - `charmed-kubernetes --channel 1.32/stable`
 
 ## Notable Fixes
 

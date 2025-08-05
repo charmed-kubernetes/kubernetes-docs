@@ -130,7 +130,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.33].
 
 # 1.32+ck3
 
-### August 6, 2025 - `charmed-kubernetes --channel 1.33/stable`
+### August 6, 2025 - `charmed-kubernetes --channel 1.32/stable`
 
 ## Notable Fixes
 
@@ -278,7 +278,7 @@ please see the relevant sections of the
 
 # 1.31+ck4
 
-### August 6, 2025 - `charmed-kubernetes --channel 1.33/stable`
+### August 6, 2025 - `charmed-kubernetes --channel 1.31/stable`
 
 ## Notable Fixes
 
