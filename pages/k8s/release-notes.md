@@ -20,11 +20,11 @@ toc: False
 ## Notable Fixes
 
 ### Kubernetes Control Plane Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 ### Kubernetes Worker Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 # 1.33+ck1
@@ -135,11 +135,11 @@ relevant sections of the [upstream release notes][upstream-changelog-1.33].
 ## Notable Fixes
 
 ### Kubernetes Control Plane Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 ### Kubernetes Worker Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 # 1.32+ck2
@@ -283,11 +283,11 @@ please see the relevant sections of the
 ## Notable Fixes
 
 ### Kubernetes Control Plane Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 ### Kubernetes Worker Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 # 1.31+ck3

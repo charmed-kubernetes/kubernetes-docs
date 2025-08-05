@@ -24,11 +24,11 @@ toc: False
 ## Notable Fixes
 
 ### Kubernetes Control Plane Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 ### Kubernetes Worker Charm
-* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-master/+bug/2108934) Fetch `kube-control` address bindings
+* [LP#2109614](https://bugs.launchpad.net/charm-kubernetes-worker/+bug/2109614) Fetch `kube-control` address bindings
 and include them in the Subject Alternative Names (SANs).
 
 # 1.31+ck3
