@@ -20,7 +20,7 @@ You can check the latest release version on the [Kubernetes release page on GitH
 <div class="p-notification--information is-inline">
   <div markdown="1" class="p-notification__content">
     <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message"><strong>Kubernetes</strong> will automatically handle patch releases. This means that the cluster will perform an unattended automatic upgrade between patch versions, e.g. 1.33.1 to 1.33.2. Attended upgrades are only required when you wish to upgrade a minor version, e.g. 1.32.x to 1.33.x.</p>
+    <p class="p-notification__message"><strong>Kubernetes</strong> will automatically handle patch releases. This means that the cluster will perform an unattended automatic upgrade between patch versions, e.g. 1.34.1 to 1.34.2. Attended upgrades are only required when you wish to upgrade a minor version, e.g. 1.33.x to 1.34.x.</p>
   </div>
 </div>
 

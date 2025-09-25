@@ -116,63 +116,6 @@ to extend the capabilities of your Kubernetes cluster.
 | [volcano-scheduler](https://charmhub.io/volcano-scheduler) | Volcano is a batch system built on Kubernetes. | [source](https://github.com/charmed-kubernetes/charm-volcano) | [docs](https://discourse.charmhub.io/t/volcano-docs-index/9600)  | [bugs](https://bugs.launchpad.net/charm-volcano) |
 
 
-## Images
-
-These are the container images used by this release:
-
-<!-- GENERATED CONTAINER IMAGES -->
-
--  addon-resizer-amd64:1.8.9
--  addon-resizer-arm64:1.8.9
--  addon-resizer-ppc64le:1.8.9
--  addon-resizer-s390x:1.8.9
--  calico/cni:v3.29.3
--  calico/kube-controllers:v3.29.3
--  calico/node:v3.29.3
--  calico/pod2daemon-flexvol:v3.29.3
--  cdkbot/microbot-amd64:latest
--  cdkbot/microbot-arm64:latest
--  cdkbot/microbot-s390x:latest
--  cephcsi/cephcsi:v3.8.1
--  coredns/coredns:1.9.4
--  defaultbackend-amd64:1.5
--  defaultbackend-arm64:1.5
--  defaultbackend-ppc64le:1.5
--  defaultbackend-s390x:1.4
--  dns/k8s-dns-dnsmasq-nanny:1.26.4
--  dns/k8s-dns-kube-dns:1.26.4
--  dns/k8s-dns-sidecar:1.26.4
--  external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
--  ingress-nginx/controller:v1.11.5
--  kube-state-metrics/kube-state-metrics:v2.10.1
--  kubernetes-ingress-controller/nginx-ingress-controller-ppc64le:0.20.0
--  kubernetesui/dashboard:v2.7.0
--  kubernetesui/metrics-scraper:v1.0.8
--  metrics-server/metrics-server:v0.7.2
--  nvidia/k8s-device-plugin:v0.14.3
--  pause:3.9
--  provider-os/cinder-csi-plugin:v1.28.1
--  provider-os/k8s-keystone-auth:v1.28.1
--  provider-os/openstack-cloud-controller-manager:v1.28.1
--  sig-storage/csi-attacher:v4.0.0
--  sig-storage/csi-attacher:v4.2.0
--  sig-storage/csi-attacher:v4.4.0
--  sig-storage/csi-node-driver-registrar:v2.6.2
--  sig-storage/csi-node-driver-registrar:v2.6.3
--  sig-storage/csi-node-driver-registrar:v2.9.0
--  sig-storage/csi-provisioner:v3.3.0
--  sig-storage/csi-provisioner:v3.4.1
--  sig-storage/csi-provisioner:v3.6.4
--  sig-storage/csi-resizer:v1.6.0
--  sig-storage/csi-resizer:v1.8.0
--  sig-storage/csi-resizer:v1.9.0
--  sig-storage/csi-snapshotter:v6.1.0
--  sig-storage/csi-snapshotter:v6.2.1
--  sig-storage/livenessprobe:v2.12.0
--  sig-storage/livenessprobe:v2.9.0
-
-
-<!-- CONTAINER IMAGES END -->
 
 <!-- LINKS -->
 
