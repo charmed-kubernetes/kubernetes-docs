@@ -23,7 +23,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### aws-integrator
 
-* [LP#2111261](https://launchpad.net/bugs/2111261) Tag IAM roles and policies with `juju-model-uuid` (#8)
+* [LP#2111261](https://launchpad.net/bugs/2111261) Tag IAM roles and policies with `juju-model-uuid`
 
 ### kubernetes-control-plane
 
@@ -32,7 +32,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 ### kubernetes-e2e
 
 * Cluster Validation using Canonical K8s
-  * Update deployment docs integrating with k8s via kube-control
+* Update deployment docs integrating with k8s via kube-control
 
 ### kubernetes-worker
 
@@ -46,7 +46,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 * [LP#2110221](https://launchpad.net/bugs/2111261) Config change and creds
   changes validates LB Requests
-* Allow juju admin to specify o7k endpoint proxy values by charm or model
+* Allow Juju admin to specify o7k endpoint proxy values by charm or model
 
 ### vsphere-cloud-provider
 
@@ -83,8 +83,6 @@ A list of bug fixes and other minor feature updates in this release can be found
 
 
 ## Deprecations and API changes
-
-- Upstream
 
 For details of other deprecation notices and API changes for Kubernetes 1.34, please see the
 relevant sections of the [upstream release notes][upstream-changelog-1.34].
