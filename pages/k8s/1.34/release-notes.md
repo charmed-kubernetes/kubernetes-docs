@@ -25,24 +25,37 @@ toc: False
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.34/bundle.yaml).
 
 ## What's new
+
 ### aws-integrator
-[LP#2111261] Tag iam roles and policies with juju-model-uuid (#8)
-Pin dependencies to 1.34 branch
+
+* [LP#2111261](https://launchpad.net/bugs/2111261) Tag IAM roles and policies with `juju-model-uuid` (#8)
+
 ### kubernetes-control-plane
-fix: support dual stack kubelet node ip addresses
+
+* Support dual stack kubelet node IP addresses
+
 ### kubernetes-e2e
-Cluster Validation using Canonical K8s (#35)
-* Use kube-control v2 to directly relate to k8s
-* Update deployment docs integrating with k8s
+
+* Cluster Validation using Canonical K8s
+  * Update deployment docs integrating with k8s via kube-control
+
 ### kubernetes-worker
-fix: support dual stack kubelet node ip addresses
+
+* Support dual stack kubelet node IP addresses
+
 ### openstack-cloud-controller
-Set default TF channel and supported bases
+
+* Set default TF channel and supported bases
+
 ### openstack-integrator
-[LP#2110221] Config change and Creds changes validates LB Requests (#19)
-Allow juju admin to specify o7k endpoint proxy values by charm or model (#18)
+
+* [LP#2110221](https://launchpad.net/bugs/2111261) Config change and creds
+  changes validates LB Requests
+* Allow juju admin to specify o7k endpoint proxy values by charm or model
+
 ### vsphere-cloud-provider
-Adds support to integrate with Canonical K8s (#36)
+
+* Adds support to integrate with Canonical K8s
 
 ## Component Versions
 
@@ -72,9 +85,6 @@ Adds support to integrate with Canonical K8s (#36)
 
 A list of bug fixes and other minor feature updates in this release can be found at
 [the launchpad milestone page for 1.34](https://launchpad.net/charmed-kubernetes/+milestone/1.34).
-
-
-## Notes and Known Issues
 
 
 ## Deprecations and API changes
