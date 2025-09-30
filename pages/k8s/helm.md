@@ -145,7 +145,6 @@ export SERVICE_IP=$(kubectl get svc --namespace default hipster-orangutan-jenkin
 echo http://$SERVICE_IP:8080/login
 ```
 
-
 ![jenkins login page][img-jenkins]
 
 Enter 'admin' as the user name, and the password we retrieved earlier...
@@ -169,12 +168,9 @@ Congratulations - you have now deployed **Jenkins** with **Helm**
 <div class="p-notification--information">
   <div class="p-notification__content">
     <p class="p-notification__message">We appreciate your feedback on the documentation. You can
-    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/
-  </div>
-</div>helm.md" >edit this page</a>
+    <a href="https://github.com/charmed-kubernetes/kubernetes-docs/edit/main/pages/k8s/helm.md" >edit this page</a>
     or
     <a href="https://github.com/charmed-kubernetes/kubernetes-docs/issues/new">file a bug here</a>.</p>
     <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://chat.charmhub.io/charmhub/channels/kubernetes"> public Mattermost channel</a>.</p>
   </div>
 </div>
-
