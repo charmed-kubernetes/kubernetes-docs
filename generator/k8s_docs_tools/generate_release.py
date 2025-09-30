@@ -12,6 +12,7 @@ from jinja2 import Environment, PackageLoader, select_autoescape
 import yaml
 
 
+LP_ID = re.compile(r"\[?LP#(\d+)\]?")
 log = logging.getLogger(__name__)
 
 
@@ -29,6 +30,18 @@ def _ver_to_tuple(ver):
 def _prior_version(ver):
     as_tuple = _ver_to_tuple(ver)
     return ".".join(map(str, (as_tuple[0], as_tuple[1] - 1)))
+
+
+def lp_bug_link(commit_text: str) -> str:
+    """Convert "LP#123456" or "[LP#123456]" to a markdown link
+    for all matches in the text.
+    """
+
+    def _repl(m):
+        bug_id = m.group(1)
+        return f"[LP#{bug_id}](https://launchpad.net/bugs/{bug_id})"
+
+    return LP_ID.sub(_repl, commit_text)
 
 
 def within_channel_range(ersion: str, ranges: Mapping[str, str]):
@@ -78,7 +91,7 @@ class Charm:
 @dataclass
 class Changelog:
     name: str
-    commit_log: str = ""
+    commit_log: List[str] = field(default_factory=list)
 
 
 def get_charms(ersion: str) -> List[Charm]:
@@ -168,13 +181,15 @@ class PageWriter:
                 continue
             all_commit_messages = []
             for commit in comparison.commits:
-                all_commit_messages.append(
-                    commit.commit.message.strip()
-                    .replace("\r\n", "\n")
-                    .replace("\n\n", "\n")
-                )
+                msg = commit.commit.message.strip()
 
-            report.commit_log = "\n".join(all_commit_messages).strip()
+                all_commit_messages.append(
+                    lp_bug_link(msg)
+                    .strip()
+                    .replace("\r\n", "\n  ")
+                    .replace("\n\n", "\n  ")
+                )
+            report.commit_log = [_.strip() for _ in all_commit_messages if _.strip()]
 
         self._whats_new = context
         return context

@@ -1,6 +1,6 @@
 {%- if header %}
 {% include "release-notes-header.j2"%}
-{% endif -%}
+{%- endif %}
 
 # {{ release }}
 
@@ -12,8 +12,13 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 {%- for charm in whats_new.values() %}
     {%- if charm.commit_log %}
+
 ### {{ charm.name }}
-{{ charm.commit_log }}
+
+{% for commit_line in charm.commit_log -%}
+* {{ commit_line }}
+{%- endfor %}
+
     {%- endif %}
 {%- endfor %}
 
@@ -47,12 +52,7 @@ A list of bug fixes and other minor feature updates in this release can be found
 [the launchpad milestone page for {{ release }}](https://launchpad.net/charmed-kubernetes/+milestone/{{ release }}).
 
 
-## Notes and Known Issues
-
-
 ## Deprecations and API changes
-
-- Upstream
 
 For details of other deprecation notices and API changes for Kubernetes {{ release }}, please see the
 relevant sections of the [upstream release notes][upstream-changelog-{{ release }}].

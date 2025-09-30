@@ -158,9 +158,9 @@ def test_generate_whats_new(mock_get_charms, github_client, tmpdir):
     pw = generator.PageWriter("0.13", Path(tmpdir))
     whats_new = pw.generate_whats_new()
 
-    assert whats_new == {"test-me": Changelog("test-me", "something\ninteresting")}
+    assert whats_new == {"test-me": Changelog("test-me", ["something\n  interesting"])}
     whats_new = pw.generate_whats_new()
-    assert whats_new == {"test-me": Changelog("test-me", "something\ninteresting")}
+    assert whats_new == {"test-me": Changelog("test-me", ["something\n  interesting"])}
 
     mock_get_charms.assert_called_once_with("0.13")
     get_repo.assert_called_once_with("charmed-kubernetes/charm-test-me")
