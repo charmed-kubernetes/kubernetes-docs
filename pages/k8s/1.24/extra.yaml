@@ -5,13 +5,6 @@
     store: https://charmhub.io/kube-state-metrics
     summary: a service that listens to the Kubernetes API and generates metrics
     tags: [extra]
-- kubernetes-autoscaler:
-    bugs: https://bugs.launchpad.net/charmed-kubernetes
-    docs: https://charmhub.io/kubernetes-autoscaler/docs
-    source: https://github.com/charmed-kubernetes/charm-kubernetes-autoscaler.git
-    store: https://charmhub.io/kubernetes-autoscaler
-    summary: automatically scales up and down a kubernetes cluster
-    tags: [extra]
 - kubernetes-e2e:
     bugs: https://bugs.launchpad.net/charmed-kubernetes
     docs: https://charmhub.io/kubernetes-e2e/docs
