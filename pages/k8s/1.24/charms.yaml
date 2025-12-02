@@ -61,13 +61,6 @@
     tags: ['extra']
     store: 'https://charmhub.io/kube-state-metrics'
     docs: 'https://charmhub.io/kube-state-metrics/docs'
-- kubernetes-autoscaler:
-    summary: "automatically scales up and down a kubernetes cluster"
-    source: "https://github.com/charmed-kubernetes/charm-kubernetes-autoscaler.git"
-    bugs: 'https://bugs.launchpad.net/charmed-kubernetes'
-    tags: ['extra']
-    store: 'https://charmhub.io/kubernetes-autoscaler'
-    docs: 'https://charmhub.io/kubernetes-autoscaler/docs'
 - kubernetes-e2e:
     summary: "End-to-end (e2e) tests for Kubernetes"
     source: "https://github.com/charmed-kubernetes/charm-kubernetes-e2e.git"
