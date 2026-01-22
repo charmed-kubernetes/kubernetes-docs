@@ -11,7 +11,6 @@ from github import Github, UnknownObjectException
 from jinja2 import Environment, PackageLoader, select_autoescape
 import yaml
 
-
 LP_ID = re.compile(r"\[?LP#(\d+)\]?")
 log = logging.getLogger(__name__)
 
