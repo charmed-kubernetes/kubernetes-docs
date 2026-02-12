@@ -25,7 +25,7 @@ toc: False
 ## Notable Fixes
 
 ### Kubernetes Control Plane
-* Reduced required roles for `ClusterRole` `system:cos` to improve security posture
+* Reduced rules needed by  `ClusterRole/system:cos` to improve security posture
 
 # 1.33+ck3
 
