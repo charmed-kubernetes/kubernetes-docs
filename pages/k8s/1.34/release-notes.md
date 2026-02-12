@@ -18,6 +18,16 @@ toc: False
 
 ---
 
+# 1.34+ck1
+
+### Feb 12, 2026 - `charmed-kubernetes --channel 1.34/stable`
+
+## Notable Fixes
+
+### Kubernetes Control Plane
+* Reduced rules needed by  `ClusterRole/system:cos` to improve security posture
+
+
 # 1.34
 
 ### September 24, 2025 - `charmed-kubernetes --channel 1.34/stable`
