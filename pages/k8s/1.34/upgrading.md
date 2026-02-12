@@ -257,8 +257,8 @@ currently active version of Kubernetes.
 Once the desired version has been configured, the upgrades should be performed. This is done by running the `upgrade` action on each control-plane unit in the cluster:
 
 ```bash
-juju run-action kubernetes-control-plane/0 upgrade
-juju run-action kubernetes-control-plane/1 upgrade
+juju run kubernetes-control-plane/0 upgrade --wait=5m
+juju run kubernetes-control-plane/1 upgrade --wait=5m
 ```
 
 If you have more `kubernetes-control-plane` units in your cluster, you should continue and run this process on every one of them.
@@ -305,9 +305,9 @@ This will create new units to migrate the existing workload to. As you configure
 Now we can pause the existing workers, which will cause the workloads to migrate to the new units recently added. A worker unit is paused by running the corresponding action on that unit:
 
 ```bash
-juju run-action kubernetes-worker/0 pause
-juju run-action kubernetes-worker/1 pause
-juju run-action kubernetes-worker/2 pause
+juju run kubernetes-worker/0 pause
+juju run kubernetes-worker/1 pause
+juju run kubernetes-worker/2 pause
 ...
 ```
 
@@ -349,8 +349,8 @@ juju config kubernetes-worker channel=1.34/stable
 All the units can now be upgraded by running the `upgrade` action on each one:
 
 ```bash
-juju run-action kubernetes-worker/0 upgrade
-juju run-action kubernetes-worker/1 upgrade
+juju run kubernetes-worker/0 upgrade --wait=5m
+juju run kubernetes-worker/1 upgrade --wait=5m
 ...
 ```
 
