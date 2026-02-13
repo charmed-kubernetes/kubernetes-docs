@@ -22,24 +22,6 @@ toc: False
 ### Kubernetes Control Plane
 * Reduced rules needed by `ClusterRole/system:cos` to improve security posture
 
-# 1.33+ck4
-
-### Feb 12, 2026 - `charmed-kubernetes --channel 1.33/stable`
-
-## Notable Fixes
-
-### Kubernetes Control Plane
-* Reduced rules needed by `ClusterRole/system:cos` to improve security posture
-
-# 1.32+ck5
-
-### Feb 12, 2026 - `charmed-kubernetes --channel 1.32/stable`
-
-## Notable Fixes
-
-### Kubernetes Control Plane
-* Reduced rules needed by `ClusterRole/system:cos` to improve security posture
-
 # 1.34
 
 ### September 24, 2025 - `charmed-kubernetes --channel 1.34/stable`
@@ -115,6 +97,15 @@ For details of other deprecation notices and API changes for Kubernetes 1.34, pl
 relevant sections of the [upstream release notes][upstream-changelog-1.34].
 
 [upstream-changelog-1.34]: https://github.com/kubernetes/kubernetes/blob/release-1.34/CHANGELOG/CHANGELOG-1.34.md#deprecation
+
+# 1.33+ck4
+
+### Feb 12, 2026 - `charmed-kubernetes --channel 1.33/stable`
+
+## Notable Fixes
+
+### Kubernetes Control Plane
+* Reduced rules needed by `ClusterRole/system:cos` to improve security posture
 
 # 1.33+ck3
 
@@ -239,6 +230,15 @@ For details of other deprecation notices and API changes for Kubernetes 1.33, pl
 relevant sections of the [upstream release notes][upstream-changelog-1.33].
 
 [upstream-changelog-1.33]: https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#deprecation
+
+# 1.32+ck5
+
+### Feb 12, 2026 - `charmed-kubernetes --channel 1.32/stable`
+
+## Notable Fixes
+
+### Kubernetes Control Plane
+* Reduced rules needed by `ClusterRole/system:cos` to improve security posture
 
 # 1.32+ck4
 
