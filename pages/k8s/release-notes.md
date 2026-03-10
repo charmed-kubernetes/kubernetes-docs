@@ -20,7 +20,7 @@ toc: False
 ## Notable Fixes
 
 ### Kubernetes Worker
-* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`
+* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`.
 
 # 1.34+ck1
 
@@ -114,7 +114,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.34].
 ## Notable Fixes
 
 ### Kubernetes Worker
-* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`
+* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`.
 
 # 1.33+ck4
 
@@ -256,7 +256,7 @@ relevant sections of the [upstream release notes][upstream-changelog-1.33].
 ## Notable Fixes
 
 ### Kubernetes Worker
-* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`
+* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`.
 
 # 1.32+ck5
 
@@ -431,7 +431,7 @@ please see the relevant sections of the
 ## Notable Fixes
 
 ### Kubernetes Worker
-* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`
+* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`.
 
 # 1.31+ck5
 

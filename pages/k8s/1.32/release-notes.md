@@ -24,7 +24,7 @@ toc: False
 ## Notable Fixes
 
 ### Kubernetes Worker
-* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`
+* Update the `ingress-nginx` tag to `1.14.4` to address `CVE-2026-3288`.
 
 # 1.32+ck5
 
