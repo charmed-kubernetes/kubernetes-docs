@@ -28,6 +28,29 @@ your container-based applications fail to work properly after an upgrade,
 please see this [topic on the troubleshooting
 page](/kubernetes/charmed-k8s/docs/troubleshooting#charms-deployed-to-lxd-containers-fail-after-upgradereboot)
 
+
+<a  id="1.35"> </a>
+
+## Upgrading to 1.35
+
+The `coredns` charm underwent a much needed refactor which changes the way HA
+coredns pods are deployed into the cluster. Existing installations which employ
+HA coredns via charm unit scaling will need to adjust during its refresh.
+
+Before executing the charm refresh, count the number of coredns units:
+
+```sh
+COREDNS_REPLICAS=$(juju status --format json | jq '.applications.coredns.units | keys | length')
+```
+
+This number represents how many units of coredns are running -- or the replica
+count of the stateful set. When upgrading, make sure to apply that config during
+refresh to maintain the replica count.
+
+```sh
+juju refresh coredns --channel=1.35/stable --config coredns_replicas=${COREDNS_REPLICAS}
+```
+
 <a  id="1.29"> </a>
 
 ## Upgrading to 1.29
