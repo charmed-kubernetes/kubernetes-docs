@@ -33,17 +33,17 @@ page](/kubernetes/charmed-k8s/docs/troubleshooting#charms-deployed-to-lxd-contai
 
 ## Upgrading to 1.35
 
-The `coredns` charm underwent a much needed refactor which changes the way HA
-coredns pods are deployed into the cluster. Existing installations which employ
-HA coredns via charm unit scaling will need to adjust during its refresh.
+The `coredns` charm underwent a much-needed refactor which changes the way HA
+CoreDNS pods are deployed into the cluster. Existing installations which employ
+HA CoreDNS via charm unit scaling will need to adjust during its refresh.
 
-Before executing the charm refresh, count the number of coredns units:
+Before executing the charm refresh, count the number of CoreDNS units:
 
 ```sh
 COREDNS_REPLICAS=$(juju status --format json | jq '.applications.coredns.units | keys | length')
 ```
 
-This number represents how many units of coredns are running -- or the replica
+This number represents how many units of CoreDNS are running -- or the replica
 count of the stateful set. When upgrading, make sure to apply that config during
 refresh to maintain the replica count.
 
