@@ -5,7 +5,7 @@ item = re.compile(r"\s*\-\s\[(.*)\]\((.*)\)")
 subhead = re.compile(r"-\s*\*\*(.*)\*\*")
 indent = 2
 templateLoader = jinja2.FileSystemLoader(searchpath="./")
-templateEnv = jinja2.Environment(loader=templateLoader)
+templateEnv = jinja2.Environment(loader=templateLoader) # nosec B701
 TEMPLATE_FILE = "nav-section.j2"
 section_template = templateEnv.get_template(TEMPLATE_FILE)
 TEMPLATE_FILE = "nav-page.j2"
