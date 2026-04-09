@@ -4,13 +4,13 @@ on: [pull_request]
 jobs:
   call-inclusive-naming-check:
     name: Inclusive naming
-    uses: canonical/Inclusive-naming/.github/workflows/woke.yaml@main
+    uses: canonical/Inclusive-naming/.github/workflows/woke.yaml@7aa0f7a606f182bd03a7adb28e0d710216101ca5 # main
     with:
       fail-on-error: "true"
       woke-args: ". -c .woke.yaml"
 
   call-generator-unit-checks:
-    uses: charmed-kubernetes/workflows/.github/workflows/lint-unit.yaml@main
+    uses: charmed-kubernetes/workflows/.github/workflows/lint-unit.yaml@6ee58c37d404effad4598ce7b523dbaf0cb99285 # main
     name: "Generator: Unit Test"
     with:
       working-directory: ./generator
