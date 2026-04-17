@@ -20,7 +20,7 @@ toc: False
 
 # 1.35
 
-### April 16, 2026 - `charmed-kubernetes --channel 1.35/stable`
+### Apr 16, 2026 - `charmed-kubernetes --channel 1.35/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.35/bundle.yaml).
 
@@ -28,63 +28,62 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### ceph-csi
 
-* Test resizing a running pod to ensure it grows from 1Gi to 2Gi
-* Component upgrades from ceph upstream projects v3.12 -> v3.16
-* Address default-storage-class UX
-* Assign default StorageClass with formatters
+* Tested resizing a running pod to ensure it grows from 1Gi to 2Gi
+* Upgraded Ceph upstream components from v3.12 to v3.16
+* Improved default-storage-class UX in our docs
+* Added a formatter-based process to assign the default StorageClass
 
 ### cinder-csi
 
 * Set default TF channel and supported bases
 * Schedule cinder-csi controller plugin to run on control-plane nodes
-* Prepare 1.35 terraform config
+* Updated 1.35 Terraform config
 
 ### containerd
 
-* Update containerd resource binary to 1.7.30
+* Updated containerd resource binary to v1.7.30
 
 ### coredns
 
-* Replace with ops.lib-manifest implementation
-  * Include versions v1.12.0, v1.12.1, v1.13.1
-* Remove armhf platform from charmcraft.yaml
+* Updated charm to use an ops.lib-manifest-based implementation
+* Updated manifest versions to v1.12.0, v1.12.1, v1.13.1
+* Removed armhf platform from charmcraft.yaml
 
 ### docker-registry
 
-* Fix storage-s3-skip-verify config option
+* Fixed storage-s3-skip-verify config option
 
 ### kube-ovn
 
-* Updating to kube-ovn==1.14.26
+* Updated kube-ovn to v1.14.26
 
 ### kubernetes-control-plane
 
-* Fix dashboards to relate the cluster and juju model dropdowns
-* Clean up tokens from removed kube-control relations
-* [LP#2137595](https://launchpad.net/bugs/2137595) Switch new device creation to use ext4 better for small filesystems
-* Update cis-benchmark action to support cis-1.10
+* Fixed dashboards to relate the cluster and Juju model dropdowns
+* Added logic to remove tokens when kube-control relations are removed
+* [LP#2137595](https://launchpad.net/bugs/2137595) Switched new device creation to use ext4 which is better for small filesystems
+* Updated cis-benchmark action to support cis-1.10
 
 ### kubernetes-worker
 
-* Updated ingress-nginx image
+* Updated ingress-nginx image to v1.14.4
 
 ### openstack-cloud-controller
 
-* Upgrade the cloud-controller-manager manifests
-* Include through v1.33.1 and v1.34.1
-* Add providerID validation to update_status hook
-* Tolerate node-role.kubernetes.io/control-plane= taint
+* Updated cloud-controller-manager manifests to v1.33.1 and v1.34.1
+* Added providerID validation to update_status hook
+* Added tolerance for node-role.kubernetes.io/control-plane taint
 
 ### openstack-integrator
 
-* [LP#2121137](https://launchpad.net/bugs/2121137) Handle failed port addition to a loadbalancer member sg
+* [LP#2121137](https://launchpad.net/bugs/2121137) Handled failed port addition to a load balancer member security group
   * Request LB creation based on the requested protocol
   * Handle best-effort health-check types by provider
-  * Base the HC opts on the health check parameters from the relation
+  * Base the health check options on the health check parameters from the relation
 
 ### vsphere-cloud-provider
 
-* Refresh cloud-provider and cloud-storage components
+* Updated cloud-provider and cloud-storage components
 
 
 ## Component Versions
