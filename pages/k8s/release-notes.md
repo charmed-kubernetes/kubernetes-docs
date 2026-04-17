@@ -23,26 +23,26 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### ceph-csi
 
-* Test resizing a running pod to ensure it grows from 1Gi to 2Gi (#53)
+* Test resizing a running pod to ensure it grows from 1Gi to 2Gi
 * Component upgrades from ceph upstream projects v3.12 -> v3.16
 * docs: Address default-storage class UX
-* feature: Assigning default SC with Formatters (#66)
+* feature: Assigning default SC with Formatters
 
 ### cinder-csi
 
-* Set default TF channel and supported bases (#14)
-* Schedule cinder-csi controller plugin to run on control-plane nodes (#15)
+* Set default TF channel and supported bases
+* Schedule cinder-csi controller plugin to run on control-plane nodes
 * Prepare 1.35 terraform config
 
 ### containerd
 
-* Update containerd resource binary to 1.7.30 (#97)
+* Update containerd resource binary to 1.7.30
 
 ### coredns
 
 * Replace with ops.lib-manifest implementation
   * Include versions v1.12.0, v1.12.1, v1.13.1
-* Remove armhf platform from charmcraft.yaml (#42)
+* Remove armhf platform from charmcraft.yaml
 
 ### docker-registry
 
@@ -54,14 +54,14 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### kubernetes-control-plane
 
-* Fix dashboards to relate the cluster and juju model dropdowns (#397)
-* Clean up tokens from removed kube-control relations (#407)
-* [LP#2137595](https://launchpad.net/bugs/2137595) Switch new device creation to use ext4 better for small filesystems (#408)
+* Fix dashboards to relate the cluster and juju model dropdowns
+* Clean up tokens from removed kube-control relations
+* [LP#2137595](https://launchpad.net/bugs/2137595) Switch new device creation to use ext4 better for small filesystems
 * Update cis-benchmark action to support cis-1.10
 
 ### kubernetes-worker
 
-* chore: update `ingress-nginx` image (#206)
+* chore: update `ingress-nginx` image
 
 ### openstack-cloud-controller
 
@@ -72,14 +72,14 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### openstack-integrator
 
-* [LP#2121137](https://launchpad.net/bugs/2121137) Handle failed port addition to a loadbalancer member sg (#23)
+* [LP#2121137](https://launchpad.net/bugs/2121137) Handle failed port addition to a loadbalancer member sg
   * Request LB creation based on the requested protocol
   * Handle best-effort health-check types by provider
   * Base the HC opts on the health check parameters from the relation
 
 ### vsphere-cloud-provider
 
-* chore: refresh cloud-provider and cloud-storage components (#37)
+* chore: refresh cloud-provider and cloud-storage components
 
 
 ## Component Versions
