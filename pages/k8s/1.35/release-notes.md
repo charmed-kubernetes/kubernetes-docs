@@ -20,7 +20,7 @@ toc: False
 
 # 1.35
 
-### March ??, 2026 - `charmed-kubernetes --channel 1.35/stable`
+### April 16, 2026 - `charmed-kubernetes --channel 1.35/stable`
 
 The release bundle can also be [downloaded here](https://raw.githubusercontent.com/charmed-kubernetes/bundle/main/releases/1.35/bundle.yaml).
 
