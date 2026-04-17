@@ -95,7 +95,7 @@ Elasticsearch, Prometheus, Nagios, Helm, etc.
 
 ### Upgrading Containerd
 
-By default, Versions 1.15 and later use Containerd as the container
+By default, versions 1.15 and later use Containerd as the container
 runtime. This subordinate charm can be upgraded with the command:
 
 ```bash
@@ -131,7 +131,7 @@ juju config etcd channel=3.4/stable
 ### Upgrading MetalLB (if used)
 
 Previous versions of the Charmed Kubernetes bundle adopted a two charm approach, deployed in a K8s model with the suggested name `metallb-system`.
-The 1.28 release includes the charms for MetallLB have been updated into a single charm (`metallb`). Updating is simply a matter of removing the old
+The 1.28 release includes the charms for MetalLB have been updated into a single charm (`metallb`). Updating is simply a matter of removing the old
 charms and model, creating a new Kubernetes Model and deploying the new charm.
 
 #### Upgrade steps
@@ -225,7 +225,7 @@ is no need to set a specific channel or version for this charm.
 
 ### Upgrading the **kubernetes-control-plane** units
 
-**Note**: Older versions of Charmed-Kubernetes used `kubernetes-master` as the charm name. This is updated
+**Note**: Older versions of Charmed Kubernetes used `kubernetes-master` as the charm name. This is updated
 to `kubernetes-control-plane`. It is not possible to rename a deployed application. If your
 deployment still uses the old application name, you must substitute `kubernetes-control-plane`
 with your deployed charm name in all subsequent commands and instructions below.
@@ -327,7 +327,7 @@ Removing these units from the model will also release the underlying machines/in
 <div class="p-notification--information">
   <p markdown="1" class="p-notification__response">
     <span class="p-notification__status">Note:</span>
-A variation on this method is to add, pause, remove  and recycle units one at a time. This reduces the resource overhead to a single extra instance.
+A variation on this method is to add, pause, remove and recycle units one at a time. This reduces the resource overhead to a single extra instance.
   </p>
 </div>
 

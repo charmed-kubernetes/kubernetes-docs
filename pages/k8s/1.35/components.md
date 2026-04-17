@@ -94,7 +94,7 @@ to extend the capabilities of your Kubernetes cluster.
 
 |charm | summary | source | docs | bugs |
 |-|-|-|-|-|
-| [aws-iam](https://charmhub.io/aws-iam) |  | [source](https://github.com/charmed-kubernetes/charm-aws-iam.git) | [docs](https://charmhub.io/aws-iam/docs)  | [bugs](https://bugs.launchpad.net/charm-aws-iam) |
+| [aws-iam](https://charmhub.io/aws-iam) | Allows a Kubernetes cluster to be authenticated via the Amazon API using AWS users and groups. | [source](https://github.com/charmed-kubernetes/charm-aws-iam.git) | [docs](https://charmhub.io/aws-iam/docs)  | [bugs](https://bugs.launchpad.net/charm-aws-iam) |
 | [ceph-csi](https://charmhub.io/ceph-csi) | Deploys Container Storage Interface (CSI) plugin that enables Charmed Kubernetes to use ceph as a storage backend. | [source](https://github.com/charmed-kubernetes/ceph-csi-operator.git) | [docs](https://charmhub.io/ceph-csi/docs)  | [bugs](https://bugs.launchpad.net/charm-ceph-csi) |
 | [coredns](https://charmhub.io/coredns) | The CoreDNS domain name service provider | [source](https://github.com/charmed-kubernetes/charm-coredns.git) | [docs](https://charmhub.io/coredns/docs)  | [bugs](https://bugs.launchpad.net/charm-coredns) |
 | [docker-registry](https://charmhub.io/docker-registry) | Registry for docker images | [source](https://github.com/canonical/docker-registry-charm.git) | [docs](https://charmhub.io/docker-registry/docs)  | [bugs](https://bugs.launchpad.net/layer-docker-registry) |

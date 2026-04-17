@@ -30,8 +30,8 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 * Test resizing a running pod to ensure it grows from 1Gi to 2Gi
 * Component upgrades from ceph upstream projects v3.12 -> v3.16
-* docs: Address default-storage class UX
-* feature: Assigning default SC with Formatters
+* Address default-storage-class UX
+* Assign default StorageClass with formatters
 
 ### cinder-csi
 
@@ -51,7 +51,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### docker-registry
 
-* fix storage-s3-skip-verify config option
+* Fix storage-s3-skip-verify config option
 
 ### kube-ovn
 
@@ -66,7 +66,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### kubernetes-worker
 
-* chore: update `ingress-nginx` image
+* Updated ingress-nginx image
 
 ### openstack-cloud-controller
 
@@ -84,7 +84,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### vsphere-cloud-provider
 
-* chore: refresh cloud-provider and cloud-storage components
+* Refresh cloud-provider and cloud-storage components
 
 
 ## Component Versions
