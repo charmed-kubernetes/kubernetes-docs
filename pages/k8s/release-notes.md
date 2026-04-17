@@ -23,7 +23,7 @@ The release bundle can also be [downloaded here](https://raw.githubusercontent.c
 
 ### ceph-csi
 
-* Tested resizing a running pod to ensure it grows from 1Gi to 2Gi
+* Validated pod volume resizing from 1Gi to 2Gi
 * Upgraded Ceph upstream components from v3.12 to v3.16
 * Improved default-storage-class UX in our docs
 * Added a formatter-based process to assign the default StorageClass
