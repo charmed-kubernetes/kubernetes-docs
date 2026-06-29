@@ -33,25 +33,11 @@ the cluster.
 
 ## NGINX Ingress
 
-<div class="p-notification--information is-inline">
-  <div markdown="1" class="p-notification__content">
-    <span class="p-notification__title">Note:</span>
-    <p class="p-notification__message">The built-in NGINX ingress controller previously managed by the <code>kubernetes-worker</code> charm was removed in Charmed Kubernetes 1.36. Charmed Kubernetes no longer deploys an ingress controller by default. If you are upgrading from an earlier release, deploy a replacement controller before upgrading, then verify your <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class"><code>IngressClass</code></a> references are correct.</p>
-  </div>
-</div>
-
-Deploy the upstream [NGINX Ingress Controller][ingress-nginx] with Helm:
-
-```bash
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
-  --namespace ingress-nginx \
-  --create-namespace
-```
-
-[`Ingress` resources][ingress-resources] can then be used to configure routes for
-specific applications.
+As of Charmed Kubernetes 1.36, the built-in NGINX ingress controller has been removed.
+Charmed Kubernetes does not deploy an ingress controller by default. For a supported
+option, see [Istio Ingress](#istio-ingress) below, browse the
+[upstream list of ingress controllers][ingress-controllers], or explore the
+[Gateway API][gateway-api] as a modern alternative.
 
 ## Istio Ingress
 
@@ -79,9 +65,10 @@ controllers may rely on annotations, such as Istio's
 
 <!-- LINKS -->
 
-[ingress-nginx]: https://kubernetes.github.io/ingress-nginx/
 [MetalLB]: metallb
 [ingress-resources]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[ingress-controllers]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+[gateway-api]: https://gateway-api.sigs.k8s.io/
 [Istio bundle]: https://charmhub.io/istio
 [istio-traffic]: https://istio.io/latest/docs/concepts/traffic-management/
 [virt-svc]: https://istio.io/latest/docs/concepts/traffic-management/#virtual-services
