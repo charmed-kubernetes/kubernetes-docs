@@ -100,14 +100,9 @@ longer managed or updated by this distribution. The `enable-dashboard-addons` an
 on upgrade.
 
 Canonical does not recommend running the Kubernetes Dashboard in production. If you
-still need it, you can deploy it directly from the upstream project — accepting that
-support and security patching become your own responsibility:
-
-```bash
-helm upgrade --install kubernetes-dashboard kubernetes-dashboard \
-  --repo https://kubernetes.github.io/dashboard \
-  --namespace kubernetes-dashboard --create-namespace
-```
+still need it, refer to the [upstream Kubernetes Dashboard documentation][k8s-dashboard-docs]
+for installation instructions — noting that the upstream project itself is now deprecated
+and unmaintained.
 
 ## Using Ingress
 
@@ -302,6 +297,7 @@ things you may wish to try:
 [next]: #next
 [addons]: /kubernetes/charmed-k8s/docs/cdk-addons
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[k8s-dashboard-docs]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [storage]: /kubernetes/charmed-k8s/docs/storage
 [scaling]: /kubernetes/charmed-k8s/docs/scaling
 [logging]: /kubernetes/charmed-k8s/docs/logging
