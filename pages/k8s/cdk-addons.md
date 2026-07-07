@@ -64,14 +64,9 @@ longer managed or updated by this distribution. The `enable-dashboard-addons` an
 on upgrade.
 
 Canonical does not recommend running the Kubernetes Dashboard in production. If you
-still need it, you can deploy it directly from the upstream project — accepting that
-support and security patching become your own responsibility:
-
-```bash
-helm upgrade --install kubernetes-dashboard kubernetes-dashboard \
-  --repo https://kubernetes.github.io/dashboard \
-  --namespace kubernetes-dashboard --create-namespace
-```
+still need it, refer to the [upstream Kubernetes Dashboard documentation][k8s-dashboard-docs]
+for installation instructions — noting that the upstream project itself is now deprecated
+and unmaintained.
 
 ## Nvidia plugin
 Sourced from: <https://github.com/NVIDIA/k8s-device-plugin.git>
@@ -138,6 +133,7 @@ please refer to the [How to guide][howto].
 [LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
 [monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
+[k8s-dashboard-docs]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard
 [metrics-server releases]: https://github.com/kubernetes-sigs/metrics-server/releases
 [add a k8s cloud]: https://juju.is/docs/juju/get-started-on-kubernetes#heading--register-the-cluster-with-juju
