@@ -33,10 +33,11 @@ the cluster.
 
 ## NGINX Ingress
 
-By default, **Charmed Kubernetes** sets up the [NGINX Ingress Controller][ingress-nginx],
-which can be customized via the config options on the [worker charm][].
-[`Ingress` resources][ingress-resources] can then be used to configure routes for specific
-applications.
+As of Charmed Kubernetes 1.36, the built-in NGINX ingress controller has been removed.
+Charmed Kubernetes does not deploy an ingress controller by default. For a supported
+option, see [Istio Ingress](#istio-ingress) below, browse the
+[upstream list of ingress controllers][ingress-controllers], or explore the
+[Gateway API][gateway-api] as a modern alternative.
 
 ## Istio Ingress
 
@@ -64,10 +65,10 @@ controllers may rely on annotations, such as Istio's
 
 <!-- LINKS -->
 
-[ingress-nginx]: https://kubernetes.github.io/ingress-nginx/
 [MetalLB]: metallb
-[worker charm]: charm-kubernetes-worker
 [ingress-resources]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[ingress-controllers]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+[gateway-api]: https://gateway-api.sigs.k8s.io/
 [Istio bundle]: https://charmhub.io/istio
 [istio-traffic]: https://istio.io/latest/docs/concepts/traffic-management/
 [virt-svc]: https://istio.io/latest/docs/concepts/traffic-management/#virtual-services

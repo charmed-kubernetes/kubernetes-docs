@@ -118,24 +118,15 @@ _role based access control_.
 
 ## Using Ingress
 
-The kubernetes-worker charm supports deploying an NGINX ingress controller.
-Ingress allows access from the Internet to containers running web
-services inside the cluster.
+Ingress allows access from the Internet to containers running web services inside
+the cluster. Charmed Kubernetes does not deploy an ingress controller by default;
+see the [Ingress][ingress-docs] documentation for options including NGINX and Istio.
 
 First allow the Internet access to the kubernetes-worker charm with the
 following Juju command:
 
 ```
 juju expose kubernetes-worker
-```
-
-In Kubernetes, workloads are declared using pod, service, and ingress
-definitions. An ingress controller is provided to you by default and deployed into
-the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) of the
-cluster. If one is not available, you may deploy it with:
-
-```
-juju config kubernetes-worker ingress=true
 ```
 
 Ingress resources are DNS mappings to your containers, routed through
@@ -314,6 +305,7 @@ things you may wish to try:
 [logging]: /kubernetes/charmed-k8s/docs/logging
 [decommission]: /kubernetes/charmed-k8s/docs/decommissioning
 [get-in-touch]:  /kubernetes/charmed-k8s/docs/get-in-touch
+[ingress-docs]: /kubernetes/charmed-k8s/docs/ingress
 
 
 <!-- FEEDBACK -->
