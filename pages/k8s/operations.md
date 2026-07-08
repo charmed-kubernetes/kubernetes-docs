@@ -92,29 +92,17 @@ To get the service in specific namespace:
 kubectl get services -n test
 ```
 
-## Accessing the Kubernetes dashboard
+## Kubernetes Dashboard
 
-To check that everything is actually working, you may want to log in to the Kubernetes Dashboard.
+The Kubernetes Dashboard addon was removed in Charmed Kubernetes 1.36 and is no
+longer managed or updated by this distribution. The `enable-dashboard-addons` and
+`dashboard-auth` configuration options have been removed and are unset automatically
+on upgrade.
 
-The recommended way to do this is to use the built-in proxy service, run with the following:
-
-```bash
-kubectl proxy
-```
-
-The URL for the dashboard will then be [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
-
-For versions prior to 1.16, the dashboard URL will be [http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/).
-
-Open a browser at the address for the Dashboard. You will see an authentication screen:
-
-![dashboard image](https://assets.ubuntu.com/v1/80980265-dashboard_login.png)
-
-You will need to log in to the Dashboard with a valid user. The easiest thing to do is to
-select your kubeconfig file, but for future administration, you should set up
-_role based access control_.
-
-![dashboard image](https://assets.ubuntu.com/v1/37ee63d6-CDK-008.png)
+Canonical does not recommend running the Kubernetes Dashboard in production. If you
+still need it, refer to the [upstream Kubernetes Dashboard documentation][k8s-dashboard-docs]
+for installation instructions — noting that the upstream project itself is now deprecated
+and unmaintained.
 
 ## Using Ingress
 
@@ -300,6 +288,7 @@ things you may wish to try:
 [next]: #next
 [addons]: /kubernetes/charmed-k8s/docs/cdk-addons
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[k8s-dashboard-docs]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [storage]: /kubernetes/charmed-k8s/docs/storage
 [scaling]: /kubernetes/charmed-k8s/docs/scaling
 [logging]: /kubernetes/charmed-k8s/docs/logging
@@ -318,4 +307,3 @@ things you may wish to try:
     <p>See the guide to <a href="/kubernetes/charmed-k8s/docs/how-to-contribute"> contributing </a> or discuss these docs in our <a href="https://kubernetes.slack.com/archives/CG1V2CAMB"> public Slack channel</a>.</p>
   </div>
 </div>
-

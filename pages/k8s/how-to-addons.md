@@ -218,36 +218,14 @@ For more details, see the [CoreDNS charm documentation][coredns-docs]
 
 ## Kubernetes Dashboard
 
-Sourced from: <https://github.com/kubernetes/dashboard.git>
+The Kubernetes Dashboard addon was removed in Charmed Kubernetes 1.36 and is no
+longer managed by this distribution. The `enable-dashboard-addons` and `dashboard-auth`
+configuration options have been removed.
 
-The Kubernetes Dashboard is a standard and easy way to inspect and
-interact with your Kubernetes cluster. The dashboard operator charm 
-
-#### 1. Disable the in-tree dashboard
-
-Targeting the underlying cluster model ('ck-model' as used in these examples):
-
-```bash
-juju config kubernetes-control-plane enable-dashboard-addons=false
-```
-
-#### 2. Deploy the Dashboard charm
-
-For additional control over the Kubernetes Dashboard, you can also deploy it into
-the cluster using the [Kubernetes Dashboard operator charm][kubernetes-dashboard-charm].
-To do so, set the `enable-dashboard-addons` [kubernetes-control-plane configuration][]
-option to `false` and deploy the charm into a Kubernetes model on your cluster:
-
-```bash
-juju switch k8s-model
-juju deploy kubernetes-dashboard --channel=latest/stable --trust
-```
-
-#### 3. Accessing the Dashboard
-
-Allow the new dashboard time to settle - it needs to fetch and install various images and could take a few minutes depending on the underlying cloud.
-
-Access to the Kubernetes Dashboard works as before. Please use the instructions in the [Operations page][].
+Canonical does not recommend running the Kubernetes Dashboard in production. If you
+still need it, refer to the [upstream Kubernetes Dashboard documentation][k8s-dashboard-docs]
+for installation instructions — noting that the upstream project itself is now deprecated
+and unmaintained.
 
 
 ## Metrics
@@ -326,7 +304,7 @@ Some of the new configuration options available through this charm are:
 [LDAP and Keystone page]: /kubernetes/charmed-k8s/docs/ldap
 [monitoring docs]: /kubernetes/charmed-k8s/docs/monitoring
 [coredns-charm]: https://charmhub.io/coredns
-[kubernetes-dashboard-charm]: https://charmhub.io/kubernetes-dashboard
+[k8s-dashboard-docs]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [kube-state-metrics example]: https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard
 [metrics-server releases]: https://github.com/kubernetes-sigs/metrics-server/releases
 [add a k8s cloud]: https://juju.is/docs/juju/get-started-on-kubernetes#heading--register-the-cluster-with-juju
