@@ -24,6 +24,24 @@ customise the install:
   - Testing a pre-release version
   - ...and many more
 
+<div class="p-notification--caution is-inline">
+  <div markdown="1" class="p-notification__content">
+    <span class="p-notification__title">Warning:</span>
+    <p class="p-notification__message">Canonical is decommissioning the <code>rocks.canonical.com</code> container image registry as part of our infrastructure modernization. The registry will be unavailable after <strong>August 10, 2026</strong>. This affects Charmed Kubernetes releases 1.35 and earlier. New deployments of later releases use <code>ghcr.io/canonical/cdk</code> by default; existing deployments, or deployments with an overridden <code>image-registry</code> value, must be migrated. Configure the <code>image-registry</code> value for each Charmed Kubernetes component charm, including CNI and CSI charms, to use <code>ghcr.io/canonical/cdk</code>. We apologize for any inconvenience this migration may cause.</p>
+
+```bash
+juju config <charm-name> image-registry=ghcr.io/canonical/cdk
+```
+
+For example:
+
+```bash
+juju config kubernetes-control-plane image-registry=ghcr.io/canonical/cdk
+```
+
+  </div>
+</div>
+
 ## What you will need
 
 The rest of this page assumes you already have Juju installed and have added
