@@ -13,8 +13,6 @@ layout: [base, ubuntu-com]
 toc: False
 ---
 
-# Rocks registry affected charms
-
 Canonical is decommissioning the `rocks.canonical.com` container image registry. This affects Charmed Kubernetes releases 1.35 and earlier. Existing deployments must migrate to the new `ghcr.io/canonical/cdk` registry by updating the `image-registry` configuration for every deployed charm and component listed below.
 
 - [ceph-csi-operator](https://github.com/charmed-kubernetes/ceph-csi-operator)
